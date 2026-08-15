@@ -12,7 +12,7 @@ from bs4 import BeautifulSoup
 STATE_FILE = Path("state.json")
 TIMEOUT = 30
 HEADERS = {
-    "User-Agent": "Mozilla/5.0 (compatible; US-Shipbuilding-Watch/2.0; +https://github.com/qedgwangju-dot/us-shipbuilding-watch)"
+    "User-Agent": "Mozilla/5.0 (compatible; US-Shipbuilding-Watch/2.1; +https://github.com/qedgwangju-dot/us-shipbuilding-watch)"
 }
 
 SOURCES = [
@@ -226,7 +226,6 @@ def translate_piece(text: str) -> str:
     if not text:
         return ""
 
-    # 긴 문장은 너무 긴 URL을 피하려고 문장 단위로 나눈다.
     pieces = []
     remaining = text
     while len(remaining) > 430:
@@ -267,6 +266,26 @@ def translate_piece(text: str) -> str:
     return " ".join(translated).strip()
 
 
+def compact_korean(text: str, max_chars: int = 180) -> str:
+    """텔레그램에서 한눈에 읽히도록 한 항목을 짧게 줄인다."""
+    text = " ".join((text or "").split())
+    if len(text) <= max_chars:
+        return text
+
+    # 문장 끝이나 쉼표에서 자연스럽게 자른다.
+    candidates = [
+        text.rfind("다. ", 0, max_chars),
+        text.rfind("요. ", 0, max_chars),
+        text.rfind("며, ", 0, max_chars),
+        text.rfind(", ", 0, max_chars),
+        text.rfind(" ", 0, max_chars),
+    ]
+    cut = max(candidates)
+    if cut < 90:
+        cut = max_chars
+    return text[:cut + 1].rstrip(" ,") + "…"
+
+
 def extract_article_blocks(url: str):
     try:
         raw, route = get_text(url, allow_proxy=True)
@@ -302,7 +321,15 @@ def extract_article_blocks(url: str):
     return deduped[:120]
 
 
-def select_key_blocks(item, blocks, limit=6):
+def token_overlap(a: str, b: str) -> float:
+    ta = set(re.findall(r"[a-z0-9]+", a.lower()))
+    tb = set(re.findall(r"[a-z0-9]+", b.lower()))
+    if not ta or not tb:
+        return 0.0
+    return len(ta & tb) / max(1, min(len(ta), len(tb)))
+
+
+def select_key_blocks(item, blocks, limit=3):
     title_key = re.sub(r"\W+", " ", item.get("title", "").lower()).strip()
     scored = []
     for idx, block in enumerate(blocks):
@@ -321,36 +348,42 @@ def select_key_blocks(item, blocks, limit=6):
         if score > 0:
             scored.append((score, idx, block))
 
-    # 중요도 상위 후보를 고른 뒤 원문 순서로 다시 정렬한다.
-    top = sorted(scored, key=lambda x: (-x[0], x[1]))[:limit]
-    top = sorted(top, key=lambda x: x[1])
-    return [block for _, _, block in top]
+    ranked = sorted(scored, key=lambda x: (-x[0], x[1]))
+    chosen = []
+    for score, idx, block in ranked:
+        if any(token_overlap(block, existing[2]) >= 0.72 for existing in chosen):
+            continue
+        chosen.append((score, idx, block))
+        if len(chosen) >= limit:
+            break
+
+    chosen.sort(key=lambda x: x[1])
+    return [block for _, _, block in chosen]
 
 
 def build_message(item):
-    translated_title = translate_piece(item["title"])
+    translated_title = compact_korean(translate_piece(item["title"]), 90)
     blocks = extract_article_blocks(item["url"])
-    selected = select_key_blocks(item, blocks, limit=6)
+    selected = select_key_blocks(item, blocks, limit=3)
 
-    # 본문 추출이 약한 RSS 자료는 RSS 요약을 보조로 사용한다.
     if not selected and item.get("summary"):
         selected = [item["summary"]]
 
-    translated_blocks = [translate_piece(block) for block in selected]
+    translated_blocks = [compact_korean(translate_piece(block), 180) for block in selected]
     translated_blocks = [t for t in translated_blocks if t]
 
     if not translated_blocks:
-        translated_blocks = ["공식 원문이 새로 감지되었습니다. 세부 본문은 아래 원문에서 확인할 수 있습니다."]
+        translated_blocks = ["새로운 공식자료가 감지되었습니다. 세부 내용은 원문에서 확인할 수 있습니다."]
 
-    bullet_text = "\n".join(f"• {html.escape(t)}" for t in translated_blocks)
+    bullet_text = "\n".join(f"• {html.escape(t)}" for t in translated_blocks[:3])
     safe_title = html.escape(translated_title or item["title"])
     safe_source = html.escape(item["source"])
     safe_url = html.escape(item["url"], quote=True)
 
     return (
-        "🚨 <b>미국 조선·해군 정책 중요 변화</b>\n\n"
+        "🚨 <b>미국 조선·해군 중요 변화</b>\n\n"
         f"<b>{safe_title}</b>\n"
-        f"<i>출처: {safe_source}</i>\n\n"
+        f"<i>{safe_source}</i>\n\n"
         f"{bullet_text}\n\n"
         f"🔎 <a href=\"{safe_url}\">원문</a>"
     )
@@ -402,7 +435,6 @@ def main():
         else:
             print(f"[BASELINE] {name}: 첫 정상 수집이라 기존 자료 알림 생략")
 
-        # 순서를 고정해 매 실행마다 state.json이 불필요하게 바뀌지 않게 한다.
         new_state[name] = sorted(current_urls | previous_urls)[-500:]
         print(f"[OK] {name}: 관련 링크 {len(current_urls)}개")
 
@@ -417,7 +449,6 @@ def main():
         else:
             print("새로운 관련 공식자료 없음")
 
-    # 코드 수정(push) 때는 사용자가 제시한 백악관 팩트시트로 실제 형식을 검증한다.
     if test_mode:
         test_item = {
             "source": "백악관 팩트시트",
@@ -426,7 +457,7 @@ def main():
             "summary": "",
         }
         send_telegram(build_message(test_item))
-        print(f"[TEST SENT] 한국어 헤드라인·본문·원문 링크 형식 테스트 / 정상 출처 {ok_sources}/{len(SOURCES)} / 실패 {failed_sources or '없음'}")
+        print(f"[TEST SENT] 3줄 압축형 한국어 알림 테스트 / 정상 출처 {ok_sources}/{len(SOURCES)} / 실패 {failed_sources or '없음'}")
 
 
 if __name__ == "__main__":
