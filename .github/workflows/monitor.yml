@@ -9,6 +9,7 @@ on:
       - main
     paths:
       - 'monitor.py'
+      - 'runner.py'
       - 'requirements.txt'
       - '.github/workflows/monitor.yml'
 
@@ -40,7 +41,7 @@ jobs:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           TEST_MODE: ${{ github.event_name == 'push' && '1' || '0' }}
-        run: python monitor.py
+        run: python runner.py
 
       - name: 감시 상태 저장
         run: |
