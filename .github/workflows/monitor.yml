@@ -14,6 +14,7 @@ on:
 
 permissions:
   contents: write
+  models: read
 
 concurrency:
   group: us-shipbuilding-watch
@@ -39,6 +40,7 @@ jobs:
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           if [ "${{ github.event_name }}" = "push" ]; then
             GITHUB_EVENT_NAME=workflow_dispatch python monitor.py
