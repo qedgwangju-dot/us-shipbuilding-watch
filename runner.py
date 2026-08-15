@@ -86,26 +86,28 @@ def score_candidate(text: str, idx: int) -> int:
     return score
 
 
-def fallback_bullets(item, blocks, existing, limit=5):
+def fallback_bullets(blocks, limit=3):
+    """정형 규칙으로 잡히지 않는 일반 자료만 짧게 보조 요약한다."""
     candidates = split_candidates(blocks)
     ranked = sorted(
         ((score_candidate(text, idx), idx, text) for idx, text in enumerate(candidates)),
         key=lambda x: (-x[0], x[1]),
     )
     chosen_en = []
+    result = []
     for score, _, text in ranked:
         if score <= 0:
             continue
-        if any(token_overlap(text, other) >= 0.58 for other in chosen_en):
+        if any(token_overlap(text, other) >= 0.55 for other in chosen_en):
             continue
         chosen_en.append(text)
         translated = polish_korean(monitor.translate_piece(text))
-        translated = monitor.compact_korean(translated, 155)
-        if translated and translated not in existing:
-            existing.append(translated)
-        if len(existing) >= limit:
+        translated = monitor.compact_korean(translated, 125)
+        if translated and translated not in result:
+            result.append(translated)
+        if len(result) >= limit:
             break
-    return existing[:limit]
+    return result
 
 
 def structured_bullets(blocks):
@@ -114,21 +116,22 @@ def structured_bullets(blocks):
     bullets = []
 
     if "national security presidential memorandum" in low and ("shipbuilding" in low or "ship repair" in low):
-        bullets.append("미국 해군 함정 건조·수리 프로그램의 지연과 비용 문제를 해결하기 위한 국가안보 대통령 각서에 서명")
+        bullets.append("미 해군 함정 건조·수리 프로그램의 지연·비용 문제 해결을 위한 국가안보 대통령 각서에 서명")
 
     if "foreign shipbuilders" in low and ("up to two ships" in low or "two ships" in low):
-        bullets.append("미국 조선소에 상당하고 지속적인 투자를 하고 미국인 인력을 훈련하는 외국 조선업체는 모(母)조선소에서 최대 2척까지 임시 건조 가능")
+        bullets.append("미국 조선소에 지속 투자하고 미국인 인력을 훈련하는 외국 조선업체는 모(母)조선소에서 최대 2척까지 임시 건조 가능")
 
     if "additional ships will be built" in low and "american shipyards" in low:
         bullets.append("추가 함정은 재활성화된 미국 조선소에서 건조")
 
     if "fifth naval shipyard" in low or ("fifth" in low and "naval shipyard" in low):
-        bullets.append("제5 해군 공창 신설 및 잠수함·항공모함 수리 능력 확대")
+        bullets.append("제5 해군 공창 신설로 잠수함·항공모함 수리 능력 확대")
 
     if "navsea" in low and any(term in low for term in ["reorgan", "reform", "overhaul", "review"]):
-        bullets.append("NAVSEA 조직 개편 및 조선 산업 기반 강화")
+        bullets.append("해군 해상체계사령부(NAVSEA) 조직 개편 추진")
 
-    return bullets
+    # 정형 요약은 짧은 핵심만 남긴다.
+    return bullets[:5]
 
 
 def build_message(item):
@@ -136,17 +139,18 @@ def build_message(item):
         title_ko = TEST_TITLE_KO
     else:
         title_ko = polish_korean(monitor.translate_piece(item.get("title", "")))
-        title_ko = monitor.compact_korean(title_ko, 100)
+        title_ko = monitor.compact_korean(title_ko, 90)
 
     blocks = monitor.extract_article_blocks(item["url"])
     bullets = structured_bullets(blocks)
 
-    if len(bullets) < 5:
-        bullets = fallback_bullets(item, blocks, bullets, limit=5)
+    # 이미 핵심 규칙으로 2개 이상 잡혔으면 원문 장문 번역을 덧붙이지 않는다.
+    if len(bullets) < 2:
+        bullets = fallback_bullets(blocks, limit=3)
 
     if not bullets and item.get("summary"):
         summary = polish_korean(monitor.translate_piece(item["summary"]))
-        bullets = [monitor.compact_korean(summary, 155)]
+        bullets = [monitor.compact_korean(summary, 125)]
 
     if not bullets:
         bullets = ["새로운 공식자료가 감지되었습니다. 세부 내용은 원문에서 확인할 수 있습니다."]
