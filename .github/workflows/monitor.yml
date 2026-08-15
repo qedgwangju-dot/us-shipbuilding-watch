@@ -4,6 +4,13 @@ on:
   schedule:
     - cron: '7,17,27,37,47,57 * * * *'
   workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - 'monitor.py'
+      - 'requirements.txt'
+      - '.github/workflows/monitor.yml'
 
 permissions:
   contents: write
@@ -32,7 +39,12 @@ jobs:
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-        run: python monitor.py
+        run: |
+          if [ "${{ github.event_name }}" = "push" ]; then
+            GITHUB_EVENT_NAME=workflow_dispatch python monitor.py
+          else
+            python monitor.py
+          fi
 
       - name: 감시 상태 저장
         run: |
