@@ -69,15 +69,29 @@ jobs:
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: |
           python - <<'PY'
-          import json, os, pathlib, urllib.parse, urllib.request
+          import html, json, os, pathlib, urllib.parse, urllib.request
           token=(os.getenv('TELEGRAM_BOT_TOKEN') or '').strip()
           chat_id=(os.getenv('TELEGRAM_CHAT_ID') or '').strip()
           if not chat_id:
               raise RuntimeError('TELEGRAM_CHAT_ID secret missing')
-          text=pathlib.Path('out/silver_bulletin_alert.txt').read_text(encoding='utf-8').strip()
+
+          raw=pathlib.Path('out/silver_bulletin_alert.txt').read_text(encoding='utf-8').strip()
+          formatted=[]
+          for idx, line in enumerate(raw.splitlines()):
+              if idx == 0 and line:
+                  formatted.append(f'<b>{html.escape(line)}</b>')
+                  continue
+              if line.startswith('- 원문: '):
+                  url=line[len('- 원문: '):].strip()
+                  formatted.append(f'🔗 <a href="{html.escape(url, quote=True)}">원문</a>')
+                  continue
+              formatted.append(html.escape(line))
+          text='\n'.join(formatted)
+
           payload=urllib.parse.urlencode({
               'chat_id': chat_id,
               'text': text[:4096],
+              'parse_mode': 'HTML',
               'disable_web_page_preview': 'true',
           }).encode('utf-8')
           req=urllib.request.Request(f'https://api.telegram.org/bot{token}/sendMessage', data=payload, method='POST')
