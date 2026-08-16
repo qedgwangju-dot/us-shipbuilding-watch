@@ -1,0 +1,120 @@
+name: Silver Bulletin 트럼프 이슈 지지율 감시
+
+on:
+  schedule:
+    - cron: '23 * * * *'
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - 'silver_bulletin_watch.py'
+      - '.github/workflows/silver-bulletin.yml'
+      - 'silver_bulletin_state.json'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: silver-bulletin-watch
+  cancel-in-progress: true
+
+jobs:
+  watch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: 저장소 불러오기
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Python 설정
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: 필요한 패키지 설치
+        run: pip install -r requirements.txt
+
+      - name: Telegram 송출 봇 확인
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          EXPECTED_BOT_USERNAME: 'khs88798879_bot'
+        run: |
+          python - <<'PY'
+          import json, os, urllib.request
+          token=(os.getenv('TELEGRAM_BOT_TOKEN') or '').strip()
+          expected=os.environ['EXPECTED_BOT_USERNAME'].lstrip('@')
+          if not token:
+              raise RuntimeError('TELEGRAM_BOT_TOKEN secret missing')
+          with urllib.request.urlopen(f'https://api.telegram.org/bot{token}/getMe', timeout=20) as r:
+              obj=json.loads(r.read().decode('utf-8'))
+          actual=str((obj.get('result') or {}).get('username') or '')
+          if not obj.get('ok') or actual.lower()!=expected.lower():
+              raise RuntimeError(f'Wrong Telegram bot: expected @{expected}, got @{actual or "unknown"}')
+          print(f'telegram_bot_verified=@{actual}')
+          PY
+
+      - name: Silver Bulletin 수치 확인
+        run: |
+          python silver_bulletin_watch.py
+          cat out/silver_bulletin_status.txt >> "$GITHUB_STEP_SUMMARY"
+
+      - name: 변경 시 Telegram 알림
+        if: hashFiles('out/silver_bulletin_alert.txt') != ''
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          python - <<'PY'
+          import json, os, pathlib, urllib.parse, urllib.request
+          token=(os.getenv('TELEGRAM_BOT_TOKEN') or '').strip()
+          chat_id=(os.getenv('TELEGRAM_CHAT_ID') or '').strip()
+          if not chat_id:
+              raise RuntimeError('TELEGRAM_CHAT_ID secret missing')
+          text=pathlib.Path('out/silver_bulletin_alert.txt').read_text(encoding='utf-8').strip()
+          payload=urllib.parse.urlencode({
+              'chat_id': chat_id,
+              'text': text[:4096],
+              'disable_web_page_preview': 'true',
+          }).encode('utf-8')
+          req=urllib.request.Request(f'https://api.telegram.org/bot{token}/sendMessage', data=payload, method='POST')
+          with urllib.request.urlopen(req, timeout=25) as r:
+              result=json.loads(r.read().decode('utf-8'))
+          if not result.get('ok'):
+              raise RuntimeError(f'Telegram rejected message: {result}')
+          print(f"telegram_delivery_confirmed=true message_id={(result.get('result') or {}).get('message_id')}")
+          PY
+
+      - name: 전송 성공 후 기준값 저장
+        if: success() && hashFiles('out/silver_bulletin_state_pending.json') != ''
+        run: cp out/silver_bulletin_state_pending.json silver_bulletin_state.json
+
+      - name: 기준값 GitHub 저장
+        if: success() && hashFiles('silver_bulletin_state.json') != ''
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add silver_bulletin_state.json
+          if git diff --cached --quiet; then
+            echo "Silver Bulletin 기준값 변화 없음"
+          else
+            git commit -m "Update Silver Bulletin state"
+            git pull --rebase origin main
+            git push
+          fi
+
+      - name: 검증 자료 저장
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: silver-bulletin-${{ github.run_id }}
+          path: |
+            out/silver_bulletin_status.txt
+            out/silver_bulletin_debug.json
+            out/silver_bulletin_alert.txt
+            out/silver_bulletin_state_pending.json
+          if-no-files-found: ignore
+          retention-days: 14
