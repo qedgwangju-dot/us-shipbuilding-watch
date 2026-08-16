@@ -83,7 +83,7 @@ jobs:
                   continue
               if line.startswith('- 원문: '):
                   url=line[len('- 원문: '):].strip()
-                  formatted.append(f'🔗 <a href="{html.escape(url, quote=True)}">원문</a>')
+                  formatted.append(f'<a href="{html.escape(url, quote=True)}">원문</a>')
                   continue
               formatted.append(html.escape(line))
           text='\n'.join(formatted)
