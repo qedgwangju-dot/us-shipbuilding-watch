@@ -1,0 +1,31 @@
+name: Probe Silver Bulletin Datawrapper revisions
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/probe-silver-datawrapper.yml'
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Probe RFXsV revisions
+        run: |
+          python - <<'PY'
+          import csv, io, urllib.request
+          for rev in [4096, 8192, 16384, 32768, 65536, 131072, 262144]:
+              url=f'https://datawrapper.dwcdn.net/RFXsV/{rev}/dataset.csv'
+              try:
+                  req=urllib.request.Request(url, headers={'User-Agent':'Mozilla/5.0'})
+                  with urllib.request.urlopen(req, timeout=15) as r:
+                      text=r.read().decode('utf-8','replace')
+                      status=r.status
+                  rows=list(csv.DictReader(io.StringIO(text)))
+                  date=rows[-1].get('modeldate') if rows else None
+                  first=rows[0].get('modeldate') if rows else None
+                  print(f'rev={rev} status={status} rows={len(rows)} first={first} last={date} bytes={len(text)}')
+              except Exception as e:
+                  print(f'rev={rev} ERROR {type(e).__name__}: {e}')
+          PY
