@@ -1,0 +1,29 @@
+{
+  "source": "https://www.natesilver.net/p/trump-approval-ratings-nate-silver-bulletin",
+  "checked_at_utc": "2026-08-16T05:10:34.051736+00:00",
+  "values": {
+    "immigration": {
+      "value": 4.0,
+      "chart": "https://datawrapper.dwcdn.net/vknzT/269/"
+    },
+    "economy": {
+      "value": -9.0,
+      "chart": "https://datawrapper.dwcdn.net/vknzT/269/"
+    },
+    "trade": {
+      "value": -7.36,
+      "chart": "https://datawrapper.dwcdn.net/RFXsV/73/"
+    },
+    "cost_of_living": {
+      "value": -7.0,
+      "chart": "https://datawrapper.dwcdn.net/vknzT/269/"
+    }
+  },
+  "charts": [
+    "https://datawrapper.dwcdn.net/kSCt4/349/",
+    "https://datawrapper.dwcdn.net/vknzT/269/",
+    "https://datawrapper.dwcdn.net/AdipN/76/",
+    "https://datawrapper.dwcdn.net/RFXsV/73/",
+    "https://datawrapper.dwcdn.net/wWI2Y/70/"
+  ]
+}
