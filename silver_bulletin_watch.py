@@ -162,12 +162,12 @@ def latest_revision(chart_id: str, seed: int) -> int:
     step = 1
     high = seed + step
     # Exponential search for a missing upper bound.
-    while high <= 4096 and dataset_text(chart_id, high) is not None:
+    while high <= 65536 and dataset_text(chart_id, high) is not None:
         low = high
         step *= 2
         high = seed + step
-    if high > 4096:
-        high = 4097
+    if high > 65536:
+        high = 65537
 
     # Binary search assumes Datawrapper publish revisions are contiguous.
     left, right = low + 1, high - 1
