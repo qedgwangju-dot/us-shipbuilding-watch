@@ -130,7 +130,6 @@ def structured_bullets(blocks):
     if "navsea" in low and any(term in low for term in ["reorgan", "reform", "overhaul", "review"]):
         bullets.append("해군 해상체계사령부(NAVSEA) 조직 개편 추진")
 
-    # 정형 요약은 짧은 핵심만 남긴다.
     return bullets[:5]
 
 
@@ -144,7 +143,6 @@ def build_message(item):
     blocks = monitor.extract_article_blocks(item["url"])
     bullets = structured_bullets(blocks)
 
-    # 이미 핵심 규칙으로 2개 이상 잡혔으면 원문 장문 번역을 덧붙이지 않는다.
     if len(bullets) < 2:
         bullets = fallback_bullets(blocks, limit=3)
 
@@ -163,7 +161,7 @@ def build_message(item):
     return (
         "🚨 <b>미국 조선·해군 정책 중요 변화</b>\n\n"
         f"<b>{safe_title}</b>\n"
-        f"<i>출처: {safe_source}</i>\n\n"
+        f"출처: {safe_source}\n\n"
         f"{bullet_text}\n\n"
         f"🔎 <a href=\"{safe_url}\"><b>원문</b></a>"
     )
