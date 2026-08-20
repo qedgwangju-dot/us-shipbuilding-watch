@@ -40,6 +40,22 @@ def split_candidates(blocks):
             part = " ".join(part.split()).strip()
             if not 28 <= len(part) <= 700:
                 continue
+
+            # 원문 페이지의 URL·검색·게시시각 같은 메타 정보는 요약 bullet에 넣지 않는다.
+            low = part.lower()
+            if (
+                "http://" in low
+                or "https://" in low
+                or low.startswith("url source")
+                or low.startswith("source url")
+                or "site search" in low
+                or low.startswith("search:")
+                or low.startswith("posted time")
+                or low.startswith("published time")
+                or low.startswith("publish date")
+            ):
+                continue
+
             key = re.sub(r"\W+", " ", part.lower()).strip()
             if key and key not in seen:
                 seen.add(key)
@@ -161,7 +177,7 @@ def build_message(item):
     return (
         "🚨 <b>미국 조선·해군 정책 중요 변화</b>\n\n"
         f"<b>{safe_title}</b>\n"
-        f"출처: {safe_source}\n\n"
+        f"출처: <a href=\"{safe_url}\">{safe_source}</a>\n\n"
         f"{bullet_text}\n\n"
         f"🔎 <a href=\"{safe_url}\"><b>원문</b></a>"
     )
