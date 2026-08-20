@@ -177,9 +177,9 @@ def build_message(item):
     return (
         "🚨 <b>미국 조선·해군 정책 중요 변화</b>\n\n"
         f"<b>{safe_title}</b>\n"
-        f"출처: {safe_source}\n\n"
+        f"출처: <a href=\"{safe_url}\">{safe_source}</a>\n\n"
         f"{bullet_text}\n\n"
-        f"<a href=\"{safe_url}\">원문</a>"
+        f"🔎 <a href=\"{safe_url}\"><b>원문</b></a>"
     )
 
 
