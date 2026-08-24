@@ -146,6 +146,23 @@ def fx_annotation(original_text: str, fx, max_items=3) -> str:
     return " (원화: " + " · ".join(converted) + ")"
 
 
+def displayed_currency_codes(text: str):
+    """실제 텔레그램에 표시되는 문구에 외화 금액이 있을 때만 환율 기준을 붙인다."""
+    text = text or ""
+    codes = {code for code, _ in extract_currency_amounts(text)}
+    patterns = {
+        "USD": r"\d[\d,.]*(?:조|억|만)?\s*달러",
+        "EUR": r"\d[\d,.]*(?:조|억|만)?\s*유로",
+        "JPY": r"\d[\d,.]*(?:조|억|만)?\s*엔",
+        "GBP": r"\d[\d,.]*(?:조|억|만)?\s*파운드",
+        "CNY": r"\d[\d,.]*(?:조|억|만)?\s*위안",
+    }
+    for code, pattern in patterns.items():
+        if re.search(pattern, text):
+            codes.add(code)
+    return codes
+
+
 def fx_rate_line(fx, codes):
     if not fx.get("date") or not codes:
         return ""
@@ -396,8 +413,9 @@ def build_message(item):
     safe_url = html.escape(item["url"], quote=True)
     bullet_text = "\n".join(f"• {html.escape(b)}" for b in bullets[:5])
 
-    currency_scan = " ".join([raw_title] + blocks[:40] + ([item.get("summary", "")] if item.get("summary") else []))
-    codes = {code for code, _ in extract_currency_amounts(currency_scan)}
+    # 원문 전체에 외화가 있어도, 실제 알림 제목·핵심 bullet에 금액이 없으면 환율 줄을 붙이지 않는다.
+    display_currency_text = " ".join([title_ko] + bullets[:5])
+    codes = displayed_currency_codes(display_currency_text)
     rate_line = fx_rate_line(fx, codes)
     rate_html = f"\n\n{html.escape(rate_line)}" if rate_line else ""
 
