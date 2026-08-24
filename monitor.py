@@ -220,11 +220,75 @@ def save_state(state):
     )
 
 
+def has_korean(text: str) -> bool:
+    """영문 원문이 그대로 텔레그램에 나가는 것을 막기 위한 최소 검증."""
+    text = text or ""
+    hangul = len(re.findall(r"[가-힣]", text))
+    latin = len(re.findall(r"[A-Za-z]", text))
+    if hangul >= 4:
+        return True
+    return hangul > 0 and hangul >= max(2, latin // 5)
+
+
+def _google_translate(piece: str) -> str:
+    endpoints = [
+        "https://translate.googleapis.com/translate_a/single",
+        "https://translate.google.com/translate_a/single",
+    ]
+    last_error = None
+    for endpoint in endpoints:
+        for _ in range(2):
+            try:
+                r = requests.get(
+                    endpoint,
+                    params={
+                        "client": "gtx",
+                        "sl": "en",
+                        "tl": "ko",
+                        "dt": "t",
+                        "q": piece,
+                    },
+                    headers=HEADERS,
+                    timeout=TIMEOUT,
+                )
+                r.raise_for_status()
+                data = r.json()
+                out = "".join(part[0] for part in data[0] if part and part[0]).strip()
+                if has_korean(out):
+                    return out
+            except Exception as e:
+                last_error = e
+    if last_error:
+        print(f"[WARN] Google 번역 재시도 실패: {last_error}")
+    return ""
+
+
+def _mymemory_translate(piece: str) -> str:
+    """Google 번역 경로가 일시 차단될 때 쓰는 보조 번역 경로."""
+    try:
+        r = requests.get(
+            "https://api.mymemory.translated.net/get",
+            params={"q": piece, "langpair": "en|ko"},
+            headers=HEADERS,
+            timeout=TIMEOUT,
+        )
+        r.raise_for_status()
+        data = r.json()
+        out = clean_title((data.get("responseData") or {}).get("translatedText", ""))
+        if has_korean(out):
+            return out
+    except Exception as e:
+        print(f"[WARN] 보조 한국어 번역 실패: {e}")
+    return ""
+
+
 def translate_piece(text: str) -> str:
-    """별도 API 키 없이 짧은 원문 조각을 한국어로 번역한다."""
+    """영문을 반드시 한국어로 변환한다. 실패 시 영문을 그대로 반환하지 않는다."""
     text = clean_title(text)
     if not text:
         return ""
+    if has_korean(text):
+        return text
 
     pieces = []
     remaining = text
@@ -244,26 +308,16 @@ def translate_piece(text: str) -> str:
 
     translated = []
     for piece in pieces:
-        try:
-            r = requests.get(
-                "https://translate.googleapis.com/translate_a/single",
-                params={
-                    "client": "gtx",
-                    "sl": "en",
-                    "tl": "ko",
-                    "dt": "t",
-                    "q": piece,
-                },
-                headers=HEADERS,
-                timeout=TIMEOUT,
-            )
-            r.raise_for_status()
-            data = r.json()
-            translated.append("".join(part[0] for part in data[0] if part and part[0]))
-        except Exception as e:
-            print(f"[WARN] 한국어 번역 실패: {e}")
-            translated.append(piece)
-    return " ".join(translated).strip()
+        out = _google_translate(piece)
+        if not out:
+            out = _mymemory_translate(piece)
+        if not out:
+            print(f"[WARN] 한국어 번역 최종 실패: {piece[:120]}")
+            return ""
+        translated.append(out)
+
+    result = " ".join(translated).strip()
+    return result if has_korean(result) else ""
 
 
 def compact_korean(text: str, max_chars: int = 180) -> str:
