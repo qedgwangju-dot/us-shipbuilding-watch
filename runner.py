@@ -19,6 +19,18 @@ RARE_EARTH_TITLE_PREFIX = "Department of War Announces a $750 Million Investment
 ECB_FX_URL = "https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml"
 _FX_CACHE = None
 
+UNTRANSLATED_GENERAL_TERMS = [
+    "department of", "office of", "assistant secretary", "industrial base policy",
+    "economic defense unit", "defense logistics agency", "money-center bank",
+    "money center bank", "investment banking", "private equity", "structured finance",
+    "title:", "source:", "posted time", "published time", "site search",
+]
+
+
+def has_untranslated_general_english(text: str) -> bool:
+    low = (text or "").lower()
+    return any(term in low for term in UNTRANSLATED_GENERAL_TERMS)
+
 
 def get_ecb_fx():
     """ECB 최신 기준환율로 각 통화 1단위당 원화 환산값을 계산한다."""
@@ -286,7 +298,7 @@ def fallback_bullets(blocks, fx, limit=3):
         chosen_en.append(text)
         translated = polish_korean(monitor.translate_piece(text))
         translated = monitor.compact_korean(translated, 125)
-        if translated and monitor.has_korean(translated):
+        if translated and monitor.has_korean(translated) and not has_untranslated_general_english(translated):
             translated += fx_annotation(text, fx, max_items=2)
             if translated not in result:
                 result.append(translated)
@@ -356,7 +368,7 @@ def build_message(item):
     else:
         title_ko = polish_korean(monitor.translate_piece(raw_title))
         title_ko = monitor.compact_korean(title_ko, 90)
-    if not monitor.has_korean(title_ko):
+    if not monitor.has_korean(title_ko) or has_untranslated_general_english(title_ko):
         title_ko = "미국 조선·해군 관련 새 공식 발표"
 
     # 정형 제목이 아닌 일반 자료도 제목에 외화 금액이 있으면 원화 환산을 붙인다.
@@ -373,7 +385,7 @@ def build_message(item):
 
     if not bullets and item.get("summary"):
         summary = polish_korean(monitor.translate_piece(item["summary"]))
-        if summary and monitor.has_korean(summary):
+        if summary and monitor.has_korean(summary) and not has_untranslated_general_english(summary):
             bullets = [monitor.compact_korean(summary, 125) + fx_annotation(item["summary"], fx, max_items=2)]
 
     if not bullets:
