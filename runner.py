@@ -1,5 +1,8 @@
 import html
 import re
+import xml.etree.ElementTree as ET
+
+import requests
 
 import monitor
 
@@ -10,6 +13,145 @@ TITLE_OVERRIDES = {
     "Acting SECNAV Appoints Andrew Magliochetti to Lead Defense Industrial Base Revitalization": "미 해군장관 대행, 방위산업 기반 재활성화 책임자로 Andrew Magliochetti 임명",
     "Acting SECNAV Appoints Andrew Magliochetti to Lead Defense Industrial Base Revitalization…": "미 해군장관 대행, 방위산업 기반 재활성화 책임자로 Andrew Magliochetti 임명",
 }
+
+RARE_EARTH_TITLE_PREFIX = "Department of War Announces a $750 Million Investment as Part of a $1.55 Billion Initiative to Secure Critical Rare-Earth Elements"
+
+ECB_FX_URL = "https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml"
+_FX_CACHE = None
+
+
+def get_ecb_fx():
+    """ECB 최신 기준환율로 각 통화 1단위당 원화 환산값을 계산한다."""
+    global _FX_CACHE
+    if _FX_CACHE is not None:
+        return _FX_CACHE
+    try:
+        resp = requests.get(ECB_FX_URL, headers=monitor.HEADERS, timeout=monitor.TIMEOUT)
+        resp.raise_for_status()
+        root = ET.fromstring(resp.content)
+        date = ""
+        rates = {"EUR": 1.0}
+        for node in root.iter():
+            if "time" in node.attrib:
+                date = node.attrib["time"]
+            cur = node.attrib.get("currency")
+            rate = node.attrib.get("rate")
+            if cur and rate:
+                rates[cur] = float(rate)
+        krw_per_eur = rates.get("KRW")
+        if not krw_per_eur:
+            raise ValueError("ECB KRW 기준환율 없음")
+        per_krw = {"EUR": krw_per_eur}
+        for code, per_eur in rates.items():
+            if code == "EUR":
+                continue
+            if per_eur:
+                per_krw[code] = krw_per_eur / per_eur
+        _FX_CACHE = {"date": date, "per_krw": per_krw}
+        return _FX_CACHE
+    except Exception as e:
+        print(f"[WARN] ECB 환율 조회 실패: {e}")
+        _FX_CACHE = {"date": "", "per_krw": {}}
+        return _FX_CACHE
+
+
+def format_krw(value: float) -> str:
+    eok = int(round(value / 100_000_000))
+    if eok >= 10000:
+        jo, rem = divmod(eok, 10000)
+        return f"{jo}조{rem:,}억원" if rem else f"{jo}조원"
+    if eok >= 1:
+        return f"{eok:,}억원"
+    man = int(round(value / 10_000))
+    return f"{man:,}만원"
+
+
+def format_foreign(value: float, code: str) -> str:
+    names = {"USD": "달러", "EUR": "유로", "JPY": "엔", "GBP": "파운드", "CNY": "위안"}
+    unit = names.get(code, code)
+    if value >= 100_000_000:
+        eok = value / 100_000_000
+        if abs(eok - round(eok)) < 1e-9:
+            return f"{int(round(eok))}억{unit}"
+        whole = int(eok)
+        man = int(round((eok - whole) * 10000))
+        return f"{whole}억{man:,}만{unit}"
+    if value >= 10_000:
+        man = value / 10_000
+        return f"{man:,.0f}만{unit}"
+    return f"{value:,.0f}{unit}"
+
+
+def extract_currency_amounts(text: str):
+    """영문 공식자료에서 주요 외화 금액을 원단위로 추출한다."""
+    text = text or ""
+    specs = [
+        ("USD", r"(?:(?:US)?\$|USD\s*)([0-9][0-9,]*(?:\.[0-9]+)?)\s*(trillion|billion|million|bn|mn|b|m)?\b"),
+        ("EUR", r"(?:€|EUR\s*)([0-9][0-9,]*(?:\.[0-9]+)?)\s*(trillion|billion|million|bn|mn|b|m)?\b"),
+        ("GBP", r"(?:£|GBP\s*)([0-9][0-9,]*(?:\.[0-9]+)?)\s*(trillion|billion|million|bn|mn|b|m)?\b"),
+        ("JPY", r"(?:JPY\s*)([0-9][0-9,]*(?:\.[0-9]+)?)\s*(trillion|billion|million|bn|mn|b|m)?\b"),
+        ("CNY", r"(?:(?:CNY|RMB)\s*)([0-9][0-9,]*(?:\.[0-9]+)?)\s*(trillion|billion|million|bn|mn|b|m)?\b"),
+    ]
+    mult = {
+        "trillion": 1_000_000_000_000,
+        "billion": 1_000_000_000,
+        "million": 1_000_000,
+        "bn": 1_000_000_000,
+        "mn": 1_000_000,
+        "b": 1_000_000_000,
+        "m": 1_000_000,
+        None: 1,
+        "": 1,
+    }
+    out = []
+    seen = set()
+    for code, pattern in specs:
+        for match in re.finditer(pattern, text, flags=re.I):
+            num = float(match.group(1).replace(",", ""))
+            unit = (match.group(2) or "").lower()
+            value = num * mult.get(unit, 1)
+            key = (code, round(value, 2))
+            if key not in seen:
+                seen.add(key)
+                out.append((code, value))
+    return out
+
+
+def fx_annotation(original_text: str, fx, max_items=3) -> str:
+    items = extract_currency_amounts(original_text)
+    converted = []
+    for code, value in items:
+        rate = fx.get("per_krw", {}).get(code)
+        if not rate:
+            continue
+        converted.append(f"{format_foreign(value, code)}≈{format_krw(value * rate)}")
+        if len(converted) >= max_items:
+            break
+    if not converted:
+        return ""
+    if len(converted) == 1:
+        return f" (원화 약 {converted[0].split('≈', 1)[1]})"
+    return " (원화: " + " · ".join(converted) + ")"
+
+
+def fx_rate_line(fx, codes):
+    if not fx.get("date") or not codes:
+        return ""
+    pieces = []
+    labels = {"USD": "달러", "EUR": "유로", "JPY": "엔", "GBP": "파운드", "CNY": "위안"}
+    for code in ["USD", "EUR", "JPY", "GBP", "CNY"]:
+        if code not in codes:
+            continue
+        rate = fx.get("per_krw", {}).get(code)
+        if not rate:
+            continue
+        if code == "JPY":
+            pieces.append(f"100엔={rate * 100:,.0f}원")
+        else:
+            pieces.append(f"1{labels.get(code, code)}={rate:,.0f}원")
+    if not pieces:
+        return ""
+    return f"환산 기준: {' · '.join(pieces)} · ECB {fx['date']}"
 
 
 def polish_korean(text: str) -> str:
@@ -31,6 +173,22 @@ def polish_korean(text: str) -> str:
         "다섯 번째 해군 조선소": "제5 해군 공창",
         "해군 해상 시스템 사령부": "해군 해상체계사령부(NAVSEA)",
         "해군 해상 체계 사령부": "해군 해상체계사령부(NAVSEA)",
+        "전쟁부 (DoW)": "미 전쟁부(DoW)",
+        "전쟁부(DoW)": "미 전쟁부(DoW)",
+        "경제 국방부 (EDU)": "경제방위부(EDU)",
+        "경제 방위부 (EDU)": "경제방위부(EDU)",
+        "경제 국방부(EDU)": "경제방위부(EDU)",
+        "산업 기반 정책 (IBP) 을 위한 전쟁 보좌관실": "산업기반정책 담당 차관보실(IBP)",
+        "산업 기반 정책을 위한 전쟁 보좌관실": "산업기반정책 담당 차관보실(IBP)",
+        "산업 기반 정책": "산업기반정책",
+        "산업 기반 분석 및 유지": "산업기반 분석·유지",
+        "화폐 중심 은행": "대형 상업은행",
+        "머니 센터 은행": "대형 상업은행",
+        "세르 베르데": "Serra Verde",
+        "세르베르데": "Serra Verde",
+        "Serre Verde": "Serra Verde",
+        "희토류 요소": "희토류 원소",
+        "혼합 희토류 탄산염": "혼합 희토류 탄산염(MREC)",
     }
     for old, new in replacements.items():
         text = text.replace(old, new)
@@ -111,7 +269,7 @@ def score_candidate(text: str, idx: int) -> int:
     return score
 
 
-def fallback_bullets(blocks, limit=3):
+def fallback_bullets(blocks, fx, limit=3):
     """정형 규칙으로 잡히지 않는 일반 자료만 짧게 보조 요약한다."""
     candidates = split_candidates(blocks)
     ranked = sorted(
@@ -128,17 +286,30 @@ def fallback_bullets(blocks, limit=3):
         chosen_en.append(text)
         translated = polish_korean(monitor.translate_piece(text))
         translated = monitor.compact_korean(translated, 125)
-        if translated and monitor.has_korean(translated) and translated not in result:
-            result.append(translated)
+        if translated and monitor.has_korean(translated):
+            translated += fx_annotation(text, fx, max_items=2)
+            if translated not in result:
+                result.append(translated)
         if len(result) >= limit:
             break
     return result
 
 
-def structured_bullets(blocks):
+def structured_bullets(blocks, fx):
     full = " ".join(blocks)
     low = full.lower()
     bullets = []
+
+    if "serra verde" in low and "mixed rare-earth carbonates" in low and "$750 million" in low:
+        usd = fx.get("per_krw", {}).get("USD")
+        a750 = format_krw(750_000_000 * usd) if usd else "원화 환산 확인 불가"
+        a1550 = format_krw(1_550_000_000 * usd) if usd else "원화 환산 확인 불가"
+        a300 = format_krw(300_000_000 * usd) if usd else "원화 환산 확인 불가"
+        a500 = format_krw(500_000_000 * usd) if usd else "원화 환산 확인 불가"
+        bullets.append(f"미 전쟁부(DoW)가 Serra Verde의 브라질 Pela Ema 프로젝트 희토류 장기구매를 지원하기 위해 7억5,000만달러(약 {a750}) 투자")
+        bullets.append(f"총 15억5,000만달러(약 {a1550}) 구조로, 국방군수국(DLA) 3억달러(약 {a300}) 구매약정과 대형 상업은행 5억달러(약 {a500}) 약정 포함")
+        bullets.append("대상은 디스프로슘·터븀·네오디뮴·프라세오디뮴 등 핵심 희토류로, 중국 의존도를 낮추고 미 방산·자석 공급망을 확보하는 목적")
+        return bullets
 
     if "andrew magliochetti" in low and "defense industrial base" in low:
         bullets.append("미 해군장관 대행 Hung Cao가 Andrew Magliochetti를 방위산업 기반 재활성화 신규 이니셔티브 책임자로 임명")
@@ -166,8 +337,19 @@ def structured_bullets(blocks):
 
 
 def build_message(item):
+    fx = get_ecb_fx()
     raw_title = item.get("title", "")
-    if raw_title == TEST_TITLE:
+    if raw_title.startswith(RARE_EARTH_TITLE_PREFIX):
+        usd = fx.get("per_krw", {}).get("USD")
+        if usd:
+            title_ko = (
+                "미 전쟁부, Serra Verde 희토류 공급망 확보에 "
+                f"7억5,000만달러(약 {format_krw(750_000_000 * usd)}) 투자…"
+                f"총 15억5,000만달러(약 {format_krw(1_550_000_000 * usd)}) 규모"
+            )
+        else:
+            title_ko = "미 전쟁부, Serra Verde 희토류 공급망 확보에 7억5,000만달러 투자…총 15억5,000만달러 규모"
+    elif raw_title == TEST_TITLE:
         title_ko = TEST_TITLE_KO
     elif raw_title in TITLE_OVERRIDES:
         title_ko = TITLE_OVERRIDES[raw_title]
@@ -178,15 +360,15 @@ def build_message(item):
         title_ko = "미국 조선·해군 관련 새 공식 발표"
 
     blocks = monitor.extract_article_blocks(item["url"])
-    bullets = structured_bullets(blocks)
+    bullets = structured_bullets(blocks, fx)
 
     if len(bullets) < 2:
-        bullets = fallback_bullets(blocks, limit=3)
+        bullets = fallback_bullets(blocks, fx, limit=3)
 
     if not bullets and item.get("summary"):
         summary = polish_korean(monitor.translate_piece(item["summary"]))
         if summary and monitor.has_korean(summary):
-            bullets = [monitor.compact_korean(summary, 125)]
+            bullets = [monitor.compact_korean(summary, 125) + fx_annotation(item["summary"], fx, max_items=2)]
 
     if not bullets:
         bullets = ["새로운 공식자료가 감지되었습니다. 세부 내용은 원문에서 확인할 수 있습니다."]
@@ -196,11 +378,17 @@ def build_message(item):
     safe_url = html.escape(item["url"], quote=True)
     bullet_text = "\n".join(f"• {html.escape(b)}" for b in bullets[:5])
 
+    currency_scan = " ".join([raw_title] + blocks[:40] + ([item.get("summary", "")] if item.get("summary") else []))
+    codes = {code for code, _ in extract_currency_amounts(currency_scan)}
+    rate_line = fx_rate_line(fx, codes)
+    rate_html = f"\n\n{html.escape(rate_line)}" if rate_line else ""
+
     return (
         "🚨 <b>미국 조선·해군 정책 중요 변화</b>\n\n"
         f"<b>{safe_title}</b>\n"
         f"출처: <a href=\"{safe_url}\">{safe_source}</a>\n\n"
-        f"{bullet_text}\n\n"
+        f"{bullet_text}"
+        f"{rate_html}\n\n"
         f"🔎 <a href=\"{safe_url}\"><b>원문</b></a>"
     )
 
