@@ -359,6 +359,12 @@ def build_message(item):
     if not monitor.has_korean(title_ko):
         title_ko = "미국 조선·해군 관련 새 공식 발표"
 
+    # 정형 제목이 아닌 일반 자료도 제목에 외화 금액이 있으면 원화 환산을 붙인다.
+    if not raw_title.startswith(RARE_EARTH_TITLE_PREFIX):
+        title_fx = fx_annotation(raw_title, fx, max_items=2)
+        if title_fx and "원화" not in title_ko:
+            title_ko = monitor.compact_korean(title_ko, 105) + title_fx
+
     blocks = monitor.extract_article_blocks(item["url"])
     bullets = structured_bullets(blocks, fx)
 
