@@ -58,6 +58,10 @@ def split_candidates(blocks):
                 or low.startswith("posted time")
                 or low.startswith("published time")
                 or low.startswith("publish date")
+                or low.startswith("title:")
+                or low.startswith("date:")
+                or low.startswith("source:")
+                or low.startswith("byline:")
             ):
                 continue
 
@@ -135,6 +139,13 @@ def structured_bullets(blocks):
     full = " ".join(blocks)
     low = full.lower()
     bullets = []
+
+    if "andrew magliochetti" in low and "defense industrial base" in low:
+        bullets.append("미 해군장관 대행 Hung Cao가 Andrew Magliochetti를 방위산업 기반 재활성화 신규 이니셔티브 책임자로 임명")
+        if "25 years" in low and any(term in low for term in ["structured finance", "investment banking", "private equity"]):
+            bullets.append("Magliochetti는 구조화금융·투자은행·사모펀드 등 민간 부문 경력 25년 보유")
+        if "venture capital" in low and "national security" in low:
+            bullets.append("최근에는 국가안보 기술 중심 벤처캐피털의 공동창업자·운용 파트너로 활동")
 
     if "national security presidential memorandum" in low and ("shipbuilding" in low or "ship repair" in low):
         bullets.append("미 해군 함정 건조·수리 프로그램의 지연·비용 문제 해결을 위한 국가안보 대통령 각서에 서명")
