@@ -6,6 +6,11 @@ import monitor
 TEST_TITLE = "President Donald J. Trump Rebuilds the U.S. Navy and America’s Shipbuilding Industrial Base"
 TEST_TITLE_KO = "트럼프 대통령, 미 해군·미국 조선산업 기반 재건"
 
+TITLE_OVERRIDES = {
+    "Acting SECNAV Appoints Andrew Magliochetti to Lead Defense Industrial Base Revitalization": "미 해군장관 대행, 방위산업 기반 재활성화 책임자로 Andrew Magliochetti 임명",
+    "Acting SECNAV Appoints Andrew Magliochetti to Lead Defense Industrial Base Revitalization…": "미 해군장관 대행, 방위산업 기반 재활성화 책임자로 Andrew Magliochetti 임명",
+}
+
 
 def polish_korean(text: str) -> str:
     text = " ".join((text or "").split())
@@ -119,7 +124,7 @@ def fallback_bullets(blocks, limit=3):
         chosen_en.append(text)
         translated = polish_korean(monitor.translate_piece(text))
         translated = monitor.compact_korean(translated, 125)
-        if translated and translated not in result:
+        if translated and monitor.has_korean(translated) and translated not in result:
             result.append(translated)
         if len(result) >= limit:
             break
@@ -150,11 +155,16 @@ def structured_bullets(blocks):
 
 
 def build_message(item):
-    if item.get("title") == TEST_TITLE:
+    raw_title = item.get("title", "")
+    if raw_title == TEST_TITLE:
         title_ko = TEST_TITLE_KO
+    elif raw_title in TITLE_OVERRIDES:
+        title_ko = TITLE_OVERRIDES[raw_title]
     else:
-        title_ko = polish_korean(monitor.translate_piece(item.get("title", "")))
+        title_ko = polish_korean(monitor.translate_piece(raw_title))
         title_ko = monitor.compact_korean(title_ko, 90)
+    if not monitor.has_korean(title_ko):
+        title_ko = "미국 조선·해군 관련 새 공식 발표"
 
     blocks = monitor.extract_article_blocks(item["url"])
     bullets = structured_bullets(blocks)
@@ -164,12 +174,13 @@ def build_message(item):
 
     if not bullets and item.get("summary"):
         summary = polish_korean(monitor.translate_piece(item["summary"]))
-        bullets = [monitor.compact_korean(summary, 125)]
+        if summary and monitor.has_korean(summary):
+            bullets = [monitor.compact_korean(summary, 125)]
 
     if not bullets:
         bullets = ["새로운 공식자료가 감지되었습니다. 세부 내용은 원문에서 확인할 수 있습니다."]
 
-    safe_title = html.escape(title_ko or item.get("title", "새 공식자료"))
+    safe_title = html.escape(title_ko or "미국 조선·해군 관련 새 공식 발표")
     safe_source = html.escape(item.get("source", "공식자료"))
     safe_url = html.escape(item["url"], quote=True)
     bullet_text = "\n".join(f"• {html.escape(b)}" for b in bullets[:5])
