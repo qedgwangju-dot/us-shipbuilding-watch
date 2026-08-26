@@ -1,4 +1,4 @@
-name: 미국 조선정책 웹감시
+name: 미국 조선·전력망 정책 웹감시
 
 on:
   schedule:
@@ -10,6 +10,7 @@ on:
     paths:
       - 'monitor.py'
       - 'runner.py'
+      - 'grid_monitor.py'
       - 'requirements.txt'
       - '.github/workflows/monitor.yml'
 
@@ -17,7 +18,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: us-shipbuilding-watch
+  group: us-policy-watch
   cancel-in-progress: true
 
 jobs:
@@ -36,21 +37,27 @@ jobs:
       - name: 필요한 패키지 설치
         run: pip install -r requirements.txt
 
-      - name: 공식 사이트 변화 확인
+      - name: 조선·해군 정책 변화 확인
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           TEST_MODE: '0'
         run: python runner.py
 
+      - name: 전력망·전력기기 정책 변화 확인
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python grid_monitor.py
+
       - name: 감시 상태 저장
         run: |
-          if git diff --quiet state.json; then
+          if git diff --quiet -- state.json grid_state.json; then
             echo "상태 변화 없음"
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add state.json
-          git commit -m "Update monitor state"
+          git add state.json grid_state.json
+          git commit -m "Update monitor states"
           git push
