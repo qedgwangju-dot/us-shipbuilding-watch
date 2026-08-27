@@ -11,6 +11,7 @@ on:
       - 'monitor.py'
       - 'runner.py'
       - 'grid_monitor.py'
+      - 'grid_monitor_v2.py'
       - 'requirements.txt'
       - '.github/workflows/monitor.yml'
 
@@ -48,7 +49,7 @@ jobs:
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-        run: python grid_monitor.py
+        run: python grid_monitor_v2.py
 
       - name: 감시 상태 저장
         run: |
