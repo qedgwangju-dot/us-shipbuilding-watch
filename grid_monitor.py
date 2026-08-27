@@ -175,19 +175,19 @@ def structured_grid_bullets(blocks):
 
     if is_bulk_power_eo(full):
         bullets.append(
-            "정책 핵심: Covered Foreign Entity가 설계·개발·제조·공급한 외국산 대규모 전력망 장비 중 안보 위험이 있다고 판정된 거래의 신규 구매·수입·이전·설치를 제한하며, 핵심 부품·소프트웨어·펌웨어·디지털 서비스·유지보수·원격접속 기능까지 포함"
+            "정책 핵심: 69kV 이상 Bulk-Power System에서 Covered Foreign Entity 관련 외국산 장비·핵심부품·소프트웨어·펌웨어·원격접속 중 안보 위험 거래의 신규 구매·수입·이전·설치를 제한"
         )
         bullets.append(
-            "달라진 점: 2020년 EO 13920의 장비 정의 자체도 넓었지만 실제 2020년 12월 중국산 금지명령은 핵심 방위시설 공급 유틸리티와 69kV 이상 변압기·GSU·차단기·무효전력설비·관련 소프트웨어/펌웨어로 좁았다. 2026년 EO는 계통연계 인버터·BESS·UPS·소형 발전기와 디지털·유지보수·원격접속 위험까지 명시하고, 미국 관할 거래 전반에 적용 가능한 체계로 재구축"
+            "달라진 점: 2020년 실제 중국산 금지명령은 핵심 방위시설과 변압기·GSU·차단기·무효전력설비 중심이었지만, 2026년 EO는 계통연계 인버터·BESS·UPS·소형 발전기와 디지털·유지보수·원격접속 위험까지 명시하고 기존 설치장비의 격리·교체도 가능"
         )
         bullets.append(
-            "시간표: 미 에너지부가 120일 안에 Covered Foreign Entity·고위험 장비·허가 절차 등 시행규정을 마련하고, 180일 안에 미국산 에너지 인프라 조달 우선의 연방조달규정(FAR) 개정 권고안을 제출. 기존 설치 장비도 식별·재고화·격리·감시·교체 대상이 될 수 있음"
+            "시장 해석: 유안타 제시 기준 미국 10MVA 초과 액체식 대형변압기 수입에서 중국 약 3%, 한국 약 20% 내외 → 중국 물량 직접 대체보다 미국 현지생산·조달자격·진입장벽 프리미엄이 더 중요. 해당 점유율은 증권사 제시치로 공식 통관자료 재검증 대상"
         )
         bullets.append(
-            "투자 관점: 1차 민감 품목은 대형 변압기 → 고압 차단기 → 보호계전기 → 계통연계 인버터 → BESS → UPS → 산업제어시스템. 2026년 4월 DPA가 이미 변압기·송전선/도체·변전소·고압차단기·전력제어전자·보호계전·커패시터뱅크·전기강판의 미국 내 생산 확대를 지정해 이번 보안규제와 현지 생산 확대가 연결됨"
+            "한국 기업: 효성중공업은 Memphis의 미국 유일 765kV 변압기 생산기지와 2026년 미국 7,870억원 수주, HD현대일렉트릭은 Alabama 제2공장으로 생산능력 +50%·연간 매출능력 약 +2,000억원, LS ELECTRIC은 Utah 개폐기·Texas 전력시스템 현지화를 확대 중. 단 LS의 배전제품은 69kV EO 직접범위와 분리"
         )
         bullets.append(
-            "한국 기업 해석: 한국산 자체가 자동 금지되는 것은 아니며 Covered Foreign Entity·위험 판정이 핵심. 다만 연방조달의 미국산 우선이 강화되면 미국 현지 생산기반이 있는 효성중공업(멤피스 변압기·미국 개폐기), HD현대일렉트릭(앨라배마 변압기), LS ELECTRIC(텍사스 변압기·개폐기)이 상대적으로 유리"
+            "다음 알림: DOE 120일 시행규정의 Covered Foreign Entity·고위험 장비·허가절차, 사전적격 공급업체, 기존 장비 교체명령, 180일 FAR 미국산 우선조달, DPA 실제 자금·구매약정, 한국·중국 대형변압기 수입점유율 변화"
         )
         return bullets
 
@@ -199,7 +199,10 @@ def structured_grid_bullets(blocks):
             "투자 관점: 단순 전력수요 증가보다 장기 납기·수입 의존도가 높은 대형 변압기와 고압 차단기가 가장 직접적이며, 보호계전·전력제어전자·전기강판·도체로 수혜 범위가 확장"
         )
         bullets.append(
-            "한국 기업 해석: 미국 현지 생산이 있는 효성중공업·HD현대일렉트릭·LS ELECTRIC은 조달 현지화와 공급망 안보 강화가 동시에 진행될수록 상대적 우위가 커질 수 있으나, 실제 수혜는 후속 DPA 자금·구매약정·FAR 조달기준과 수주 공시로 확인해야 함"
+            "한국 기업 해석: 효성중공업 Memphis·HD현대일렉트릭 Alabama·LS ELECTRIC Utah/Texas 등 미국 현지 생산기반의 전략적 가치가 상승. 실제 수혜는 DPA 자금·구매약정·FAR 조달기준·신규수주로 확인"
+        )
+        bullets.append(
+            "다음 확인: 현지 생산능력 증설 완료 → 가동률 → 신규수주 → 평균판매단가 → 매출·영업이익률로 이어지는지 확인하고, 미국산 인정기준이 현지 조립뿐 아니라 핵심부품 원산지까지 요구하는지 점검"
         )
         return bullets
 
@@ -207,9 +210,11 @@ def structured_grid_bullets(blocks):
     if any(term in low for term in ["covered foreign entity", "pre-qualified", "prequalified", "license transactions", "licensing"]):
         bullets.append("달라진 점: 특정 국가·기업의 Covered Foreign Entity 지정, 사전적격 공급업체, 금지거래 허가 절차 등 실제 조달 가능 업체를 가르는 세부기준 변화가 확인됨")
     if any(term in low for term in ["replace", "remove", "isolate", "inventory"]):
-        bullets.append("투자 관점: 기존 설치 장비의 교체·격리·재고조사가 구체화되면 신규 건설 수요뿐 아니라 교체수요가 추가되어 변압기·차단기·보호계전·제어시스템의 실물 발주로 연결될 가능성이 커짐")
+        bullets.append("투자 관점: 기존 설치 장비의 교체·격리·재고조사가 구체화되면 신규 건설뿐 아니라 강제 교체수요가 추가되어 변압기·차단기·보호계전·제어시스템의 실물 발주로 연결될 가능성이 커짐")
     if any(term in low for term in ["federal acquisition regulation", "united states-manufactured", "domestic manufacturing"]):
         bullets.append("투자 관점: 연방조달의 미국산 우선 기준이 구체화될수록 미국 현지 생산기반 보유 업체와 단순 수입업체 간 수주 경쟁력이 갈릴 수 있음")
+    if any(term in low for term in ["purchase commitment", "financial support", "section 303"]):
+        bullets.append("실적 연결: DPA 구매약정·금융지원이 실제 금액으로 확정되면 정책 기대에서 설비투자·수주 가시성 단계로 한 단계 올라간 것으로 판단")
     return bullets[:5]
 
 
