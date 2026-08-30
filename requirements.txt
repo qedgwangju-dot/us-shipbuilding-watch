@@ -1,2 +1,4 @@
 requests==2.32.5
 beautifulsoup4==4.13.4
+deep-translator==1.11.4
+googlenewsdecoder==0.1.7
