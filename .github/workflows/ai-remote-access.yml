@@ -29,6 +29,16 @@ jobs:
       - name: 저장소 불러오기
         uses: actions/checkout@v4
 
+      - name: 원문 링크 형식 정리
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          path = Path('ai_remote_access_watch.py')
+          text = path.read_text(encoding='utf-8')
+          text = text.replace('f"🔎 <a href=', 'f"<a href=')
+          path.write_text(text, encoding='utf-8')
+          PY
+
       - name: Python 설정
         uses: actions/setup-python@v5
         with:
@@ -45,12 +55,12 @@ jobs:
 
       - name: 감시 상태 저장
         run: |
-          if git diff --quiet -- ai_remote_state.json; then
+          if git diff --quiet -- ai_remote_state.json ai_remote_access_watch.py; then
             echo "상태 변화 없음"
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add ai_remote_state.json
+          git add ai_remote_state.json ai_remote_access_watch.py
           git commit -m "Update AI remote-access monitor state"
           git push
