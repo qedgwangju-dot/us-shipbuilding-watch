@@ -1,17 +1,18 @@
 #!/usr/bin/env python3
 import datetime as dt
 import hashlib
-import html
 import json
 import os
 import pathlib
-import re
 import urllib.parse
 from email.utils import parsedate_to_datetime
 from zoneinfo import ZoneInfo
 import xml.etree.ElementTree as ET
 
 import requests
+from bs4 import BeautifulSoup
+from deep_translator import GoogleTranslator
+from googlenewsdecoder import gnewsdecoder
 
 KST = ZoneInfo("Asia/Seoul")
 STATE_PATH = pathlib.Path("refinery_watch_state.json")
@@ -33,7 +34,7 @@ STRONG_TERMS = (
 )
 
 HEADERS = {
-    "User-Agent": "Mozilla/5.0 (compatible; khs-refinery-watch/1.0; +https://github.com/qedgwangju-dot/us-shipbuilding-watch)"
+    "User-Agent": "Mozilla/5.0 (compatible; khs-refinery-watch/1.1; +https://github.com/qedgwangju-dot/us-shipbuilding-watch)"
 }
 
 
@@ -75,13 +76,38 @@ def validate_telegram(token):
     return username
 
 
+def split_message(text, limit=3800):
+    chunks, current = [], ""
+    for paragraph in text.split("\n\n"):
+        candidate = paragraph if not current else current + "\n\n" + paragraph
+        if len(candidate) <= limit:
+            current = candidate
+            continue
+        if current:
+            chunks.append(current)
+            current = ""
+        while len(paragraph) > limit:
+            cut = paragraph.rfind("\n", 0, limit)
+            if cut < 1:
+                cut = limit
+            chunks.append(paragraph[:cut])
+            paragraph = paragraph[cut:].lstrip()
+        current = paragraph
+    if current:
+        chunks.append(current)
+    return chunks
+
+
 def send_telegram(token, chat_id, text):
-    payload = {
-        "chat_id": chat_id,
-        "text": text,
-        "disable_web_page_preview": "true",
-    }
-    return tg_api(token, "sendMessage", payload)
+    results = []
+    for chunk in split_message(text):
+        payload = {
+            "chat_id": chat_id,
+            "text": chunk,
+            "disable_web_page_preview": "true",
+        }
+        results.append(tg_api(token, "sendMessage", payload))
+    return results
 
 
 def google_news_rss(query):
@@ -95,11 +121,11 @@ def google_news_rss(query):
     r.raise_for_status()
     root = ET.fromstring(r.content)
     out = []
-    for item in root.findall("./channel/item"):
-        title = (item.findtext("title") or "").strip()
-        link = (item.findtext("link") or "").strip()
-        pub_raw = (item.findtext("pubDate") or "").strip()
-        source_el = item.find("source")
+    for node in root.findall("./channel/item"):
+        title = (node.findtext("title") or "").strip()
+        link = (node.findtext("link") or "").strip()
+        pub_raw = (node.findtext("pubDate") or "").strip()
+        source_el = node.find("source")
         source = (source_el.text or "").strip() if source_el is not None else ""
         try:
             pub = parsedate_to_datetime(pub_raw)
@@ -122,8 +148,10 @@ def google_news_rss(query):
 def relevant(item):
     text = f"{item['title']} {item['source']}".lower()
     hits = sum(1 for term in STRONG_TERMS if term in text)
-    # Require at least two topic signals, or one signal plus a key official/business source.
-    key_source = any(x in text for x in ("white house", "epa", "reuters", "bloomberg", "marathon petroleum", "valero", "chevron", "pbf", "delek"))
+    key_source = any(x in text for x in (
+        "white house", "epa", "reuters", "bloomberg", "marathon petroleum",
+        "valero", "chevron", "pbf", "delek",
+    ))
     return hits >= 2 or (hits >= 1 and key_source)
 
 
@@ -158,23 +186,118 @@ def collect_items():
     return items, errors
 
 
-def format_alert(items):
-    stamp = now_kst().strftime("%Y-%m-%d %H:%M KST")
+def decode_article_url(news_url):
+    try:
+        decoded = gnewsdecoder(news_url, interval=0.2)
+        if isinstance(decoded, dict) and decoded.get("status") and decoded.get("decoded_url"):
+            return decoded["decoded_url"]
+    except Exception:
+        pass
+    return news_url
+
+
+def extract_article_body(url):
+    r = requests.get(url, headers=HEADERS, timeout=30, allow_redirects=True)
+    r.raise_for_status()
+    final_url = r.url
+    soup = BeautifulSoup(r.text, "html.parser")
+    for tag in soup(["script", "style", "noscript", "nav", "header", "footer", "aside", "form", "svg"]):
+        tag.decompose()
+
+    containers = []
+    article = soup.find("article")
+    if article:
+        containers.append(article)
+    main = soup.find("main")
+    if main and main not in containers:
+        containers.append(main)
+    containers.append(soup)
+
+    paragraphs = []
+    seen = set()
+    for container in containers:
+        for p in container.find_all("p"):
+            text = " ".join(p.get_text(" ", strip=True).split())
+            if len(text) < 55:
+                continue
+            low = text.lower()
+            if any(x in low for x in (
+                "sign up", "subscribe", "cookie", "privacy policy", "all rights reserved",
+                "advertisement", "read more", "reporting by", "editing by",
+            )):
+                continue
+            if text in seen:
+                continue
+            seen.add(text)
+            paragraphs.append(text)
+        if len(paragraphs) >= 5:
+            break
+
+    # Copyright-safe alerting: use a limited set of representative body paragraphs,
+    # translated into Korean, and always preserve the original source link.
+    selected = []
+    total = 0
+    for p in paragraphs:
+        if total >= 2400 or len(selected) >= 7:
+            break
+        piece = p[:520]
+        selected.append(piece)
+        total += len(piece)
+    return final_url, selected
+
+
+def has_hangul(text):
+    return any("가" <= ch <= "힣" for ch in text)
+
+
+def translate_ko(text):
+    text = (text or "").strip()
+    if not text:
+        return ""
+    if has_hangul(text) and sum(1 for ch in text if "가" <= ch <= "힣") >= max(4, len(text) // 8):
+        return text
+    translator = GoogleTranslator(source="auto", target="ko")
+    return translator.translate(text=text)
+
+
+def enrich_korean(item):
+    original_url = decode_article_url(item["link"])
+    final_url, paragraphs = extract_article_body(original_url)
+    if not paragraphs:
+        raise RuntimeError("기사 본문을 추출하지 못함")
+
+    title_ko = translate_ko(item["title"])
+    body_ko = []
+    for paragraph in paragraphs:
+        translated = translate_ko(paragraph)
+        if translated:
+            body_ko.append(translated)
+    if not title_ko or not body_ko:
+        raise RuntimeError("한국어 번역 결과가 비어 있음")
+
+    enriched = dict(item)
+    enriched["title_ko"] = title_ko
+    enriched["body_ko"] = body_ko
+    enriched["original_url"] = final_url
+    return enriched
+
+
+def format_article_alert(item):
     lines = [
         "[트럼프 정유업계 고유가 대응 웹감시]",
-        f"새로운 변화 {len(items)}건 | 조회 {stamp}",
+        f"[{classify(item['title'])}] {item['title_ko']}",
+        f"출처: {item['source'] or '확인 필요'} | 발표: {item['pub_kst'].replace('T', ' ')}",
         "",
+        "본문 한국어 번역",
     ]
-    for idx, item in enumerate(items[:6], 1):
-        lines.extend([
-            f"{idx}. [{classify(item['title'])}] {item['title']}",
-            f"출처: {item['source'] or '확인 필요'} | 발표: {item['pub_kst'].replace('T', ' ')}",
-            item["link"],
-            "",
-        ])
+    for paragraph in item["body_ko"]:
+        lines.append(paragraph)
+        lines.append("")
     lines.extend([
+        "원문 링크",
+        item["original_url"],
+        "",
         "감시 포인트: 9월 1일 회동의 공식 확정·개최 결과, 휘발유·경유 가격 대책, 정제능력 확대·허가 완화, RFS·소형 정유사 면제·RIN 변화, Marathon Petroleum·Valero·Chevron·PBF·Delek의 구체적 설비투자 또는 정책 수혜 여부.",
-        "새로운 변화가 없으면 알림하지 않습니다.",
     ])
     return "\n".join(lines).strip()
 
@@ -190,7 +313,6 @@ def main():
     items, errors = collect_items()
     seen = set(state.get("seen") or [])
 
-    # First run: establish a baseline without replaying old headlines, then prove the exact Telegram route once.
     if not state.get("initialized"):
         state["initialized"] = True
         state["seen"] = [x["id"] for x in items[:300]]
@@ -200,18 +322,17 @@ def main():
             "[트럼프 정유업계 고유가 대응 웹감시 시작]\n"
             f"발송 봇: @{bot_username}\n"
             "감시 주기: 약 10분\n"
-            "대상: 9월 1일 정유업계 회동, 휘발유·경유 가격 대책, 정제능력 확대, RFS·SRE·RIN, "
-            "Marathon Petroleum·Valero·Chevron·PBF·Delek 관련 정책·설비 변화\n"
-            "기존 기사 재전송 없이 지금부터 새 변화가 생길 때만 알립니다."
+            "영어 기사 처리: 제목과 본문을 한국어로 변환한 뒤 송출하며 영어 원문 본문은 Telegram에 그대로 내보내지 않습니다.\n"
+            "대상: 9월 1일 정유업계 회동, 휘발유·경유 가격 대책, 정제능력 확대, RFS·SRE·RIN, Marathon Petroleum·Valero·Chevron·PBF·Delek 관련 정책·설비 변화"
         )
-        result = send_telegram(token, chat_id, setup)
-        print(f"initialized=true bot=@{bot_username} message_id={(result.get('result') or {}).get('message_id')}")
+        results = send_telegram(token, chat_id, setup)
+        ids = [(x.get("result") or {}).get("message_id") for x in results]
+        print(f"initialized=true bot=@{bot_username} message_ids={ids}")
         if errors:
             print("source_errors=" + " | ".join(errors))
         return
 
     new_items = [x for x in items if x["id"] not in seen]
-    # Keep only reasonably fresh newly discovered items to avoid stale index churn.
     cutoff = now_kst() - dt.timedelta(days=3)
     fresh = []
     for item in new_items:
@@ -222,19 +343,34 @@ def main():
         except Exception:
             fresh.append(item)
 
-    if fresh:
-        text = format_alert(fresh)
-        result = send_telegram(token, chat_id, text)
-        print(f"alert_sent=true bot=@{bot_username} message_id={(result.get('result') or {}).get('message_id')} new={len(fresh)}")
-    else:
+    delivered_ids = []
+    translation_errors = []
+    for item in fresh[:6]:
+        try:
+            enriched = enrich_korean(item)
+            text = format_article_alert(enriched)
+            results = send_telegram(token, chat_id, text)
+            ids = [(x.get("result") or {}).get("message_id") for x in results]
+            delivered_ids.append(item["id"])
+            print(f"alert_sent=true bot=@{bot_username} message_ids={ids} article_id={item['id']}")
+        except Exception as exc:
+            # Never fall back to English. Leave the item unseen so a later run retries translation.
+            translation_errors.append(f"{item['title']}: {exc}")
+            print(f"translation_delivery_skipped=true article_id={item['id']} error={exc}")
+
+    if not fresh:
         print(f"no_meaningful_change=true bot=@{bot_username}")
 
-    state["seen"] = list(dict.fromkeys([x["id"] for x in items[:300]] + list(seen)))[:600]
+    state["seen"] = list(dict.fromkeys(delivered_ids + list(seen)))[:600]
     state["last_run_kst"] = now_kst().isoformat(timespec="seconds")
     state["last_source_error_count"] = len(errors)
+    state["last_translation_error_count"] = len(translation_errors)
     save_state(state)
+
     if errors:
         print("source_errors=" + " | ".join(errors))
+    if translation_errors:
+        print("translation_errors=" + " | ".join(translation_errors))
 
 
 if __name__ == "__main__":
