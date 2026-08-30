@@ -1,9 +1,12 @@
 #!/usr/bin/env python3
 import datetime as dt
 import hashlib
+import html
 import json
 import os
 import pathlib
+import re
+import time
 import urllib.parse
 from email.utils import parsedate_to_datetime
 from zoneinfo import ZoneInfo
@@ -33,8 +36,24 @@ STRONG_TERMS = (
     "marathon petroleum", "valero", "chevron", "pbf", "delek",
 )
 
+ERROR_MARKERS = (
+    "error 500", "500 (server error)", "server error", "that's an error",
+    "that’s an error", "please try again later", "that's all we know",
+    "that’s all we know", "internal server error", "service unavailable",
+    "temporarily unavailable", "access denied", "request blocked",
+    "enable javascript", "verify you are human", "captcha", "cloudflare",
+    "오류 500", "서버 오류", "나중에 다시 시도", "접근이 거부",
+)
+
+REJECT_HOST_FRAGMENTS = (
+    "news.google.com", "google.com", "googleusercontent.com", "translate.goog",
+)
+
 HEADERS = {
-    "User-Agent": "Mozilla/5.0 (compatible; khs-refinery-watch/1.1; +https://github.com/qedgwangju-dot/us-shipbuilding-watch)"
+    "User-Agent": (
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+        "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
+    )
 }
 
 
@@ -55,12 +74,19 @@ def load_state():
 
 
 def save_state(state):
-    STATE_PATH.write_text(json.dumps(state, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    STATE_PATH.write_text(
+        json.dumps(state, ensure_ascii=False, indent=2) + "\n",
+        encoding="utf-8",
+    )
 
 
 def tg_api(token, method, payload=None):
     url = f"https://api.telegram.org/bot{token}/{method}"
-    r = requests.post(url, data=payload or {}, timeout=25) if payload is not None else requests.get(url, timeout=25)
+    r = (
+        requests.post(url, data=payload or {}, timeout=25)
+        if payload is not None
+        else requests.get(url, timeout=25)
+    )
     r.raise_for_status()
     data = r.json()
     if not data.get("ok"):
@@ -72,11 +98,13 @@ def validate_telegram(token):
     data = tg_api(token, "getMe")
     username = str((data.get("result") or {}).get("username") or "").lstrip("@")
     if username.lower() != EXPECTED_BOT.lower():
-        raise RuntimeError(f"Wrong Telegram bot: expected @{EXPECTED_BOT}, got @{username or 'unknown'}")
+        raise RuntimeError(
+            f"Wrong Telegram bot: expected @{EXPECTED_BOT}, got @{username or 'unknown'}"
+        )
     return username
 
 
-def split_message(text, limit=3800):
+def split_message(text, limit=3700):
     chunks, current = [], ""
     for paragraph in text.split("\n\n"):
         candidate = paragraph if not current else current + "\n\n" + paragraph
@@ -104,6 +132,7 @@ def send_telegram(token, chat_id, text):
         payload = {
             "chat_id": chat_id,
             "text": chunk,
+            "parse_mode": "HTML",
             "disable_web_page_preview": "true",
         }
         results.append(tg_api(token, "sendMessage", payload))
@@ -127,6 +156,11 @@ def google_news_rss(query):
         pub_raw = (node.findtext("pubDate") or "").strip()
         source_el = node.find("source")
         source = (source_el.text or "").strip() if source_el is not None else ""
+        source_url = (
+            (source_el.attrib.get("url") or "").strip()
+            if source_el is not None
+            else ""
+        )
         try:
             pub = parsedate_to_datetime(pub_raw)
             if pub.tzinfo is None:
@@ -140,6 +174,7 @@ def google_news_rss(query):
             "title": title,
             "link": link,
             "source": source,
+            "source_url": source_url,
             "pub_kst": pub_kst.isoformat(timespec="minutes"),
         })
     return out
@@ -186,85 +221,245 @@ def collect_items():
     return items, errors
 
 
-def decode_article_url(news_url):
+def looks_like_error_page(text):
+    low = re.sub(r"\s+", " ", (text or "")).strip().lower()
+    return any(marker in low for marker in ERROR_MARKERS)
+
+
+def is_publisher_url(url):
+    try:
+        parsed = urllib.parse.urlparse(url)
+        host = (parsed.netloc or "").lower()
+        if parsed.scheme not in ("http", "https") or not host:
+            return False
+        return not any(fragment in host for fragment in REJECT_HOST_FRAGMENTS)
+    except Exception:
+        return False
+
+
+def decode_google_news_url(news_url):
     try:
         decoded = gnewsdecoder(news_url, interval=0.2)
-        if isinstance(decoded, dict) and decoded.get("status") and decoded.get("decoded_url"):
-            return decoded["decoded_url"]
+        if isinstance(decoded, dict) and decoded.get("status"):
+            candidate = (decoded.get("decoded_url") or "").strip()
+            if is_publisher_url(candidate):
+                return candidate
     except Exception:
         pass
-    return news_url
+
+    try:
+        r = requests.get(news_url, headers=HEADERS, timeout=25, allow_redirects=True)
+        if is_publisher_url(r.url):
+            return r.url
+    except Exception:
+        pass
+    return ""
+
+
+def publisher_domain(item):
+    source_url = (item.get("source_url") or "").strip()
+    try:
+        host = urllib.parse.urlparse(source_url).netloc.lower()
+        return host[4:] if host.startswith("www.") else host
+    except Exception:
+        return ""
+
+
+def search_publisher_url(item):
+    domain = publisher_domain(item)
+    if not domain:
+        return ""
+    query = f'"{item["title"]}" site:{domain}'
+    try:
+        r = requests.get(
+            "https://html.duckduckgo.com/html/",
+            params={"q": query},
+            headers=HEADERS,
+            timeout=25,
+        )
+        r.raise_for_status()
+        soup = BeautifulSoup(r.text, "html.parser")
+        for a in soup.select("a.result__a"):
+            href = (a.get("href") or "").strip()
+            if not href:
+                continue
+            parsed = urllib.parse.urlparse(href)
+            if "duckduckgo.com" in parsed.netloc and parsed.query:
+                qs = urllib.parse.parse_qs(parsed.query)
+                href = urllib.parse.unquote((qs.get("uddg") or [""])[0])
+            host = urllib.parse.urlparse(href).netloc.lower()
+            if domain in host and is_publisher_url(href):
+                return href
+    except Exception:
+        pass
+    return ""
+
+
+def resolve_article_url(item):
+    direct_url = (item.get("direct_url") or "").strip()
+    if direct_url and is_publisher_url(direct_url):
+        return direct_url
+
+    decoded = decode_google_news_url(item["link"])
+    if decoded:
+        return decoded
+
+    searched = search_publisher_url(item)
+    if searched:
+        return searched
+
+    raise RuntimeError("원문 기사 주소를 확인하지 못함")
+
+
+def clean_paragraph(text):
+    return " ".join((text or "").replace("\xa0", " ").split()).strip()
 
 
 def extract_article_body(url):
     r = requests.get(url, headers=HEADERS, timeout=30, allow_redirects=True)
-    r.raise_for_status()
+    if r.status_code >= 400:
+        raise RuntimeError(f"원문 접속 실패 HTTP {r.status_code}")
     final_url = r.url
+    if not is_publisher_url(final_url):
+        raise RuntimeError("원문이 언론사 페이지로 연결되지 않음")
+
+    page_text = clean_paragraph(r.text)
+    if looks_like_error_page(page_text[:5000]):
+        raise RuntimeError("언론사 오류 페이지를 기사 본문으로 판정하여 차단")
+
     soup = BeautifulSoup(r.text, "html.parser")
     for tag in soup(["script", "style", "noscript", "nav", "header", "footer", "aside", "form", "svg"]):
         tag.decompose()
 
-    containers = []
-    article = soup.find("article")
-    if article:
-        containers.append(article)
-    main = soup.find("main")
-    if main and main not in containers:
-        containers.append(main)
-    containers.append(soup)
+    selectors = [
+        "article p",
+        "main article p",
+        "[class*='article-body'] p",
+        "[class*='article__body'] p",
+        "[class*='story-body'] p",
+        "[class*='story__body'] p",
+        "[class*='content-body'] p",
+        "main p",
+    ]
 
     paragraphs = []
     seen = set()
-    for container in containers:
-        for p in container.find_all("p"):
-            text = " ".join(p.get_text(" ", strip=True).split())
-            if len(text) < 55:
+    for selector in selectors:
+        for p in soup.select(selector):
+            text = clean_paragraph(p.get_text(" ", strip=True))
+            if len(text) < 45 or text in seen:
                 continue
             low = text.lower()
-            if any(x in low for x in (
-                "sign up", "subscribe", "cookie", "privacy policy", "all rights reserved",
-                "advertisement", "read more", "reporting by", "editing by",
-            )):
+            if looks_like_error_page(text):
                 continue
-            if text in seen:
+            if any(x in low for x in (
+                "sign up", "subscribe", "cookie", "privacy policy",
+                "all rights reserved", "advertisement", "read more",
+                "newsletter", "reporting by", "editing by", "follow us",
+            )):
                 continue
             seen.add(text)
             paragraphs.append(text)
-        if len(paragraphs) >= 5:
+        if len(paragraphs) >= 4:
             break
 
-    # Copyright-safe alerting: use a limited set of representative body paragraphs,
-    # translated into Korean, and always preserve the original source link.
+    if not paragraphs:
+        raise RuntimeError("기사 본문을 정상적으로 추출하지 못함")
+
+    # 원문 전체 재배포를 피하면서 핵심 본문만 한국어로 전달한다.
     selected = []
-    total = 0
-    for p in paragraphs:
-        if total >= 2400 or len(selected) >= 7:
+    total_words = 0
+    for paragraph in paragraphs:
+        words = paragraph.split()
+        if total_words >= 140 or len(selected) >= 4:
             break
-        piece = p[:520]
+        remaining = 140 - total_words
+        piece_words = words[: min(len(words), 55, remaining)]
+        if not piece_words:
+            continue
+        piece = " ".join(piece_words)
+        if looks_like_error_page(piece):
+            continue
         selected.append(piece)
-        total += len(piece)
+        total_words += len(piece_words)
+
+    if not selected:
+        raise RuntimeError("정상 기사 문단을 선별하지 못함")
     return final_url, selected
 
 
 def has_hangul(text):
-    return any("가" <= ch <= "힣" for ch in text)
+    return any("가" <= ch <= "힣" for ch in (text or ""))
+
+
+def google_translate_http(text):
+    r = requests.get(
+        "https://translate.googleapis.com/translate_a/single",
+        params={
+            "client": "gtx",
+            "sl": "auto",
+            "tl": "ko",
+            "dt": "t",
+            "q": text,
+        },
+        headers=HEADERS,
+        timeout=25,
+    )
+    r.raise_for_status()
+    data = r.json()
+    translated = "".join(
+        part[0] for part in (data[0] or [])
+        if isinstance(part, list) and part and part[0]
+    ).strip()
+    return translated
+
+
+def validate_korean_translation(source, translated):
+    translated = clean_paragraph(translated)
+    if not translated:
+        raise RuntimeError("번역 결과가 비어 있음")
+    if looks_like_error_page(translated):
+        raise RuntimeError("번역 서비스 오류문을 번역 결과로 판정하여 차단")
+    if not has_hangul(translated):
+        raise RuntimeError("한국어가 없는 번역 결과를 차단")
+    # 영어 원문이 통째로 그대로 돌아온 경우를 차단한다. 고유명·약어는 허용한다.
+    src_norm = re.sub(r"\W+", "", source or "").lower()
+    out_norm = re.sub(r"\W+", "", translated).lower()
+    if len(src_norm) > 60 and src_norm == out_norm:
+        raise RuntimeError("영어 원문이 번역 없이 반환됨")
+    return translated
 
 
 def translate_ko(text):
-    text = (text or "").strip()
+    text = clean_paragraph(text)
     if not text:
         return ""
+    if looks_like_error_page(text):
+        raise RuntimeError("오류문은 번역·송출하지 않음")
     if has_hangul(text) and sum(1 for ch in text if "가" <= ch <= "힣") >= max(4, len(text) // 8):
         return text
-    translator = GoogleTranslator(source="auto", target="ko")
-    return translator.translate(text=text)
+
+    last_error = None
+    for attempt in range(2):
+        try:
+            translated = GoogleTranslator(source="auto", target="ko").translate(text=text)
+            return validate_korean_translation(text, translated)
+        except Exception as exc:
+            last_error = exc
+            time.sleep(0.8 * (attempt + 1))
+
+    try:
+        translated = google_translate_http(text)
+        return validate_korean_translation(text, translated)
+    except Exception as exc:
+        last_error = exc
+
+    raise RuntimeError(f"한국어 번역 실패: {last_error}")
 
 
 def enrich_korean(item):
-    original_url = decode_article_url(item["link"])
+    original_url = resolve_article_url(item)
     final_url, paragraphs = extract_article_body(original_url)
-    if not paragraphs:
-        raise RuntimeError("기사 본문을 추출하지 못함")
 
     title_ko = translate_ko(item["title"])
     body_ko = []
@@ -272,8 +467,11 @@ def enrich_korean(item):
         translated = translate_ko(paragraph)
         if translated:
             body_ko.append(translated)
+
     if not title_ko or not body_ko:
         raise RuntimeError("한국어 번역 결과가 비어 있음")
+    if looks_like_error_page(title_ko) or any(looks_like_error_page(x) for x in body_ko):
+        raise RuntimeError("오류문이 포함된 알림을 차단")
 
     enriched = dict(item)
     enriched["title_ko"] = title_ko
@@ -282,24 +480,35 @@ def enrich_korean(item):
     return enriched
 
 
+def e(text):
+    return html.escape(str(text or ""), quote=False)
+
+
 def format_article_alert(item):
+    link = html.escape(item["original_url"], quote=True)
     lines = [
-        "[트럼프 정유업계 고유가 대응 웹감시]",
-        f"[{classify(item['title'])}] {item['title_ko']}",
-        f"출처: {item['source'] or '확인 필요'} | 발표: {item['pub_kst'].replace('T', ' ')}",
+        "<b>[트럼프 정유업계 고유가 대응 웹감시]</b>",
+        f"<b>[{e(classify(item['title']))}] {e(item['title_ko'])}</b>",
+        f"출처: {e(item['source'] or '확인 필요')} | 발표: {e(item['pub_kst'].replace('T', ' '))}",
         "",
-        "본문 한국어 번역",
+        "<b>본문 한국어 번역</b>",
     ]
     for paragraph in item["body_ko"]:
-        lines.append(paragraph)
+        lines.append(e(paragraph))
         lines.append("")
     lines.extend([
-        "원문 링크",
-        item["original_url"],
+        f'<a href="{link}">원문</a>',
         "",
-        "감시 포인트: 9월 1일 회동의 공식 확정·개최 결과, 휘발유·경유 가격 대책, 정제능력 확대·허가 완화, RFS·소형 정유사 면제·RIN 변화, Marathon Petroleum·Valero·Chevron·PBF·Delek의 구체적 설비투자 또는 정책 수혜 여부.",
+        (
+            "감시 포인트: 9월 1일 회동의 공식 확정·개최 결과, 휘발유·경유 가격 대책, "
+            "정제능력 확대·허가 완화, RFS·소형 정유사 면제·RIN 변화, "
+            "Marathon Petroleum·Valero·Chevron·PBF·Delek의 구체적 설비투자 또는 정책 수혜 여부."
+        ),
     ])
-    return "\n".join(lines).strip()
+    text = "\n".join(lines).strip()
+    if looks_like_error_page(BeautifulSoup(text, "html.parser").get_text(" ", strip=True)):
+        raise RuntimeError("최종 Telegram 메시지에 오류문이 남아 있어 송출 차단")
+    return text
 
 
 def main():
@@ -319,11 +528,12 @@ def main():
         state["last_run_kst"] = now_kst().isoformat(timespec="seconds")
         save_state(state)
         setup = (
-            "[트럼프 정유업계 고유가 대응 웹감시 시작]\n"
+            "<b>[트럼프 정유업계 고유가 대응 웹감시 시작]</b>\n"
             f"발송 봇: @{bot_username}\n"
             "감시 주기: 약 10분\n"
-            "영어 기사 처리: 제목과 본문을 한국어로 변환한 뒤 송출하며 영어 원문 본문은 Telegram에 그대로 내보내지 않습니다.\n"
-            "대상: 9월 1일 정유업계 회동, 휘발유·경유 가격 대책, 정제능력 확대, RFS·SRE·RIN, Marathon Petroleum·Valero·Chevron·PBF·Delek 관련 정책·설비 변화"
+            "영어 기사 처리: 제목과 핵심 본문을 한국어로 변환한 경우에만 송출합니다. "
+            "번역 실패·오류 페이지·영어 원문 그대로 반환은 송출하지 않습니다.\n"
+            "원문 링크는 ‘원문’ 한 단어를 눌러 이동하도록 표시합니다."
         )
         results = send_telegram(token, chat_id, setup)
         ids = [(x.get("result") or {}).get("message_id") for x in results]
@@ -352,11 +562,17 @@ def main():
             results = send_telegram(token, chat_id, text)
             ids = [(x.get("result") or {}).get("message_id") for x in results]
             delivered_ids.append(item["id"])
-            print(f"alert_sent=true bot=@{bot_username} message_ids={ids} article_id={item['id']}")
+            print(
+                f"alert_sent=true bot=@{bot_username} message_ids={ids} "
+                f"article_id={item['id']}"
+            )
         except Exception as exc:
-            # Never fall back to English. Leave the item unseen so a later run retries translation.
+            # 영어 원문이나 오류문으로 절대 대체 송출하지 않는다.
+            # 미발송 항목은 seen에 넣지 않아 다음 실행에서 다시 시도한다.
             translation_errors.append(f"{item['title']}: {exc}")
-            print(f"translation_delivery_skipped=true article_id={item['id']} error={exc}")
+            print(
+                f"translation_delivery_skipped=true article_id={item['id']} error={exc}"
+            )
 
     if not fresh:
         print(f"no_meaningful_change=true bot=@{bot_username}")
