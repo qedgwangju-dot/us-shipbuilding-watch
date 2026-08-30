@@ -266,7 +266,7 @@ def build_message(item):
         f"<b>{html.escape(title)}</b>\n"
         f"출처: <a href=\"{safe_url}\">{safe_source}</a>\n\n"
         f"{bullet_text}\n\n"
-        f"🔎 <a href=\"{safe_url}\"><b>원문</b></a>"
+        f"<a href=\"{safe_url}\"><b>원문</b></a>"
     )
 
 
