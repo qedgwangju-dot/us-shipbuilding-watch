@@ -1,0 +1,65 @@
+name: 트럼프 정유업계 고유가 대응 Telegram 웹감시
+
+on:
+  schedule:
+    - cron: '3,13,23,33,43,53 * * * *'
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - 'refinery_watch.py'
+      - '.github/workflows/refinery-policy-telegram-watch.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: refinery-policy-telegram-watch
+  cancel-in-progress: true
+
+jobs:
+  monitor:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+
+    steps:
+      - name: 저장소 불러오기
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Python 설정
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: 필요한 패키지 설치
+        run: pip install -r requirements.txt
+
+      - name: 감시 코드 문법 확인
+        run: python -m py_compile refinery_watch.py
+
+      - name: 정유업계·고유가 정책 변화 확인 및 Telegram 발송
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python refinery_watch.py
+
+      - name: 감시 상태 저장
+        if: always()
+        run: |
+          if [ ! -f refinery_watch_state.json ]; then
+            echo "감시 상태 파일 없음"
+            exit 0
+          fi
+          if git diff --quiet -- refinery_watch_state.json && git ls-files --error-unmatch refinery_watch_state.json >/dev/null 2>&1; then
+            echo "상태 변화 없음"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add refinery_watch_state.json
+          git commit -m "Update refinery policy watch state" || exit 0
+          git pull --rebase origin main
+          git push
