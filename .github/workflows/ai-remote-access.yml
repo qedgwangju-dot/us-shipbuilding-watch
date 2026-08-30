@@ -1,6 +1,6 @@
 name: 미국 AI 칩·원격접근 규제 웹감시
 
-# 새 봇 토큰만 별도로 쓰고, 기존 수신 chat_id는 재사용
+# 새 봇 토큰을 사용하고 기존 수신 chat_id는 재사용
 on:
   schedule:
     - cron: '3,13,23,33,43,53 * * * *'
@@ -10,6 +10,7 @@ on:
       - main
     paths:
       - 'ai_remote_access_watch.py'
+      - 'ai_remote_access_watch_v2.py'
       - 'monitor.py'
       - 'requirements.txt'
       - '.github/workflows/ai-remote-access.yml'
@@ -29,16 +30,6 @@ jobs:
       - name: 저장소 불러오기
         uses: actions/checkout@v4
 
-      - name: 원문 링크 형식 정리
-        run: |
-          python - <<'PY'
-          from pathlib import Path
-          path = Path('ai_remote_access_watch.py')
-          text = path.read_text(encoding='utf-8')
-          text = text.replace('f"🔎 <a href=', 'f"<a href=')
-          path.write_text(text, encoding='utf-8')
-          PY
-
       - name: Python 설정
         uses: actions/setup-python@v5
         with:
@@ -51,16 +42,16 @@ jobs:
         env:
           AI_REMOTE_TELEGRAM_BOT_TOKEN: ${{ secrets.AI_REMOTE_TELEGRAM_BOT_TOKEN }}
           AI_REMOTE_TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-        run: python ai_remote_access_watch.py
+        run: python ai_remote_access_watch_v2.py
 
       - name: 감시 상태 저장
         run: |
-          if git diff --quiet -- ai_remote_state.json ai_remote_access_watch.py; then
+          if git diff --quiet -- ai_remote_state.json; then
             echo "상태 변화 없음"
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add ai_remote_state.json ai_remote_access_watch.py
+          git add ai_remote_state.json
           git commit -m "Update AI remote-access monitor state"
           git push
