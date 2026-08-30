@@ -10,6 +10,7 @@ on:
     paths:
       - 'refinery_watch.py'
       - 'spr_venezuela_watch.py'
+      - 'spr_venezuela_watch_runner.py'
       - '.github/workflows/refinery-policy-telegram-watch.yml'
 
 permissions:
@@ -42,6 +43,7 @@ jobs:
         run: |
           python -m py_compile refinery_watch.py
           python -m py_compile spr_venezuela_watch.py
+          python -m py_compile spr_venezuela_watch_runner.py
 
       - name: 정유업계·고유가 정책 변화 확인 및 Telegram 발송
         env:
@@ -53,7 +55,7 @@ jobs:
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-        run: python spr_venezuela_watch.py
+        run: python spr_venezuela_watch_runner.py
 
       - name: 감시 상태 저장
         if: always()
