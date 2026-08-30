@@ -1,6 +1,6 @@
 name: 미국 AI 칩·원격접근 규제 웹감시
 
-# 기준선 초기화 후 운영 버전
+# 새 봇 토큰만 별도로 쓰고, 기존 수신 chat_id는 재사용
 on:
   schedule:
     - cron: '3,13,23,33,43,53 * * * *'
@@ -40,7 +40,7 @@ jobs:
       - name: AI 칩·원격접근 규제 변화 확인
         env:
           AI_REMOTE_TELEGRAM_BOT_TOKEN: ${{ secrets.AI_REMOTE_TELEGRAM_BOT_TOKEN }}
-          AI_REMOTE_TELEGRAM_CHAT_ID: ${{ secrets.AI_REMOTE_TELEGRAM_CHAT_ID }}
+          AI_REMOTE_TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: python ai_remote_access_watch.py
 
       - name: 감시 상태 저장
