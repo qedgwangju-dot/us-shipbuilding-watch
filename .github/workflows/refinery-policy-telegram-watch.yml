@@ -39,6 +39,11 @@ jobs:
       - name: 필요한 패키지 설치
         run: pip install -r requirements.txt
 
+      - name: Telegram 알림 문구 정리
+        run: |
+          sed -i '/"<b>본문 한국어 번역<\/b>",/d' refinery_watch.py
+          sed -i '/"<b>본문 한국어 번역<\/b>",/d' spr_venezuela_watch.py
+
       - name: 감시 코드 문법 확인
         run: |
           python -m py_compile refinery_watch.py
