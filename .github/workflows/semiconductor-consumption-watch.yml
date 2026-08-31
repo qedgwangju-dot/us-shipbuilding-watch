@@ -52,3 +52,5 @@ jobs:
           git add semiconductor_consumption_state.json
           git commit -m "Update semiconductor consumption monitor state"
           git push
+
+# secret verification trigger: 2026-09-01 KST
