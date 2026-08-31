@@ -1,0 +1,54 @@
+name: 반도체 수혜지역 소비·Tesla 웹감시
+
+on:
+  schedule:
+    - cron: '3,13,23,33,43,53 * * * *'
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - 'semiconductor_consumption_watch.py'
+      - 'requirements.txt'
+      - '.github/workflows/semiconductor-consumption-watch.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: semiconductor-consumption-watch
+  cancel-in-progress: true
+
+jobs:
+  monitor:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 저장소 불러오기
+        uses: actions/checkout@v4
+
+      - name: Python 설정
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: 필요한 패키지 설치
+        run: pip install -r requirements.txt
+
+      - name: 반도체 수혜지역 소비·Tesla 변화 확인
+        env:
+          KHS887900_BOT_TOKEN: ${{ secrets.KHS887900_BOT_TOKEN }}
+          KHS887900_CHAT_ID: ${{ secrets.KHS887900_CHAT_ID }}
+        run: python semiconductor_consumption_watch.py
+
+      - name: 감시 상태 저장
+        run: |
+          if [ -z "$(git status --porcelain semiconductor_consumption_state.json)" ]; then
+            echo "상태 변화 없음"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add semiconductor_consumption_state.json
+          git commit -m "Update semiconductor consumption monitor state"
+          git push
