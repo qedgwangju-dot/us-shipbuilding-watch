@@ -151,8 +151,8 @@
     "00bfb6e5e915c14fa83cb568"
   ],
   "connected_notified": true,
-  "last_run_kst": "2026-09-01T14:44:57+09:00",
-  "last_new_count": 0,
+  "last_run_kst": "2026-09-01T14:46:28+09:00",
+  "last_new_count": 21,
   "last_sent_count": 0,
   "last_errors": [],
   "schema_version": 2,
@@ -284,7 +284,28 @@
     "4fb0f4fc106e18fd4c749135860a00d5",
     "f222d29270f54079c0760bcd0d6351e9",
     "def381e1d1f32174f30ab2d436c8faaf",
-    "e4d710e6d5815e850a1ec29f6b259ba1"
+    "e4d710e6d5815e850a1ec29f6b259ba1",
+    "e372227608f31d37e9ed8622e63008ce",
+    "5f04579e8865b78aa633dc82d1a28064",
+    "6ba084b8d2495d67d7559d62c3846067",
+    "d4ee1c560e455953c0b365ca5e479eb3",
+    "dc9f08c40a101206c5d8909f98cc7ae1",
+    "31f1ebfb11090fff3b48e3e95b025b72",
+    "62f9dc57605aaaaa95123251a56e87b9",
+    "ca2560030f90b6b111be43b48844096c",
+    "31debb20bae74e36820769b2b2dc9515",
+    "4dacb76a12780ca1bc9f90229a8d5a5c",
+    "8d8248c3f791fb10b43ec2cb319efad1",
+    "6d0b1cab833587d280b60ec6c3517810",
+    "6fdd7fd703c8b81e56ab6f1b4c5bcaa5",
+    "c70628fe583ae9958489167646d0f02f",
+    "c3a5869b4eeb7db7b9bb48586bbea338",
+    "35d9508e7ced0c305b43b556f85d0138",
+    "ab74631ba24d6c247d46dbcda38160d6",
+    "aec18e38029229e7b16d66cbb40e6bc1",
+    "db7484825cdcf43efb8f85039724bdce",
+    "24f468888a6dc5dfe30072417436bdf8",
+    "539f4c2d80f728a311b741db666f62be"
   ],
   "sent_urls": [],
   "recent_titles": [
@@ -1089,5 +1110,5 @@
       "seen_at": "2026-09-01T14:44:57+09:00"
     }
   ],
-  "last_duplicate_suppressed": 0
+  "last_duplicate_suppressed": 20
 }
