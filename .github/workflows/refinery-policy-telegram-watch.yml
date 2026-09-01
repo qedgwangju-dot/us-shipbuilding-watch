@@ -10,7 +10,7 @@ on:
     paths:
       - 'refinery_watch.py'
       - 'spr_venezuela_watch.py'
-      - 'spr_venezuela_watch_runner.py'
+      - 'readable_energy_alert_runner.py'
       - '.github/workflows/refinery-policy-telegram-watch.yml'
 
 permissions:
@@ -39,28 +39,17 @@ jobs:
       - name: 필요한 패키지 설치
         run: pip install -r requirements.txt
 
-      - name: Telegram 알림 문구 정리
-        run: |
-          sed -i '/"<b>본문 한국어 번역<\/b>",/d' refinery_watch.py
-          sed -i '/"<b>본문 한국어 번역<\/b>",/d' spr_venezuela_watch.py
-
       - name: 감시 코드 문법 확인
         run: |
           python -m py_compile refinery_watch.py
           python -m py_compile spr_venezuela_watch.py
-          python -m py_compile spr_venezuela_watch_runner.py
+          python -m py_compile readable_energy_alert_runner.py
 
-      - name: 정유업계·고유가 정책 변화 확인 및 Telegram 발송
+      - name: 정유업계·SPR 변화 묶음 확인 및 가독성형 Telegram 발송
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-        run: python refinery_watch.py
-
-      - name: SPR·베네수엘라 원유 공식수치·정책 변화 확인 및 Telegram 발송
-        env:
-          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-        run: python spr_venezuela_watch_runner.py
+        run: python readable_energy_alert_runner.py
 
       - name: 감시 상태 저장
         if: always()
