@@ -151,9 +151,9 @@
     "00bfb6e5e915c14fa83cb568"
   ],
   "connected_notified": true,
-  "last_run_kst": "2026-09-01T14:46:28+09:00",
-  "last_new_count": 21,
-  "last_sent_count": 0,
+  "last_run_kst": "2026-09-01T19:30:15+09:00",
+  "last_new_count": 15,
+  "last_sent_count": 1,
   "last_errors": [],
   "schema_version": 2,
   "seen_keys": [
@@ -305,9 +305,26 @@
     "aec18e38029229e7b16d66cbb40e6bc1",
     "db7484825cdcf43efb8f85039724bdce",
     "24f468888a6dc5dfe30072417436bdf8",
-    "539f4c2d80f728a311b741db666f62be"
+    "539f4c2d80f728a311b741db666f62be",
+    "05a1e2dd8606742e5ccbdbc4721c3dee",
+    "aef6e1ecd092da7b151f66278095efba",
+    "5a37e55a21cd0c01f4fc6691228faa49",
+    "4ef05b2875cfe56d635f150641c7f41b",
+    "5d09ddf652ef4400a21c7da29c64139c",
+    "39102e4533363e0b2299eedd606a3b92",
+    "30be837b303a98163e040e6c1754e74b",
+    "d2d34e7af1e473197988e3e4a1a1625d",
+    "69967ee806eab18270f2474e291d617a",
+    "f6059735d7326ae9570cddc55abc16f1",
+    "ed1639cc3ea2e6071712cc9a567c7091",
+    "b5e6fd149ca7cb7ca43cb625a08e27a8",
+    "2a07eb3eff3e33ae4769ab067aa242cc",
+    "8c9a8ece37dbd08d3d72a060c05376ba",
+    "4d991c4e23d69b5fb7fb1c52d91c8a00"
   ],
-  "sent_urls": [],
+  "sent_urls": [
+    "https://www.polinews.co.kr/news/articleView.html"
+  ],
   "recent_titles": [
     {
       "title_norm": "성과급 20조 반도체 머니는 어디로 갈까",
@@ -1108,7 +1125,14 @@
       "title_norm": "반도체 성과급 이천은 집 청주는 소비 사용처 따라 파급효과 달라",
       "numbers": [],
       "seen_at": "2026-09-01T14:44:57+09:00"
+    },
+    {
+      "title_norm": "삼성전자 sk하이닉스 성과급이 내수 살린다 한은 내년 성장률 최대 0 09 p",
+      "numbers": [
+        "0.09%"
+      ],
+      "seen_at": "2026-09-01T19:30:15+09:00"
     }
   ],
-  "last_duplicate_suppressed": 20
+  "last_duplicate_suppressed": 14
 }
