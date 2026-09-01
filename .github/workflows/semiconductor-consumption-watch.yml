@@ -62,3 +62,5 @@ jobs:
           done
           echo "상태 저장 재시도 3회 실패"
           exit 1
+
+# dedupe verification trigger
