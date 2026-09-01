@@ -1,0 +1,9 @@
+{
+  "initialized": false,
+  "seen": [],
+  "connected_notified": true,
+  "last_run_kst": null,
+  "last_new_count": 0,
+  "last_sent_count": 0,
+  "last_errors": []
+}
