@@ -151,9 +151,9 @@
     "00bfb6e5e915c14fa83cb568"
   ],
   "connected_notified": true,
-  "last_run_kst": "2026-09-02T00:09:29+09:00",
-  "last_new_count": 11,
-  "last_sent_count": 1,
+  "last_run_kst": "2026-09-02T00:42:56+09:00",
+  "last_new_count": 19,
+  "last_sent_count": 0,
   "last_errors": [],
   "schema_version": 2,
   "seen_keys": [
@@ -342,7 +342,26 @@
     "73992676989411b9872f193e1687dcd9",
     "4c59a4e58ea3f729a2665b6a61598679",
     "15870b537335b8b5d02a87a348894ea1",
-    "7c0c88e9fea16da891713f092a79fbda"
+    "7c0c88e9fea16da891713f092a79fbda",
+    "9d87afba8cf33cc341c2128d00c015e5",
+    "58d104d7763b0673c94bce2cc0d0bd60",
+    "ee1d2fd27a95a8cd6915eddcf146b567",
+    "898eed448f9368921c2e40716e5ee0b0",
+    "874c6598af6957b04d3b153188d19ee1",
+    "5dec2c1f07616e2847d0eb4d15192cdb",
+    "898f0d3eae045c2a828030b6ea7b40be",
+    "5dfcc2e8434afe08914525840ea96190",
+    "3c258265a126056ad9b1e75e80ea205a",
+    "a00df56545169d7e63121299dffd7cb4",
+    "7fbe474bc82ffe716b91859f2c9093cd",
+    "aff85c63b3d957a45867d29e60e3152c",
+    "9ff2eb13c53f92d70b7881d9aed6247a",
+    "054a5c3a4558789f92a86cf27bc1220a",
+    "15eb0be9c73d7a7512a4df2456739329",
+    "a0e160fe7142e32f7ddb19633918ff51",
+    "c378c73d2cdb7591522cb4b16a9e82f5",
+    "0ef8f4e4420005e1971d24f84fdf198d",
+    "8fffe09fc4f417dac0fa7c353d04a54c"
   ],
   "sent_urls": [
     "https://www.polinews.co.kr/news/articleView.html",
@@ -1164,5 +1183,5 @@
       "seen_at": "2026-09-02T00:09:29+09:00"
     }
   ],
-  "last_duplicate_suppressed": 10
+  "last_duplicate_suppressed": 19
 }
