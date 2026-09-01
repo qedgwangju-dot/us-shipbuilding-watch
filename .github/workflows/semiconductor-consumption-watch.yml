@@ -9,6 +9,7 @@ on:
       - main
     paths:
       - 'semiconductor_consumption_watch_v2.py'
+      - 'semiconductor_consumption_watch_v3.py'
       - 'requirements.txt'
       - '.github/workflows/semiconductor-consumption-watch.yml'
 
@@ -41,7 +42,7 @@ jobs:
         env:
           KHS887900_BOT_TOKEN: ${{ secrets.KHS887900_BOT_TOKEN }}
           KHS887900_CHAT_ID: ${{ secrets.KHS887900_CHAT_ID }}
-        run: python semiconductor_consumption_watch_v2.py
+        run: python semiconductor_consumption_watch_v3.py
 
       - name: 감시 상태 저장
         run: |
@@ -62,5 +63,3 @@ jobs:
           done
           echo "상태 저장 재시도 3회 실패"
           exit 1
-
-# dedupe verification trigger
