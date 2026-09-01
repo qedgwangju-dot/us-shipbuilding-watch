@@ -1,6 +1,11 @@
 #!/usr/bin/env python3
 import readable_energy_alert_runner as base
 
+_original_refinery_event_key = base.refinery_event_key
+_original_event_label = base.event_label
+_original_impact_lines = base.impact_lines
+_original_next_checks = base.next_checks
+
 
 def refinery_event_key_v2(item):
     t = f"{item.get('title','')} {item.get('source','')}".lower()
@@ -11,16 +16,16 @@ def refinery_event_key_v2(item):
     ):
         if any(x in t for x in ("price", "prices", "jump", "rise", "rose", "rally", "market", "trading")) and "rin" in t:
             return "rfs_market_reaction_2025_20260901"
-        # The Aug. 31 SRE decision and the attached 2026-27 reallocation proposal are one policy package.
+        # The Aug. 31 SRE decision and its 2026-27 reallocation proposal are one policy package.
         return "rfs_sre_2025_package_20260831"
 
-    return base.refinery_event_key(item)
+    return _original_refinery_event_key(item)
 
 
 def event_label_v2(topic, key):
     if key == "rfs_sre_2025_package_20260831":
         return "RFS 정책 패키지 확정"
-    return base.event_label(topic, key)
+    return _original_event_label(topic, key)
 
 
 def impact_lines_v2(topic, key):
@@ -31,7 +36,7 @@ def impact_lines_v2(topic, key):
             "바이오연료·농가: 면제 자체보다 초과 면제분의 100% 재할당이 실제 수요를 얼마나 복원하는지가 핵심입니다.",
             "RIN 시장: 면제와 재할당이 동시에 움직여 가격 변동성이 커질 수 있습니다.",
         ]
-    return base.impact_lines(topic, key)
+    return _original_impact_lines(topic, key)
 
 
 def next_checks_v2(topic, key):
@@ -42,7 +47,7 @@ def next_checks_v2(topic, key):
             "RIN 가격과 소규모·대형 정유사별 실제 규제비용 변화",
             "9월 1일 백악관 정유업계 회동에서 RFS 추가 완화·수정이 나오는지",
         ]
-    return base.next_checks(topic, key)
+    return _original_next_checks(topic, key)
 
 
 base.refinery_event_key = refinery_event_key_v2
