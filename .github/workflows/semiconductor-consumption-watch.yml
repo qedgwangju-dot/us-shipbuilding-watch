@@ -26,6 +26,8 @@ jobs:
     steps:
       - name: 저장소 불러오기
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Python 설정
         uses: actions/setup-python@v5
@@ -51,6 +53,12 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add semiconductor_consumption_state.json
           git commit -m "Update semiconductor consumption monitor state"
-          git push
-
-# secret verification trigger: 2026-09-01 KST
+          for i in 1 2 3; do
+            git pull --rebase origin main || true
+            if git push origin HEAD:main; then
+              exit 0
+            fi
+            sleep 3
+          done
+          echo "상태 저장 재시도 3회 실패"
+          exit 1
