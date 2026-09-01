@@ -1,10 +1,71 @@
 #!/usr/bin/env python3
+from deep_translator import MyMemoryTranslator
 import readable_energy_alert_runner as base
 
 _original_refinery_event_key = base.refinery_event_key
 _original_event_label = base.event_label
 _original_impact_lines = base.impact_lines
 _original_next_checks = base.next_checks
+_original_translate_ko = base.rw.translate_ko
+
+
+def _chunks(text, limit=430):
+    text = base.rw.clean_paragraph(text)
+    if len(text) <= limit:
+        return [text]
+    out = []
+    current = ""
+    for sentence in base.split_sentences(text):
+        if len(sentence) > limit:
+            words = sentence.split()
+            piece = ""
+            for word in words:
+                candidate = word if not piece else piece + " " + word
+                if len(candidate) > limit and piece:
+                    out.append(piece)
+                    piece = word
+                else:
+                    piece = candidate
+            if piece:
+                if current:
+                    out.append(current)
+                    current = ""
+                out.append(piece)
+            continue
+        candidate = sentence if not current else current + " " + sentence
+        if len(candidate) > limit and current:
+            out.append(current)
+            current = sentence
+        else:
+            current = candidate
+    if current:
+        out.append(current)
+    return [x for x in out if x]
+
+
+def translate_ko_resilient(text):
+    try:
+        return _original_translate_ko(text)
+    except Exception as first_error:
+        cleaned = base.rw.clean_paragraph(text)
+        if not cleaned:
+            return ""
+        if base.rw.looks_like_error_page(cleaned):
+            raise first_error
+        if base.rw.has_hangul(cleaned) and sum(1 for ch in cleaned if "가" <= ch <= "힣") >= max(4, len(cleaned) // 8):
+            return cleaned
+
+        translated_parts = []
+        last_error = first_error
+        for chunk in _chunks(cleaned):
+            try:
+                translated = MyMemoryTranslator(source="en-GB", target="ko-KR").translate(text=chunk)
+                translated_parts.append(base.rw.validate_korean_translation(chunk, translated))
+            except Exception as exc:
+                last_error = exc
+                raise RuntimeError(f"한국어 번역 이중 실패: {last_error}") from exc
+        combined = " ".join(translated_parts).strip()
+        return base.rw.validate_korean_translation(cleaned, combined)
 
 
 def refinery_event_key_v2(item):
@@ -50,6 +111,7 @@ def next_checks_v2(topic, key):
     return _original_next_checks(topic, key)
 
 
+base.rw.translate_ko = translate_ko_resilient
 base.refinery_event_key = refinery_event_key_v2
 base.event_label = event_label_v2
 base.impact_lines = impact_lines_v2
