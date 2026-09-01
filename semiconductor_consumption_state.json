@@ -151,9 +151,9 @@
     "00bfb6e5e915c14fa83cb568"
   ],
   "connected_notified": true,
-  "last_run_kst": "2026-09-01T19:38:00+09:00",
+  "last_run_kst": "2026-09-02T00:09:29+09:00",
   "last_new_count": 11,
-  "last_sent_count": 0,
+  "last_sent_count": 1,
   "last_errors": [],
   "schema_version": 2,
   "seen_keys": [
@@ -331,10 +331,22 @@
     "09b4a7102568dc4d148ffd6d219aebc0",
     "2f45a8b603cb22cfb8fe4e686c25689f",
     "08a144dc5f2acb28978460f2cd363914",
-    "ca7ad2ead47f6d878314a2cae0f0222f"
+    "ca7ad2ead47f6d878314a2cae0f0222f",
+    "0ff2a19f72ef04041b032b78d42531c2",
+    "1413d64e46da6df38329b04cf36a16ac",
+    "56cee9acd4a5247cabe3e4820cee7918",
+    "022346ca1bf72375472cce64437fc502",
+    "a3d3fc495aba6e4bb93cf06551e60cd1",
+    "5dd7fb19fed165a78bc8d9bab5b8e5c0",
+    "58522f7941b5f2cf6212285488dd73fb",
+    "73992676989411b9872f193e1687dcd9",
+    "4c59a4e58ea3f729a2665b6a61598679",
+    "15870b537335b8b5d02a87a348894ea1",
+    "7c0c88e9fea16da891713f092a79fbda"
   ],
   "sent_urls": [
-    "https://www.polinews.co.kr/news/articleView.html"
+    "https://www.polinews.co.kr/news/articleView.html",
+    "https://tradersunion.com/ko/news/financial-news/show/3171465-semiconductor-growth-consumption-korea-bank"
   ],
   "recent_titles": [
     {
@@ -1143,7 +1155,14 @@
         "0.09%"
       ],
       "seen_at": "2026-09-01T19:30:15+09:00"
+    },
+    {
+      "title_norm": "반도체 수혜지역 소비 확산 한국은행 2027년 성장률 제고 가능성 제시",
+      "numbers": [
+        "2027"
+      ],
+      "seen_at": "2026-09-02T00:09:29+09:00"
     }
   ],
-  "last_duplicate_suppressed": 11
+  "last_duplicate_suppressed": 10
 }
