@@ -11,6 +11,7 @@ on:
     paths:
       - 'ai_remote_access_watch.py'
       - 'ai_remote_access_watch_v2.py'
+      - 'ai_remote_access_watch_v3.py'
       - 'monitor.py'
       - 'requirements.txt'
       - '.github/workflows/ai-remote-access.yml'
@@ -42,7 +43,7 @@ jobs:
         env:
           AI_REMOTE_TELEGRAM_BOT_TOKEN: ${{ secrets.AI_REMOTE_TELEGRAM_BOT_TOKEN }}
           AI_REMOTE_TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-        run: python ai_remote_access_watch_v2.py
+        run: python ai_remote_access_watch_v3.py
 
       - name: 감시 상태 저장
         run: |
