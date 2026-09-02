@@ -151,9 +151,9 @@
     "00bfb6e5e915c14fa83cb568"
   ],
   "connected_notified": true,
-  "last_run_kst": "2026-09-02T08:25:44+09:00",
-  "last_new_count": 5,
-  "last_sent_count": 0,
+  "last_run_kst": "2026-09-02T10:19:28+09:00",
+  "last_new_count": 12,
+  "last_sent_count": 1,
   "last_errors": [],
   "schema_version": 2,
   "seen_keys": [
@@ -371,11 +371,24 @@
     "16d01dd864cd56e6220ca9419c52ccf5",
     "df1e7f8bf5679cee68aa4c929129f648",
     "a13a8091c69286b95c90a9f014e0ab6f",
-    "796ea2e51cb93447a0e38df2d7740c29"
+    "796ea2e51cb93447a0e38df2d7740c29",
+    "96e8b41644ba859957b629d324f8a436",
+    "51502dad2436a37ba12fcda2df824db3",
+    "895fd53e965a0218f7e1de1089d96dd9",
+    "925c7fbc4684139ae7a5a73139aca7e4",
+    "eba00cec8ed182362ab51ba092736093",
+    "7ba9214380d1452aa4e771e94cfe16af",
+    "e0aaba478df053017fd0d321e91befab",
+    "7ce9c488083cfc3b4ed087e63a9c0fd3",
+    "277a1ae00962f0ee34b940d327694b36",
+    "92827ac4417d5606757898ff732d6e53",
+    "f39ad9acb798b76ce77e82144685360a",
+    "104c4cfdd310d415c96af4b7754137dd"
   ],
   "sent_urls": [
-    "http://www.nbnnews.co.kr/news/articleView.html",
+    "https://biz.chosun.com/policy/policy_sub/2026/08/31/ZVGFPH2BJBCY7AQAJZIIALC2QU",
     "https://tradersunion.com/ko/news/financial-news/show/3171465-semiconductor-growth-consumption-korea-bank",
+    "http://www.nbnnews.co.kr/news/articleView.html",
     "https://www.polinews.co.kr/news/articleView.html"
   ],
   "recent_titles": [
@@ -1199,7 +1212,12 @@
         "21.9조원"
       ],
       "seen_at": "2026-09-02T03:33:00+09:00"
+    },
+    {
+      "title_norm": "sk하이닉스 직원들 역대 최대 성과급 받자 동탄 수원 용인 아파트 샀다 조선비즈",
+      "numbers": [],
+      "seen_at": "2026-09-02T10:18:57+09:00"
     }
   ],
-  "last_duplicate_suppressed": 4
+  "last_duplicate_suppressed": 10
 }
