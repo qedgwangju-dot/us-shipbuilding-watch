@@ -1,3 +1,6 @@
+import datetime as dt
+import math
+
 import html
 import json
 import re
@@ -168,6 +171,12 @@ def get_fx():
                 date = node.attrib["time"]
             if node.attrib.get("currency") and node.attrib.get("rate"):
                 rates[node.attrib["currency"]] = float(node.attrib["rate"])
+        observed = dt.date.fromisoformat(date)
+        age = (dt.datetime.now(dt.timezone.utc).date() - observed).days
+        if not 0 <= age <= 7:
+            raise ValueError("ECB 환율 기준일이 미래이거나 7일 초과 지연")
+        if any(not math.isfinite(v) or v <= 0 for v in rates.values()):
+            raise ValueError("ECB 환율은 양수 유한값이어야 함")
         krw = rates.get("KRW")
         usd = rates.get("USD")
         if not krw or not usd:

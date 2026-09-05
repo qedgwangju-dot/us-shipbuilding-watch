@@ -1,3 +1,6 @@
+import datetime as dt
+import math
+
 import html
 import re
 import xml.etree.ElementTree as ET
@@ -50,6 +53,12 @@ def get_ecb_fx():
             rate = node.attrib.get("rate")
             if cur and rate:
                 rates[cur] = float(rate)
+        observed = dt.date.fromisoformat(date)
+        age = (dt.datetime.now(dt.timezone.utc).date() - observed).days
+        if not 0 <= age <= 7:
+            raise ValueError("ECB 환율 기준일이 미래이거나 7일 초과 지연")
+        if any(not math.isfinite(v) or v <= 0 for v in rates.values()):
+            raise ValueError("ECB 환율은 양수 유한값이어야 함")
         krw_per_eur = rates.get("KRW")
         if not krw_per_eur:
             raise ValueError("ECB KRW 기준환율 없음")
