@@ -9,6 +9,7 @@ import ai_remote_access_watch_v3 as v3
 
 
 # v3를 import하면 Google News 제목의 '- 매체명' 꼬리표 제거가 base에 적용된다.
+_original_meaningful_snapshot = base.meaningful_snapshot
 
 
 def _norm(text: str) -> str:
@@ -29,7 +30,6 @@ def _extract_bill_fields(raw: str):
     action = pick(r"\bAction\s+(.+?)\s+Bill Number\b")
     version = pick(r"Bill Version\s+(.+?)\s+(?:Short Title|Full Title)\b")
 
-    # GovInfo의 UI 문구가 앞에 섞여 'Actions Toggle Actions'가 잡히는 경우를 제거한다.
     action = re.sub(r"^(?:Toggle\s+)?Actions?\s+", "", action, flags=re.I).strip()
     return bill, last_action, action, version
 
@@ -41,11 +41,9 @@ def meaningful_snapshot(page):
     if page["kind"] == "bill":
         bill, last_action, action, version = _extract_bill_fields(raw)
         if not bill:
-            # URL/추적명에서 법안번호를 안정적으로 보조 추출한다.
             m = re.search(r"(H\.R\.\s*\d+|S\.\s*\d+)", page["name"], flags=re.I)
             bill = m.group(1) if m else page["name"]
 
-        # 최소한 날짜+행동 또는 행동이 잡혔을 때만 상태 스냅샷으로 사용한다.
         if action or last_action:
             snapshot = " | ".join(
                 x for x in [
@@ -56,8 +54,6 @@ def meaningful_snapshot(page):
                 ] if x
             )
         else:
-            # 파싱 실패 시 매번 전체 페이지를 해시하지 않는다. 실패 자체를 고정 상태로 둬
-            # GovInfo UI 변동 때문에 허위 '입법 변화' 알림이 반복되는 것을 막는다.
             snapshot = f"bill={bill} | status_parse_unavailable"
 
         digest = hashlib.sha256(snapshot.encode("utf-8")).hexdigest()
@@ -70,7 +66,7 @@ def meaningful_snapshot(page):
         }
         return digest, snapshot, item
 
-    return base.meaningful_snapshot(page)
+    return _original_meaningful_snapshot(page)
 
 
 def _new_action(snapshot: str) -> str:
@@ -89,7 +85,6 @@ def _same_semantic_bill_status(old_snapshot: str, new_snapshot: str) -> bool:
     if action and action in old_n:
         return True
 
-    # GovInfo에서 실제 상태를 가르는 핵심 문구. 이전 스냅샷이 전체 페이지였어도 비교 가능.
     anchors = [
         "received read twice and referred to the committee on banking housing and urban affairs",
         "introduced the following bill which was read twice and referred to the committee on banking housing and urban affairs",
@@ -133,6 +128,10 @@ def build_message(item):
     return v2.build_message(item)
 
 
+def page_is_bill(name: str) -> bool:
+    return "Remote Access Security Act H.R.2683" in name or "Remote Access Security Act S.3519" in name
+
+
 def main():
     old = base.load_state()
     listings, tracked = base.collect()
@@ -156,7 +155,6 @@ def main():
 
         changed = bool(old and old_digest and old_digest != data["digest"])
         if changed and page_is_bill(name):
-            # 코드 변경으로 해시 형식만 바뀐 경우 또는 GovInfo UI가 흔들린 경우에는 알림 금지.
             if _same_semantic_bill_status(old_snapshot, data["snapshot"]):
                 changed = False
                 print(f"[AI DEDUPE] {name}: 실제 입법 상태 동일 — 중복 알림 차단")
@@ -190,11 +188,6 @@ def main():
     print(f"[AI DONE] 신규 알림 {sent}건")
 
 
-def page_is_bill(name: str) -> bool:
-    return "Remote Access Security Act H.R.2683" in name or "Remote Access Security Act S.3519" in name
-
-
-# base.collect()가 호출하는 tracked snapshot 함수와 RSS 제목 정리 함수를 교체.
 base.meaningful_snapshot = meaningful_snapshot
 base.build_message = build_message
 
