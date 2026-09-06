@@ -42,7 +42,6 @@ jobs:
 
       - name: AI 칩·원격접근 규제 변화 확인
         env:
-          AI_REMOTE_TEGRAM_BOT_TOKEN_UNUSED: ''
           AI_REMOTE_TELEGRAM_BOT_TOKEN: ${{ secrets.AI_REMOTE_TELEGRAM_BOT_TOKEN }}
           AI_REMOTE_TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: python ai_remote_access_watch_v4.py
