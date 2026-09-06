@@ -74,6 +74,11 @@ def _rss_date_line(item) -> str:
         return f"RSS 공개시각: <b>{html.escape(raw)}</b>"
 
 
+def _checked_line() -> str:
+    # 확인시각은 유지하되, 타임라인 핵심 날짜와 시각적으로 구분하기 위해 굵게 표시하지 않는다.
+    return f"확인시각: {datetime.now(KST).strftime('%Y-%m-%d %H:%M')} KST"
+
+
 def meaningful_snapshot(page):
     """GovInfo 법안 페이지의 동적 UI 전체가 아니라 실제 입법 상태만 해시한다."""
     raw = base.get_text(page["url"])
@@ -136,14 +141,18 @@ def _same_semantic_bill_status(old_snapshot: str, new_snapshot: str) -> bool:
 
 
 def _append_time_lines(message: str, item) -> str:
+    lines = []
     rss_line = _rss_date_line(item)
-    if not rss_line:
-        return message
+    if rss_line:
+        lines.append(rss_line)
+    lines.append(_checked_line())
+    stamp = "\n".join(lines)
 
-    # 출처 바로 아래에는 기사 RSS 공개시각만 표시한다. 감시 확인시각은 표시하지 않는다.
+    # 출처 바로 아래에 공개시각과 확인시각을 표시한다.
+    # 공개시각의 날짜는 굵게, 확인시각은 일반 글씨로 구분한다.
     pattern = r"(출처: <a href=\"[^\"]+\">.*?</a>)\n\n"
     if re.search(pattern, message):
-        return re.sub(pattern, rf"\1\n{rss_line}\n\n", message, count=1)
+        return re.sub(pattern, rf"\1\n{stamp}\n\n", message, count=1)
     return message
 
 
