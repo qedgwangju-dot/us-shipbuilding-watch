@@ -157,11 +157,19 @@ def fetch_news_rss(source):
         link = node_text(entry, "link")
         desc = node_text(entry, "description")
         src = node_text(entry, "source")
+        pub_date = node_text(entry, "pubdate")
         if not title or not link or not relevant(f"{title} {desc}"):
             continue
         key = normalize_url(link)
         label = f"{source['name']} · {src}" if src else source["name"]
-        items[key] = {"source": label, "title": title, "url": link, "summary": desc, "stage": "보도"}
+        items[key] = {
+            "source": label,
+            "title": title,
+            "url": link,
+            "summary": desc,
+            "stage": "보도",
+            "rss_pub_date": pub_date,
+        }
     return items
 
 
