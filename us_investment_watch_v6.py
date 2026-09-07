@@ -43,9 +43,11 @@ PINNED_KOREAN_REACTOR = {
     "tags": ["원전", "사업비", "한국기업 수주"],
 }
 
+_ORIG_DIRECT_MT_ITEMS = v3.direct_mt_items
+
 
 def broadened_direct_mt_items(now: dt.datetime) -> list[dict]:
-    rows = list(v3.direct_mt_items(now))
+    rows = list(_ORIG_DIRECT_MT_ITEMS(now))
     try:
         raw = base.fetch(v3.MT_ECONOMY_URL).decode("utf-8", errors="ignore")
     except Exception:
@@ -81,10 +83,11 @@ def broadened_direct_mt_items(now: dt.datetime) -> list[dict]:
 
 v3.direct_mt_items = broadened_direct_mt_items
 
-_orig_nuclear_summary = v4.nuclear_8_summary
+_ORIG_NUCLEAR_SUMMARY = v4.nuclear_8_summary
+
 
 def nuclear_8_summary_v6(article_text: str) -> list[str]:
-    lines = list(_orig_nuclear_summary(article_text))
+    lines = list(_ORIG_NUCLEAR_SUMMARY(article_text))
     low = article_text.lower()
     extra: list[str] = []
     if re.search(r'1,?300\s*억\s*달러|130\s*billion', article_text, flags=re.I):
@@ -92,9 +95,9 @@ def nuclear_8_summary_v6(article_text: str) -> list[str]:
     if "한국형 원전" in low and re.search(r'2\s*기', article_text):
         extra.append("• <b>한국 몫</b>  기사에서 <b>한국형 원전 2기 포함</b>을 명시했다면, 단순 EPC 참여보다 한국 노형·공급망 몫이 구체화된 중요한 변화로 표시합니다.")
     if extra:
-        # Put hard number / Korean participation before generic framework lines.
         return extra + lines
     return lines
+
 
 v4.nuclear_8_summary = nuclear_8_summary_v6
 
