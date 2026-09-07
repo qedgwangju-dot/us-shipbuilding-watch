@@ -7,12 +7,11 @@ import html
 import json
 import re
 import urllib.parse
-from pathlib import Path
 
 import us_investment_watch as base
 
 # v3: fast, high-recall monitoring + source-grounded interpretation.
-# Every alert now tries to fetch the original article body first. The alert separates:
+# Every alert tries to fetch the original article body first and separates:
 # 1) what the linked article actually says, 2) what that means, 3) what is still unconfirmed.
 
 for source in [
@@ -102,7 +101,6 @@ def extract_article_body(raw: str) -> str:
     if body:
         return body
 
-    # Prefer common article containers and paragraph text.
     candidates: list[str] = []
     for pattern in [
         r'<article\b[^>]*>(.*?)</article>',
@@ -130,7 +128,6 @@ def extract_article_body(raw: str) -> str:
 
 
 def fetch_original(row: dict) -> tuple[str, str]:
-    """Return original article text and extraction status. Never fabricate missing body text."""
     link = str(row.get("link") or "").strip()
     if not link:
         return "", "원문 링크 없음"
@@ -148,16 +145,18 @@ def split_sentences(text: str) -> list[str]:
     if not text:
         return []
     text = re.sub(r"\s+", " ", text).strip()
-    chunks = re.split(r'(?<=[.!?。]|다\.|했다\.|됐다\.|밝혔다\.|전했다\.)\s+', text)
+    # Avoid variable-width lookbehinds. Mark common sentence endings, then split.
+    marked = re.sub(r'([.!?。])\s*', r'\1\n', text)
+    chunks = marked.split("\n")
     out: list[str] = []
     for chunk in chunks:
         chunk = base.clean(chunk)
         if 18 <= len(chunk) <= 500:
             out.append(chunk)
     if len(out) <= 1:
-        # Korean news HTML often loses punctuation boundaries; use sentence endings as fallback.
-        chunks = re.split(r'(?<=다\.)|(?<=했다\.)|(?<=됐다\.)|(?<=밝혔다\.)|(?<=전했다\.)', text)
-        out = [base.clean(x) for x in chunks if 18 <= len(base.clean(x)) <= 500]
+        # Fallback for article text where punctuation was stripped by the publisher.
+        marked = re.sub(r'(다|했다|됐다|밝혔다|전했다)\s+', r'\1.\n', text)
+        out = [base.clean(x) for x in marked.split("\n") if 18 <= len(base.clean(x)) <= 500]
     return out
 
 
@@ -196,7 +195,6 @@ def select_original_facts(text: str, limit: int = 7) -> list[str]:
 
 
 def article_specific_explanation(text: str, row: dict) -> list[str]:
-    """Explain only distinctions supported by the linked article text; avoid adding project details not in source."""
     low = text.lower()
     lines: list[str] = []
 
@@ -224,7 +222,6 @@ def article_specific_explanation(text: str, row: dict) -> list[str]:
 
 
 def direct_mt_items(now: dt.datetime) -> list[dict]:
-    """Scan MoneyToday economy page directly so fresh exclusives do not wait for Google News indexing."""
     rows: list[dict] = []
     try:
         raw = base.fetch(MT_ECONOMY_URL).decode("utf-8", errors="ignore")
@@ -292,7 +289,6 @@ def alert_message(now: dt.datetime, rows: list[dict], usdkrw: float, fx_source: 
         if facts:
             parts.append("<b>• 원문에서 직접 확인된 핵심</b>")
             for fact in facts:
-                # Paraphrase by clipping the source sentence; do not reproduce long article passages.
                 clipped = fact if len(fact) <= 180 else fact[:177].rstrip() + "…"
                 parts.append("  - " + html.escape(clipped))
         else:
@@ -350,7 +346,6 @@ def main() -> int:
 
     fresh: list[dict] = []
 
-    # Send the corrected, full-text-grounded version once.
     if PINNED["id"] not in seen:
         fresh.append(PINNED)
         seen[PINNED["id"]] = now.isoformat()
