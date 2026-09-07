@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "last_updated": "2026-09-07T18:53:48+09:00",
+  "last_updated": "2026-09-07T19:09:30+09:00",
   "facts": {
     "strategy.total_package_usd_eok": {
       "value": 3500,
@@ -573,7 +573,8 @@
       "status": "청와대 확인",
       "sources": [
         "https://www.news1.kr/amp/economy/trend/6280531",
-        "https://news.mtn.co.kr/news-detail/2026090413255758525"
+        "https://news.mtn.co.kr/news-detail/2026090413255758525",
+        "https://n.news.naver.com/mnews/article/006/0000137574?sid=102"
       ]
     },
     "semiconductor.relationship_to_200b_unclear": {
@@ -582,7 +583,8 @@
       "status": "청와대 확인",
       "sources": [
         "https://www.news1.kr/amp/economy/trend/6280531",
-        "https://n.news.naver.com/mnews/article/018/0006363469?sid=101"
+        "https://n.news.naver.com/mnews/article/018/0006363469?sid=101",
+        "https://n.news.naver.com/mnews/article/006/0000137574?sid=102"
       ]
     },
     "semiconductor.first_project_excluded": {
