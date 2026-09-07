@@ -11,7 +11,6 @@ on:
       - 'us_investment_watch_v3.py'
       - 'us_investment_watch_v5.py'
       - 'us_investment_watch_v9.py'
-      - 'us_investment_fact_state.json'
       - '.github/workflows/us-investment-telegram-watch-v3.yml'
 
 permissions:
