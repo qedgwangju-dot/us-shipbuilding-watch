@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "last_updated": "2026-09-07T19:51:26+09:00",
+  "last_updated": "2026-09-08T01:11:58+09:00",
   "facts": {
     "strategy.total_package_usd_eok": {
       "value": 3500,
@@ -193,7 +193,9 @@
         "https://v.daum.net/v/20260907113212498",
         "https://n.news.naver.com/mnews/article/018/0006365091?sid=100",
         "https://n.news.naver.com/mnews/article/015/0005329652?sid=101",
-        "https://n.news.naver.com/mnews/article/016/0002602277?sid=104"
+        "https://n.news.naver.com/mnews/article/016/0002602277?sid=104",
+        "https://n.news.naver.com/mnews/article/422/0000903732?sid=101",
+        "https://n.news.naver.com/mnews/article/215/0001265151?sid=101"
       ]
     },
     "encinal.project_owner": {
@@ -214,7 +216,8 @@
       "sources": [
         "https://www2.edaily.co.kr/News/Read?mediaCodeNo=257&newsId=02499366645577824",
         "https://www.hankyung.com/article/202607289475i",
-        "https://n.news.naver.com/mnews/article/018/0006365091?sid=100"
+        "https://n.news.naver.com/mnews/article/018/0006365091?sid=100",
+        "https://n.news.naver.com/mnews/article/422/0000903732?sid=101"
       ]
     },
     "encinal.stage1_capacity_reports_gw": {
@@ -261,7 +264,9 @@
       "label": "엔시날 협상 초기 기준 사업비",
       "status": "보도",
       "sources": [
-        "https://www2.edaily.co.kr/News/Read?mediaCodeNo=257&newsId=02499366645577824"
+        "https://www2.edaily.co.kr/News/Read?mediaCodeNo=257&newsId=02499366645577824",
+        "https://n.news.naver.com/mnews/article/422/0000903732?sid=101",
+        "https://n.news.naver.com/mnews/article/215/0001265151?sid=101"
       ]
     },
     "encinal.intermediate_cost_usd_eok": {
@@ -271,7 +276,8 @@
       "sources": [
         "https://www2.edaily.co.kr/News/Read?mediaCodeNo=257&newsId=02499366645577824",
         "https://n.news.naver.com/mnews/article/018/0006365091?sid=100",
-        "https://n.news.naver.com/mnews/article/015/0005329652?sid=101"
+        "https://n.news.naver.com/mnews/article/015/0005329652?sid=101",
+        "https://n.news.naver.com/mnews/article/215/0001265151?sid=101"
       ]
     },
     "encinal.us_requested_cost_usd_eok": {
@@ -282,7 +288,9 @@
         "https://www4.edaily.co.kr/News/Read?mediaCodeNo=257&newsId=02151686645577824",
         "https://v.daum.net/v/20260907113212498",
         "https://n.news.naver.com/mnews/article/018/0006365091?sid=100",
-        "https://n.news.naver.com/mnews/article/215/0001265164?sid=100"
+        "https://n.news.naver.com/mnews/article/215/0001265164?sid=100",
+        "https://n.news.naver.com/mnews/article/422/0000903732?sid=101",
+        "https://n.news.naver.com/mnews/article/215/0001265151?sid=101"
       ]
     },
     "encinal.current_reported_cost_usd_eok": {
@@ -294,7 +302,9 @@
         "https://www2.edaily.co.kr/News/Read?mediaCodeNo=257&newsId=02499366645577824",
         "https://v.daum.net/v/20260907113212498",
         "https://n.news.naver.com/mnews/article/018/0006365091?sid=100",
-        "https://n.news.naver.com/mnews/article/215/0001265164?sid=100"
+        "https://n.news.naver.com/mnews/article/215/0001265164?sid=100",
+        "https://n.news.naver.com/mnews/article/422/0000903732?sid=101",
+        "https://n.news.naver.com/mnews/article/215/0001265151?sid=101"
       ]
     },
     "encinal.cost_increase_driver_us_pressure": {
@@ -305,7 +315,9 @@
         "https://www4.edaily.co.kr/News/Read?mediaCodeNo=257&newsId=02151686645577824",
         "https://v.daum.net/v/20260907113212498",
         "https://n.news.naver.com/mnews/article/018/0006365091?sid=100",
-        "https://n.news.naver.com/mnews/article/215/0001265164?sid=100"
+        "https://n.news.naver.com/mnews/article/215/0001265164?sid=100",
+        "https://n.news.naver.com/mnews/article/422/0000903732?sid=101",
+        "https://n.news.naver.com/mnews/article/215/0001265151?sid=101"
       ]
     },
     "encinal.ercot_sale_option": {
@@ -396,7 +408,8 @@
         "https://www.mt.co.kr/index.php/amp/economy/2026/09/07/2026090715524755435",
         "https://n.news.naver.com/mnews/article/018/0006365091?sid=100",
         "https://n.news.naver.com/mnews/article/015/0005329652?sid=101",
-        "https://n.news.naver.com/mnews/article/215/0001265164?sid=100"
+        "https://n.news.naver.com/mnews/article/215/0001265164?sid=100",
+        "https://n.news.naver.com/mnews/article/422/0000903732?sid=101"
       ]
     },
     "nuclear.us_proposal_usd_eok": {
@@ -597,7 +610,8 @@
       "status": "보도",
       "sources": [
         "https://v.daum.net/v/20260907113212498",
-        "https://n.news.naver.com/mnews/article/215/0001265164?sid=100"
+        "https://n.news.naver.com/mnews/article/215/0001265164?sid=100",
+        "https://n.news.naver.com/mnews/article/422/0000903732?sid=101"
       ]
     },
     "semiconductor.possible_companies": {
