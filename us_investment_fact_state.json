@@ -1,72 +1,94 @@
 {
   "version": 2,
-  "last_updated": "2026-09-07T18:35:00+09:00",
+  "last_updated": "2026-09-07T18:50:01+09:00",
   "facts": {
     "strategy.total_package_usd_eok": {
       "value": 3500,
       "label": "한미 전략적 투자 총 패키지",
       "status": "공식 MOU",
-      "sources": ["https://www.motir.go.kr/kor/article/ATCL3f49a5a8c/171196/view"]
+      "sources": [
+        "https://www.motir.go.kr/kor/article/ATCL3f49a5a8c/171196/view"
+      ]
     },
     "strategy.total_usd_eok": {
       "value": 2000,
       "label": "전략투자 전체 한도",
       "status": "공식 MOU",
-      "sources": ["https://www.motir.go.kr/kor/article/ATCL3f49a5a8c/171196/view"]
+      "sources": [
+        "https://www.motir.go.kr/kor/article/ATCL3f49a5a8c/171196/view"
+      ]
     },
     "strategy.shipbuilding_usd_eok": {
       "value": 1500,
       "label": "조선협력투자 한도",
       "status": "공식 MOU",
-      "sources": ["https://www.motir.go.kr/kor/article/ATCL3f49a5a8c/171196/view"]
+      "sources": [
+        "https://www.motir.go.kr/kor/article/ATCL3f49a5a8c/171196/view"
+      ]
     },
     "strategy.annual_request_max_usd_eok": {
       "value": 200,
       "label": "연간 최대 자금요청",
       "status": "공식 MOU",
-      "sources": ["https://www.motir.go.kr/kor/article/ATCL3f49a5a8c/171196/view"]
+      "sources": [
+        "https://www.motir.go.kr/kor/article/ATCL3f49a5a8c/171196/view"
+      ]
     },
     "strategy.selection_deadline": {
       "value": "2029-01",
       "label": "프로젝트 선정 시한",
       "status": "공식 MOU",
-      "sources": ["https://www.motir.go.kr/kor/article/ATCL3f49a5a8c/171196/view"]
+      "sources": [
+        "https://www.motir.go.kr/kor/article/ATCL3f49a5a8c/171196/view"
+      ]
     },
     "strategy.minimum_capital_call_notice_business_days": {
       "value": 45,
       "label": "투자처 선정 통지 후 최소 납입 유예기간",
       "status": "공식 MOU",
-      "sources": ["https://www.motir.go.kr/kor/article/ATCL3f49a5a8c/171196/view"]
+      "sources": [
+        "https://www.motir.go.kr/kor/article/ATCL3f49a5a8c/171196/view"
+      ]
     },
     "strategy.commercial_reasonableness_required": {
       "value": true,
       "label": "상업적 합리성·투자금 회수 가능성 조건",
       "status": "공식 MOU",
-      "sources": ["https://www.motir.go.kr/kor/article/ATCL3f49a5a8c/171196/view"]
+      "sources": [
+        "https://www.motir.go.kr/kor/article/ATCL3f49a5a8c/171196/view"
+      ]
     },
     "strategy.korean_vendor_priority": {
       "value": true,
       "label": "한국 벤더·공급업체 우선 선정 원칙",
       "status": "공식 MOU",
-      "sources": ["https://www.motir.go.kr/kor/article/ATCL3f49a5a8c/171196/view"]
+      "sources": [
+        "https://www.motir.go.kr/kor/article/ATCL3f49a5a8c/171196/view"
+      ]
     },
     "strategy.us_support_land_water_power_offtake_regulation": {
       "value": true,
       "label": "미국의 토지·용수·전력·구매계약·규제 가속 지원",
       "status": "공식 MOU",
-      "sources": ["https://www.motir.go.kr/kor/article/ATCL3f49a5a8c/171196/view"]
+      "sources": [
+        "https://www.motir.go.kr/kor/article/ATCL3f49a5a8c/171196/view"
+      ]
     },
     "structure.umbrella_spv": {
       "value": true,
       "label": "전체 프로젝트 관리 우산형 투자 SPV",
       "status": "공식 MOU",
-      "sources": ["https://www.motir.go.kr/kor/article/ATCL3f49a5a8c/171196/view"]
+      "sources": [
+        "https://www.motir.go.kr/kor/article/ATCL3f49a5a8c/171196/view"
+      ]
     },
     "structure.project_spv_separate": {
       "value": true,
       "label": "개별 프로젝트별 프로젝트 SPV 별도 설립",
       "status": "공식 MOU",
-      "sources": ["https://www.motir.go.kr/kor/article/ATCL3f49a5a8c/171196/view"]
+      "sources": [
+        "https://www.motir.go.kr/kor/article/ATCL3f49a5a8c/171196/view"
+      ]
     },
     "structure.risk_pooling_maintained": {
       "value": true,
@@ -81,25 +103,33 @@
       "value": 50,
       "label": "원리금 상환 전 한국 수익배분 비율",
       "status": "공식 MOU",
-      "sources": ["https://www.motir.go.kr/kor/article/ATCL3f49a5a8c/171196/view"]
+      "sources": [
+        "https://www.motir.go.kr/kor/article/ATCL3f49a5a8c/171196/view"
+      ]
     },
     "structure.profit_split_after_repayment_korea_pct": {
       "value": 10,
       "label": "원리금 상환 후 한국 수익배분 비율",
       "status": "공식 MOU",
-      "sources": ["https://www.motir.go.kr/kor/article/ATCL3f49a5a8c/171196/view"]
+      "sources": [
+        "https://www.motir.go.kr/kor/article/ATCL3f49a5a8c/171196/view"
+      ]
     },
     "structure.repayment_adjustment_horizon_years": {
       "value": 20,
       "label": "원리금 상환 곤란 시 배분비율 조정 판단기간",
       "status": "공식 MOU",
-      "sources": ["https://www.motir.go.kr/kor/article/ATCL3f49a5a8c/171196/view"]
+      "sources": [
+        "https://www.motir.go.kr/kor/article/ATCL3f49a5a8c/171196/view"
+      ]
     },
     "structure.interest_benchmark": {
       "value": "미국 국채 20년물 고정금리 + 가산금리",
       "label": "한국 투자금 상환 이자 기준",
       "status": "공식 MOU",
-      "sources": ["https://www.motir.go.kr/kor/article/ATCL3f49a5a8c/171196/view"]
+      "sources": [
+        "https://www.motir.go.kr/kor/article/ATCL3f49a5a8c/171196/view"
+      ]
     },
     "structure.i_spv_operating_terms_under_review": {
       "value": true,
@@ -114,31 +144,41 @@
       "value": true,
       "label": "MOU 충실 이행 중 합의 관세수준 유지",
       "status": "공식 MOU",
-      "sources": ["https://www.motir.go.kr/kor/article/ATCL3f49a5a8c/171196/view"]
+      "sources": [
+        "https://www.motir.go.kr/kor/article/ATCL3f49a5a8c/171196/view"
+      ]
     },
     "tariff.nonpayment_can_trigger_higher_tariffs": {
       "value": true,
       "label": "투자금 미납 시 관세 인상 가능 조항",
       "status": "공식 MOU",
-      "sources": ["https://www.motir.go.kr/kor/article/ATCL3f49a5a8c/171196/view"]
+      "sources": [
+        "https://www.motir.go.kr/kor/article/ATCL3f49a5a8c/171196/view"
+      ]
     },
     "tariff.semiconductor_taiwan_not_less_favorable": {
       "value": true,
       "label": "반도체 232조 관세 대만 대비 불리하지 않은 조건",
       "status": "공식 MOU",
-      "sources": ["https://www.motir.go.kr/kor/article/ATCL3f49a5a8c/171196/view"]
+      "sources": [
+        "https://www.motir.go.kr/kor/article/ATCL3f49a5a8c/171196/view"
+      ]
     },
     "tariff.section301_investment_negotiation_overlap": {
       "value": true,
       "label": "301조 조사와 대미투자 협상 시계 중첩",
       "status": "보도",
-      "sources": ["https://www.news1.kr/economy/trend/6265928"]
+      "sources": [
+        "https://www.news1.kr/economy/trend/6265928"
+      ]
     },
     "tariff.fifteen_percent_defense_focus": {
       "value": true,
       "label": "한국 정부의 기존 15% 관세 합의선 방어",
       "status": "정부 발언 보도",
-      "sources": ["https://www.news1.kr/economy/trend/6265928"]
+      "sources": [
+        "https://www.news1.kr/economy/trend/6265928"
+      ]
     },
     "encinal.first_project_selected": {
       "value": true,
@@ -153,10 +193,15 @@
       "value": "Lewis Energy Group",
       "label": "엔시날 사업주",
       "status": "보도",
-      "sources": ["https://www2.edaily.co.kr/News/Read?mediaCodeNo=257&newsId=02499366645577824"]
+      "sources": [
+        "https://www2.edaily.co.kr/News/Read?mediaCodeNo=257&newsId=02499366645577824"
+      ]
     },
     "encinal.capacity_reports_gw": {
-      "value": [6.3, 6.4],
+      "value": [
+        6.3,
+        6.4
+      ],
       "label": "엔시날 총 발전용량 보도값",
       "status": "보도 불일치",
       "sources": [
@@ -165,7 +210,10 @@
       ]
     },
     "encinal.stage1_capacity_reports_gw": {
-      "value": [1.3, 1.4],
+      "value": [
+        1.3,
+        1.4
+      ],
       "label": "엔시날 1단계 용량 보도값",
       "status": "보도 불일치",
       "sources": [
@@ -177,13 +225,17 @@
       "value": 1,
       "label": "엔시날 2~6단계 복합화력 단계별 용량",
       "status": "보도",
-      "sources": ["https://m.edaily.co.kr/News/Read?mediaCodeNo=257&newsId=02499366645577824"]
+      "sources": [
+        "https://m.edaily.co.kr/News/Read?mediaCodeNo=257&newsId=02499366645577824"
+      ]
     },
     "encinal.stage2to6_count": {
       "value": 5,
       "label": "엔시날 2~6단계 복합화력 단계 수",
       "status": "보도",
-      "sources": ["https://m.edaily.co.kr/News/Read?mediaCodeNo=257&newsId=02499366645577824"]
+      "sources": [
+        "https://m.edaily.co.kr/News/Read?mediaCodeNo=257&newsId=02499366645577824"
+      ]
     },
     "encinal.july_preliminary_cost_usd_eok": {
       "value": 198,
@@ -198,13 +250,17 @@
       "value": 168,
       "label": "엔시날 협상 초기 기준 사업비",
       "status": "보도",
-      "sources": ["https://www2.edaily.co.kr/News/Read?mediaCodeNo=257&newsId=02499366645577824"]
+      "sources": [
+        "https://www2.edaily.co.kr/News/Read?mediaCodeNo=257&newsId=02499366645577824"
+      ]
     },
     "encinal.intermediate_cost_usd_eok": {
       "value": 200,
       "label": "엔시날 중간 조정 사업비",
       "status": "보도",
-      "sources": ["https://www2.edaily.co.kr/News/Read?mediaCodeNo=257&newsId=02499366645577824"]
+      "sources": [
+        "https://www2.edaily.co.kr/News/Read?mediaCodeNo=257&newsId=02499366645577824"
+      ]
     },
     "encinal.us_requested_cost_usd_eok": {
       "value": 250,
@@ -238,40 +294,56 @@
       "value": true,
       "label": "ERCOT 전력판매 경로 검토",
       "status": "보도",
-      "sources": ["https://m.edaily.co.kr/News/Read?mediaCodeNo=257&newsId=02499366645577824"]
+      "sources": [
+        "https://m.edaily.co.kr/News/Read?mediaCodeNo=257&newsId=02499366645577824"
+      ]
     },
     "encinal.direct_ai_dc_supply_option": {
       "value": true,
       "label": "AI 데이터센터 직접 전력공급 검토",
       "status": "보도",
-      "sources": ["https://m.edaily.co.kr/News/Read?mediaCodeNo=257&newsId=02499366645577824"]
+      "sources": [
+        "https://m.edaily.co.kr/News/Read?mediaCodeNo=257&newsId=02499366645577824"
+      ]
     },
     "encinal.ppa_needed": {
       "value": true,
       "label": "장기 전력판매계약이 핵심 현금흐름 조건",
       "status": "보도",
-      "sources": ["https://m.edaily.co.kr/News/Read?mediaCodeNo=257&newsId=02499366645577824"]
+      "sources": [
+        "https://m.edaily.co.kr/News/Read?mediaCodeNo=257&newsId=02499366645577824"
+      ]
     },
     "encinal.nearby_data_center_reported_gw": {
       "value": 5,
       "label": "인근 AI 데이터센터 추진 용량",
       "status": "초기 보도",
-      "sources": ["https://www.hankyung.com/article/202607289475i"]
+      "sources": [
+        "https://www.hankyung.com/article/202607289475i"
+      ]
     },
     "encinal.stage1_commercial_start_year": {
       "value": 2030,
       "label": "엔시날 1단계 상업가동 목표",
       "status": "초기 보도",
-      "sources": ["https://www.hankyung.com/article/202607289475i"]
+      "sources": [
+        "https://www.hankyung.com/article/202607289475i"
+      ]
     },
     "encinal.fund_return_expectation_pct": {
       "value": 5,
       "label": "장기 PPA 체결 시 대미투자펀드 기대수익률 하단 전망",
       "status": "초기 보도 전망",
-      "sources": ["https://www.hankyung.com/article/202607289475i"]
+      "sources": [
+        "https://www.hankyung.com/article/202607289475i"
+      ]
     },
     "encinal.korean_epc_candidates": {
-      "value": ["삼성물산", "현대건설", "DL이앤씨"],
+      "value": [
+        "삼성물산",
+        "현대건설",
+        "DL이앤씨"
+      ],
       "label": "엔시날 한국 EPC 후보군",
       "status": "후보·본계약 미확정",
       "sources": [
@@ -292,7 +364,9 @@
       "value": "LG에너지솔루션 등",
       "label": "대용량 ESS 추가 시 배터리 후보",
       "status": "조건부 기대·사업 미확정",
-      "sources": ["https://www.hankyung.com/article/202607289475i"]
+      "sources": [
+        "https://www.hankyung.com/article/202607289475i"
+      ]
     },
     "nuclear.reactors": {
       "value": 8,
@@ -308,43 +382,57 @@
       "value": 1200,
       "label": "미국 측 원전 8기 대미투자 제안액",
       "status": "미국 측 제안",
-      "sources": ["https://www1.edaily.co.kr/News/Read?mediaCodeNo=257&newsId=03660486645577824"]
+      "sources": [
+        "https://www1.edaily.co.kr/News/Read?mediaCodeNo=257&newsId=03660486645577824"
+      ]
     },
     "nuclear.us_120b_not_committed": {
       "value": true,
       "label": "1,200억달러는 한국 확약액이 아님",
       "status": "복수 보도",
-      "sources": ["https://www1.edaily.co.kr/News/Read?mediaCodeNo=257&newsId=03660486645577824"]
+      "sources": [
+        "https://www1.edaily.co.kr/News/Read?mediaCodeNo=257&newsId=03660486645577824"
+      ]
     },
     "nuclear.reported_project_size_usd_eok": {
       "value": 1300,
       "label": "원전 8기 총사업 규모 보도",
       "status": "보도",
-      "sources": ["https://www.mt.co.kr/index.php/amp/economy/2026/09/07/2026090715524755435"]
+      "sources": [
+        "https://www.mt.co.kr/index.php/amp/economy/2026/09/07/2026090715524755435"
+      ]
     },
     "nuclear.ap1000_reactors": {
       "value": 6,
       "label": "AP1000 포함 기수",
       "status": "보도",
-      "sources": ["https://www.mt.co.kr/index.php/amp/economy/2026/09/07/2026090715524755435"]
+      "sources": [
+        "https://www.mt.co.kr/index.php/amp/economy/2026/09/07/2026090715524755435"
+      ]
     },
     "nuclear.apr1400_reactors": {
       "value": 2,
       "label": "APR1400·한국형 원전 포함 기수",
       "status": "보도",
-      "sources": ["https://www.mt.co.kr/index.php/amp/economy/2026/09/07/2026090715524755435"]
+      "sources": [
+        "https://www.mt.co.kr/index.php/amp/economy/2026/09/07/2026090715524755435"
+      ]
     },
     "nuclear.project_details_not_fixed": {
       "value": true,
       "label": "원전 8기 부지·사업자·노형·착공시점 미확정",
       "status": "보도·협의 단계",
-      "sources": ["https://www4.edaily.co.kr/News/Read?mediaCodeNo=257&newsId=03660486645577824"]
+      "sources": [
+        "https://www4.edaily.co.kr/News/Read?mediaCodeNo=257&newsId=03660486645577824"
+      ]
     },
     "nuclear.official_detail_not_final": {
       "value": true,
       "label": "정부: 구체적인 대미투자 원전 프로젝트는 아직 미확정",
       "status": "공식 설명",
-      "sources": ["https://www.motir.go.kr/kor/article/ATCLe0854704d/172127/view"]
+      "sources": [
+        "https://www.motir.go.kr/kor/article/ATCLe0854704d/172127/view"
+      ]
     },
     "package.nuclear_framework_included": {
       "value": true,
@@ -368,91 +456,124 @@
       "value": true,
       "label": "Alaska LNG 최종 합의문 포함 전망",
       "status": "보도",
-      "sources": ["https://www.mt.co.kr/economy/2026/09/07/2026090714365254729"]
+      "sources": [
+        "https://www.mt.co.kr/economy/2026/09/07/2026090714365254729"
+      ]
     },
     "alaska.first_project_round_excluded": {
       "value": true,
       "label": "Alaska LNG 1호 의결 대상 제외·후속 검토",
       "status": "보도",
-      "sources": ["https://www2.edaily.co.kr/News/Read?mediaCodeNo=257&newsId=02499366645577824"]
+      "sources": [
+        "https://www2.edaily.co.kr/News/Read?mediaCodeNo=257&newsId=02499366645577824"
+      ]
     },
     "alaska.project_size_usd_eok": {
       "value": 500,
       "label": "Alaska LNG 총사업비 추정",
       "status": "보도 추정",
-      "sources": ["https://www.reuters.com/legal/litigation/stalled-alaska-lng-pipeline-bill-sends-negative-signal-governor-says-2026-08-13/"]
+      "sources": [
+        "https://www.reuters.com/legal/litigation/stalled-alaska-lng-pipeline-bill-sends-negative-signal-governor-says-2026-08-13/"
+      ]
     },
     "alaska.export_capacity_mtpa": {
       "value": 20,
       "label": "Alaska LNG 연간 수출능력",
       "status": "개발사 공식",
-      "sources": ["https://glenfarnegroup.com/glenfarne-posco-international-corporation-finalize-strategic-alaska-lng-partnership-and-projects-first-hoa/"]
+      "sources": [
+        "https://glenfarnegroup.com/glenfarne-posco-international-corporation-finalize-strategic-alaska-lng-partnership-and-projects-first-hoa/"
+      ]
     },
     "alaska.financing_required_offtake_mtpa": {
       "value": 16,
       "label": "Alaska LNG 금융종결 필요 장기계약량",
       "status": "개발사·보도",
-      "sources": ["https://www.reuters.com/business/energy/spurred-by-gulf-war-alaska-lng-aims-go-ahead-decisions-2026-27-exports-2031-2026-03-16/"]
+      "sources": [
+        "https://www.reuters.com/business/energy/spurred-by-gulf-war-alaska-lng-aims-go-ahead-decisions-2026-27-exports-2031-2026-03-16/"
+      ]
     },
     "alaska.reported_commitments_mtpa": {
       "value": 13,
       "label": "Alaska LNG 확보 계약·의향 물량",
       "status": "보도",
-      "sources": ["https://www.reuters.com/legal/litigation/stalled-alaska-lng-pipeline-bill-sends-negative-signal-governor-says-2026-08-13/"]
+      "sources": [
+        "https://www.reuters.com/legal/litigation/stalled-alaska-lng-pipeline-bill-sends-negative-signal-governor-says-2026-08-13/"
+      ]
     },
     "alaska.posco_offtake_mtpa": {
       "value": 1,
       "label": "POSCO인터내셔널 Alaska LNG 연간 구매량",
       "status": "계약",
-      "sources": ["https://glenfarnegroup.com/glenfarne-posco-international-corporation-finalize-strategic-alaska-lng-partnership-and-projects-first-hoa/"]
+      "sources": [
+        "https://glenfarnegroup.com/glenfarne-posco-international-corporation-finalize-strategic-alaska-lng-partnership-and-projects-first-hoa/"
+      ]
     },
     "alaska.posco_offtake_years": {
       "value": 20,
       "label": "POSCO인터내셔널 Alaska LNG 구매기간",
       "status": "계약",
-      "sources": ["https://glenfarnegroup.com/glenfarne-posco-international-corporation-finalize-strategic-alaska-lng-partnership-and-projects-first-hoa/"]
+      "sources": [
+        "https://glenfarnegroup.com/glenfarne-posco-international-corporation-finalize-strategic-alaska-lng-partnership-and-projects-first-hoa/"
+      ]
     },
     "alaska.posco_prefid_investment": {
       "value": true,
       "label": "POSCO인터내셔널 Alaska LNG FID 전 자본투자",
       "status": "계약",
-      "sources": ["https://glenfarnegroup.com/glenfarne-posco-international-corporation-finalize-strategic-alaska-lng-partnership-and-projects-first-hoa/"]
+      "sources": [
+        "https://glenfarnegroup.com/glenfarne-posco-international-corporation-finalize-strategic-alaska-lng-partnership-and-projects-first-hoa/"
+      ]
     },
     "alaska.posco_pipeline_steel_supply": {
       "value": true,
       "label": "POSCO의 Alaska LNG 파이프라인 철강 공급 참여",
       "status": "계약",
-      "sources": ["https://glenfarnegroup.com/glenfarne-posco-international-corporation-finalize-strategic-alaska-lng-partnership-and-projects-first-hoa/"]
+      "sources": [
+        "https://glenfarnegroup.com/glenfarne-posco-international-corporation-finalize-strategic-alaska-lng-partnership-and-projects-first-hoa/"
+      ]
     },
     "alaska.tax_legislation_stalled": {
       "value": true,
       "label": "알래스카 주 세제 법안 지연",
       "status": "보도",
-      "sources": ["https://www.reuters.com/legal/litigation/stalled-alaska-lng-pipeline-bill-sends-negative-signal-governor-says-2026-08-13/"]
+      "sources": [
+        "https://www.reuters.com/legal/litigation/stalled-alaska-lng-pipeline-bill-sends-negative-signal-governor-says-2026-08-13/"
+      ]
     },
     "semiconductor.us_investment_request_acknowledged": {
       "value": true,
       "label": "미국의 반도체 투자 요구가 공식 논의 대상",
       "status": "청와대 확인",
-      "sources": ["https://www.news1.kr/amp/economy/trend/6280531"]
+      "sources": [
+        "https://www.news1.kr/amp/economy/trend/6280531"
+      ]
     },
     "semiconductor.relationship_to_200b_unclear": {
       "value": true,
       "label": "반도체 투자의 2,000억달러 패키지 포함 여부 미정",
       "status": "청와대 확인",
-      "sources": ["https://www.news1.kr/amp/economy/trend/6280531"]
+      "sources": [
+        "https://www.news1.kr/amp/economy/trend/6280531"
+      ]
     },
     "semiconductor.first_project_excluded": {
       "value": true,
       "label": "반도체 투자는 엔시날 1호 프로젝트에서 제외",
       "status": "보도",
-      "sources": ["https://v.daum.net/v/20260907113212498"]
+      "sources": [
+        "https://v.daum.net/v/20260907113212498"
+      ]
     },
     "semiconductor.possible_companies": {
-      "value": ["삼성전자", "SK하이닉스"],
+      "value": [
+        "삼성전자",
+        "SK하이닉스"
+      ],
       "label": "미국 현지 생산 확대 요구 가능성이 거론된 기업",
       "status": "가능성 보도·구체 요구 미공개",
-      "sources": ["https://www.news1.kr/amp/economy/trend/6280531"]
+      "sources": [
+        "https://www.news1.kr/amp/economy/trend/6280531"
+      ]
     }
   }
 }
