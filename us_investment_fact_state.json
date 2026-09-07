@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "last_updated": "2026-09-07T19:09:30+09:00",
+  "last_updated": "2026-09-07T19:38:18+09:00",
   "facts": {
     "strategy.total_package_usd_eok": {
       "value": 3500,
@@ -281,7 +281,8 @@
       "sources": [
         "https://www4.edaily.co.kr/News/Read?mediaCodeNo=257&newsId=02151686645577824",
         "https://v.daum.net/v/20260907113212498",
-        "https://n.news.naver.com/mnews/article/018/0006365091?sid=100"
+        "https://n.news.naver.com/mnews/article/018/0006365091?sid=100",
+        "https://n.news.naver.com/mnews/article/215/0001265164?sid=100"
       ]
     },
     "encinal.current_reported_cost_usd_eok": {
@@ -292,7 +293,8 @@
         "https://www4.edaily.co.kr/News/Read?mediaCodeNo=257&newsId=02151686645577824",
         "https://www2.edaily.co.kr/News/Read?mediaCodeNo=257&newsId=02499366645577824",
         "https://v.daum.net/v/20260907113212498",
-        "https://n.news.naver.com/mnews/article/018/0006365091?sid=100"
+        "https://n.news.naver.com/mnews/article/018/0006365091?sid=100",
+        "https://n.news.naver.com/mnews/article/215/0001265164?sid=100"
       ]
     },
     "encinal.cost_increase_driver_us_pressure": {
@@ -302,7 +304,8 @@
       "sources": [
         "https://www4.edaily.co.kr/News/Read?mediaCodeNo=257&newsId=02151686645577824",
         "https://v.daum.net/v/20260907113212498",
-        "https://n.news.naver.com/mnews/article/018/0006365091?sid=100"
+        "https://n.news.naver.com/mnews/article/018/0006365091?sid=100",
+        "https://n.news.naver.com/mnews/article/215/0001265164?sid=100"
       ]
     },
     "encinal.ercot_sale_option": {
@@ -392,7 +395,8 @@
         "https://www1.edaily.co.kr/News/Read?mediaCodeNo=257&newsId=03660486645577824",
         "https://www.mt.co.kr/index.php/amp/economy/2026/09/07/2026090715524755435",
         "https://n.news.naver.com/mnews/article/018/0006365091?sid=100",
-        "https://n.news.naver.com/mnews/article/015/0005329652?sid=101"
+        "https://n.news.naver.com/mnews/article/015/0005329652?sid=101",
+        "https://n.news.naver.com/mnews/article/215/0001265164?sid=100"
       ]
     },
     "nuclear.us_proposal_usd_eok": {
@@ -592,7 +596,8 @@
       "label": "반도체 투자는 엔시날 1호 프로젝트에서 제외",
       "status": "보도",
       "sources": [
-        "https://v.daum.net/v/20260907113212498"
+        "https://v.daum.net/v/20260907113212498",
+        "https://n.news.naver.com/mnews/article/215/0001265164?sid=100"
       ]
     },
     "semiconductor.possible_companies": {
