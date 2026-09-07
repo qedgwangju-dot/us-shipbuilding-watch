@@ -18,7 +18,7 @@ STATE = ROOT / "us_investment_state.json"
 ALERT = ROOT / "us_investment_alert.html"
 KST = ZoneInfo("Asia/Seoul")
 UTC = dt.timezone.utc
-USER_AGENT = "Mozilla/5.0 KHS-US-Investment-Watch/1.2"
+USER_AGENT = "Mozilla/5.0 KHS-US-Investment-Watch/1.3"
 MAX_AGE_HOURS = 96
 
 NAVER_USDKRW = "https://api.stock.naver.com/marketindex/exchange/FX_USDKRW/prices?page=1&pageSize=1"
@@ -432,10 +432,9 @@ def bootstrap_message(now: dt.datetime, usdkrw: float, fx_source: str) -> str:
         f"• {html.escape(risk)}",
         f"• 먼저 볼 지표: <b>{html.escape(early)}</b>",
         "",
-        "<b>원문</b>",
-        '<a href="https://biz.heraldcorp.com/article/10864870">헤럴드경제</a> · '
-        '<a href="https://www2.edaily.co.kr/News/Read?mediaCodeNo=257&newsId=02499366645577824">이데일리</a> · '
-        f'<a href="{MOU_OFFICIAL_URL}">산업통상부 한미 전략투자 MOU</a>',
+        '<a href="https://biz.heraldcorp.com/article/10864870"><b>헤럴드경제</b></a> · '
+        '<a href="https://www2.edaily.co.kr/News/Read?mediaCodeNo=257&newsId=02499366645577824"><b>이데일리</b></a> · '
+        f'<a href="{MOU_OFFICIAL_URL}"><b>산업통상부 한미 전략투자 MOU</b></a>',
         footer(now, usdkrw, fx_source, "공식 문서가 나오면 보도 단계에서 공식 확정으로 갱신"),
     ]
     return "\n".join(lines)
@@ -449,7 +448,9 @@ def update_message(now: dt.datetime, rows: list[dict], usdkrw: float, fx_source:
         tags = row["tags"]
         combined_tags.extend(tags)
         source_text = f"{row['title']} {row.get('description', '')}"
-        parts.append(f"<b>{index}. {html.escape(row['title'])}</b>")
+        title = html.escape(row["title"])
+        link = html.escape(row["link"], quote=True)
+        parts.append(f'<b>{index}. <a href="{link}">{title}</a></b>')
 
         conversions = extract_usd_conversions(source_text, usdkrw)
         if conversions:
@@ -463,7 +464,6 @@ def update_message(now: dt.datetime, rows: list[dict], usdkrw: float, fx_source:
             f"• 구분: <b>{html.escape(' / '.join(tags[:3]))}</b>",
             f"• 의미: {html.escape(meaning(tags))}",
             f"• 다음 확인: {html.escape(next_check(tags, usdkrw))}",
-            f'• 원문: <a href="{html.escape(row["link"], quote=True)}">{html.escape(row["source"])}</a>',
             "",
         ])
 
@@ -482,7 +482,7 @@ def update_message(now: dt.datetime, rows: list[dict], usdkrw: float, fx_source:
         f"• {html.escape(risk)}",
         f"• 먼저 볼 지표: <b>{html.escape(early)}</b>",
         "",
-        f'<b>공식 기준</b> · <a href="{MOU_OFFICIAL_URL}">산업통상부 한미 전략투자 MOU</a>',
+        f'<a href="{MOU_OFFICIAL_URL}"><b>산업통상부 한미 전략투자 MOU</b></a>',
         footer(now, usdkrw, fx_source, "같은 사건 반복 기사와 단순 주가 반응은 제외"),
     ])
     return "\n".join(parts)
