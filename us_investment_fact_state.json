@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "last_updated": "2026-09-08T01:11:58+09:00",
+  "last_updated": "2026-09-08T04:58:56+09:00",
   "facts": {
     "strategy.total_package_usd_eok": {
       "value": 3500,
@@ -195,7 +195,8 @@
         "https://n.news.naver.com/mnews/article/015/0005329652?sid=101",
         "https://n.news.naver.com/mnews/article/016/0002602277?sid=104",
         "https://n.news.naver.com/mnews/article/422/0000903732?sid=101",
-        "https://n.news.naver.com/mnews/article/215/0001265151?sid=101"
+        "https://n.news.naver.com/mnews/article/215/0001265151?sid=101",
+        "https://n.news.naver.com/mnews/article/374/0000531654?sid=101"
       ]
     },
     "encinal.project_owner": {
@@ -217,7 +218,8 @@
         "https://www2.edaily.co.kr/News/Read?mediaCodeNo=257&newsId=02499366645577824",
         "https://www.hankyung.com/article/202607289475i",
         "https://n.news.naver.com/mnews/article/018/0006365091?sid=100",
-        "https://n.news.naver.com/mnews/article/422/0000903732?sid=101"
+        "https://n.news.naver.com/mnews/article/422/0000903732?sid=101",
+        "https://n.news.naver.com/mnews/article/374/0000531654?sid=101"
       ]
     },
     "encinal.stage1_capacity_reports_gw": {
@@ -230,7 +232,8 @@
       "sources": [
         "https://m.edaily.co.kr/News/Read?mediaCodeNo=257&newsId=02499366645577824",
         "https://www.hankyung.com/article/202607289475i",
-        "https://n.news.naver.com/mnews/article/018/0006365091?sid=100"
+        "https://n.news.naver.com/mnews/article/018/0006365091?sid=100",
+        "https://n.news.naver.com/mnews/article/374/0000531654?sid=101"
       ]
     },
     "encinal.stage2to6_each_gw": {
@@ -277,7 +280,8 @@
         "https://www2.edaily.co.kr/News/Read?mediaCodeNo=257&newsId=02499366645577824",
         "https://n.news.naver.com/mnews/article/018/0006365091?sid=100",
         "https://n.news.naver.com/mnews/article/015/0005329652?sid=101",
-        "https://n.news.naver.com/mnews/article/215/0001265151?sid=101"
+        "https://n.news.naver.com/mnews/article/215/0001265151?sid=101",
+        "https://n.news.naver.com/mnews/article/374/0000531654?sid=101"
       ]
     },
     "encinal.us_requested_cost_usd_eok": {
@@ -290,7 +294,8 @@
         "https://n.news.naver.com/mnews/article/018/0006365091?sid=100",
         "https://n.news.naver.com/mnews/article/215/0001265164?sid=100",
         "https://n.news.naver.com/mnews/article/422/0000903732?sid=101",
-        "https://n.news.naver.com/mnews/article/215/0001265151?sid=101"
+        "https://n.news.naver.com/mnews/article/215/0001265151?sid=101",
+        "https://n.news.naver.com/mnews/article/374/0000531654?sid=101"
       ]
     },
     "encinal.current_reported_cost_usd_eok": {
@@ -317,7 +322,8 @@
         "https://n.news.naver.com/mnews/article/018/0006365091?sid=100",
         "https://n.news.naver.com/mnews/article/215/0001265164?sid=100",
         "https://n.news.naver.com/mnews/article/422/0000903732?sid=101",
-        "https://n.news.naver.com/mnews/article/215/0001265151?sid=101"
+        "https://n.news.naver.com/mnews/article/215/0001265151?sid=101",
+        "https://n.news.naver.com/mnews/article/374/0000531654?sid=101"
       ]
     },
     "encinal.ercot_sale_option": {
@@ -409,7 +415,9 @@
         "https://n.news.naver.com/mnews/article/018/0006365091?sid=100",
         "https://n.news.naver.com/mnews/article/015/0005329652?sid=101",
         "https://n.news.naver.com/mnews/article/215/0001265164?sid=100",
-        "https://n.news.naver.com/mnews/article/422/0000903732?sid=101"
+        "https://n.news.naver.com/mnews/article/422/0000903732?sid=101",
+        "https://n.news.naver.com/mnews/article/008/0005410602?sid=101",
+        "https://n.news.naver.com/mnews/article/374/0000531654?sid=101"
       ]
     },
     "nuclear.us_proposal_usd_eok": {
@@ -493,7 +501,8 @@
         "https://www1.edaily.co.kr/News/Read?mediaCodeNo=257&newsId=03660486645577824",
         "https://n.news.naver.com/mnews/article/018/0006365091?sid=100",
         "https://n.news.naver.com/mnews/article/015/0005329652?sid=101",
-        "https://n.news.naver.com/mnews/article/016/0002602277?sid=104"
+        "https://n.news.naver.com/mnews/article/016/0002602277?sid=104",
+        "https://n.news.naver.com/mnews/article/374/0000531654?sid=101"
       ]
     },
     "package.alaska_final_framework_reported_included": {
@@ -601,7 +610,8 @@
       "sources": [
         "https://www.news1.kr/amp/economy/trend/6280531",
         "https://n.news.naver.com/mnews/article/018/0006363469?sid=101",
-        "https://n.news.naver.com/mnews/article/006/0000137574?sid=102"
+        "https://n.news.naver.com/mnews/article/006/0000137574?sid=102",
+        "https://n.news.naver.com/mnews/article/374/0000531654?sid=101"
       ]
     },
     "semiconductor.first_project_excluded": {
@@ -611,7 +621,8 @@
       "sources": [
         "https://v.daum.net/v/20260907113212498",
         "https://n.news.naver.com/mnews/article/215/0001265164?sid=100",
-        "https://n.news.naver.com/mnews/article/422/0000903732?sid=101"
+        "https://n.news.naver.com/mnews/article/422/0000903732?sid=101",
+        "https://n.news.naver.com/mnews/article/374/0000531654?sid=101"
       ]
     },
     "semiconductor.possible_companies": {
