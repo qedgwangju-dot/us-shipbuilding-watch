@@ -1,4 +1,4 @@
-name: 대미투자 Telegram 감시 v10
+name: 대미투자 Telegram 감시 v11
 
 on:
   schedule:
@@ -12,13 +12,14 @@ on:
       - 'us_investment_watch_v5.py'
       - 'us_investment_watch_v9.py'
       - 'us_investment_watch_v10.py'
+      - 'us_investment_watch_v11.py'
       - '.github/workflows/us-investment-telegram-watch-v3.yml'
 
 permissions:
   contents: write
 
 concurrency:
-  group: us-investment-telegram-watch-v10
+  group: us-investment-telegram-watch-v11
   cancel-in-progress: true
 
 jobs:
@@ -39,8 +40,9 @@ jobs:
           python -m py_compile us_investment_watch_v5.py
           python -m py_compile us_investment_watch_v9.py
           python -m py_compile us_investment_watch_v10.py
+          python -m py_compile us_investment_watch_v11.py
       - name: 대미투자 누적 내용 변화 확인
-        run: python us_investment_watch_v10.py
+        run: python us_investment_watch_v11.py
       - name: Telegram 전송
         if: hashFiles('us_investment_alert.html') != ''
         env:
