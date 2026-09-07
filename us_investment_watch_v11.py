@@ -30,6 +30,11 @@ TEXT_REPLACEMENTS = [
     ("MOU", "업무협약"),
     ("risk pooling", "위험 통합"),
     ("Risk Pooling", "위험 통합"),
+    ("리스크 풀링", "위험 통합"),
+    ("프레임워크", "기본 틀"),
+    ("패키지", "투자안"),
+    ("오프그리드", "전력망 비연계 직접공급"),
+    ("벤더", "공급업체"),
 ]
 
 
@@ -62,7 +67,7 @@ def fact_value_text_ko(key: str, value, fx: float) -> str:
             )
     if key.endswith("_mtpa"):
         if isinstance(value, (int, float)):
-            # 1 MTPA = 연간 100만톤
+            # 연간 100만톤 단위를 한국어 물량으로 환산한다.
             million_tons = float(value)
             man_tons = million_tons * 100
             if abs(man_tons - round(man_tons)) < 1e-9:
