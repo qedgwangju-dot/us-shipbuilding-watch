@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "last_updated": "2026-09-07T18:50:01+09:00",
+  "last_updated": "2026-09-07T18:53:48+09:00",
   "facts": {
     "strategy.total_package_usd_eok": {
       "value": 3500,
@@ -96,7 +96,8 @@
       "status": "공식 MOU·복수 보도",
       "sources": [
         "https://www.motir.go.kr/kor/article/ATCL3f49a5a8c/171196/view",
-        "https://m2.edaily.co.kr/News/Read?mediaCodeNo=257&newsId=03371846645577824"
+        "https://m2.edaily.co.kr/News/Read?mediaCodeNo=257&newsId=03371846645577824",
+        "https://n.news.naver.com/mnews/article/018/0006365091?sid=100"
       ]
     },
     "structure.profit_split_before_repayment_korea_pct": {
@@ -137,7 +138,8 @@
       "status": "복수 보도",
       "sources": [
         "https://www2.edaily.co.kr/News/Read?mediaCodeNo=257&newsId=02499366645577824",
-        "https://www1.edaily.co.kr/News/Read?mediaCodeNo=257&newsId=03660486645577824"
+        "https://www1.edaily.co.kr/News/Read?mediaCodeNo=257&newsId=03660486645577824",
+        "https://n.news.naver.com/mnews/article/018/0006365091?sid=100"
       ]
     },
     "tariff.mou_compliance_keeps_agreed_tariff_levels": {
@@ -169,7 +171,8 @@
       "label": "301조 조사와 대미투자 협상 시계 중첩",
       "status": "보도",
       "sources": [
-        "https://www.news1.kr/economy/trend/6265928"
+        "https://www.news1.kr/economy/trend/6265928",
+        "https://n.news.naver.com/mnews/article/018/0006363469?sid=101"
       ]
     },
     "tariff.fifteen_percent_defense_focus": {
@@ -177,7 +180,8 @@
       "label": "한국 정부의 기존 15% 관세 합의선 방어",
       "status": "정부 발언 보도",
       "sources": [
-        "https://www.news1.kr/economy/trend/6265928"
+        "https://www.news1.kr/economy/trend/6265928",
+        "https://n.news.naver.com/mnews/article/016/0002602277?sid=104"
       ]
     },
     "encinal.first_project_selected": {
@@ -186,7 +190,10 @@
       "status": "복수 보도",
       "sources": [
         "https://www4.edaily.co.kr/News/Read?mediaCodeNo=257&newsId=02151686645577824",
-        "https://v.daum.net/v/20260907113212498"
+        "https://v.daum.net/v/20260907113212498",
+        "https://n.news.naver.com/mnews/article/018/0006365091?sid=100",
+        "https://n.news.naver.com/mnews/article/015/0005329652?sid=101",
+        "https://n.news.naver.com/mnews/article/016/0002602277?sid=104"
       ]
     },
     "encinal.project_owner": {
@@ -206,7 +213,8 @@
       "status": "보도 불일치",
       "sources": [
         "https://www2.edaily.co.kr/News/Read?mediaCodeNo=257&newsId=02499366645577824",
-        "https://www.hankyung.com/article/202607289475i"
+        "https://www.hankyung.com/article/202607289475i",
+        "https://n.news.naver.com/mnews/article/018/0006365091?sid=100"
       ]
     },
     "encinal.stage1_capacity_reports_gw": {
@@ -218,7 +226,8 @@
       "status": "보도 불일치",
       "sources": [
         "https://m.edaily.co.kr/News/Read?mediaCodeNo=257&newsId=02499366645577824",
-        "https://www.hankyung.com/article/202607289475i"
+        "https://www.hankyung.com/article/202607289475i",
+        "https://n.news.naver.com/mnews/article/018/0006365091?sid=100"
       ]
     },
     "encinal.stage2to6_each_gw": {
@@ -243,7 +252,8 @@
       "status": "복수 보도",
       "sources": [
         "https://www.mt.co.kr/economy/2026/07/28/2026072814202482222",
-        "https://www.hankyung.com/article/202607289475i"
+        "https://www.hankyung.com/article/202607289475i",
+        "https://n.news.naver.com/mnews/article/018/0006365091?sid=100"
       ]
     },
     "encinal.negotiation_baseline_usd_eok": {
@@ -259,7 +269,9 @@
       "label": "엔시날 중간 조정 사업비",
       "status": "보도",
       "sources": [
-        "https://www2.edaily.co.kr/News/Read?mediaCodeNo=257&newsId=02499366645577824"
+        "https://www2.edaily.co.kr/News/Read?mediaCodeNo=257&newsId=02499366645577824",
+        "https://n.news.naver.com/mnews/article/018/0006365091?sid=100",
+        "https://n.news.naver.com/mnews/article/015/0005329652?sid=101"
       ]
     },
     "encinal.us_requested_cost_usd_eok": {
@@ -268,7 +280,8 @@
       "status": "미국 측 요구 보도",
       "sources": [
         "https://www4.edaily.co.kr/News/Read?mediaCodeNo=257&newsId=02151686645577824",
-        "https://v.daum.net/v/20260907113212498"
+        "https://v.daum.net/v/20260907113212498",
+        "https://n.news.naver.com/mnews/article/018/0006365091?sid=100"
       ]
     },
     "encinal.current_reported_cost_usd_eok": {
@@ -278,7 +291,8 @@
       "sources": [
         "https://www4.edaily.co.kr/News/Read?mediaCodeNo=257&newsId=02151686645577824",
         "https://www2.edaily.co.kr/News/Read?mediaCodeNo=257&newsId=02499366645577824",
-        "https://v.daum.net/v/20260907113212498"
+        "https://v.daum.net/v/20260907113212498",
+        "https://n.news.naver.com/mnews/article/018/0006365091?sid=100"
       ]
     },
     "encinal.cost_increase_driver_us_pressure": {
@@ -287,7 +301,8 @@
       "status": "복수 보도",
       "sources": [
         "https://www4.edaily.co.kr/News/Read?mediaCodeNo=257&newsId=02151686645577824",
-        "https://v.daum.net/v/20260907113212498"
+        "https://v.daum.net/v/20260907113212498",
+        "https://n.news.naver.com/mnews/article/018/0006365091?sid=100"
       ]
     },
     "encinal.ercot_sale_option": {
@@ -375,7 +390,9 @@
       "sources": [
         "https://www.mt.co.kr/economy/2026/09/07/2026090714365254729",
         "https://www1.edaily.co.kr/News/Read?mediaCodeNo=257&newsId=03660486645577824",
-        "https://www.mt.co.kr/index.php/amp/economy/2026/09/07/2026090715524755435"
+        "https://www.mt.co.kr/index.php/amp/economy/2026/09/07/2026090715524755435",
+        "https://n.news.naver.com/mnews/article/018/0006365091?sid=100",
+        "https://n.news.naver.com/mnews/article/015/0005329652?sid=101"
       ]
     },
     "nuclear.us_proposal_usd_eok": {
@@ -383,7 +400,9 @@
       "label": "미국 측 원전 8기 대미투자 제안액",
       "status": "미국 측 제안",
       "sources": [
-        "https://www1.edaily.co.kr/News/Read?mediaCodeNo=257&newsId=03660486645577824"
+        "https://www1.edaily.co.kr/News/Read?mediaCodeNo=257&newsId=03660486645577824",
+        "https://n.news.naver.com/mnews/article/018/0006365091?sid=100",
+        "https://n.news.naver.com/mnews/article/015/0005329652?sid=101"
       ]
     },
     "nuclear.us_120b_not_committed": {
@@ -391,7 +410,8 @@
       "label": "1,200억달러는 한국 확약액이 아님",
       "status": "복수 보도",
       "sources": [
-        "https://www1.edaily.co.kr/News/Read?mediaCodeNo=257&newsId=03660486645577824"
+        "https://www1.edaily.co.kr/News/Read?mediaCodeNo=257&newsId=03660486645577824",
+        "https://n.news.naver.com/mnews/article/018/0006365091?sid=100"
       ]
     },
     "nuclear.reported_project_size_usd_eok": {
@@ -423,7 +443,8 @@
       "label": "원전 8기 부지·사업자·노형·착공시점 미확정",
       "status": "보도·협의 단계",
       "sources": [
-        "https://www4.edaily.co.kr/News/Read?mediaCodeNo=257&newsId=03660486645577824"
+        "https://www4.edaily.co.kr/News/Read?mediaCodeNo=257&newsId=03660486645577824",
+        "https://n.news.naver.com/mnews/article/018/0006365091?sid=100"
       ]
     },
     "nuclear.official_detail_not_final": {
@@ -431,7 +452,8 @@
       "label": "정부: 구체적인 대미투자 원전 프로젝트는 아직 미확정",
       "status": "공식 설명",
       "sources": [
-        "https://www.motir.go.kr/kor/article/ATCLe0854704d/172127/view"
+        "https://www.motir.go.kr/kor/article/ATCLe0854704d/172127/view",
+        "https://policy.naver.com/policy/service.html"
       ]
     },
     "package.nuclear_framework_included": {
@@ -440,7 +462,9 @@
       "status": "보도·협의 단계",
       "sources": [
         "https://www.mt.co.kr/economy/2026/09/07/2026090714365254729",
-        "https://www1.edaily.co.kr/News/Read?mediaCodeNo=257&newsId=03660486645577824"
+        "https://www1.edaily.co.kr/News/Read?mediaCodeNo=257&newsId=03660486645577824",
+        "https://n.news.naver.com/mnews/article/018/0006365091?sid=100",
+        "https://n.news.naver.com/mnews/article/015/0005329652?sid=101"
       ]
     },
     "package.target_sign_date": {
@@ -449,7 +473,10 @@
       "status": "보도",
       "sources": [
         "https://www.mt.co.kr/economy/2026/09/07/2026090714365254729",
-        "https://www1.edaily.co.kr/News/Read?mediaCodeNo=257&newsId=03660486645577824"
+        "https://www1.edaily.co.kr/News/Read?mediaCodeNo=257&newsId=03660486645577824",
+        "https://n.news.naver.com/mnews/article/018/0006365091?sid=100",
+        "https://n.news.naver.com/mnews/article/015/0005329652?sid=101",
+        "https://n.news.naver.com/mnews/article/016/0002602277?sid=104"
       ]
     },
     "package.alaska_final_framework_reported_included": {
@@ -545,7 +572,8 @@
       "label": "미국의 반도체 투자 요구가 공식 논의 대상",
       "status": "청와대 확인",
       "sources": [
-        "https://www.news1.kr/amp/economy/trend/6280531"
+        "https://www.news1.kr/amp/economy/trend/6280531",
+        "https://news.mtn.co.kr/news-detail/2026090413255758525"
       ]
     },
     "semiconductor.relationship_to_200b_unclear": {
@@ -553,7 +581,8 @@
       "label": "반도체 투자의 2,000억달러 패키지 포함 여부 미정",
       "status": "청와대 확인",
       "sources": [
-        "https://www.news1.kr/amp/economy/trend/6280531"
+        "https://www.news1.kr/amp/economy/trend/6280531",
+        "https://n.news.naver.com/mnews/article/018/0006363469?sid=101"
       ]
     },
     "semiconductor.first_project_excluded": {
@@ -574,6 +603,15 @@
       "sources": [
         "https://www.news1.kr/amp/economy/trend/6280531"
       ]
+    },
+    "alaska.final_framework_reported_included": {
+      "value": true,
+      "label": "Alaska LNG 최종 패키지 포함 보도",
+      "status": "보도",
+      "sources": [
+        "https://n.news.naver.com/mnews/article/018/0006365091?sid=100"
+      ],
+      "updated_at": "2026-09-07T18:53:48+09:00"
     }
   }
 }
