@@ -7,8 +7,9 @@ import us_investment_watch_v9 as v9
 import us_investment_watch_v10 as v10
 
 # v11: Telegram 사용자 표시 문구는 한국어를 우선한다.
-# 기사 원문 검색용 키워드/내부 식별자는 원문을 유지하되, 송출되는 설명어·공정명·계약명·단위는 한국어로 변환한다.
-# AP1000/APR1400 같은 모델명과 법규 번호는 식별을 위해 그대로 둔다.
+# 다만 국내 산업·정책 자료에서도 그대로 통용되는 식별·단위 표현은 유지한다.
+# 유지: AI 데이터센터, 오프그리드, GW, AP1000, APR1400, 법규 번호.
+# 그 외 일반 설명어·계약명·공정명은 한국어로 변환한다.
 
 _ORIGINAL_FACT_VALUE_TEXT = v9.fact_value_text
 _ORIGINAL_BUILD_ALERT = v9.build_alert
@@ -26,14 +27,12 @@ TEXT_REPLACEMENTS = [
     ("Lewis Energy Group", "루이스 에너지 그룹"),
     ("POSCO International", "포스코인터내셔널"),
     ("POSCO", "포스코"),
-    ("AI", "인공지능"),
     ("MOU", "업무협약"),
     ("risk pooling", "위험 통합"),
     ("Risk Pooling", "위험 통합"),
     ("리스크 풀링", "위험 통합"),
     ("프레임워크", "기본 틀"),
     ("패키지", "투자안"),
-    ("오프그리드", "전력망 비연계 직접공급"),
     ("벤더", "공급업체"),
 ]
 
@@ -56,18 +55,10 @@ def koreanize_html_text(html_text: str) -> str:
 
 
 def fact_value_text_ko(key: str, value, fx: float) -> str:
-    # 물리 단위도 사용자 표시에서는 한국어로 쓴다.
-    if key.endswith("_gw"):
-        if isinstance(value, (int, float)):
-            return f"{float(value):g}기가와트"
-        if isinstance(value, list):
-            return " / ".join(
-                f"{float(v):g}기가와트" if isinstance(v, (int, float)) else _koreanize_text(str(v))
-                for v in value
-            )
+    # GW는 산업 자료에서 널리 쓰이므로 원문 단위를 유지한다.
     if key.endswith("_mtpa"):
         if isinstance(value, (int, float)):
-            # 연간 100만톤 단위를 한국어 물량으로 환산한다.
+            # 연간 100만톤 단위는 한국어 물량으로 환산한다.
             million_tons = float(value)
             man_tons = million_tons * 100
             if abs(man_tons - round(man_tons)) < 1e-9:
@@ -87,6 +78,7 @@ def fact_value_text_ko(key: str, value, fx: float) -> str:
 
 def build_alert_ko(now, changes, fx: float, fx_source: str) -> str:
     # 기존 숫자·조건·확정도 로직은 그대로 유지하고 최종 사용자 표시만 한국어화한다.
+    # AI 데이터센터·오프그리드·GW는 그대로 보존한다.
     return koreanize_html_text(_ORIGINAL_BUILD_ALERT(now, changes, fx, fx_source))
 
 
