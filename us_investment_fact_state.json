@@ -1,66 +1,86 @@
 {
   "version": 1,
-  "last_updated": "2026-09-07T17:59:00+09:00",
+  "last_updated": "2026-09-07T18:31:45+09:00",
   "facts": {
     "strategy.total_usd_eok": {
       "value": 2000,
       "label": "전략투자 전체 한도",
       "status": "공식 MOU",
-      "sources": ["https://www.motir.go.kr/kor/article/ATCL3f49a5a8c/171196/view"]
+      "sources": [
+        "https://www.motir.go.kr/kor/article/ATCL3f49a5a8c/171196/view"
+      ]
     },
     "strategy.annual_request_max_usd_eok": {
       "value": 200,
       "label": "연간 최대 자금요청",
       "status": "공식 MOU",
-      "sources": ["https://www.motir.go.kr/kor/article/ATCL3f49a5a8c/171196/view"]
+      "sources": [
+        "https://www.motir.go.kr/kor/article/ATCL3f49a5a8c/171196/view"
+      ]
     },
     "encinal.capacity_gw": {
       "value": 6.3,
       "label": "엔시날 총 발전용량",
-      "status": "복수 보도",
+      "status": "보도",
       "sources": [
+        "https://n.news.naver.com/mnews/article/018/0006365091?sid=100",
         "https://m.edaily.co.kr/amp/read?mediaCodeNo=257&newsId=02151686645577824",
         "https://v.daum.net/v/20260907113212498"
-      ]
+      ],
+      "updated_at": "2026-09-07T18:31:45+09:00"
     },
     "encinal.initial_cost_usd_eok": {
       "value": 198,
       "label": "엔시날 당초 검토 사업비",
-      "status": "복수 보도",
+      "status": "보도",
       "sources": [
+        "https://n.news.naver.com/mnews/article/018/0006365091?sid=100",
         "https://www.hankyung.com/article/202608289244i",
         "https://m.edaily.co.kr/amp/read?mediaCodeNo=257&newsId=02151686645577824"
-      ]
+      ],
+      "updated_at": "2026-09-07T18:31:45+09:00"
     },
     "encinal.us_requested_cost_usd_eok": {
       "value": 250,
       "label": "미국 측 엔시날 증액 요구",
-      "status": "복수 보도",
+      "status": "미국 측 요구 보도",
       "sources": [
+        "https://n.news.naver.com/mnews/article/018/0006365091?sid=100",
         "https://www.hankyung.com/article/202608289244i",
         "https://m.edaily.co.kr/amp/read?mediaCodeNo=257&newsId=02151686645577824"
-      ]
+      ],
+      "updated_at": "2026-09-07T18:31:45+09:00"
     },
     "encinal.negotiated_cost_usd_eok": {
       "value": 223,
       "label": "엔시날 협상 사업비",
-      "status": "복수 보도",
+      "status": "보도",
       "sources": [
+        "https://n.news.naver.com/mnews/article/018/0006365091?sid=100",
         "https://m.edaily.co.kr/amp/read?mediaCodeNo=257&newsId=02151686645577824",
         "https://v.daum.net/v/20260907113212498"
-      ]
+      ],
+      "updated_at": "2026-09-07T18:31:45+09:00"
     },
     "encinal.stage1_gt_gw": {
       "value": 1.4,
       "label": "엔시날 1단계 가스터빈",
-      "status": "복수 보도",
-      "sources": ["https://m.coinlab.edaily.co.kr/News/Read?mediaCodeNo=257&newsId=03660486645577824"]
+      "status": "보도",
+      "sources": [
+        "https://n.news.naver.com/mnews/article/018/0006365091?sid=100",
+        "https://m.coinlab.edaily.co.kr/News/Read?mediaCodeNo=257&newsId=03660486645577824"
+      ],
+      "updated_at": "2026-09-07T18:31:45+09:00"
     },
     "encinal.stage2_ccgt_gw": {
       "value": 4.9,
       "label": "엔시날 후속 복합화력",
-      "status": "복수 보도",
-      "sources": ["https://m.coinlab.edaily.co.kr/News/Read?mediaCodeNo=257&newsId=03660486645577824"]
+      "status": "보도",
+      "sources": [
+        "https://n.news.naver.com/mnews/article/018/0006365091?sid=100",
+        "https://m.coinlab.edaily.co.kr/News/Read?mediaCodeNo=257&newsId=03660486645577824"
+      ],
+      "updated_at": "2026-09-07T18:31:45+09:00"
     },
     "nuclear.reactors": {
       "value": 8,
@@ -68,47 +88,74 @@
       "status": "보도·협의 단계",
       "sources": [
         "https://mt.co.kr/economy/2026/09/07/2026090714365254729",
-        "https://m.coinlab.edaily.co.kr/News/Read?mediaCodeNo=257&newsId=03660486645577824"
+        "https://m.coinlab.edaily.co.kr/News/Read?mediaCodeNo=257&newsId=03660486645577824",
+        "https://www.mt.co.kr/economy/2026/09/07/2026090714365254729",
+        "https://www.mt.co.kr/economy/2026/09/07/2026090715524755435",
+        "https://n.news.naver.com/mnews/article/018/0006365091?sid=100",
+        "https://n.news.naver.com/mnews/article/015/0005329652?sid=101"
       ]
     },
     "nuclear.us_proposal_usd_eok": {
       "value": 1200,
       "label": "미국 측 원전 8기 대미투자 제안액",
       "status": "미국 측 제안",
-      "sources": ["https://m.coinlab.edaily.co.kr/News/Read?mediaCodeNo=257&newsId=03660486645577824"]
+      "sources": [
+        "https://m.coinlab.edaily.co.kr/News/Read?mediaCodeNo=257&newsId=03660486645577824",
+        "https://n.news.naver.com/mnews/article/018/0006365091?sid=100",
+        "https://n.news.naver.com/mnews/article/015/0005329652?sid=101"
+      ]
     },
     "nuclear.reported_project_size_usd_eok": {
       "value": 1300,
       "label": "원전 8기 총사업 규모 보도",
       "status": "보도",
-      "sources": ["https://n.news.naver.com/mnews/article/008/0005410466"]
+      "sources": [
+        "https://n.news.naver.com/mnews/article/008/0005410466",
+        "https://www.mt.co.kr/economy/2026/09/07/2026090715524755435"
+      ]
     },
     "nuclear.korean_reactors": {
       "value": 2,
       "label": "한국형 원전 포함 기수",
       "status": "보도",
-      "sources": ["https://n.news.naver.com/mnews/article/008/0005410466"]
+      "sources": [
+        "https://n.news.naver.com/mnews/article/008/0005410466",
+        "https://www.mt.co.kr/economy/2026/09/07/2026090715524755435"
+      ]
     },
     "package.target_sign_date": {
       "value": "2026-09-18",
       "label": "대미투자 최종 서명 목표일",
       "status": "보도",
-      "sources": ["https://mt.co.kr/economy/2026/09/07/2026090714365254729"]
+      "sources": [
+        "https://mt.co.kr/economy/2026/09/07/2026090714365254729",
+        "https://www.mt.co.kr/economy/2026/09/07/2026090714365254729",
+        "https://n.news.naver.com/mnews/article/018/0006365091?sid=100",
+        "https://n.news.naver.com/mnews/article/015/0005329652?sid=101"
+      ]
     },
     "package.nuclear_framework_included": {
       "value": true,
       "label": "원전 8기 추진 프레임워크 패키지 포함",
       "status": "보도·협의 단계",
-      "sources": ["https://mt.co.kr/economy/2026/09/07/2026090714365254729"]
+      "sources": [
+        "https://mt.co.kr/economy/2026/09/07/2026090714365254729",
+        "https://www.mt.co.kr/economy/2026/09/07/2026090714365254729",
+        "https://www.mt.co.kr/economy/2026/09/07/2026090715524755435",
+        "https://n.news.naver.com/mnews/article/018/0006365091?sid=100",
+        "https://n.news.naver.com/mnews/article/015/0005329652?sid=101"
+      ]
     },
     "encinal.cost_increase_driver_us_pressure": {
       "value": true,
       "label": "엔시날 증액이 미국 측 요구에서 촉발",
-      "status": "복수 보도",
+      "status": "보도",
       "sources": [
+        "https://n.news.naver.com/mnews/article/018/0006365091?sid=100",
         "https://www.hankyung.com/article/202608289244i",
         "https://m.edaily.co.kr/amp/read?mediaCodeNo=257&newsId=02151686645577824"
-      ]
+      ],
+      "updated_at": "2026-09-07T18:31:45+09:00"
     }
   }
 }
