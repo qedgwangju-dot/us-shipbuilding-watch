@@ -1,0 +1,133 @@
+name: 대미투자 Telegram 감시
+
+on:
+  schedule:
+    - cron: '6,16,26,36,46,56 * * * *'
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - 'us_investment_watch.py'
+      - '.github/workflows/us-investment-telegram-watch.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: us-investment-telegram-watch
+  cancel-in-progress: true
+
+jobs:
+  monitor:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    env:
+      EXPECTED_TELEGRAM_BOT_USERNAME: 'khs887900_bot'
+
+    steps:
+      - name: 저장소 불러오기
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Python 설정
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: 감시 코드 검증
+        run: python -m py_compile us_investment_watch.py
+
+      - name: 대미투자 중요 변화 확인
+        run: python us_investment_watch.py
+
+      - name: 지정 Telegram 봇으로 전송
+        if: hashFiles('us_investment_alert.html') != ''
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.KHS887900_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.KHS887900_CHAT_ID }}
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          import pathlib
+          import urllib.parse
+          import urllib.request
+
+          token = (os.getenv('TELEGRAM_BOT_TOKEN') or '').strip()
+          chat_id = (os.getenv('TELEGRAM_CHAT_ID') or '').strip()
+          expected = (os.getenv('EXPECTED_TELEGRAM_BOT_USERNAME') or '').strip().lstrip('@')
+          if not token or not chat_id:
+              raise RuntimeError('KHS887900 Telegram token/chat id is missing')
+
+          with urllib.request.urlopen(f'https://api.telegram.org/bot{token}/getMe', timeout=20) as response:
+              identity = json.loads(response.read().decode('utf-8'))
+          username = str((identity.get('result') or {}).get('username') or '')
+          if not identity.get('ok') or username.lower() != expected.lower():
+              raise RuntimeError(f'Wrong Telegram bot: expected @{expected}, got @{username or "unknown"}')
+
+          text = pathlib.Path('us_investment_alert.html').read_text(encoding='utf-8').strip()
+          payload = urllib.parse.urlencode({
+              'chat_id': chat_id,
+              'text': text,
+              'parse_mode': 'HTML',
+              'disable_web_page_preview': 'true',
+          }).encode('utf-8')
+          request = urllib.request.Request(
+              f'https://api.telegram.org/bot{token}/sendMessage',
+              data=payload,
+              method='POST',
+          )
+          with urllib.request.urlopen(request, timeout=25) as response:
+              result = json.loads(response.read().decode('utf-8'))
+          if not result.get('ok'):
+              raise RuntimeError(f'Telegram rejected message: {result}')
+          message_id = (result.get('result') or {}).get('message_id')
+          pathlib.Path('us_investment_delivery.json').write_text(
+              json.dumps({'bot_username': username, 'message_id': message_id}, ensure_ascii=False) + '\n',
+              encoding='utf-8',
+          )
+          print(f'telegram_delivery_confirmed=true bot=@{username} message_id={message_id}')
+          PY
+
+      - name: 전송 성공 후 상태 저장
+        if: success() && hashFiles('us_investment_delivery.json') != '' && hashFiles('us_investment_state.json') != ''
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add us_investment_state.json
+          if git diff --cached --quiet; then
+            echo 'state unchanged'
+          else
+            git commit -m 'Update US investment monitor state'
+            for i in 1 2 3; do
+              git pull --rebase origin main || true
+              if git push origin HEAD:main; then
+                exit 0
+              fi
+              sleep 3
+            done
+            echo 'state push failed after 3 attempts'
+            exit 1
+          fi
+
+      - name: 알림 없는 경우 상태 저장
+        if: success() && hashFiles('us_investment_alert.html') == '' && hashFiles('us_investment_state.json') != ''
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add us_investment_state.json
+          if git diff --cached --quiet; then
+            echo 'state unchanged'
+          else
+            git commit -m 'Update US investment monitor state'
+            for i in 1 2 3; do
+              git pull --rebase origin main || true
+              if git push origin HEAD:main; then
+                exit 0
+              fi
+              sleep 3
+            done
+            exit 1
+          fi
