@@ -1,0 +1,138 @@
+name: Westinghouse 지분 Telegram 웹감시
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/westinghouse-stake-telegram-watch.yml'
+      - 'westinghouse_stake_watch.py'
+  schedule:
+    - cron: '4,19,34,49 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: westinghouse-stake-telegram-watch
+  cancel-in-progress: true
+
+jobs:
+  watch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    env:
+      EXPECTED_BOT_USERNAME: 'khs887900_bot'
+      BOT_TOKEN: ${{ secrets.KHS887900_BOT_TOKEN }}
+      CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Verify exact Telegram route
+        run: |
+          python - <<'PY'
+          import json, os, urllib.request
+          token=(os.getenv('BOT_TOKEN') or '').strip()
+          chat=(os.getenv('CHAT_ID') or '').strip()
+          expected=(os.getenv('EXPECTED_BOT_USERNAME') or '').strip().lstrip('@')
+          if not token or not chat:
+              raise RuntimeError('KHS887900 Telegram routing secret missing')
+          with urllib.request.urlopen(f'https://api.telegram.org/bot{token}/getMe', timeout=20) as r:
+              me=json.loads(r.read().decode('utf-8'))
+          actual=str((me.get('result') or {}).get('username') or '')
+          if not me.get('ok') or actual.lower()!=expected.lower():
+              raise RuntimeError(f'wrong bot: expected @{expected}, got @{actual or "unknown"}')
+          print(f'telegram_route_valid=true bot=@{actual}')
+          PY
+
+      - name: Validate watcher
+        run: python -m py_compile westinghouse_stake_watch.py
+
+      - name: Run Westinghouse stake web watch
+        run: |
+          python westinghouse_stake_watch.py
+          cat westinghouse_stake_status.md >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Build one-time route connection test
+        run: |
+          if [ ! -f westinghouse_stake_route_verified.txt ]; then
+            cat > westinghouse_stake_connection_test.html <<'EOF'
+          <b>[원전·Westinghouse 웹감시] 송출 경로 연결 완료</b>
+
+          • 수신 봇: <b>@khs887900_bot</b>
+          • 확인 주기: 15분
+          • 감시: Westinghouse 지분 인수·투자·상장·한국전력·한수원·산업통상부·Brookfield·Cameco·AP1000 사업권 변화
+          • 같은 이슈의 여러 기사는 하나로 묶어서 송출
+          • 영어 설명은 한국어 번역 후 송출, 오류 페이지·미번역 문구는 차단
+          EOF
+          fi
+
+      - name: Send Telegram
+        if: hashFiles('westinghouse_stake_alert.html') != '' || hashFiles('westinghouse_stake_connection_test.html') != ''
+        run: |
+          python - <<'PY'
+          import json, os, pathlib, urllib.parse, urllib.request
+          token=os.environ['BOT_TOKEN'].strip(); chat=os.environ['CHAT_ID'].strip(); expected=os.environ['EXPECTED_BOT_USERNAME'].strip().lstrip('@')
+          with urllib.request.urlopen(f'https://api.telegram.org/bot{token}/getMe', timeout=20) as r:
+              me=json.loads(r.read().decode('utf-8'))
+          actual=str((me.get('result') or {}).get('username') or '')
+          if not me.get('ok') or actual.lower()!=expected.lower():
+              raise RuntimeError(f'wrong bot: expected @{expected}, got @{actual or "unknown"}')
+          ids=[]
+          for path in [pathlib.Path('westinghouse_stake_connection_test.html'), pathlib.Path('westinghouse_stake_alert.html')]:
+              if not path.exists():
+                  continue
+              text=path.read_text(encoding='utf-8').strip()
+              if not text:
+                  continue
+              chunks=[]
+              while len(text)>3800:
+                  cut=text.rfind('\n\n',0,3800)
+                  if cut<1000: cut=3800
+                  chunks.append(text[:cut].strip()); text=text[cut:].strip()
+              if text: chunks.append(text)
+              for chunk in chunks:
+                  payload=urllib.parse.urlencode({'chat_id':chat,'text':chunk,'parse_mode':'HTML','disable_web_page_preview':'true'}).encode('utf-8')
+                  req=urllib.request.Request(f'https://api.telegram.org/bot{token}/sendMessage',data=payload,method='POST')
+                  with urllib.request.urlopen(req,timeout=25) as r:
+                      result=json.loads(r.read().decode('utf-8'))
+                  if not result.get('ok'):
+                      raise RuntimeError(str(result))
+                  ids.append((result.get('result') or {}).get('message_id'))
+          print(f'westinghouse_delivery_confirmed=true bot=@{actual} messages={len(ids)} ids={ids}')
+          PY
+
+      - name: Mark route verified
+        if: success() && hashFiles('westinghouse_stake_connection_test.html') != ''
+        run: printf 'verified target=@khs887900_bot\n' > westinghouse_stake_route_verified.txt
+
+      - name: Persist state
+        if: success() && hashFiles('westinghouse_stake_pending_state.json') != ''
+        run: cp westinghouse_stake_pending_state.json westinghouse_stake_state.json
+
+      - name: Commit state
+        if: success()
+        run: |
+          git config user.name 'westinghouse-watch[bot]'
+          git config user.email 'westinghouse-watch[bot]@users.noreply.github.com'
+          git add westinghouse_stake_state.json westinghouse_stake_route_verified.txt 2>/dev/null || true
+          if git diff --cached --quiet; then
+            echo 'state unchanged'
+          else
+            git commit -m 'Update Westinghouse stake watch state'
+            for i in 1 2 3; do
+              if git pull --rebase origin main && git push origin HEAD:main; then exit 0; fi
+              git rebase --abort 2>/dev/null || true
+              sleep $((i*2))
+            done
+            exit 1
+          fi
