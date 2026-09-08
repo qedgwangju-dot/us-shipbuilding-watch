@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "last_updated": "2026-09-08T23:01:11+09:00",
+  "last_updated": "2026-09-09T02:53:03+09:00",
   "facts": {
     "strategy.total_package_usd_eok": {
       "value": 3500,
@@ -468,7 +468,7 @@
       "updated_at": "2026-09-08T13:13:32+09:00"
     },
     "nuclear.apr1400_reactors": {
-      "value": 1,
+      "value": 8,
       "label": "APR1400·한국형 원전 포함 기수",
       "status": "보도",
       "sources": [
@@ -476,7 +476,7 @@
         "https://n.news.naver.com/mnews/article/015/0005329652?sid=101",
         "https://www.hankyung.com/article/2026090819731"
       ],
-      "updated_at": "2026-09-08T18:51:58+09:00"
+      "updated_at": "2026-09-09T02:53:03+09:00"
     },
     "nuclear.project_details_not_fixed": {
       "value": true,
