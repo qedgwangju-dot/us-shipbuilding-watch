@@ -7,41 +7,27 @@ import us_investment_watch as base
 import us_investment_watch_v9 as v9
 import us_investment_watch_v11 as v11
 
-# v12: 원전 노형 오인 방지 + 규제상태/출력 맥락 강화
-# - AP1000(웨스팅하우스)과 APR1000(한국형)은 완전히 다른 노형으로 분리
-# - APR1000이 기사에 등장하면 별도 사실로 누적
-# - 미국 사업 알림에서 노형별 NRC/EUR 상태와 명목 출력 차이를 함께 보여줌
-# - 현재 보도상 6×AP1000 + 2×APR1400 같은 조합은 명목출력까지 검산
+# v12 corrected: 대미투자 원전 노형 비교는 AP1000 vs APR1400에 집중한다.
+# - AP1000 = Westinghouse 미국 노형
+# - APR1400 = 한국형 대형 노형
+# - 기사에서 6×AP1000 + 2×APR1400, APR1400 2기 우선 건설 등 노형 배분 변화만 누적
+# - APR1000은 이번 대미투자 비교의 기본 감시축에서 제외한다. 실제 기사에서 별도 핵심 사실로 등장할 때만 일반 원문 감시기가 잡는다.
 
 for query in [
-    '"APR1000" 미국 원전 한국 when:3d',
-    '"APR1000" 대미투자 when:3d',
-    '"AP1000" "APR1000" 원전 when:3d',
+    '"AP1000" "APR1400" 미국 원전 한국 when:3d',
+    '"APR1400 2기" 미국 원전 when:3d',
+    '"APR1400" 우선 건설 미국 when:3d',
+    '"AP1000 6기" "APR1400 2기" when:3d',
 ]:
     if query not in base.QUERIES:
         base.QUERIES.insert(0, query)
 
-for term in ["APR1000", "APR1000 2기", "APR1000 미국", "APR1000 NRC"]:
+for term in ["AP1000", "APR1400", "APR1400 2기", "AP1000 6기", "우선 건설"]:
     if term not in base.MATERIAL:
         base.MATERIAL.append(term)
 
 _ORIGINAL_EXTRACT = v9.extract_facts
 _ORIGINAL_BUILD_ALERT = v9.build_alert
-
-
-def _reactor_count(blob: str, model: str) -> int | None:
-    pats = [
-        rf'{re.escape(model)}.{{0,50}}?(\d+)\s*기',
-        rf'(\d+)\s*기.{{0,50}}?{re.escape(model)}',
-    ]
-    for pat in pats:
-        m = re.search(pat, blob, re.I | re.S)
-        if m:
-            try:
-                return int(m.group(1))
-            except Exception:
-                return None
-    return None
 
 
 def extract_facts_v12(row: dict) -> list[dict]:
@@ -52,28 +38,26 @@ def extract_facts_v12(row: dict) -> list[dict]:
     blob = f'{title}\n{text}'
     low = blob.lower()
 
-    # APR1000은 AP1000과 별도 노형. 기사에 실제 등장할 때만 누적한다.
-    if re.search(r'\bAPR1000\b', blob, re.I):
+    # APR1400 2기 '우선 건설'은 단순 포함보다 확정도가 높은 별도 사실로 누적한다.
+    if re.search(r'apr[- ]?1400.{0,80}2\s*기.{0,80}(우선|먼저)', blob, re.I | re.S) or \
+       re.search(r'(우선|먼저).{0,80}apr[- ]?1400.{0,80}2\s*기', blob, re.I | re.S):
         out.append(v9.fact(
-            'nuclear.apr1000_mentioned', True,
-            'APR1000 별도 노형 언급', '보도', source,
+            'nuclear.apr1400_two_units_priority', True,
+            'APR1400 2기 우선 건설 방향', '보도·협의 단계', source,
         ))
-        count = _reactor_count(blob, 'APR1000')
-        if count is not None:
-            out.append(v9.fact(
-                'nuclear.apr1000_reactors', count,
-                'APR1000 포함 기수', '보도', source,
-            ))
-        if any(x in low for x in ['eur', '유럽사업자요건', '유럽 인증']):
-            out.append(v9.fact(
-                'nuclear.apr1000_eur_context', True,
-                'APR1000 유럽사업자요건 인증 맥락', '공식자료 교차확인 필요', source,
-            ))
-        if 'nrc' in low or '미국 원자력규제위원회' in low:
-            out.append(v9.fact(
-                'nuclear.apr1000_us_regulatory_issue_mentioned', True,
-                'APR1000 미국 인허가 쟁점 언급', '보도', source,
-            ))
+
+    if re.search(r'ap1000.{0,50}6\s*기|6\s*기.{0,50}ap1000', blob, re.I | re.S):
+        out.append(v9.fact(
+            'nuclear.ap1000_reactors', 6,
+            'AP1000 포함 기수', '보도', source,
+        ))
+
+    if re.search(r'apr[- ]?1400.{0,50}2\s*기|2\s*기.{0,50}apr[- ]?1400', blob, re.I | re.S) or \
+       re.search(r'한국형\s*원전.{0,40}2\s*기', blob, re.I | re.S):
+        out.append(v9.fact(
+            'nuclear.apr1400_reactors', 2,
+            'APR1400·한국형 원전 포함 기수', '보도', source,
+        ))
 
     return out
 
@@ -87,30 +71,30 @@ def _changed_value(changes, key: str):
 
 def _model_context(changes) -> str:
     keys = {k for k, _n, _o in changes}
-    model_change = any(k in keys for k in [
+    if not any(k in keys for k in [
         'nuclear.ap1000_reactors',
-        'nuclear.apr1000_reactors',
-        'nuclear.apr1000_mentioned',
         'nuclear.apr1400_reactors',
-    ])
-    if not model_change:
+        'nuclear.apr1400_two_units_priority',
+    ]):
         return ''
 
     lines = [
-        '<b>⚙️ 노형 판별</b>',
-        '• <b>AP1000</b> = 웨스팅하우스 미국 노형 · 명목 순전기출력 약 1.11GW · 미국 NRC 설계인증',
-        '• <b>APR1400</b> = 한국형 대형 노형 · 1.4GW급 · 2019년 미국 NRC 설계인증',
-        '• <b>APR1000</b> = 한국형 1.05GW급 중형 노형 · 2023년 유럽사업자요건 인증 · 현재 미국 NRC 설계인증 목록에는 없음',
+        '<b>⚙️ AP1000 vs APR1400</b>',
+        '• <b>AP1000</b> — Westinghouse · 약 1.11GW 순전기출력 · 수동형 안전계통이 핵심 · 미국 Vogtle 3·4호기 운전 실적',
+        '• <b>APR1400</b> — KEPCO/KHNP · 1.4GW급 · 한국·UAE 운전 실적 · 2019년 미국 NRC 설계인증',
+        '• <b>미국 사업 의미</b> — AP1000은 미국 현지 실적·공급망 우위, APR1400은 더 큰 기당 출력과 한국 설계·주기기·시공·운영 몫 확대 가능성이 핵심',
     ]
 
     ap = _changed_value(changes, 'nuclear.ap1000_reactors')
-    apr14 = _changed_value(changes, 'nuclear.apr1400_reactors')
-    if isinstance(ap, (int, float)) and isinstance(apr14, (int, float)):
-        total_gw = float(ap) * 1.11 + float(apr14) * 1.4
-        lines.append(
-            f'• 현재 변화값 단순 합산: AP1000 {int(ap)}기 + APR1400 {int(apr14)}기 ≈ <b>{total_gw:.2f}GW</b> 명목 출력'
-        )
-    lines.append('• 미국 프로젝트에서 APR1000이 새로 거론되면 AP1000 오기인지, 실제 한국형 APR1000 제안인지 원문 본문에서 다시 구분')
+    apr = _changed_value(changes, 'nuclear.apr1400_reactors')
+    if isinstance(ap, (int, float)) and isinstance(apr, (int, float)):
+        # AP1000은 공식 Westinghouse 명목 순전기출력 1.11GW, APR1400은 KHNP 1.4GW급 설비용량을 사용한 단순 용량 검산.
+        total = float(ap) * 1.11 + float(apr) * 1.4
+        lines.append(f'• 보도 조합 단순 용량: AP1000 {int(ap)}기 + APR1400 {int(apr)}기 ≈ <b>{total:.2f}GW</b>')
+    if 'nuclear.apr1400_two_units_priority' in keys:
+        lines.append('• <b>APR1400 2기 우선 건설</b>이 최종 합의문에 들어가면 단순 2기 수주보다 미국 내 첫 실증 레퍼런스 확보가 더 큰 재평가 요인')
+
+    lines.append('• 다음 확인: 9월 18일 서명문 → 2기 부지·사업자 → 한국 실제 출자액 → EPC·주기기 본계약 → 미국 현지 공급망·인허가 일정')
     return '\n'.join(lines)
 
 
@@ -119,7 +103,6 @@ def build_alert_v12(now, changes, fx: float, fx_source: str) -> str:
     context = _model_context(changes)
     if not context:
         return alert
-
     marker = f'\n\n<a href="{base.MOU_OFFICIAL_URL}"><b>산업통상부 한미 전략투자 MOU</b></a>'
     if marker in alert:
         return alert.replace(marker, f'\n\n{context}{marker}', 1)
