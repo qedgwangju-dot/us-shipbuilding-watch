@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "last_updated": "2026-09-08T14:20:16+09:00",
+  "last_updated": "2026-09-08T18:51:58+09:00",
   "facts": {
     "strategy.total_package_usd_eok": {
       "value": 3500,
@@ -196,7 +196,9 @@
         "https://n.news.naver.com/mnews/article/016/0002602277?sid=104",
         "https://n.news.naver.com/mnews/article/422/0000903732?sid=101",
         "https://n.news.naver.com/mnews/article/215/0001265151?sid=101",
-        "https://n.news.naver.com/mnews/article/374/0000531654?sid=101"
+        "https://n.news.naver.com/mnews/article/374/0000531654?sid=101",
+        "https://news.mtn.co.kr/news-detail/2026090816281014738",
+        "https://www.hankyung.com/article/2026090819731"
       ]
     },
     "encinal.project_owner": {
@@ -219,7 +221,9 @@
         "https://www.hankyung.com/article/202607289475i",
         "https://n.news.naver.com/mnews/article/018/0006365091?sid=100",
         "https://n.news.naver.com/mnews/article/422/0000903732?sid=101",
-        "https://n.news.naver.com/mnews/article/374/0000531654?sid=101"
+        "https://n.news.naver.com/mnews/article/374/0000531654?sid=101",
+        "https://news.mtn.co.kr/news-detail/2026090816281014738",
+        "https://www.hankyung.com/article/2026090819731"
       ]
     },
     "encinal.stage1_capacity_reports_gw": {
@@ -233,7 +237,8 @@
         "https://m.edaily.co.kr/News/Read?mediaCodeNo=257&newsId=02499366645577824",
         "https://www.hankyung.com/article/202607289475i",
         "https://n.news.naver.com/mnews/article/018/0006365091?sid=100",
-        "https://n.news.naver.com/mnews/article/374/0000531654?sid=101"
+        "https://n.news.naver.com/mnews/article/374/0000531654?sid=101",
+        "https://news.mtn.co.kr/news-detail/2026090816281014738"
       ]
     },
     "encinal.stage2to6_each_gw": {
@@ -281,7 +286,8 @@
         "https://n.news.naver.com/mnews/article/018/0006365091?sid=100",
         "https://n.news.naver.com/mnews/article/015/0005329652?sid=101",
         "https://n.news.naver.com/mnews/article/215/0001265151?sid=101",
-        "https://n.news.naver.com/mnews/article/374/0000531654?sid=101"
+        "https://n.news.naver.com/mnews/article/374/0000531654?sid=101",
+        "https://news.mtn.co.kr/news-detail/2026090816281014738"
       ]
     },
     "encinal.us_requested_cost_usd_eok": {
@@ -417,7 +423,9 @@
         "https://n.news.naver.com/mnews/article/215/0001265164?sid=100",
         "https://n.news.naver.com/mnews/article/422/0000903732?sid=101",
         "https://n.news.naver.com/mnews/article/008/0005410602?sid=101",
-        "https://n.news.naver.com/mnews/article/374/0000531654?sid=101"
+        "https://n.news.naver.com/mnews/article/374/0000531654?sid=101",
+        "https://news.mtn.co.kr/news-detail/2026090816281014738",
+        "https://www.hankyung.com/article/2026090819731"
       ]
     },
     "nuclear.us_proposal_usd_eok": {
@@ -427,7 +435,8 @@
       "sources": [
         "https://www1.edaily.co.kr/News/Read?mediaCodeNo=257&newsId=03660486645577824",
         "https://n.news.naver.com/mnews/article/018/0006365091?sid=100",
-        "https://n.news.naver.com/mnews/article/015/0005329652?sid=101"
+        "https://n.news.naver.com/mnews/article/015/0005329652?sid=101",
+        "https://news.mtn.co.kr/news-detail/2026090816281014738"
       ]
     },
     "nuclear.us_120b_not_committed": {
@@ -453,19 +462,21 @@
       "status": "보도",
       "sources": [
         "https://www.mt.co.kr/index.php/amp/economy/2026/09/07/2026090715524755435",
-        "https://n.news.naver.com/mnews/article/015/0005329652?sid=101"
+        "https://n.news.naver.com/mnews/article/015/0005329652?sid=101",
+        "https://www.hankyung.com/article/2026090819731"
       ],
       "updated_at": "2026-09-08T13:13:32+09:00"
     },
     "nuclear.apr1400_reactors": {
-      "value": 8,
+      "value": 1,
       "label": "APR1400·한국형 원전 포함 기수",
       "status": "보도",
       "sources": [
         "https://www.mt.co.kr/index.php/amp/economy/2026/09/07/2026090715524755435",
-        "https://n.news.naver.com/mnews/article/015/0005329652?sid=101"
+        "https://n.news.naver.com/mnews/article/015/0005329652?sid=101",
+        "https://www.hankyung.com/article/2026090819731"
       ],
-      "updated_at": "2026-09-08T13:13:32+09:00"
+      "updated_at": "2026-09-08T18:51:58+09:00"
     },
     "nuclear.project_details_not_fixed": {
       "value": true,
@@ -493,7 +504,8 @@
         "https://www.mt.co.kr/economy/2026/09/07/2026090714365254729",
         "https://www1.edaily.co.kr/News/Read?mediaCodeNo=257&newsId=03660486645577824",
         "https://n.news.naver.com/mnews/article/018/0006365091?sid=100",
-        "https://n.news.naver.com/mnews/article/015/0005329652?sid=101"
+        "https://n.news.naver.com/mnews/article/015/0005329652?sid=101",
+        "https://www.hankyung.com/article/2026090819731"
       ]
     },
     "package.target_sign_date": {
@@ -506,7 +518,8 @@
         "https://n.news.naver.com/mnews/article/018/0006365091?sid=100",
         "https://n.news.naver.com/mnews/article/015/0005329652?sid=101",
         "https://n.news.naver.com/mnews/article/016/0002602277?sid=104",
-        "https://n.news.naver.com/mnews/article/374/0000531654?sid=101"
+        "https://n.news.naver.com/mnews/article/374/0000531654?sid=101",
+        "https://news.mtn.co.kr/news-detail/2026090816281014738"
       ]
     },
     "package.alaska_final_framework_reported_included": {
