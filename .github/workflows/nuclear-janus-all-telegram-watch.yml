@@ -72,12 +72,12 @@ jobs:
 
       - name: Validate watcher
         run: |
-          python -m py_compile upstream/scripts/janus_watch.py upstream/scripts/janus_watch_v2.py upstream/scripts/janus_watch_v3.py upstream/scripts/janus_watch_v4.py upstream/scripts/janus_watch_v5.py upstream/scripts/janus_watch_v6.py
-          python upstream/scripts/janus_watch_v6.py --mode self-test
+          python -m py_compile upstream/scripts/janus_watch.py upstream/scripts/janus_watch_v2.py upstream/scripts/janus_watch_v3.py upstream/scripts/janus_watch_v4.py upstream/scripts/janus_watch_v5.py upstream/scripts/janus_watch_v6.py upstream/scripts/janus_watch_v7.py
+          python upstream/scripts/janus_watch_v7.py --mode self-test
 
       - name: Run all nuclear and Janus web watch
         run: |
-          python upstream/scripts/janus_watch_v6.py --mode check
+          python upstream/scripts/janus_watch_v7.py --mode check
           cat upstream/out/janus_status_v2.md >> "$GITHUB_STEP_SUMMARY"
           if [ -s upstream/out/janus_errors_v2.log ]; then
             echo '' >> "$GITHUB_STEP_SUMMARY"
@@ -135,8 +135,23 @@ jobs:
           EOF
           fi
 
+      - name: Build one-time US nuclear three-track upgrade test
+        run: |
+          if [ ! -f nuclear_us_3track_upgrade_v3.txt ]; then
+            cat > nuclear_us_3track_upgrade_test.html <<'EOF'
+          <b>[미국 대형원전 웹감시] 3트랙·매출민감도 업그레이드 완료</b>
+
+          • <b>DOE AP1000:</b> 5개 프로젝트×2기 = 10기·11GW, 175억달러 조건부 대출·장납기 기자재 고정가 조달을 별도 트랙으로 추적
+          • <b>Fermi America:</b> Project Matador AP1000 4기·4GW, 현대건설 FEED → EPC → FID → 장납기 발주를 단계별 추적
+          • <b>한미 대미투자:</b> 원전 8기 보도는 AP1000/APR1400 기수·부지·사업자·투자금이 공식 확정될 때까지 협상 트랙으로 분리
+          • 노형 확정 시 <b>현대건설·한국전력기술·두산에너빌리티</b>의 기사·증권사 추정 기준값을 최신 USD/KRW API로 원화 환산해 2기·4기·8기 민감도 자동 계산
+          • <b>계약 위험:</b> 고정가/원가보전·물가연동 · 지체상금 · 성능보증 · 공사비 초과 책임 · 현지화율 감시
+          • 단순 주가 급등·특징주는 새 노형·물량·계약 사실이 없으면 별도 알림 억제
+          EOF
+          fi
+
       - name: Send all alerts to khs887900 bot
-        if: hashFiles('nuclear_janus_route_test.html') != '' || hashFiles('nuclear_scope_expansion_test.html') != '' || hashFiles('upstream/out/janus_alert_v2.html') != '' || hashFiles('upstream/out/westinghouse_alert.html') != ''
+        if: hashFiles('nuclear_janus_route_test.html') != '' || hashFiles('nuclear_scope_expansion_test.html') != '' || hashFiles('nuclear_us_3track_upgrade_test.html') != '' || hashFiles('upstream/out/janus_alert_v2.html') != '' || hashFiles('upstream/out/westinghouse_alert.html') != ''
         run: |
           python - <<'PY'
           import json, os, pathlib, urllib.parse, urllib.request
@@ -149,6 +164,7 @@ jobs:
           files=[
               pathlib.Path('nuclear_janus_route_test.html'),
               pathlib.Path('nuclear_scope_expansion_test.html'),
+              pathlib.Path('nuclear_us_3track_upgrade_test.html'),
               pathlib.Path('upstream/out/janus_alert_v2.html'),
               pathlib.Path('upstream/out/westinghouse_alert.html'),
           ]
@@ -185,6 +201,9 @@ jobs:
           if [ -f nuclear_scope_expansion_test.html ]; then
             printf 'verified expanded nuclear scope target=@khs887900_bot\n' > nuclear_scope_expansion_v2.txt
           fi
+          if [ -f nuclear_us_3track_upgrade_test.html ]; then
+            printf 'verified US nuclear 3-track and revenue-sensitivity upgrade target=@khs887900_bot\n' > nuclear_us_3track_upgrade_v3.txt
+          fi
 
       - name: Persist watcher state
         if: success() && hashFiles('upstream/out/janus_watch_v2_state_pending.json') != ''
@@ -195,7 +214,7 @@ jobs:
         run: |
           git config user.name 'nuclear-janus-watch[bot]'
           git config user.email 'nuclear-janus-watch[bot]@users.noreply.github.com'
-          git add nuclear_janus_state.json nuclear_janus_route_verified.txt nuclear_scope_expansion_v2.txt 2>/dev/null || true
+          git add nuclear_janus_state.json nuclear_janus_route_verified.txt nuclear_scope_expansion_v2.txt nuclear_us_3track_upgrade_v3.txt 2>/dev/null || true
           if git diff --cached --quiet; then
             echo 'state unchanged'
           else
