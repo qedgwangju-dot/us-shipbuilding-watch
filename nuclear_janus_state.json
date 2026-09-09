@@ -2,7 +2,7 @@
   "version": 1,
   "initialized": true,
   "initialized_at": "2026-08-28T03:59:39+00:00",
-  "last_checked_at": "2026-09-09T09:23:46+00:00",
+  "last_checked_at": "2026-09-09T11:56:43+00:00",
   "seen": [
     "0249bb5d136ff8b38e08f030d8c54a879ebef62948e8a7446153e8f0a241b247",
     "0cbdeb97e5f6a0643f5061d952ef45c7ab4c8d5a6e008885db6ef9ecf3b75413",
@@ -104,9 +104,29 @@
     "cfa4d175dedd4e24cfd38a4e40f93c29a9f422128e27abdbfcd088526c982a8f",
     "e25a8222df06dc6d000b6fd98a669284df87ad6c19bb498ddebf039bd17fa20c",
     "f5e570749d4dfcef3b0ae3031162e2a01e44f8546f41882ffe12a85f06c7fecc",
-    "fad1e357dfab817e22412c87dd27cca8c87cd9f348ccb63edf0db2191cbae8b2"
+    "fad1e357dfab817e22412c87dd27cca8c87cd9f348ccb63edf0db2191cbae8b2",
+    "0c6038334932932524a045a5f92e0178e7c629801daf974245cffaeefe5295a0",
+    "6167a555d027c9164aeb7106881590ab118a6dce56a5f34cc63ee1cd01bffb02",
+    "83eac3ce330969af97e8924ad31ff821d04510f50305dc374fe8a186bc414685",
+    "d5e49f089b198e705728b5483f37663cff10d14d81caa8e6357f7918eff9b2f7",
+    "e9bb41d3234631424501ff67fd2b2700edc43aad26f6c4c4f39c6408f9014869"
   ],
   "facts": {
+    "미 육군 Janus 계약 발표": {
+      "금액": [
+        "$2.2 billion"
+      ],
+      "물량": [
+        "more than 20 total nuclear microreactors"
+      ],
+      "선정 당사자": [
+        "Antares Nuclear - Fort Bragg",
+        "BWXT Advanced Technologies - Fort Campbell",
+        "General Atomics Electromagnetic Systems - Fort Hood",
+        "Radiant Industries - Fort Benning",
+        "Westinghouse Government Services - Fort Drum"
+      ]
+    },
     "General Atomics Janus 발표": {
       "선정 당사자": [
         "General Atomics Electromagnetic Systems - Fort Hood"
@@ -114,5 +134,5 @@
     }
   },
   "source_count": 19,
-  "sources_ok": 15
+  "sources_ok": 17
 }
