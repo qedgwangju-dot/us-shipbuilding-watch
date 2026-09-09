@@ -49,6 +49,14 @@
       "https://www.dwavequantum.com/terms-and-conditions",
       "https://www.dwavequantum.com/website-marketing-opt-in"
     ],
+    "DARPA QBI 공식": [
+      "https://www.darpa.mil/news/2025/quantum-computing-approaches",
+      "https://www.darpa.mil/news/2026/qbi-stage-a-qbit",
+      "https://www.darpa.mil/research/programs/quantum-benchmarking",
+      "https://www.darpa.mil/research/programs/quantum-benchmarking-initiative",
+      "https://www.darpa.mil/research/programs/quantum-benchmarking-initiative/stage-b-selection"
+    ],
+    "DOE 양자·Genesis 공식 뉴스": [],
     "GlobalFoundries 공식 뉴스": [],
     "IBM 공식 뉴스": [
       "https://newsroom.ibm.com/2026-08-19-ibm-connects-its-first-modular-cryogenic-systems-in-milestone-toward-fault-tolerant-quantum-computing",
@@ -76,6 +84,8 @@
       "https://investors.rigetti.com/news-releases/news-release-details/rigetti-signs-definitive-agreement-100m-us-government-accelerate",
       "https://investors.rigetti.com/news-releases/news-release-details/rigetti-signs-letter-intent-us-government-quantum-computing"
     ],
+    "백악관 양자 정책": [],
+    "백악관 양자 팩트시트": [],
     "양자 정부투자 보도 감시::88eae8eb": [
       "https://news.google.com/rss/articles/CBMi2AFBVV95cUxPbmNOUFl2VlpQc1BuQUNBODRKZ1lPMUxvaG5YcHRLbHFxdDNjd3V4czBwemZQLW9JLVpJSGhIcXIwQWlVY0VpUjhmNGlfU0ZiSmtxdHpxSUEyWFdoZ2ttRzNQNXNDMFBVTWc0VVY5eGdoRTNHRDc2MWtlLUNOVmJDODRNZlpYMnRIcE5yMk1oVVFOckVpZ2dYcXZWWExHSXJQaGhuVjhsejl4Y2dtVkpVYTFvZk1fbnlxYWw4OVJoSmhWbkxYMllHc1V3cDZBdkZRbkM4OFpoQ1k",
       "https://news.google.com/rss/articles/CBMi2wFBVV95cUxQNUhPTGUxMHh2eEJhYnZGYWg1QmNuR092QzYtV0xRcTVuaVhRZ1ZpR2V1WllzZExUR0d5cmRjbVU3ZVVIUXpLSS1JQ3dIalhOSDM5THZwdHRwR044TUFxVTdYb3I2dzZOY3p2YmFYVlduV2dUNEh6WUczcUxRT2trcjRHR2MwRFJUOUs0Ulo3YWlpX0dNV085Z2VwNDdyeEZsdHJBRVdJYmZVYTE4NmJWa3Q4ZC10aVpDSHc4d3U3NnZpQzVqQ2M5UmprLVhQNDNDY2FINkw3SnFBcUk",
@@ -102,6 +112,7 @@
       "https://news.google.com/rss/articles/CBMiggFBVV95cUxNNzd6Tm4wSmYwd1ZnXzFTUTAwV0VxaWR2UTNaTGVmOHNBNWEtODJNai1KTW1fc2t3WVp3cTU4NUowbF8xTnJRc2dUbi1yV3prNVo2TlQ1VTlpbml1M280MkF5dE9aUGNyV3lPNTRtUmpxaXR2WVpPWXNfM3BfZUU4aVFR",
       "https://news.google.com/rss/articles/CBMihAJBVV95cUxPMXdvV1R3UzBxYjFxbDlnckhvMVZhRDd1THhGN1R2NkU0YkJjSTlCYU0xTTVEMnRvUUJiV05CVGVEeVN6WG9LTjdQd2lNaUpmb1VHVC1ZZlR6MlJDQW5jb1g5QlBMRWdhWURGNnBobmtlUlpPTzMxOUhSdlJHYnI3amphU3JmdWxhc3FJZGtaeVBSZzZfZnJBajB4aHVLZ1FZemZaLXFYcXZmeGhKRjVkYWJWWGxLaVhQTHllajNQZHliMEdYS25EN1pneFFVeVFZQmRMWUMwQlc1aUcwdU1SRHdoYzVnQ1lqSG5ULUN5TVZtbTRITDNwakJyYnN0dDF4cmJlQQ",
       "https://news.google.com/rss/articles/CBMihgFBVV95cUxObVZMUURYcVF4TG14TFMzeDM5Nm9KN0lJdG1zeEoxLVFNb0ZKYktnNXJpcDRNQ05HQkpTWFFWVzRlVWhTYlNJSmpybW91UTJObGhjUzdFUDk3LW1lckhOXzgwR3pibWQ1UVZsak9GUF82Q1dXVVlmdHo0OVRhaURTZDRfX195UQ",
+      "https://news.google.com/rss/articles/CBMihwFBVV95cUxNUUtacWRRVDJ1ZlF3YmJvcllMdkxqOXpHYmp0SmpBbm9hY2NLenR0NWZLR292RkQ4bkdsQVUxY3Rkd3U4dEhhMFh4UUU5aWJrSTVtWUs2djZpNWJwYW9YRHJDYjFLNjF1dnhEbW1hd20weGtsNlZKMWlCajNlUDBBSC1RX0VpaGs",
       "https://news.google.com/rss/articles/CBMiigFBVV95cUxNQkF2ekRsM05DMG8yWVpsSXBWY2dMUWd6bnVuVkpfbHRlRFF3aVFuUGRqSXN3cy1NMzlpZ3pSeFp6WjBsbnJLVHBBZFpBVGNRdWxHMVg0SVNrNlp1Si1FM0VwSnlIZXpFeGdNNnBwWkdOcUMyOFNqdHhnbjJ5SjR0Szk2SHJrUXN0eHc",
       "https://news.google.com/rss/articles/CBMiiwFBVV95cUxPbE1jNURPdUNiUnNFc3doakZrMHgta2oxN0pIaEdkMlJJczRlN3RyV3Byenh4bFVGWVlPbW5Cck81XzdrMnVRVTMyNUV0ZXljYWpnSEtudlFIQU1CYk41NExTcXB1THd1anZQOEc3SHJHQjZFbWFSRk9rOWxGYUFySERrMERfU0dTSndZ",
       "https://news.google.com/rss/articles/CBMijAFBVV95cUxNemhnWEZCUlFMMmVGRk9EUVIxZWNad0tsYmRYeF9faldUa2dCSElvTDRqWXVseDZvajNKdjNGU05kdXhDbmFQVkdrWU52YTYzR1JwUDNRb21mbTBMdDQyQWZpVFk4NF9BYXoydTdrWGhiWE1uNDMtT1k3TU9JdTJ0V2tPeGlSeHFNY002Nw",
@@ -169,6 +180,7 @@
       "https://news.google.com/rss/articles/CBMirAFBVV95cUxNT0JGWHl4cHozdW5tcWxYdGNLNnBRUWY4eXowZTlsaDdNVWdmb1lFc2RiMWxhOGIySktLVE1mZ19ubXZwNWNGLXBxUXBoX2V2ZGhZdW9fZ3dEUGZURE1VSWV4UkJEZkNETVFRYUZXSkJZMUJSQkNQcnduTm8weVBVUXZQeExHYjB3MzBMMzZfYnlZRGlXMXByY0NrdjhpU3lEQnJlLTVUX19RSkd2",
       "https://news.google.com/rss/articles/CBMitgFBVV95cUxNd3FsUlFxU0dOSWhJMnBQMl9UNndhMWhKWGdRUHhyLWFFRTNYc1J1NnFPNHF4V2JVTDFZUU5MTlNDZ2pOQXRPaWIzc3hLTUpnZTRCeVAta1ZFRkN6Um14cnFqUkp2ZjNPeHdEZHBUUl9kZUpFWlAzaGtwUy1weERWQnhJeExpbVptV0pUN3k5ZmNBLXgyOVk5M2tQTmllbkFNYXF1S3JqeGd4d0RPVGgwVHgxOXByZw",
       "https://news.google.com/rss/articles/CBMitwFBVV95cUxQRmV6VEEycTBxZ0xhc1hsbFk3U21USmhtMjFvZEtVbmtlWFYzOXc1VmVDdDJCTEV3R25FS3lfUFN2RXQxRTh1QzN5SGJ2cWY5TmVKdVBNaXExWFpJNk1seHdxN05rUUlNV3VZUWhNSE5hamw1U1R2U2xTaTE5b0stcmQ4eVVlX1k3aHhYVW5oeGpmUWM1b1V5Q2R5WHhJd3VPQk8xLVlFRkxYSkd1eDhFMFFXRXpUR0U",
+      "https://news.google.com/rss/articles/CBMivAFBVV95cUxPMF9CdGVjQzJpd3BIdjhTTlNNM0diYW9fTjJGaktUZjM3TldQNkh0UHJhSFJSVXl4RVgtYWdYZG9waWxXSUN6YXljWGlKYWFhb3J0dGRzYmV1VndncFpETkpvLWJEa2lvRkcxSkZGQUpYWGpVZ3F4Q3dyUG54NHVEamJ6dkR4NGxVX3l2RDd4aW40aGZJb2szM29jeS12aVI1dXI4cWJmVUluZFh4YWFXbFhOUFV6Y2lVQlVXUA",
       "https://news.google.com/rss/articles/CBMiwgFBVV95cUxQdFlUMkRTbXJKdUZiNUlkOHZsYVduX2J1ckNvWVh0eF83WTFTcUZ2MXlaYTZ1d0VIcThhZlZMMF9GTW5NWS1admFrU2l5ajJocVNuSHEwQ2o1TVExTGZMYlFlRmNzZmhIanlvaVh4UUlDNEZEcjNkSndnZFkyaXBmVTBmLTRkSEtnQ0c1bU9RM3dZRmYxQm1LRlBwX21LendFSVFnSmZtbE8wUi03QTBVeWlMZjBFWHFOTkh0NHBVUUgxZw",
       "https://news.google.com/rss/articles/CBMiwwFBVV95cUxPYUxxUHIwOUxEdV84VF9tckY4b19oZDJfeHdrcWFqWG1Cek43dVZ6ZWhRZHNsU1ZZNFJBejh4ckRNV0hZUmxjSGZ3ejQyS1VHMlpaalRaMEljYWNaeWNXNDhnQm8wRG5MeTdFYUNCc2pwbFZYZVBRc0VUb2tvMkVUVWg3V1Flay0zYmlFLVNOZUl3dlZiYUNpYndyeENjNmpyLTFYeE5LS1FXNjhFaHRKMTNFVk84bkNIZmR3TjdtUFg2UU0",
       "https://news.google.com/rss/articles/CBMixwFBVV95cUxOYjhTUDQ2dXNOQzFIRk0tVG1PdXRsWEh4YjVCZEpHZmpEcEFwQ0ZIcG5WbVo4cWJQSV9kYWc2VEpCNFhKLUxMMFVlVy02cnNwN1c4YWxqZUlSZjFJQmFFYmFNSGRRRU9DWnM0allVa0I5aHBoeFpiRVNhVFZtU3N3THgyZ1VGaXBzQk5NVFNYbVlmaTRWNW8zejY2REhCaTBwd29IM2lkYkpUNFUwWWx0eDBsb2ZZY0FUSGhWekhON0xoNEwxTFFF",
