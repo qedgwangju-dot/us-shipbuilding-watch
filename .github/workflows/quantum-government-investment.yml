@@ -11,6 +11,7 @@ on:
       - 'quantum_government_investment_watch.py'
       - 'quantum_government_investment_watch_v2.py'
       - 'quantum_government_investment_watch_v3.py'
+      - 'quantum_government_investment_watch_v4.py'
       - 'requirements.txt'
       - '.github/workflows/quantum-government-investment.yml'
 
@@ -41,9 +42,9 @@ jobs:
         env:
           QUANTUM_TELEGRAM_BOT_TOKEN: ${{ secrets.QUANTUM_TELEGRAM_BOT_TOKEN }}
           QUANTUM_TELEGRAM_CHAT_ID: ${{ secrets.QUANTUM_TELEGRAM_CHAT_ID }}
-          AI_REMOTE_TELEGRAM_BOT_TOKEN: ${{ secrets.AI_REMOTE_TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-        run: python quantum_government_investment_watch_v3.py
+        run: python quantum_government_investment_watch_v4.py
 
       - name: 감시 상태 저장
         run: |
