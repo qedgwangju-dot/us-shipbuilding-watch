@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "last_updated": "2026-09-09T07:57:51+09:00",
+  "last_updated": "2026-09-09T10:10:37+09:00",
   "facts": {
     "strategy.total_package_usd_eok": {
       "value": 3500,
@@ -425,7 +425,8 @@
         "https://n.news.naver.com/mnews/article/008/0005410602?sid=101",
         "https://n.news.naver.com/mnews/article/374/0000531654?sid=101",
         "https://news.mtn.co.kr/news-detail/2026090816281014738",
-        "https://www.hankyung.com/article/2026090819731"
+        "https://www.hankyung.com/article/2026090819731",
+        "https://news.mtn.co.kr/news-detail/2026090908131275454"
       ]
     },
     "nuclear.us_proposal_usd_eok": {
@@ -468,7 +469,7 @@
       "updated_at": "2026-09-08T13:13:32+09:00"
     },
     "nuclear.apr1400_reactors": {
-      "value": 8,
+      "value": 1,
       "label": "APR1400·한국형 원전 포함 기수",
       "status": "보도",
       "sources": [
@@ -476,7 +477,7 @@
         "https://n.news.naver.com/mnews/article/015/0005329652?sid=101",
         "https://www.hankyung.com/article/2026090819731"
       ],
-      "updated_at": "2026-09-09T05:36:02+09:00"
+      "updated_at": "2026-09-09T10:10:37+09:00"
     },
     "nuclear.project_details_not_fixed": {
       "value": true,
@@ -667,9 +668,28 @@
       "label": "웨스팅하우스 지분 인수·매입 추진",
       "status": "보도·협의 단계",
       "sources": [
-        "https://www.hankyung.com/article/2026090819731"
+        "https://www.hankyung.com/article/2026090819731",
+        "https://news.mtn.co.kr/news-detail/2026090908131275454"
       ],
       "updated_at": "2026-09-09T05:36:02+09:00"
+    },
+    "execution.first_remittance_reported": {
+      "value": true,
+      "label": "대미투자 첫 송금·납입 일정 등장",
+      "status": "보도",
+      "sources": [
+        "https://www.korea.kr/"
+      ],
+      "updated_at": "2026-09-09T10:10:37+09:00"
+    },
+    "nuclear.apr1400_priority_build_reported": {
+      "value": true,
+      "label": "APR1400 우선 건설 방향",
+      "status": "보도·협의 단계",
+      "sources": [
+        "https://news.mtn.co.kr/news-detail/2026090908131275454"
+      ],
+      "updated_at": "2026-09-09T10:10:37+09:00"
     }
   }
 }
