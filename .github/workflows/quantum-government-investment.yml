@@ -1,4 +1,4 @@
-name: 미국 양자컴퓨팅 정부투자·지분 웹감시
+name: 미국 양자컴퓨팅 정부투자·조달·지분 웹감시
 
 on:
   schedule:
@@ -10,6 +10,7 @@ on:
     paths:
       - 'quantum_government_investment_watch.py'
       - 'quantum_government_investment_watch_v2.py'
+      - 'quantum_government_investment_watch_v3.py'
       - 'requirements.txt'
       - '.github/workflows/quantum-government-investment.yml'
 
@@ -36,13 +37,13 @@ jobs:
       - name: 필요한 패키지 설치
         run: pip install -r requirements.txt
 
-      - name: 미국 양자컴퓨팅 정부투자·지분 변화 확인
+      - name: 미국 양자컴퓨팅 정부투자·조달·지분 변화 확인
         env:
           QUANTUM_TELEGRAM_BOT_TOKEN: ${{ secrets.QUANTUM_TELEGRAM_BOT_TOKEN }}
           QUANTUM_TELEGRAM_CHAT_ID: ${{ secrets.QUANTUM_TELEGRAM_CHAT_ID }}
           AI_REMOTE_TELEGRAM_BOT_TOKEN: ${{ secrets.AI_REMOTE_TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-        run: python quantum_government_investment_watch_v2.py
+        run: python quantum_government_investment_watch_v3.py
 
       - name: 감시 상태 저장
         run: |
