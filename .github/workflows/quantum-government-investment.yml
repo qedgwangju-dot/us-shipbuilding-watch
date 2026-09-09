@@ -9,6 +9,7 @@ on:
       - main
     paths:
       - 'quantum_government_investment_watch.py'
+      - 'quantum_government_investment_watch_v2.py'
       - 'requirements.txt'
       - '.github/workflows/quantum-government-investment.yml'
 
@@ -41,11 +42,11 @@ jobs:
           QUANTUM_TELEGRAM_CHAT_ID: ${{ secrets.QUANTUM_TELEGRAM_CHAT_ID }}
           AI_REMOTE_TELEGRAM_BOT_TOKEN: ${{ secrets.AI_REMOTE_TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-        run: python quantum_government_investment_watch.py
+        run: python quantum_government_investment_watch_v2.py
 
       - name: 감시 상태 저장
         run: |
-          if git diff --quiet -- quantum_government_investment_state.json; then
+          if [ -z "$(git status --porcelain -- quantum_government_investment_state.json)" ]; then
             echo "상태 변화 없음"
             exit 0
           fi
