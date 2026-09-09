@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "last_updated": "2026-09-09T14:59:31+09:00",
+  "last_updated": "2026-09-09T20:11:42+09:00",
   "facts": {
     "strategy.total_package_usd_eok": {
       "value": 3500,
@@ -181,7 +181,9 @@
       "status": "정부 발언 보도",
       "sources": [
         "https://www.news1.kr/economy/trend/6265928",
-        "https://n.news.naver.com/mnews/article/016/0002602277?sid=104"
+        "https://n.news.naver.com/mnews/article/016/0002602277?sid=104",
+        "https://n.news.naver.com/mnews/article/422/0000904429?sid=101",
+        "https://n.news.naver.com/mnews/article/022/0004157764?sid=100"
       ]
     },
     "encinal.first_project_selected": {
@@ -415,7 +417,6 @@
       "label": "미국 내 원전 추진 기수",
       "status": "보도·협의 단계",
       "sources": [
-        "https://www.mt.co.kr/index.php/amp/economy/2026/09/07/2026090715524755435",
         "https://n.news.naver.com/mnews/article/018/0006365091?sid=100",
         "https://n.news.naver.com/mnews/article/015/0005329652?sid=101",
         "https://n.news.naver.com/mnews/article/215/0001265164?sid=100",
@@ -426,7 +427,8 @@
         "https://www.hankyung.com/article/2026090819731",
         "https://news.mtn.co.kr/news-detail/2026090908131275454",
         "https://n.news.naver.com/mnews/article/422/0000904361?sid=101",
-        "https://n.news.naver.com/mnews/article/001/0016298619?sid=110"
+        "https://n.news.naver.com/mnews/article/001/0016298619?sid=110",
+        "https://n.news.naver.com/mnews/article/022/0004157764?sid=100"
       ]
     },
     "nuclear.us_proposal_usd_eok": {
@@ -437,7 +439,8 @@
         "https://www1.edaily.co.kr/News/Read?mediaCodeNo=257&newsId=03660486645577824",
         "https://n.news.naver.com/mnews/article/018/0006365091?sid=100",
         "https://n.news.naver.com/mnews/article/015/0005329652?sid=101",
-        "https://news.mtn.co.kr/news-detail/2026090816281014738"
+        "https://news.mtn.co.kr/news-detail/2026090816281014738",
+        "https://n.news.naver.com/mnews/article/022/0004157764?sid=100"
       ]
     },
     "nuclear.us_120b_not_committed": {
@@ -618,7 +621,8 @@
       "sources": [
         "https://www.news1.kr/amp/economy/trend/6280531",
         "https://news.mtn.co.kr/news-detail/2026090413255758525",
-        "https://n.news.naver.com/mnews/article/006/0000137574?sid=102"
+        "https://n.news.naver.com/mnews/article/006/0000137574?sid=102",
+        "https://n.news.naver.com/mnews/article/422/0000904429?sid=101"
       ]
     },
     "semiconductor.relationship_to_200b_unclear": {
@@ -680,7 +684,8 @@
       "status": "보도",
       "sources": [
         "https://www.korea.kr/",
-        "https://n.news.naver.com/mnews/article/422/0000904361?sid=101"
+        "https://n.news.naver.com/mnews/article/422/0000904361?sid=101",
+        "https://n.news.naver.com/mnews/article/022/0004157764?sid=100"
       ],
       "updated_at": "2026-09-09T10:10:37+09:00"
     },
@@ -692,6 +697,15 @@
         "https://news.mtn.co.kr/news-detail/2026090908131275454"
       ],
       "updated_at": "2026-09-09T10:10:37+09:00"
+    },
+    "execution.first_remittance_usd_eok": {
+      "value": 3500.0,
+      "label": "대미투자 첫 송금·납입 금액",
+      "status": "보도",
+      "sources": [
+        "https://n.news.naver.com/mnews/article/022/0004157764?sid=100"
+      ],
+      "updated_at": "2026-09-09T20:11:42+09:00"
     }
   }
 }
