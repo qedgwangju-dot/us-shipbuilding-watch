@@ -119,8 +119,24 @@ jobs:
           EOF
           fi
 
+      - name: Build one-time expanded nuclear scope test
+        run: |
+          if [ ! -f nuclear_scope_expansion_v2.txt ]; then
+            cat > nuclear_scope_expansion_test.html <<'EOF'
+          <b>[원전 웹감시] 감시 범위 확장 완료</b>
+
+          • 수신 봇: <b>@khs887900_bot</b>
+          • 추가 감시: <b>APR1400 미국 진출·미국 원전 8기·한수원/Westinghouse 협력</b>
+          • 추가 감시: <b>한수원-체코 원전 연계 청정수소·HYTEP·CEZ 실증</b>
+          • 추가 감시: <b>Holtec IPO·SMR-300·Palisades·현대건설 협력·자금조달</b>
+          • 공식 교차검증: <b>한국수력원자력·산업통상부·Holtec 공식 발표</b>
+          • 언론 보도와 공식 확정은 분리 표기하고, 대미 원전 8기·APR1400 기수·투자금은 정부 확정 전까지 협상 단계로 표시
+          • 확인 주기: 15분
+          EOF
+          fi
+
       - name: Send all alerts to khs887900 bot
-        if: hashFiles('nuclear_janus_route_test.html') != '' || hashFiles('upstream/out/janus_alert_v2.html') != '' || hashFiles('upstream/out/westinghouse_alert.html') != ''
+        if: hashFiles('nuclear_janus_route_test.html') != '' || hashFiles('nuclear_scope_expansion_test.html') != '' || hashFiles('upstream/out/janus_alert_v2.html') != '' || hashFiles('upstream/out/westinghouse_alert.html') != ''
         run: |
           python - <<'PY'
           import json, os, pathlib, urllib.parse, urllib.request
@@ -132,6 +148,7 @@ jobs:
               raise RuntimeError(f'wrong bot: expected @{expected}, got @{actual or "unknown"}')
           files=[
               pathlib.Path('nuclear_janus_route_test.html'),
+              pathlib.Path('nuclear_scope_expansion_test.html'),
               pathlib.Path('upstream/out/janus_alert_v2.html'),
               pathlib.Path('upstream/out/westinghouse_alert.html'),
           ]
@@ -159,9 +176,15 @@ jobs:
           print(f'nuclear_janus_delivery_confirmed=true bot=@{actual} messages={len(ids)} ids={ids}')
           PY
 
-      - name: Mark route verified
-        if: success() && hashFiles('nuclear_janus_route_test.html') != ''
-        run: printf 'verified target=@khs887900_bot\n' > nuclear_janus_route_verified.txt
+      - name: Mark route and expanded scope verified
+        if: success()
+        run: |
+          if [ -f nuclear_janus_route_test.html ]; then
+            printf 'verified target=@khs887900_bot\n' > nuclear_janus_route_verified.txt
+          fi
+          if [ -f nuclear_scope_expansion_test.html ]; then
+            printf 'verified expanded nuclear scope target=@khs887900_bot\n' > nuclear_scope_expansion_v2.txt
+          fi
 
       - name: Persist watcher state
         if: success() && hashFiles('upstream/out/janus_watch_v2_state_pending.json') != ''
@@ -172,7 +195,7 @@ jobs:
         run: |
           git config user.name 'nuclear-janus-watch[bot]'
           git config user.email 'nuclear-janus-watch[bot]@users.noreply.github.com'
-          git add nuclear_janus_state.json nuclear_janus_route_verified.txt 2>/dev/null || true
+          git add nuclear_janus_state.json nuclear_janus_route_verified.txt nuclear_scope_expansion_v2.txt 2>/dev/null || true
           if git diff --cached --quiet; then
             echo 'state unchanged'
           else
