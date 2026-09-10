@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "last_updated": "2026-09-11T05:58:21+09:00",
+  "last_updated": "2026-09-11T08:03:59+09:00",
   "facts": {
     "strategy.total_package_usd_eok": {
       "value": 3500,
@@ -523,7 +523,8 @@
         "https://n.news.naver.com/mnews/article/015/0005329652?sid=101",
         "https://n.news.naver.com/mnews/article/016/0002602277?sid=104",
         "https://n.news.naver.com/mnews/article/374/0000531654?sid=101",
-        "https://news.mtn.co.kr/news-detail/2026090816281014738"
+        "https://news.mtn.co.kr/news-detail/2026090816281014738",
+        "https://n.news.naver.com/mnews/article/001/0016303796?sid=101"
       ]
     },
     "package.alaska_final_framework_reported_included": {
