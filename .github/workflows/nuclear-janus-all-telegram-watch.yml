@@ -63,21 +63,21 @@ jobs:
           print(f'telegram_route_valid=true bot=@{actual}')
           PY
 
-      - name: Restore migrated watcher state
+      - name: Restore watcher state
         run: |
           mkdir -p upstream/data upstream/out
           if [ -f nuclear_janus_state.json ]; then
             cp nuclear_janus_state.json upstream/data/janus_watch_v2_state.json
           fi
 
-      - name: Validate watcher
+      - name: Validate v8 watcher
         run: |
-          python -m py_compile upstream/scripts/janus_watch.py upstream/scripts/janus_watch_v2.py upstream/scripts/janus_watch_v3.py upstream/scripts/janus_watch_v4.py upstream/scripts/janus_watch_v5.py upstream/scripts/janus_watch_v6.py upstream/scripts/janus_watch_v7.py
-          python upstream/scripts/janus_watch_v7.py --mode self-test
+          python -m py_compile upstream/scripts/janus_watch.py upstream/scripts/janus_watch_v2.py upstream/scripts/janus_watch_v3.py upstream/scripts/janus_watch_v4.py upstream/scripts/janus_watch_v5.py upstream/scripts/janus_watch_v6.py upstream/scripts/janus_watch_v7.py upstream/scripts/janus_watch_v8.py
+          python upstream/scripts/janus_watch_v8.py --mode self-test
 
-      - name: Run all nuclear and Janus web watch
+      - name: Run all nuclear and Janus web watch v8
         run: |
-          python upstream/scripts/janus_watch_v7.py --mode check
+          python upstream/scripts/janus_watch_v8.py --mode check
           cat upstream/out/janus_status_v2.md >> "$GITHUB_STEP_SUMMARY"
           if [ -s upstream/out/janus_errors_v2.log ]; then
             echo '' >> "$GITHUB_STEP_SUMMARY"
@@ -105,53 +105,24 @@ jobs:
           print('telegram_alert_preflight=passed')
           PY
 
-      - name: Build one-time full migration test
+      - name: Build one-time v8 upgrade test
         run: |
-          if [ ! -f nuclear_janus_route_verified.txt ]; then
-            cat > nuclear_janus_route_test.html <<'EOF'
-          <b>[원전·Janus 웹감시] 전체 송출 경로 이동 완료</b>
+          if [ ! -f nuclear_us_v8_estimate_verified.txt ]; then
+            cat > nuclear_us_v8_estimate_test.html <<'EOF'
+          <b>[미국 원전 웹감시] 두산 수주추정·생산능력 검산 업그레이드</b>
 
           • 수신 봇: <b>@khs887900_bot</b>
-          • 대상: Janus · 신규/재가동 원전 · 원전 정책·금융·설비투자 · SMR · 핵연료·공급망 · Westinghouse 지분·원전동맹
-          • 확인 주기: 15분
-          • 기존 @hs8879887988798879_bot으로는 이 원전·Janus 감시를 더 이상 송출하지 않음
-          • 같은 이슈는 중복 제거·묶음 처리, 영어 설명은 한국어 번역 후 송출
-          EOF
-          fi
-
-      - name: Build one-time expanded nuclear scope test
-        run: |
-          if [ ! -f nuclear_scope_expansion_v2.txt ]; then
-            cat > nuclear_scope_expansion_test.html <<'EOF'
-          <b>[원전 웹감시] 감시 범위 확장 완료</b>
-
-          • 수신 봇: <b>@khs887900_bot</b>
-          • 추가 감시: <b>APR1400 미국 진출·미국 원전 8기·한수원/Westinghouse 협력</b>
-          • 추가 감시: <b>한수원-체코 원전 연계 청정수소·HYTEP·CEZ 실증</b>
-          • 추가 감시: <b>Holtec IPO·SMR-300·Palisades·현대건설 협력·자금조달</b>
-          • 공식 교차검증: <b>한국수력원자력·산업통상부·Holtec 공식 발표</b>
-          • 언론 보도와 공식 확정은 분리 표기하고, 대미 원전 8기·APR1400 기수·투자금은 정부 확정 전까지 협상 단계로 표시
-          • 확인 주기: 15분
-          EOF
-          fi
-
-      - name: Build one-time US nuclear three-track upgrade test
-        run: |
-          if [ ! -f nuclear_us_3track_upgrade_v3.txt ]; then
-            cat > nuclear_us_3track_upgrade_test.html <<'EOF'
-          <b>[미국 대형원전 웹감시] 3트랙·매출민감도 업그레이드 완료</b>
-
-          • <b>DOE AP1000:</b> 5개 프로젝트×2기 = 10기·11GW, 175억달러 조건부 대출·장납기 기자재 고정가 조달을 별도 트랙으로 추적
-          • <b>Fermi America:</b> Project Matador AP1000 4기·4GW, 현대건설 FEED → EPC → FID → 장납기 발주를 단계별 추적
-          • <b>한미 대미투자:</b> 원전 8기 보도는 AP1000/APR1400 기수·부지·사업자·투자금이 공식 확정될 때까지 협상 트랙으로 분리
-          • 노형 확정 시 <b>현대건설·한국전력기술·두산에너빌리티</b>의 기사·증권사 추정 기준값을 최신 USD/KRW API로 원화 환산해 2기·4기·8기 민감도 자동 계산
-          • <b>계약 위험:</b> 고정가/원가보전·물가연동 · 지체상금 · 성능보증 · 공사비 초과 책임 · 현지화율 감시
-          • 단순 주가 급등·특징주는 새 노형·물량·계약 사실이 없으면 별도 알림 억제
+          • '두산 32조·40조' 같은 헤드라인은 <b>확정수주와 분리</b>
+          • <b>탑다운:</b> 1,200억달러 총사업비 × 15~30% 주기기 비중을 최신 환율로 자동 검산
+          • <b>바텀업:</b> AP1000 4,000억~5,000억원/기 · APR1400 2조5,000억~3조원/기 기준으로 노형별 수주범위 비교
+          • AP1000 6기 + APR1400 2기 가정은 <b>약 7조4,000억~9조원</b>으로 별도 표시
+          • 두산 공시 원자로·증기발생기 생산능력과 8기 물량을 비교해 <b>한 해 매출 오해 방지</b>
+          • 실제 장납기 발주·공급품목·납기·생산능력 증설·수주잔고를 조기경보로 추적
           EOF
           fi
 
       - name: Send all alerts to khs887900 bot
-        if: hashFiles('nuclear_janus_route_test.html') != '' || hashFiles('nuclear_scope_expansion_test.html') != '' || hashFiles('nuclear_us_3track_upgrade_test.html') != '' || hashFiles('upstream/out/janus_alert_v2.html') != '' || hashFiles('upstream/out/westinghouse_alert.html') != ''
+        if: hashFiles('nuclear_us_v8_estimate_test.html') != '' || hashFiles('upstream/out/janus_alert_v2.html') != '' || hashFiles('upstream/out/westinghouse_alert.html') != ''
         run: |
           python - <<'PY'
           import json, os, pathlib, urllib.parse, urllib.request
@@ -162,9 +133,7 @@ jobs:
           if not me.get('ok') or actual.lower()!=expected.lower():
               raise RuntimeError(f'wrong bot: expected @{expected}, got @{actual or "unknown"}')
           files=[
-              pathlib.Path('nuclear_janus_route_test.html'),
-              pathlib.Path('nuclear_scope_expansion_test.html'),
-              pathlib.Path('nuclear_us_3track_upgrade_test.html'),
+              pathlib.Path('nuclear_us_v8_estimate_test.html'),
               pathlib.Path('upstream/out/janus_alert_v2.html'),
               pathlib.Path('upstream/out/westinghouse_alert.html'),
           ]
@@ -192,18 +161,9 @@ jobs:
           print(f'nuclear_janus_delivery_confirmed=true bot=@{actual} messages={len(ids)} ids={ids}')
           PY
 
-      - name: Mark route and expanded scope verified
-        if: success()
-        run: |
-          if [ -f nuclear_janus_route_test.html ]; then
-            printf 'verified target=@khs887900_bot\n' > nuclear_janus_route_verified.txt
-          fi
-          if [ -f nuclear_scope_expansion_test.html ]; then
-            printf 'verified expanded nuclear scope target=@khs887900_bot\n' > nuclear_scope_expansion_v2.txt
-          fi
-          if [ -f nuclear_us_3track_upgrade_test.html ]; then
-            printf 'verified US nuclear 3-track and revenue-sensitivity upgrade target=@khs887900_bot\n' > nuclear_us_3track_upgrade_v3.txt
-          fi
+      - name: Mark v8 upgrade verified
+        if: success() && hashFiles('nuclear_us_v8_estimate_test.html') != ''
+        run: printf 'verified v8 Doosan estimate and capacity checks target=@khs887900_bot\n' > nuclear_us_v8_estimate_verified.txt
 
       - name: Persist watcher state
         if: success() && hashFiles('upstream/out/janus_watch_v2_state_pending.json') != ''
@@ -214,11 +174,11 @@ jobs:
         run: |
           git config user.name 'nuclear-janus-watch[bot]'
           git config user.email 'nuclear-janus-watch[bot]@users.noreply.github.com'
-          git add nuclear_janus_state.json nuclear_janus_route_verified.txt nuclear_scope_expansion_v2.txt nuclear_us_3track_upgrade_v3.txt 2>/dev/null || true
+          git add nuclear_janus_state.json nuclear_us_v8_estimate_verified.txt 2>/dev/null || true
           if git diff --cached --quiet; then
             echo 'state unchanged'
           else
-            git commit -m 'Update nuclear Janus watch state'
+            git commit -m 'Update nuclear Janus v8 watch state'
             for i in 1 2 3; do
               if git pull --rebase origin main && git push origin HEAD:main; then exit 0; fi
               git rebase --abort 2>/dev/null || true
