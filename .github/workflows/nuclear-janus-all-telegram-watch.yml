@@ -70,14 +70,14 @@ jobs:
             cp nuclear_janus_state.json upstream/data/janus_watch_v2_state.json
           fi
 
-      - name: Validate v9 watcher
+      - name: Validate v10 watcher
         run: |
-          python -m py_compile upstream/scripts/janus_watch.py upstream/scripts/janus_watch_v2.py upstream/scripts/janus_watch_v3.py upstream/scripts/janus_watch_v4.py upstream/scripts/janus_watch_v5.py upstream/scripts/janus_watch_v6.py upstream/scripts/janus_watch_v7.py upstream/scripts/janus_watch_v8.py upstream/scripts/janus_watch_v9.py
-          python upstream/scripts/janus_watch_v9.py --mode self-test
+          python -m py_compile upstream/scripts/janus_watch.py upstream/scripts/janus_watch_v2.py upstream/scripts/janus_watch_v3.py upstream/scripts/janus_watch_v4.py upstream/scripts/janus_watch_v5.py upstream/scripts/janus_watch_v6.py upstream/scripts/janus_watch_v7.py upstream/scripts/janus_watch_v8.py upstream/scripts/janus_watch_v9.py upstream/scripts/janus_watch_v10.py
+          python upstream/scripts/janus_watch_v10.py --mode self-test
 
-      - name: Run all nuclear and Janus web watch v9
+      - name: Run all nuclear and Janus web watch v10
         run: |
-          python upstream/scripts/janus_watch_v9.py --mode check
+          python upstream/scripts/janus_watch_v10.py --mode check
           cat upstream/out/janus_status_v2.md >> "$GITHUB_STEP_SUMMARY"
           if [ -s upstream/out/janus_errors_v2.log ]; then
             echo '' >> "$GITHUB_STEP_SUMMARY"
@@ -135,8 +135,24 @@ jobs:
           EOF
           fi
 
+      - name: Build one-time SMR demand v10 test
+        run: |
+          if [ ! -f nuclear_smr_v10_demand_verified.txt ]; then
+            cat > nuclear_smr_v10_demand_test.html <<'EOF'
+          <b>[SMR 실수요·AI 데이터센터 웹감시] v10 업그레이드 완료</b>
+
+          • 수신 봇: <b>@khs887900_bot</b>
+          • 추가 감시: <b>AI·데이터센터 · 반도체/산업단지 · 선박 · 국방 · 우주 · PPA/오프테이크</b>
+          • i-SMR 공식 기준: <b>170MWe/모듈 · 680MWe/4모듈 · 목표 건설단가 3,500달러/kWe 이하</b>
+          • 기사에 MW/GW가 나오면 <b>필요 모듈 수·680MW급 발전소 수</b>를 단순 설비용량 기준으로 자동 환산
+          • 설계 목표단가를 적용한 설비비는 <b>실제 EPC 예산이 아닌 참고치</b>로 분리 표기
+          • <b>고객 실명 → MW/GW → PPA → 부지 → 계통접속/전원인가 → 인허가 → 핵연료 → FEED/EPC → 장납기 발주</b> 순서로 매출 연결을 추적
+          • 전력망·변전소·냉각수·보험·지역수용성·핵연료를 별도 실패모드로 감시
+          EOF
+          fi
+
       - name: Send all alerts to khs887900 bot
-        if: hashFiles('nuclear_us_v8_estimate_test.html') != '' || hashFiles('nuclear_smr_v9_policy_test.html') != '' || hashFiles('upstream/out/janus_alert_v2.html') != '' || hashFiles('upstream/out/westinghouse_alert.html') != ''
+        if: hashFiles('nuclear_us_v8_estimate_test.html') != '' || hashFiles('nuclear_smr_v9_policy_test.html') != '' || hashFiles('nuclear_smr_v10_demand_test.html') != '' || hashFiles('upstream/out/janus_alert_v2.html') != '' || hashFiles('upstream/out/westinghouse_alert.html') != ''
         run: |
           python - <<'PY'
           import json, os, pathlib, urllib.parse, urllib.request
@@ -149,6 +165,7 @@ jobs:
           files=[
               pathlib.Path('nuclear_us_v8_estimate_test.html'),
               pathlib.Path('nuclear_smr_v9_policy_test.html'),
+              pathlib.Path('nuclear_smr_v10_demand_test.html'),
               pathlib.Path('upstream/out/janus_alert_v2.html'),
               pathlib.Path('upstream/out/westinghouse_alert.html'),
           ]
@@ -185,6 +202,9 @@ jobs:
           if [ -f nuclear_smr_v9_policy_test.html ]; then
             printf 'verified v9 SMR special law and i-SMR policy watch target=@khs887900_bot\n' > nuclear_smr_v9_policy_verified.txt
           fi
+          if [ -f nuclear_smr_v10_demand_test.html ]; then
+            printf 'verified v10 SMR demand and AI data center watch target=@khs887900_bot\n' > nuclear_smr_v10_demand_verified.txt
+          fi
 
       - name: Persist watcher state
         if: success() && hashFiles('upstream/out/janus_watch_v2_state_pending.json') != ''
@@ -195,11 +215,11 @@ jobs:
         run: |
           git config user.name 'nuclear-janus-watch[bot]'
           git config user.email 'nuclear-janus-watch[bot]@users.noreply.github.com'
-          git add nuclear_janus_state.json nuclear_us_v8_estimate_verified.txt nuclear_smr_v9_policy_verified.txt 2>/dev/null || true
+          git add nuclear_janus_state.json nuclear_us_v8_estimate_verified.txt nuclear_smr_v9_policy_verified.txt nuclear_smr_v10_demand_verified.txt 2>/dev/null || true
           if git diff --cached --quiet; then
             echo 'state unchanged'
           else
-            git commit -m 'Update nuclear Janus v9 watch state'
+            git commit -m 'Update nuclear Janus v10 watch state'
             for i in 1 2 3; do
               if git pull --rebase origin main && git push origin HEAD:main; then exit 0; fi
               git rebase --abort 2>/dev/null || true
