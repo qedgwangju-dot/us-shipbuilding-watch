@@ -2,7 +2,7 @@
   "version": 1,
   "initialized": true,
   "initialized_at": "2026-08-28T03:59:39+00:00",
-  "last_checked_at": "2026-09-11T21:53:30+00:00",
+  "last_checked_at": "2026-09-11T23:56:38+00:00",
   "seen": [
     "0249bb5d136ff8b38e08f030d8c54a879ebef62948e8a7446153e8f0a241b247",
     "0cbdeb97e5f6a0643f5061d952ef45c7ab4c8d5a6e008885db6ef9ecf3b75413",
@@ -159,7 +159,9 @@
     "e55a8c76462e8a7275f92dd84a2a87d3d662435fa1b99efc86fcc2c3843510be",
     "fee98a2f116ddd811b69ddb0f842e26b7ed3fb66a905ac3d2e972eb2c92a4071",
     "8e8a854ac8933124e6baa0ced7fff77b14a11df03a24e928ccec05f1c4b4e259",
-    "c826b030e73bb8f3ef7716f211d5024315fe648cadec57de9b69d53f57d76949"
+    "c826b030e73bb8f3ef7716f211d5024315fe648cadec57de9b69d53f57d76949",
+    "29c3b88a6361b28cee0a6aaab9e0c672dfe6d30bc1d7c800ee6f6fb0fe251d08",
+    "f491deec4784e0069d1fa2b7ed110e084d3cef99a55aa5bd32692f1abd5a4595"
   ],
   "facts": {
     "미 육군 Janus 계약 발표": {
@@ -184,5 +186,5 @@
     }
   },
   "source_count": 46,
-  "sources_ok": 41
+  "sources_ok": 44
 }
