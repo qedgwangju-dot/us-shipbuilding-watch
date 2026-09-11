@@ -70,14 +70,14 @@ jobs:
             cp nuclear_janus_state.json upstream/data/janus_watch_v2_state.json
           fi
 
-      - name: Validate v10 watcher
+      - name: Validate v11 watcher
         run: |
-          python -m py_compile upstream/scripts/janus_watch.py upstream/scripts/janus_watch_v2.py upstream/scripts/janus_watch_v3.py upstream/scripts/janus_watch_v4.py upstream/scripts/janus_watch_v5.py upstream/scripts/janus_watch_v6.py upstream/scripts/janus_watch_v7.py upstream/scripts/janus_watch_v8.py upstream/scripts/janus_watch_v9.py upstream/scripts/janus_watch_v10.py
-          python upstream/scripts/janus_watch_v10.py --mode self-test
+          python -m py_compile upstream/scripts/janus_watch.py upstream/scripts/janus_watch_v2.py upstream/scripts/janus_watch_v3.py upstream/scripts/janus_watch_v4.py upstream/scripts/janus_watch_v5.py upstream/scripts/janus_watch_v6.py upstream/scripts/janus_watch_v7.py upstream/scripts/janus_watch_v8.py upstream/scripts/janus_watch_v9.py upstream/scripts/janus_watch_v10.py upstream/scripts/janus_watch_v11.py
+          python upstream/scripts/janus_watch_v11.py --mode self-test
 
-      - name: Run all nuclear and Janus web watch v10
+      - name: Run all nuclear Janus and gas turbine web watch v11
         run: |
-          python upstream/scripts/janus_watch_v10.py --mode check
+          python upstream/scripts/janus_watch_v11.py --mode check
           cat upstream/out/janus_status_v2.md >> "$GITHUB_STEP_SUMMARY"
           if [ -s upstream/out/janus_errors_v2.log ]; then
             echo '' >> "$GITHUB_STEP_SUMMARY"
@@ -151,8 +151,25 @@ jobs:
           EOF
           fi
 
+      - name: Build one-time gas turbine cycle v11 test
+        run: |
+          if [ ! -f nuclear_gt_v11_cycle_verified.txt ]; then
+            cat > nuclear_gt_v11_cycle_test.html <<'EOF'
+          <b>[가스터빈 공급부족·과잉 전환 웹감시] v11 업그레이드 완료</b>
+
+          • 수신 봇: <b>@khs887900_bot</b>
+          • BNEF 기준 <b>2030년 글로벌 연간 생산능력 +35GW</b>, 빅3 증설 <b>+28GW</b>를 기준선으로 저장
+          • GE Vernova <b>116GW 수주잔고+슬롯</b>과 <b>20→24→30GW</b> 생산능력을 비교해 잔고연수 추적
+          • <b>수주잔고·슬롯·납기·슬롯가격·취소/연기</b>를 함께 보고 공급부족→정상화→과잉위험 국면을 판정
+          • <b>2030년이라는 날짜만으로 공급과잉 판정 금지</b> — 취소·가격할인·유휴능력·잔고 급락이 동반될 때 위험 상향
+          • 두산은 <b>가스터빈+발전기+스팀터빈+HRSG+LTSA</b> 프로젝트당 공급범위와 반복고객을 추적
+          • 2029년 설치물량 이후 <b>초기 점검·대정비·장기부품·O&M</b> 반복매출 전환을 추적
+          • 블레이드·베인·단조품·특수합금·발전기·HRSG·숙련인력을 실제 공급병목으로 감시
+          EOF
+          fi
+
       - name: Send all alerts to khs887900 bot
-        if: hashFiles('nuclear_us_v8_estimate_test.html') != '' || hashFiles('nuclear_smr_v9_policy_test.html') != '' || hashFiles('nuclear_smr_v10_demand_test.html') != '' || hashFiles('upstream/out/janus_alert_v2.html') != '' || hashFiles('upstream/out/westinghouse_alert.html') != ''
+        if: hashFiles('nuclear_us_v8_estimate_test.html') != '' || hashFiles('nuclear_smr_v9_policy_test.html') != '' || hashFiles('nuclear_smr_v10_demand_test.html') != '' || hashFiles('nuclear_gt_v11_cycle_test.html') != '' || hashFiles('upstream/out/janus_alert_v2.html') != '' || hashFiles('upstream/out/westinghouse_alert.html') != ''
         run: |
           python - <<'PY'
           import json, os, pathlib, urllib.parse, urllib.request
@@ -166,6 +183,7 @@ jobs:
               pathlib.Path('nuclear_us_v8_estimate_test.html'),
               pathlib.Path('nuclear_smr_v9_policy_test.html'),
               pathlib.Path('nuclear_smr_v10_demand_test.html'),
+              pathlib.Path('nuclear_gt_v11_cycle_test.html'),
               pathlib.Path('upstream/out/janus_alert_v2.html'),
               pathlib.Path('upstream/out/westinghouse_alert.html'),
           ]
@@ -205,6 +223,9 @@ jobs:
           if [ -f nuclear_smr_v10_demand_test.html ]; then
             printf 'verified v10 SMR demand and AI data center watch target=@khs887900_bot\n' > nuclear_smr_v10_demand_verified.txt
           fi
+          if [ -f nuclear_gt_v11_cycle_test.html ]; then
+            printf 'verified v11 gas turbine supply cycle watch target=@khs887900_bot\n' > nuclear_gt_v11_cycle_verified.txt
+          fi
 
       - name: Persist watcher state
         if: success() && hashFiles('upstream/out/janus_watch_v2_state_pending.json') != ''
@@ -215,11 +236,11 @@ jobs:
         run: |
           git config user.name 'nuclear-janus-watch[bot]'
           git config user.email 'nuclear-janus-watch[bot]@users.noreply.github.com'
-          git add nuclear_janus_state.json nuclear_us_v8_estimate_verified.txt nuclear_smr_v9_policy_verified.txt nuclear_smr_v10_demand_verified.txt 2>/dev/null || true
+          git add nuclear_janus_state.json nuclear_us_v8_estimate_verified.txt nuclear_smr_v9_policy_verified.txt nuclear_smr_v10_demand_verified.txt nuclear_gt_v11_cycle_verified.txt 2>/dev/null || true
           if git diff --cached --quiet; then
             echo 'state unchanged'
           else
-            git commit -m 'Update nuclear Janus v10 watch state'
+            git commit -m 'Update nuclear Janus gas turbine v11 watch state'
             for i in 1 2 3; do
               if git pull --rebase origin main && git push origin HEAD:main; then exit 0; fi
               git rebase --abort 2>/dev/null || true
