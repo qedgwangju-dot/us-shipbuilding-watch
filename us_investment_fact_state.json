@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "last_updated": "2026-09-12T02:48:48+09:00",
+  "last_updated": "2026-09-12T05:05:46+09:00",
   "facts": {
     "strategy.total_package_usd_eok": {
       "value": 3500,
@@ -418,7 +418,6 @@
       "label": "미국 내 원전 추진 기수",
       "status": "보도·협의 단계",
       "sources": [
-        "https://n.news.naver.com/mnews/article/215/0001265164?sid=100",
         "https://n.news.naver.com/mnews/article/422/0000903732?sid=101",
         "https://n.news.naver.com/mnews/article/008/0005410602?sid=101",
         "https://n.news.naver.com/mnews/article/374/0000531654?sid=101",
@@ -429,7 +428,8 @@
         "https://n.news.naver.com/mnews/article/001/0016298619?sid=110",
         "https://n.news.naver.com/mnews/article/022/0004157764?sid=100",
         "https://n.news.naver.com/mnews/article/001/0016303456?sid=100",
-        "https://n.news.naver.com/mnews/article/422/0000905203?sid=101"
+        "https://n.news.naver.com/mnews/article/422/0000905203?sid=101",
+        "https://www.yna.co.kr/view/AKR20260910150800011?input=1195m"
       ]
     },
     "nuclear.us_proposal_usd_eok": {
