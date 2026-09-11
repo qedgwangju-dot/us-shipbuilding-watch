@@ -70,14 +70,14 @@ jobs:
             cp nuclear_janus_state.json upstream/data/janus_watch_v2_state.json
           fi
 
-      - name: Validate v8 watcher
+      - name: Validate v9 watcher
         run: |
-          python -m py_compile upstream/scripts/janus_watch.py upstream/scripts/janus_watch_v2.py upstream/scripts/janus_watch_v3.py upstream/scripts/janus_watch_v4.py upstream/scripts/janus_watch_v5.py upstream/scripts/janus_watch_v6.py upstream/scripts/janus_watch_v7.py upstream/scripts/janus_watch_v8.py
-          python upstream/scripts/janus_watch_v8.py --mode self-test
+          python -m py_compile upstream/scripts/janus_watch.py upstream/scripts/janus_watch_v2.py upstream/scripts/janus_watch_v3.py upstream/scripts/janus_watch_v4.py upstream/scripts/janus_watch_v5.py upstream/scripts/janus_watch_v6.py upstream/scripts/janus_watch_v7.py upstream/scripts/janus_watch_v8.py upstream/scripts/janus_watch_v9.py
+          python upstream/scripts/janus_watch_v9.py --mode self-test
 
-      - name: Run all nuclear and Janus web watch v8
+      - name: Run all nuclear and Janus web watch v9
         run: |
-          python upstream/scripts/janus_watch_v8.py --mode check
+          python upstream/scripts/janus_watch_v9.py --mode check
           cat upstream/out/janus_status_v2.md >> "$GITHUB_STEP_SUMMARY"
           if [ -s upstream/out/janus_errors_v2.log ]; then
             echo '' >> "$GITHUB_STEP_SUMMARY"
@@ -115,14 +115,28 @@ jobs:
           • '두산 32조·40조' 같은 헤드라인은 <b>확정수주와 분리</b>
           • <b>탑다운:</b> 1,200억달러 총사업비 × 15~30% 주기기 비중을 최신 환율로 자동 검산
           • <b>바텀업:</b> AP1000 4,000억~5,000억원/기 · APR1400 2조5,000억~3조원/기 기준으로 노형별 수주범위 비교
-          • AP1000 6기 + APR1400 2기 가정은 <b>약 7조4,000억~9조원</b>으로 별도 표시
-          • 두산 공시 원자로·증기발생기 생산능력과 8기 물량을 비교해 <b>한 해 매출 오해 방지</b>
           • 실제 장납기 발주·공급품목·납기·생산능력 증설·수주잔고를 조기경보로 추적
           EOF
           fi
 
+      - name: Build one-time SMR special law v9 test
+        run: |
+          if [ ! -f nuclear_smr_v9_policy_verified.txt ]; then
+            cat > nuclear_smr_v9_policy_test.html <<'EOF'
+          <b>[한국 SMR 특별법·i-SMR 웹감시] v9 업그레이드 완료</b>
+
+          • 수신 봇: <b>@khs887900_bot</b>
+          • 특별법·시행령: <b>2026년 9월 11일 시행</b>
+          • 최초 기본계획: <b>2027년 9월 11일까지</b> · 최초 시행계획은 기본계획 후 <b>3개월 이내</b>
+          • 법 자체 총예산은 없으므로 <b>기본계획 총재원·세부사업별 예산·민간자금</b>이 공개되는 순간 금액을 우선 추적
+          • <b>특구 지역·민관 공동출자 회사 주주·출자액·연구조합·핵연료 공급망</b>을 실제 사업화 촉매로 감시
+          • <b>i-SMR 표준설계인가와 부지별 건설허가를 분리</b>하고 2035 상용화는 정책목표로 표시
+          • 실증 부지·기반시설·건설·운영·실증비·부품 표준화·시험 기자재 공동구매가 실제 발주로 연결되는지 추적
+          EOF
+          fi
+
       - name: Send all alerts to khs887900 bot
-        if: hashFiles('nuclear_us_v8_estimate_test.html') != '' || hashFiles('upstream/out/janus_alert_v2.html') != '' || hashFiles('upstream/out/westinghouse_alert.html') != ''
+        if: hashFiles('nuclear_us_v8_estimate_test.html') != '' || hashFiles('nuclear_smr_v9_policy_test.html') != '' || hashFiles('upstream/out/janus_alert_v2.html') != '' || hashFiles('upstream/out/westinghouse_alert.html') != ''
         run: |
           python - <<'PY'
           import json, os, pathlib, urllib.parse, urllib.request
@@ -134,6 +148,7 @@ jobs:
               raise RuntimeError(f'wrong bot: expected @{expected}, got @{actual or "unknown"}')
           files=[
               pathlib.Path('nuclear_us_v8_estimate_test.html'),
+              pathlib.Path('nuclear_smr_v9_policy_test.html'),
               pathlib.Path('upstream/out/janus_alert_v2.html'),
               pathlib.Path('upstream/out/westinghouse_alert.html'),
           ]
@@ -161,9 +176,15 @@ jobs:
           print(f'nuclear_janus_delivery_confirmed=true bot=@{actual} messages={len(ids)} ids={ids}')
           PY
 
-      - name: Mark v8 upgrade verified
-        if: success() && hashFiles('nuclear_us_v8_estimate_test.html') != ''
-        run: printf 'verified v8 Doosan estimate and capacity checks target=@khs887900_bot\n' > nuclear_us_v8_estimate_verified.txt
+      - name: Mark upgrade verified
+        if: success()
+        run: |
+          if [ -f nuclear_us_v8_estimate_test.html ]; then
+            printf 'verified v8 Doosan estimate and capacity checks target=@khs887900_bot\n' > nuclear_us_v8_estimate_verified.txt
+          fi
+          if [ -f nuclear_smr_v9_policy_test.html ]; then
+            printf 'verified v9 SMR special law and i-SMR policy watch target=@khs887900_bot\n' > nuclear_smr_v9_policy_verified.txt
+          fi
 
       - name: Persist watcher state
         if: success() && hashFiles('upstream/out/janus_watch_v2_state_pending.json') != ''
@@ -174,11 +195,11 @@ jobs:
         run: |
           git config user.name 'nuclear-janus-watch[bot]'
           git config user.email 'nuclear-janus-watch[bot]@users.noreply.github.com'
-          git add nuclear_janus_state.json nuclear_us_v8_estimate_verified.txt 2>/dev/null || true
+          git add nuclear_janus_state.json nuclear_us_v8_estimate_verified.txt nuclear_smr_v9_policy_verified.txt 2>/dev/null || true
           if git diff --cached --quiet; then
             echo 'state unchanged'
           else
-            git commit -m 'Update nuclear Janus v8 watch state'
+            git commit -m 'Update nuclear Janus v9 watch state'
             for i in 1 2 3; do
               if git pull --rebase origin main && git push origin HEAD:main; then exit 0; fi
               git rebase --abort 2>/dev/null || true
