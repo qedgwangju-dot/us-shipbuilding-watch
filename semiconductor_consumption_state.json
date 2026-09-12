@@ -151,8 +151,8 @@
     "00bfb6e5e915c14fa83cb568"
   ],
   "connected_notified": true,
-  "last_run_kst": "2026-09-02T10:23:00+09:00",
-  "last_new_count": 3,
+  "last_run_kst": "2026-09-12T20:12:02+09:00",
+  "last_new_count": 20,
   "last_sent_count": 0,
   "last_errors": [],
   "schema_version": 2,
@@ -386,13 +386,33 @@
     "104c4cfdd310d415c96af4b7754137dd",
     "75c178708b86efce8a03ce672eb92ac6",
     "5c86f49112d70ca7ace5a3a561688a94",
-    "e944fdac1f152804540824588a4c7bbc"
+    "e944fdac1f152804540824588a4c7bbc",
+    "0fd8d6bd823bfe37a15e536704b12c25",
+    "58770d62b21e99a8728e04344a519e02",
+    "56674828f8b1a9e68db1a247664f3892",
+    "d5640b46176682aaee02acf022c59adf",
+    "53c111e416169272268343748a9f751b",
+    "9ecd686178f692ac5d8e6893473c58f1",
+    "987acf66f66e17cd6d69c64efbd81c19",
+    "789367a559a3a7eb67ee72f4aa9911c4",
+    "46efe8a0ebb8f6dbffcedaf604ef6ee9",
+    "07e590abf75a59f69607fb23d4c0acc9",
+    "053aa79c2535ffe9114337923a0f569c",
+    "bd3ca3c061360fdeeb92df8f57a427a1",
+    "78fadc471caa05a697abd3bcc982913d",
+    "97e26e0e84b3597cd4347861e5f54cf9",
+    "81e2750976209149a4abe65823901642",
+    "4db8c0bc6062aca9953937d1125da0d8",
+    "dfab51cffb0705bca0f457d2e4003002",
+    "6616800ed27e4e9aee33dd16a3e0d396",
+    "71e089fe2b1631568dc0b0acc7a09168",
+    "79df0a272a31abaecbed26cd0ff89492"
   ],
   "sent_urls": [
-    "https://tradersunion.com/ko/news/financial-news/show/3171465-semiconductor-growth-consumption-korea-bank",
-    "https://biz.chosun.com/policy/policy_sub/2026/08/31/ZVGFPH2BJBCY7AQAJZIIALC2QU",
+    "https://www.polinews.co.kr/news/articleView.html",
     "http://www.nbnnews.co.kr/news/articleView.html",
-    "https://www.polinews.co.kr/news/articleView.html"
+    "https://biz.chosun.com/policy/policy_sub/2026/08/31/ZVGFPH2BJBCY7AQAJZIIALC2QU",
+    "https://tradersunion.com/ko/news/financial-news/show/3171465-semiconductor-growth-consumption-korea-bank"
   ],
   "recent_titles": [
     {
@@ -1222,5 +1242,5 @@
       "seen_at": "2026-09-02T10:18:57+09:00"
     }
   ],
-  "last_duplicate_suppressed": 3
+  "last_duplicate_suppressed": 0
 }
