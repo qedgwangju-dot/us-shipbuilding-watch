@@ -151,8 +151,8 @@
     "00bfb6e5e915c14fa83cb568"
   ],
   "connected_notified": true,
-  "last_run_kst": "2026-09-13T04:29:50+09:00",
-  "last_new_count": 6,
+  "last_run_kst": "2026-09-13T06:36:08+09:00",
+  "last_new_count": 1,
   "last_sent_count": 0,
   "last_errors": [],
   "schema_version": 2,
@@ -420,13 +420,14 @@
     "f503e9e3e07fc6813638e1ba7d1368cd",
     "ecbcf6d1b5e1410cd7ea16fe41ef504d",
     "ee5417076980496e75d02f5d5c6ec7b8",
-    "350df6735ba106c6e2c7e7a4be36072f"
+    "350df6735ba106c6e2c7e7a4be36072f",
+    "b860ba6952c3870faa64423939b69b24"
   ],
   "sent_urls": [
-    "http://www.nbnnews.co.kr/news/articleView.html",
-    "https://www.polinews.co.kr/news/articleView.html",
+    "https://biz.chosun.com/policy/policy_sub/2026/08/31/ZVGFPH2BJBCY7AQAJZIIALC2QU",
     "https://tradersunion.com/ko/news/financial-news/show/3171465-semiconductor-growth-consumption-korea-bank",
-    "https://biz.chosun.com/policy/policy_sub/2026/08/31/ZVGFPH2BJBCY7AQAJZIIALC2QU"
+    "https://www.polinews.co.kr/news/articleView.html",
+    "http://www.nbnnews.co.kr/news/articleView.html"
   ],
   "recent_titles": [
     {
