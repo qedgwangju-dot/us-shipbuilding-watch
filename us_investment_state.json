@@ -1,8 +1,8 @@
 {
   "bootstrap_sent": true,
   "last_alert_at": "2026-09-09T20:11:42+09:00",
-  "last_checked_at": "2026-09-14T06:43:46+09:00",
-  "last_usdkrw": 1343.8,
+  "last_checked_at": "2026-09-14T08:37:03+09:00",
+  "last_usdkrw": 1345.0,
   "last_fx_source": "네이버 시장정보 API",
   "unresolved_sources": {
     "b197e7cb60c55a807e33a10f": {
