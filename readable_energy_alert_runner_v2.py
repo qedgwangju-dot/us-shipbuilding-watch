@@ -26,6 +26,61 @@ base.sv.NEWS_TERMS = tuple(dict.fromkeys(base.sv.NEWS_TERMS + (
     'geopark', 'ge vernova', 'shell', 'bp', 'repsol', 'chris wright',
 )))
 
+# 기사 제목·본문에 영어 원문이 반쯤 남는 문제를 막기 위한 한국어 정규화 규칙.
+# 식별이 필요한 약어는 허용하지만, 일반 영어 문장은 송출하지 않는다.
+_ALLOWED_IDENTIFIERS = {
+    'RFS', 'RIN', 'SPR', 'DOE', 'EPA', 'EIA', 'IEA', 'OPEC', 'NABEP',
+    'AAA', 'WTI', 'LNG', 'API', 'ONGC', 'BP', 'GE', 'BRICS', 'SWIFT',
+}
+
+_ENGLISH_PROSE_WORDS = {
+    'the', 'a', 'an', 'and', 'or', 'but', 'of', 'to', 'in', 'on', 'at', 'for',
+    'from', 'with', 'without', 'as', 'by', 'is', 'are', 'was', 'were', 'be',
+    'been', 'being', 'has', 'have', 'had', 'will', 'would', 'could', 'should',
+    'may', 'might', 'not', 'no', 'yes', 'stop', 'halt', 'hits', 'hit', 'record',
+    'high', 'highs', 'price', 'prices', 'fuel', 'diesel', 'gasoline', 'gas',
+    'refinery', 'refineries', 'strike', 'strikes', 'oil', 'output', 'production',
+    'including', 'incl', 'today', 'asks', 'wants', 'urges', 'says', 'said',
+    'bypass', 'against', 'amid', 'after', 'before', 'over', 'under', 'into',
+}
+
+_ENTITY_REPLACEMENTS = (
+    (r'도널드\s+트럼프\s*\(\s*Donald\s+Trump\s*\)', '도널드 트럼프'),
+    (r'볼로디미르\s+젤렌스키\s*\(\s*Volodymyr\s+Zelensk(?:yy|iy|y|i)\s*\)', '볼로디미르 젤렌스키'),
+    (r'\bPresident\s+Donald\s+Trump\b', '도널드 트럼프 대통령'),
+    (r'\bDonald\s+Trump\b', '도널드 트럼프'),
+    (r'\bTrump\b', '트럼프'),
+    (r'\bVolodymyr\s+Zelensk(?:yy|iy|y|i)\b', '볼로디미르 젤렌스키'),
+    (r'\bZelensk(?:yy|iy|y|i)\b', '젤렌스키'),
+    (r'\bVladimir\s+Putin\b', '블라디미르 푸틴'),
+    (r'\bJoe\s+Biden\b', '조 바이든'),
+    (r'\bChris\s+Wright\b', '크리스 라이트'),
+    (r'\bRussia\b', '러시아'),
+    (r'\bRussian\b', '러시아'),
+    (r'\bUkraine\b', '우크라이나'),
+    (r'\bUkrainian\b', '우크라이나'),
+    (r'\bdiesel\b', '경유'),
+    (r'\bgasoline\b', '휘발유'),
+    (r'\bgas prices\b', '휘발유 가격'),
+    (r'\bfuel prices\b', '연료 가격'),
+    (r'\bfuel\b', '연료'),
+    (r'\brefineries\b', '정유시설'),
+    (r'\brefinery\b', '정유시설'),
+    (r'\bstrikes\b', '공격'),
+    (r'\bstrike\b', '공격'),
+    (r'\bChevron\b', '셰브론'),
+    (r'\bEni\b', '에니'),
+    (r'\bShell\b', '셸'),
+    (r'\bRepsol\b', '렙솔'),
+    (r'\bGeoPark\b', '지오파크'),
+    (r'\bGE\s+Vernova\b', 'GE 버노바'),
+    (r'\bReuters\b', '로이터'),
+    (r'\bBloomberg\b', '블룸버그'),
+    (r'\bBRICS\b', '브릭스(BRICS)'),
+    (r'\bSWIFT\b', '스위프트(SWIFT)'),
+    (r'\bIncl\.?\b', '포함'),
+)
+
 
 def _chunks(text, limit=430):
     text = base.rw.clean_paragraph(text)
@@ -61,29 +116,97 @@ def _chunks(text, limit=430):
     return [x for x in out if x]
 
 
-def translate_ko_resilient(text):
-    try:
-        return _original_translate_ko(text)
-    except Exception as first_error:
-        cleaned = base.rw.clean_paragraph(text)
-        if not cleaned:
-            return ""
-        if base.rw.looks_like_error_page(cleaned):
-            raise first_error
-        if base.rw.has_hangul(cleaned) and sum(1 for ch in cleaned if "가" <= ch <= "힣") >= max(4, len(cleaned) // 8):
-            return cleaned
+def _normalize_korean_output(text):
+    text = base.rw.clean_paragraph(text)
+    for pattern, replacement in _ENTITY_REPLACEMENTS:
+        text = re.sub(pattern, replacement, text, flags=re.IGNORECASE)
+    # 번역기가 한글명과 영문명을 중복 표기한 흔적 제거.
+    text = re.sub(r'도널드 트럼프\s*\(\s*도널드 트럼프\s*\)', '도널드 트럼프', text)
+    text = re.sub(r'볼로디미르 젤렌스키\s*\(\s*볼로디미르 젤렌스키\s*\)', '볼로디미르 젤렌스키', text)
+    text = re.sub(r'\s+', ' ', text).strip()
+    return text
 
-        translated_parts = []
-        last_error = first_error
-        for chunk in _chunks(cleaned):
-            try:
-                translated = MyMemoryTranslator(source="en-GB", target="ko-KR").translate(text=chunk)
-                translated_parts.append(base.rw.validate_korean_translation(chunk, translated))
-            except Exception as exc:
-                last_error = exc
-                raise RuntimeError(f"한국어 번역 이중 실패: {last_error}") from exc
-        combined = " ".join(translated_parts).strip()
-        return base.rw.validate_korean_translation(cleaned, combined)
+
+def _latin_tokens(text):
+    return re.findall(r"[A-Za-z][A-Za-z0-9&.+/-]*", text or "")
+
+
+def _residual_english_prose(text):
+    residual = []
+    for token in _latin_tokens(text):
+        stripped = token.strip('.,:;()[]{}').strip()
+        if not stripped:
+            continue
+        upper = stripped.upper()
+        lower = stripped.lower()
+        if upper in _ALLOWED_IDENTIFIERS:
+            continue
+        # 식별용 티커·짧은 약어는 허용한다.
+        if re.fullmatch(r'[A-Z]{2,5}', stripped):
+            continue
+        # URL/도메인은 제목·본문 번역 결과에 들어오면 안 되지만, 혹시 남아도 일반 영어 문장과 구분한다.
+        if '.' in stripped or '/' in stripped:
+            continue
+        if lower in _ENGLISH_PROSE_WORDS:
+            residual.append(stripped)
+            continue
+        # 긴 영문 이름/구가 여러 개 남으면 반쪽 번역으로 취급한다.
+        if len(stripped) >= 6:
+            residual.append(stripped)
+    return residual
+
+
+def _korean_quality_ok(text):
+    text = _normalize_korean_output(text)
+    if not text or not base.rw.has_hangul(text):
+        return False
+    if _residual_english_prose(text):
+        return False
+    hangul = sum(1 for ch in text if '가' <= ch <= '힣')
+    latin = sum(1 for ch in text if ch.isascii() and ch.isalpha())
+    # 약어를 제외한 영문 비중이 지나치게 높으면 송출 차단.
+    return latin <= max(18, int((hangul + 1) * 0.18))
+
+
+def _translate_with_mymemory(text):
+    parts = []
+    for chunk in _chunks(text):
+        translated = MyMemoryTranslator(source='en-GB', target='ko-KR').translate(text=chunk)
+        translated = _normalize_korean_output(translated)
+        parts.append(base.rw.validate_korean_translation(chunk, translated))
+    return _normalize_korean_output(' '.join(parts).strip())
+
+
+def translate_ko_resilient(text):
+    cleaned = base.rw.clean_paragraph(text)
+    if not cleaned:
+        return ""
+    if base.rw.looks_like_error_page(cleaned):
+        raise RuntimeError('오류문은 번역·송출하지 않음')
+
+    # 이미 한국어 기사라도 영문 이름·일반 영문 문장이 섞였으면 먼저 정규화한다.
+    normalized_source = _normalize_korean_output(cleaned)
+    if _korean_quality_ok(normalized_source):
+        return normalized_source
+
+    first_error = None
+    try:
+        translated = _original_translate_ko(cleaned)
+        translated = _normalize_korean_output(translated)
+        if _korean_quality_ok(translated):
+            return translated
+        first_error = RuntimeError('1차 번역 뒤 영문 일반문장이 남아 있음')
+    except Exception as exc:
+        first_error = exc
+
+    try:
+        translated = _translate_with_mymemory(cleaned)
+        if _korean_quality_ok(translated):
+            return translated
+        raise RuntimeError('2차 번역 뒤 영문 일반문장이 남아 있음')
+    except Exception as exc:
+        # 영어 원문이나 반쪽 번역을 절대 대체 송출하지 않는다.
+        raise RuntimeError(f'한국어 완전 번역 실패: 1차={first_error}; 2차={exc}') from exc
 
 
 def refinery_event_key_v2(item):
@@ -103,7 +226,6 @@ def refinery_event_key_v2(item):
 def spr_event_key_v2(item):
     t = f"{item.get('title','')} {item.get('source','')}".lower()
 
-    # Wright 장관의 '향후 몇 년 내 산유량 2배 이상' 발언과 후속 기업 계약은 하나의 사건으로 묶는다.
     if (
         ("venezuela" in t or "venezuelan" in t)
         and any(x in t for x in ("more than double", "double oil output", "double production", "production to double", "output to double"))
@@ -148,7 +270,6 @@ def impact_lines_v2(topic, key):
             "바이오연료·농가는 면제 자체보다 실제 재할당 규모와 RIN 가격이 중요합니다.",
         ]
     if key == "venezuela_output_double_deals_20260902":
-        # 이 사건은 핵심 5줄 안에 투자 의미와 실패모드를 함께 넣어 별도 판정 구역을 만들지 않는다.
         return []
     return _original_impact_lines(topic, key)
 
@@ -193,8 +314,8 @@ def compact_snapshot(enriched, key):
         ],
         "venezuela_output_double_deals_20260902": [
             "크리스 라이트 미 에너지부 장관은 곧 발표될 여러 글로벌 에너지기업 계약이 베네수엘라 원유 생산을 향후 몇 년 내 2배 이상 늘릴 것이라고 밝혔습니다.",
-            "현재 Reuters가 최종 협정 대상으로 직접 확인한 기업은 Chevron·Eni·ONGC·GeoPark·GE Vernova이며, Bloomberg는 Shell·BP 등을 포함한 10여 건 이상의 계약을 예고했습니다. Repsol은 Eni와 기존 합작 연결이 있습니다.",
-            "이는 Chevron의 대규모 사업 확대 등 민간기업 투자를 끌어들여 원유 공급을 늘리고 장기적으로 미국 휘발유 가격 압력을 낮추려는 정책 축입니다.",
+            "현재 로이터와 미국 에너지부 공식자료로 서명이 확인된 핵심 기업은 셰브론·에니·GE 버노바이며, 그 밖의 기업은 발표·협의 단계와 기존 합작을 구분해 표시합니다.",
+            "이는 셰브론의 대규모 사업 확대 등 민간기업 투자를 끌어들여 원유 공급을 늘리고 장기적으로 미국 휘발유 가격 압력을 낮추려는 정책 축입니다.",
             "이번 기업별 계약들은 NABEP가 17개 유전·약 650억 배럴에 접근하는 미·베네수엘라 대형 합의와는 별도 트랙으로 진행됩니다.",
             "최대 역풍은 노후 유전·송유관·전력·희석제 부족과 장기간 투자 공백입니다. 현재 약 110만~120만 배럴/일에서 2배 이상 증산하려면 수년이 걸리고, 과거 300만 배럴/일 수준 회복은 더 오래 걸릴 수 있습니다.",
         ],
@@ -205,8 +326,10 @@ def compact_snapshot(enriched, key):
     candidates = []
     for idx, paragraph in enumerate(enriched.get("body_ko") or []):
         for sentence in base.split_sentences(paragraph):
-            sentence = re.sub(r"\s+", " ", sentence).strip()
+            sentence = _normalize_korean_output(re.sub(r"\s+", " ", sentence).strip())
             if not sentence or _is_noise(sentence):
+                continue
+            if not _korean_quality_ok(sentence):
                 continue
             score = 0
             if re.search(r"\d", sentence):
@@ -244,7 +367,7 @@ def event_headline(topic, key, enriched):
     }
     if key in headlines:
         return headlines[key]
-    return base.short(enriched.get("title_ko") or "정책·시장 변화", 125)
+    return base.short(_normalize_korean_output(enriched.get("title_ko") or "정책·시장 변화"), 125)
 
 
 def concise_news_alert(topic, enriched, key, grouped_items):
@@ -252,7 +375,10 @@ def concise_news_alert(topic, enriched, key, grouped_items):
     pub = html.escape((enriched.get("pub_kst") or "").replace("T", " "), quote=False)
     link = html.escape(enriched.get("original_url") or "", quote=True)
     header = "트럼프 정유업계" if topic == "refinery" else "SPR·베네수엘라 원유"
-    headline = html.escape(event_headline(topic, key, enriched), quote=False)
+    headline_text = _normalize_korean_output(event_headline(topic, key, enriched))
+    if not _korean_quality_ok(headline_text):
+        raise RuntimeError('제목 한국어 품질검사 실패')
+    headline = html.escape(headline_text, quote=False)
 
     lines = [
         f"<b>[{header}]</b>",
@@ -266,18 +392,28 @@ def concise_news_alert(topic, enriched, key, grouped_items):
     if snapshot:
         lines.append("")
         max_core = 5 if key == "venezuela_output_double_deals_20260902" else 4
-        lines.extend(f"• {html.escape(x, quote=False)}" for x in snapshot[:max_core])
+        for item in snapshot[:max_core]:
+            item = _normalize_korean_output(item)
+            if not _korean_quality_ok(item):
+                raise RuntimeError('본문 한국어 품질검사 실패')
+            lines.append(f"• {html.escape(item, quote=False)}")
 
-    # 일반 사건은 투자 판단 한 줄만 붙이고, 고정 5줄형 사건은 핵심 안에 포함한다.
     impacts = impact_lines_v2(topic, key)
     if impacts:
+        impact = _normalize_korean_output(impacts[0])
+        if not _korean_quality_ok(impact):
+            raise RuntimeError('의미 문구 한국어 품질검사 실패')
         lines.append("")
-        lines.append(f"<b>의미</b> · {html.escape(impacts[0], quote=False)}")
+        lines.append(f"<b>의미</b> · {html.escape(impact, quote=False)}")
 
     checks = next_checks_v2(topic, key)
     if checks:
         lines.extend(["", "<b>다음 확인</b>"])
-        lines.extend(f"• {html.escape(x, quote=False)}" for x in checks[:2])
+        for check in checks[:2]:
+            check = _normalize_korean_output(check)
+            if not _korean_quality_ok(check):
+                raise RuntimeError('다음 확인 문구 한국어 품질검사 실패')
+            lines.append(f"• {html.escape(check, quote=False)}")
 
     lines.extend(["", f'<a href="{link}">원문</a>'])
     return "\n".join(lines).strip()
