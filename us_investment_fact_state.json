@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "last_updated": "2026-09-14T16:06:14+09:00",
+  "last_updated": "2026-09-14T22:58:54+09:00",
   "facts": {
     "strategy.total_package_usd_eok": {
       "value": 3500,
@@ -291,7 +291,8 @@
         "https://n.news.naver.com/mnews/article/215/0001265151?sid=101",
         "https://n.news.naver.com/mnews/article/374/0000531654?sid=101",
         "https://news.mtn.co.kr/news-detail/2026090816281014738",
-        "https://n.news.naver.com/mnews/article/422/0000905203?sid=101"
+        "https://n.news.naver.com/mnews/article/422/0000905203?sid=101",
+        "https://news.mtn.co.kr/news-detail/2026091416201983696"
       ]
     },
     "encinal.us_requested_cost_usd_eok": {
@@ -319,7 +320,8 @@
         "https://n.news.naver.com/mnews/article/018/0006365091?sid=100",
         "https://n.news.naver.com/mnews/article/215/0001265164?sid=100",
         "https://n.news.naver.com/mnews/article/422/0000903732?sid=101",
-        "https://n.news.naver.com/mnews/article/215/0001265151?sid=101"
+        "https://n.news.naver.com/mnews/article/215/0001265151?sid=101",
+        "https://news.mtn.co.kr/news-detail/2026091416201983696"
       ]
     },
     "encinal.cost_increase_driver_us_pressure": {
@@ -419,7 +421,6 @@
       "label": "미국 내 원전 추진 기수",
       "status": "보도·협의 단계",
       "sources": [
-        "https://n.news.naver.com/mnews/article/008/0005410602?sid=101",
         "https://n.news.naver.com/mnews/article/374/0000531654?sid=101",
         "https://news.mtn.co.kr/news-detail/2026090816281014738",
         "https://www.hankyung.com/article/2026090819731",
@@ -430,7 +431,8 @@
         "https://n.news.naver.com/mnews/article/001/0016303456?sid=100",
         "https://n.news.naver.com/mnews/article/422/0000905203?sid=101",
         "https://www.yna.co.kr/view/AKR20260910150800011?input=1195m",
-        "https://n.news.naver.com/mnews/article/014/0005574433?sid=101"
+        "https://n.news.naver.com/mnews/article/014/0005574433?sid=101",
+        "https://news.mtn.co.kr/news-detail/2026091416201983696"
       ]
     },
     "nuclear.us_proposal_usd_eok": {
@@ -528,7 +530,8 @@
         "https://n.news.naver.com/mnews/article/374/0000531654?sid=101",
         "https://news.mtn.co.kr/news-detail/2026090816281014738",
         "https://n.news.naver.com/mnews/article/001/0016303796?sid=101",
-        "https://n.news.naver.com/mnews/article/422/0000905203?sid=101"
+        "https://n.news.naver.com/mnews/article/422/0000905203?sid=101",
+        "https://news.mtn.co.kr/news-detail/2026091416201983696"
       ]
     },
     "package.alaska_final_framework_reported_included": {
