@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "last_updated": "2026-09-15T14:36:56+09:00",
+  "last_updated": "2026-09-15T19:26:40+09:00",
   "facts": {
     "strategy.total_package_usd_eok": {
       "value": 3500,
@@ -421,7 +421,6 @@
       "label": "미국 내 원전 추진 기수",
       "status": "보도·협의 단계",
       "sources": [
-        "https://n.news.naver.com/mnews/article/374/0000531654?sid=101",
         "https://news.mtn.co.kr/news-detail/2026090816281014738",
         "https://www.hankyung.com/article/2026090819731",
         "https://news.mtn.co.kr/news-detail/2026090908131275454",
@@ -432,7 +431,8 @@
         "https://n.news.naver.com/mnews/article/422/0000905203?sid=101",
         "https://www.yna.co.kr/view/AKR20260910150800011?input=1195m",
         "https://n.news.naver.com/mnews/article/014/0005574433?sid=101",
-        "https://news.mtn.co.kr/news-detail/2026091416201983696"
+        "https://news.mtn.co.kr/news-detail/2026091416201983696",
+        "https://n.news.naver.com/mnews/article/015/0005332631?sid=101"
       ]
     },
     "nuclear.us_proposal_usd_eok": {
@@ -445,7 +445,8 @@
         "https://n.news.naver.com/mnews/article/015/0005329652?sid=101",
         "https://news.mtn.co.kr/news-detail/2026090816281014738",
         "https://n.news.naver.com/mnews/article/022/0004157764?sid=100",
-        "https://n.news.naver.com/mnews/article/422/0000905203?sid=101"
+        "https://n.news.naver.com/mnews/article/422/0000905203?sid=101",
+        "https://n.news.naver.com/mnews/article/015/0005332631?sid=101"
       ]
     },
     "nuclear.us_120b_not_committed": {
@@ -466,26 +467,28 @@
       ]
     },
     "nuclear.ap1000_reactors": {
-      "value": 8,
+      "value": 2,
       "label": "AP1000 포함 기수",
       "status": "보도",
       "sources": [
         "https://www.mt.co.kr/index.php/amp/economy/2026/09/07/2026090715524755435",
         "https://n.news.naver.com/mnews/article/015/0005329652?sid=101",
-        "https://www.hankyung.com/article/2026090819731"
+        "https://www.hankyung.com/article/2026090819731",
+        "https://n.news.naver.com/mnews/article/015/0005332631?sid=101"
       ],
-      "updated_at": "2026-09-08T13:13:32+09:00"
+      "updated_at": "2026-09-15T19:26:40+09:00"
     },
     "nuclear.apr1400_reactors": {
-      "value": 1,
+      "value": 2,
       "label": "APR1400·한국형 원전 포함 기수",
       "status": "보도",
       "sources": [
         "https://www.mt.co.kr/index.php/amp/economy/2026/09/07/2026090715524755435",
         "https://n.news.naver.com/mnews/article/015/0005329652?sid=101",
-        "https://www.hankyung.com/article/2026090819731"
+        "https://www.hankyung.com/article/2026090819731",
+        "https://n.news.naver.com/mnews/article/015/0005332631?sid=101"
       ],
-      "updated_at": "2026-09-09T10:10:37+09:00"
+      "updated_at": "2026-09-15T19:26:40+09:00"
     },
     "nuclear.project_details_not_fixed": {
       "value": true,
@@ -502,7 +505,8 @@
       "status": "공식 설명",
       "sources": [
         "https://www.motir.go.kr/kor/article/ATCLe0854704d/172127/view",
-        "https://policy.naver.com/policy/service.html"
+        "https://policy.naver.com/policy/service.html",
+        "https://www.korea.kr/"
       ]
     },
     "package.nuclear_framework_included": {
@@ -683,7 +687,9 @@
       "sources": [
         "https://www.hankyung.com/article/2026090819731",
         "https://news.mtn.co.kr/news-detail/2026090908131275454",
-        "https://n.news.naver.com/mnews/article/422/0000904361?sid=101"
+        "https://n.news.naver.com/mnews/article/422/0000904361?sid=101",
+        "https://www.korea.kr/",
+        "https://n.news.naver.com/mnews/article/015/0005332631?sid=101"
       ],
       "updated_at": "2026-09-09T05:36:02+09:00"
     },
@@ -715,6 +721,24 @@
         "https://n.news.naver.com/mnews/article/022/0004157764?sid=100"
       ],
       "updated_at": "2026-09-09T20:11:42+09:00"
+    },
+    "nuclear.westinghouse_stake_pct": {
+      "value": 15.0,
+      "label": "한국 측 웨스팅하우스 지분 인수 비율",
+      "status": "보도",
+      "sources": [
+        "https://n.news.naver.com/mnews/article/015/0005332631?sid=101"
+      ],
+      "updated_at": "2026-09-15T19:26:40+09:00"
+    },
+    "nuclear.westinghouse_valuation_usd_eok": {
+      "value": 200.0,
+      "label": "웨스팅하우스 기업가치 보도값",
+      "status": "보도",
+      "sources": [
+        "https://n.news.naver.com/mnews/article/015/0005332631?sid=101"
+      ],
+      "updated_at": "2026-09-15T19:26:40+09:00"
     }
   }
 }
