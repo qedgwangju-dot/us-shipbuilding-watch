@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "last_updated": "2026-09-15T19:26:40+09:00",
+  "last_updated": "2026-09-16T00:12:07+09:00",
   "facts": {
     "strategy.total_package_usd_eok": {
       "value": 3500,
@@ -476,7 +476,7 @@
         "https://www.hankyung.com/article/2026090819731",
         "https://n.news.naver.com/mnews/article/015/0005332631?sid=101"
       ],
-      "updated_at": "2026-09-15T19:26:40+09:00"
+      "updated_at": "2026-09-16T00:12:07+09:00"
     },
     "nuclear.apr1400_reactors": {
       "value": 2,
@@ -729,7 +729,7 @@
       "sources": [
         "https://n.news.naver.com/mnews/article/015/0005332631?sid=101"
       ],
-      "updated_at": "2026-09-15T19:26:40+09:00"
+      "updated_at": "2026-09-16T00:12:07+09:00"
     },
     "nuclear.westinghouse_valuation_usd_eok": {
       "value": 200.0,
