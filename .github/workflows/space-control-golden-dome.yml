@@ -1,0 +1,54 @@
+name: 미국 우주통제·골든돔 웹감시
+
+on:
+  schedule:
+    - cron: '3,13,23,33,43,53 * * * *'
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - 'space_control_golden_dome_watch.py'
+      - 'requirements.txt'
+      - '.github/workflows/space-control-golden-dome.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: us-space-control-golden-dome-watch
+  cancel-in-progress: true
+
+jobs:
+  monitor:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 저장소 불러오기
+        uses: actions/checkout@v4
+
+      - name: Python 설정
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: 필요한 패키지 설치
+        run: pip install -r requirements.txt
+
+      - name: 미국 우주통제·골든돔 변화 확인
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python space_control_golden_dome_watch.py
+
+      - name: 감시 상태 저장
+        run: |
+          if [ -z "$(git status --porcelain -- space_control_golden_dome_state.json)" ]; then
+            echo "상태 변화 없음"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add space_control_golden_dome_state.json
+          git commit -m "Update space control and Golden Dome monitor state"
+          git push
