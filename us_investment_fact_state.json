@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "last_updated": "2026-09-16T00:12:07+09:00",
+  "last_updated": "2026-09-16T04:02:04+09:00",
   "facts": {
     "strategy.total_package_usd_eok": {
       "value": 3500,
@@ -476,7 +476,7 @@
         "https://www.hankyung.com/article/2026090819731",
         "https://n.news.naver.com/mnews/article/015/0005332631?sid=101"
       ],
-      "updated_at": "2026-09-16T00:12:07+09:00"
+      "updated_at": "2026-09-16T04:02:04+09:00"
     },
     "nuclear.apr1400_reactors": {
       "value": 2,
@@ -506,7 +506,8 @@
       "sources": [
         "https://www.motir.go.kr/kor/article/ATCLe0854704d/172127/view",
         "https://policy.naver.com/policy/service.html",
-        "https://www.korea.kr/"
+        "https://www.korea.kr/",
+        "https://www.korea.kr/briefing/actuallyView.do?newsId=148971946&call_from=naver_news"
       ]
     },
     "package.nuclear_framework_included": {
@@ -689,7 +690,8 @@
         "https://news.mtn.co.kr/news-detail/2026090908131275454",
         "https://n.news.naver.com/mnews/article/422/0000904361?sid=101",
         "https://www.korea.kr/",
-        "https://n.news.naver.com/mnews/article/015/0005332631?sid=101"
+        "https://n.news.naver.com/mnews/article/015/0005332631?sid=101",
+        "https://www.korea.kr/briefing/actuallyView.do?newsId=148971946&call_from=naver_news"
       ],
       "updated_at": "2026-09-09T05:36:02+09:00"
     },
@@ -729,7 +731,7 @@
       "sources": [
         "https://n.news.naver.com/mnews/article/015/0005332631?sid=101"
       ],
-      "updated_at": "2026-09-16T00:12:07+09:00"
+      "updated_at": "2026-09-16T04:02:04+09:00"
     },
     "nuclear.westinghouse_valuation_usd_eok": {
       "value": 200.0,
