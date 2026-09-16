@@ -1,26 +1,26 @@
 {
   "parser_version": 3,
   "source": "https://www.natesilver.net/p/trump-approval-ratings-nate-silver-bulletin",
-  "issue_chart": "https://datawrapper.dwcdn.net/RFXsV/7448/",
-  "datawrapper_revision": 7448,
-  "data_date": "2026-09-15",
-  "checked_at_utc": "2026-09-16T20:13:09.035744+00:00",
+  "issue_chart": "https://datawrapper.dwcdn.net/RFXsV/7466/",
+  "datawrapper_revision": 7466,
+  "data_date": "2026-09-16",
+  "checked_at_utc": "2026-09-16T23:01:05.547703+00:00",
   "values": {
     "cost_of_living": {
-      "value": -43.5659,
-      "chart": "https://datawrapper.dwcdn.net/RFXsV/7448/"
+      "value": -44.43509,
+      "chart": "https://datawrapper.dwcdn.net/RFXsV/7466/"
     },
     "economy": {
-      "value": -30.25706,
-      "chart": "https://datawrapper.dwcdn.net/RFXsV/7448/"
+      "value": -31.5896,
+      "chart": "https://datawrapper.dwcdn.net/RFXsV/7466/"
     },
     "immigration": {
-      "value": -10.69332,
-      "chart": "https://datawrapper.dwcdn.net/RFXsV/7448/"
+      "value": -10.71046,
+      "chart": "https://datawrapper.dwcdn.net/RFXsV/7466/"
     },
     "trade": {
-      "value": -25.81005,
-      "chart": "https://datawrapper.dwcdn.net/RFXsV/7448/"
+      "value": -27.03293,
+      "chart": "https://datawrapper.dwcdn.net/RFXsV/7466/"
     }
   }
 }
