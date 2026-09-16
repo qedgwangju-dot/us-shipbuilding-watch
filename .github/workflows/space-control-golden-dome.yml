@@ -10,6 +10,7 @@ on:
     paths:
       - 'space_control_golden_dome_watch.py'
       - 'space_control_golden_dome_watch_v2.py'
+      - 'space_control_golden_dome_watch_v3.py'
       - 'requirements.txt'
       - '.github/workflows/space-control-golden-dome.yml'
 
@@ -40,7 +41,7 @@ jobs:
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-        run: python space_control_golden_dome_watch_v2.py
+        run: python space_control_golden_dome_watch_v3.py
 
       - name: 감시 상태 저장
         run: |
@@ -52,4 +53,5 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add space_control_golden_dome_state.json
           git commit -m "Update space control and Golden Dome monitor state"
+          git pull --rebase origin main
           git push
