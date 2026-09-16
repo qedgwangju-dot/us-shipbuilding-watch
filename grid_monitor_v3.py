@@ -15,7 +15,10 @@ for term in ["executive order 14421", "eo 14421", "2026-17843", "grandfather", "
     if term not in base.POLICY_TERMS:
         base.POLICY_TERMS.append(term)
 
+# base 함수를 교체하기 전에 원본 참조를 고정한다. 그렇지 않으면 패치 후 자기 자신을 다시 호출해 재귀 오류가 난다.
 _original_relevant = base.relevant
+_original_title_korean = base.title_korean
+_original_structured_bullets = base.structured_bullets
 
 
 def relevant(title: str, url: str) -> bool:
@@ -38,7 +41,7 @@ def title_korean(item, blocks):
     full = " ".join(blocks)
     if is_bulk_power_eo(full):
         return "연방관보 공식 EO 14421, 미 전력망 외산 장비 규제·미국 현지생산 프리미엄 강화"
-    return base.title_korean(item, blocks)
+    return _original_title_korean(item, blocks)
 
 
 def bulk_power_bullets():
@@ -56,7 +59,7 @@ def structured_bullets(blocks):
     if is_bulk_power_eo(full):
         return bulk_power_bullets()
 
-    bullets = base.structured_bullets(blocks)
+    bullets = _original_structured_bullets(blocks)
     fixed = []
     for bullet in bullets:
         bullet = bullet.replace("EO 14420 전용 에너지 인프라 FAR", "EO 14421 후속 에너지 인프라 FAR")
@@ -78,7 +81,6 @@ def build_message(item):
     safe_source = html.escape(item["source"])
     bullet_text = "\n".join(f"• {html.escape(x)}" for x in bullets[:5])
 
-    # 실제 텔레그램에 표시되는 제목·bullet에 달러 금액이 있을 때만 환율 기준을 붙인다.
     displayed = " ".join([title] + bullets[:5])
     fx = base.get_fx()
     fx_line = ""
