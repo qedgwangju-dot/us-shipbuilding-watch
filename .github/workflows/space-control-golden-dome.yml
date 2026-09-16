@@ -9,6 +9,7 @@ on:
       - main
     paths:
       - 'space_control_golden_dome_watch.py'
+      - 'space_control_golden_dome_watch_v2.py'
       - 'requirements.txt'
       - '.github/workflows/space-control-golden-dome.yml'
 
@@ -39,7 +40,7 @@ jobs:
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-        run: python space_control_golden_dome_watch.py
+        run: python space_control_golden_dome_watch_v2.py
 
       - name: 감시 상태 저장
         run: |
