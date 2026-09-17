@@ -28,6 +28,10 @@ if not any(x.get("name") == extra_rss["name"] for x in base.NEWS_RSS):
     base.NEWS_RSS.append(extra_rss)
 
 
+_ORIGINAL_EVENT_ACTION = core._event_action
+_ORIGINAL_COMPANIES = core._companies
+
+
 # 'finalization'도 최종 확정 단계로 통일해 NIST·IBM의 같은 사건이 2건으로 분리되지 않게 한다.
 def _event_action_v12(text: str) -> str:
     low = text.lower()
@@ -36,12 +40,12 @@ def _event_action_v12(text: str) -> str:
         "finalized", "finalised", "finalizes", "finalises", "definitive agreement",
     ]):
         return "final_award"
-    return core._event_action(text)
+    return _ORIGINAL_EVENT_ACTION(text)
 
 
 # Anderon을 IBM 사건으로 정규화한다.
 def _companies_v12(text: str):
-    companies = set(core._companies(text))
+    companies = set(_ORIGINAL_COMPANIES(text))
     if "anderon" in text.lower():
         companies.add("ibm")
     return sorted(companies)
