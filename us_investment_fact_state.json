@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "last_updated": "2026-09-17T15:45:31+09:00",
+  "last_updated": "2026-09-17T21:12:09+09:00",
   "facts": {
     "strategy.total_package_usd_eok": {
       "value": 3500,
@@ -426,8 +426,6 @@
       "label": "미국 내 원전 추진 기수",
       "status": "보도·협의 단계",
       "sources": [
-        "https://n.news.naver.com/mnews/article/022/0004157764?sid=100",
-        "https://n.news.naver.com/mnews/article/001/0016303456?sid=100",
         "https://n.news.naver.com/mnews/article/422/0000905203?sid=101",
         "https://www.yna.co.kr/view/AKR20260910150800011?input=1195m",
         "https://n.news.naver.com/mnews/article/014/0005574433?sid=101",
@@ -437,7 +435,9 @@
         "https://n.news.naver.com/mnews/article/011/0004662353?sid=102",
         "https://n.news.naver.com/mnews/article/015/0005333108?sid=101",
         "https://n.news.naver.com/mnews/article/215/0001266208?sid=100",
-        "https://n.news.naver.com/mnews/article/081/0003680989?sid=100"
+        "https://n.news.naver.com/mnews/article/081/0003680989?sid=100",
+        "https://n.news.naver.com/mnews/article/001/0000225148?sid=111",
+        "https://n.news.naver.com/mnews/article/422/0000907217?sid=101"
       ]
     },
     "nuclear.us_proposal_usd_eok": {
@@ -694,7 +694,6 @@
       "label": "웨스팅하우스 지분 인수·매입 추진",
       "status": "보도·협의 단계",
       "sources": [
-        "https://www.korea.kr/",
         "https://n.news.naver.com/mnews/article/015/0005332631?sid=101",
         "https://www.korea.kr/briefing/actuallyView.do?newsId=148971946&call_from=naver_news",
         "https://n.news.naver.com/mnews/article/422/0000906684?sid=101",
@@ -705,7 +704,8 @@
         "https://n.news.naver.com/mnews/article/422/0000906786?sid=101",
         "https://n.news.naver.com/mnews/article/055/0001388816?sid=101",
         "https://n.news.naver.com/mnews/article/015/0005333177?sid=100",
-        "https://n.news.naver.com/mnews/article/081/0003680989?sid=100"
+        "https://n.news.naver.com/mnews/article/081/0003680989?sid=100",
+        "https://n.news.naver.com/mnews/article/422/0000907217?sid=101"
       ],
       "updated_at": "2026-09-09T05:36:02+09:00"
     },
