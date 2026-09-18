@@ -9,6 +9,7 @@ on:
       - main
     paths:
       - 'pjm_emergency_grid_watch.py'
+      - 'pjm_emergency_grid_watch_v2.py'
       - 'requirements.txt'
       - '.github/workflows/pjm-emergency-grid-watch.yml'
 
@@ -41,7 +42,7 @@ jobs:
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-        run: python pjm_emergency_grid_watch.py
+        run: python pjm_emergency_grid_watch_v2.py
 
       - name: 감시 상태 저장
         run: |
