@@ -72,8 +72,8 @@
       "snapshot": "bill=H.R. 2683 | last_action=January 13, 2026 | action=Date Listed January 13, 2026 Action Received; read twice and referred to the Committee on Banking, Housing, and Urban Affairs | version=Referred in Senate (RFS)"
     },
     "Remote Access Security Act S.3519": {
-      "digest": "cf24418e1ac63bd7753760a4a0ff4f7741572adbc8b5da6906fa15e900142277",
-      "snapshot": "bill=S.3519 | action=Date Listed](https://www.govinfo.gov/app/details/BILLS-119s3519is \"The last date an action occurred as listed in the bill. Search field operator example is publishdate:2007. For all action dates listed in the bill, the search field operator example is actiondate:range(2007-10-27,2007-11-10).\")December 17, 2025 [Action](https://www.govinfo.gov/app/details/BILLS-119s3519is \"The text of the actions listed in the bill. This includes the action itself (e.g. \\\"introduced into the house\\\") as well as the list of sponsors and cosponsors, if specified. Search field operator example is action:(clinton introduced).\")Mr. McCormick (for himself, Mr. Wyden, Mr. Cotton, and Mr. Coons) introduced the following bill; which was read twice and referred to the Committee on Banking, Housing, and Urban Affairs [Bill Number](https://www.govinfo.gov/app/details/BILLS-119s3519is \"Bill number for the bill. Bills are numbered per Congress and bill type. Search field operator example is docnumber:12 billtype:hjres.\")S. 3519 [Bill Version](https://www.govinfo.gov/app/details/BILLS-119s3519is \"Version of the bill. Corresponds to a step in the legislative process. Multiple bill versions can be associated with a"
+      "digest": "7540a776286cc39e3a29d1fb748a72d2c87e3272cd73ebdde6e7b51cb6da5e58",
+      "snapshot": "bill=S. 3519 | last_action=December 17, 2025 | action=Date Listed December 17, 2025 Action Mr. McCormick (for himself, Mr. Wyden, Mr. Cotton, and Mr. Coons) introduced the following bill; which was read twice and referred to the Committee on Banking, Housing, and Urban Affairs | version=Introduced in Senate (IS)"
     }
   }
 }
