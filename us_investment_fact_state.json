@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "last_updated": "2026-09-20T15:08:40+09:00",
+  "last_updated": "2026-09-20T20:21:23+09:00",
   "facts": {
     "strategy.total_package_usd_eok": {
       "value": 3500,
@@ -299,7 +299,8 @@
         "https://news.mtn.co.kr/news-detail/2026091416201983696",
         "https://n.news.naver.com/mnews/article/015/0005333177?sid=100",
         "https://n.news.naver.com/mnews/article/081/0003680989?sid=100",
-        "https://n.news.naver.com/mnews/article/421/0009180763?sid=101"
+        "https://n.news.naver.com/mnews/article/421/0009180763?sid=101",
+        "https://n.news.naver.com/mnews/article/014/0005578469?sid=100"
       ]
     },
     "encinal.us_requested_cost_usd_eok": {
@@ -329,7 +330,8 @@
         "https://n.news.naver.com/mnews/article/422/0000903732?sid=101",
         "https://n.news.naver.com/mnews/article/215/0001265151?sid=101",
         "https://news.mtn.co.kr/news-detail/2026091416201983696",
-        "https://n.news.naver.com/mnews/article/421/0009180763?sid=101"
+        "https://n.news.naver.com/mnews/article/421/0009180763?sid=101",
+        "https://n.news.naver.com/mnews/article/014/0005578469?sid=100"
       ]
     },
     "encinal.cost_increase_driver_us_pressure": {
@@ -368,7 +370,8 @@
       "status": "보도",
       "sources": [
         "https://m.edaily.co.kr/News/Read?mediaCodeNo=257&newsId=02499366645577824",
-        "https://n.news.naver.com/mnews/article/081/0003680989?sid=100"
+        "https://n.news.naver.com/mnews/article/081/0003680989?sid=100",
+        "https://n.news.naver.com/mnews/article/014/0005578469?sid=100"
       ]
     },
     "encinal.nearby_data_center_reported_gw": {
@@ -430,7 +433,6 @@
       "label": "미국 내 원전 추진 기수",
       "status": "보도·협의 단계",
       "sources": [
-        "https://www.yna.co.kr/view/AKR20260910150800011?input=1195m",
         "https://n.news.naver.com/mnews/article/014/0005574433?sid=101",
         "https://news.mtn.co.kr/news-detail/2026091416201983696",
         "https://n.news.naver.com/mnews/article/015/0005332631?sid=101",
@@ -441,7 +443,8 @@
         "https://n.news.naver.com/mnews/article/081/0003680989?sid=100",
         "https://n.news.naver.com/mnews/article/001/0000225148?sid=111",
         "https://n.news.naver.com/mnews/article/422/0000907217?sid=101",
-        "https://n.news.naver.com/mnews/article/421/0009180763?sid=101"
+        "https://n.news.naver.com/mnews/article/421/0009180763?sid=101",
+        "https://n.news.naver.com/mnews/article/014/0005578469?sid=100"
       ]
     },
     "nuclear.us_proposal_usd_eok": {
@@ -499,9 +502,10 @@
         "https://n.news.naver.com/mnews/article/015/0005329652?sid=101",
         "https://www.hankyung.com/article/2026090819731",
         "https://n.news.naver.com/mnews/article/015/0005332631?sid=101",
-        "https://n.news.naver.com/mnews/article/421/0009180763?sid=101"
+        "https://n.news.naver.com/mnews/article/421/0009180763?sid=101",
+        "https://n.news.naver.com/mnews/article/014/0005578469?sid=100"
       ],
-      "updated_at": "2026-09-20T08:05:01+09:00"
+      "updated_at": "2026-09-20T20:21:23+09:00"
     },
     "nuclear.project_details_not_fixed": {
       "value": true,
@@ -540,7 +544,6 @@
       "label": "대미투자 최종 서명 목표일",
       "status": "보도",
       "sources": [
-        "https://n.news.naver.com/mnews/article/422/0000906684?sid=101",
         "https://n.news.naver.com/mnews/article/011/0004662426?sid=100",
         "https://n.news.naver.com/mnews/article/011/0004662354?sid=101",
         "https://n.news.naver.com/mnews/article/011/0004662353?sid=102",
@@ -551,7 +554,8 @@
         "https://n.news.naver.com/mnews/article/055/0001388816?sid=101",
         "https://n.news.naver.com/mnews/article/421/0009174496?sid=100",
         "https://n.news.naver.com/mnews/article/081/0003680989?sid=100",
-        "https://n.news.naver.com/mnews/article/421/0009180763?sid=101"
+        "https://n.news.naver.com/mnews/article/421/0009180763?sid=101",
+        "https://n.news.naver.com/mnews/article/014/0005578469?sid=100"
       ]
     },
     "package.alaska_final_framework_reported_included": {
@@ -702,7 +706,6 @@
       "label": "웨스팅하우스 지분 인수·매입 추진",
       "status": "보도·협의 단계",
       "sources": [
-        "https://www.korea.kr/briefing/actuallyView.do?newsId=148971946&call_from=naver_news",
         "https://n.news.naver.com/mnews/article/422/0000906684?sid=101",
         "https://n.news.naver.com/mnews/article/011/0004662354?sid=101",
         "https://n.news.naver.com/mnews/article/011/0004662353?sid=102",
@@ -713,7 +716,8 @@
         "https://n.news.naver.com/mnews/article/015/0005333177?sid=100",
         "https://n.news.naver.com/mnews/article/081/0003680989?sid=100",
         "https://n.news.naver.com/mnews/article/422/0000907217?sid=101",
-        "https://n.news.naver.com/mnews/article/421/0009180763?sid=101"
+        "https://n.news.naver.com/mnews/article/421/0009180763?sid=101",
+        "https://n.news.naver.com/mnews/article/014/0005578469?sid=100"
       ],
       "updated_at": "2026-09-09T05:36:02+09:00"
     },
