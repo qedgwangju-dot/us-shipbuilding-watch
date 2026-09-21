@@ -78,7 +78,9 @@ jobs:
           import sys
           sys.path.insert(0, 'upstream/scripts')
           import janus_watch_v6 as j6
+          import janus_watch_v9 as j9
           assert j6._official_title_kind('holtec_official_nuclear', "Progress Report on Palisades’ March to Startup") == 'palisades_restart'
+          assert j6._official_title_kind('holtec_official_nuclear', 'Feedwater Heaters') == ''
           assert j6._official_title_kind('holtec_official_nuclear', 'Holtec Announces Initial Public Offering') == 'holtec_finance'
           assert j6._official_title_kind('holtec_official_nuclear', 'Holtec and Hyundai E&C Advance SMR-300 Partnership') == 'holtec_smr_partnership'
           fp1 = j6._semantic_fingerprint_v6('Holtec 공식 뉴스', "Progress Report on Palisades’ March to Startup", 'https://holtecinternational.com/a')
@@ -86,7 +88,11 @@ jobs:
           assert fp1 == fp2
           fp3 = j6._semantic_fingerprint_v6('Holtec 공식 뉴스', "Palisades fuel loading resumes after NRC review", 'https://holtecinternational.com/c')
           assert fp3 != fp1
-          print('holtec_event_classifier_contract=passed semantic_dedupe=passed')
+          law1 = j9._semantic_smr_fingerprint_v9('국가법령정보센터', 'SMR 특별법 시행 2026-09-11 · 법률 제21422호', 'https://law.go.kr/a')
+          law2 = j9._semantic_smr_fingerprint_v9('디지털투데이', 'SMR 특별법·시행령 시행…민관 합동 상용화 착수', 'https://news.google.com/b')
+          assert law1 == law2
+          assert j9._policy_kind('SMR 특별법 근거 민관 공동출자 회사 출범', 'smr_policy_rss') == 'smr_public_private_company'
+          print('holtec_event_classifier_contract=passed semantic_dedupe=passed smr_event_dedupe=passed')
           PY
 
       - name: Run all nuclear Janus and gas turbine web watch v11
