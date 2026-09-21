@@ -81,7 +81,12 @@ jobs:
           assert j6._official_title_kind('holtec_official_nuclear', "Progress Report on Palisades’ March to Startup") == 'palisades_restart'
           assert j6._official_title_kind('holtec_official_nuclear', 'Holtec Announces Initial Public Offering') == 'holtec_finance'
           assert j6._official_title_kind('holtec_official_nuclear', 'Holtec and Hyundai E&C Advance SMR-300 Partnership') == 'holtec_smr_partnership'
-          print('holtec_event_classifier_contract=passed')
+          fp1 = j6._semantic_fingerprint_v6('Holtec 공식 뉴스', "Progress Report on Palisades’ March to Startup", 'https://holtecinternational.com/a')
+          fp2 = j6._semantic_fingerprint_v6('Holtec 공식 뉴스', "Palisades Startup Progress Report", 'https://holtecinternational.com/b')
+          assert fp1 == fp2
+          fp3 = j6._semantic_fingerprint_v6('Holtec 공식 뉴스', "Palisades fuel loading resumes after NRC review", 'https://holtecinternational.com/c')
+          assert fp3 != fp1
+          print('holtec_event_classifier_contract=passed semantic_dedupe=passed')
           PY
 
       - name: Run all nuclear Janus and gas turbine web watch v11
