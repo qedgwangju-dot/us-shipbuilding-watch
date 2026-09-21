@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import datetime as dt
 import re
+import sys
 
 import us_investment_watch as base
 import us_investment_watch_v9 as v9
@@ -47,20 +48,27 @@ def _published_date(row: dict) -> dt.date | None:
 
 
 def _remittance_date(blob: str, row: dict) -> str | None:
-    # 명시 날짜 우선
-    m = re.search(r'(2026)[.\-/년\s]+(\d{1,2})[.\-/월\s]+(\d{1,2})\s*일?', blob)
-    if m:
-        return f'{int(m.group(1)):04d}-{int(m.group(2)):02d}-{int(m.group(3)):02d}'
-    m = re.search(r'(\d{1,2})\s*월\s*(\d{1,2})\s*일.{0,50}?(?:첫\s*송금|첫\s*납입|송금|납입)', blob, re.S)
+    """송금/납입 표현과 직접 연결된 날짜만 읽는다."""
+    anchor = r'(?:첫\s*송금|첫\s*납입|자금\s*송금|투자금\s*납입)'
+    patterns = [
+        rf'{anchor}.{{0,35}}?(2026)[.\-/년\s]+(\d{{1,2}})[.\-/월\s]+(\d{{1,2}})\s*일?',
+        rf'(2026)[.\-/년\s]+(\d{{1,2}})[.\-/월\s]+(\d{{1,2}})\s*일?.{{0,35}}?{anchor}',
+    ]
+    for pat in patterns:
+        m = re.search(pat, blob, re.I | re.S)
+        if m:
+            return f'{int(m.group(1)):04d}-{int(m.group(2)):02d}-{int(m.group(3)):02d}'
+
+    m = re.search(rf'{anchor}.{{0,35}}?(\d{{1,2}})\s*월\s*(\d{{1,2}})\s*일', blob, re.I | re.S)
     if not m:
-        m = re.search(r'(?:첫\s*송금|첫\s*납입|송금|납입).{0,50}?(\d{1,2})\s*월\s*(\d{1,2})\s*일', blob, re.S)
+        m = re.search(rf'(\d{{1,2}})\s*월\s*(\d{{1,2}})\s*일.{{0,35}}?{anchor}', blob, re.I | re.S)
     if m:
         return f'2026-{int(m.group(1)):02d}-{int(m.group(2)):02d}'
 
-    # '이달/오는 29일 첫 송금'은 기사 게시월을 기준으로 보수적으로 해석
-    m = re.search(r'(?:이달\s*|오는\s*)?(\d{1,2})\s*일.{0,40}?(?:첫\s*송금|첫\s*납입)', blob, re.S)
+    # '오는 29일 첫 송금'처럼 월이 생략된 경우에만 기사 게시월을 사용한다.
+    m = re.search(rf'{anchor}.{{0,25}}?(?:이달\s*|오는\s*)?(\d{{1,2}})\s*일', blob, re.I | re.S)
     if not m:
-        m = re.search(r'(?:첫\s*송금|첫\s*납입).{0,40}?(?:이달\s*|오는\s*)?(\d{1,2})\s*일', blob, re.S)
+        m = re.search(rf'(?:이달\s*|오는\s*)?(\d{{1,2}})\s*일.{{0,25}}?{anchor}', blob, re.I | re.S)
     if m:
         pub = _published_date(row)
         if pub:
@@ -73,24 +81,31 @@ def _remittance_date(blob: str, row: dict) -> str | None:
 
 
 def _nearby_usd_eok(blob: str, anchor_re: str) -> float | None:
+    """자금집행 표현과 직접 결합된 금액만 읽는다.
+
+    '3,500억달러 전체 대미투자 ... 첫 송금'처럼 멀리 떨어진 배경 숫자는 제외한다.
+    """
+    number = r'([0-9][0-9,]*(?:\.[0-9]+)?)\s*억\s*달러'
     for m in re.finditer(anchor_re, blob, re.I):
-        s = max(0, m.start() - 120)
-        e = min(len(blob), m.end() + 160)
-        window = blob[s:e]
-        # 억달러 표기
-        nums = re.findall(r'([0-9][0-9,]*(?:\.[0-9]+)?)\s*억\s*달러', window)
-        if nums:
-            try:
-                return float(nums[0].replace(',', ''))
-            except Exception:
-                pass
-        # 십억달러/B 표기 -> 억달러 변환
-        bnums = re.findall(r'(?:\$|USD\s*)?([0-9]+(?:\.[0-9]+)?)\s*(?:billion|B)\b', window, re.I)
-        if bnums:
-            try:
-                return float(bnums[0]) * 10.0
-            except Exception:
-                pass
+        before = blob[max(0, m.start() - 35):m.start()]
+        after = blob[m.end():min(len(blob), m.end() + 35)]
+        for window in (after, before):
+            n = re.search(number, window, re.I)
+            if n:
+                try:
+                    value = float(n.group(1).replace(',', ''))
+                except Exception:
+                    continue
+                # 전체 약속액 3,500억달러는 첫 송금 금액일 수 없다.
+                if value >= 2000:
+                    continue
+                return value
+            b = re.search(r'(?:\$|USD\s*)?([0-9]+(?:\.[0-9]+)?)\s*(?:billion|B)\b', window, re.I)
+            if b:
+                value = float(b.group(1)) * 10.0
+                if value >= 2000:
+                    continue
+                return value
     return None
 
 
@@ -135,22 +150,35 @@ def extract_facts_v13(row: dict) -> list[dict]:
     low = blob.lower()
 
     if any(x in low for x in ['첫 송금', '첫 납입', '자금 송금', '투자금 납입']):
-        out.append(v9.fact(
-            'execution.first_remittance_reported', True,
-            '대미투자 첫 송금·납입 일정 등장', '보도', source,
-        ))
-        date_value = _remittance_date(blob, row)
-        if date_value:
+        negated = any(x in low for x in [
+            '송금 규모·시기, 1호 사업 발표 등은 확정된 바가 없습니다',
+            '송금 규모·시기는 확정된 바가 없습니다',
+            '송금 규모와 시기는 확정된 바가 없습니다',
+            '송금 규모·시기 미확정',
+            '송금 규모와 시기 미확정',
+        ])
+        if negated:
             out.append(v9.fact(
-                'execution.first_remittance_date', date_value,
-                '대미투자 첫 송금·납입 예정일', '보도', source,
+                'execution.official_remittance_not_final', True,
+                '정부: 대미투자 송금 규모·시기 미확정', '공식 설명', source,
             ))
-        amount = _nearby_usd_eok(blob, r'(?:첫\s*송금|첫\s*납입|자금\s*송금|투자금\s*납입)')
-        if amount is not None:
+        else:
             out.append(v9.fact(
-                'execution.first_remittance_usd_eok', amount,
-                '대미투자 첫 송금·납입 금액', '보도', source,
+                'execution.first_remittance_reported', True,
+                '대미투자 첫 송금·납입 일정 등장', '보도', source,
             ))
+            date_value = _remittance_date(blob, row)
+            if date_value:
+                out.append(v9.fact(
+                    'execution.first_remittance_date', date_value,
+                    '대미투자 첫 송금·납입 예정일', '보도', source,
+                ))
+            amount = _nearby_usd_eok(blob, r'(?:첫\s*송금|첫\s*납입|자금\s*송금|투자금\s*납입)')
+            if amount is not None:
+                out.append(v9.fact(
+                    'execution.first_remittance_usd_eok', amount,
+                    '대미투자 첫 송금·납입 금액', '보도', source,
+                ))
 
     if '웨스팅하우스' in low and '지분' in low and any(x in low for x in ['인수', '매입', '확보', '취득', '산다']):
         out.append(v9.fact(
@@ -272,5 +300,38 @@ def main() -> int:
     return v12.v11.main()
 
 
+def _self_test() -> int:
+    sample = {
+        'title': '전체 3,500억달러 대미투자…첫 송금 규모·시기는 미확정',
+        'article_text': '2026-07-24 협상 자료. 정부는 첫 송금 규모·시기는 확정된 바가 없습니다.',
+        'source': '대한민국 정책브리핑',
+        'resolved_link': 'https://www.korea.kr/example',
+        'published': '2026-09-20T00:00:00+00:00',
+    }
+    blob = sample['title'] + '\\n' + sample['article_text']
+    if _remittance_date(blob, sample) is not None:
+        raise RuntimeError('unrelated date leaked into remittance date')
+    if _nearby_usd_eok(blob, r'(?:첫\\s*송금|첫\\s*납입|자금\\s*송금|투자금\\s*납입)') is not None:
+        raise RuntimeError('total investment leaked into remittance amount')
+    keys = {x['key'] for x in extract_facts_v13(sample)}
+    if 'execution.official_remittance_not_final' not in keys:
+        raise RuntimeError(f'official remittance negation not captured: {keys}')
+    if 'execution.first_remittance_usd_eok' in keys or 'execution.first_remittance_date' in keys:
+        raise RuntimeError(f'negated remittance produced concrete value: {keys}')
+
+    reactor = '미국 원전 전체 8기 가운데 AP1000 6기, APR1400 2기 검토'
+    if v12._reactor_count(reactor, 'AP1000') != 6:
+        raise RuntimeError('AP1000 6-unit parse regression')
+    if v12._reactor_count(reactor, 'APR1400') != 2:
+        raise RuntimeError('APR1400 2-unit parse regression')
+    ambiguous = '미국 원전 전체 8기 검토. AP1000과 APR1400 노형을 협의'
+    if v12._reactor_count(ambiguous, 'AP1000') is not None or v12._reactor_count(ambiguous, 'APR1400') is not None:
+        raise RuntimeError('total reactor count leaked into model count')
+    print('us_investment_v13_self_test=passed')
+    return 0
+
+
 if __name__ == '__main__':
+    if '--self-test' in sys.argv:
+        raise SystemExit(_self_test())
     raise SystemExit(main())
