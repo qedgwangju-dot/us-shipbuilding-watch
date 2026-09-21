@@ -78,6 +78,7 @@ jobs:
           import sys
           sys.path.insert(0, 'upstream/scripts')
           import janus_watch_v6 as j6
+          # 제품명 Feedwater Heaters의 'feed'를 FEED 기본설계로 오인하지 않는 회귀테스트
           import janus_watch_v9 as j9
           assert j6._official_title_kind('holtec_official_nuclear', "Progress Report on Palisades’ March to Startup") == 'palisades_restart'
           assert j6._official_title_kind('holtec_official_nuclear', 'Feedwater Heaters') == ''
