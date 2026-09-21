@@ -46,6 +46,31 @@ jobs:
           python -m py_compile us_investment_watch_v12.py
           python -m py_compile us_investment_watch_v13.py
           python us_investment_watch_v13.py --self-test
+      - name: 현재 상태 드라이런 검증
+        if: github.event_name == 'push'
+        run: |
+          python us_investment_watch_v13.py
+          python - <<'PY'
+          import pathlib, re
+          path=pathlib.Path('us_investment_alert.html')
+          if not path.exists():
+              print('dry_run_alert=none')
+              raise SystemExit(0)
+          text=path.read_text(encoding='utf-8')
+          plain=re.sub(r'<[^>]+>', '', text)
+          bad=[]
+          if re.search(r'APR1400[^\n]{0,100}2\s*기\s*(?:→|->|에서)\s*8\s*기', plain, re.I):
+              bad.append('APR1400_2_to_8')
+          if re.search(r'미분류\s*-\d+\s*기', plain):
+              bad.append('negative_unclassified')
+          if re.search(r'첫\s*(?:송금|납입)[^\n]{0,120}3,?500\s*억\s*달러|3,?500\s*억\s*달러[^\n]{0,120}첫\s*(?:송금|납입)', plain):
+              bad.append('3500_as_first_remittance')
+          if '첫 송금·납입 예정일' in plain and '2026-07-24' in plain:
+              bad.append('2026_07_24_as_remittance')
+          if bad:
+              raise RuntimeError('malformed dry-run alert: '+','.join(bad))
+          print('dry_run_alert=valid')
+          PY
       - name: 대미투자 누적 내용 변화 확인
         if: github.event_name != 'push'
         run: python us_investment_watch_v13.py
