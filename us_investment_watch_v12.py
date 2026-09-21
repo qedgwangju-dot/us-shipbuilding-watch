@@ -39,17 +39,35 @@ _ORIGINAL_BUILD_ALERT = v9.build_alert
 
 
 def _reactor_count(blob: str, model: str) -> int | None:
+    """노형 바로 옆에 귀속된 기수만 읽는다.
+
+    과거의 60자 근접 규칙은 '전체 8기'를 AP1000/APR1400 각각의
+    기수로 잘못 흡수했다. 기사 안의 다른 숫자는 절대 노형 기수로 승격하지 않는다.
+    """
+    model_re = re.escape(model)
     pats = [
-        rf'{re.escape(model)}.{{0,60}}?(\d+)\s*기',
-        rf'(\d+)\s*기.{{0,60}}?{re.escape(model)}',
+        rf'{model_re}\s*(?:형|노형|원전)?\s*[:·,-]?\s*(\d+)\s*기',
+        rf'(\d+)\s*기\s*(?:의\s*)?(?:{model_re})\b',
     ]
     for pat in pats:
-        m = re.search(pat, blob, re.I | re.S)
-        if m:
+        for m in re.finditer(pat, blob, re.I):
             try:
                 return int(m.group(1))
             except Exception:
-                return None
+                continue
+
+    # 한국형 원전은 APR1400으로 명시된 경우에만 보조 규칙을 적용한다.
+    if model.lower() == 'apr1400':
+        m = re.search(
+            r'한국형\s*원전\s*(\d+)\s*기[^\n]{0,80}?APR[- ]?1400'
+            r'|APR[- ]?1400[^\n]{0,80}?한국형\s*원전\s*(\d+)\s*기',
+            blob,
+            re.I,
+        )
+        if m:
+            value = m.group(1) or m.group(2)
+            if value:
+                return int(value)
     return None
 
 
