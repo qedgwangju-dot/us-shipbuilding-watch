@@ -74,6 +74,15 @@ jobs:
         run: |
           python -m py_compile upstream/scripts/janus_watch.py upstream/scripts/janus_watch_v2.py upstream/scripts/janus_watch_v3.py upstream/scripts/janus_watch_v4.py upstream/scripts/janus_watch_v5.py upstream/scripts/janus_watch_v6.py upstream/scripts/janus_watch_v7.py upstream/scripts/janus_watch_v8.py upstream/scripts/janus_watch_v9.py upstream/scripts/janus_watch_v10.py upstream/scripts/janus_watch_v11.py
           python upstream/scripts/janus_watch_v11.py --mode self-test
+          python - <<'PY'
+          import sys
+          sys.path.insert(0, 'upstream/scripts')
+          import janus_watch_v6 as j6
+          assert j6._official_title_kind('holtec_official_nuclear', "Progress Report on Palisades’ March to Startup") == 'palisades_restart'
+          assert j6._official_title_kind('holtec_official_nuclear', 'Holtec Announces Initial Public Offering') == 'holtec_finance'
+          assert j6._official_title_kind('holtec_official_nuclear', 'Holtec and Hyundai E&C Advance SMR-300 Partnership') == 'holtec_smr_partnership'
+          print('holtec_event_classifier_contract=passed')
+          PY
 
       - name: Run all nuclear Janus and gas turbine web watch v11
         run: |
@@ -85,23 +94,25 @@ jobs:
             cat upstream/out/janus_errors_v2.log >> "$GITHUB_STEP_SUMMARY"
           fi
 
+      - name: Drop delegated Westinghouse stake alert
+        run: |
+          # Westinghouse 지분·거버넌스는 khs-watch 정책 워처 한 곳만 송출한다.
+          # 이 저장소는 Janus·Palisades·Holtec SMR·가스터빈 등 비중복 원전 축만 담당한다.
+          rm -f upstream/out/westinghouse_alert.html
+
       - name: Reject broken alerts
-        if: hashFiles('upstream/out/janus_alert_v2.html') != '' || hashFiles('upstream/out/westinghouse_alert.html') != ''
+        if: hashFiles('upstream/out/janus_alert_v2.html') != ''
         run: |
           python - <<'PY'
           from pathlib import Path
           import html, re, sys
           sys.path.insert(0, 'upstream/scripts')
           import janus_watch_v2 as j
-          for path in [Path('upstream/out/janus_alert_v2.html'), Path('upstream/out/westinghouse_alert.html')]:
-              if not path.exists():
-                  continue
-              text=path.read_text(encoding='utf-8').strip()
-              if not text:
-                  continue
-              plain=html.unescape(re.sub(r'<[^>]+>', '', text))
-              if j._BAD_TITLE_RE.search(plain):
-                  raise RuntimeError(f'blocked error-page alert: {path}')
+          path=Path('upstream/out/janus_alert_v2.html')
+          text=path.read_text(encoding='utf-8').strip()
+          plain=html.unescape(re.sub(r'<[^>]+>', '', text))
+          if j._BAD_TITLE_RE.search(plain):
+              raise RuntimeError(f'blocked error-page alert: {path}')
           print('telegram_alert_preflight=passed')
           PY
 
@@ -169,7 +180,7 @@ jobs:
           fi
 
       - name: Send all alerts to khs887900 bot
-        if: hashFiles('nuclear_us_v8_estimate_test.html') != '' || hashFiles('nuclear_smr_v9_policy_test.html') != '' || hashFiles('nuclear_smr_v10_demand_test.html') != '' || hashFiles('nuclear_gt_v11_cycle_test.html') != '' || hashFiles('upstream/out/janus_alert_v2.html') != '' || hashFiles('upstream/out/westinghouse_alert.html') != ''
+        if: hashFiles('nuclear_us_v8_estimate_test.html') != '' || hashFiles('nuclear_smr_v9_policy_test.html') != '' || hashFiles('nuclear_smr_v10_demand_test.html') != '' || hashFiles('nuclear_gt_v11_cycle_test.html') != '' || hashFiles('upstream/out/janus_alert_v2.html') != ''
         run: |
           python - <<'PY'
           import json, os, pathlib, urllib.parse, urllib.request
@@ -185,7 +196,6 @@ jobs:
               pathlib.Path('nuclear_smr_v10_demand_test.html'),
               pathlib.Path('nuclear_gt_v11_cycle_test.html'),
               pathlib.Path('upstream/out/janus_alert_v2.html'),
-              pathlib.Path('upstream/out/westinghouse_alert.html'),
           ]
           ids=[]
           for path in files:
