@@ -2,7 +2,7 @@
   "version": 1,
   "initialized": true,
   "initialized_at": "2026-08-28T03:59:39+00:00",
-  "last_checked_at": "2026-09-21T22:37:01+00:00",
+  "last_checked_at": "2026-09-21T22:44:40+00:00",
   "seen": [
     "0249bb5d136ff8b38e08f030d8c54a879ebef62948e8a7446153e8f0a241b247",
     "0cbdeb97e5f6a0643f5061d952ef45c7ab4c8d5a6e008885db6ef9ecf3b75413",
@@ -223,7 +223,9 @@
     "7cf334a56a6ab67feffa3e61c03c14a1a5c3482afb69d879e266d4782a722216",
     "b4e494e4b6d7e416f64010a953eaa1bdfa2053a9658c5ba4f873f5d5dd78f50a",
     "c58e7778fde54f5f228214ec396448095dba22fe82d6defb54834a8ee2662f92",
-    "e8b6f4fc15dadc16403aac38e78c4322dc63cba9c9f3352bd08d48ecd032464c"
+    "e8b6f4fc15dadc16403aac38e78c4322dc63cba9c9f3352bd08d48ecd032464c",
+    "4097f8bbaf055d44f55a3600395721c4dd283fbaddcdbdc1ee37adafffe88d0c",
+    "6d749821983cc5e8e5c25929d2c48a7cd4a70cd97f0ec40f2b2b8b0266cdcb27"
   ],
   "facts": {
     "미 육군 Janus 계약 발표": {
@@ -248,10 +250,5 @@
     }
   },
   "source_count": 46,
-  "sources_ok": 44,
-  "semantic_baselines": {
-    "smr_special_law_2026_09_11": "e8b6f4fc15dadc16403aac38e78c4322dc63cba9c9f3352bd08d48ecd032464c",
-    "palisades_startup_progress_2026_09_21": "b4e494e4b6d7e416f64010a953eaa1bdfa2053a9658c5ba4f873f5d5dd78f50a",
-    "note": "기사 URL이 아니라 이미 알려진 사건 상태를 기준선으로 잠금"
-  }
+  "sources_ok": 44
 }
