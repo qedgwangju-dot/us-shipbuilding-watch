@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "last_updated": "2026-09-21T08:55:08+09:00",
+  "last_updated": "2026-09-21T12:41:08+09:00",
   "facts": {
     "strategy.total_package_usd_eok": {
       "value": 3500,
@@ -289,7 +289,6 @@
       "label": "엔시날 중간 조정 사업비",
       "status": "보도",
       "sources": [
-        "https://www2.edaily.co.kr/News/Read?mediaCodeNo=257&newsId=02499366645577824",
         "https://n.news.naver.com/mnews/article/018/0006365091?sid=100",
         "https://n.news.naver.com/mnews/article/015/0005329652?sid=101",
         "https://n.news.naver.com/mnews/article/215/0001265151?sid=101",
@@ -300,7 +299,8 @@
         "https://n.news.naver.com/mnews/article/015/0005333177?sid=100",
         "https://n.news.naver.com/mnews/article/081/0003680989?sid=100",
         "https://n.news.naver.com/mnews/article/421/0009180763?sid=101",
-        "https://n.news.naver.com/mnews/article/014/0005578469?sid=100"
+        "https://n.news.naver.com/mnews/article/014/0005578469?sid=100",
+        "https://n.news.naver.com/mnews/article/277/0005819221?sid=100"
       ]
     },
     "encinal.us_requested_cost_usd_eok": {
@@ -372,7 +372,8 @@
       "sources": [
         "https://m.edaily.co.kr/News/Read?mediaCodeNo=257&newsId=02499366645577824",
         "https://n.news.naver.com/mnews/article/081/0003680989?sid=100",
-        "https://n.news.naver.com/mnews/article/014/0005578469?sid=100"
+        "https://n.news.naver.com/mnews/article/014/0005578469?sid=100",
+        "https://n.news.naver.com/mnews/article/277/0005819221?sid=100"
       ]
     },
     "encinal.nearby_data_center_reported_gw": {
@@ -506,7 +507,7 @@
         "https://n.news.naver.com/mnews/article/421/0009180763?sid=101",
         "https://n.news.naver.com/mnews/article/014/0005578469?sid=100"
       ],
-      "updated_at": "2026-09-21T06:55:31+09:00"
+      "updated_at": "2026-09-21T12:41:08+09:00"
     },
     "nuclear.project_details_not_fixed": {
       "value": true,
@@ -545,7 +546,6 @@
       "label": "대미투자 최종 서명 목표일",
       "status": "보도",
       "sources": [
-        "https://n.news.naver.com/mnews/article/011/0004662354?sid=101",
         "https://n.news.naver.com/mnews/article/011/0004662353?sid=102",
         "https://n.news.naver.com/mnews/article/015/0005333108?sid=101",
         "https://n.news.naver.com/mnews/article/008/0005414788?sid=100",
@@ -556,7 +556,8 @@
         "https://n.news.naver.com/mnews/article/081/0003680989?sid=100",
         "https://n.news.naver.com/mnews/article/421/0009180763?sid=101",
         "https://n.news.naver.com/mnews/article/014/0005578469?sid=100",
-        "https://n.news.naver.com/mnews/article/081/0003681985?sid=100"
+        "https://n.news.naver.com/mnews/article/081/0003681985?sid=100",
+        "https://n.news.naver.com/mnews/article/277/0005819221?sid=100"
       ]
     },
     "package.alaska_final_framework_reported_included": {
