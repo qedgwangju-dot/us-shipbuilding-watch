@@ -5,6 +5,7 @@ import datetime as dt
 import html
 import json
 import re
+import urllib.parse
 from pathlib import Path
 
 import us_investment_watch as base
@@ -336,6 +337,97 @@ def build_alert(now: dt.datetime, changes: list[tuple[str, dict, dict | None]], 
     return "\n".join(parts)
 
 
+OFFICIAL_SOURCE_MARKERS = (
+    "motir.go.kr",
+    "korea.kr",
+    "go.kr",
+    "whitehouse.gov",
+    "energy.gov",
+    "sec.gov",
+    "ercot.com",
+)
+
+
+def _support_outlet(row: dict) -> str:
+    outlet = str(row.get("source") or "").strip().lower()
+    if outlet:
+        return outlet
+    link = str(row.get("resolved_link") or row.get("link") or "")
+    try:
+        return urllib.parse.urlparse(link).netloc.lower()
+    except Exception:
+        return link.lower()
+
+
+def _candidate_is_official(candidate: dict, row: dict) -> bool:
+    status = str(candidate.get("status") or "").lower()
+    outlet = _support_outlet(row)
+    link = str(candidate.get("source") or row.get("resolved_link") or row.get("link") or "").lower()
+    if "공식" in status or "정부 확인" in status or "청와대 확인" in status:
+        return True
+    return any(marker in outlet or marker in link for marker in OFFICIAL_SOURCE_MARKERS)
+
+
+def _value_key(value) -> str:
+    return json.dumps(value, ensure_ascii=False, sort_keys=True)
+
+
+def _consensus_candidates(ready: list[dict]) -> list[dict]:
+    """기사 단위가 아니라 교차검증된 사실값 단위로 승격한다.
+
+    공식자료 1건 또는 서로 다른 출처 2곳 이상이 동일한 key/value를
+    지지할 때만 누적장부 변경 후보가 된다.
+    """
+    grouped: dict[tuple[str, str], dict] = {}
+    for row in ready:
+        outlet = _support_outlet(row)
+        for candidate in extract_facts(row):
+            key = str(candidate.get("key") or "")
+            if not key:
+                continue
+            sig = (key, _value_key(candidate.get("value")))
+            bucket = grouped.setdefault(sig, {
+                "candidate": dict(candidate),
+                "outlets": set(),
+                "sources": [],
+                "official": False,
+            })
+            if outlet:
+                bucket["outlets"].add(outlet)
+            source = str(candidate.get("source") or "")
+            if source and source not in bucket["sources"]:
+                bucket["sources"].append(source)
+            if _candidate_is_official(candidate, row):
+                bucket["official"] = True
+                # 공식자료의 상태 표현을 우선 보존한다.
+                bucket["candidate"] = dict(candidate)
+
+    by_key: dict[str, list[dict]] = {}
+    for (_key, _value), bucket in grouped.items():
+        if not bucket["official"] and len(bucket["outlets"]) < 2:
+            continue
+        candidate = dict(bucket["candidate"])
+        candidate["_support_count"] = len(bucket["outlets"])
+        candidate["_support_sources"] = list(bucket["sources"])
+        candidate["_official_support"] = bool(bucket["official"])
+        by_key.setdefault(str(candidate["key"]), []).append(candidate)
+
+    accepted: list[dict] = []
+    for key, options in by_key.items():
+        # 한 key에 상충 값이 있으면 공식성 → 독립출처 수 → 상태확정도 순으로 하나만 채택.
+        options.sort(
+            key=lambda x: (
+                1 if x.get("_official_support") else 0,
+                int(x.get("_support_count") or 0),
+                status_rank(str(x.get("status") or "")),
+                _value_key(x.get("value")),
+            ),
+            reverse=True,
+        )
+        accepted.append(options[0])
+    return accepted
+
+
 def main() -> int:
     if base.ALERT.exists():
         base.ALERT.unlink()
@@ -352,20 +444,22 @@ def main() -> int:
     ready = v5.strict_rows(candidates, unresolved, now)
 
     changes: list[tuple[str, dict, dict | None]] = []
-    for row in ready:
-        for candidate in extract_facts(row):
-            key = str(candidate["key"])
-            old = facts.get(key)
-            merged, changed = merge_fact(old, candidate, now)
-            facts[key] = merged
-            if changed:
-                changes.append((key, merged, old))
+    accepted_candidates = _consensus_candidates(ready)
+    for candidate in accepted_candidates:
+        key = str(candidate["key"])
+        old = facts.get(key)
+        merged, changed = merge_fact(old, candidate, now)
+        support_sources = list(candidate.get("_support_sources") or [])
+        if support_sources:
+            merged["sources"] = support_sources[-12:]
+        facts[key] = merged
+        if changed:
+            changes.append((key, merged, old))
 
-    # 같은 실행에서 동일 사실이 여러 기사에 의해 갱신되면 마지막 상태만 1회 알림.
-    dedup: dict[str, tuple[str, dict, dict | None]] = {}
-    for item in changes:
-        dedup[item[0]] = item
-    changes = list(dedup.values())
+    print(
+        f"evidence_rows={len(ready)} consensus_fact_candidates={len(accepted_candidates)} "
+        f"state_changes={len(changes)}"
+    )
 
     runtime_state["last_checked_at"] = now.astimezone(base.KST).isoformat(timespec="seconds")
     runtime_state["last_usdkrw"] = fx
@@ -375,7 +469,7 @@ def main() -> int:
     runtime_state.pop("recent_titles", None)
     runtime_state.pop("seen", None)
 
-    facts_state["version"] = 2
+    facts_state["version"] = 3
     facts_state["last_updated"] = now.astimezone(base.KST).isoformat(timespec="seconds")
 
     if changes:
