@@ -310,10 +310,10 @@ def _self_test() -> int:
         'resolved_link': 'https://www.korea.kr/example',
         'published': '2026-09-20T00:00:00+00:00',
     }
-    blob = sample['title'] + '\\n' + sample['article_text']
+    blob = sample['title'] + '\n' + sample['article_text']
     if _remittance_date(blob, sample) is not None:
         raise RuntimeError('unrelated date leaked into remittance date')
-    if _nearby_usd_eok(blob, r'(?:첫\\s*송금|첫\\s*납입|자금\\s*송금|투자금\\s*납입)') is not None:
+    if _nearby_usd_eok(blob, r'(?:첫\s*송금|첫\s*납입|자금\s*송금|투자금\s*납입)') is not None:
         raise RuntimeError('total investment leaked into remittance amount')
     keys = {x['key'] for x in extract_facts_v13(sample)}
     if 'execution.official_remittance_not_final' not in keys:
