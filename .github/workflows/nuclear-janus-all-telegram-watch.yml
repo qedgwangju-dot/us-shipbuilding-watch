@@ -24,6 +24,8 @@ jobs:
       EXPECTED_BOT_USERNAME: 'khs887900_bot'
       BOT_TOKEN: ${{ secrets.KHS887900_BOT_TOKEN }}
       CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+      DELEGATE_US_NUCLEAR_BUILD_TO_KHS_US_INVESTMENT: 'true'
+      DELEGATE_KOREA_SMR_POLICY_TO_KHS_POLICY_WATCH: 'true'
 
     steps:
       - name: Checkout state repository
@@ -93,7 +95,12 @@ jobs:
           law2 = j9._semantic_smr_fingerprint_v9('디지털투데이', 'SMR 특별법·시행령 시행…민관 합동 상용화 착수', 'https://news.google.com/b')
           assert law1 == law2
           assert j9._policy_kind('SMR 특별법 근거 민관 공동출자 회사 출범', 'smr_policy_rss') == 'smr_public_private_company'
-          print('holtec_event_classifier_contract=passed semantic_dedupe=passed smr_event_dedupe=passed')
+          import os
+          os.environ['DELEGATE_US_NUCLEAR_BUILD_TO_KHS_US_INVESTMENT'] = 'true'
+          os.environ['DELEGATE_KOREA_SMR_POLICY_TO_KHS_POLICY_WATCH'] = 'true'
+          assert j6._render_split([{'kind':'us_nuclear_project','title':'dummy','source':'x','url':'x'}], []) == ''
+          assert j9._render_v9([{'kind':'smr_special_law','title':'dummy','source':'x','url':'x'}], []) == ''
+          print('holtec_event_classifier_contract=passed semantic_dedupe=passed smr_event_dedupe=passed ownership_contract=passed')
           PY
 
       - name: Run all nuclear Janus and gas turbine web watch v11
