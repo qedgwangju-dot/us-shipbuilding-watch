@@ -105,6 +105,37 @@ jobs:
           # 이 저장소는 Janus·Palisades·Holtec SMR·가스터빈 등 비중복 원전 축만 담당한다.
           rm -f upstream/out/westinghouse_alert.html
 
+      - name: Suppress alert when semantic watcher state is unchanged
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          current_path = Path('nuclear_janus_state.json')
+          pending_path = Path('upstream/out/janus_watch_v2_state_pending.json')
+          alert_path = Path('upstream/out/janus_alert_v2.html')
+
+          if not alert_path.exists() or not current_path.exists() or not pending_path.exists():
+              print('semantic_state_delivery_guard=not_applicable')
+              raise SystemExit(0)
+
+          current = json.loads(current_path.read_text(encoding='utf-8'))
+          pending = json.loads(pending_path.read_text(encoding='utf-8'))
+
+          def semantic(state):
+              return {
+                  'initialized': bool(state.get('initialized')),
+                  'seen': sorted(set(state.get('seen') or [])),
+                  'facts': state.get('facts') or {},
+              }
+
+          if semantic(current) == semantic(pending):
+              alert_path.unlink()
+              print('semantic_state_delivery_guard=suppressed reason=state_unchanged')
+          else:
+              print('semantic_state_delivery_guard=passed reason=material_state_changed')
+          PY
+
       - name: Reject broken alerts
         if: hashFiles('upstream/out/janus_alert_v2.html') != ''
         run: |
