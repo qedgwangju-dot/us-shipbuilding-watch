@@ -45,10 +45,12 @@ jobs:
           python -m py_compile us_investment_watch_v11.py
           python -m py_compile us_investment_watch_v12.py
           python -m py_compile us_investment_watch_v13.py
+          python us_investment_watch_v13.py --self-test
       - name: 대미투자 누적 내용 변화 확인
+        if: github.event_name != 'push'
         run: python us_investment_watch_v13.py
       - name: Telegram 전송
-        if: hashFiles('us_investment_alert.html') != ''
+        if: github.event_name != 'push' && hashFiles('us_investment_alert.html') != ''
         env:
           BOT_TOKEN: ${{ secrets.KHS887900_BOT_TOKEN }}
           CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
@@ -69,7 +71,7 @@ jobs:
           print(f"telegram_delivery_confirmed=true bot=@{username} message_id={(result.get('result') or {}).get('message_id')}")
           PY
       - name: 상태 저장
-        if: success() && hashFiles('us_investment_state.json') != ''
+        if: github.event_name != 'push' && success() && hashFiles('us_investment_state.json') != ''
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
