@@ -48,27 +48,29 @@ def _published_date(row: dict) -> dt.date | None:
 
 
 def _remittance_date(blob: str, row: dict) -> str | None:
-    """송금/납입 표현과 직접 연결된 날짜만 읽는다."""
+    """송금/납입 표현과 같은 문장·구절에 직접 연결된 날짜만 읽는다."""
     anchor = r'(?:첫\s*송금|첫\s*납입|자금\s*송금|투자금\s*납입)'
+    same_clause = r'[^\n.!?。]{0,25}'
     patterns = [
-        rf'{anchor}.{{0,35}}?(2026)[.\-/년\s]+(\d{{1,2}})[.\-/월\s]+(\d{{1,2}})\s*일?',
-        rf'(2026)[.\-/년\s]+(\d{{1,2}})[.\-/월\s]+(\d{{1,2}})\s*일?.{{0,35}}?{anchor}',
+        rf'{anchor}{same_clause}(2026)[.\-/년\s]+(\d{{1,2}})[.\-/월\s]+(\d{{1,2}})\s*일?',
+        rf'(2026)[.\-/년\s]+(\d{{1,2}})[.\-/월\s]+(\d{{1,2}})\s*일?{same_clause}{anchor}',
     ]
     for pat in patterns:
-        m = re.search(pat, blob, re.I | re.S)
+        m = re.search(pat, blob, re.I)
         if m:
             return f'{int(m.group(1)):04d}-{int(m.group(2)):02d}-{int(m.group(3)):02d}'
 
-    m = re.search(rf'{anchor}.{{0,35}}?(\d{{1,2}})\s*월\s*(\d{{1,2}})\s*일', blob, re.I | re.S)
+    m = re.search(rf'{anchor}{same_clause}(\d{{1,2}})\s*월\s*(\d{{1,2}})\s*일', blob, re.I)
     if not m:
-        m = re.search(rf'(\d{{1,2}})\s*월\s*(\d{{1,2}})\s*일.{{0,35}}?{anchor}', blob, re.I | re.S)
+        m = re.search(rf'(\d{{1,2}})\s*월\s*(\d{{1,2}})\s*일{same_clause}{anchor}', blob, re.I)
     if m:
         return f'2026-{int(m.group(1)):02d}-{int(m.group(2)):02d}'
 
-    # '오는 29일 첫 송금'처럼 월이 생략된 경우에만 기사 게시월을 사용한다.
-    m = re.search(rf'{anchor}.{{0,25}}?(?:이달\s*|오는\s*)?(\d{{1,2}})\s*일', blob, re.I | re.S)
+    # 월이 생략된 경우에도 같은 구절 안에 있는 날짜만 기사 게시월과 결합한다.
+    same_short_clause = r'[^\n.!?。]{0,20}'
+    m = re.search(rf'{anchor}{same_short_clause}(?:이달\s*|오는\s*)?(\d{{1,2}})\s*일', blob, re.I)
     if not m:
-        m = re.search(rf'(?:이달\s*|오는\s*)?(\d{{1,2}})\s*일.{{0,25}}?{anchor}', blob, re.I | re.S)
+        m = re.search(rf'(?:이달\s*|오는\s*)?(\d{{1,2}})\s*일{same_short_clause}{anchor}', blob, re.I)
     if m:
         pub = _published_date(row)
         if pub:
