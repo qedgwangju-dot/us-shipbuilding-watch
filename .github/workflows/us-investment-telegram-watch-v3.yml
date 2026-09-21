@@ -64,6 +64,21 @@ jobs:
           username=str((me.get('result') or {}).get('username') or '')
           if username.lower()!='khs887900_bot': raise RuntimeError(f'wrong bot @{username}')
           text=pathlib.Path('us_investment_alert.html').read_text(encoding='utf-8').strip()
+          plain=__import__('re').sub(r'<[^>]+>', '', text)
+          re_mod=__import__('re')
+          if re_mod.search(r'APR1400[^\\n]{0,100}2\\s*기\\s*(?:→|->|에서)\\s*8\\s*기', plain, re_mod.I):
+              raise RuntimeError('blocked invalid APR1400 2-to-8 transition')
+          if re_mod.search(r'미분류\\s*-\\d+\\s*기', plain):
+              raise RuntimeError('blocked negative unclassified reactor count')
+          total8=bool(re_mod.search(r'(?:전체|총)\\s*8\\s*기|원전\\s*(?:최대\\s*)?8\\s*기', plain))
+          ap8=bool(re_mod.search(r'AP1000[^\\n]{0,100}\\b8\\s*기', plain, re_mod.I))
+          apr8=bool(re_mod.search(r'APR1400[^\\n]{0,100}\\b8\\s*기', plain, re_mod.I))
+          if total8 and ap8 and apr8:
+              raise RuntimeError('blocked reactor composition double count')
+          if re_mod.search(r'첫\\s*(?:송금|납입)[^\\n]{0,120}3,?500\\s*억\\s*달러|3,?500\\s*억\\s*달러[^\\n]{0,120}첫\\s*(?:송금|납입)', plain):
+              raise RuntimeError('blocked total investment leaked into first remittance')
+          if '첫 송금·납입 예정일' in plain and '2026-07-24' in plain:
+              raise RuntimeError('blocked unrelated July 24 date as first remittance date')
           data=urllib.parse.urlencode({'chat_id':chat,'text':text,'parse_mode':'HTML','disable_web_page_preview':'true'}).encode()
           req=urllib.request.Request(f'https://api.telegram.org/bot{token}/sendMessage',data=data,method='POST')
           with urllib.request.urlopen(req,timeout=25) as r: result=json.loads(r.read().decode())
