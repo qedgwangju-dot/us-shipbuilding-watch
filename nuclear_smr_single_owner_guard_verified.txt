@@ -1,0 +1,6 @@
+verified=true
+target_bot=@khs887900_bot
+delegated_owner=khs-policy-watch
+janus_korea_smr_send=blocked
+workflow_sha=cc39e369bdf62a02253cf369a5b41100b54f663c
+verified_at_utc=2026-09-22T03:43:56Z
