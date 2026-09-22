@@ -318,12 +318,24 @@ jobs:
         if: success() && hashFiles('upstream/out/janus_watch_v2_state_pending.json') != ''
         run: cp upstream/out/janus_watch_v2_state_pending.json nuclear_janus_state.json
 
+      - name: Record Korean SMR single-owner guard verification
+        if: success() && github.event_name == 'push'
+        run: |
+          {
+            echo "verified=true"
+            echo "target_bot=@khs887900_bot"
+            echo "delegated_owner=khs-policy-watch"
+            echo "janus_korea_smr_send=blocked"
+            echo "workflow_sha=${GITHUB_SHA}"
+            echo "verified_at_utc=$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+          } > nuclear_smr_single_owner_guard_verified.txt
+
       - name: Commit state
         if: success()
         run: |
           git config user.name 'nuclear-janus-watch[bot]'
           git config user.email 'nuclear-janus-watch[bot]@users.noreply.github.com'
-          git add nuclear_janus_state.json nuclear_us_v8_estimate_verified.txt nuclear_smr_v9_policy_verified.txt nuclear_smr_v10_demand_verified.txt nuclear_gt_v11_cycle_verified.txt 2>/dev/null || true
+          git add nuclear_janus_state.json nuclear_us_v8_estimate_verified.txt nuclear_smr_v9_policy_verified.txt nuclear_smr_v10_demand_verified.txt nuclear_gt_v11_cycle_verified.txt nuclear_smr_single_owner_guard_verified.txt 2>/dev/null || true
           if git diff --cached --quiet; then
             echo 'state unchanged'
           else
