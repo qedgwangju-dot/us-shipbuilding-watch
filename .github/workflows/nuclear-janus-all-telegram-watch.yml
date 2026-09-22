@@ -119,6 +119,33 @@ jobs:
           # 이 저장소는 Janus·Palisades·Holtec SMR·가스터빈 등 비중복 원전 축만 담당한다.
           rm -f upstream/out/westinghouse_alert.html
 
+      - name: Reject delegated Korean SMR leakage before Telegram
+        if: env.DELEGATE_KOREA_SMR_POLICY_TO_KHS_POLICY_WATCH == 'true'
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          alert_path = Path('upstream/out/janus_alert_v2.html')
+          if not alert_path.exists():
+              print('korea_smr_single_owner_guard=passed reason=no_janus_alert')
+              raise SystemExit(0)
+
+          text = alert_path.read_text(encoding='utf-8')
+          forbidden = (
+              '[한국 SMR 특별법·i-SMR 웹감시]',
+              '법적 기준선',
+              '돈이 어디로 배분되는지',
+              '실제 매출로 넘어가는 순서',
+          )
+          leaked = [marker for marker in forbidden if marker in text]
+          if leaked:
+              raise RuntimeError(
+                  'delegated Korean SMR content leaked into Janus Telegram output: '
+                  + ', '.join(leaked)
+              )
+          print('korea_smr_single_owner_guard=passed reason=no_delegated_smr_content')
+          PY
+
       - name: Suppress alert when semantic watcher state is unchanged
         run: |
           python - <<'PY'
