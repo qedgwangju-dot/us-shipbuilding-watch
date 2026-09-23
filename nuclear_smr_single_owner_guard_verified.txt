@@ -2,5 +2,5 @@ verified=true
 target_bot=@khs887900_bot
 delegated_owner=khs-policy-watch
 janus_korea_smr_send=blocked
-workflow_sha=a2af9344fd582fe1524341952b3b9f294e6f12cd
-verified_at_utc=2026-09-23T10:12:20Z
+workflow_sha=7e1848c81723bc923d9015ca590c009de7234e12
+verified_at_utc=2026-09-23T10:14:18Z
