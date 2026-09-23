@@ -79,6 +79,7 @@ jobs:
           python - <<'PY'
           import sys
           sys.path.insert(0, 'upstream/scripts')
+          import janus_watch_v2 as j2
           import janus_watch_v6 as j6
           import janus_watch_v7 as j7
           # 제품명 Feedwater Heaters의 'feed'를 FEED 기본설계로 오인하지 않는 회귀테스트
@@ -103,6 +104,13 @@ jobs:
           assert j7._render_v7([{'kind':'doe_ap1000_track','title':'dummy','source':'x','url':'x'}], []) == ''
           assert j7._render_v7([{'kind':'fermi_ap1000_track','title':'dummy','source':'x','url':'x'}], []) == ''
           assert j9._render_v9([{'kind':'smr_special_law','title':'dummy','source':'x','url':'x'}], []) == ''
+          xurl = 'https://www.canarymedia.com/articles/nuclear/federal-funding-x-energy-small-nuclear-reactor'
+          xevent = {'kind':'macro_nuclear','title':'With federal funding windfall, X-energy advances small nuclear reactor','source':'Canary Media 원전 정책·금융','url':xurl}
+          assert j2._translate_ko(xevent['title']).startswith('X-energy, DOE 추가지원')
+          xhigh = dict(j2._macro_highlights(xevent))
+          assert xhigh.get('DOE 추가지원') == '10억달러'
+          assert '320MWe' in xhigh.get('첫 상용설비','')
+          assert 'Dow FID' in j2._next_check(xevent, '정책·금융·설비투자')
           print('holtec_event_classifier_contract=passed semantic_dedupe=passed smr_event_dedupe=passed ownership_contract=passed')
           PY
 
