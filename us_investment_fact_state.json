@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "last_updated": "2026-09-23T20:24:16+09:00",
+  "last_updated": "2026-09-24T00:30:54+09:00",
   "facts": {
     "strategy.total_package_usd_eok": {
       "value": 3500,
@@ -193,8 +193,9 @@
       "label": "대미투자 1호 엔시날 선정",
       "status": "복수 보도",
       "sources": [
-        "https://n.news.naver.com/mnews/article/001/0016295840?sid=102",
-        "https://n.news.naver.com/mnews/article/001/0016331393?sid=102"
+        "https://news.mtn.co.kr/news-detail/2026092314351145706",
+        "https://n.news.naver.com/mnews/article/006/0000137892?sid=102",
+        "https://n.news.naver.com/mnews/article/119/0003131667?sid=101"
       ]
     },
     "encinal.project_owner": {
@@ -302,17 +303,8 @@
       "label": "엔시날 현재 협상 사업비",
       "status": "복수 보도",
       "sources": [
-        "https://www4.edaily.co.kr/News/Read?mediaCodeNo=257&newsId=02151686645577824",
-        "https://www2.edaily.co.kr/News/Read?mediaCodeNo=257&newsId=02499366645577824",
-        "https://v.daum.net/v/20260907113212498",
-        "https://n.news.naver.com/mnews/article/018/0006365091?sid=100",
-        "https://n.news.naver.com/mnews/article/215/0001265164?sid=100",
-        "https://n.news.naver.com/mnews/article/422/0000903732?sid=101",
-        "https://n.news.naver.com/mnews/article/215/0001265151?sid=101",
-        "https://news.mtn.co.kr/news-detail/2026091416201983696",
-        "https://n.news.naver.com/mnews/article/421/0009180763?sid=101",
-        "https://n.news.naver.com/mnews/article/014/0005578469?sid=100",
-        "https://n.news.naver.com/mnews/article/081/0003681985?sid=100"
+        "https://news.mtn.co.kr/news-detail/2026092314351145706",
+        "https://n.news.naver.com/mnews/article/006/0000137892?sid=102"
       ]
     },
     "encinal.cost_increase_driver_us_pressure": {
@@ -350,8 +342,9 @@
       "label": "장기 전력판매계약이 핵심 현금흐름 조건",
       "status": "보도",
       "sources": [
-        "https://n.news.naver.com/mnews/article/277/0005819221?sid=100",
-        "https://n.news.naver.com/mnews/article/014/0005578469?sid=100"
+        "https://news.mtn.co.kr/news-detail/2026092314351145706",
+        "https://n.news.naver.com/mnews/article/006/0000137892?sid=102",
+        "https://n.news.naver.com/mnews/article/119/0003131667?sid=101"
       ]
     },
     "encinal.nearby_data_center_reported_gw": {
@@ -413,7 +406,8 @@
       "label": "미국 내 원전 추진 기수",
       "status": "보도·협의 단계",
       "sources": [
-        "https://n.news.naver.com/mnews/article/001/0016295840?sid=102",
+        "https://news.mtn.co.kr/news-detail/2026092314351145706",
+        "https://n.news.naver.com/mnews/article/006/0000137892?sid=102",
         "https://n.news.naver.com/mnews/article/119/0003131667?sid=101"
       ]
     },
