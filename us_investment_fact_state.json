@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "last_updated": "2026-09-24T00:30:54+09:00",
+  "last_updated": "2026-09-24T04:11:23+09:00",
   "facts": {
     "strategy.total_package_usd_eok": {
       "value": 3500,
@@ -194,8 +194,7 @@
       "status": "복수 보도",
       "sources": [
         "https://news.mtn.co.kr/news-detail/2026092314351145706",
-        "https://n.news.naver.com/mnews/article/006/0000137892?sid=102",
-        "https://n.news.naver.com/mnews/article/119/0003131667?sid=101"
+        "https://n.news.naver.com/mnews/article/006/0000137892?sid=102"
       ]
     },
     "encinal.project_owner": {
@@ -343,8 +342,7 @@
       "status": "보도",
       "sources": [
         "https://news.mtn.co.kr/news-detail/2026092314351145706",
-        "https://n.news.naver.com/mnews/article/006/0000137892?sid=102",
-        "https://n.news.naver.com/mnews/article/119/0003131667?sid=101"
+        "https://n.news.naver.com/mnews/article/006/0000137892?sid=102"
       ]
     },
     "encinal.nearby_data_center_reported_gw": {
@@ -407,8 +405,7 @@
       "status": "보도·협의 단계",
       "sources": [
         "https://news.mtn.co.kr/news-detail/2026092314351145706",
-        "https://n.news.naver.com/mnews/article/006/0000137892?sid=102",
-        "https://n.news.naver.com/mnews/article/119/0003131667?sid=101"
+        "https://n.news.naver.com/mnews/article/006/0000137892?sid=102"
       ]
     },
     "nuclear.us_proposal_usd_eok": {
@@ -654,10 +651,8 @@
       "label": "웨스팅하우스 지분 인수·매입 추진",
       "status": "보도·협의 단계",
       "sources": [
-        "https://n.news.naver.com/mnews/article/001/0016327710?sid=101",
-        "https://n.news.naver.com/mnews/article/422/0000908126?sid=101",
-        "https://n.news.naver.com/mnews/article/422/0000908096?sid=161",
-        "https://n.news.naver.com/mnews/article/014/0005578469?sid=100"
+        "https://n.news.naver.com/mnews/article/006/0000137892?sid=102",
+        "https://n.news.naver.com/mnews/article/421/0009187081?sid=100"
       ],
       "updated_at": "2026-09-09T05:36:02+09:00"
     },
