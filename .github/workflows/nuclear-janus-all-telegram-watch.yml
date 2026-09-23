@@ -80,6 +80,7 @@ jobs:
           import sys
           sys.path.insert(0, 'upstream/scripts')
           import janus_watch_v6 as j6
+          import janus_watch_v7 as j7
           # 제품명 Feedwater Heaters의 'feed'를 FEED 기본설계로 오인하지 않는 회귀테스트
           import janus_watch_v9 as j9
           assert j6._official_title_kind('holtec_official_nuclear', "Progress Report on Palisades’ March to Startup") == 'palisades_restart'
@@ -99,6 +100,8 @@ jobs:
           os.environ['DELEGATE_US_NUCLEAR_BUILD_TO_KHS_US_INVESTMENT'] = 'true'
           os.environ['DELEGATE_KOREA_SMR_POLICY_TO_KHS_POLICY_WATCH'] = 'true'
           assert j6._render_split([{'kind':'us_nuclear_project','title':'dummy','source':'x','url':'x'}], []) == ''
+          assert j7._render_v7([{'kind':'doe_ap1000_track','title':'dummy','source':'x','url':'x'}], []) == ''
+          assert j7._render_v7([{'kind':'fermi_ap1000_track','title':'dummy','source':'x','url':'x'}], []) == ''
           assert j9._render_v9([{'kind':'smr_special_law','title':'dummy','source':'x','url':'x'}], []) == ''
           print('holtec_event_classifier_contract=passed semantic_dedupe=passed smr_event_dedupe=passed ownership_contract=passed')
           PY
@@ -118,6 +121,32 @@ jobs:
           # Westinghouse 지분·거버넌스는 khs-watch 정책 워처 한 곳만 송출한다.
           # 이 저장소는 Janus·Palisades·Holtec SMR·가스터빈 등 비중복 원전 축만 담당한다.
           rm -f upstream/out/westinghouse_alert.html
+
+      - name: Reject delegated US nuclear-build leakage before Telegram
+        if: env.DELEGATE_US_NUCLEAR_BUILD_TO_KHS_US_INVESTMENT == 'true'
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          alert_path = Path('upstream/out/janus_alert_v2.html')
+          if not alert_path.exists():
+              print('us_nuclear_single_owner_guard=passed reason=no_janus_alert')
+              raise SystemExit(0)
+
+          text = alert_path.read_text(encoding='utf-8')
+          forbidden = (
+              '[미국 대형원전 3트랙 웹감시]',
+              'DOE AP1000 10기 · Fermi AP1000 4기 · 한미 협상 8기',
+              '노형별 한국 기업 매출 민감도',
+          )
+          leaked = [marker for marker in forbidden if marker in text]
+          if leaked:
+              raise RuntimeError(
+                  'delegated US nuclear-build content leaked into Janus Telegram output: '
+                  + ', '.join(leaked)
+              )
+          print('us_nuclear_single_owner_guard=passed reason=no_delegated_us_nuclear_content')
+          PY
 
       - name: Reject delegated Korean SMR leakage before Telegram
         if: env.DELEGATE_KOREA_SMR_POLICY_TO_KHS_POLICY_WATCH == 'true'
