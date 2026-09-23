@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "last_updated": "2026-09-23T10:11:46+09:00",
+  "last_updated": "2026-09-23T15:00:51+09:00",
   "facts": {
     "strategy.total_package_usd_eok": {
       "value": 3500,
@@ -193,8 +193,8 @@
       "label": "대미투자 1호 엔시날 선정",
       "status": "복수 보도",
       "sources": [
-        "https://n.news.naver.com/mnews/article/001/0016331393?sid=102",
-        "https://n.news.naver.com/mnews/article/119/0003131667?sid=101"
+        "https://n.news.naver.com/mnews/article/001/0016295840?sid=102",
+        "https://n.news.naver.com/mnews/article/001/0016331393?sid=102"
       ]
     },
     "encinal.project_owner": {
