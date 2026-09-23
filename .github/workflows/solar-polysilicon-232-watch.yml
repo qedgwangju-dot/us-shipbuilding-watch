@@ -1,0 +1,62 @@
+name: 미국 태양광·폴리실리콘 Section 232 웹감시
+
+on:
+  schedule:
+    - cron: '4,14,24,34,44,54 * * * *'
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - 'solar_polysilicon_232_watch.py'
+      - 'requirements.txt'
+      - '.github/workflows/solar-polysilicon-232-watch.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: us-solar-polysilicon-232-watch
+  cancel-in-progress: true
+
+jobs:
+  monitor:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 저장소 불러오기
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Python 설정
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: 필요한 패키지 설치
+        run: pip install -r requirements.txt
+
+      - name: 태양광·폴리실리콘 Section 232 변화 확인
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python solar_polysilicon_232_watch.py
+
+      - name: 감시 상태 저장
+        run: |
+          if [ -z "$(git status --porcelain -- solar_polysilicon_232_state.json)" ]; then
+            echo "상태 변화 없음"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add solar_polysilicon_232_state.json
+          git commit -m "Update solar polysilicon Section 232 state"
+          for attempt in 1 2 3; do
+            git pull --rebase origin main && git push && exit 0
+            echo "상태 저장 충돌 재시도 ${attempt}/3"
+            sleep $((attempt * 2))
+          done
+          echo "상태 파일 저장 실패"
+          exit 1
