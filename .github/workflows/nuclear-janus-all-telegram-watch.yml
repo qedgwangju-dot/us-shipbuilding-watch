@@ -72,10 +72,10 @@ jobs:
             cp nuclear_janus_state.json upstream/data/janus_watch_v2_state.json
           fi
 
-      - name: Validate v11 watcher
+      - name: Validate v13 watcher
         run: |
-          python -m py_compile upstream/scripts/janus_watch.py upstream/scripts/janus_watch_v2.py upstream/scripts/janus_watch_v3.py upstream/scripts/janus_watch_v4.py upstream/scripts/janus_watch_v5.py upstream/scripts/janus_watch_v6.py upstream/scripts/janus_watch_v7.py upstream/scripts/janus_watch_v8.py upstream/scripts/janus_watch_v9.py upstream/scripts/janus_watch_v10.py upstream/scripts/janus_watch_v11.py
-          python upstream/scripts/janus_watch_v11.py --mode self-test
+          python -m py_compile upstream/scripts/janus_watch.py upstream/scripts/janus_watch_v2.py upstream/scripts/janus_watch_v3.py upstream/scripts/janus_watch_v4.py upstream/scripts/janus_watch_v5.py upstream/scripts/janus_watch_v6.py upstream/scripts/janus_watch_v7.py upstream/scripts/janus_watch_v8.py upstream/scripts/janus_watch_v9.py upstream/scripts/janus_watch_v10.py upstream/scripts/janus_watch_v11.py upstream/scripts/janus_watch_v12.py upstream/scripts/janus_watch_v13.py
+          python upstream/scripts/janus_watch_v13.py --mode self-test
           python - <<'PY'
           import sys
           sys.path.insert(0, 'upstream/scripts')
@@ -114,9 +114,9 @@ jobs:
           print('holtec_event_classifier_contract=passed semantic_dedupe=passed smr_event_dedupe=passed ownership_contract=passed')
           PY
 
-      - name: Run all nuclear Janus and gas turbine web watch v11
+      - name: Run all nuclear Janus SMR and gas turbine web watch v13
         run: |
-          python upstream/scripts/janus_watch_v11.py --mode check
+          python upstream/scripts/janus_watch_v13.py --mode check
           cat upstream/out/janus_status_v2.md >> "$GITHUB_STEP_SUMMARY"
           if [ -s upstream/out/janus_errors_v2.log ]; then
             echo '' >> "$GITHUB_STEP_SUMMARY"
