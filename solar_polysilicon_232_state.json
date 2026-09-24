@@ -1,6 +1,8 @@
 {
   "bootstrap_sent": true,
-  "event_keys": [],
+  "event_keys": [
+    "stockpiling|2026-09-24|measures to restrict stockpiling of polysilicon and polysilicon derivatives under proclamation 11052"
+  ],
   "fr_docs": [
     "2010-33122",
     "2011-16335",
@@ -25,6 +27,7 @@
     "2024-29462",
     "2025-13345",
     "2026-16400",
+    "2026-19537",
     "E8-24024",
     "E9-12456",
     "E9-19675"
