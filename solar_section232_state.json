@@ -1,0 +1,65 @@
+{
+  "event_keys": [],
+  "facts": {
+    "anti_stockpiling": {
+      "document": "2026-19537",
+      "effective": "2026-09-22",
+      "expires": "2026-12-03",
+      "hash": "907ae0f2dfa6654eeaed39f2849de538ac430152699256e637779eb39b243de6",
+      "url": "https://public-inspection.federalregister.gov/2026-19537.pdf"
+    },
+    "proclamation": {
+      "derivative_tariff_pct": 15,
+      "effective": "2026-12-04",
+      "hash": "be9eaae2d09726eb421efb6e3b577e5b89e7c221e51eaa68c2d2d230437d87b0",
+      "korea_total_tariff_pct": 15,
+      "mip_cell_usd_per_w": 0.22,
+      "mip_ingot_wafer_usd_per_kg": 100,
+      "mip_module_usd_per_w": 0.38,
+      "mip_polysilicon_usd_per_kg": 21,
+      "signed": "2026-08-06",
+      "url": "https://www.whitehouse.gov/presidential-actions/2026/08/adjusting-imports-of-polysilicon-and-its-derivatives-into-the-united-states/"
+    },
+    "space_pv": {
+      "announced": "2026-08-31",
+      "funding_usd_m": 12,
+      "hash": "f6ec915fcf362e5e70890033dfdf5d9bc9dafa33821430b81ae022fc4821684e",
+      "url": "https://www.energy.gov/cmei/articles/does-office-critical-minerals-and-energy-innovation-announces-first-major-investment"
+    }
+  },
+  "initialized": true,
+  "rss": {
+    "5648706ffb": [
+      "https://news.google.com/rss/articles/CBMi0gFBVV95cUxOX0g4ODZQZEhNRU1na3hvWHlGNmlyS1VzUVpYd1RFSDhIZWVLRFJZeDBsTXpiZzMyUzRTQ2xGSlJ6YTFnbTlOU1BSbGZNalJmSEZWVUVmbEptamMwZHNYZ1VQWU9SaG9aSEZaOFFydHpqckF0S2doUWd4RDRzM2xEa1VpaERLNzNDMzZMX3JFaVBQbkh3eGxCMHBWZlVCbk9Wa2JFWlJpRHl2RTlJSk9iWmthRWxoYnJvY1FIOFYxdVp2MWJuNUtsRFVTdU9vTTF4RFHSAdcBQVVfeXFMT2U1aEdqUWxMeXBJMndKemVBMmdsSk92Q3pFM3ZvMkNlNVd4YjhVaGRndF85UFd6MkRjXzVpbmEyNWJwTk9yNVdXNXBvX2EybGxkNVFVNmx6SjYwZUp6VmxSYmlIRHRVNnVfeFpGZDlHQkgzQ3drTUZZS0FLVjBZWDdNVnFqSkxuakxMV3FKNWZnM29ISkFOX0xLbmVZVzhsSVBnYnlIUWFVcFd5emU3VGdIaEJQRV9TaHpQYnNSMUlRRVR0V3BRWk1lVFdMdUJ0emV0bU9obDA?oc=5",
+      "https://news.google.com/rss/articles/CBMie0FVX3lxTFBwMWQtRkNnYlhHOGZVQ3BmSzI2VmJJYWd2V3NqZUx1MmdYOUtWdXJCQmN3ZmlkUWlTamxzYjFPQjJ4SWJoZXJMNmhpUlJEUmJuNVE1czlhX2lYcGw0U2tuY3RXYkdZTWVDR3dRN0tZb28zZk5jblZmMWltMA?oc=5",
+      "https://news.google.com/rss/articles/CBMikwFBVV95cUxPY1JIN1poQ3ZCVldlLVozZG92OEVCYkM2MnFlYnFBWkxWQ2FzU1JxWkpjQzlqaWZiOTg2enhJUnZ1bWxSOS1RZzY2MEludzY1WFg5dDFvV2lnc09pWnRYU211RE4teU4xRDh0VWxkWGdCWlJRd2JQWUx0MzBhWUlmajlLX255Vm85MFM0TUlLWEdFa1U?oc=5",
+      "https://news.google.com/rss/articles/CBMilgFBVV95cUxONkJuVDk5VG9pTHptZTR0YndkWUFhMldjYVQ3cUw0UGE2QVROUkQ4UE1HTUwzWVpKeVFraHVncE1XLXp2a0NLN2FhZ2hlR2xDczdvWXdrNnhqS2RvWVh4UGk0YWd0TElmeVo1M0dQREtSUDg1bVhaY3c1U2lNTC1JMHQyQVUtUVA4YW8tMlB6Q0s2bjd0QUHSAVZBVV95cUxOSHVfWk9ESENYWXRvUWItVVJyd1lzelVUZFZ4RDFRRGE0VUtuelVobHhxVWhtSENDLWxUYnEtN0ZCclQxVG5XVUNVZzJsUVJtdW5WRl9Ndw?oc=5",
+      "https://news.google.com/rss/articles/CBMimAFBVV95cUxNbnJhNHFQeU8wMzRSQ3QwWTVVdk01RFZ5MEFnc3FfX0V0RlZUb0h2aW1NUkxaNVd3S2J6QlNhSjk1alBSRVlkMDA5Y3dTdHZlYWt2WThHcTg1ZUZIb2xaX2lXb2h0UTZxSFlsWG5GSGdkMzFpd3ZfQkFXLWFfdlNfQTNOQWdDRnFCbnJDYXljWnpJeExuYTRGRA?oc=5",
+      "https://news.google.com/rss/articles/CBMipgFBVV95cUxNZTNmckNicXlmUXVkR0Exbm45OURFUTU1Zm51cW1peGlNWUhfOURGcXM4MHlaQzlHS3pQalJYal9Eazd1YmRGMEgyUkpzdDVWemVLa3ZaSHk4VndtLTZqSHNwUFJOOFpNak9WMjFsZEgwZmpsNXk3bFE4cTFWUjlOaXRTNmJNbmZHdU1PVF9OMjlWT2h1VUJ6SXQ5UDcyU3BtbVdFS1Z3?oc=5",
+      "https://news.google.com/rss/articles/CBMipgFBVV95cUxQTjNQTXFXY1VtSmlVTERDbkJyUG9fT0dvS0JvSDhhQ284R1RBMTdQM3RLTVhXZWdYN0J3TUtLdlo2MTZtNjlnRzVIRlhJQ2ljTmotdDloQ19CNUxnTXp5eVJkQTg5dFlHckt3YmRMcTdnX1NnRDEwLUtYWVBHNXVJZ3FrRzZnSTE4ZTBmSEdhOUNZbWJmZVRMdkk1UnBib2xBUzU3em9B?oc=5",
+      "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNcUhDZ0l4T3h6alBOWWU2V1BlZXFpdmtxcE5ibmRlaTE3RWFCTzAyOFE2Z1RTbGFucGpFSGFuTGdRcFlSOFNVcl93S3ZScUZMSW9ldGpNU0VVSkk5RHliUjNIRHQzdlBrenRrRjFGdWg1RXo1aG5qQktscTQyRXYxYTFRTGZWRUhrMzNRMnY5TlMxcWxhcTBrejA4SDlOR1BhMEN2VjRXekU5Zw?oc=5"
+    ],
+    "afbae7be7b": [
+      "https://news.google.com/rss/articles/CBMigAFBVV95cUxNMi16ZUlsR05ISDlYNFJPQlk1RVJRLVpkbncxaWVNQ3RYSnRzcTdfQ1h6ejBFYTVKc0hmb3BZYWxmVktBdFF4U1BUemh1SGFXM09FdXVqWUJFb3hlZWNHWUphUXgyUER2UXlXYzJZWlVNRUpCcy1yWWRBZWVFUXdkUA?oc=5",
+      "https://news.google.com/rss/articles/CBMitgFBVV95cUxOdEdwdmNEUFpXU1JQTTVSbE9TZTQ1VDE2YkpQTGg3djFURGRKVXhJdlpJSlNVbkZHbVFhZHRTc29IWHE5UnF2SVl2Y243enVJZURGZi1ZTVFOVk1VcHl3UmVTbmJOUXA1dlVjeUl0U0xqNmRsTUJDYW8xRzVkelRhUjB3d2NNZGUwdmVzM2dLbFVGQWdjTnVDRHQ4T0JHN0hMTEhmSzNQSkR0VV9ldGV0NHlhT2dadw?oc=5",
+      "https://news.google.com/rss/articles/CBMitgFBVV95cUxPNU5pWUFLLTJmS092MVo5MklhOGFiSW5qYzlRLXhOU0RhWWpvZ2Vsd0NfOGFzOTU5Y2U0MVgwUG11UVBXTG9TNlZZZEx5bnU4NVhhcV9HOFNsN0NydDZsOXA0bm9qYW1OaDNUdUJsaWhsalM5VXNwMG5NR1ZhMlh3cTRYeXRSYmVKU1E2ZXhYYnBEdWIyQjhyd0ZfT19hbjF0NFdlRVNoY3ZtdURwSkJrbG4xTDlsdw?oc=5",
+      "https://news.google.com/rss/articles/CBMiwAFBVV95cUxNdm9sQy1NQkx4OG02dnJkTmp6RzhBTWJLdHRYcHNreF9kOEwxcnBiVFE3aGMwZEhsRVM1ZENHek05RmZPMnNoREFteHczaURrdnlDZmltV0JYN3c5SFFEejd0YWd6X1FSdnp4OHd2X2dQRDIxbjRoaGdjU1BjSzNPeExkdnNhLUdBLXBRQWlWOXJjbHRsR0t1VEU2bkhTYVFZYlROUjBXOG54T1RhekdFOFQ3cV9fYnFKOVp6MU1WMW8?oc=5"
+    ],
+    "c2fe47366d": [
+      "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNcUhDZ0l4T3h6alBOWWU2V1BlZXFpdmtxcE5ibmRlaTE3RWFCTzAyOFE2Z1RTbGFucGpFSGFuTGdRcFlSOFNVcl93S3ZScUZMSW9ldGpNU0VVSkk5RHliUjNIRHQzdlBrenRrRjFGdWg1RXo1aG5qQktscTQyRXYxYTFRTGZWRUhrMzNRMnY5TlMxcWxhcTBrejA4SDlOR1BhMEN2VjRXekU5Zw?oc=5",
+      "https://news.google.com/rss/articles/CBMiqwFBVV95cUxOZEJvVVhqQnZaQno3VE5lQ1k0RTM3QXRQVF9FdVVnMlJjdjFTVk9SQnBVOWhvd0RUN0wwdFBzX3JDVE9EY3pFMjlwcTBDbXFOS2hISlBQWEl5MzFDbUpJTkluTzJVQmJVTlkyTHlpVzhnaFVqRUEzRVd0cVhjQkNNcHFPWjdPREZMdFN6U3dQMHZzbjdhc2lIallweTBucHh5dGE3S1JkeWN1VzQ?oc=5"
+    ],
+    "d1561f39da": [
+      "https://news.google.com/rss/articles/CBMi5wFBVV95cUxNSEttcDZmdVJoalV5NThlemJ3TGgtU3RLbmZ0XzNSVHFlOWpZRTQ1dnIzdEJzdzNvdEJRWDRkLURsMTdTTEtwSTlMRDQwOEhLMVYxam1IaEU1b1IwbE5TTmlzUzFhU3VSNlRIeTlXY05mVUZ6M3JkOTIybktpX0hPck9RZEJPLTNRMm5JRG9tVERuaFV1Rk8yUUc5Wk81ckliU2J0VzlLTzlkMnppVm4yV1ptVVVpNTVpd0IyaTRDbndIQ2RhTzRFYUtxTFJ2UzRaemxSWUp4S0U4dGJPZ1Y5a0ZCYk5GM28?oc=5",
+      "https://news.google.com/rss/articles/CBMiaEFVX3lxTFBmOHhPR2NIU2JYTmJnT251UXkyUlNwTFNqWlJtZjFadl84QWdGazFTOExtMk1GQzV4dzVMbTFJbWlzalZUZW9ZT0V5VGZ2YXBib1pJcEpIak9fd1dIaFp1WDNtWTJ6NnNx?oc=5",
+      "https://news.google.com/rss/articles/CBMie0FVX3lxTFBwMWQtRkNnYlhHOGZVQ3BmSzI2VmJJYWd2V3NqZUx1MmdYOUtWdXJCQmN3ZmlkUWlTamxzYjFPQjJ4SWJoZXJMNmhpUlJEUmJuNVE1czlhX2lYcGw0U2tuY3RXYkdZTWVDR3dRN0tZb28zZk5jblZmMWltMA?oc=5",
+      "https://news.google.com/rss/articles/CBMiiAFBVV95cUxQN29Lbk5CYThESmg4LW9MZGlhUVdVSUNpQnM1cWZqQl9UVEI3YWFyNjBzb1JYYThqZlJDOGEtOEpYRGxlMkRBeGJSTGNIbURfWWx3SnNtNmFBMkxnaEQ1VTdrNmwyLUVNWDlWTVRINk5GdzdELUZyNGZxTE4yaUd4azFpMjdKWVVx?oc=5",
+      "https://news.google.com/rss/articles/CBMimAFBVV95cUxNbnJhNHFQeU8wMzRSQ3QwWTVVdk01RFZ5MEFnc3FfX0V0RlZUb0h2aW1NUkxaNVd3S2J6QlNhSjk1alBSRVlkMDA5Y3dTdHZlYWt2WThHcTg1ZUZIb2xaX2lXb2h0UTZxSFlsWG5GSGdkMzFpd3ZfQkFXLWFfdlNfQTNOQWdDRnFCbnJDYXljWnpJeExuYTRGRA?oc=5",
+      "https://news.google.com/rss/articles/CBMimgFBVV95cUxPYllYbmNCQ014a0o3TnAwcTlPTUlXemZOQWx2OE4wbEphbXdUNE9wU3ZNc3JySFRTUzZVb2N3Q2o0ekxEOHJZUmVzaEl6WnVfZU1PZGtTX1o1TF9sWDNUa1dFSmNyT2xFNElEUW9VcEZfMTF5WjNRWWI2Ql9ESXJXeG5MZGlpMXN0RjJiRFVFSDYxWHBpM0l6Q3R3?oc=5",
+      "https://news.google.com/rss/articles/CBMipgFBVV95cUxQTjNQTXFXY1VtSmlVTERDbkJyUG9fT0dvS0JvSDhhQ284R1RBMTdQM3RLTVhXZWdYN0J3TUtLdlo2MTZtNjlnRzVIRlhJQ2ljTmotdDloQ19CNUxnTXp5eVJkQTg5dFlHckt3YmRMcTdnX1NnRDEwLUtYWVBHNXVJZ3FrRzZnSTE4ZTBmSEdhOUNZbWJmZVRMdkk1UnBib2xBUzU3em9B?oc=5",
+      "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNcUhDZ0l4T3h6alBOWWU2V1BlZXFpdmtxcE5ibmRlaTE3RWFCTzAyOFE2Z1RTbGFucGpFSGFuTGdRcFlSOFNVcl93S3ZScUZMSW9ldGpNU0VVSkk5RHliUjNIRHQzdlBrenRrRjFGdWg1RXo1aG5qQktscTQyRXYxYTFRTGZWRUhrMzNRMnY5TlMxcWxhcTBrejA4SDlOR1BhMEN2VjRXekU5Zw?oc=5",
+      "https://news.google.com/rss/articles/CBMiqwFBVV95cUxOZEJvVVhqQnZaQno3VE5lQ1k0RTM3QXRQVF9FdVVnMlJjdjFTVk9SQnBVOWhvd0RUN0wwdFBzX3JDVE9EY3pFMjlwcTBDbXFOS2hISlBQWEl5MzFDbUpJTkluTzJVQmJVTlkyTHlpVzhnaFVqRUEzRVd0cVhjQkNNcHFPWjdPREZMdFN6U3dQMHZzbjdhc2lIallweTBucHh5dGE3S1JkeWN1VzQ?oc=5",
+      "https://news.google.com/rss/articles/CBMiygFBVV95cUxPVEdHb2NFc2JUbTNjMU9PeWRFeWNmY0NkTkVIaEJ3aTJRbld2SVRlYlVYX0owSEdXSzNSeDRzUERBVUNHcHE2aUhsUTRpc0VmX1VXLVZmbDEzaEdFbDU1S0pwaGQxcjYycDJUMlUzcXBzcEhLY1NzbjVOSG1FbzQ2cXBMVERFeWxXVUhOc3ppZUJoWjdIZFFDSHIwT3RkUG1SakNJeWlydFFuaGliX014NXl1RnRFOFgwSzI1QjdIMkJPc0xaU1lUdUVB?oc=5"
+    ]
+  }
+}
