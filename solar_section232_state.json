@@ -1,5 +1,8 @@
 {
-  "event_keys": [],
+  "event_keys": [
+    "sector|enforcement|2026-09-25",
+    "sector|policy|2026-08-31"
+  ],
   "facts": {
     "anti_stockpiling": {
       "document": "2026-19537",
@@ -11,7 +14,7 @@
     "proclamation": {
       "derivative_tariff_pct": 15,
       "effective": "2026-12-04",
-      "hash": "be9eaae2d09726eb421efb6e3b577e5b89e7c221e51eaa68c2d2d230437d87b0",
+      "hash": "6615634095b862a2d01fdf9d2c091c4354cc69fdb4f7abde9dc4bb0913a65264",
       "korea_total_tariff_pct": 15,
       "mip_cell_usd_per_w": 0.22,
       "mip_ingot_wafer_usd_per_kg": 100,
@@ -23,7 +26,7 @@
     "space_pv": {
       "announced": "2026-08-31",
       "funding_usd_m": 12,
-      "hash": "f6ec915fcf362e5e70890033dfdf5d9bc9dafa33821430b81ae022fc4821684e",
+      "hash": "edd4524ebac716430328dd8d773c29557f17104ee6e5a7dd31b6a184a55b9cde",
       "url": "https://www.energy.gov/cmei/articles/does-office-critical-minerals-and-energy-innovation-announces-first-major-investment"
     }
   },
@@ -43,6 +46,7 @@
       "https://news.google.com/rss/articles/CBMigAFBVV95cUxNMi16ZUlsR05ISDlYNFJPQlk1RVJRLVpkbncxaWVNQ3RYSnRzcTdfQ1h6ejBFYTVKc0hmb3BZYWxmVktBdFF4U1BUemh1SGFXM09FdXVqWUJFb3hlZWNHWUphUXgyUER2UXlXYzJZWlVNRUpCcy1yWWRBZWVFUXdkUA?oc=5",
       "https://news.google.com/rss/articles/CBMitgFBVV95cUxOdEdwdmNEUFpXU1JQTTVSbE9TZTQ1VDE2YkpQTGg3djFURGRKVXhJdlpJSlNVbkZHbVFhZHRTc29IWHE5UnF2SVl2Y243enVJZURGZi1ZTVFOVk1VcHl3UmVTbmJOUXA1dlVjeUl0U0xqNmRsTUJDYW8xRzVkelRhUjB3d2NNZGUwdmVzM2dLbFVGQWdjTnVDRHQ4T0JHN0hMTEhmSzNQSkR0VV9ldGV0NHlhT2dadw?oc=5",
       "https://news.google.com/rss/articles/CBMitgFBVV95cUxPNU5pWUFLLTJmS092MVo5MklhOGFiSW5qYzlRLXhOU0RhWWpvZ2Vsd0NfOGFzOTU5Y2U0MVgwUG11UVBXTG9TNlZZZEx5bnU4NVhhcV9HOFNsN0NydDZsOXA0bm9qYW1OaDNUdUJsaWhsalM5VXNwMG5NR1ZhMlh3cTRYeXRSYmVKU1E2ZXhYYnBEdWIyQjhyd0ZfT19hbjF0NFdlRVNoY3ZtdURwSkJrbG4xTDlsdw?oc=5",
+      "https://news.google.com/rss/articles/CBMiuwFBVV95cUxOMDM3aE9HWjBIaEp4dnVYT0VOa0hqcDdVTDY5LTk5N2x2UGktYUdxTnBGak85TF95am4tYWFLckNmcWJ1VWRIZ3ZLV3NaMmRyX3NySnJrSm8zYkxCV1ZEUDIzS2Vkc1A5bHNud25jV1ZsNGV3YWlGbzlkU2dnZ1Q4SmRTdXZKVmVBQ1JncnBxa2VjQ2lEQW9PWUdfS2hRMHM2ZE42SHI3YUxkbFFxYl9Pa0xzejhJZHNHcDFj?oc=5",
       "https://news.google.com/rss/articles/CBMiwAFBVV95cUxNdm9sQy1NQkx4OG02dnJkTmp6RzhBTWJLdHRYcHNreF9kOEwxcnBiVFE3aGMwZEhsRVM1ZENHek05RmZPMnNoREFteHczaURrdnlDZmltV0JYN3c5SFFEejd0YWd6X1FSdnp4OHd2X2dQRDIxbjRoaGdjU1BjSzNPeExkdnNhLUdBLXBRQWlWOXJjbHRsR0t1VEU2bkhTYVFZYlROUjBXOG54T1RhekdFOFQ3cV9fYnFKOVp6MU1WMW8?oc=5"
     ],
     "c2fe47366d": [
@@ -59,6 +63,7 @@
       "https://news.google.com/rss/articles/CBMipgFBVV95cUxQTjNQTXFXY1VtSmlVTERDbkJyUG9fT0dvS0JvSDhhQ284R1RBMTdQM3RLTVhXZWdYN0J3TUtLdlo2MTZtNjlnRzVIRlhJQ2ljTmotdDloQ19CNUxnTXp5eVJkQTg5dFlHckt3YmRMcTdnX1NnRDEwLUtYWVBHNXVJZ3FrRzZnSTE4ZTBmSEdhOUNZbWJmZVRMdkk1UnBib2xBUzU3em9B?oc=5",
       "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNcUhDZ0l4T3h6alBOWWU2V1BlZXFpdmtxcE5ibmRlaTE3RWFCTzAyOFE2Z1RTbGFucGpFSGFuTGdRcFlSOFNVcl93S3ZScUZMSW9ldGpNU0VVSkk5RHliUjNIRHQzdlBrenRrRjFGdWg1RXo1aG5qQktscTQyRXYxYTFRTGZWRUhrMzNRMnY5TlMxcWxhcTBrejA4SDlOR1BhMEN2VjRXekU5Zw?oc=5",
       "https://news.google.com/rss/articles/CBMiqwFBVV95cUxOZEJvVVhqQnZaQno3VE5lQ1k0RTM3QXRQVF9FdVVnMlJjdjFTVk9SQnBVOWhvd0RUN0wwdFBzX3JDVE9EY3pFMjlwcTBDbXFOS2hISlBQWEl5MzFDbUpJTkluTzJVQmJVTlkyTHlpVzhnaFVqRUEzRVd0cVhjQkNNcHFPWjdPREZMdFN6U3dQMHZzbjdhc2lIallweTBucHh5dGE3S1JkeWN1VzQ?oc=5",
+      "https://news.google.com/rss/articles/CBMiwgFBVV95cUxQU3FvRFM3WGIyUndIMW1kcnFiWlEyMVBud0MzcTZRSG55X0oyR01kN29XTHpPY2xJZ0M0WWVRa3VjTlkxOHEyX3JzZnlCcVBOblBWNmlIazZsUjlYVS1MVVREZExFMkJGUHAwVG44TnV1ckp6RGEzRHJGRWxkZXc0cUtzWXc1MGREbjNNNS03Yy1EeWJFY2JxS250YjZQRkpGTFM5WEViNmptRWFiZmxBcVRiNllwQWRXbVQ0OEpudGt5dw?oc=5",
       "https://news.google.com/rss/articles/CBMiygFBVV95cUxPVEdHb2NFc2JUbTNjMU9PeWRFeWNmY0NkTkVIaEJ3aTJRbld2SVRlYlVYX0owSEdXSzNSeDRzUERBVUNHcHE2aUhsUTRpc0VmX1VXLVZmbDEzaEdFbDU1S0pwaGQxcjYycDJUMlUzcXBzcEhLY1NzbjVOSG1FbzQ2cXBMVERFeWxXVUhOc3ppZUJoWjdIZFFDSHIwT3RkUG1SakNJeWlydFFuaGliX014NXl1RnRFOFgwSzI1QjdIMkJPc0xaU1lUdUVB?oc=5"
     ]
   }
