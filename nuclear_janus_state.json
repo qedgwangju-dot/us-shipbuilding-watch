@@ -2,7 +2,7 @@
   "version": 1,
   "initialized": true,
   "initialized_at": "2026-08-28T03:59:39+00:00",
-  "last_checked_at": "2026-09-25T10:26:50+00:00",
+  "last_checked_at": "2026-09-25T15:27:36+00:00",
   "seen": [
     "0249bb5d136ff8b38e08f030d8c54a879ebef62948e8a7446153e8f0a241b247",
     "0cbdeb97e5f6a0643f5061d952ef45c7ab4c8d5a6e008885db6ef9ecf3b75413",
@@ -249,7 +249,8 @@
     "025a6e440d50f71ea7fb7b740b623ff5fda76f4285429449869ff7045f2579ad",
     "f216071258bd2f182e3e61a08fcffd1e73703ff590224baecd2c6fb9828f7f58",
     "0b21f0f93d69a1985f910fde0f18af497d4976bb05cfab90de836e62c860926d",
-    "a540a3f5ae23867c76728f572a227bedc0f6c749d6da9d5c11ba1169b92c6120"
+    "a540a3f5ae23867c76728f572a227bedc0f6c749d6da9d5c11ba1169b92c6120",
+    "70009365435d371c101b29c5063c44771709b02a9fccc7955ecd891dd98db611"
   ],
   "facts": {
     "미 육군 Janus 계약 발표": {
@@ -271,8 +272,9 @@
       "선정 당사자": [
         "General Atomics Electromagnetic Systems - Fort Hood"
       ]
-    }
+    },
+    "Fort Drum Janus 공식 페이지": {}
   },
   "source_count": 50,
-  "sources_ok": 47
+  "sources_ok": 48
 }
