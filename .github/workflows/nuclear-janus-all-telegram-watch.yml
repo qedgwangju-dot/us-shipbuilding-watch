@@ -79,6 +79,29 @@ jobs:
           python - <<'PY'
           import sys
           sys.path.insert(0, 'upstream/scripts')
+          import janus_watch_v13 as j13
+
+          assert j13._rss_kind(
+              'Studsvik Selects GE Vernova Hitachi, Samsung C&T for 1.2-GW Swedish BWRX-300 Project',
+              'bwrx300_europe_rss',
+          ) == ''
+          assert j13._rss_kind(
+              'SGE, GE Vernova, Hitachi and Samsung C&T target Europe with 4.2GW BWRX-300 SMR fleet',
+              'bwrx300_europe_rss',
+          ) == ''
+          assert j13._rss_kind(
+              'SGE, GE Vernova, Hitachi and Samsung C&T sign MoU to advance BWRX-300 fleet deployment in Europe',
+              'bwrx300_europe_rss',
+          ) == ''
+          assert j13._rss_kind(
+              'Samsung C&T and SGE sign binding EPC development agreement for BWRX-300 project in Poland',
+              'bwrx300_europe_rss',
+          ) == 'bwrx300_europe_fleet'
+          print('bwrx300_baseline_replay_guard=passed')
+          PY
+          python - <<'PY'
+          import sys
+          sys.path.insert(0, 'upstream/scripts')
           import janus_watch_v2 as j2
           import janus_watch_v6 as j6
           import janus_watch_v7 as j7
