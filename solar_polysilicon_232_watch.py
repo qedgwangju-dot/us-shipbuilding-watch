@@ -283,6 +283,7 @@ def build_message(item):
             bullets.append(f"공식 변화: {summary}")
 
     bullets += [
+        "국가안보 축: 백악관은 태양광급 폴리실리콘·태양광 제품을 방산 프로그램과 AI 혁신에 연결되는 전략 공급망으로 명시. 후속 규정은 단순 관세보다 미국 내 폴리실리콘·잉곳·웨이퍼·셀 생산 확대와 온쇼어링 승인기업 실명이 중요",
         f"12월 4일 MIP 기준: 폴리실리콘 21달러/kg({krw_unit(21,'kg',rate)}), 잉곳·웨이퍼 100달러/kg({krw_unit(100,'kg',rate)}), 셀 0.22달러/W({krw_unit(0.22,'W',rate)}), 모듈 0.38달러/W({krw_unit(0.38,'W',rate)})",
         "한국산 관세 주의: 한국·일본·대만·EU 등은 '기존 관세 + 추가 Section 232 관세'의 합계가 15%가 되도록 규정되어 있어 모든 제품에 15%가 추가로 더 붙는 구조로 단순화하면 안 됨",
         "다음 확인: MIP 조정, 15% 관세 세부품목, 한국 등 무역협정국 예외·동등 MIP 합의, 온쇼어링 승인기업, CBP 집행지침, 실제 수입제한·위반사례",
@@ -292,9 +293,13 @@ def build_message(item):
     if timeline:
         timeline += "\n"
 
+    title = title_ko(item)
+    if not monitor.has_korean(title):
+        raise RuntimeError(f"한국어 제목 생성 실패로 발송 차단: {item.get('title','')}")
+
     return (
         "🚨 <b>미국 태양광·폴리실리콘 Section 232 중요 변화</b>\n\n"
-        f"<b>{html.escape(title_ko(item))}</b>\n"
+        f"<b>{html.escape(title)}</b>\n"
         f"출처: <a href=\"{url}\">{source}</a>\n"
         f"{timeline}"
         f"확인시각: {now_kst()}\n\n"
