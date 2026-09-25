@@ -1,23 +1,10 @@
-name: 미국 태양광·폴리실리콘 Section 232 웹감시
+name: 미국 태양광 Section 232 보조 RSS 탐색 - 수동
 
 on:
-  schedule:
-    - cron: '6,21,36,51 * * * *'
   workflow_dispatch:
-  push:
-    branches:
-      - main
-    paths:
-      - 'solar_section232_watch.py'
-      - 'requirements.txt'
-      - '.github/workflows/solar-section232-watch.yml'
 
 permissions:
-  contents: write
-
-concurrency:
-  group: us-solar-section232-watch
-  cancel-in-progress: true
+  contents: read
 
 jobs:
   monitor:
@@ -26,37 +13,8 @@ jobs:
     steps:
       - name: 저장소 불러오기
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
 
-      - name: Python 설정
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.12'
-
-      - name: 필요한 패키지 설치
-        run: pip install -r requirements.txt
-
-      - name: 미국 태양광·폴리실리콘 Section 232 변화 확인
-        env:
-          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-        run: python solar_section232_watch.py
-
-      - name: 감시 상태 저장
+      - name: 안내
         run: |
-          if [ -z "$(git status --porcelain -- solar_section232_state.json)" ]; then
-            echo "상태 변화 없음"
-            exit 0
-          fi
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add solar_section232_state.json
-          git commit -m "Update solar Section 232 monitor state"
-          for attempt in 1 2 3; do
-            git pull --rebase origin main && git push && exit 0
-            echo "상태 저장 충돌 재시도 ${attempt}/3"
-            sleep $((attempt * 2))
-          done
-          echo "상태 파일 저장 실패"
-          exit 1
+          echo "자동 송출 중지: 공식 Federal Register/BIS 중심 solar-polysilicon-232-watch가 운영 경로입니다."
+          echo "이 워크플로는 과거 재노출·영문 제목·우주태양광 혼입 문제로 수동 점검용으로만 유지합니다."
