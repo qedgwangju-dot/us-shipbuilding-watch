@@ -1,0 +1,62 @@
+name: 양자컴퓨팅 상용화·기술검증 웹감시
+
+on:
+  schedule:
+    - cron: '4,14,24,34,44,54 * * * *'
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - 'quantum_commercial_tech_watch.py'
+      - 'requirements.txt'
+      - '.github/workflows/quantum-commercial-tech.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: quantum-commercial-tech-watch
+  cancel-in-progress: true
+
+jobs:
+  monitor:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 저장소 불러오기
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Python 설정
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: 필요한 패키지 설치
+        run: pip install -r requirements.txt
+
+      - name: 양자 상용화·기술검증 변화 확인
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python quantum_commercial_tech_watch.py
+
+      - name: 감시 상태 저장
+        run: |
+          if [ -z "$(git status --porcelain -- quantum_commercial_tech_state.json)" ]; then
+            echo "상태 변화 없음"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add quantum_commercial_tech_state.json
+          git commit -m "Update quantum commercial tech monitor state"
+          for attempt in 1 2 3; do
+            git pull --rebase origin main && git push && exit 0
+            echo "상태 저장 충돌 재시도 ${attempt}/3"
+            sleep $((attempt * 2))
+          done
+          echo "상태 파일 저장 실패"
+          exit 1
