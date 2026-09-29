@@ -97,7 +97,10 @@ jobs:
               'Samsung C&T and SGE sign binding EPC development agreement for BWRX-300 project in Poland',
               'bwrx300_europe_rss',
           ) == 'bwrx300_europe_fleet'
-          print('bwrx300_baseline_replay_guard=passed')
+          us_title = 'NRC issues first U.S. construction permit for a BWRX-300 small modular reactor at TVA Clinch River'
+          assert j13._rss_kind(us_title, 'bwrx300_us_rss') == 'bwrx300_us_deployment'
+          assert j13._global_state_key(us_title, 'bwrx300_us_rss') == 'bwrx300_us|clinch_river_us|construction_permit_issued'
+          print('bwrx300_baseline_replay_guard=passed us_clinch_permit_gate=passed')
           PY
           python - <<'PY'
           import sys
