@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "last_updated": "2026-09-29T16:27:02+09:00",
+  "last_updated": "2026-09-29T23:15:55+09:00",
   "facts": {
     "strategy.total_package_usd_eok": {
       "value": 3500,
@@ -302,8 +302,7 @@
       "label": "엔시날 현재 협상 사업비",
       "status": "복수 보도",
       "sources": [
-        "https://news.mtn.co.kr/news-detail/2026092314351145706",
-        "https://n.news.naver.com/mnews/article/006/0000137892?sid=102"
+        "https://n.news.naver.com/mnews/article/422/0000910527?sid=161"
       ]
     },
     "encinal.cost_increase_driver_us_pressure": {
@@ -661,10 +660,7 @@
       "label": "대미투자 첫 송금·납입 일정 등장",
       "status": "보도",
       "sources": [
-        "https://www.korea.kr/",
-        "https://n.news.naver.com/mnews/article/422/0000904361?sid=101",
-        "https://n.news.naver.com/mnews/article/022/0004157764?sid=100",
-        "https://n.news.naver.com/mnews/article/421/0009180763?sid=101"
+        "https://n.news.naver.com/mnews/article/422/0000910527?sid=161"
       ],
       "updated_at": "2026-09-09T10:10:37+09:00"
     },
