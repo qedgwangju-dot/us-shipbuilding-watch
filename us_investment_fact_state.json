@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "last_updated": "2026-10-01T08:43:30+09:00",
+  "last_updated": "2026-10-01T11:28:46+09:00",
   "facts": {
     "strategy.total_package_usd_eok": {
       "value": 3500,
@@ -637,10 +637,8 @@
       "label": "Alaska LNG 최종 패키지 포함 보도",
       "status": "보도",
       "sources": [
-        "https://n.news.naver.com/mnews/article/022/0004163138?sid=104",
-        "https://n.news.naver.com/mnews/article/422/0000911299?sid=101",
-        "https://n.news.naver.com/mnews/article/052/0002182537?sid=101",
-        "https://news.mtn.co.kr/news-detail/2026093010401993906"
+        "https://n.news.naver.com/mnews/article/422/0000911406?sid=104",
+        "https://it.chosun.com/news/articleView.html?idxno=2023092171132"
       ],
       "updated_at": "2026-09-07T18:53:48+09:00"
     },
