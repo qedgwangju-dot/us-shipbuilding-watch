@@ -17,10 +17,12 @@
     "2026-09-16|space_control||us confirms for first time it has space control weapons lbc co uk",
     "2026-09-16|space_defense||air force evolves deploys space control weapons into orbit investor s business daily",
     "2026-09-16|space_defense||china warns us as america confirms space control weapons are in orbit raising arms",
+    "sbi|budget|sector|unknown|na",
     "space_control|launch|sector|2026-09|na"
   ],
   "sources": {
     "Air & Space Forces": [
+      "https://www.airandspaceforces.com/lawmakers-bipartisan-solution-golden-dome-funding-crunch",
       "https://www.airandspaceforces.com/meink-space-force-on-orbit-space-control-weapons"
     ],
     "Golden Dome·SBI 감시::31625a0c": [
