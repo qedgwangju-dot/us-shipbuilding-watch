@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "last_updated": "2026-10-03T21:05:01+09:00",
+  "last_updated": "2026-10-04T01:12:09+09:00",
   "facts": {
     "strategy.total_package_usd_eok": {
       "value": 3500,
@@ -181,7 +181,7 @@
       "label": "한국 정부의 기존 15% 관세 합의선 방어",
       "status": "정부 발언 보도",
       "sources": [
-        "https://n.news.naver.com/mnews/article/422/0000912154?sid=104",
+        "https://n.news.naver.com/mnews/article/422/0000912155?sid=104",
         "https://n.news.naver.com/mnews/article/001/0016355052?sid=104"
       ]
     },
