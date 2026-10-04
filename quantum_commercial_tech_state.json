@@ -2,9 +2,10 @@
   "bootstrap_sent": true,
   "events": [
     "D-Wave|상용화·고객배치|google|generic",
-    "IonQ|상용화·고객배치|google|generic",
+    "IonQ|상용화·고객배치|fiu|superion256",
     "IonQ|상용화·고객배치|nvidia|generic",
     "IonQ|상용화·고객배치|nvidia|superion256",
+    "IonQ|상용화·고객배치|sdt|superion256",
     "IonQ|오류정정·내결함성|none|generic"
   ],
   "initialized": true,
@@ -24,7 +25,6 @@
     "Quantinuum 공식 IR": [],
     "Rigetti 공식 IR": [],
     "양자 상용화·기술검증 보도 감시::8627878f": [
-      "https://news.google.com/rss/articles/CBMi0wFBVV95cUxPd2dLSlpxX2lIRDE0S21ZTXJYVS1OOHl6S3M3S0x3OVdEdmgwUDBBdmtlNzQwaTduMXJGd2RoOHRiNEl1Wmw4LVNEU0pqSDJaZWp2T2hjeDdRWGxsSlY2QjY4TnBjZW1IWE1LaWcwUUZwamFBTEM1Yll2S1R2Mm5hOEtNVk5IWFY0TTJWanFDUTZKaHpzdWg5cVdlZWhwVVVHY1EyU2ZGNlZfOFF1ektjNHBqT29sQnlJYzBrNE9DTERhdDJRNTJ4TUtXem8yN25rN0kw",
       "https://news.google.com/rss/articles/CBMi1wFBVV95cUxNSTRSekpZZ3FneWVxZVJkVU9PNEV3ZkVEYkZRdnFXTElTZXpXMTVXVVFiZUFiQm1ibDAtV0M4aE8xdFJXcVFLRmtSZW8zdmxKdG4yVUV2VUpyVEpHSDVRajFsY1RUMUl4NTZkOWV6VlZLUFpvS3RhR1VZLXpfS2toeU9Nc291cFhOdVVkWlZMSm44Z1g2NlRGbGtQX1E2MjRHQzBnYVJHa21PZWhRMG1IZVlxZ1BnQm5pNmlBcEdxdEhUYzBpRF9BejY2VWlfSzZSdDFPcm5wNA",
       "https://news.google.com/rss/articles/CBMi2gFBVV95cUxOR1FZakl0bXhSdVZhMnJFQmNHVmk2dWFzWXgtdVBDRWJBZXE5YW5lXy01aE85dHZiNlR5T1BYSTZoVjEyU2h2ekpDQzZwMWhkeElvVnhoMVJwczhXcHY2cm9TUzFxaGptRW5PekNTeGoyOHdMdFFSbUZ3OXBjb19EMTZLZ1dBbDNRNUtUZXhndEdrTi1kUTVXdTJDSFhlQWwtREFCblB0VFFsRFVYTXhkNTBNaWM0T1p1OGFUQ0k4QmdCLW9sZmZpbDJaOXBya2syT2V3MDlwTUdhUQ",
       "https://news.google.com/rss/articles/CBMi2wFBVV95cUxNWi1JZnRLclhKUUEyaHNZMmxzeFhuOENWRjc1UVZTYWlPZEtaMXBwNlNpa2l1WG1iRUN5NFFRZ0U2U2I5Y2xWdzA2Q0dPQ1NlVmxZdGFldUxJaXZMQi1lNURqaVpiOW9MYnlTdFhxS09lUDNEQ2NmeDFsUVF6NjltN18zOEh4YXZrVEk5RFBzLVpNYU1TSFNJa2s0RlEtNHdRcnZISFNiT0RtV1ZGTVpRckhLMktjNUJZQUhPem1ZSjJUMF9LSWFQRWFrdUVabDZWeEl4d0tGcVAwd3c",
