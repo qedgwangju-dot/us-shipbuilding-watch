@@ -9,6 +9,7 @@ on:
       - main
     paths:
       - 'quantum_commercial_tech_watch.py'
+      - 'test_quantum_commercial_tech_watch.py'
       - 'requirements.txt'
       - '.github/workflows/quantum-commercial-tech.yml'
 
@@ -37,6 +38,30 @@ jobs:
       - name: 필요한 패키지 설치
         run: pip install -r requirements.txt
 
+      - name: 회귀검사
+        run: |
+          python -m py_compile quantum_commercial_tech_watch.py
+          PYTHONPATH=. python test_quantum_commercial_tech_watch.py
+
+      - name: Telegram 경로 확인
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          python - <<'PY'
+          import json, os, urllib.request
+          token=(os.getenv("TELEGRAM_BOT_TOKEN") or "").strip()
+          chat_id=(os.getenv("TELEGRAM_CHAT_ID") or "").strip()
+          if not token or not chat_id:
+              raise RuntimeError("Telegram Secret 없음")
+          with urllib.request.urlopen(f"https://api.telegram.org/bot{token}/getMe",timeout=25) as r:
+              data=json.loads(r.read().decode("utf-8"))
+          if not data.get("ok"):
+              raise RuntimeError(f"Telegram getMe 실패: {data}")
+          username=str((data.get("result") or {}).get("username") or "")
+          print(f"telegram_bot_verified=@{username} chat_id_configured=true")
+          PY
+
       - name: 양자 상용화·기술검증 변화 확인
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
@@ -60,3 +85,14 @@ jobs:
           done
           echo "상태 파일 저장 실패"
           exit 1
+
+      - name: 검증 산출물 보관
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: quantum-commercial-tech-${{ github.run_id }}
+          path: |
+            quantum_commercial_tech_state.json
+            quantum_commercial_tech_delivery.json
+          if-no-files-found: ignore
+          retention-days: 14
