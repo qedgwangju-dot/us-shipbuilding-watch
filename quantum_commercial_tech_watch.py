@@ -71,7 +71,14 @@ EXCLUDE_TERMS = [
     "to present", "will present", "conference", "webinar", "fireside chat",
     "stock jumps", "stock rises", "shares soar", "why ionq stock", "best to buy",
     "price target", "analyst", "earnings call", "event participation",
+    "order book fills up", "wall street starts paying attention", "initiated coverage",
+    "buy rating", "sell rating", "hold rating", "market capitalization",
 ]
+
+TRUSTED_NEWS_SOURCES = {
+    "reuters", "bloomberg", "ap news", "associated press", "cnbc",
+    "financial times", "the wall street journal", "wall street journal",
+}
 
 def get(url):
     try:
@@ -107,6 +114,10 @@ def company_keys(text):
     low = (text or "").lower()
     return sorted(name for name, keys in COMPANY_ALIASES.items() if any(k in low for k in keys))
 
+def trusted_news_source(value):
+    normalized = clean(value).lower()
+    return normalized in TRUSTED_NEWS_SOURCES
+
 def material(text):
     low = (text or "").lower()
     if any(x in low for x in EXCLUDE_TERMS):
@@ -134,7 +145,7 @@ def fetch_official(name, url):
             continue
         text = f"{title} {href}"
         if material(text):
-            items[href] = {"source": name, "title": title, "url": href, "published": "", "summary": ""}
+            items[href] = {"source": name, "title": title, "url": href, "published": "", "summary": "", "origin": "official"}
     return items
 
 def node_text(node, tag):
@@ -154,6 +165,11 @@ def fetch_rss(name, url):
         desc = node_text(entry, "description")
         pub = node_text(entry, "pubdate")
         src = node_text(entry, "source")
+        # Google News is discovery only. Only a short whitelist of high-trust
+        # secondary publishers can become an alert candidate; aggregators and
+        # market-commentary sites are never treated as new company events.
+        if not trusted_news_source(src):
+            continue
         text = f"{title} {desc}"
         if not material(text):
             continue
@@ -167,10 +183,15 @@ def fetch_rss(name, url):
             except Exception:
                 published = pub
         key = normalize_url(link)
-        out[key] = {"source": src or name, "title": title, "url": link, "published": published, "summary": desc}
+        out[key] = {"source": src or name, "title": title, "url": link, "published": published, "summary": desc, "origin": "news"}
     return out
 
 def article_text(item):
+    # Never scrape the Google News wrapper as if it were the publisher article:
+    # wrapper chrome contains words such as "Google" and can corrupt partner/event
+    # classification. For RSS discoveries, use the headline+RSS description only.
+    if "news.google.com" in (item.get("url") or "").lower():
+        return clean(item.get("summary", ""))
     try:
         raw = get(item["url"])
         txt = clean(raw)
@@ -190,7 +211,7 @@ def event_type(text):
 
 def partner_key(text):
     low = text.lower()
-    for name in ["nvidia", "fiu", "florida international university", "sdt", "aws", "amazon", "azure", "microsoft", "google", "darpa", "doe", "ornl", "skywater"]:
+    for name in ["nvidia", "fiu", "florida international university", "sdt", "aws", "amazon", "azure", "microsoft", "darpa", "doe", "ornl", "skywater", "cambridge", "kisti", "quantumbasel", "congruity360"]:
         if name in low:
             return name.replace("florida international university", "fiu")
     return "none"
@@ -202,6 +223,24 @@ def event_key(item, full_text):
     # 날짜보다 사건 구성요소를 우선해 재기사 날짜가 달라도 같은 사건으로 묶음.
     model = "superion256" if "superion 256" in full_text.lower() else "generic"
     return [f"{c}|{kind}|{partner}|{model}" for c in comps]
+
+def candidate_is_specific(item, full_text):
+    """Require concrete evidence before a discovered news article can alert."""
+    if item.get("origin") == "official":
+        return True
+    low = full_text.lower()
+    kind = event_type(full_text)
+    if kind == "상용화·고객배치":
+        # A third-party story must name a concrete counterparty. Generic
+        # "orders are rising" or market commentary is not a new commercial event.
+        return partner_key(full_text) != "none" and any(x in low for x in COMMERCIAL_TERMS)
+    if kind == "오류정정·내결함성":
+        return any(x in low for x in STRONG_TECH_TERMS) and bool(
+            re.search(r"\b\d+(?:\.\d+)?\s*(?:%|qubits?|logical|million|operations?|x\b)", low)
+        )
+    if kind == "제조·양산":
+        return bool(re.search(r"\b\d+(?:\.\d+)?\b", low)) or partner_key(full_text) != "none"
+    return False
 
 def ko_date(value):
     m = re.search(r"(20\d{2})-(\d{2})-(\d{2})", value or "")
@@ -305,6 +344,13 @@ def send(text):
         timeout=TIMEOUT,
     )
     r.raise_for_status()
+    payload = r.json()
+    if not payload.get("ok"):
+        raise RuntimeError(f"Telegram rejected message: {payload}")
+    message_id = (payload.get("result") or {}).get("message_id")
+    if message_id is None:
+        raise RuntimeError("Telegram send succeeded without message_id")
+    return message_id
 
 def bootstrap_message():
     qec = "https://investors.ionq.com/news/news-details/2026/IonQ-Demonstrates-Industrys-First-End-to-End-Real-Time-Quantum-Error-Decoder/default.aspx"
@@ -388,6 +434,9 @@ def main():
         combined = f"{item.get('title','')} {item.get('summary','')} {full}"
         if not material(combined):
             continue
+        if not candidate_is_specific(item, combined):
+            print(f"[QTECH NONSPECIFIC] {item.get('source')} - {item.get('title','')}")
+            continue
         date = extract_official_date(full) or (item.get("published","").split(" ")[0] if item.get("published") else "")
         if date:
             try:
@@ -411,11 +460,23 @@ def main():
 
     sent_events = set(old_events)
     sent = 0
+    message_ids = []
     for item in alerts[:8]:
-        send(build_message(item))
+        message_id = send(build_message(item))
         sent += 1
+        message_ids.append(message_id)
         sent_events.update(item.get("_event_keys") or [])
-        print(f"[QTECH SENT] {item.get('source')} - {item.get('title')}")
+        print(f"[QTECH SENT] message_id={message_id} {item.get('source')} - {item.get('title')}")
+
+    if message_ids:
+        Path("quantum_commercial_tech_delivery.json").write_text(
+            json.dumps({
+                "status": "confirmed",
+                "message_ids": message_ids,
+                "confirmed_at_kst": datetime.now(KST).isoformat(timespec="seconds"),
+            }, ensure_ascii=False, indent=2) + "\n",
+            encoding="utf-8",
+        )
 
     new["initialized"] = True
     new["bootstrap_sent"] = bool(old.get("bootstrap_sent", True))
