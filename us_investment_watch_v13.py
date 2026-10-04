@@ -15,6 +15,70 @@ import us_investment_watch_v12 as v12
 # - 송금일/송금액, 지분율/기업가치가 나오면 자동 계산
 # - 웨스팅하우스 현재 소유구조 기준: Brookfield 51%, Cameco 49% (Cameco 공식자료)
 
+# v14-compatible upgrade inside the active v13 route:
+# Project Power official framework is tracked as a milestone state machine.
+# Do not create a second Telegram owner: the Janus workflow delegates U.S. nuclear-build
+# alerts to this watcher, so this remains the single owner for Project Power.
+PROJECT_POWER_MOTIR_URL = "https://www.motir.go.kr/kor/article/ATCL3f49a5a8c/172253/view"
+PROJECT_POWER_WESTINGHOUSE_URL = "https://info.westinghousenuclear.com/news/u.s.-korea-framework-advances-deployment-of-westinghouse-nuclear-technology-in-the-united-states"
+PROJECT_POWER_CAMECO_URL = "https://www.cameco.com/media/news/cameco-acknowledges-united-states-and-republic-of-korea-announcement-of-framework-for"
+
+_ORIGINAL_RSS_ITEMS = base.rss_items
+
+
+def _project_power_official_rows(now: dt.datetime) -> list[dict]:
+    published = now.astimezone(base.UTC).isoformat()
+    return [
+        {
+            "id": "project_power_official_motir_172253",
+            "title": "한미 전략투자 프로젝트 추진 계획 발표",
+            "description": "Project Power 한미 원전 프레임워크 공식 원문",
+            "source": "산업통상부",
+            "link": PROJECT_POWER_MOTIR_URL,
+            "published": published,
+            "tags": ["원전", "Project Power"],
+        },
+        {
+            "id": "project_power_official_westinghouse_framework",
+            "title": "U.S. – Korea Framework Advances Deployment of Westinghouse Nuclear Technology in the United States",
+            "description": "Westinghouse 공식 Project Power 프레임워크",
+            "source": "Westinghouse",
+            "link": PROJECT_POWER_WESTINGHOUSE_URL,
+            "published": published,
+            "tags": ["원전", "Project Power", "Westinghouse"],
+        },
+        {
+            "id": "project_power_official_cameco_framework",
+            "title": "Cameco acknowledges United States and Republic of Korea announcement of Framework for the Deployment of Nuclear Power",
+            "description": "Cameco 공식 Project Power 프레임워크",
+            "source": "Cameco",
+            "link": PROJECT_POWER_CAMECO_URL,
+            "published": published,
+            "tags": ["원전", "Project Power", "Cameco"],
+        },
+    ]
+
+
+def _rss_items_v13(now: dt.datetime) -> list[dict]:
+    rows = _project_power_official_rows(now) + list(_ORIGINAL_RSS_ITEMS(now))
+    out: list[dict] = []
+    seen: set[str] = set()
+    for row in rows:
+        key = str(row.get("id") or "")
+        if key and key in seen:
+            continue
+        if key:
+            seen.add(key)
+        out.append(row)
+    return out
+
+
+base.rss_items = _rss_items_v13
+v9.OFFICIAL_SOURCE_MARKERS = tuple(dict.fromkeys(
+    list(v9.OFFICIAL_SOURCE_MARKERS)
+    + ["info.westinghousenuclear.com", "cameco.com", "brookfield.com", "bam.brookfield.com"]
+))
+
 for query in [
     '"대미투자" "첫 송금" when:3d',
     '"대미투자" "첫 납입" when:3d',
@@ -22,6 +86,15 @@ for query in [
     '"웨스팅하우스 지분" 대미투자 when:3d',
     '"웨스팅하우스" 지분 인수 한국 when:3d',
     '"웨스팅하우스" 지분 매입 한국 when:3d',
+    '"Project Power" AP1000 APR1400 when:7d',
+    '"한미 원전 프레임워크" AP1000 APR1400 when:7d',
+    '"AP1000 6기" "APR1400 2기" when:7d',
+    '"장주기 기자재" 원전 선지급 when:7d',
+    '"장납기 기자재" 원전 선지급 when:7d',
+    '"Westinghouse" Korea "5%" "10%" when:7d',
+    '"웨스팅하우스" "5%" "10%" 한국 when:7d',
+    '"definitive agreements" Korea Westinghouse nuclear when:7d',
+    '"federal sites" AP1000 Korea when:7d',
 ]:
     if query not in base.QUERIES:
         base.QUERIES.insert(0, query)
@@ -29,6 +102,9 @@ for query in [
 for term in [
     '첫 송금', '첫 납입', '자금 송금', '투자금 납입',
     '웨스팅하우스 지분', '지분 인수', '지분 매입', '지분 확보',
+    'Project Power', '한미 원전 프레임워크', '장주기 기자재', '장납기 기자재',
+    '선지급', '최종계약', 'definitive agreement', 'federal sites',
+    'cornerstone equity', 'AP1000', 'APR1400',
 ]:
     if term not in base.MATERIAL:
         base.MATERIAL.append(term)
@@ -150,6 +226,151 @@ def extract_facts_v13(row: dict) -> list[dict]:
     source = str(row.get('resolved_link') or row.get('link') or '')
     blob = f'{title}\n{text}'
     low = blob.lower()
+
+    official_project_power = (
+        ('172253' in source and 'motir.go.kr' in source.lower())
+        or ('info.westinghousenuclear.com' in source.lower() and 'framework' in low and 'korea' in low)
+        or ('cameco.com' in source.lower() and 'framework' in low and 'korea' in low)
+        or ('project power' in low and ('motir.go.kr' in source.lower() or 'go.kr' in source.lower()))
+    )
+    framework_context = (
+        'project power' in low
+        or '한미 원전 프레임워크' in low
+        or ('framework' in low and 'ap1000' in low and 'apr1400' in low and 'korea' in low)
+    )
+
+    if official_project_power:
+        out.append(v9.fact(
+            'nuclear.project_power_framework_official', True,
+            'Project Power 한미 원전 프레임워크 공식화', '정부·기업 공식자료', source,
+        ))
+        if re.search(r'(?:\$|us\$?\s*)?120\s*billion|1,?200\s*억\s*달러', blob, re.I):
+            out.append(v9.fact(
+                'nuclear.framework_investment_cap_usd_eok', 1200,
+                'Project Power 한국 투자 상한', '정부·기업 공식자료', source,
+            ))
+            # 과거 "1,200억달러는 한국 확약액이 아님" 상태를 공식 발표로 해제한다.
+            out.append(v9.fact(
+                'nuclear.us_120b_not_committed', False,
+                '1,200억달러 한국 투자 프레임워크 공식화', '정부·기업 공식자료', source,
+            ))
+        if re.search(r'(?:six|6)\s+(?:westinghouse\s+)?ap1000|ap1000\s*6\s*기', blob, re.I):
+            out.append(v9.fact(
+                'nuclear.ap1000_reactors', 6,
+                'AP1000 공식 포함 기수', '정부·기업 공식자료', source,
+            ))
+        if re.search(r'(?:two|2)\s+(?:korean\s+)?apr1400|apr1400\s*(?:최대\s*)?2\s*기', blob, re.I):
+            out.append(v9.fact(
+                'nuclear.apr1400_reactors', 2,
+                'APR1400 공식 포함 기수', '정부·기업 공식자료', source,
+            ))
+        if re.search(r'(?:eight|8)\s+(?:large\s+)?nuclear\s+reactors|대형원전\s*8\s*기|원전\s*(?:최대\s*)?8\s*기', blob, re.I):
+            out.append(v9.fact(
+                'nuclear.reactors', 8,
+                'Project Power 미국 대형원전 총 기수', '정부·기업 공식자료', source,
+            ))
+        out.append(v9.fact(
+            'package.nuclear_framework_included', True,
+            '원전 8기 Project Power 프레임워크 포함', '정부·기업 공식자료', source,
+        ))
+
+    if framework_context:
+        if re.search(r'beginning\s+with\s+the\s+deployment\s+of\s+two\s+ap1000|❶\s*ap1000\s*\(2\s*기\)|1\s*단계[^\n]{0,80}ap1000[^\n]{0,30}2\s*기', blob, re.I):
+            out.append(v9.fact(
+                'nuclear.project_power_phase1_ap1000_reactors', 2,
+                'Project Power 1단계 AP1000 기수', '공식 프레임워크', source,
+            ))
+        if 'federal sites' in low or '연방정부' in low:
+            out.append(v9.fact(
+                'nuclear.project_power_federal_sites', True,
+                '미국 연방정부 지정 부지 배치 방향', '공식 프레임워크', source,
+            ))
+        if re.search(r'non[- ]binding|terms\s+of\s+the\s+transaction\s+are\s+non', blob, re.I):
+            out.append(v9.fact(
+                'nuclear.project_power_terms_nonbinding', True,
+                'Project Power 세부 거래조건 비구속', '기업 공식자료', source,
+            ))
+        if re.search(r'subject\s+to\s+(?:the\s+)?(?:negotiation\s+and\s+execution\s+of\s+)?definitive\s+agreements|subject\s+to\s+final\s+negotiations', blob, re.I):
+            out.append(v9.fact(
+                'nuclear.project_power_definitive_agreements_required', True,
+                '개별 최종계약·최종협상 필요', '기업 공식자료', source,
+            ))
+        if re.search(r'cornerstone\s+equity\s+investment[^\n]{0,80}(?:between\s+)?5\s*%[^\n]{0,30}10\s*%', blob, re.I):
+            out.extend([
+                v9.fact(
+                    'nuclear.westinghouse_stake_pct_min', 5,
+                    '한국 측 Westinghouse 지분투자 하한', '기업 공식 프레임워크', source,
+                ),
+                v9.fact(
+                    'nuclear.westinghouse_stake_pct_max', 10,
+                    '한국 측 Westinghouse 지분투자 상한', '기업 공식 프레임워크', source,
+                ),
+            ])
+        if re.search(r'upfront\s+payment', blob, re.I) and re.search(r'guaranteed\s+scope\s+of\s+work', blob, re.I):
+            out.append(v9.fact(
+                'nuclear.project_power_apr1400_westinghouse_scope', True,
+                'APR1400에서 Westinghouse 선급금·보장 업무범위', '기업 공식 프레임워크', source,
+            ))
+        if re.search(r'fuel[- ]fabrication\s+services', blob, re.I):
+            out.append(v9.fact(
+                'nuclear.project_power_westinghouse_fuel_services', True,
+                'APR1400 Westinghouse 핵연료 가공 서비스 계약 경로', '기업 공식 프레임워크', source,
+            ))
+        if re.search(r'waiver\s+under\s+the\s+2025\s+settlement|2025[^\n]{0,80}settlement[^\n]{0,80}waiver', blob, re.I):
+            out.append(v9.fact(
+                'nuclear.project_power_settlement_waiver_contemplated', True,
+                '2025 지식재산권 합의 예외 적용 예정', '기업 공식 프레임워크', source,
+            ))
+        if re.search(r'\$\s*17\.5\s*billion|17\.5\s*billion', blob, re.I) and re.search(r'long[- ]lead', blob, re.I):
+            out.append(v9.fact(
+                'nuclear.project_power_doe_long_lead_conditional_loan_usd_eok', 175,
+                'DOE 장주기 기자재 조건부 대출지원', '기업 공식자료', source,
+            ))
+        if re.search(r'(?:100\s*억\s*달러|\$\s*10\s*billion|10\s*billion)', blob, re.I) and re.search(r'선지급|장주기|장납기|long[- ]lead', blob, re.I):
+            status = '정부 공식 검토' if re.search(r'검토|예정|consider|could|may', blob, re.I) else '정부·기업 공식자료'
+            out.append(v9.fact(
+                'nuclear.project_power_long_lead_prepayment_cap_usd_eok', 100,
+                '장주기 기자재 선지급 검토 상한', status, source,
+            ))
+
+        # Future milestone promotion: only explicit completion language can advance a stage.
+        if re.search(r'한미\s*원전\s*프레임워크[^\n]{0,80}(?:최종\s*)?(?:서명|체결)\s*(?:완료|했다|되었다)|framework[^\n]{0,80}(?:was|has\s+been)\s+signed', blob, re.I):
+            if not re.search(r'서명할\s*예정|will\s+sign|expected\s+to\s+sign', blob, re.I):
+                out.append(v9.fact(
+                    'nuclear.project_power_signature_complete', True,
+                    'Project Power 최종 서명 완료', '공식·교차검증 필요', source,
+                ))
+        if re.search(r'(?:waiver|예외)[^\n]{0,100}(?:granted|executed|effective|완료|확정|체결)', blob, re.I):
+            out.append(v9.fact(
+                'nuclear.project_power_settlement_waiver_complete', True,
+                '2025 지식재산권 합의 예외 적용 완료', '공식·교차검증 필요', source,
+            ))
+        if re.search(r'(?:장주기|장납기|long[- ]lead)', blob, re.I) and re.search(r'(?:purchase\s+order|발주\s*(?:완료|확정|계약)|선지급\s*(?:완료|집행)|payment\s+made)', blob, re.I):
+            if not re.search(r'검토|계획|예정|consider|may|could', blob, re.I):
+                out.append(v9.fact(
+                    'nuclear.project_power_long_lead_po_complete', True,
+                    '장주기 기자재 실제 발주·선지급 발생', '공식·교차검증 필요', source,
+                ))
+        if re.search(r'ap1000', blob, re.I) and re.search(r'(?:부지|site)[^\n]{0,80}(?:확정|선정|selected|designated)', blob, re.I):
+            out.append(v9.fact(
+                'nuclear.project_power_phase1_site_selected', True,
+                '1단계 AP1000 부지 선정', '공식·교차검증 필요', source,
+            ))
+        if re.search(r'ap1000', blob, re.I) and re.search(r'(?:epc|설계.{0,8}조달.{0,8}시공)[^\n]{0,100}(?:계약\s*체결|contract\s+(?:signed|awarded)|award)', blob, re.I):
+            out.append(v9.fact(
+                'nuclear.project_power_phase1_epc_contract', True,
+                '1단계 AP1000 EPC 본계약', '공식·교차검증 필요', source,
+            ))
+        if re.search(r'westinghouse', low) and re.search(r'(?:5\s*%|10\s*%|지분)', blob, re.I) and re.search(r'(?:acquisition\s+closed|closing\s+completed|인수\s*완료|매입\s*완료|취득\s*완료)', blob, re.I):
+            out.append(v9.fact(
+                'nuclear.project_power_westinghouse_equity_closed', True,
+                '한국 측 Westinghouse 지분투자 거래종결', '공식·교차검증 필요', source,
+            ))
+        if re.search(r'apr[- ]?1400', blob, re.I) and re.search(r'(?:definitive\s+agreement|epc\s+contract|본계약|최종계약)[^\n]{0,80}(?:signed|executed|체결|확정)', blob, re.I):
+            out.append(v9.fact(
+                'nuclear.project_power_apr1400_contract', True,
+                'APR1400 미국 사업 본계약', '공식·교차검증 필요', source,
+            ))
 
     if any(x in low for x in ['첫 송금', '첫 납입', '자금 송금', '투자금 납입']):
         negated = any(x in low for x in [
@@ -282,11 +503,69 @@ def _execution_context(now, changes, fx: float) -> str:
     return '\n'.join(lines)
 
 
+def _project_power_context(changes, fx: float) -> str:
+    keys = {k for k, _n, _o in changes}
+    relevant = any(k.startswith('nuclear.project_power_') for k in keys) or any(
+        k in keys for k in [
+            'nuclear.framework_investment_cap_usd_eok',
+            'nuclear.ap1000_reactors',
+            'nuclear.apr1400_reactors',
+            'nuclear.reactors',
+            'nuclear.us_120b_not_committed',
+            'nuclear.westinghouse_stake_pct_min',
+            'nuclear.westinghouse_stake_pct_max',
+        ]
+    )
+    if not relevant:
+        return ''
+
+    framework = bool(_current_value(changes, 'nuclear.project_power_framework_official'))
+    signed = bool(_current_value(changes, 'nuclear.project_power_signature_complete'))
+    waiver = bool(_current_value(changes, 'nuclear.project_power_settlement_waiver_complete'))
+    longlead = bool(_current_value(changes, 'nuclear.project_power_long_lead_po_complete'))
+    site = bool(_current_value(changes, 'nuclear.project_power_phase1_site_selected'))
+    epc = bool(_current_value(changes, 'nuclear.project_power_phase1_epc_contract'))
+    equity = bool(_current_value(changes, 'nuclear.project_power_westinghouse_equity_closed'))
+    apr_contract = bool(_current_value(changes, 'nuclear.project_power_apr1400_contract'))
+    cap = _current_value(changes, 'nuclear.framework_investment_cap_usd_eok')
+    ap = _current_value(changes, 'nuclear.ap1000_reactors')
+    apr = _current_value(changes, 'nuclear.apr1400_reactors')
+    stake_min = _current_value(changes, 'nuclear.westinghouse_stake_pct_min')
+    stake_max = _current_value(changes, 'nuclear.westinghouse_stake_pct_max')
+    prepay = _current_value(changes, 'nuclear.project_power_long_lead_prepayment_cap_usd_eok')
+
+    def mark(value: bool) -> str:
+        return '완료' if value else '대기'
+
+    lines = ['<b>⚛️ Project Power 단계 추적</b>']
+    if isinstance(cap, (int, float)):
+        lines.append(f'• 공식 프레임워크 투자 상한: <b>{cap:,.0f}억달러({_krw(cap, fx)})</b>')
+    if isinstance(ap, (int, float)) and isinstance(apr, (int, float)):
+        lines.append(f'• 노형 구성: <b>AP1000 {ap:g}기 + APR1400 {apr:g}기</b>')
+    if isinstance(stake_min, (int, float)) and isinstance(stake_max, (int, float)):
+        lines.append(f'• Westinghouse 지분투자 경로: <b>{stake_min:g}~{stake_max:g}%</b> · 거래종결 전')
+    if isinstance(prepay, (int, float)):
+        lines.append(f'• 장주기 기자재 선지급 검토 상한: <b>{prepay:,.0f}억달러({_krw(prepay, fx)})</b> · 실제 집행과 구분')
+    lines.extend([
+        f'• ① 공식 프레임워크: <b>{mark(framework)}</b>',
+        f'• ② 최종 서명: <b>{mark(signed)}</b>',
+        f'• ③ 2025 지식재산권 합의 예외 적용 완료: <b>{mark(waiver)}</b>',
+        f'• ④ 장주기 기자재 실제 PO·선지급: <b>{mark(longlead)}</b>',
+        f'• ⑤ 1단계 AP1000 부지 선정: <b>{mark(site)}</b>',
+        f'• ⑥ 1단계 AP1000 EPC 본계약: <b>{mark(epc)}</b>',
+        f'• ⑦ Westinghouse 지분투자 거래종결: <b>{mark(equity)}</b>',
+        f'• ⑧ APR1400 미국 본계약: <b>{mark(apr_contract)}</b>',
+        '• 같은 단계의 반복기사·주가반응은 재전송하지 않고 <b>위 단계가 실제로 상승할 때만</b> 다시 알림',
+    ])
+    return '\n'.join(lines)
+
+
 def build_alert_v13(now, changes, fx: float, fx_source: str) -> str:
     alert = _ORIGINAL_BUILD_ALERT(now, changes, fx, fx_source)
-    context = _execution_context(now, changes, fx)
-    if not context:
+    blocks = [x for x in [_project_power_context(changes, fx), _execution_context(now, changes, fx)] if x]
+    if not blocks:
         return alert
+    context = '\n\n'.join(blocks)
     marker = f'\n\n<a href="{base.MOU_OFFICIAL_URL}"><b>산업통상부 한미 전략투자 MOU</b></a>'
     if marker in alert:
         return alert.replace(marker, f'\n\n{context}{marker}', 1)
@@ -329,7 +608,50 @@ def _self_test() -> int:
     ambiguous = '미국 원전 전체 8기 검토. AP1000과 APR1400 노형을 협의'
     if v12._reactor_count(ambiguous, 'AP1000') is not None or v12._reactor_count(ambiguous, 'APR1400') is not None:
         raise RuntimeError('total reactor count leaked into model count')
-    print('us_investment_v13_self_test=passed')
+
+    official = {
+        'title': 'U.S. – Korea Framework Advances Deployment of Westinghouse Nuclear Technology in the United States',
+        'article_text': (
+            'The framework agreement commits up to $120 billion of investment by Korea to help finance '
+            'eight large nuclear reactors, including six Westinghouse AP1000 reactors and two Korean APR1400 reactors. '
+            'The reactors will be deployed on federal sites. The framework agreement also provides for a cornerstone '
+            'equity investment of between 5% and 10% in Westinghouse by Korea. Terms of the transaction are non-binding '
+            'and are subject to final negotiations. Westinghouse will benefit from an upfront payment, guaranteed scope '
+            'of work and a contract to provide fuel-fabrication services.'
+        ),
+        'source': 'Westinghouse',
+        'resolved_link': PROJECT_POWER_WESTINGHOUSE_URL,
+        'published': '2026-10-01T00:00:00+00:00',
+    }
+    ofacts = {x['key']: x['value'] for x in extract_facts_v13(official)}
+    expected = {
+        'nuclear.project_power_framework_official': True,
+        'nuclear.framework_investment_cap_usd_eok': 1200,
+        'nuclear.ap1000_reactors': 6,
+        'nuclear.apr1400_reactors': 2,
+        'nuclear.reactors': 8,
+        'nuclear.us_120b_not_committed': False,
+        'nuclear.project_power_federal_sites': True,
+        'nuclear.project_power_terms_nonbinding': True,
+        'nuclear.westinghouse_stake_pct_min': 5,
+        'nuclear.westinghouse_stake_pct_max': 10,
+    }
+    for key, value in expected.items():
+        if ofacts.get(key) != value:
+            raise RuntimeError(f'project power official parse regression: {key}={ofacts.get(key)!r}')
+
+    planned = {
+        'title': '한미 원전 프레임워크 서명 예정',
+        'article_text': '한미 원전 프레임워크에는 한국전력과 한국수력원자력이 서명할 예정이다.',
+        'source': '산업통상부',
+        'resolved_link': PROJECT_POWER_MOTIR_URL,
+        'published': '2026-10-01T00:00:00+00:00',
+    }
+    pkeys = {x['key'] for x in extract_facts_v13(planned)}
+    if 'nuclear.project_power_signature_complete' in pkeys:
+        raise RuntimeError('planned signature promoted to completed milestone')
+
+    print('us_investment_v13_self_test=passed project_power_milestones=passed')
     return 0
 
 
