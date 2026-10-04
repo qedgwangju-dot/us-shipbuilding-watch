@@ -30,6 +30,12 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: 최신 main 상태 동기화
+        run: |
+          git fetch origin main
+          git reset --hard origin/main
+          echo "runtime_head=$(git rev-parse HEAD)"
+
       - name: Python 설정
         uses: actions/setup-python@v5
         with:
@@ -79,7 +85,10 @@ jobs:
           git add quantum_commercial_tech_state.json
           git commit -m "Update quantum commercial tech monitor state"
           for attempt in 1 2 3; do
-            git pull --rebase origin main && git push && exit 0
+            if git pull --rebase origin main && git push; then
+              exit 0
+            fi
+            git rebase --abort 2>/dev/null || true
             echo "상태 저장 충돌 재시도 ${attempt}/3"
             sleep $((attempt * 2))
           done
