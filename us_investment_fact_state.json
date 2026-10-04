@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "last_updated": "2026-10-05T05:05:21+09:00",
+  "last_updated": "2026-10-05T08:03:46+09:00",
   "facts": {
     "strategy.total_package_usd_eok": {
       "value": 3500,
@@ -384,7 +384,8 @@
       "sources": [
         "https://www.motir.go.kr/kor/article/ATCL3f49a5a8c/172253/view",
         "https://info.westinghousenuclear.com/news/u.s.-korea-framework-advances-deployment-of-westinghouse-nuclear-technology-in-the-united-states",
-        "https://www.cameco.com/media/news/cameco-acknowledges-united-states-and-republic-of-korea-announcement-of-framework-for"
+        "https://www.cameco.com/media/news/cameco-acknowledges-united-states-and-republic-of-korea-announcement-of-framework-for",
+        "https://n.news.naver.com/mnews/article/001/0016357210?sid=101"
       ],
       "updated_at": "2026-10-04T15:21:37+09:00"
     },
@@ -433,7 +434,8 @@
       "sources": [
         "https://www.motir.go.kr/kor/article/ATCL3f49a5a8c/172253/view",
         "https://info.westinghousenuclear.com/news/u.s.-korea-framework-advances-deployment-of-westinghouse-nuclear-technology-in-the-united-states",
-        "https://www.cameco.com/media/news/cameco-acknowledges-united-states-and-republic-of-korea-announcement-of-framework-for"
+        "https://www.cameco.com/media/news/cameco-acknowledges-united-states-and-republic-of-korea-announcement-of-framework-for",
+        "https://n.news.naver.com/mnews/article/001/0016357210?sid=101"
       ],
       "corrected_at": "2026-09-21"
     },
@@ -464,7 +466,8 @@
       "sources": [
         "https://www.motir.go.kr/kor/article/ATCL3f49a5a8c/172253/view",
         "https://info.westinghousenuclear.com/news/u.s.-korea-framework-advances-deployment-of-westinghouse-nuclear-technology-in-the-united-states",
-        "https://www.cameco.com/media/news/cameco-acknowledges-united-states-and-republic-of-korea-announcement-of-framework-for"
+        "https://www.cameco.com/media/news/cameco-acknowledges-united-states-and-republic-of-korea-announcement-of-framework-for",
+        "https://n.news.naver.com/mnews/article/001/0016357210?sid=101"
       ],
       "updated_at": "2026-10-04T15:21:37+09:00"
     },
@@ -626,7 +629,8 @@
       "label": "웨스팅하우스 지분 인수·매입 추진",
       "status": "보도·협의 단계",
       "sources": [
-        "https://www.motir.go.kr/kor/article/ATCL3f49a5a8c/172253/view"
+        "https://www.motir.go.kr/kor/article/ATCL3f49a5a8c/172253/view",
+        "https://n.news.naver.com/mnews/article/001/0016357210?sid=101"
       ],
       "updated_at": "2026-09-09T05:36:02+09:00"
     },
