@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "last_updated": "2026-10-04T09:38:58+09:00",
+  "last_updated": "2026-10-04T15:21:37+09:00",
   "facts": {
     "strategy.total_package_usd_eok": {
       "value": 3500,
@@ -95,10 +95,7 @@
       "label": "여러 프로젝트 수익 통합 관리 구조 유지",
       "status": "공식 MOU·복수 보도",
       "sources": [
-        "https://www.motir.go.kr/kor/article/ATCL3f49a5a8c/171196/view",
-        "https://m2.edaily.co.kr/News/Read?mediaCodeNo=257&newsId=03371846645577824",
-        "https://n.news.naver.com/mnews/article/018/0006365091?sid=100",
-        "https://n.news.naver.com/mnews/article/421/0009180763?sid=101"
+        "https://www.motir.go.kr/kor/article/ATCL3f49a5a8c/172253/view"
       ]
     },
     "structure.profit_split_before_repayment_korea_pct": {
@@ -138,9 +135,7 @@
       "label": "I-SPV 운영계약안 심의·보고 단계",
       "status": "복수 보도",
       "sources": [
-        "https://www2.edaily.co.kr/News/Read?mediaCodeNo=257&newsId=02499366645577824",
-        "https://www1.edaily.co.kr/News/Read?mediaCodeNo=257&newsId=03660486645577824",
-        "https://n.news.naver.com/mnews/article/018/0006365091?sid=100"
+        "https://www.motir.go.kr/kor/article/ATCL3f49a5a8c/172253/view"
       ]
     },
     "tariff.mou_compliance_keeps_agreed_tariff_levels": {
@@ -199,7 +194,7 @@
       "label": "엔시날 사업주",
       "status": "보도",
       "sources": [
-        "https://www2.edaily.co.kr/News/Read?mediaCodeNo=257&newsId=02499366645577824"
+        "https://www.motir.go.kr/kor/article/ATCL3f49a5a8c/172253/view"
       ]
     },
     "encinal.capacity_reports_gw": {
@@ -276,8 +271,7 @@
       "label": "엔시날 중간 조정 사업비",
       "status": "보도",
       "sources": [
-        "https://n.news.naver.com/mnews/article/277/0005819221?sid=100",
-        "https://n.news.naver.com/mnews/article/014/0005578469?sid=100"
+        "https://www.motir.go.kr/kor/article/ATCL3f49a5a8c/172253/view"
       ]
     },
     "encinal.us_requested_cost_usd_eok": {
@@ -285,13 +279,7 @@
       "label": "미국 측 엔시날 요구 사업비",
       "status": "미국 측 요구 보도",
       "sources": [
-        "https://www4.edaily.co.kr/News/Read?mediaCodeNo=257&newsId=02151686645577824",
-        "https://v.daum.net/v/20260907113212498",
-        "https://n.news.naver.com/mnews/article/018/0006365091?sid=100",
-        "https://n.news.naver.com/mnews/article/215/0001265164?sid=100",
-        "https://n.news.naver.com/mnews/article/422/0000903732?sid=101",
-        "https://n.news.naver.com/mnews/article/215/0001265151?sid=101",
-        "https://n.news.naver.com/mnews/article/374/0000531654?sid=101"
+        "https://www.motir.go.kr/kor/article/ATCL3f49a5a8c/172253/view"
       ]
     },
     "encinal.current_reported_cost_usd_eok": {
@@ -307,13 +295,7 @@
       "label": "엔시날 증액이 미국 측 요구에서 촉발",
       "status": "복수 보도",
       "sources": [
-        "https://www4.edaily.co.kr/News/Read?mediaCodeNo=257&newsId=02151686645577824",
-        "https://v.daum.net/v/20260907113212498",
-        "https://n.news.naver.com/mnews/article/018/0006365091?sid=100",
-        "https://n.news.naver.com/mnews/article/215/0001265164?sid=100",
-        "https://n.news.naver.com/mnews/article/422/0000903732?sid=101",
-        "https://n.news.naver.com/mnews/article/215/0001265151?sid=101",
-        "https://n.news.naver.com/mnews/article/374/0000531654?sid=101"
+        "https://www.motir.go.kr/kor/article/ATCL3f49a5a8c/172253/view"
       ]
     },
     "encinal.ercot_sale_option": {
@@ -329,7 +311,7 @@
       "label": "AI 데이터센터 직접 전력공급 검토",
       "status": "보도",
       "sources": [
-        "https://m.edaily.co.kr/News/Read?mediaCodeNo=257&newsId=02499366645577824"
+        "https://www.motir.go.kr/kor/article/ATCL3f49a5a8c/172253/view"
       ]
     },
     "encinal.ppa_needed": {
@@ -397,37 +379,33 @@
     },
     "nuclear.reactors": {
       "value": 8,
-      "label": "미국 내 원전 추진 기수",
-      "status": "보도·협의 단계",
+      "label": "Project Power 미국 대형원전 총 기수",
+      "status": "정부·기업 공식자료",
       "sources": [
-        "https://n.news.naver.com/mnews/article/022/0004163138?sid=104",
-        "https://news.mtn.co.kr/news-detail/2026093010401993906"
-      ]
+        "https://www.motir.go.kr/kor/article/ATCL3f49a5a8c/172253/view",
+        "https://info.westinghousenuclear.com/news/u.s.-korea-framework-advances-deployment-of-westinghouse-nuclear-technology-in-the-united-states",
+        "https://www.cameco.com/media/news/cameco-acknowledges-united-states-and-republic-of-korea-announcement-of-framework-for"
+      ],
+      "updated_at": "2026-10-04T15:21:37+09:00"
     },
     "nuclear.us_proposal_usd_eok": {
       "value": 1200,
       "label": "미국 측 원전 8기 대미투자 제안액",
       "status": "미국 측 제안",
       "sources": [
-        "https://www1.edaily.co.kr/News/Read?mediaCodeNo=257&newsId=03660486645577824",
-        "https://n.news.naver.com/mnews/article/018/0006365091?sid=100",
-        "https://n.news.naver.com/mnews/article/015/0005329652?sid=101",
-        "https://news.mtn.co.kr/news-detail/2026090816281014738",
-        "https://n.news.naver.com/mnews/article/022/0004157764?sid=100",
-        "https://n.news.naver.com/mnews/article/422/0000905203?sid=101",
-        "https://n.news.naver.com/mnews/article/015/0005332631?sid=101",
-        "https://n.news.naver.com/mnews/article/081/0003680989?sid=100",
-        "https://n.news.naver.com/mnews/article/421/0009180763?sid=101"
+        "https://www.motir.go.kr/kor/article/ATCL3f49a5a8c/172253/view"
       ]
     },
     "nuclear.us_120b_not_committed": {
-      "value": true,
-      "label": "1,200억달러는 한국 확약액이 아님",
-      "status": "복수 보도",
+      "value": false,
+      "label": "1,200억달러 한국 투자 프레임워크 공식화",
+      "status": "정부·기업 공식자료",
       "sources": [
-        "https://www1.edaily.co.kr/News/Read?mediaCodeNo=257&newsId=03660486645577824",
-        "https://n.news.naver.com/mnews/article/018/0006365091?sid=100"
-      ]
+        "https://www.motir.go.kr/kor/article/ATCL3f49a5a8c/172253/view",
+        "https://info.westinghousenuclear.com/news/u.s.-korea-framework-advances-deployment-of-westinghouse-nuclear-technology-in-the-united-states",
+        "https://www.cameco.com/media/news/cameco-acknowledges-united-states-and-republic-of-korea-announcement-of-framework-for"
+      ],
+      "updated_at": "2026-10-04T15:21:37+09:00"
     },
     "nuclear.reported_project_size_usd_eok": {
       "value": 1300,
@@ -442,8 +420,9 @@
       "label": "AP1000 포함 기수",
       "status": "복수 보도·정부 세부 미확정",
       "sources": [
-        "https://www.mt.co.kr/index.php/amp/economy/2026/09/07/2026090715524755435",
-        "https://n.news.naver.com/mnews/article/421/0009180763?sid=101"
+        "https://www.motir.go.kr/kor/article/ATCL3f49a5a8c/172253/view",
+        "https://info.westinghousenuclear.com/news/u.s.-korea-framework-advances-deployment-of-westinghouse-nuclear-technology-in-the-united-states",
+        "https://www.cameco.com/media/news/cameco-acknowledges-united-states-and-republic-of-korea-announcement-of-framework-for"
       ],
       "corrected_at": "2026-09-21"
     },
@@ -452,8 +431,9 @@
       "label": "APR1400·한국형 원전 포함 기수",
       "status": "복수 보도·정부 세부 미확정",
       "sources": [
-        "https://n.news.naver.com/mnews/article/001/0016327710?sid=101",
-        "https://n.news.naver.com/mnews/article/014/0005578469?sid=100"
+        "https://www.motir.go.kr/kor/article/ATCL3f49a5a8c/172253/view",
+        "https://info.westinghousenuclear.com/news/u.s.-korea-framework-advances-deployment-of-westinghouse-nuclear-technology-in-the-united-states",
+        "https://www.cameco.com/media/news/cameco-acknowledges-united-states-and-republic-of-korea-announcement-of-framework-for"
       ],
       "corrected_at": "2026-09-21"
     },
@@ -479,15 +459,14 @@
     },
     "package.nuclear_framework_included": {
       "value": true,
-      "label": "원전 8기 추진 프레임워크 패키지 포함",
-      "status": "보도·협의 단계",
+      "label": "원전 8기 Project Power 프레임워크 포함",
+      "status": "정부·기업 공식자료",
       "sources": [
-        "https://www.mt.co.kr/economy/2026/09/07/2026090714365254729",
-        "https://www1.edaily.co.kr/News/Read?mediaCodeNo=257&newsId=03660486645577824",
-        "https://n.news.naver.com/mnews/article/018/0006365091?sid=100",
-        "https://n.news.naver.com/mnews/article/015/0005329652?sid=101",
-        "https://www.hankyung.com/article/2026090819731"
-      ]
+        "https://www.motir.go.kr/kor/article/ATCL3f49a5a8c/172253/view",
+        "https://info.westinghousenuclear.com/news/u.s.-korea-framework-advances-deployment-of-westinghouse-nuclear-technology-in-the-united-states",
+        "https://www.cameco.com/media/news/cameco-acknowledges-united-states-and-republic-of-korea-announcement-of-framework-for"
+      ],
+      "updated_at": "2026-10-04T15:21:37+09:00"
     },
     "package.target_sign_date": {
       "value": "2026-09-18",
@@ -647,8 +626,7 @@
       "label": "웨스팅하우스 지분 인수·매입 추진",
       "status": "보도·협의 단계",
       "sources": [
-        "https://n.news.naver.com/mnews/article/006/0000137892?sid=102",
-        "https://n.news.naver.com/mnews/article/421/0009187081?sid=100"
+        "https://www.motir.go.kr/kor/article/ATCL3f49a5a8c/172253/view"
       ],
       "updated_at": "2026-09-09T05:36:02+09:00"
     },
@@ -700,6 +678,132 @@
         "https://www.motir.go.kr/kor/article/ATCLe0854704d/172220/view"
       ],
       "corrected_at": "2026-09-21"
+    },
+    "nuclear.project_power_framework_official": {
+      "value": true,
+      "label": "Project Power 한미 원전 프레임워크 공식화",
+      "status": "정부·기업 공식자료",
+      "sources": [
+        "https://www.motir.go.kr/kor/article/ATCL3f49a5a8c/172253/view",
+        "https://info.westinghousenuclear.com/news/u.s.-korea-framework-advances-deployment-of-westinghouse-nuclear-technology-in-the-united-states",
+        "https://www.cameco.com/media/news/cameco-acknowledges-united-states-and-republic-of-korea-announcement-of-framework-for"
+      ],
+      "updated_at": "2026-10-04T15:21:37+09:00"
+    },
+    "nuclear.framework_investment_cap_usd_eok": {
+      "value": 1200,
+      "label": "Project Power 한국 투자 상한",
+      "status": "정부·기업 공식자료",
+      "sources": [
+        "https://www.motir.go.kr/kor/article/ATCL3f49a5a8c/172253/view",
+        "https://info.westinghousenuclear.com/news/u.s.-korea-framework-advances-deployment-of-westinghouse-nuclear-technology-in-the-united-states",
+        "https://www.cameco.com/media/news/cameco-acknowledges-united-states-and-republic-of-korea-announcement-of-framework-for"
+      ],
+      "updated_at": "2026-10-04T15:21:37+09:00"
+    },
+    "nuclear.project_power_federal_sites": {
+      "value": true,
+      "label": "미국 연방정부 지정 부지 배치 방향",
+      "status": "공식 프레임워크",
+      "sources": [
+        "https://info.westinghousenuclear.com/news/u.s.-korea-framework-advances-deployment-of-westinghouse-nuclear-technology-in-the-united-states",
+        "https://www.cameco.com/media/news/cameco-acknowledges-united-states-and-republic-of-korea-announcement-of-framework-for"
+      ],
+      "updated_at": "2026-10-04T15:21:37+09:00"
+    },
+    "nuclear.project_power_terms_nonbinding": {
+      "value": true,
+      "label": "Project Power 세부 거래조건 비구속",
+      "status": "기업 공식자료",
+      "sources": [
+        "https://info.westinghousenuclear.com/news/u.s.-korea-framework-advances-deployment-of-westinghouse-nuclear-technology-in-the-united-states",
+        "https://www.cameco.com/media/news/cameco-acknowledges-united-states-and-republic-of-korea-announcement-of-framework-for"
+      ],
+      "updated_at": "2026-10-04T15:21:37+09:00"
+    },
+    "nuclear.project_power_definitive_agreements_required": {
+      "value": true,
+      "label": "개별 최종계약·최종협상 필요",
+      "status": "기업 공식자료",
+      "sources": [
+        "https://info.westinghousenuclear.com/news/u.s.-korea-framework-advances-deployment-of-westinghouse-nuclear-technology-in-the-united-states",
+        "https://www.cameco.com/media/news/cameco-acknowledges-united-states-and-republic-of-korea-announcement-of-framework-for"
+      ],
+      "updated_at": "2026-10-04T15:21:37+09:00"
+    },
+    "nuclear.westinghouse_stake_pct_min": {
+      "value": 5,
+      "label": "한국 측 Westinghouse 지분투자 하한",
+      "status": "기업 공식 프레임워크",
+      "sources": [
+        "https://info.westinghousenuclear.com/news/u.s.-korea-framework-advances-deployment-of-westinghouse-nuclear-technology-in-the-united-states"
+      ],
+      "updated_at": "2026-10-04T15:21:37+09:00"
+    },
+    "nuclear.westinghouse_stake_pct_max": {
+      "value": 10,
+      "label": "한국 측 Westinghouse 지분투자 상한",
+      "status": "기업 공식 프레임워크",
+      "sources": [
+        "https://info.westinghousenuclear.com/news/u.s.-korea-framework-advances-deployment-of-westinghouse-nuclear-technology-in-the-united-states"
+      ],
+      "updated_at": "2026-10-04T15:21:37+09:00"
+    },
+    "nuclear.project_power_apr1400_westinghouse_scope": {
+      "value": true,
+      "label": "APR1400에서 Westinghouse 선급금·보장 업무범위",
+      "status": "기업 공식 프레임워크",
+      "sources": [
+        "https://info.westinghousenuclear.com/news/u.s.-korea-framework-advances-deployment-of-westinghouse-nuclear-technology-in-the-united-states"
+      ],
+      "updated_at": "2026-10-04T15:21:37+09:00"
+    },
+    "nuclear.project_power_westinghouse_fuel_services": {
+      "value": true,
+      "label": "APR1400 Westinghouse 핵연료 가공 서비스 계약 경로",
+      "status": "기업 공식 프레임워크",
+      "sources": [
+        "https://info.westinghousenuclear.com/news/u.s.-korea-framework-advances-deployment-of-westinghouse-nuclear-technology-in-the-united-states",
+        "https://www.cameco.com/media/news/cameco-acknowledges-united-states-and-republic-of-korea-announcement-of-framework-for"
+      ],
+      "updated_at": "2026-10-04T15:21:37+09:00"
+    },
+    "nuclear.project_power_doe_long_lead_conditional_loan_usd_eok": {
+      "value": 175,
+      "label": "DOE 장주기 기자재 조건부 대출지원",
+      "status": "기업 공식자료",
+      "sources": [
+        "https://info.westinghousenuclear.com/news/u.s.-korea-framework-advances-deployment-of-westinghouse-nuclear-technology-in-the-united-states"
+      ],
+      "updated_at": "2026-10-04T15:21:37+09:00"
+    },
+    "nuclear.project_power_phase1_site_selected": {
+      "value": true,
+      "label": "1단계 AP1000 부지 선정",
+      "status": "공식·교차검증 필요",
+      "sources": [
+        "https://info.westinghousenuclear.com/news/u.s.-korea-framework-advances-deployment-of-westinghouse-nuclear-technology-in-the-united-states",
+        "https://www.cameco.com/media/news/cameco-acknowledges-united-states-and-republic-of-korea-announcement-of-framework-for"
+      ],
+      "updated_at": "2026-10-04T15:21:37+09:00"
+    },
+    "nuclear.project_power_phase1_ap1000_reactors": {
+      "value": 2,
+      "label": "Project Power 1단계 AP1000 기수",
+      "status": "공식 프레임워크",
+      "sources": [
+        "https://www.cameco.com/media/news/cameco-acknowledges-united-states-and-republic-of-korea-announcement-of-framework-for"
+      ],
+      "updated_at": "2026-10-04T15:21:37+09:00"
+    },
+    "nuclear.project_power_settlement_waiver_contemplated": {
+      "value": true,
+      "label": "2025 지식재산권 합의 예외 적용 예정",
+      "status": "기업 공식 프레임워크",
+      "sources": [
+        "https://www.cameco.com/media/news/cameco-acknowledges-united-states-and-republic-of-korea-announcement-of-framework-for"
+      ],
+      "updated_at": "2026-10-04T15:21:37+09:00"
     }
   },
   "correction_note": "2026-09-21 기사 근접 숫자 오인(AP1000/APR1400 8+8, 첫 송금 3500억달러·2026-07-24) 제거. 기사 링크는 증거이며 사건 상태만 알림."
