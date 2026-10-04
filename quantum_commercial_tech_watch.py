@@ -63,8 +63,9 @@ STRONG_TECH_TERMS = [
 
 COMMERCIAL_TERMS = [
     "selected", "deployment", "deploy", "installed", "install", "order", "purchase",
-    "supply", "contract", "customer delivery", "customer deliveries", "first qpu",
-    "on-premise", "on premise", "nvaqc", "nvqlink", "supercomputer",
+    "supply", "contract", "customer delivery", "customer deliveries", "delivery", "deliver",
+    "sale", "sold", "first qpu", "on-premise", "on premise", "nvaqc", "nvqlink",
+    "supercomputer", "strategic partnership", "partnership", "multi-year collaboration",
 ]
 
 EXCLUDE_TERMS = [
