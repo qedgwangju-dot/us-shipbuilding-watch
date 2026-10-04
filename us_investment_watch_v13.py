@@ -461,6 +461,13 @@ def _execution_context(now, changes, fx: float) -> str:
     rem_date = _current_value(changes, 'execution.first_remittance_date')
     rem_amt = _current_value(changes, 'execution.first_remittance_usd_eok')
     stake = _current_value(changes, 'nuclear.westinghouse_stake_pct')
+    stake_min = _current_value(changes, 'nuclear.westinghouse_stake_pct_min')
+    stake_max = _current_value(changes, 'nuclear.westinghouse_stake_pct_max')
+    # 2026-09-30 공식 프레임워크의 5~10% 범위가 존재하면 과거 15% 보도값을
+    # 현재 확정 지분율처럼 다시 노출하지 않는다.
+    official_stake_range = (
+        isinstance(stake_min, (int, float)) and isinstance(stake_max, (int, float))
+    )
     valuation = _current_value(changes, 'nuclear.westinghouse_valuation_usd_eok')
     stake_flag = _current_value(changes, 'nuclear.westinghouse_stake_acquisition_reported')
 
@@ -488,11 +495,17 @@ def _execution_context(now, changes, fx: float) -> str:
             '<b>🏢 웨스팅하우스 지분</b>',
             '• 현재 공식 소유구조: <b>Brookfield 51% · Cameco 49%</b>',
         ])
-        if isinstance(stake, (int, float)):
+        if official_stake_range:
+            lines.append(
+                f'• 공식 프레임워크 지분투자 범위: <b>{stake_min:g}~{stake_max:g}%</b> '
+                '· 과거 15% 보도값은 현재 기준으로 사용하지 않음'
+            )
+            lines.append('• 정확한 인수가·매도주체·거래종결 조건은 아직 최종 확정 전')
+        elif isinstance(stake, (int, float)):
             lines.append(f'• 한국 측 인수 보도 지분율: <b>{stake:.2f}%</b>')
         else:
             lines.append('• 한국 측 지분율·매입가격·매도주체는 아직 확정 확인 필요')
-        if isinstance(stake, (int, float)) and isinstance(valuation, (int, float)):
+        if (not official_stake_range) and isinstance(stake, (int, float)) and isinstance(valuation, (int, float)):
             cost = valuation * stake / 100.0
             lines.append(
                 f'• 기업가치 {valuation:,.0f}억달러 기준 단순 지분대금 = '
