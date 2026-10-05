@@ -9,7 +9,9 @@
   ],
   "initialized": true,
   "sources": {
-    "D-Wave 공식 뉴스": [],
+    "D-Wave 공식 뉴스": [
+      "https://www.dwavequantum.com/company/newsroom/press-release/d-wave-partners-with-university-of-arkansas-to-establish-quantum-supply-chain-initiative"
+    ],
     "IBM 연구·혁신 공식 뉴스": [
       "https://newsroom.ibm.com/2026-09-24-ibm-expands-its-digital-banking-infrastructure-with-swift-integration-and-digital-asset-haven-on-prem",
       "https://newsroom.ibm.com/2026-10-01-ibm-introduces-self-hosted-deployment-for-ibm-bob-to-help-enterprises-advance-ai-sovereignty-and-governance",
