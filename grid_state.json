@@ -1,6 +1,10 @@
 {
-  "미 에너지부 뉴스": [],
-  "미 에너지부 전력국 뉴스": [],
+  "미 에너지부 뉴스": [
+    "https://www.energy.gov/articles/energy-department-announces-alaska-railbelt-transmission-project-receive-defense"
+  ],
+  "미 에너지부 전력국 뉴스": [
+    "https://www.energy.gov/articles/energy-department-announces-alaska-railbelt-transmission-project-receive-defense"
+  ],
   "미 연방관보 DOE": [],
   "미 연방관보 FAR 검색": [
     "https://www.federalregister.gov/documents/2000/05/10/00-11595/federal-acquisition-regulation-energy-efficiency-of-supplies-and-services",
