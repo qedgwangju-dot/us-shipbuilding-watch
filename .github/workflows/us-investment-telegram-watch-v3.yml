@@ -1,21 +1,10 @@
-name: 대미투자 Telegram 감시 v13
+name: 대미투자 Telegram 감시 v13 [LEGACY DISABLED]
 
+# 이 저장소의 구형 대미투자 송출 경로는 비활성화한다.
+# 현재 단일 송출 소유자는 qedgwangju-dot/khs-watch의
+# khs-us-investment-telegram-watch.yml 이다.
 on:
-  schedule:
-    - cron: '*/5 * * * *'
   workflow_dispatch:
-  push:
-    branches: [main]
-    paths:
-      - 'us_investment_watch.py'
-      - 'us_investment_watch_v3.py'
-      - 'us_investment_watch_v5.py'
-      - 'us_investment_watch_v9.py'
-      - 'us_investment_watch_v10.py'
-      - 'us_investment_watch_v11.py'
-      - 'us_investment_watch_v12.py'
-      - 'us_investment_watch_v13.py'
-      - '.github/workflows/us-investment-telegram-watch-v3.yml'
 
 permissions:
   contents: write
@@ -26,6 +15,8 @@ concurrency:
 
 jobs:
   monitor:
+    # 구형 수치/단계 판정이 최신 상태장부와 충돌하므로 수동 실행도 송출 금지.
+    if: ${{ false }}
     runs-on: ubuntu-latest
     timeout-minutes: 8
     steps:
