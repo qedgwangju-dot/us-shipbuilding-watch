@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "last_updated": "2026-10-05T17:20:38+09:00",
+  "last_updated": "2026-10-06T02:15:02+09:00",
   "facts": {
     "strategy.total_package_usd_eok": {
       "value": 3500,
@@ -176,8 +176,7 @@
       "label": "한국 정부의 기존 15% 관세 합의선 방어",
       "status": "정부 발언 보도",
       "sources": [
-        "https://n.news.naver.com/mnews/article/422/0000912155?sid=104",
-        "https://n.news.naver.com/mnews/article/001/0016355052?sid=104"
+        "https://n.news.naver.com/mnews/article/422/0000912155?sid=104"
       ]
     },
     "encinal.first_project_selected": {
@@ -382,9 +381,10 @@
       "label": "Project Power 미국 대형원전 총 기수",
       "status": "정부·기업 공식자료",
       "sources": [
-        "https://www.motir.go.kr/kor/article/ATCL3f49a5a8c/172253/view",
+        "https://n.news.naver.com/mnews/article/003/0014225394?sid=101",
         "https://info.westinghousenuclear.com/news/u.s.-korea-framework-advances-deployment-of-westinghouse-nuclear-technology-in-the-united-states",
-        "https://www.cameco.com/media/news/cameco-acknowledges-united-states-and-republic-of-korea-announcement-of-framework-for"
+        "https://www.cameco.com/media/news/cameco-acknowledges-united-states-and-republic-of-korea-announcement-of-framework-for",
+        "https://n.news.naver.com/mnews/article/001/0016357210?sid=101"
       ],
       "updated_at": "2026-10-04T15:21:37+09:00"
     },
@@ -401,7 +401,6 @@
       "label": "1,200억달러 한국 투자 프레임워크 공식화",
       "status": "정부·기업 공식자료",
       "sources": [
-        "https://www.motir.go.kr/kor/article/ATCL3f49a5a8c/172253/view",
         "https://info.westinghousenuclear.com/news/u.s.-korea-framework-advances-deployment-of-westinghouse-nuclear-technology-in-the-united-states",
         "https://www.cameco.com/media/news/cameco-acknowledges-united-states-and-republic-of-korea-announcement-of-framework-for"
       ],
@@ -420,7 +419,7 @@
       "label": "AP1000 포함 기수",
       "status": "복수 보도·정부 세부 미확정",
       "sources": [
-        "https://www.motir.go.kr/kor/article/ATCL3f49a5a8c/172253/view",
+        "https://n.news.naver.com/mnews/article/003/0014225394?sid=101",
         "https://info.westinghousenuclear.com/news/u.s.-korea-framework-advances-deployment-of-westinghouse-nuclear-technology-in-the-united-states",
         "https://www.cameco.com/media/news/cameco-acknowledges-united-states-and-republic-of-korea-announcement-of-framework-for"
       ],
@@ -431,9 +430,10 @@
       "label": "APR1400·한국형 원전 포함 기수",
       "status": "복수 보도·정부 세부 미확정",
       "sources": [
-        "https://www.motir.go.kr/kor/article/ATCL3f49a5a8c/172253/view",
+        "https://n.news.naver.com/mnews/article/003/0014225394?sid=101",
         "https://info.westinghousenuclear.com/news/u.s.-korea-framework-advances-deployment-of-westinghouse-nuclear-technology-in-the-united-states",
-        "https://www.cameco.com/media/news/cameco-acknowledges-united-states-and-republic-of-korea-announcement-of-framework-for"
+        "https://www.cameco.com/media/news/cameco-acknowledges-united-states-and-republic-of-korea-announcement-of-framework-for",
+        "https://n.news.naver.com/mnews/article/001/0016357210?sid=101"
       ],
       "corrected_at": "2026-09-21"
     },
@@ -462,9 +462,10 @@
       "label": "원전 8기 Project Power 프레임워크 포함",
       "status": "정부·기업 공식자료",
       "sources": [
-        "https://www.motir.go.kr/kor/article/ATCL3f49a5a8c/172253/view",
+        "https://n.news.naver.com/mnews/article/003/0014225394?sid=101",
         "https://info.westinghousenuclear.com/news/u.s.-korea-framework-advances-deployment-of-westinghouse-nuclear-technology-in-the-united-states",
-        "https://www.cameco.com/media/news/cameco-acknowledges-united-states-and-republic-of-korea-announcement-of-framework-for"
+        "https://www.cameco.com/media/news/cameco-acknowledges-united-states-and-republic-of-korea-announcement-of-framework-for",
+        "https://n.news.naver.com/mnews/article/001/0016357210?sid=101"
       ],
       "updated_at": "2026-10-04T15:21:37+09:00"
     },
@@ -626,7 +627,8 @@
       "label": "웨스팅하우스 지분 인수·매입 추진",
       "status": "보도·협의 단계",
       "sources": [
-        "https://www.motir.go.kr/kor/article/ATCL3f49a5a8c/172253/view"
+        "https://n.news.naver.com/mnews/article/003/0014225394?sid=101",
+        "https://n.news.naver.com/mnews/article/001/0016357210?sid=101"
       ],
       "updated_at": "2026-09-09T05:36:02+09:00"
     },
@@ -684,7 +686,6 @@
       "label": "Project Power 한미 원전 프레임워크 공식화",
       "status": "정부·기업 공식자료",
       "sources": [
-        "https://www.motir.go.kr/kor/article/ATCL3f49a5a8c/172253/view",
         "https://info.westinghousenuclear.com/news/u.s.-korea-framework-advances-deployment-of-westinghouse-nuclear-technology-in-the-united-states",
         "https://www.cameco.com/media/news/cameco-acknowledges-united-states-and-republic-of-korea-announcement-of-framework-for"
       ],
@@ -695,7 +696,6 @@
       "label": "Project Power 한국 투자 상한",
       "status": "정부·기업 공식자료",
       "sources": [
-        "https://www.motir.go.kr/kor/article/ATCL3f49a5a8c/172253/view",
         "https://info.westinghousenuclear.com/news/u.s.-korea-framework-advances-deployment-of-westinghouse-nuclear-technology-in-the-united-states",
         "https://www.cameco.com/media/news/cameco-acknowledges-united-states-and-republic-of-korea-announcement-of-framework-for"
       ],
@@ -782,6 +782,7 @@
       "label": "1단계 AP1000 부지 선정",
       "status": "공식·교차검증 필요",
       "sources": [
+        "https://n.news.naver.com/mnews/article/003/0014225394?sid=101",
         "https://info.westinghousenuclear.com/news/u.s.-korea-framework-advances-deployment-of-westinghouse-nuclear-technology-in-the-united-states",
         "https://www.cameco.com/media/news/cameco-acknowledges-united-states-and-republic-of-korea-announcement-of-framework-for"
       ],
@@ -804,6 +805,15 @@
         "https://www.cameco.com/media/news/cameco-acknowledges-united-states-and-republic-of-korea-announcement-of-framework-for"
       ],
       "updated_at": "2026-10-04T15:21:37+09:00"
+    },
+    "nuclear.project_power_long_lead_prepayment_cap_usd_eok": {
+      "value": 100,
+      "label": "장주기 기자재 선지급 검토 상한",
+      "status": "정부 공식 검토",
+      "sources": [
+        "https://n.news.naver.com/mnews/article/003/0014225394?sid=101"
+      ],
+      "updated_at": "2026-10-06T02:15:02+09:00"
     }
   },
   "correction_note": "2026-09-21 기사 근접 숫자 오인(AP1000/APR1400 8+8, 첫 송금 3500억달러·2026-07-24) 제거. 기사 링크는 증거이며 사건 상태만 알림."
