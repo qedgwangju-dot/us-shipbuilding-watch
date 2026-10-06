@@ -3,6 +3,7 @@
   "event_keys": [
     "d-wave|chips|award|2026-09|na",
     "d-wave|chips|policy|2026-09|na",
+    "d-wave|quantum|award|2026-10|na",
     "ibm|chips|final_award|2026-09|1b",
     "ibm|chips|policy|2026-09|1b",
     "ibm|quantum|award|2026-09|1b",
@@ -25,6 +26,7 @@
       "https://www.dwavequantum.com/company/newsroom/press-release/d-wave-finalizes-agreement-with-u-s-department-of-commerce-for-up-to-100-million",
       "https://www.dwavequantum.com/company/newsroom/press-release/d-wave-technology-drives-ntt-docomo-s-second-production-quantum-application-in-network-operations",
       "https://www.dwavequantum.com/company/newsroom/press-release/d-wave-to-participate-in-upcoming-2026-investor-conferences",
+      "https://www.dwavequantum.com/company/newsroom/press-release/fau-receives-nist-grant-to-build-south-florida-s-quantum-cybersecurity-workforce",
       "https://www.dwavequantum.com/dual-rail-quantum-error-correction",
       "https://www.dwavequantum.com/learn/customer-success-stories",
       "https://www.dwavequantum.com/learn/d-wave-s-approach",
