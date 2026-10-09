@@ -191,5 +191,27 @@ class SilverBulletinTests(unittest.TestCase):
                 sw.dataset_text("RANDOMFAILID", 1)
 
 
+    def test_datawrapper_revision_gap_is_not_mistaken_for_latest(self):
+        usable = {100, 102, 103}
+        with mock.patch.object(sw, "load_state", return_value={}), \
+             mock.patch.object(
+                 sw, "dataset_text",
+                 side_effect=lambda _chart, revision: "csv" if revision in usable else None,
+             ):
+            self.assertEqual(sw.latest_revision("RFXsV", 100), 103)
+
+    def test_datawrapper_resume_uses_last_persisted_revision(self):
+        seen = []
+        def fake_dataset(_chart, revision):
+            seen.append(revision)
+            return "csv" if 7846 <= revision <= 7848 else None
+        old = {"issue_chart": "https://datawrapper.dwcdn.net/RFXsV/7846/",
+               "datawrapper_revision": 7846}
+        with mock.patch.object(sw, "load_state", return_value=old), \
+             mock.patch.object(sw, "dataset_text", side_effect=fake_dataset):
+            self.assertEqual(sw.latest_revision("RFXsV", 73), 7848)
+        self.assertNotIn(73, seen)
+
+
 if __name__ == "__main__":
     unittest.main()
