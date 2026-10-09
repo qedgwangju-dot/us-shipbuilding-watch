@@ -239,6 +239,25 @@ def fmt(x: float) -> str:
     return f"{x:+.1f}%p"
 
 
+def format_telegram_html(raw: str) -> str:
+    """Only the title is bold; a bare '원문' is a safe clickable official link."""
+    formatted = []
+    for idx, line in enumerate(raw.strip().splitlines()):
+        if idx == 0 and line:
+            formatted.append(f"<b>{html.escape(line)}</b>")
+        elif line.startswith("- 원문: "):
+            url = line[len("- 원문: "):].strip()
+            if url != PAGE_URL:
+                raise ValueError("Expected Silver Bulletin canonical source URL")
+            formatted.append(f'<a href="{html.escape(url, quote=True)}">원문</a>')
+        else:
+            formatted.append(html.escape(line))
+    result = "\n".join(formatted)
+    if not result or len(result) > 4000:
+        raise ValueError("Invalid Telegram HTML message length")
+    return result
+
+
 def current_values_only(compact: dict) -> list[str]:
     return [
         f"- {ISSUES[key][0]}: {fmt(float(compact[key]['value']))}"
