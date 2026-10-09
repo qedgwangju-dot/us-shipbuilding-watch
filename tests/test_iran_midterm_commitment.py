@@ -203,7 +203,8 @@ class IranMidtermTests(unittest.TestCase):
     def test_all_sources_fail_closed(self):
         with mock.patch.object(m, "now_utc", return_value=NOW), \
              mock.patch.object(m, "read_archive", return_value=([], False, ["Archive inaccessible"])), \
-             mock.patch.object(m, "read_press", return_value=([], 1, ["RSS down"])):
+             mock.patch.object(m, "read_press", return_value=([], 1, ["RSS down"])), \
+             mock.patch.object(m, "read_centcom", return_value=([], False, ["CENTCOM down"])):
             self.assertEqual(m.main(), 2)
             self.assertFalse(m.MESSAGE.exists())
 
