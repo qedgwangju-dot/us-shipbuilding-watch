@@ -114,8 +114,16 @@ jobs:
             echo "Silver Bulletin 기준값 변화 없음"
           else
             git commit -m "Update Silver Bulletin state"
-            git pull --rebase origin main
-            git push
+            for attempt in 1 2 3 4 5; do
+              if git pull --rebase origin main && git push; then
+                echo "Silver Bulletin state_persisted=true"
+                exit 0
+              fi
+              git rebase --abort 2>/dev/null || true
+              sleep $((attempt * 2))
+            done
+            echo "Silver Bulletin 상태 저장 반복 실패" >&2
+            exit 1
           fi
 
       - name: 실패 시 Telegram 오류 알림
