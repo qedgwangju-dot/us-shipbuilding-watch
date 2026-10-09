@@ -131,11 +131,11 @@ def classify_official(text: str) -> str | None:
 
     after_election = re.search(
         r"\b(after|following)\b.{0,45}\b("
-        r"(?:nov(?:ember)?\s*(?:3rd|3))|midterm|election)\b", low,
+        r"(?:nov(?:ember)?\s*(?:3rd|3))|midterms?|elections?)\b", low,
     )
     before_election = re.search(
         r"\b(before|prior to|ahead of)\b.{0,45}\b("
-        r"(?:nov(?:ember)?\s*(?:3rd|3))|midterm|election)\b", low,
+        r"(?:nov(?:ember)?\s*(?:3rd|3))|midterms?|elections?)\b", low,
     )
     if after_election and not before_election:
         return "post_election_threat"
@@ -195,11 +195,11 @@ def classify_press(title: str, body: str) -> str | None:
     )
     if re.search(explicit_attack, t):
         after = re.search(
-            r"\b(after|following)\b.{0,35}\b(nov(?:ember)?\s*3|midterm|election)\b",
+            r"\b(after|following)\b.{0,35}\b(nov(?:ember)?\s*3|midterms?|elections?)\b",
             t,
         )
         before = re.search(
-            r"\b(before|prior to|ahead of)\b.{0,35}\b(nov(?:ember)?\s*3|midterm|election)\b",
+            r"\b(before|prior to|ahead of)\b.{0,35}\b(nov(?:ember)?\s*3|midterms?|elections?)\b",
             t,
         )
         if after and not before:
