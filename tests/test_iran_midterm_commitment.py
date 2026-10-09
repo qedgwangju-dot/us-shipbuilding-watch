@@ -33,6 +33,11 @@ class IranMidtermTests(unittest.TestCase):
         m.REPORT = m.OUT / "status.md"
         m.DEBUG = m.OUT / "debug.json"
         self.addCleanup(self.reset_paths)
+        self.centcom_stub = mock.patch.object(
+            m, "read_centcom", return_value=([], True, [])
+        )
+        self.centcom_stub.start()
+        self.addCleanup(self.centcom_stub.stop)
 
     def reset_paths(self):
         m.STATE, m.OUT, m.PENDING, m.MESSAGE, m.REPORT, m.DEBUG = self.old_paths
@@ -114,6 +119,26 @@ class IranMidtermTests(unittest.TestCase):
         self.assertIsNone(m.decide([candidate], NOW.date()))
         duplicate = ev("us_strike", "Reuters", "US conducts new strikes in Iran", url="https://news.google.com/articles/b")
         self.assertIsNone(m.decide([candidate, duplicate], NOW.date()))
+
+    def test_one_dated_centcom_official_release_suffices_for_actual_strike(self):
+        official = ev(
+            "us_strike", "CENTCOM",
+            "U.S. Successfully Completes New Strikes in Iran",
+            url="https://www.centcom.mil/MEDIA/PUBLIC-RELEASES/Article/official",
+        )
+        kind, evidence = m.decide([official], NOW.date())
+        self.assertEqual(kind, "us_strike")
+        self.assertEqual(evidence[0].source, "CENTCOM")
+
+    def test_centcom_alert_links_have_no_emoji(self):
+        official = ev(
+            "us_strike", "CENTCOM", "CENTCOM Strikes Iranian Targets",
+            url="https://www.centcom.mil/MEDIA/PUBLIC-RELEASES/Article/official",
+        )
+        msg = m.format_message("us_strike", [official], NOW)
+        self.assertIn(">원문</a>", msg)
+        self.assertIn("미국 중부사령부 공식 발표", msg)
+        self.assertNotIn("🔗", msg)
 
     def test_two_different_publishers_verify_strike(self):
         candidates = [
