@@ -31,6 +31,12 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: 지연 실행 시 원격 최신 기준값 동기화
+        run: |
+          git fetch origin main
+          git checkout main
+          git reset --hard origin/main
+
       - name: Python 설정
         uses: actions/setup-python@v5
         with:
