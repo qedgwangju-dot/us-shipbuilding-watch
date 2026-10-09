@@ -104,30 +104,52 @@ def recent(when: dt.datetime, now: dt.datetime) -> bool:
 
 
 def classify_official(text: str) -> str | None:
-    """Statements of intent are NOT automatic proof of actual combat."""
-    low = clean(text).lower()
+    """Explicit statements of intent, not automatic evidence of military action.
+
+    The 2026-10-08 promise concerns strikes *before* 2026-11-03. A statement
+    contemplating strikes AFTER that date is not a broken promise.
+    """
+    low = clean(text).lower().replace("’", "'")
     if not re.search(r"\biran(?:ian)?\b", low):
         return None
     if re.search(r"\b(will not|won't|not be|no plans to)\s+(?:be\s+)?(?:attacking|attack|strike|striking)\b", low):
         return None
-    if re.search(r"\b(no longer|reconsider|reverse|withdraw|rescind|cancel)\b.{0,110}\b(no.attack|pledge|promise|pause|iran|strik)", low):
-        return "policy_reversal"
-    if re.search(r"\b(will|intend|plan|going to)\s+(?:now\s+)?(?:attack|strike|bomb)\s+iran\b", low):
-        return "policy_reversal"
+
     if re.search(r"\b(i have ordered|we have ordered|authorized|i ordered)\b.{0,90}\b(strikes?|attacks?|bombings?)\b.{0,80}\biran\b", low):
         return "strike_announced"
-    return None
 
+    reversed_pledge = re.search(
+        r"\b(no longer|reconsider|reverse|withdraw|rescind|cancel|walk back)\b"
+        r".{0,120}\b(no.attack|pledge|promise|pause|iran|strik)", low,
+    )
+    explicit_attack = re.search(
+        r"\b(will|intend|plan|going to)\s+(?:now\s+)?(?:attack|strike|bomb)\s+iran\b",
+        low,
+    )
+    if not reversed_pledge and not explicit_attack:
+        return None
+
+    after_election = re.search(
+        r"\b(after|following)\b.{0,45}\b("
+        r"(?:nov(?:ember)?\s*(?:3rd|3))|midterm|election)\b", low,
+    )
+    before_election = re.search(
+        r"\b(before|prior to|ahead of)\b.{0,45}\b("
+        r"(?:nov(?:ember)?\s*(?:3rd|3))|midterm|election)\b", low,
+    )
+    if after_election and not before_election:
+        return "post_election_threat"
+    if reversed_pledge or before_election:
+        return "policy_reversal"
+    return "military_warning"
 
 def classify_press(title: str, body: str) -> str | None:
-    # No speculation, contingency plans, editorial questions, or mere quotes.
+    # Detect *definite* changes in the headline, not speculation or historic
+    # context reprinted in an article body. Always reject negated strike verbs.
     t = clean(title).lower().replace("’", "'")
-    snippet = clean(body).lower().replace("’", "'")
     if not re.search(r"\biran(?:ian)?\b", t):
         return None
-    # MUST run before positive strike verbs. "U.S. WON'T resume strikes"
-    # contains the words "U.S.", "resume", "strikes" and "Iran" and must
-    # never be treated as confirmed combat. This bug was found in live RSS.
+
     negative_strike = (
         r"(?:\bwill not\b|\bwon't\b|\bwould not\b|\bdoesn't\b|"
         r"\bnot going to\b|\bnot planning to\b|\bno plans? to\b|"
@@ -146,31 +168,46 @@ def classify_press(title: str, body: str) -> str | None:
     )):
         return None
 
+    strike = (
+        r"(?:\bu\.s\.|\bus military\b|\bunited states\b|"
+        r"\bamerican forces\b|\bpentagon\b)"
+        r".{0,65}\b(resumes?|resumed|launches?|launched|conducts?|conducted|"
+        r"begins?|began|carries out|carried out|hits?|strikes?|attacks?|bombs?|bombed)\b"
+        r".{0,65}\biran(?:ian)?\b"
+    )
+    if re.search(strike, t) or re.search(
+        r"(?:\bu\.s\.|\bus military\b|\bamerican forces\b)"
+        r".{0,45}\bnew\b.{0,25}\bstrikes\b.{0,50}\biran", t,
+    ):
+        return "us_strike"
+
     reversal = (
-        r"\b(trump|u\.s\.|us|white house)\b.{0,65}"
+        r"\b(trump|white house|us president)\b.{0,65}"
         r"\b(reverses|withdraws|rescinds|walks back|abandons|drops|breaks|reneges on)\b"
         r".{0,90}\b(iran|pledge|promise|midterm|election)"
     )
-    explicit_change = (
-        r"\b(trump|white house)\b.{0,60}"
-        r"\b(will attack|will strike|to attack|to strike)\b.{0,50}\biran\b"
-    )
-    if re.search(reversal, t) or re.search(explicit_change, t):
+    if re.search(reversal, t):
         return "policy_reversal"
 
-    # Only definite NEW U.S. strikes; not old reports or tentative deployments.
-    strike = (
-        r"(?:\bu\.s\.|\bus military\b|\bunited states\b|\bamerican forces\b|\bpentagon\b)"
-        r".{0,65}\b(resumes|launches|conducts|begins|carries out|hits|strikes|attacks|bombs)\b"
-        r".{0,65}\biran(?:ian)?\b"
+    explicit_attack = (
+        r"\b(trump|white house|us president)\b.{0,60}"
+        r"\b(will attack|will strike|to attack|to strike)\b.{0,50}\biran\b"
     )
-    if re.search(strike, t):
-        return "us_strike"
-    if re.search(r"(?:\bu\.s\.|\bus military\b|\bamerican forces\b).{0,45}\bnew\b.{0,25}\bstrikes\b.{0,50}\biran", t):
-        return "us_strike"
-    # Do not use positive snippets alone: they often repeat old historic events.
+    if re.search(explicit_attack, t):
+        after = re.search(
+            r"\b(after|following)\b.{0,35}\b(nov(?:ember)?\s*3|midterm|election)\b",
+            t,
+        )
+        before = re.search(
+            r"\b(before|prior to|ahead of)\b.{0,35}\b(nov(?:ember)?\s*3|midterm|election)\b",
+            t,
+        )
+        if after and not before:
+            return "post_election_threat"
+        if before:
+            return "policy_reversal"
+        return "military_warning"
     return None
-
 
 def provider(source_name: str) -> str | None:
     norm = re.sub(r"\s+", " ", source_name.lower()).strip()
@@ -264,7 +301,7 @@ def decide(candidates: list[Evidence], today: dt.date) -> tuple[str, list[Eviden
     grouped = defaultdict(list)
     for item in candidates:
         grouped[item.kind].append(item)
-    for kind in ("strike_announced", "us_strike", "policy_reversal"):
+    for kind in ("strike_announced", "us_strike", "policy_reversal", "post_election_threat", "military_warning"):
         rows = grouped.get(kind, [])
         if not rows:
             continue
@@ -277,9 +314,9 @@ def decide(candidates: list[Evidence], today: dt.date) -> tuple[str, list[Eviden
         verified_news = list(distinct.values())
         if kind == "strike_announced" and primary:
             return kind, primary[:1] + verified_news[:2]
-        if kind == "policy_reversal" and primary:
+        if kind in ("policy_reversal", "post_election_threat", "military_warning") and primary:
             return kind, primary[:1] + verified_news[:2]
-        if kind in ("policy_reversal", "us_strike") and len(verified_news) >= 2:
+        if kind in ("policy_reversal", "us_strike", "post_election_threat", "military_warning") and len(verified_news) >= 2:
             # Filter widely separated unrelated items with matching labels.
             recent_pair = sorted(verified_news, key=lambda x: x.published, reverse=True)
             if (recent_pair[0].published - recent_pair[1].published).total_seconds() <= 36 * 3600:
@@ -316,6 +353,8 @@ def format_message(kind: str, rows: list[Evidence], now: dt.datetime) -> str:
         "policy_reversal": "선거 전 군사공격 유예 방침 변경",
         "strike_announced": "대이란 군사공격 지시 발표",
         "us_strike": "대이란 미국 공격 재개 교차보도",
+        "post_election_threat": "선거 후 공격 가능성 발언",
+        "military_warning": "대이란 공격 방침 강화·시점 미확정",
     }
     if kind not in titles or not rows:
         raise ValueError("Unrecognized event type")
@@ -331,8 +370,16 @@ def format_message(kind: str, rows: list[Evidence], now: dt.datetime) -> str:
         "기존 기준: 2026-10-08 트럼프 대통령의 11월 3일 이전 대이란 공격 유예 발언",
         f"확인 발표: {when_kst}",
     ]
+    stage_date = first.published.astimezone(EASTERN).date()
+    lines.append(
+        "시점: 미국 중간선거 전" if stage_date < ELECTION_DATE else "시점: 미국 중간선거 당일·이후"
+    )
     if kind == "policy_reversal":
         lines.append("의미: 선거 전 공격 유예 기대에 변화가 생겼습니다. 실제 공격 발생과 구분합니다.")
+    elif kind == "post_election_threat":
+        lines.append("의미: 선거 이후의 공격 가능성 발언입니다. 선거 전 유예 약속 철회나 실제 공격은 아닙니다.")
+    elif kind == "military_warning":
+        lines.append("의미: 공격 경고 발언은 확인됐으나 실행 시점이 특정되지 않았습니다.")
     elif kind == "strike_announced":
         lines.append("의미: 공격 관련 대통령 발표입니다. 전투 개시의 독립 확인과 구분합니다.")
     else:
