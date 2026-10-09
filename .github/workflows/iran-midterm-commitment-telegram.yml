@@ -148,6 +148,82 @@ jobs:
             exit 1
           fi
 
+      - name: Warn once per 12 hours on a scheduled monitoring failure
+        if: failure() && github.event_name == 'schedule'
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          RUN_URL: https://github.com/qedgwangju-dot/us-shipbuilding-watch/actions/runs/${{ github.run_id }}
+        run: |
+          python - <<'PY'
+          import datetime as dt
+          import json
+          import os
+          import pathlib
+          import subprocess
+          import time
+          import urllib.parse
+          import urllib.request
+
+          token=(os.getenv("TELEGRAM_BOT_TOKEN") or "").strip()
+          chat=(os.getenv("TELEGRAM_CHAT_ID") or "").strip()
+          if not token or not chat:
+              raise RuntimeError("Telegram error alert secrets are missing")
+
+          state_file=pathlib.Path("iran_midterm_error_state.json")
+          try:
+              old=json.loads(state_file.read_text(encoding="utf-8"))
+          except (OSError,ValueError):
+              old={}
+          now=dt.datetime.now(dt.timezone.utc)
+          try:
+              prev=dt.datetime.fromisoformat(str(old.get("last_sent_utc") or ""))
+              if prev.tzinfo is None:
+                  prev=prev.replace(tzinfo=dt.timezone.utc)
+          except ValueError:
+              prev=None
+          if prev and 0 <= (now-prev).total_seconds() < 12*3600:
+              print("error_alert_suppressed=true reason=12h_dedupe")
+              raise SystemExit(0)
+
+          text=(
+              "<b>[이란·중간선거 감시] 실행 오류</b>\n\n"
+              "이번 조회·수치 검증·송출 또는 상태 저장 중 오류가 발생했습니다.\n"
+              "확인되지 않은 군사행동은 알림으로 보내지 않습니다.\n"
+              '<a href="' + os.environ["RUN_URL"] + '">실행 기록</a>'
+          )
+          data=urllib.parse.urlencode({
+              "chat_id":chat,"text":text,"parse_mode":"HTML",
+              "disable_web_page_preview":"true",
+          }).encode("utf-8")
+          request=urllib.request.Request(
+              f"https://api.telegram.org/bot{token}/sendMessage",
+              data=data,method="POST",
+          )
+          with urllib.request.urlopen(request,timeout=20) as response:
+              receipt=json.loads(response.read().decode("utf-8"))
+          if not receipt.get("ok") or (receipt.get("result") or {}).get("message_id") is None:
+              raise RuntimeError("Failure alarm not acknowledged")
+          state_file.write_text(
+              json.dumps({"last_sent_utc":now.isoformat()},ensure_ascii=False,indent=2)+"\n",
+              encoding="utf-8",
+          )
+          def git(*args):
+              return subprocess.run(["git",*args],check=False).returncode == 0
+          git("config","user.name","github-actions[bot]")
+          git("config","user.email","41898282+github-actions[bot]@users.noreply.github.com")
+          if not git("add",str(state_file)) or not git("commit","-m","Update Iran midterm alert failure cooldown"):
+              raise RuntimeError("Could not commit failure cooldown state")
+          for attempt in range(1,6):
+              if git("pull","--rebase","origin","main") and git("push"):
+                  print("iran_midterm_failure_alarm_sent=true cooldown_persisted=true")
+                  break
+              git("rebase","--abort")
+              time.sleep(attempt*2)
+          else:
+              raise RuntimeError("Cooldown state push failed after acknowledged failure alarm")
+          PY
+
       - name: Upload verification artifacts
         if: always()
         uses: actions/upload-artifact@v4
