@@ -40,6 +40,7 @@ END_DATE = dt.date(2026, 11, 18)
 CANONICAL_PLEDGE_URL = "https://truthsocial.com/@realDonaldTrump/117406186276133332"
 CNBC_URL = "https://www.cnbc.com/2026/10/08/iran-war-trump-midterm-election.html"
 ARCHIVE_FEED = "https://www.trumpstruth.org/feed"
+CENTCOM_RELEASES = "https://www.centcom.mil/MEDIA/PUBLIC-RELEASES/"
 PRESS_FEEDS = [
     '(Trump Iran) (midterm OR "November 3") (attack OR strikes OR pledge OR reverses) when:3d',
     '(US Iran) (resumes strikes OR launched attack OR airstrikes OR bombs OR strike) when:3d',
@@ -297,6 +298,69 @@ def read_archive(now: dt.datetime) -> tuple[list[Evidence], bool, list[str]]:
     return list(unique.values()), True, []
 
 
+def read_centcom(now: dt.datetime) -> tuple[list[Evidence], bool, list[str]]:
+    """Official CENTCOM releases confirm actual action; not mere preparations.
+
+    A date MUST be present on the release page. Never use the retrieval time as
+    the publication date. Old official releases cannot trigger a new alert.
+    """
+    try:
+        res = SESSION.get(CENTCOM_RELEASES, timeout=25)
+        res.raise_for_status()
+        soup = BeautifulSoup(res.text, "html.parser")
+    except Exception as exc:
+        return [], False, ["centcom: " + type(exc).__name__ + ": " + str(exc)[:150]]
+    candidates = []
+    seen_urls = set()
+    for a in soup.find_all("a", href=True):
+        headline = clean(a.get_text(" ", strip=True))
+        if not re.search(r"\biran(?:ian)?\b", headline.lower()):
+            continue
+        if not re.search(r"\b(?:strike|strikes|bomb|attack|attacks)\b", headline.lower()):
+            continue
+        url = urllib.parse.urljoin(CENTCOM_RELEASES, a["href"])
+        if not url.startswith("https://www.centcom.mil/") or "/Article/" not in url or url in seen_urls:
+            continue
+        seen_urls.add(url)
+        if any(x in headline.lower() for x in ("refutes", "denies", "no strikes", "not strike")):
+            continue
+        try:
+            article = SESSION.get(url, timeout=20)
+            article.raise_for_status()
+            article_soup = BeautifulSoup(article.text, "html.parser")
+            article_text = clean(article_soup.get_text(" ", strip=True))
+            # Public Releases | Oct. 9, 2026
+            date_match = re.search(
+                r"(?:Public Releases|PRESS RELEASE|Public Release)\s*\|\s*"
+                r"((?:January|February|March|April|May|June|July|August|September|October|November|December|"
+                r"Jan|Feb|Mar|Apr|Jun|Jul|Aug|Sep|Sept|Oct|Nov|Dec)\.?\s+\d{1,2},\s+2026)",
+                article_text, re.I,
+            )
+            if not date_match:
+                continue
+            pub_date = None
+            for fmt in ("%B %d, %Y", "%b %d, %Y", "%b. %d, %Y"):
+                try:
+                    pub_date = dt.datetime.strptime(date_match.group(1).replace("Sept.", "Sep."), fmt).replace(
+                        tzinfo=EASTERN
+                    ).astimezone(dt.timezone.utc)
+                    break
+                except ValueError:
+                    continue
+            if not pub_date or not recent(pub_date, now) or pub_date <= PLEDGE_DATE:
+                continue
+            if not re.search(r"\b(u\.s\.|centcom|american|u\.s\. forces)\b", headline.lower()):
+                continue
+            candidates.append(Evidence(
+                kind="us_strike", source="CENTCOM", title=headline,
+                published=pub_date, url=url, raw_text=headline,
+            ))
+        except Exception:
+            # One malformed official release must not corrupt valid others.
+            continue
+    return candidates, True, []
+
+
 def decide(candidates: list[Evidence], today: dt.date) -> tuple[str, list[Evidence]] | None:
     grouped = defaultdict(list)
     for item in candidates:
@@ -314,6 +378,8 @@ def decide(candidates: list[Evidence], today: dt.date) -> tuple[str, list[Eviden
         verified_news = list(distinct.values())
         if kind == "strike_announced" and primary:
             return kind, primary[:1] + verified_news[:2]
+        if kind == "us_strike" and any(x.source == "CENTCOM" for x in rows):
+            return kind, [next(x for x in rows if x.source == "CENTCOM")] + verified_news[:2]
         if kind in ("policy_reversal", "post_election_threat", "military_warning") and primary:
             return kind, primary[:1] + verified_news[:2]
         if kind in ("policy_reversal", "us_strike", "post_election_threat", "military_warning") and len(verified_news) >= 2:
@@ -359,7 +425,11 @@ def format_message(kind: str, rows: list[Evidence], now: dt.datetime) -> str:
     if kind not in titles or not rows:
         raise ValueError("Unrecognized event type")
     first = rows[0]
-    stage = "공식 발언 확인" if first.official_voice else "독립 언론 2곳 교차 확인"
+    stage = (
+        "대통령 게시물 보존본 확인" if first.official_voice
+        else "미국 중부사령부 공식 발표" if first.source == "CENTCOM"
+        else "독립 언론 2곳 교차 확인"
+    )
     title = f"[이란·11월 3일 중간선거] {titles[kind]}"
     when_kst = first.published.astimezone(KST).strftime("%Y-%m-%d %H:%M KST")
     lines = [
@@ -387,7 +457,7 @@ def format_message(kind: str, rows: list[Evidence], now: dt.datetime) -> str:
     lines.extend(["", "근거:"])
     for row in rows[:3]:
         safe = validated_url(row.url)
-        label = "원문" if row.official_voice else row.source
+        label = "원문" if row.official_voice or row.source == "CENTCOM" else row.source
         lines.append(f'<a href="{safe}">{html.escape(label)}</a>')
     lines.extend([
         "", "추가 확인: CENTCOM 실제 군사작전, 백악관 방침, 이란 대응, 호르무즈 통항·봉쇄 유지 여부",
@@ -416,28 +486,30 @@ def main() -> int:
 
     archive, archive_ok, archive_errors = read_archive(now)
     press, press_success, press_errors = read_press(now)
-    errors = archive_errors + press_errors
+    military, centcom_ok, centcom_errors = read_centcom(now)
+    errors = archive_errors + press_errors + centcom_errors
     DEBUG.write_text(json.dumps({
         "checked_at_utc": now.isoformat(),
         "original_pledge_id": "117406186276133332",
         "archive_available": archive_ok,
+        "centcom_available": centcom_ok,
         "news_queries_succeeded": press_success,
         "news_queries_total": len(PRESS_FEEDS),
         "candidates": [
             {"kind": x.kind, "source": x.source, "published": x.published.isoformat(),
-             "title": x.title[:150], "url": x.url} for x in archive + press
+             "title": x.title[:150], "url": x.url} for x in archive + press + military
         ],
         "errors": errors,
     }, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
-    if not archive_ok and press_success < 2:
+    if not archive_ok and press_success < 2 and not centcom_ok:
         REPORT.write_text(
             "미확인: 대통령 발언 보존본·독립 뉴스 조회에 모두 충분한 접근이 없어 상태를 변경하지 않았습니다.\n"
             + "\n".join(errors[:4]) + "\n", encoding="utf-8"
         )
         return 2
 
-    result = decide(archive + press, eastern_today)
+    result = decide(archive + press + military, eastern_today)
     if result:
         kind, evidence = result
         # At most one message per posture regime. A formal reversal is not
@@ -460,8 +532,9 @@ def main() -> int:
     REPORT.write_text(
         f"이란·중간선거 별도 감시 — 미국 동부 기준 {eastern_today.isoformat()}\n"
         f"- 공식 게시물 보존본 조회: {'성공' if archive_ok else '실패'}\n"
+        f"- CENTCOM 공식 공개자료 조회: {'성공' if centcom_ok else '실패'}\n"
         f"- 독립 언론 검색 경로: {press_success}/{len(PRESS_FEEDS)} 성공\n"
-        f"- 후보 사건 수: {len(archive)+len(press)}\n"
+        f"- 후보 사건 수: {len(archive)+len(press)+len(military)}\n"
         f"- 신규 송출 대상: {'1건' if MESSAGE.exists() else '0건'}\n"
         f"- 기존 호르무즈·정유·지지율 감시와 중복하는 단순 가격·기사 반복 알림은 제외\n",
         encoding="utf-8",
