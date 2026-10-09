@@ -50,6 +50,33 @@ class IranMidtermTests(unittest.TestCase):
         self.assertIsNone(m.classify_official("Iran nuclear file is discussed."))
         self.assertIsNone(m.classify_official("We will attack Yemen."))
 
+    def test_attack_after_election_is_not_a_pre_election_pledge_reversal(self):
+        self.assertEqual(
+            m.classify_official("We will attack Iran after the elections."),
+            "post_election_threat",
+        )
+        self.assertEqual(
+            m.classify_press("Trump says he will strike Iran after midterms", ""),
+            "post_election_threat",
+        )
+        self.assertEqual(
+            m.classify_official("We will strike Iran, at a time of our choosing."),
+            "military_warning",
+        )
+        self.assertEqual(
+            m.classify_press("Trump says he will attack Iran before Nov 3", ""),
+            "policy_reversal",
+        )
+
+    def test_past_tense_us_strikes_are_detectable_only_as_confirmed_news(self):
+        self.assertEqual(
+            m.classify_press("U.S. launched new strikes against Iranian bases", ""),
+            "us_strike",
+        )
+        self.assertIsNone(
+            m.classify_press("Trump says U.S. won't resume strikes on Iran before midterms", "")
+        )
+
     def test_press_rejects_rumors_and_negation(self):
         titles = [
             "Trump could attack Iran before the midterms",
