@@ -9,6 +9,7 @@ on:
       - main
     paths:
       - 'silver_bulletin_watch.py'
+      - 'tests/test_silver_bulletin.py'
       - '.github/workflows/silver-bulletin.yml'
       - 'silver_bulletin_state.json'
 
