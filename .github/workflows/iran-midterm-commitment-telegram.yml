@@ -1,0 +1,163 @@
+name: Iran 2026 midterm Trump strike-pledge Telegram watch
+
+on:
+  schedule:
+    # Every 30 minutes UTC; actual execution can be delayed by GitHub.
+    - cron: '19,49 * * * *'
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'iran_midterm_commitment_watch.py'
+      - 'iran_midterm_commitment_state.json'
+      - 'tests/test_iran_midterm_commitment.py'
+      - '.github/workflows/iran-midterm-commitment-telegram.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: iran-midterm-commitment-telegram
+  cancel-in-progress: false
+
+jobs:
+  monitor:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    env:
+      DRY_RUN: ${{ github.event_name == 'push' && 'true' || 'false' }}
+      EXPECTED_TELEGRAM_BOT_USERNAME: khs88798879_bot
+
+    steps:
+      - name: Checkout existing repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Read current state before checking
+        run: |
+          git fetch origin main
+          git reset --hard origin/main
+
+      - name: Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install existing project dependencies
+        run: pip install -r requirements.txt
+
+      - name: Verify regression suite
+        run: |
+          python -m py_compile iran_midterm_commitment_watch.py
+          python -m unittest discover -s tests -p 'test_iran_midterm_commitment.py' -v
+
+      - name: Check registered Telegram bot
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          python - <<'PY'
+          import json, os, urllib.parse, urllib.request
+          token=(os.getenv('TELEGRAM_BOT_TOKEN') or '').strip()
+          chat=(os.getenv('TELEGRAM_CHAT_ID') or '').strip()
+          if not token or not chat:
+              raise RuntimeError("Existing verified Telegram route secret missing")
+          with urllib.request.urlopen(f'https://api.telegram.org/bot{token}/getMe', timeout=20) as r:
+              obj=json.loads(r.read().decode("utf-8"))
+          username=(obj.get("result") or {}).get("username")
+          if not obj.get("ok") or username!="khs88798879_bot":
+              raise RuntimeError("Telegram bot identity does not match the approved bot")
+          params=urllib.parse.urlencode({"chat_id":chat}).encode("utf-8")
+          request=urllib.request.Request(f'https://api.telegram.org/bot{token}/getChat', data=params, method="POST")
+          with urllib.request.urlopen(request, timeout=20) as r:
+              dest=json.loads(r.read().decode("utf-8"))
+          if not dest.get("ok"):
+              raise RuntimeError("Telegram chat unavailable")
+          print(f"telegram_route_verified=true bot=@{username} chat_type={(dest.get('result') or {}).get('type')}")
+          PY
+
+      - name: Check Trump election-linked Iran military policy
+        run: |
+          python iran_midterm_commitment_watch.py
+          cat out/iran_midterm_status.md >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Preview candidate only on code updates
+        if: env.DRY_RUN == 'true' && hashFiles('out/iran_midterm_telegram.html') != ''
+        run: |
+          echo "Dry run: no Telegram sent and no event marked as delivered." >> "$GITHUB_STEP_SUMMARY"
+          echo "One candidate verified by extractor, but deployment-triggered send suppressed." >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Send verified Telegram alert
+        if: env.DRY_RUN != 'true' && hashFiles('out/iran_midterm_telegram.html') != ''
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          python - <<'PY'
+          import json, os, pathlib, urllib.parse, urllib.request
+          token=os.environ["TELEGRAM_BOT_TOKEN"].strip()
+          chat=os.environ["TELEGRAM_CHAT_ID"].strip()
+          text=pathlib.Path("out/iran_midterm_telegram.html").read_text(encoding="utf-8").strip()
+          if not text or len(text)>3900:
+              raise RuntimeError("Invalid Telegram HTML size")
+          payload=urllib.parse.urlencode({
+              "chat_id":chat, "text":text, "parse_mode":"HTML",
+              "disable_web_page_preview":"true",
+          }).encode("utf-8")
+          request=urllib.request.Request(
+              f"https://api.telegram.org/bot{token}/sendMessage",
+              data=payload, method="POST",
+          )
+          with urllib.request.urlopen(request,timeout=25) as response:
+              sent=json.loads(response.read().decode("utf-8"))
+          response=sent.get("result") or {}
+          msg_id=response.get("message_id")
+          if not sent.get("ok") or msg_id is None:
+              raise RuntimeError("Telegram delivery not acknowledged")
+          entities=response.get("entities") or []
+          if not any(e.get("type")=="text_link" and e.get("url") for e in entities):
+              raise RuntimeError("Telegram returned no clickable original source link")
+          pathlib.Path("out/iran_midterm_delivery.json").write_text(json.dumps({
+              "confirmed":True,"message_id":msg_id,
+              "bot":"@khs88798879_bot", "link_verified":True,
+          },ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
+          print(f"telegram_delivery_confirmed=true message_id={msg_id} clickable_source=true")
+          PY
+
+      - name: Commit state only after confirmed alert
+        if: env.DRY_RUN != 'true' && success() && hashFiles('out/iran_midterm_delivery.json') != '' && hashFiles('out/iran_midterm_pending.json') != ''
+        run: |
+          cp out/iran_midterm_pending.json iran_midterm_commitment_state.json
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add iran_midterm_commitment_state.json
+          if git diff --cached --quiet; then
+            echo "No new confirmed event state to commit"
+          else
+            git commit -m "Update Iran midterm military stance alert state"
+            for try in 1 2 3 4 5; do
+              if git pull --rebase origin main && git push; then
+                echo "iran_midterm_state_persisted=true"
+                exit 0
+              fi
+              git rebase --abort >/dev/null 2>&1 || true
+              sleep $((try*2))
+            done
+            echo "State persistence failed; possible repeat in subsequent runs" >&2
+            exit 1
+          fi
+
+      - name: Upload verification artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: iran-midterm-watch-${{ github.run_id }}
+          path: |
+            out/iran_midterm_status.md
+            out/iran_midterm_debug.json
+            out/iran_midterm_telegram.html
+            out/iran_midterm_pending.json
+            out/iran_midterm_delivery.json
+          if-no-files-found: ignore
+          retention-days: 14
