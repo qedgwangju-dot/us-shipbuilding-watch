@@ -457,7 +457,12 @@ def format_message(kind: str, rows: list[Evidence], now: dt.datetime) -> str:
     lines.extend(["", "근거:"])
     for row in rows[:3]:
         safe = validated_url(row.url)
-        label = "원문" if row.official_voice or row.source == "CENTCOM" else row.source
+        label = (
+            "원문" if row.source == "CENTCOM"
+            or (row.official_voice and row.url.startswith("https://truthsocial.com/"))
+            else "대통령 게시물 보존본" if row.official_voice
+            else row.source
+        )
         lines.append(f'<a href="{safe}">{html.escape(label)}</a>')
     lines.extend([
         "", "추가 확인: CENTCOM 실제 군사작전, 백악관 방침, 이란 대응, 호르무즈 통항·봉쇄 유지 여부",
