@@ -376,12 +376,14 @@ def decide(candidates: list[Evidence], today: dt.date) -> tuple[str, list[Eviden
         for item in sorted(news, key=lambda x: x.published, reverse=True):
             distinct.setdefault(item.source, item)
         verified_news = list(distinct.values())
-        if kind == "strike_announced" and primary:
-            return kind, primary[:1] + verified_news[:2]
+        # An external archive is not the primary platform itself. Require
+        # independent trusted reporting before labeling a new post confirmed.
+        if kind == "strike_announced" and primary and verified_news:
+            return kind, primary[:1] + verified_news[:1]
         if kind == "us_strike" and any(x.source == "CENTCOM" for x in rows):
             return kind, [next(x for x in rows if x.source == "CENTCOM")] + verified_news[:2]
-        if kind in ("policy_reversal", "post_election_threat", "military_warning") and primary:
-            return kind, primary[:1] + verified_news[:2]
+        if kind in ("policy_reversal", "post_election_threat", "military_warning") and primary and verified_news:
+            return kind, primary[:1] + verified_news[:1]
         if kind in ("policy_reversal", "us_strike", "post_election_threat", "military_warning") and len(verified_news) >= 2:
             # Filter widely separated unrelated items with matching labels.
             recent_pair = sorted(verified_news, key=lambda x: x.published, reverse=True)
