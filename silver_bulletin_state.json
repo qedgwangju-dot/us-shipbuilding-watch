@@ -1,26 +1,45 @@
 {
-  "parser_version": 3,
-  "source": "https://www.natesilver.net/p/trump-approval-ratings-nate-silver-bulletin",
-  "issue_chart": "https://datawrapper.dwcdn.net/RFXsV/7818/",
-  "datawrapper_revision": 7818,
-  "data_date": "2026-10-07",
-  "checked_at_utc": "2026-10-07T16:36:30.506025+00:00",
-  "values": {
+  "checked_at_utc": "2026-10-09T06:41:53.620329+00:00",
+  "data_date": "2026-10-08",
+  "datawrapper_revision": 7846,
+  "issue_chart": "https://datawrapper.dwcdn.net/RFXsV/7846/",
+  "last_alert_data_date": "2026-10-07",
+  "last_alert_values": {
     "cost_of_living": {
-      "value": -47.99991,
-      "chart": "https://datawrapper.dwcdn.net/RFXsV/7818/"
+      "chart": "https://datawrapper.dwcdn.net/RFXsV/7818/",
+      "value": -47.99991
     },
     "economy": {
-      "value": -33.03702,
-      "chart": "https://datawrapper.dwcdn.net/RFXsV/7818/"
+      "chart": "https://datawrapper.dwcdn.net/RFXsV/7818/",
+      "value": -33.03702
     },
     "immigration": {
-      "value": -12.76274,
-      "chart": "https://datawrapper.dwcdn.net/RFXsV/7818/"
+      "chart": "https://datawrapper.dwcdn.net/RFXsV/7818/",
+      "value": -12.76274
     },
     "trade": {
-      "value": -28.10369,
-      "chart": "https://datawrapper.dwcdn.net/RFXsV/7818/"
+      "chart": "https://datawrapper.dwcdn.net/RFXsV/7818/",
+      "value": -28.10369
+    }
+  },
+  "parser_version": 4,
+  "source": "https://www.natesilver.net/p/trump-approval-ratings-nate-silver-bulletin",
+  "values": {
+    "cost_of_living": {
+      "chart": "https://datawrapper.dwcdn.net/RFXsV/7846/",
+      "value": -47.99991
+    },
+    "economy": {
+      "chart": "https://datawrapper.dwcdn.net/RFXsV/7846/",
+      "value": -33.03702
+    },
+    "immigration": {
+      "chart": "https://datawrapper.dwcdn.net/RFXsV/7846/",
+      "value": -12.76274
+    },
+    "trade": {
+      "chart": "https://datawrapper.dwcdn.net/RFXsV/7846/",
+      "value": -28.10369
     }
   }
 }
