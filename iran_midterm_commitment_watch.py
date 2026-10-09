@@ -349,7 +349,7 @@ def read_centcom(now: dt.datetime) -> tuple[list[Evidence], bool, list[str]]:
                     continue
             if not pub_date or not recent(pub_date, now) or pub_date <= PLEDGE_DATE:
                 continue
-            if not re.search(r"\b(u\.s\.|centcom|american|u\.s\. forces)\b", headline.lower()):
+            if not re.search(r"(?:\bu\.s\.|\bcentcom\b|\bamerican\b|\bu\.s\. forces\b)", headline.lower()):
                 continue
             candidates.append(Evidence(
                 kind="us_strike", source="CENTCOM", title=headline,
