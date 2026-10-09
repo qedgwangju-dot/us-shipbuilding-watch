@@ -159,5 +159,37 @@ class SilverBulletinTests(unittest.TestCase):
         self.assertEqual(json.loads(sw.PENDING.read_text())["data_date"], self.today.isoformat())
 
 
+    def test_telegram_source_link_has_no_emoji_or_exposed_url(self):
+        raw = (
+            "[Silver Bulletin 트럼프 이슈 지지율 감시] 변화 감지\n"
+            "- 경제: -35.0%p → -32.0%p (+3.0%p)\n"
+            "- 원문: " + sw.PAGE_URL
+        )
+        msg = sw.format_telegram_html(raw)
+        self.assertTrue(msg.startswith("<b>[Silver Bulletin"))
+        self.assertIn('<a href="' + sw.PAGE_URL + '">원문</a>', msg)
+        self.assertNotIn("🔗", msg)
+        self.assertNotIn("- 원문: ", msg)
+
+    def test_telegram_html_escapes_user_text_and_rejects_other_sources(self):
+        raw = "검증 <오류> & 경고\n- 원문: " + sw.PAGE_URL
+        msg = sw.format_telegram_html(raw)
+        self.assertIn("&lt;오류&gt; &amp;", msg)
+        with self.assertRaises(ValueError):
+            sw.format_telegram_html("제목\n- 원문: https://invalid.example/")
+
+    def test_invalid_page_response_suppresses_alert(self):
+        self.seed()
+        with mock.patch.object(sw.SESSION, "get", return_value=FakeResponse("", 503)):
+            self.assertEqual(sw.main(), 2)
+        self.assertFalse(sw.ALERT.exists())
+        self.assertFalse(sw.PENDING.exists())
+
+    def test_failed_upstream_dataset_is_not_treated_as_missing_revision(self):
+        with mock.patch.object(sw.SESSION, "get", return_value=FakeResponse("oops", 429)):
+            with self.assertRaises(RuntimeError):
+                sw.dataset_text("RANDOMFAILID", 1)
+
+
 if __name__ == "__main__":
     unittest.main()
