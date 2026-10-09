@@ -19,8 +19,10 @@ ALERT = OUT / "silver_bulletin_alert.txt"
 PENDING = OUT / "silver_bulletin_state_pending.json"
 STATUS = OUT / "silver_bulletin_status.txt"
 DEBUG = OUT / "silver_bulletin_debug.json"
-PARSER_VERSION = 3
-MAX_DATA_AGE_DAYS = 45
+PARSER_VERSION = 4
+MAX_DATA_AGE_DAYS = 7
+SINGLE_CHECK_THRESHOLD_PP = 2.0
+CUMULATIVE_THRESHOLD_PP = 3.0
 
 # Silver Bulletin has historically used this Datawrapper chart id for the
 # four-topic net issue average. The numeric Datawrapper revision changes when
@@ -59,10 +61,9 @@ def num(v) -> Optional[float]:
     s = norm(v).replace(",", "")
     if not s or re.fullmatch(r"\d{4}-\d{1,2}-\d{1,2}", s):
         return None
-    m = re.search(r"(?<!\d)([-+]?\d+(?:\.\d+)?)(?:\s*%)?", s)
-    if not m:
+    if not re.fullmatch(r"[-+]?\d+(?:\.\d+)?\s*%?", s):
         return None
-    x = float(m.group(1))
+    x = float(s.replace("%", "").strip())
     return x if abs(x) <= 100 else None
 
 
@@ -146,10 +147,9 @@ def dataset_text(chart_id: str, revision: int, timeout: int = 20) -> Optional[st
         elif r.status_code in {404, 410}:
             _DATASET_CACHE[key] = None
         else:
-            # Treat unexpected status as unavailable rather than inventing data.
-            _DATASET_CACHE[key] = None
-    except requests.RequestException:
-        _DATASET_CACHE[key] = None
+            raise RuntimeError(f"Datawrapper 응답 오류: {chart_id}/{revision} HTTP {r.status_code}")
+    except requests.RequestException as exc:
+        raise RuntimeError(f"Datawrapper 연결 오류: {chart_id}/{revision}: {type(exc).__name__}") from exc
     return _DATASET_CACHE[key]
 
 
@@ -258,11 +258,15 @@ def main() -> int:
         response.raise_for_status()
         charts = discover_charts(response.text)
     except Exception as e:
-        charts = []
         debug["errors"].append(f"page: {type(e).__name__}: {e}")
-    for fallback in FALLBACK_CHARTS:
-        if fallback not in charts:
-            charts.append(fallback)
+        DEBUG.write_text(json.dumps(debug, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+        STATUS.write_text("Silver Bulletin 공식 페이지 확인 실패. 과거 값을 재사용하거나 Telegram으로 보내지 않습니다.\n", encoding="utf-8")
+        return 2
+    if not any("RFXsV/" in chart for chart in charts):
+        debug["errors"].append("공식 페이지에서 이슈별 차트 RFXsV 링크가 확인되지 않음")
+        DEBUG.write_text(json.dumps(debug, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+        STATUS.write_text("Silver Bulletin 공식 이슈 차트 식별 실패. 알림 중단 및 재검증 필요.\n", encoding="utf-8")
+        return 2
 
     datasets = []
     seen_ids = set()
@@ -368,14 +372,45 @@ def main() -> int:
     DEBUG.write_text(json.dumps(debug, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
     previous = load_state()
-    old = previous.get("values", {}) if isinstance(previous, dict) else {}
-    old_version = int(previous.get("parser_version", 0) or 0) if isinstance(previous, dict) else 0
-    correction = bool(old) and old_version < PARSER_VERSION
+    old_values = previous.get("values", {}) if isinstance(previous, dict) else {}
+    if not isinstance(old_values, dict):
+        old_values = {}
+    prior_date = str(previous.get("data_date") or "") if isinstance(previous, dict) else ""
+    if prior_date and data_date < prior_date:
+        debug["errors"].append(f"과거 날짜로 역행: {prior_date} -> {data_date}")
+        DEBUG.write_text(json.dumps(debug, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+        STATUS.write_text("데이터 날짜 역행 감지. 과거 값 재전송 및 기준값 덮어쓰기 차단.\n", encoding="utf-8")
+        return 2
 
     compact = {
         key: {"value": round(float(values[key]), 6), "chart": base}
         for key in ("cost_of_living", "economy", "immigration", "trade")
     }
+    prior_alert_values = previous.get("last_alert_values", old_values)
+    if not isinstance(prior_alert_values, dict):
+        prior_alert_values = {}
+    has_baseline = all(key in old_values for key in REQUIRED_ISSUES)
+    has_alert_baseline = all(key in prior_alert_values for key in REQUIRED_ISSUES)
+
+    def as_float(mapping: dict, key: str) -> float:
+        item = mapping[key]
+        return float(item["value"] if isinstance(item, dict) else item)
+
+    def max_change(baseline: dict) -> float:
+        return max(abs(float(compact[key]["value"]) - as_float(baseline, key)) for key in REQUIRED_ISSUES)
+
+    step_change = max_change(old_values) if has_baseline else 0.0
+    cumulative_change = max_change(prior_alert_values) if has_alert_baseline else 0.0
+    notify = (
+        has_baseline
+        and has_alert_baseline
+        and (
+            step_change >= SINGLE_CHECK_THRESHOLD_PP
+            or cumulative_change >= CUMULATIVE_THRESHOLD_PP
+        )
+    )
+    # Legacy migration: v3 had only the last successfully sent snapshot.
+    # Its values remain the alert baseline, preventing false startup alerts.
     current = {
         "parser_version": PARSER_VERSION,
         "source": PAGE_URL,
@@ -384,70 +419,70 @@ def main() -> int:
         "data_date": data_date,
         "checked_at_utc": dt.datetime.now(dt.timezone.utc).isoformat(),
         "values": compact,
+        "last_alert_values": compact if notify or not has_alert_baseline else prior_alert_values,
+        "last_alert_data_date": (
+            data_date if notify or not has_alert_baseline
+            else str(previous.get("last_alert_data_date") or prior_date)
+        ),
     }
+    # Store observed values even if no alert: this decouples freshness from
+    # alerting and makes the 2 pp single-check / 3 pp cumulative rules accurate.
+    state_changed = (
+        not has_baseline
+        or previous.get("parser_version") != PARSER_VERSION
+        or previous.get("data_date") != data_date
+        or previous.get("datawrapper_revision") != revision
+        or any(
+            abs(as_float(old_values, key) - float(compact[key]["value"])) > 1e-7
+            for key in REQUIRED_ISSUES
+        )
+        or notify
+    )
 
-    changed = correction or not old
-    if old and not correction:
-        for key, payload in compact.items():
-            before = old.get(key)
-            if isinstance(before, dict):
-                before = before.get("value")
-            try:
-                before_num = float(before)
-            except (TypeError, ValueError):
-                changed = True
-                break
-            if abs(float(payload["value"]) - before_num) >= 0.05:
-                changed = True
-                break
-
-    if changed:
-        if correction:
-            lines = ["[Silver Bulletin 트럼프 이슈 지지율 감시] 기준값 최종 정정", ""]
-            lines.extend(current_values_only(compact))
-            lines += [
-                "",
-                "→ 앞선 시험 알림은 오래된 Datawrapper 공개 버전을 읽은 값이라 폐기했습니다.",
-                "→ 이제 동일 차트의 최신 공개 버전을 자동 탐색하고, 기준일이 최신인지 검증한 뒤에만 알립니다.",
-            ]
-        elif not old:
-            lines = ["[Silver Bulletin 트럼프 이슈 지지율 감시] Telegram 연결 완료", ""]
-            lines.extend(current_values_only(compact))
-            lines += ["", "→ 현재 4개 이슈 평균을 기준값으로 저장했습니다. 이후 값이 바뀔 때만 알립니다."]
-        else:
-            lines = ["[Silver Bulletin 트럼프 이슈 지지율 감시] 변화 감지", ""]
-            deltas = []
-            for key in ("cost_of_living", "economy", "immigration", "trade"):
-                now = float(compact[key]["value"])
-                before = old.get(key)
-                if isinstance(before, dict):
-                    before = before.get("value")
-                try:
-                    before_num = float(before)
-                except (TypeError, ValueError):
-                    before_num = None
-                if before_num is None:
-                    lines.append(f"- {ISSUES[key][0]}: {fmt(now)}")
-                else:
-                    delta = now - before_num
-                    deltas.append((abs(delta), ISSUES[key][0], delta))
-                    lines.append(f"- {ISSUES[key][0]}: {fmt(before_num)} → {fmt(now)} ({delta:+.1f}%p)")
-            if deltas:
-                _, label, delta = max(deltas)
-                lines += ["", f"→ 가장 큰 변화: {label} {abs(delta):.1f}%p {'개선' if delta > 0 else '악화' if delta < 0 else '변화 없음'}"]
-
-        lines += ["", f"- 기준일: {data_date}", f"- 원문: {PAGE_URL}"]
+    if notify:
+        lines = ["[Silver Bulletin 트럼프 이슈 지지율 감시] 변화 감지", ""]
+        deltas = []
+        for key in ("cost_of_living", "economy", "immigration", "trade"):
+            now_value = float(compact[key]["value"])
+            before = as_float(prior_alert_values, key)
+            delta = now_value - before
+            label = ISSUES[key][0]
+            deltas.append((abs(delta), label, delta))
+            lines.append(f"- {label}: {fmt(before)} → {fmt(now_value)} ({delta:+.1f}%p)")
+        _, max_label, biggest_delta = max(deltas)
+        lines.extend([
+            "",
+            f"→ 가장 큰 변화: {max_label} {abs(biggest_delta):.1f}%p "
+            + ("개선" if biggest_delta > 0 else "악화" if biggest_delta < 0 else "변화 없음"),
+            "",
+            f"- 기준일: {data_date}",
+            f"- 원문: {PAGE_URL}",
+        ])
         ALERT.write_text("\n".join(lines) + "\n", encoding="utf-8")
-        PENDING.write_text(json.dumps(current, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
+    if state_changed:
+        PENDING.write_text(
+            json.dumps(current, ensure_ascii=False, indent=2, sort_keys=True) + "\n",
+            encoding="utf-8",
+        )
+    DEBUG.write_text(json.dumps({
+        **debug,
+        "threshold_step_pp": SINGLE_CHECK_THRESHOLD_PP,
+        "threshold_cumulative_pp": CUMULATIVE_THRESHOLD_PP,
+        "max_step_change_pp": round(step_change, 6),
+        "max_cumulative_change_pp": round(cumulative_change, 6),
+        "notification_required": notify,
+        "state_refresh_required": state_changed,
+    }, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     STATUS.write_text(
-        "Silver Bulletin 4개 이슈 평균 확인 완료 — "
-        + ("기준값 최종 정정" if correction else "기준값/변화 감지" if changed else "변화 없음")
-        + f" — 최신 Datawrapper revision {revision} — 기준일 {data_date}\n",
+        f"Silver Bulletin 4개 이슈 검증 완료 — 기준일 {data_date} "
+        f"— Datawrapper {revision} — 최대 직전변화 {step_change:.3f}%p "
+        f"— 최대 누적변화 {cumulative_change:.3f}%p "
+        f"— 알림 {'발송 예정' if notify else '미발송(기준 미충족)'}"
+        f" — 상태 갱신 {'필요' if state_changed else '불필요'}\n",
         encoding="utf-8",
     )
     return 0
-
 
 if __name__ == "__main__":
     raise SystemExit(main())
