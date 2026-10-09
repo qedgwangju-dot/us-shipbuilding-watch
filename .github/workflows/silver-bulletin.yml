@@ -134,24 +134,73 @@ jobs:
           RUN_URL: https://github.com/qedgwangju-dot/us-shipbuilding-watch/actions/runs/${{ github.run_id }}
         run: |
           python - <<'PY'
-          import os, urllib.parse, urllib.request
+          import datetime as dt
+          import json
+          import os
+          import pathlib
+          import subprocess
+          import time
+          import urllib.parse
+          import urllib.request
+
           token = (os.getenv("TELEGRAM_BOT_TOKEN") or "").strip()
           chat = (os.getenv("TELEGRAM_CHAT_ID") or "").strip()
-          if token and chat:
-              data = urllib.parse.urlencode({
-                  "chat_id": chat,
-                  "text": "[Silver Bulletin 지지율 감시] 실행 오류\n"
-                          "이번 확인에서 자료 조회 또는 송출·상태 저장이 실패했습니다. "
-                          "수치 추정·과거값 재전송은 하지 않습니다.\n"
-                          "실행 기록: " + os.environ["RUN_URL"],
-                  "disable_web_page_preview": "true",
-              }).encode("utf-8")
-              request = urllib.request.Request(
-                  "https://api.telegram.org/bot" + token + "/sendMessage",
-                  data=data, method="POST",
-              )
-              with urllib.request.urlopen(request, timeout=20) as response:
-                  print("failure_alert_http=" + str(response.status))
+          if not token or not chat:
+              raise RuntimeError("Telegram 설정 누락: 실패 경고를 송출할 수 없습니다")
+
+          state_path = pathlib.Path("silver_bulletin_error_state.json")
+          try:
+              previous = json.loads(state_path.read_text(encoding="utf-8"))
+          except (OSError, json.JSONDecodeError):
+              previous = {}
+          now = dt.datetime.now(dt.timezone.utc)
+          try:
+              last = dt.datetime.fromisoformat(str(previous.get("last_sent_utc") or ""))
+              if last.tzinfo is None:
+                  last = last.replace(tzinfo=dt.timezone.utc)
+          except ValueError:
+              last = None
+          if last is not None and 0 <= (now-last).total_seconds() < 12*3600:
+              print("silver_bulletin_error_alert_suppressed=true reason=12h_dedupe")
+              raise SystemExit(0)
+
+          data = urllib.parse.urlencode({
+              "chat_id": chat,
+              "text": "[Silver Bulletin 지지율 감시] 실행 오류\n"
+                      "이번 확인에서 원자료 조회·검증 또는 Telegram 송출·상태 저장이 실패했습니다. "
+                      "확인되지 않은 수치는 보내지 않습니다.\n"
+                      "실행 기록: " + os.environ["RUN_URL"],
+              "disable_web_page_preview": "true",
+          }).encode("utf-8")
+          request = urllib.request.Request(
+              "https://api.telegram.org/bot" + token + "/sendMessage",
+              data=data, method="POST",
+          )
+          with urllib.request.urlopen(request, timeout=20) as response:
+              receipt = json.loads(response.read().decode("utf-8"))
+          if not receipt.get("ok") or (receipt.get("result") or {}).get("message_id") is None:
+              raise RuntimeError("Telegram failure alarm not acknowledged")
+
+          state_path.write_text(json.dumps({
+              "last_sent_utc": now.isoformat(),
+              "run_url": os.environ["RUN_URL"],
+          }, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+          def git(*args):
+              return subprocess.run(["git", *args], check=False).returncode == 0
+          git("config", "user.name", "github-actions[bot]")
+          git("config", "user.email", "41898282+github-actions[bot]@users.noreply.github.com")
+          if not git("add", str(state_path)):
+              raise RuntimeError("Cannot stage failure alert state")
+          if not git("commit", "-m", "Update Silver Bulletin error alert state"):
+              raise RuntimeError("Cannot commit failure alert state")
+          for attempt in range(1, 6):
+              if git("pull", "--rebase", "origin", "main") and git("push"):
+                  print("silver_bulletin_error_alert_sent=true state_persisted=true")
+                  break
+              git("rebase", "--abort")
+              time.sleep(attempt*2)
+          else:
+              raise RuntimeError("Telegram failure alarm sent, but dedupe state commit failed")
           PY
 
       - name: 검증 자료 저장
