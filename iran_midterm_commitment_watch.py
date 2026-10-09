@@ -121,9 +121,21 @@ def classify_official(text: str) -> str | None:
 
 def classify_press(title: str, body: str) -> str | None:
     # No speculation, contingency plans, editorial questions, or mere quotes.
-    t = clean(title).lower()
-    snippet = clean(body).lower()
+    t = clean(title).lower().replace("’", "'")
+    snippet = clean(body).lower().replace("’", "'")
     if not re.search(r"\biran(?:ian)?\b", t):
+        return None
+    # MUST run before positive strike verbs. "U.S. WON'T resume strikes"
+    # contains the words "U.S.", "resume", "strikes" and "Iran" and must
+    # never be treated as confirmed combat. This bug was found in live RSS.
+    negative_strike = (
+        r"(?:\bwill not\b|\bwon't\b|\bwould not\b|\bdoesn't\b|"
+        r"\bnot going to\b|\bnot planning to\b|\bno plans? to\b|"
+        r"\bno new\b|\brules? out\b|\bruled out\b|\bpledges? not to\b|"
+        r"\bpauses?\b|\bsuspends?\b|\bpostpones?\b|\bdelays?\b)"
+        r".{0,100}\b(?:attack|attacking|strike|strikes|striking|bomb|resume|resuming)\b"
+    )
+    if re.search(negative_strike, t):
         return None
     if any(x in t for x in (
         "may attack", "might attack", "could attack", "considers", "considering",
