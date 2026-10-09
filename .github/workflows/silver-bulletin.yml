@@ -153,6 +153,13 @@ jobs:
           chat = (os.getenv("TELEGRAM_CHAT_ID") or "").strip()
           if not token or not chat:
               raise RuntimeError("Telegram 설정 누락: 실패 경고를 송출할 수 없습니다")
+          with urllib.request.urlopen(
+              "https://api.telegram.org/bot" + token + "/getMe", timeout=15
+          ) as response:
+              identity = json.loads(response.read().decode("utf-8"))
+          actual = (identity.get("result") or {}).get("username")
+          if not identity.get("ok") or actual != "khs88798879_bot":
+              raise RuntimeError("실패 경고용 Telegram 봇 계정 불일치")
 
           state_path = pathlib.Path("silver_bulletin_error_state.json")
           try:
