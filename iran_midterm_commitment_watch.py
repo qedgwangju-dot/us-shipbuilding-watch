@@ -148,13 +148,13 @@ def classify_press(title: str, body: str) -> str | None:
 
     # Only definite NEW U.S. strikes; not old reports or tentative deployments.
     strike = (
-        r"\b(u\.s\.|us military|united states|american forces|pentagon)\b"
+        r"(?:\bu\.s\.|\bus military\b|\bunited states\b|\bamerican forces\b|\bpentagon\b)"
         r".{0,65}\b(resumes|launches|conducts|begins|carries out|hits|strikes|attacks|bombs)\b"
         r".{0,65}\biran(?:ian)?\b"
     )
     if re.search(strike, t):
         return "us_strike"
-    if re.search(r"\b(u\.s\.|us military|american forces)\b.{0,45}\bnew\b.{0,25}\bstrikes\b.{0,50}\biran", t):
+    if re.search(r"(?:\bu\.s\.|\bus military\b|\bamerican forces\b).{0,45}\bnew\b.{0,25}\bstrikes\b.{0,50}\biran", t):
         return "us_strike"
     # Do not use positive snippets alone: they often repeat old historic events.
     return None
