@@ -109,10 +109,15 @@ class IranMidtermTests(unittest.TestCase):
             "us_strike",
         )
 
-    def test_archive_alone_policy_reversal_is_official_announcement(self):
+    def test_archive_alone_is_not_sufficient_for_an_alarm(self):
         candidate = ev("policy_reversal", "트럼프 게시물 보존본",
                        "I will attack Iran", official=True)
-        self.assertEqual(m.decide([candidate], NOW.date())[0], "policy_reversal")
+        self.assertIsNone(m.decide([candidate], NOW.date()))
+        independent = ev("policy_reversal", "Reuters",
+                         "Trump reverses Iran attack pledge")
+        self.assertEqual(
+            m.decide([candidate, independent], NOW.date())[0], "policy_reversal"
+        )
 
     def test_one_publisher_does_not_verify_strikes(self):
         candidate = ev("us_strike", "Reuters", "US launches new strikes on Iran")
