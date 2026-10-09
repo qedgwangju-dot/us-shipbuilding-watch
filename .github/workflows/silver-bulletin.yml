@@ -2,7 +2,7 @@ name: Silver Bulletin 트럼프 이슈 지지율 감시
 
 on:
   schedule:
-    - cron: '23 * * * *'
+    - cron: '17,47 * * * *'
   workflow_dispatch:
   push:
     branches:
@@ -17,7 +17,7 @@ permissions:
 
 concurrency:
   group: silver-bulletin-watch
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   watch:
@@ -57,9 +57,15 @@ jobs:
           print(f'telegram_bot_verified=@{actual}')
           PY
 
+      - name: Silver Bulletin 회귀 테스트
+        run: python -m unittest discover -s tests -p 'test_silver_bulletin.py' -v
+
       - name: Silver Bulletin 수치 확인
         run: |
-          python silver_bulletin_watch.py
+          if ! python silver_bulletin_watch.py; then
+            cat out/silver_bulletin_status.txt >> "$GITHUB_STEP_SUMMARY" || true
+            exit 1
+          fi
           cat out/silver_bulletin_status.txt >> "$GITHUB_STEP_SUMMARY"
 
       - name: 변경 시 Telegram 알림
@@ -88,9 +94,11 @@ jobs:
               formatted.append(html.escape(line))
           text='\n'.join(formatted)
 
+          if len(text) > 4000:
+              raise RuntimeError('Telegram 메시지 길이 초과: HTML 문자열을 임의로 자르지 않습니다')
           payload=urllib.parse.urlencode({
               'chat_id': chat_id,
-              'text': text[:4096],
+              'text': text,
               'parse_mode': 'HTML',
               'disable_web_page_preview': 'true',
           }).encode('utf-8')
@@ -102,7 +110,7 @@ jobs:
           print(f"telegram_delivery_confirmed=true message_id={(result.get('result') or {}).get('message_id')}")
           PY
 
-      - name: 전송 성공 후 기준값 저장
+      - name: 정상 검증 후 최신 상태 저장
         if: success() && hashFiles('out/silver_bulletin_state_pending.json') != ''
         run: cp out/silver_bulletin_state_pending.json silver_bulletin_state.json
 
@@ -119,6 +127,34 @@ jobs:
             git pull --rebase origin main
             git push
           fi
+
+      - name: 실패 시 Telegram 오류 알림
+        if: failure()
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          RUN_URL: https://github.com/qedgwangju-dot/us-shipbuilding-watch/actions/runs/${{ github.run_id }}
+        run: |
+          python - <<'PY'
+          import os, urllib.parse, urllib.request
+          token = (os.getenv("TELEGRAM_BOT_TOKEN") or "").strip()
+          chat = (os.getenv("TELEGRAM_CHAT_ID") or "").strip()
+          if token and chat:
+              data = urllib.parse.urlencode({
+                  "chat_id": chat,
+                  "text": "[Silver Bulletin 지지율 감시] 실행 오류\n"
+                          "이번 확인에서 자료 조회 또는 송출·상태 저장이 실패했습니다. "
+                          "수치 추정·과거값 재전송은 하지 않습니다.\n"
+                          "실행 기록: " + os.environ["RUN_URL"],
+                  "disable_web_page_preview": "true",
+              }).encode("utf-8")
+              request = urllib.request.Request(
+                  "https://api.telegram.org/bot" + token + "/sendMessage",
+                  data=data, method="POST",
+              )
+              with urllib.request.urlopen(request, timeout=20) as response:
+                  print("failure_alert_http=" + str(response.status))
+          PY
 
       - name: 검증 자료 저장
         if: always()
