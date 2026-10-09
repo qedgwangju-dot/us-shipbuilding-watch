@@ -154,33 +154,56 @@ def dataset_text(chart_id: str, revision: int, timeout: int = 20) -> Optional[st
 
 
 def latest_revision(chart_id: str, seed: int) -> int:
-    """Find the highest contiguous public Datawrapper revision efficiently."""
+    """Find the newest usable published revision; tolerate short revision gaps.
+
+    Start from the last verified state when available. This avoids repeatedly
+    searching thousands of historical revisions from the page's old iframe.
+    A missing version inside the future range is not necessarily the end.
+    """
+    old = load_state()
+    prior_chart = str(old.get("issue_chart") or "")
+    prior_rev = int(old.get("datawrapper_revision", 0) or 0)
+    if f"/{chart_id}/" in prior_chart and prior_rev > seed:
+        seed = prior_rev
+
     if dataset_text(chart_id, seed) is None:
-        return seed
+        raise RuntimeError(f"검증 기준 공개 버전 접근 실패: {chart_id}/{seed}")
 
-    low = seed
+    lower = seed
     step = 1
-    high = seed + step
-    # Exponential search for a missing upper bound.
-    while high <= 65536 and dataset_text(chart_id, high) is not None:
-        low = high
+    upper = seed + step
+    while upper <= 65536 and dataset_text(chart_id, upper) is not None:
+        lower = upper
         step *= 2
-        high = seed + step
-    if high > 65536:
-        high = 65537
+        upper = seed + step
+    if upper > 65536:
+        raise RuntimeError("Datawrapper 개정번호 탐색 상한 초과 — 수동 확인 필요")
 
-    # Binary search assumes Datawrapper publish revisions are contiguous.
-    left, right = low + 1, high - 1
-    best = low
+    left, right = lower + 1, upper - 1
+    best = lower
     while left <= right:
-        mid = (left + right) // 2
-        if dataset_text(chart_id, mid) is not None:
-            best = mid
-            left = mid + 1
+        middle = (left + right) // 2
+        if dataset_text(chart_id, middle) is not None:
+            best = middle
+            left = middle + 1
         else:
-            right = mid - 1
-    return best
+            right = middle - 1
 
+    # A deleted or unpublished intermediate revision can invalidate a simple
+    # binary search's contiguous assumption. Search beyond the first hole and
+    # then continue, rather than silently treating an old dataset as latest.
+    for _ in range(8):
+        valid_ahead = [
+            candidate for candidate in range(best + 1, best + 9)
+            if dataset_text(chart_id, candidate) is not None
+        ]
+        if not valid_ahead:
+            return best
+        advanced = max(valid_ahead)
+        if advanced <= best:
+            break
+        best = advanced
+    raise RuntimeError("비연속 개정번호 탐색 범위 초과 — 오탐 방지를 위해 발송 중단")
 
 def parse_csv(text: str) -> tuple[list[str], list[dict]]:
     try:
