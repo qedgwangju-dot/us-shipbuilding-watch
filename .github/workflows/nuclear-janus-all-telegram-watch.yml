@@ -140,6 +140,28 @@ jobs:
           print('holtec_event_classifier_contract=passed semantic_dedupe=passed smr_event_dedupe=passed ownership_contract=passed')
           PY
 
+      - name: Verify Canary article-to-project contract end to end
+        run: |
+          python - <<'PY'
+          import sys
+          sys.path.insert(0, 'upstream/scripts')
+          import janus_watch_v13 as j13
+          import janus_watch_v2 as j2
+          j2._self_test_constellation_google_uprate()
+          event = {
+              'kind': 'macro_nuclear',
+              'source': 'Canary Media 원전 정책·금융',
+              'title': 'Constellation and Google go in on nuclear uprates to unlock clean power',
+              'url': 'https://www.canarymedia.com/articles/nuclear/constellation-google-nuclear-uprates',
+          }
+          final = j13._render_v13([event], [])
+          for required in ('Constellation', 'Google', 'PJM', '890MW', '11기', '43억달러', '20년', '2,700MW', '15년', 'Gemini Enterprise', '5년', '2028년'):
+              assert required in final, f'Canary actual v13 renderer missing verified fact: {required}'
+          assert 'NYISO' not in final and 'NYPA' not in final
+          assert '부지 선정 · 노형 선정' not in final
+          print('canary_constellation_google_v13_end_to_end=passed')
+          PY
+
       - name: Run all nuclear Janus SMR and gas turbine web watch v13
         run: |
           python upstream/scripts/janus_watch_v13.py --mode check
@@ -253,7 +275,22 @@ jobs:
           plain=html.unescape(re.sub(r'<[^>]+>', '', text))
           if j._BAD_TITLE_RE.search(plain):
               raise RuntimeError(f'blocked error-page alert: {path}')
-          print('telegram_alert_preflight=passed')
+          # 타 기사 핵심 병목이 URL만 바뀌어 유통되는 혼입 사고를 전송 전에 차단한다.
+          import html as htmlmod
+          start=0
+          checked=0
+          for match in re.finditer(r'<a href="([^"]+)">원문 보기</a>', text):
+              url=htmlmod.unescape(match.group(1))
+              block=text[start:match.end()]
+              if 'constellation-google-nuclear-uprates' in url:
+                  j._verify_macro_event_source_alignment(
+                      {'kind': 'macro_nuclear', 'url': url}, block
+                  )
+                  checked += 1
+              start=match.end()
+          if 'constellation-google-nuclear-uprates' in text and checked == 0:
+              raise RuntimeError('Constellation/Google 원문 링크-기사 블록 연결 실패: 송출 차단')
+          print(f'telegram_alert_preflight=passed canary_article_blocks={checked}')
           PY
 
       - name: Build one-time v8 upgrade test
@@ -320,7 +357,7 @@ jobs:
           fi
 
       - name: Send all alerts to khs887900 bot
-        if: hashFiles('nuclear_us_v8_estimate_test.html') != '' || hashFiles('nuclear_smr_v9_policy_test.html') != '' || hashFiles('nuclear_smr_v10_demand_test.html') != '' || hashFiles('nuclear_gt_v11_cycle_test.html') != '' || hashFiles('upstream/out/janus_alert_v2.html') != ''
+        if: github.event_name != 'push' && (hashFiles('nuclear_us_v8_estimate_test.html') != '' || hashFiles('nuclear_smr_v9_policy_test.html') != '' || hashFiles('nuclear_smr_v10_demand_test.html') != '' || hashFiles('nuclear_gt_v11_cycle_test.html') != '' || hashFiles('upstream/out/janus_alert_v2.html') != '')
         run: |
           python - <<'PY'
           import json, os, pathlib, urllib.parse, urllib.request
@@ -357,12 +394,15 @@ jobs:
                       result=json.loads(r.read().decode('utf-8'))
                   if not result.get('ok'):
                       raise RuntimeError(str(result))
-                  ids.append((result.get('result') or {}).get('message_id'))
+                  message_id=(result.get('result') or {}).get('message_id')
+                  if not isinstance(message_id, int) or message_id < 1:
+                      raise RuntimeError(f'Telegram API 응답에 유효한 message_id 없음: {path}')
+                  ids.append(message_id)
           print(f'nuclear_janus_delivery_confirmed=true bot=@{actual} messages={len(ids)} ids={ids}')
           PY
 
       - name: Mark upgrade verified
-        if: success()
+        if: success() && github.event_name != 'push'
         run: |
           if [ -f nuclear_us_v8_estimate_test.html ]; then
             printf 'verified v8 Doosan estimate and capacity checks target=@khs887900_bot\n' > nuclear_us_v8_estimate_verified.txt
@@ -378,7 +418,7 @@ jobs:
           fi
 
       - name: Persist watcher state
-        if: success() && hashFiles('upstream/out/janus_watch_v2_state_pending.json') != ''
+        if: success() && github.event_name != 'push' && hashFiles('upstream/out/janus_watch_v2_state_pending.json') != ''
         run: cp upstream/out/janus_watch_v2_state_pending.json nuclear_janus_state.json
 
       - name: Record Korean SMR single-owner guard verification
@@ -394,7 +434,7 @@ jobs:
           } > nuclear_smr_single_owner_guard_verified.txt
 
       - name: Commit state
-        if: success()
+        if: success() && github.event_name != 'push'
         run: |
           git config user.name 'nuclear-janus-watch[bot]'
           git config user.email 'nuclear-janus-watch[bot]@users.noreply.github.com'
