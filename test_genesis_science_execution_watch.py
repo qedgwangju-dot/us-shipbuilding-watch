@@ -83,7 +83,7 @@ def main():
         assert "NVIDIA 10억달러" in g.render(new)
         no_action={**fixtures(),"title":"Genesis Mission Quantum Computing Outlook and Market Forecast"}
         assert g.classification(no_action) is None
-        no_recipient={**fixtures(),"body":"Genesis Mission quantum computing experiment only, with no confirmed institution, award, contract or supplier."}
+        no_recipient={**fixtures(),"title":"DOE Announces New Grants for Genesis Mission Quantum Research","body":"Genesis Mission quantum computing experiment only, with no confirmed institution, award, contract or supplier."}
         assert g.classification(no_recipient) is None
         uncertified={**fixtures(),"url":"https://news.google.com/rss/articles/repost"}
         assert g.classification(uncertified) is None
