@@ -8,6 +8,7 @@ on:
     branches:
       - main
     paths:
+      - 'tesla_state_checkpoint.py'
       - 'semiconductor_consumption_watch_v2.py'
       - 'semiconductor_consumption_watch_v3.py'
       - 'semiconductor_consumption_watch_v4.py'
@@ -15,16 +16,42 @@ on:
       - 'semiconductor_consumption_watch_v6.py'
       - 'requirements.txt'
       - '.github/workflows/semiconductor-consumption-watch.yml'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'requirements.txt'
+      - 'tesla_state_checkpoint.py'
+      - 'semiconductor_consumption_watch_v2.py'
+      - 'semiconductor_consumption_watch_v4.py'
+      - 'semiconductor_consumption_watch_v6.py'
+      - 'tests/test_semiconductor_consumption_delivery.py'
+      - '.github/workflows/semiconductor-consumption-watch.yml'
 
 permissions:
   contents: write
 
 concurrency:
-  group: semiconductor-consumption-watch
-  cancel-in-progress: true
+  group: semiconductor-consumption-watch${{ github.event_name == 'pull_request' && format('-pr-{0}', github.event.pull_request.number) || '' }}
+  cancel-in-progress: false
 
 jobs:
+  offline-regressions:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -r requirements.txt pyyaml
+      - run: python -m unittest discover -s tests -p test_semiconductor_consumption_delivery.py -v
+
   monitor:
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
 
     steps:
@@ -32,6 +59,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          ref: main
 
       - name: Python 설정
         uses: actions/setup-python@v5
@@ -42,27 +70,25 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: 반도체 수혜지역 소비·Tesla 변화 확인
+        id: collect
         env:
           KHS887900_BOT_TOKEN: ${{ secrets.KHS887900_BOT_TOKEN }}
           KHS887900_CHAT_ID: ${{ secrets.KHS887900_CHAT_ID }}
         run: python semiconductor_consumption_watch_v6.py
 
       - name: 감시 상태 저장
-        run: |
-          if [ -z "$(git status --porcelain semiconductor_consumption_state.json)" ]; then
-            echo "상태 변화 없음"
-            exit 0
-          fi
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add semiconductor_consumption_state.json
-          git commit -m "Update semiconductor consumption monitor state"
-          for i in 1 2 3; do
-            git pull --rebase origin main || true
-            if git push origin HEAD:main; then
-              exit 0
-            fi
-            sleep 3
-          done
-          echo "상태 저장 재시도 3회 실패"
-          exit 1
+        if: always() && steps.collect.outcome != 'skipped' && hashFiles('out/semiconductor_consumption_checkpoint.json') != ''
+        run: python tesla_state_checkpoint.py
+
+      - name: Preserve delivery checkpoint and diagnostics
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: semiconductor-consumption-${{ github.run_id }}
+          path: |
+            semiconductor_consumption_state.json
+            out/semiconductor_consumption_checkpoint.json
+            out/semiconductor_consumption_diagnostics.json
+          if-no-files-found: warn
+          retention-days: 14
+
