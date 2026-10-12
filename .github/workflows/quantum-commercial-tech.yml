@@ -10,6 +10,8 @@ on:
     paths:
       - 'quantum_commercial_tech_watch.py'
       - 'test_quantum_commercial_tech_watch.py'
+      - 'genesis_science_execution_watch.py'
+      - 'test_genesis_science_execution_watch.py'
       - 'requirements.txt'
       - '.github/workflows/quantum-commercial-tech.yml'
 
@@ -18,7 +20,8 @@ permissions:
 
 concurrency:
   group: quantum-commercial-tech-watch
-  cancel-in-progress: true
+  # Never interrupt a possible in-flight Telegram send with a new run.
+  cancel-in-progress: false
 
 jobs:
   monitor:
@@ -46,10 +49,12 @@ jobs:
 
       - name: 회귀검사
         run: |
-          python -m py_compile quantum_commercial_tech_watch.py
+          python -m py_compile quantum_commercial_tech_watch.py genesis_science_execution_watch.py
           PYTHONPATH=. python test_quantum_commercial_tech_watch.py
+          PYTHONPATH=. python test_genesis_science_execution_watch.py
 
       - name: Telegram 경로 확인
+        id: quantum_bot_check
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
@@ -77,20 +82,27 @@ jobs:
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: python quantum_commercial_tech_watch.py
 
+      - name: Genesis Mission 과학·양자 투자 실집행 변화 확인
+        if: ${{ always() && steps.quantum_bot_check.outcome == 'success' }}
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python genesis_science_execution_watch.py
+
       - name: 감시 상태 저장
         # A later Telegram send may fail after an earlier message succeeded.
         # Commit confirmed per-message state even if the detection step fails,
         # so the successful message cannot be replayed as a fresh event.
         if: ${{ always() }}
         run: |
-          if [ -z "$(git status --porcelain -- quantum_commercial_tech_state.json)" ]; then
+          if [ -z "$(git status --porcelain -- quantum_commercial_tech_state.json genesis_science_execution_state.json)" ]; then
             echo "상태 변화 없음"
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add quantum_commercial_tech_state.json
-          git commit -m "Update quantum commercial tech monitor state"
+          git add quantum_commercial_tech_state.json genesis_science_execution_state.json
+          git commit -m "Update quantum and Genesis science monitor states"
           for attempt in 1 2 3; do
             if git pull --rebase origin main && git push; then
               exit 0
@@ -110,5 +122,7 @@ jobs:
           path: |
             quantum_commercial_tech_state.json
             quantum_commercial_tech_delivery.json
+            genesis_science_execution_state.json
+            genesis_science_execution_delivery.json
           if-no-files-found: ignore
           retention-days: 14
