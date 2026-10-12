@@ -1,6 +1,25 @@
 {
   "schema_version": 1,
-  "outbox": {},
+  "outbox": {
+    "refinery:news:refinery_gasoline_policy_202609": {
+      "topic": "refinery",
+      "kind": "news",
+      "event_key": "refinery_gasoline_policy_202609",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "f19368998200a5aa407ce704",
+          "title": "Trump will meet US oil refiners as gasoline prices remain high - mezha.net",
+          "link": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE82d2NtOE9XYnJzcTlCclVINHlISklFOUliNW5GdVUxSGJvQUFza1ltQ2I1MTNzSVhzUTFVZXlYbGd3SzJOdHpHeHpCc2R1Ym1VcFFVTmpVeko2MFRxdVlXbk5R?oc=5",
+          "source": "mezha.net",
+          "source_url": "https://mezha.net",
+          "pub_kst": "2026-08-31T16:00+09:00"
+        }
+      ],
+      "queued_at": "2026-10-12T20:35:38+09:00",
+      "attempts": 0
+    }
+  },
   "receipts": [],
   "dispositions": [
     {
