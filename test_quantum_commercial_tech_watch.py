@@ -133,8 +133,10 @@ def main():
     old_workdir=os.getcwd()
     old_token=os.environ.get("TELEGRAM_BOT_TOKEN")
     old_chat=os.environ.get("TELEGRAM_CHAT_ID")
+    old_mode=os.environ.get("QTECH_TEST_MODE")
     os.environ["TELEGRAM_BOT_TOKEN"]="offline-fake-test-token"
     os.environ["TELEGRAM_CHAT_ID"]="offline-fake-test-chat"
+    os.environ["QTECH_TEST_MODE"]="1"
     saved={
         "STATE_FILE":q.STATE_FILE,
         "OFFICIAL_SOURCES":q.OFFICIAL_SOURCES,
@@ -192,7 +194,7 @@ def main():
             assert not done["retry_candidates"]
     finally:
         os.chdir(old_workdir)
-        for var, original in (("TELEGRAM_BOT_TOKEN",old_token),("TELEGRAM_CHAT_ID",old_chat)):
+        for var, original in (("TELEGRAM_BOT_TOKEN",old_token),("TELEGRAM_CHAT_ID",old_chat),("QTECH_TEST_MODE",old_mode)):
             if original is None:
                 os.environ.pop(var,None)
             else:
