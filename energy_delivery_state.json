@@ -1,0 +1,962 @@
+{
+  "schema_version": 1,
+  "outbox": {
+    "refinery:news:refinery_article_d19062d61d42f1403c222bea": {
+      "topic": "refinery",
+      "kind": "news",
+      "event_key": "refinery_article_d19062d61d42f1403c222bea",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "d19062d61d42f1403c222bea",
+          "title": "Oil Is Flowing Again But Gasoline And Diesel Prices Aren’t Cooperating - Forbes",
+          "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxOX29jWDJabl9BUHNjWnM5TnBWbXNFN25tV3NlM3RXU1RDQVE0aEVkdnljNUFHSlpjVTNYcVFZcHdSemRLMW5wTTB3TXc2cThWWmFsZFhpelBTTUZxMnZBTDVUSk1oYmVSRzlHQzlYMlphdHYwTGU4a1NKLWc3TnFXREJQTkFUTUV1VFBPYzNFVGRtUjB4cnprbjZhd3pxWjdRNTBpc3VvajM2bUV1dktwTnlvajZMRHFpS1VIaw?oc=5",
+          "source": "Forbes",
+          "source_url": "https://www.forbes.com",
+          "pub_kst": "2026-10-07T21:32+09:00"
+        }
+      ],
+      "queued_at": "2026-10-12T18:40:43+09:00",
+      "attempts": 0
+    },
+    "refinery:news:refinery_article_d9880540fb30d3b4923cdf3c": {
+      "topic": "refinery",
+      "kind": "news",
+      "event_key": "refinery_article_d9880540fb30d3b4923cdf3c",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "d9880540fb30d3b4923cdf3c",
+          "title": "Trump blames Democrats and Ukraine for soaring US fuel prices, not Iran war - Al Jazeera",
+          "link": "https://news.google.com/rss/articles/CBMiugFBVV95cUxPNVBSNGFOb3E2OHVIVVA1clg4SGhRMmhUWWpsVXZiSlhMVFBNVFpaaXlvcjlqZGVBUl8xMDF3R1B5ZmlrZFhlUW9lR0pOWnRuVlN0ZGdULWJFMDRtbzZBRENfeFNnQ25jLWFhYnFwb1dmb09tYWw0cXBCSnVjOVlVd2NZU1p1MmdMTG9WaTcyRHhkcHJwc3BiTnduXy1lVkRXZzhPM08tVy1KdEdxYzJoWktTOTJqOWNCVnfSAb8BQVVfeXFMTkMyQk51UHJId1VhQkxYb1RzRnN1ZU5nZkd6NEF5SEVzTUtLODNlbGd2RWdPSFhhMjlzbGRUWmZLekNfcDBka2pCUEpkOTJsQkxiVjJubUpaZnNqODlRTFlVOHpEX052RnNFZ2lHQXpldU5aaWhlZVl3enBEdHE5cHE3T0hFQ3JQcUtrQXczOGxXWnk3dTVPZGRHcTVsSXhFLS1xX1oyMkxJQ0NZWi1xR3BCY3BTV3VjRkdvUkN6M2s?oc=5",
+          "source": "Al Jazeera",
+          "source_url": "https://www.aljazeera.com",
+          "pub_kst": "2026-10-06T14:52+09:00"
+        }
+      ],
+      "queued_at": "2026-10-12T18:40:43+09:00",
+      "attempts": 0
+    },
+    "refinery:news:refinery_article_7eb537ffb99f1abc969774a7": {
+      "topic": "refinery",
+      "kind": "news",
+      "event_key": "refinery_article_7eb537ffb99f1abc969774a7",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "7eb537ffb99f1abc969774a7",
+          "title": "Trump: Russia, Calif. Refinery Disruptions, Not Iran War, Pushing Gas Price - Newsmax",
+          "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxQOUJLNzJBQ0duYXExR1U3NFE0TTlZRXNueEU3RjRlVmdVZUQxTVExZVZqUExCNEs3UklIZDY3QWRBLV8xTGtrc0k3OEVlWHdraFZmaGtOaTQ2T05zMy1ac1VYUHZteDVtTmVWUFJEenlLRkd3VDVoZGJreXFDbjB4c3JuUFdvb0otZXo5MHNEOE8?oc=5",
+          "source": "Newsmax",
+          "source_url": "https://www.newsmax.com",
+          "pub_kst": "2026-10-06T08:24+09:00"
+        }
+      ],
+      "queued_at": "2026-10-12T18:40:43+09:00",
+      "attempts": 0
+    },
+    "refinery:news:refinery_article_7f2c0b636f444ec287219278": {
+      "topic": "refinery",
+      "kind": "news",
+      "event_key": "refinery_article_7f2c0b636f444ec287219278",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "7f2c0b636f444ec287219278",
+          "title": "Trump Blames Ukraine for Gas Prices: Where Diesel Costs Are Highest - Newsweek",
+          "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxPaktBdEVwZVJPRng5SURoYkhtaE40UGRSd3pBaklDLUZlNkE0Si11enZtMnFJTm5WdjEwMTRfb2g4d3lZbC1IWXZkR2psTWFCNnphRWtaVXY5U2dicl9ucU44Ql9IaHZBSnRobG81ZUNYOEZzSV9FWWdVUWhoTXpxem9DQThueGxRZDdwbVlDZ29DMWY3VFJDbjZ2dDc0OVUwRVE?oc=5",
+          "source": "Newsweek",
+          "source_url": "https://www.newsweek.com",
+          "pub_kst": "2026-10-06T07:55+09:00"
+        }
+      ],
+      "queued_at": "2026-10-12T18:40:43+09:00",
+      "attempts": 0
+    },
+    "refinery:news:refinery_article_62c796312c26eac68b55b171": {
+      "topic": "refinery",
+      "kind": "news",
+      "event_key": "refinery_article_62c796312c26eac68b55b171",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "62c796312c26eac68b55b171",
+          "title": "US President Donald Trump: Refineries Driving Up Gas Prices - ababnews.com",
+          "link": "https://news.google.com/rss/articles/CBMidEFVX3lxTFB0aG5hTFVtUTdzM3lyZC1XOXVzYzF1ckc1eE1DSzdsejNtYlZkZUxDYXhIUllINVRCdFY5Xy0wZm5nd1BzWUVpYW9nMVRZNzVVUUU1NExqSDcyS1NmYWZkeGNXWmZlNFpyeVhvNVYxOUk0Y056?oc=5",
+          "source": "ababnews.com",
+          "source_url": "https://www.ababnews.com",
+          "pub_kst": "2026-10-06T05:53+09:00"
+        }
+      ],
+      "queued_at": "2026-10-12T18:40:43+09:00",
+      "attempts": 0
+    },
+    "refinery:news:refinery_article_c44f114127bab3cbd0172322": {
+      "topic": "refinery",
+      "kind": "news",
+      "event_key": "refinery_article_c44f114127bab3cbd0172322",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "c44f114127bab3cbd0172322",
+          "title": "Trump: Refinery disruptions, not Hormuz, are driving gas prices - The Hill",
+          "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPMDY5X3J2YXNnRXppNUhIQXhlT1ZpRXlXODB6UHluVnhERDUyYW5zX1dwVlZYSkxIUTlGdXUxSzgzQWdHV0piOEk3aTZkdGdvUXJqN0pJeW5JUnhwUW9FaDRDS28xSC1OTC03N3pONHdJeVh2OXRmbTVHWnVLLUozZVV0ZkxvVlFZWG9yTkVmLVh5TW1JbEJwdlJJUk5pRi1kNVIzcm5B0gGrAUFVX3lxTE5OeU1pR3Jqc3Y1d25tNG5GelVJZHhaeDhUZ092MVNSTG1JeEdrT2F3bHN5RFFodWtWSlJOOXlrTW9IVElJN3BHOF91ejBpX2JYRzNjUTk2T0VRa20yc0VnZEZxZ1Z4OGhJTFRsXy0zNjZ4ME92NGhYUlc1SUE0NEdjYUJueTBpaG12V2Y0eER6ZUd5VUdiTEMxeGlBcDA1cHBqc2NDMFRSMmFzaw?oc=5",
+          "source": "The Hill",
+          "source_url": "https://thehill.com",
+          "pub_kst": "2026-10-06T05:43+09:00"
+        }
+      ],
+      "queued_at": "2026-10-12T18:40:43+09:00",
+      "attempts": 0
+    },
+    "refinery:news:refinery_article_619f85c9d75857ee88371f1f": {
+      "topic": "refinery",
+      "kind": "news",
+      "event_key": "refinery_article_619f85c9d75857ee88371f1f",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "619f85c9d75857ee88371f1f",
+          "title": "Trump: Blown-Up, Closed Refineries Driving High Gas Prices - Yahoo",
+          "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxON1N4RENFU1g3NWU1SlROUmNpRW1nd0RRWmdJYlRFUjZNdFVBQlJEcEN3a1VNRWw1TC1qUzNwMVBFSHNOSUpfQ2pXQlBnWUc1cEVwTE9Wa1F1cndMbEU0bGRleDk0dklmU2RWMkpTV3BrWEpPb01XTmM0WGswTU4xbk5LVVJ5Q2R6amNocG9kNUNjTm45ZlJKaUliLVhldw?oc=5",
+          "source": "Yahoo",
+          "source_url": "https://www.yahoo.com",
+          "pub_kst": "2026-10-06T02:33+09:00"
+        }
+      ],
+      "queued_at": "2026-10-12T18:40:43+09:00",
+      "attempts": 0
+    },
+    "refinery:news:refinery_article_302b4c4107e521067ddaf49f": {
+      "topic": "refinery",
+      "kind": "news",
+      "event_key": "refinery_article_302b4c4107e521067ddaf49f",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "302b4c4107e521067ddaf49f",
+          "title": "Trump: Blown-Up, Closed Refineries Driving High Gas Prices - Newsmax",
+          "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxQUlBoOGs4UkxEeGFqaEY4bUFPRmljZ2hxald2WkVyYWZXaHNGWm5CUVdNZzZkN0lxWVdORUFDRGQwMUFOeFlZWlhIZ3A0QWNhQW9vZERjMEd1eVBGczVOYmF2N25sRXBUamRMWWRaYl9kb0NEbmM3TW1yUFpkbmdWYWlCc0tKUGVQ?oc=5",
+          "source": "Newsmax",
+          "source_url": "https://www.newsmax.com",
+          "pub_kst": "2026-10-06T02:33+09:00"
+        }
+      ],
+      "queued_at": "2026-10-12T18:40:43+09:00",
+      "attempts": 0
+    },
+    "refinery:news:refinery_article_fe2c93cdea4eecb0b909ea29": {
+      "topic": "refinery",
+      "kind": "news",
+      "event_key": "refinery_article_fe2c93cdea4eecb0b909ea29",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "fe2c93cdea4eecb0b909ea29",
+          "title": "Trump Energy Adviser Blames Refining Bottleneck, Not Crude Supply, for Soaring Fuel Prices - BigGo Finance",
+          "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTE5GZ1lOMzJYS3dNZ3kzTFhJdHVGOVQ2Vi10RGNVMmRCYWRzVlotNUpZUUwtenlnbUdOR3AxaFJONXNfTHFJaERLd2xZZjFSOE5VRWtkVFZGSVFBMTM3eFJrLWQwc3FsV0J0NnJuUnl6RWxDODN0aEE?oc=5",
+          "source": "BigGo Finance",
+          "source_url": "https://finance.biggo.com",
+          "pub_kst": "2026-09-23T16:00+09:00"
+        }
+      ],
+      "queued_at": "2026-10-12T18:40:43+09:00",
+      "attempts": 0
+    },
+    "refinery:news:refinery_article_cf3bd82d5092666382b76d3a": {
+      "topic": "refinery",
+      "kind": "news",
+      "event_key": "refinery_article_cf3bd82d5092666382b76d3a",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "cf3bd82d5092666382b76d3a",
+          "title": "Trump Floats Diesel Ban His Own Energy Chief Said Could Jack Up Gas Prices - MeidasTouch News",
+          "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxNb2pXNkZocUZEV3MwRW5sWW5nZk9Bandqb3ZBekgyR1NCcFViOTFoYnFfZkVaelRzODI0ME9jVHFvZkNoWDlhODR6RmhUUHlodmxjRDhEYmtPb2tlSzhvcE5JMGJseEc1OENHdUFxYU01NGVySWpkUGlfRzUyMktHZzRUVTI3UDNhRi1CUk1Ib290eC1oZ3BqUm10YkQySndGNmxiMg?oc=5",
+          "source": "MeidasTouch News",
+          "source_url": "https://meidasnews.com",
+          "pub_kst": "2026-09-23T16:00+09:00"
+        }
+      ],
+      "queued_at": "2026-10-12T18:40:43+09:00",
+      "attempts": 0
+    },
+    "refinery:news:refinery_article_ed8a48714df4a14a2c485a7e": {
+      "topic": "refinery",
+      "kind": "news",
+      "event_key": "refinery_article_ed8a48714df4a14a2c485a7e",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "ed8a48714df4a14a2c485a7e",
+          "title": "Trump Presses Zelenskyy to Halt Strikes on Russian Refineries as U.S. Diesel Prices Hit Record High - BigGo Finance",
+          "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTE1WSndOUUhpOThMUC1GZ29iYmNTRXo0cVJUU0pweDVfdmtRamd0UW1INkRtVk9UcExabVdMM0NqbTdDTjNhLXE3amVJQlBncTNKemZCZWhxOFBQM2g2YzV1LTJlY0hsRUtoMFRxOEkyWm1La3NLU0E?oc=5",
+          "source": "BigGo Finance",
+          "source_url": "https://finance.biggo.com",
+          "pub_kst": "2026-09-21T16:00+09:00"
+        }
+      ],
+      "queued_at": "2026-10-12T18:40:43+09:00",
+      "attempts": 0
+    },
+    "refinery:news:refinery_article_03bdf10ea45a65ec05795b46": {
+      "topic": "refinery",
+      "kind": "news",
+      "event_key": "refinery_article_03bdf10ea45a65ec05795b46",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "03bdf10ea45a65ec05795b46",
+          "title": "Drone Strikes Force Half of Russia’s Top Diesel Refineries to Cut Output - Kyiv Post",
+          "link": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE13R1R2c1V1YmtLanVxLWhPRl9SVEIxT1BBcTFCNElhZW9JU2JFdDhuMDA1UDVRT09DcEVCTXVmTlRxSWdiWi1DUWhsMA?oc=5",
+          "source": "Kyiv Post",
+          "source_url": "https://www.kyivpost.com",
+          "pub_kst": "2026-09-15T16:00+09:00"
+        }
+      ],
+      "queued_at": "2026-10-12T18:40:43+09:00",
+      "attempts": 0
+    },
+    "refinery:news:refinery_article_60e1c200d9ec5b0e75105c8f": {
+      "topic": "refinery",
+      "kind": "news",
+      "event_key": "refinery_article_60e1c200d9ec5b0e75105c8f",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "60e1c200d9ec5b0e75105c8f",
+          "title": "Trump tells Zelensky to stop targeting Russian refineries as diesel soars amid Iran war - WJRT ABC12",
+          "link": "https://news.google.com/rss/articles/CBMiigJBVV95cUxOR1hlbDFmTktleTBjMUtIaml3S21Zc3lkYWRlVDhwY1ZVbHNKdWJTQUtNT0dkanBzZ3dPM1hIQUxnd2JZN1p5em5KbnZCZDdQbzJxako3NUpCb01sMjRuVzllWERHczdSWEhKOFhLTW1DNVZHU2FCMjRKQ0V0TXJza3ZhN3FHT2x5ODBkcXhIdnQ2VzNwNEQzaWpnTFBmSXpiWklmQzROLVBkZ0FJXzhTeURFWWR6RWxOSS1rNVIwdExMR0VqOHo1bXNoLVpyWFJBel9PRzlwOXp0M0NicjdfSTlEWmY2LWtrbkFhOXZzVHd1RTZqc0xQWU1ueENxRDRBb2U2SGtqVnMzUQ?oc=5",
+          "source": "WJRT ABC12",
+          "source_url": "https://www.abc12.com",
+          "pub_kst": "2026-09-15T06:48+09:00"
+        }
+      ],
+      "queued_at": "2026-10-12T18:40:43+09:00",
+      "attempts": 0
+    },
+    "refinery:news:refinery_article_f3b47319a64fe3e9d258e8aa": {
+      "topic": "refinery",
+      "kind": "news",
+      "event_key": "refinery_article_f3b47319a64fe3e9d258e8aa",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "f3b47319a64fe3e9d258e8aa",
+          "title": "Why Trump’s effort to build more refineries won’t lower gas prices | Consumer & Business News - news8000.com",
+          "link": "https://news.google.com/rss/articles/CBMi7gFBVV95cUxOZEgtX201QUZUTDFZUHBiUkdRdkc0MktzMzdjc3ZWcmMtd1JVbkNpRDhaU05RSDgtZDl5b2k2SUpBd0l0aWlWVFlUSUhkeGxoTWRpUXA0WTRfN3dJdUw0NXdscERPZDlxekRZNEpZRmVQc056WnAtUi1RdkN4MEdLaTBzZjJUUVVlOWFBb01hbUpialhRczFlenFBd2F3cExHcFprNmotVy1HQVBuQjF0OXBUNHdKNlVPOVVFZUtRckFJWGJxckg3N18zWlAzRGExUDBCdllPTmVLVXBMOU1UVFRlLTJsdGRSd1Zsdmpn?oc=5",
+          "source": "news8000.com",
+          "source_url": "https://www.news8000.com",
+          "pub_kst": "2026-09-14T16:00+09:00"
+        }
+      ],
+      "queued_at": "2026-10-12T18:40:43+09:00",
+      "attempts": 0
+    },
+    "refinery:news:refinery_article_ae4c62db11ccde93706b5ba3": {
+      "topic": "refinery",
+      "kind": "news",
+      "event_key": "refinery_article_ae4c62db11ccde93706b5ba3",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "ae4c62db11ccde93706b5ba3",
+          "title": "U.S. diesel prices are approaching record highs, leaving Trump with few options. - 富途牛牛",
+          "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPOURYTFREdXl1TWVweFNhRWtXOXd3Zjg2LWdlaGJrZUJPcGxlRm5yaVBHWDh4NWxOV3dJUmRtRVpyczQtVkdIVDY4cVBGY1p1RFBTYVk4SmpCS0VHdjNpN3o4a1F3U1V3MnFRa19veGZzWndEcW84WTU0akNJM1B0WGFlVnR4RGoyWHg0NjRhbm5vVGV3MXRvN0NwUDEyTk1SRjd6ME5EMGw?oc=5",
+          "source": "富途牛牛",
+          "source_url": "https://news.futunn.com",
+          "pub_kst": "2026-09-02T18:42+09:00"
+        }
+      ],
+      "queued_at": "2026-10-12T18:40:43+09:00",
+      "attempts": 0
+    },
+    "refinery:news:refinery_gasoline_policy_202609": {
+      "topic": "refinery",
+      "kind": "news",
+      "event_key": "refinery_gasoline_policy_202609",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "3962b26e562a8938e5ef5c12",
+          "title": "Trump Pressures USA Oil Refiners to Ease Pump Prices - Rigzone",
+          "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxNZ3I2R2s3dm82QWhLenB6blBteExLdmpoVWZ3dURaa2lobXBFS0NSTTVVQ1J4Vm9WRlhfeWtHa1BmMnNDZU5WR3NMUWN2cEpBSU5zRE4xUDdKeDQxY0hPbXFaaE9CVldCcGJjM1RwTnZCandJZWI3c1FYdVp3Nnd4bG5OSnNxR1hOT0lXR25MaXJtaWxuVk02Z2ZDM3hOcXRDWk03ZHR3Z0s1OHlmVEc5VGlkTno?oc=5",
+          "source": "Rigzone",
+          "source_url": "https://www.rigzone.com",
+          "pub_kst": "2026-09-02T16:00+09:00"
+        },
+        {
+          "id": "24536a4721a0a1a9529b89ac",
+          "title": "Trump will meet US oil refiners as gasoline prices remain high - Межа. Новини України.",
+          "link": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE82d2NtOE9XYnJzcTlCclVINHlISklFOUliNW5GdVUxSGJvQUFza1ltQ2I1MTNzSVhzUTFVZXlYbGd3SzJOdHpHeHpCc2R1Ym1VcFFVTmpVeko2MFRxdVlXbk5R?oc=5",
+          "source": "Межа. Новини України.",
+          "source_url": "https://mezha.net",
+          "pub_kst": "2026-08-31T16:00+09:00"
+        }
+      ],
+      "queued_at": "2026-10-12T18:40:43+09:00",
+      "attempts": 0
+    },
+    "refinery:news:refinery_white_house_meeting_20260901": {
+      "topic": "refinery",
+      "kind": "news",
+      "event_key": "refinery_white_house_meeting_20260901",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "b738e4d99b7394ff80d1347a",
+          "title": "Trump to host oil executives after accusing refiners of gouging consumers - Forth.News",
+          "link": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE5OVmRMYm5nT2pzMG9xZ21fdHB5N1RVMjZsZWQ0bXVJZzBPd1JoYjV3cVZtVUYzblFpM01GemV2TmdOYlpYZ1Y5Q1dYbWlhYjdHeGo5RFc4djBIbkoxR3ZYQzBZOA?oc=5",
+          "source": "Forth.News",
+          "source_url": "https://www.forth.news",
+          "pub_kst": "2026-08-31T19:08+09:00"
+        }
+      ],
+      "queued_at": "2026-10-12T18:40:43+09:00",
+      "attempts": 0
+    },
+    "refinery:news:refinery_article_6ab2d84f1fd4dfcb68a6fa94": {
+      "topic": "refinery",
+      "kind": "news",
+      "event_key": "refinery_article_6ab2d84f1fd4dfcb68a6fa94",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "6ab2d84f1fd4dfcb68a6fa94",
+          "title": "Trump to meet with U.S. oil refiners as White House pushes to lower gas prices - CNBC",
+          "link": "https://news.google.com/rss/articles/CBMihwFBVV95cUxOeHRwcGdyYjRNU01DbTk1c1hZSEl2M21iUVRVRFVpaWFpRGxZNEhvU0JVQXQ4TXB0WDlDOS12emlKZHA4WXZHWjNRYnpPZ1VfSGJ6dHFMc1FWN1lnWXVuT0dNOWg1LW13X3ZMV0k2WmRNT3l6NnEyY3c5WkFnLVFCY0x0eUJNd3PSAYwBQVVfeXFMUGdIemJJUV9QQ3lDbFRYZVF2cUxOY2V2OVRJVmhwcy0wLW1fX1ByNGZPRDZSemJBVERrQ2Z4VVNIWVktWEhiSDE1dURxdk9qZVRXNHVXVHdJMmx3b1BNWk42SVo4c3pXOHUtQnlhRTN2V0gxcVd6ZWJVMFJ1YlE0RXJBR3BqMTdrRkVQTmw?oc=5",
+          "source": "CNBC",
+          "source_url": "https://www.cnbc.com",
+          "pub_kst": "2026-08-31T16:00+09:00"
+        }
+      ],
+      "queued_at": "2026-10-12T18:40:43+09:00",
+      "attempts": 0
+    },
+    "refinery:news:rfs_sre_2025_package_20260831": {
+      "topic": "refinery",
+      "kind": "news",
+      "event_key": "rfs_sre_2025_package_20260831",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "7776889308578c887a3b144a",
+          "title": "EPA weighs refinery waivers of up to 1.8 billion RINs amid farm backlash - domain-b.com",
+          "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPcjg2MlFOMy1VSHo2NWhqVVNKakpyVE9QQjVHVmxYNzdwMTg0SFMxbG1WeUliTXpZeEFvaUoyeFdtUFZQRVRhV2oyLUpNRXBpczZIOE8tdkFfOWluWE91cXlDcnQzdFpsVlhYZUpKc3NPSlA3NzRiSkxpZkcxM1dSaGdBYU5OZVE1Qmp3Ni10SUd3SWJCQ1QyRnp2d0ZRQ2dDbEV3UURTcklrSHZTTk1uOWZn0gG3AUFVX3lxTE42SWUwQVRPeTktckd2aUlBSUFOb0o1NHk0T3ZleEdQMFU4bnZmMWFCX21rVmFIemhMZU9nTFdtVXRvbzZvdGZwSTJBM1RCdlpaNXg3WEVMOWJxLUd6azBCU3pXZ191bG1vVlFoOVB0WkF2RjBSXzJKMndKeVkwbjFoWi1TaFg3ZWJzaUJtRnRDdEE1amJ6T0pscWQ2TUxXeTdLWVhxQ3pzaWdTQXVfajRWLUgwMy1Pbw?oc=5",
+          "source": "domain-b.com",
+          "source_url": "https://www.domain-b.com",
+          "pub_kst": "2026-08-31T16:00+09:00"
+        },
+        {
+          "id": "e8c17cb23682e66806e92f0f",
+          "title": "Why small refinery exemptions could deliver a big blow to farmers - Michigan Farm News",
+          "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxNOV9Lb2ZwUlVWUTMwaHRIbzdQelZjQmROa1pjT1lhLUpFV2ZMWWIwN3RZQ2NOdDFCdHFNa0ctSVFjd0JVYWdRTkF1S3gwSXJ4Qi1VYi1kcGs4MUlRSFpVVzgtWVd2ODAxbWoxRWg3WW9EZnZSdVRCTzBRcG4xVEJ1OVRmY1gtek1ickdFQnVUX0JFbkU3X0h1QjRCeDdXUWhlbXdrY0tFMG10NWllR1pv?oc=5",
+          "source": "Michigan Farm News",
+          "source_url": "https://www.michiganfarmnews.com",
+          "pub_kst": "2026-08-28T16:00+09:00"
+        },
+        {
+          "id": "5f546015f38d3e09c102f305",
+          "title": "EPA revises RFS RVO SRE decisions - The Fence Post",
+          "link": "https://news.google.com/rss/articles/CBMid0FVX3lxTE5Mby1ZTmwwSlFQZV9IS2ZuLVFhNnl2aXBGZlpDWk9Uc1BZcGlxc1lQZnlBNXI2VDFkWWEwdHhGUUtPbFBNWHZHYlJWWjFzaFFGa1JXS0l0LTdXYmlZc1VvYnJCanB1R0JVTFlzc1hDTzduOUtoVzhZ?oc=5",
+          "source": "The Fence Post",
+          "source_url": "https://www.thefencepost.com",
+          "pub_kst": "2025-09-18T16:00+09:00"
+        },
+        {
+          "id": "20563c1f2fdec2f6753a2c85",
+          "title": "Biofuel Groups Express Cautious Optimism as EPA Grants Small-Refinery Exemptions, Announces Plans - DTN Progressive Farmer",
+          "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxPU3lURTl2cFRZZkc2YTJMOFNwWWlfM0J6al8xVEUxUWRiS05IakZ0YVBjMjNieWhlSEgybmpuTHlZYzdqek1UQ0szN0diZXVBcWI1aW9YSU9rNHRwVXZaYXJVMlhnd0U2Ul9IZk05dzA4REx4OVJqRC1ieW1haW9ka2FFOHdMOEZpbnlITnRnVVRwZ0x5MWJJVm0wUFNEMmtpSXc?oc=5",
+          "source": "DTN Progressive Farmer",
+          "source_url": "https://www.dtnpf.com",
+          "pub_kst": "2025-08-22T16:00+09:00"
+        },
+        {
+          "id": "0166095ba717b36c319de51c",
+          "title": "August 2025 Decisions on Petitions for RFS Small Refinery Exemptions - U.S. Environmental Protection Agency (.gov)",
+          "link": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE5RSi1NZHJwd3RSNjJlbzJ3cE1QM1VkMWNYRDh0ZGtsMXNEb0VQR2N6ZjJSZXFuRVRiNE0tcEFsOURQdkl6eU5ReUtFWXJUamxGTmpFOWhWZzY1aUN4eEVmMV95Q1BSM00?oc=5",
+          "source": "U.S. Environmental Protection Agency (.gov)",
+          "source_url": "https://nepis.epa.gov",
+          "pub_kst": "2025-08-07T16:00+09:00"
+        },
+        {
+          "id": "899fd50243e2250a9542fc05",
+          "title": "EPA: No new SREs filed under the RFS - Biodiesel Magazine",
+          "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTE9COExzSTdxZWUwRE9VZXBSUjltNmFuZ08zd1RXREhXU3ZUM3R0TmtkR3E0QmJFUmxpMXBMUzJrWmlSaFJHVk5fLW1DUXU2dWVTZkMxd2x5OWJ1SzR2S21Kb3Via3ZUV1N5amprUmxSdkhoTzc5Z01KV2JpQXlJNTg?oc=5",
+          "source": "Biodiesel Magazine",
+          "source_url": "https://biodieselmagazine.com",
+          "pub_kst": "2024-04-08T01:01+09:00"
+        },
+        {
+          "id": "4717fe752baa312d093ef3f6",
+          "title": "RFS Small Refinery Exemptions | Fuels Registration, Reporting, and Compliance Help - U.S. Environmental Protection Agency (.gov)",
+          "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxQVjRjcU1VeXdTS0lBVlBGQTB1Xzd4eVlBOFpwdTNQa1VERWpTWGpWTzNrWWx6LVFjRTFIVGN3TUI4SW1OYVBkdTd1N04zNFJUUlMtQjdJVlNaLUlJY1BQR3Q0VExVTGpDQjZCbC1hVGhoNXNkR0pDRTJtS0hrZnNrZzdTS2RtUlJtVWJmWlY2d0NEZTNPRHVteE1lRER1NHZWak1jT1NkNDhCMU40czFlQ1hmMzhUM2ZlUm14RWwtWQ?oc=5",
+          "source": "U.S. Environmental Protection Agency (.gov)",
+          "source_url": "https://19january2021snapshot.epa.gov",
+          "pub_kst": "2021-12-26T08:08+09:00"
+        },
+        {
+          "id": "a0ec037430b0256c62525c48",
+          "title": "EPA Proposes to Deny All Pending RFS Small Refinery Exemption Petitions - Regulatory Update - U.S. Environmental Protection Agency (.gov)",
+          "link": "https://news.google.com/rss/articles/CBMie0FVX3lxTE50b1VFY0ZHSFNQUzFBSG9aN0hCWWdjb2pIVlNkNzRTQVF2cjdYZDZNSl92RVNWSkttUGhqX1BSWUlSejlLWjBYSW5KRGJCenBySUdaUUVIVGFHTkxmdFdZeG1yT3hUbFBUMWlvY3ZPNFRxUTBETHNLR25CUQ?oc=5",
+          "source": "U.S. Environmental Protection Agency (.gov)",
+          "source_url": "https://www.epa.gov",
+          "pub_kst": "2021-12-09T06:23+09:00"
+        },
+        {
+          "id": "05527bae2dd5cacee4773242",
+          "title": "Clearing the Logjam on the RFS and SREs: A Simple Proposal - farmdoc daily",
+          "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxQdnJpa2l3SURuU3ViLU5DUG5TM2xiOHZyUUsyVGl6bk9qdlprVHVPTDNwVGtmam1kSVVvRjlVd3EwdVBuWW80TlpIWWE0cjFqOHhaZFpOcWk2aDJyQnZocmtkanJ3Y3F0TURoV18wNzNJWDVOU1JscVVpN2Z6TEFHOF83TlpSSUMyamt3bTIxdk1pYXR2bko2TV92eFI5Vk9YOVpRZEZsRmVoVHRNc1NWRQ?oc=5",
+          "source": "farmdoc daily",
+          "source_url": "https://origin.farmdocdaily.illinois.edu",
+          "pub_kst": "2019-09-19T16:00+09:00"
+        }
+      ],
+      "queued_at": "2026-10-12T18:40:43+09:00",
+      "attempts": 0
+    },
+    "refinery:news:refinery_article_f5c1c898f9dc550dfb1cedfc": {
+      "topic": "refinery",
+      "kind": "news",
+      "event_key": "refinery_article_f5c1c898f9dc550dfb1cedfc",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "f5c1c898f9dc550dfb1cedfc",
+          "title": "'History Is Unambiguous': Ag Groups Pressure Trump to Stand Strong Against Sweeping RFS Waivers - DTN Progressive Farmer",
+          "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxQbWp4VFBYYmR1d1lmazF5VlBWb3lNak9GcUQ5QWNjYlh1MzQ4S0xDYTdlM1BZdEZiVFh3LW5jc1gtSWxwNkU0eG5pTXJWd29lYzRmbTdxYXA2QXphV2FEQ3ZXcTdwTEZLdk92cjV5eWpUMTN4UnFGZVktYmdaa0hseDMxZE85WVZVTTk1bDFVaVVLZDZ6endCX0JyVVRQWmpkWmUtOFdDZERZUFp2eWFCSkNjd2I2Ums?oc=5",
+          "source": "DTN Progressive Farmer",
+          "source_url": "https://www.dtnpf.com",
+          "pub_kst": "2026-08-27T16:00+09:00"
+        }
+      ],
+      "queued_at": "2026-10-12T18:40:43+09:00",
+      "attempts": 0
+    },
+    "refinery:news:refinery_article_d47d4022fea6e7c5a13c92a3": {
+      "topic": "refinery",
+      "kind": "news",
+      "event_key": "refinery_article_d47d4022fea6e7c5a13c92a3",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "d47d4022fea6e7c5a13c92a3",
+          "title": "MSA Urges President Trump to Protect Renewable Fuel Standard and Keep Promise to Farmers - Morning Ag Clips",
+          "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxPZHZJeFVaMzVpRGhTYXA3T1dfTldnWF9oazdZMWtqSi13ekhmSksybmdQbXp2NlYtVTNCcVBUQi16Q1B4Vk40NDh4eUZJcmdLdVJQRDFhZGc1SUJZQVlfX1VQQmtpSkpUeS1HT1FFNzNxZ0ttaFhWSUlBZWNzZ1NlRVBqWWtrZ09HTEJFVnhPZkx5UURzemV1WW1yWEFOdmdQVEFGdndzb3pZOVF0R0pPZmtPTXJ1NGNBUU9DUw?oc=5",
+          "source": "Morning Ag Clips",
+          "source_url": "https://www.morningagclips.com",
+          "pub_kst": "2026-08-25T16:00+09:00"
+        }
+      ],
+      "queued_at": "2026-10-12T18:40:43+09:00",
+      "attempts": 0
+    },
+    "refinery:news:refinery_article_d398b30542673c4b4e395522": {
+      "topic": "refinery",
+      "kind": "news",
+      "event_key": "refinery_article_d398b30542673c4b4e395522",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "d398b30542673c4b4e395522",
+          "title": "U.S. EPA to Extend Renewable Fuel Standard Compliance Deadline for Refiners - Successful Farming",
+          "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxOb2FsWDFJWTl4aDh1YUpxNjJtMGRva1dpR0hPY2RpQUU3NW9DUkhBM05zWUJELVZBR1NvdWJ5azloZnVndmhiOU11ajcyWkZiVnpJd0RPMFBLSVlOaDVmOENUSWhzN2MzOEo0Q0R6Unl0YUI2cXRyM3NzU09PNGZuZ1FaOFVxcmU2cExMYkxLNFFSdzJWcUN6SmhLR3JLdWlwX2ZSRHozYjNLaTJfTGd5RlFGZnYyeTVvMll6ZQ?oc=5",
+          "source": "Successful Farming",
+          "source_url": "https://www.agriculture.com",
+          "pub_kst": "2026-08-21T16:00+09:00"
+        }
+      ],
+      "queued_at": "2026-10-12T18:40:43+09:00",
+      "attempts": 0
+    },
+    "refinery:news:refinery_article_c213f188896c404afbbc96f7": {
+      "topic": "refinery",
+      "kind": "news",
+      "event_key": "refinery_article_c213f188896c404afbbc96f7",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "c213f188896c404afbbc96f7",
+          "title": "U.S. energy secretary plans to seek more production from refiners to hold down pump prices - Seeking Alpha",
+          "link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxOaHo1eHFyT19UbjBpcUR4SEtUd0d1UHF1eEpwbDBLbVMtQWNsdzlGdDlJSDdqWHZ2bXdJWEdFSlVZVTNRdy1obzMzUWVLc1E0bmVQeElSYU1zX1VCR1lZMGdMVG1lQXc4bGdndFR3RXJvTXdOZkYyQkh1dGZwbjhzaFZoYWc3enEydTNmbUVqRGE0TlFKb1pMTU9Bd3RXU2J4cWhabjRha1A3SFE0Z3pVMEpFdi01UE03ZVRzN0F3T0ttQ1Iy?oc=5",
+          "source": "Seeking Alpha",
+          "source_url": "https://seekingalpha.com",
+          "pub_kst": "2026-08-17T16:00+09:00"
+        }
+      ],
+      "queued_at": "2026-10-12T18:40:43+09:00",
+      "attempts": 0
+    },
+    "refinery:news:refinery_article_e027af6243300d7b57bf8bf3": {
+      "topic": "refinery",
+      "kind": "news",
+      "event_key": "refinery_article_e027af6243300d7b57bf8bf3",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "e027af6243300d7b57bf8bf3",
+          "title": "Exxon, Chevron warn fuel prices to endure as war knocks refining - Fortune",
+          "link": "https://news.google.com/rss/articles/CBMilgFBVV95cUxNWUFHQlROY2V5SlZPdm9CN3RMZ19tZWdWX1VlSk9GbHZWN2VJdjFiWkdiTUhJODg2Wmo1Z3lhMkM4enNjWFd5cnhoV1NfTUljWml4SVBYZ3YxSXBBbFlhVktlcWJiYy1LQlFWLWhZd1N5NHVhZlR5X1Q1d0pZcjV5WEZXaFVtMVczMGxCa2g3a2taZk83VUE?oc=5",
+          "source": "Fortune",
+          "source_url": "https://fortune.com",
+          "pub_kst": "2026-08-01T16:00+09:00"
+        }
+      ],
+      "queued_at": "2026-10-12T18:40:43+09:00",
+      "attempts": 0
+    },
+    "refinery:news:refinery_article_b733f145896e6bc672062fe1": {
+      "topic": "refinery",
+      "kind": "news",
+      "event_key": "refinery_article_b733f145896e6bc672062fe1",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "b733f145896e6bc672062fe1",
+          "title": "Detailed Fact Sheet: EPA's Final \"Set 2\" Rule under the Renewable Fuel Standard (RFS) Program - U.S. Environmental Protection Agency (.gov)",
+          "link": "https://news.google.com/rss/articles/CBMihwFBVV95cUxQQnoyeFgzUGJXNlFUOTlWLURWeVBRc2YyTFd1SXp2VXhlaFdtZlozak1aUllzTTRRVDRaTmdzajJUMHMtT09lQWxTQmhUUEhjdzFpMmQ5dUh6OWZmTjB2ZkdWVi1qa2xQZ0ZyWVA1Qm9GTWk5Z3lNQTh4VG5ZQjJHNXhiNWktVFE?oc=5",
+          "source": "U.S. Environmental Protection Agency (.gov)",
+          "source_url": "https://www.epa.gov",
+          "pub_kst": "2026-03-31T10:18+09:00"
+        }
+      ],
+      "queued_at": "2026-10-12T18:40:43+09:00",
+      "attempts": 0
+    },
+    "refinery:news:refinery_article_612fb94f3ebb25a23ca4e1fd": {
+      "topic": "refinery",
+      "kind": "news",
+      "event_key": "refinery_article_612fb94f3ebb25a23ca4e1fd",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "612fb94f3ebb25a23ca4e1fd",
+          "title": "Renewable Fuel Standard (RFS) Program: Standards for 2026 and 2027, Partial Waiver of 2025 Cellulosic Biofuel Volume Requirement, and Other Changes Regulatory Impact Analysis - U.S. Environmental Protection Agency (.gov)",
+          "link": "https://news.google.com/rss/articles/CBMickFVX3lxTE45ODRhS0dYZU5wZ1BkQkZ2NE1CeEpsMXc1emZwYXVnYVpBd2plSVBQLUJXNXdyYTA3NHhvU1pId2owb28xcXI0ZzB3SEZ2ZlVkUDVYRFRaOFlBU0thN1Ywc3RFU01UUVVNcFZ0cVh5Z0RJQQ?oc=5",
+          "source": "U.S. Environmental Protection Agency (.gov)",
+          "source_url": "https://www.epa.gov",
+          "pub_kst": "2026-03-28T07:44+09:00"
+        }
+      ],
+      "queued_at": "2026-10-12T18:40:43+09:00",
+      "attempts": 0
+    },
+    "refinery:news:refinery_article_a5552443073f7607a59fc4b6": {
+      "topic": "refinery",
+      "kind": "news",
+      "event_key": "refinery_article_a5552443073f7607a59fc4b6",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "a5552443073f7607a59fc4b6",
+          "title": "Renewable Fuel Standard (RFS) Program: Standards for 2026 and 2027, Partial Waiver of 2025 Cellulosic Biofuel Volume Requirement, and Other Changes Response to Comments - U.S. Environmental Protection Agency (.gov)",
+          "link": "https://news.google.com/rss/articles/CBMickFVX3lxTFBJN0xaYU9qM2pWV2pMa2Fiek8yZjVMNHE5Y3FiNzdjVmNHTHV1OUMzLUhjSlZWSlItVTY3aGZxdmF1cXplaHlSYWE2OVlCbnNnNUl2MG9OWEd5aGxFeFpSWmZhRHY5X2xlVWZKcFBuQUp6QQ?oc=5",
+          "source": "U.S. Environmental Protection Agency (.gov)",
+          "source_url": "https://www.epa.gov",
+          "pub_kst": "2026-03-13T16:00+09:00"
+        }
+      ],
+      "queued_at": "2026-10-12T18:40:43+09:00",
+      "attempts": 0
+    },
+    "refinery:news:refinery_article_c9dcf5e8bcc24f35e281852a": {
+      "topic": "refinery",
+      "kind": "news",
+      "event_key": "refinery_article_c9dcf5e8bcc24f35e281852a",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "c9dcf5e8bcc24f35e281852a",
+          "title": "Petition for Reconsideration Regarding Renewable Fuel Standard (RFS) Program: Partial Waiver of the 2024 Cellulosic Biofuel Volu - U.S. Environmental Protection Agency (.gov)",
+          "link": "https://news.google.com/rss/articles/CBMilgFBVV95cUxOQ21iU0g5a2tLWTk0c1o4VHJWbTZuRk9lZWtzcjJXZ0FkelVkcTZULW5DdzNGbW1RX3hwQUZRNDZfQjdNSXo5cUluMUZ1UGgzaDBYVW9sQ0ctOXNWRlBoeXdjLU84VXgzNHZJdXROMEJnMGYxRlExczBGRTN2eG42bHBGRU95Tkx3MVI1S01ZMWtjQkdvZ2c?oc=5",
+          "source": "U.S. Environmental Protection Agency (.gov)",
+          "source_url": "https://www.epa.gov",
+          "pub_kst": "2026-01-25T08:15+09:00"
+        }
+      ],
+      "queued_at": "2026-10-12T18:40:43+09:00",
+      "attempts": 0
+    },
+    "refinery:news:refinery_article_53835fbad90d3f03a5ed0c8f": {
+      "topic": "refinery",
+      "kind": "news",
+      "event_key": "refinery_article_53835fbad90d3f03a5ed0c8f",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "53835fbad90d3f03a5ed0c8f",
+          "title": "Renewable Fuel Standard (RFS) Program Standards for 2026 and 2027 Draft Regulatory Impact Analysis - U.S. Environmental Protection Agency (.gov)",
+          "link": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE1wbGNqM0lCR3M2UDZVRzFHU0lGTVp5UmVYTDdTcXhnc1ZNLXhHdlM4bVlCWlpFQk9EandLRHE2VHpNUDRkV3otRS1ZVEtDZW1DaXl5cjBCZzhfelFhLU9ZdzFKZ3ptWG8?oc=5",
+          "source": "U.S. Environmental Protection Agency (.gov)",
+          "source_url": "https://nepis.epa.gov",
+          "pub_kst": "2025-12-04T12:03+09:00"
+        }
+      ],
+      "queued_at": "2026-10-12T18:40:43+09:00",
+      "attempts": 0
+    },
+    "refinery:news:refinery_article_06528f3b47bd00c47e4c0945": {
+      "topic": "refinery",
+      "kind": "news",
+      "event_key": "refinery_article_06528f3b47bd00c47e4c0945",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "06528f3b47bd00c47e4c0945",
+          "title": "Senators Seek to Block EPA's Plan to Reallocate Biofuel Gallons Waived From RFS - DTN Progressive Farmer",
+          "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxOWDRkSnpJYzJCMi1HcXliZk9wdmoyYlpHXzdVWTRoQmwtcVlIUkFoWGM0RGRkbGtWWF9FeHgwcTJlQjhhWFhqekhZSmlxZzA0Q1FVMWNycHVqb1N2VFQ2QV9EdVpkTk5ySDVpdGNLaFcwMm1LZGwxeXlySkx3bnQ2QUxmNjhkOGtJNldwODNianVSQTk1SjZZZjRnWTB0c3RpV2VqQV9weFh6MlVBSlVDaV9rUTM1UWhP?oc=5",
+          "source": "DTN Progressive Farmer",
+          "source_url": "https://www.dtnpf.com",
+          "pub_kst": "2025-09-09T16:00+09:00"
+        }
+      ],
+      "queued_at": "2026-10-12T18:40:43+09:00",
+      "attempts": 0
+    },
+    "refinery:news:refinery_article_5f2c60457a8c48ffaf236b0b": {
+      "topic": "refinery",
+      "kind": "news",
+      "event_key": "refinery_article_5f2c60457a8c48ffaf236b0b",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "5f2c60457a8c48ffaf236b0b",
+          "title": "White House review of biofuel waiver plan pits farmers against refiners - Reuters",
+          "link": "https://news.google.com/rss/articles/CBMizwFBVV95cUxNYjdsaUZubC1KUHRqd29weG9WRjNiY1VrTGVfaGpfQlVJWGN0SXJhRUI2TGc5Yng3UUJKTEhEd05WX0IzRGxJZkNNTTh0SXp0QjNER29oNXpibXZuVHFrVUZfbm9XVXhTdWVLakRKSTR0NDFaZURkUTZrUDMxYThnY0NXN3E3QXFYRU02MFVoMERvOW1RVHZBUWVJWnl2WEpEMjdrYTJtZWxDUkZYUHRTeTdzYW9YOXV4RFptUHMyQkVTa1UtaS1nV0k2UkU5Nms?oc=5",
+          "source": "Reuters",
+          "source_url": "https://www.reuters.com",
+          "pub_kst": "2025-09-05T16:00+09:00"
+        }
+      ],
+      "queued_at": "2026-10-12T18:40:43+09:00",
+      "attempts": 0
+    },
+    "refinery:news:rfs_market_reaction_2025_20260901": {
+      "topic": "refinery",
+      "kind": "news",
+      "event_key": "rfs_market_reaction_2025_20260901",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "92134be30c27884c1ee461dc",
+          "title": "EPA's SRE Decision: Bullish for RINs, Limited Returns - ClearBlue Markets",
+          "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPeUZiOTQ4SEhVcmVRLVcybFZSWkFTcUdzb181Z3A2Q3pBX3Q2X2J2dkZlMXVIMFRLdEtpcWJ2eC1VY3FlZThKTW9lZVpDSTRmNmxZWHY5OGtZZko0dDBCNmU4dWlfSWtvRkt3ajFNTVM1RURQSXUwdzY4b1lXazBvRTdyNUdGaVBnVDBGMUdYOWtXQzBmZUlXeFI5RThjdkXSAa8BQVVfeXFMT3dFT2JWbzF2RC0tcnhXRnpoaTRtTW1xZDdiaGN5dnpDdTlVZzBRajJPa1FGMXZXbEJaMnROSWJWbnVkZzJjbzBQNVAtWDZTUkNEQXVEOEdleWZOTlhXUGlaaTNoaDFHckR2NUZMZGhUeHNYOWRSOVZFYlZ2V0FlMVAxSW1ZaWVOWHpuQ2VVY1VEblRhUkkyaXVEQ2dJZHd6bGh0ZEowWTRsTVgtQTZHSQ?oc=5",
+          "source": "ClearBlue Markets",
+          "source_url": "https://www.clearbluemarkets.com",
+          "pub_kst": "2025-08-26T16:00+09:00"
+        }
+      ],
+      "queued_at": "2026-10-12T18:40:43+09:00",
+      "attempts": 0
+    },
+    "refinery:news:refinery_article_4bdb2f2567dfc6b04345b7f7": {
+      "topic": "refinery",
+      "kind": "news",
+      "event_key": "refinery_article_4bdb2f2567dfc6b04345b7f7",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "4bdb2f2567dfc6b04345b7f7",
+          "title": "Proposed Alternative RIN Retirement Schedule for Small Refineries - U.S. Environmental Protection Agency (.gov)",
+          "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPbk5DZThXcFZFczlKS1BnRnJHdTBGbWc4SkpDMXJaNVducmU5MGxNaDhOM2tUZGZHZ3ROOVRQRFI5bUZmLWUtd0p2QmFnc282X0Z5QWtTM0xZNFFWeHZhREZjak9QRVZ3VlVhYUJFR2VHQzJDajFZbnFsYWdlcUZ2TE1vNkI1ZnRJZFRPdG8zY2lKanRMcjNWU2tPTGFPRkFYN2dKbElGSFA?oc=5",
+          "source": "U.S. Environmental Protection Agency (.gov)",
+          "source_url": "https://www.epa.gov",
+          "pub_kst": "2025-06-14T05:45+09:00"
+        }
+      ],
+      "queued_at": "2026-10-12T18:40:43+09:00",
+      "attempts": 0
+    },
+    "refinery:news:refinery_article_c73adc0cd06368af9abc3b3f": {
+      "topic": "refinery",
+      "kind": "news",
+      "event_key": "refinery_article_c73adc0cd06368af9abc3b3f",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "c73adc0cd06368af9abc3b3f",
+          "title": "Manufacturing Chevron U.S.A. Inc. Chevron El Segundo Soy FCC D5 Pathways Process Determination under the RFS Program – Determi - U.S. Environmental Protection Agency (.gov)",
+          "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxOSHVWcWhDb3hiTnFCSnJBY2xKcGdPWEpFdGRZY29iM1Q5dGp5NjFpbXFyb1JERnU4NUhlVHF0ZEdNV3BDYzQtVmdkQVZudUlnUGx6VDc4OGNsTEwwa3Fod1RNSTNTUlpaVXNsTFExTUZlRHlWbU11cWp2dV9URkQ3cUNhYXphQWFXNDk2TU9NRFR3QQ?oc=5",
+          "source": "U.S. Environmental Protection Agency (.gov)",
+          "source_url": "https://www.epa.gov",
+          "pub_kst": "2024-09-11T16:00+09:00"
+        }
+      ],
+      "queued_at": "2026-10-12T18:40:43+09:00",
+      "attempts": 0
+    },
+    "refinery:news:refinery_article_0b7cceb034e80d5fd491644d": {
+      "topic": "refinery",
+      "kind": "news",
+      "event_key": "refinery_article_0b7cceb034e80d5fd491644d",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "0b7cceb034e80d5fd491644d",
+          "title": "Renewable Fuel Standard (RFS) Program: Standards for 2023–2025 and Other Changes - Response to Comments - U.S. Environmental Protection Agency (.gov)",
+          "link": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTFBMVGp0NVJueG1OU09KNUtvdmxEWHRsZUlaU1R3LVBwaFBnU2VUYzRDTTR1RVcxWG5iS0ZJbGZLWmt6M2Qtd0tBR1JYblREWHBxUDFPQU5jQzZDQzRMeVV1bFdiWUtzWVE?oc=5",
+          "source": "U.S. Environmental Protection Agency (.gov)",
+          "source_url": "https://nepis.epa.gov",
+          "pub_kst": "2024-06-07T12:27+09:00"
+        }
+      ],
+      "queued_at": "2026-10-12T18:40:43+09:00",
+      "attempts": 0
+    },
+    "refinery:news:refinery_article_5440f71b50a37ec204e62569": {
+      "topic": "refinery",
+      "kind": "news",
+      "event_key": "refinery_article_5440f71b50a37ec204e62569",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "5440f71b50a37ec204e62569",
+          "title": "Petition for Reconsideration Regarding Biogas Regulatory Reforms Finalized in Renewable Fuel Standard (RFS) Program: Standards f - U.S. Environmental Protection Agency (.gov)",
+          "link": "https://news.google.com/rss/articles/CBMivgFBVV95cUxPYW5maEJlc3o3bUtlaUtHcUJYMEItMTdKeDJXV3hzTHg4MmJ4QXUwNFNSM0I0dGE4VEVkQk82YW5KYkt2YzJ4dk5zVXZScXJFclZhNnZnbmt6NW1IN19TNW5oa1drTy1kZWtiRDVqRDd2Q2ZZYzNjWmwyeTZBYThacm5ka2EwNWpLTUs2UV91ekUwTkRZMWZ2UnBFOFI4dGRWYXB5NFRnU2tiUEZaaTlKcko0SmpqOG5rRW5OZzJ3?oc=5",
+          "source": "U.S. Environmental Protection Agency (.gov)",
+          "source_url": "https://www.epa.gov",
+          "pub_kst": "2024-05-11T02:06+09:00"
+        }
+      ],
+      "queued_at": "2026-10-12T18:40:43+09:00",
+      "attempts": 0
+    },
+    "refinery:news:refinery_article_91deb7d779c48d33fea48e8e": {
+      "topic": "refinery",
+      "kind": "news",
+      "event_key": "refinery_article_91deb7d779c48d33fea48e8e",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "91deb7d779c48d33fea48e8e",
+          "title": "Renewable Fuel Standard (RFS) Program Standards for 2023–2025 and Other Changes Regulatory Impact Analysis - U.S. Environmental Protection Agency (.gov)",
+          "link": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE1NY29PUVExZGNEWTdSV2RpOUhhUUoyTTg2OXhUTThRWDQ0Mjg1QS1DSW1ydUdWelhjSXczSEY3RUlRUUh1ZDd3RmZFdThZOFVCRWtHVXdXM2N6X3hBdXg5bkpHUUJZRGM?oc=5",
+          "source": "U.S. Environmental Protection Agency (.gov)",
+          "source_url": "https://nepis.epa.gov",
+          "pub_kst": "2024-03-29T11:49+09:00"
+        }
+      ],
+      "queued_at": "2026-10-12T18:40:43+09:00",
+      "attempts": 0
+    },
+    "refinery:news:refinery_article_122357f15563d77caf61a73a": {
+      "topic": "refinery",
+      "kind": "news",
+      "event_key": "refinery_article_122357f15563d77caf61a73a",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "122357f15563d77caf61a73a",
+          "title": "The San Antonio Refinery LLC v. EPA, No. 23-1258, D.C. Cir. - U.S. Environmental Protection Agency (.gov)",
+          "link": "https://news.google.com/rss/articles/CBMijwFBVV95cUxNay1QbHpmUVJrZWRfbFVoSmVDTWtYd0FRMFhKbHBIRjRIbHkwNFJGVlNyNFpzUjlQN1Z0bmRkRzhoTFNVVzJBTXVsLVZjZDZ6LXVYWFZkbmZKU0d0TnJhQnFfZnNFUnpYNVRyZ085T2dvNWszdFVJenotNXFVZVQyOGUwR1hIUHR6RmhYNzN5WQ?oc=5",
+          "source": "U.S. Environmental Protection Agency (.gov)",
+          "source_url": "https://www.epa.gov",
+          "pub_kst": "2023-09-12T16:00+09:00"
+        }
+      ],
+      "queued_at": "2026-10-12T18:40:43+09:00",
+      "attempts": 0
+    },
+    "refinery:news:refinery_article_38b3a54bd1471b528bdb98fc": {
+      "topic": "refinery",
+      "kind": "news",
+      "event_key": "refinery_article_38b3a54bd1471b528bdb98fc",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "38b3a54bd1471b528bdb98fc",
+          "title": "Draft Regulatory Impact Analysis: RFS Standards for 2023-2025 and Other Changes | EPA - U.S. Environmental Protection Agency (.gov)",
+          "link": "https://news.google.com/rss/articles/CBMickFVX3lxTE1DR1E2WnRiOG5xQUVEOVJkZ2ZiUTdDNk9WWVdkQXJxbU9JRVZHMGlMMGJoZHRuckZkUnQtaUpkenBGYW9SaFYxZzFydk13cWEtUWk2a3ZUci1BSHNfRTJ6SGhGMnpEaVZ4LUN4NVMtMGJadw?oc=5",
+          "source": "U.S. Environmental Protection Agency (.gov)",
+          "source_url": "https://www.epa.gov",
+          "pub_kst": "2022-11-30T17:00+09:00"
+        }
+      ],
+      "queued_at": "2026-10-12T18:40:43+09:00",
+      "attempts": 0
+    },
+    "refinery:news:refinery_article_5273ef532a747c85f600ec7b": {
+      "topic": "refinery",
+      "kind": "news",
+      "event_key": "refinery_article_5273ef532a747c85f600ec7b",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "5273ef532a747c85f600ec7b",
+          "title": "Renewable Fuel Standard (RFS) Program: Standards for 2023-2025 and Other Changes – Proposed Rule (November 30, 2022) - U.S. Environmental Protection Agency (.gov)",
+          "link": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxPVzhabXpFUzQxSFhDSXZ1UnNxWnNNMGJKUUNmQWgwVkpzcmJNa0J1Q2xMdkthaVdKNkJ0aGo5MThQX0thSGczWjFOc0N4WHZIX0tEeVNfc1pCNlNrNFhtTVF5ZVFrUVJzc3RONDRLdVFVT2RRcEZwcTZTZS1ZQkRIUHRQYzRueTlIUHZB?oc=5",
+          "source": "U.S. Environmental Protection Agency (.gov)",
+          "source_url": "https://www.epa.gov",
+          "pub_kst": "2022-11-30T17:00+09:00"
+        }
+      ],
+      "queued_at": "2026-10-12T18:40:43+09:00",
+      "attempts": 0
+    },
+    "refinery:news:refinery_article_f3e603e6018b28a96000c7a0": {
+      "topic": "refinery",
+      "kind": "news",
+      "event_key": "refinery_article_f3e603e6018b28a96000c7a0",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "f3e603e6018b28a96000c7a0",
+          "title": "UNITED STATES COURT OF APPEALS FOR THE DISTRICT OF COLUMBIA CIRCUIT DELEK US HOLDINGS, INC.; LION OIL COMPANY, LLC; ALON REFININ - U.S. Environmental Protection Agency (.gov)",
+          "link": "https://news.google.com/rss/articles/CBMijwFBVV95cUxOVW91ZXNTdmpncW9yN0ZBQ25MMkh0d0ZJMW42dWFORHJiX1JVOU1sc3d4aWNCQnFNbWs3bnZ1V2c1WndySVZhdV92dFRjWUlUM0VpclRYUm9TNW1ZTElxMllBZUR2bzZhQ04wem9fMzF5Xy1waVJYTUlSOVRkbF9jOGFaUUJWSk1xY09MYUQ4UQ?oc=5",
+          "source": "U.S. Environmental Protection Agency (.gov)",
+          "source_url": "https://www.epa.gov",
+          "pub_kst": "2022-06-06T16:00+09:00"
+        }
+      ],
+      "queued_at": "2026-10-12T18:40:43+09:00",
+      "attempts": 0
+    },
+    "refinery:news:refinery_article_4ab7640b6690b442126da7ea": {
+      "topic": "refinery",
+      "kind": "news",
+      "event_key": "refinery_article_4ab7640b6690b442126da7ea",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "4ab7640b6690b442126da7ea",
+          "title": "Annual Compliance Data for Obligated Parties and Renewable Fuel Exporters under the Renewable Fuel Standard (RFS) Program - U.S. Environmental Protection Agency (.gov)",
+          "link": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxQZklodlJEamNLQm05RHhkQnk2N0tUUlNrS0IwVkpEWGdTMk5FcUZXalRZaW85ZzhZZVNrZkNsbzBXbTNSLUVzZmRnWURFUXR3WWJCZVJJSHBxbHQwalR4eHMwSE8wNmVRSkFKT2hnbG1GS0wwMTFCWUxHeXJFelZCNU4yZUVSMkI0cDh0VFlKQlhyM2tDdzlGbUFnSkxFTk1GM0dUNmZDUENBRUR3MVRDUm0tcFVJVkR5d21MTWlQc2VwOU9YNy01N0N0WDBOQ2lhWGxZ?oc=5",
+          "source": "U.S. Environmental Protection Agency (.gov)",
+          "source_url": "https://19january2021snapshot.epa.gov",
+          "pub_kst": "2020-11-17T17:00+09:00"
+        }
+      ],
+      "queued_at": "2026-10-12T18:40:43+09:00",
+      "attempts": 0
+    },
+    "refinery:news:refinery_article_da94d4f8aa486e8ccd04825e": {
+      "topic": "refinery",
+      "kind": "news",
+      "event_key": "refinery_article_da94d4f8aa486e8ccd04825e",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "da94d4f8aa486e8ccd04825e",
+          "title": "EPA Announces Steps to Protect the Availability of Gasoline during COVID-19 Pandemic - U.S. Environmental Protection Agency (.gov)",
+          "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxPZl9GbUMwa3lZS29yM1BjcHhBeVVld1hjQjAtQUtFdHVvOVh1ZGZvcndFM2hmS0EybHVyRWhXT1Z2N0FZaGRwd0R2M0FIRHdSaDZTRTFaVHVYV2szV25sM2VyN29INmIzV0VMRUFsVFAtSU9ua1REb0JmZnNsVEdXNlRIZWNTOE1fQUZvV0VPSzBnZ1FsMTBkLUpabmxmazF0RmU2Z3Z5SjNvb2s?oc=5",
+          "source": "U.S. Environmental Protection Agency (.gov)",
+          "source_url": "https://www.epa.gov",
+          "pub_kst": "2020-03-27T16:00+09:00"
+        }
+      ],
+      "queued_at": "2026-10-12T18:40:43+09:00",
+      "attempts": 0
+    },
+    "refinery:news:refinery_article_d5f545c17bffc26afc8d9123": {
+      "topic": "refinery",
+      "kind": "news",
+      "event_key": "refinery_article_d5f545c17bffc26afc8d9123",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "d5f545c17bffc26afc8d9123",
+          "title": "Renewable Fuel Standard Exemptions for Small Refineries - U.S. Environmental Protection Agency (.gov)",
+          "link": "https://news.google.com/rss/articles/CBMixgFBVV95cUxNb1dUSjlFWXZWWWxscUhWU3dTbWVZLUxJdV9QUDY5a1l0eWFZcVlaakxIS2dhdml0bEhRb1l2T1k1VmQ1Vm56SWI2WGVyU3RoOG9NYnFacHhBX2twN0hqa3NmOU5aZ2ZZbDVTY0dUWF9ocUMzZC03WG9IU1NaSmE4eTRHNDBUNW1WN0dXTVdYN2FYZkJ5dnQzazBqWWFnT1VScmFBeDM0TWN2Z3JyLWo5Rncyd2lSemlFMkpMOXVUd3V2MUhXQnc?oc=5",
+          "source": "U.S. Environmental Protection Agency (.gov)",
+          "source_url": "https://19january2021snapshot.epa.gov",
+          "pub_kst": "2020-03-18T16:00+09:00"
+        }
+      ],
+      "queued_at": "2026-10-12T18:40:43+09:00",
+      "attempts": 0
+    },
+    "refinery:news:refinery_article_5eb723649dabbdd51d4cb665": {
+      "topic": "refinery",
+      "kind": "news",
+      "event_key": "refinery_article_5eb723649dabbdd51d4cb665",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "5eb723649dabbdd51d4cb665",
+          "title": "Question and Answer Guidance on EPA’s E15 RVP and RIN Market Reform Regulations - U.S. Environmental Protection Agency (.gov)",
+          "link": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTFBpSE1USlNuajZJTEFjaFFjV08xVGZaLVA0elRaTjRoUERaRnRuWUVLcERNVmdwOGhHc2NuQ0JNX05JeHVXNG9oa3lVVmN2UGVjaFByRkJnNVVzdlZRMGFoTERtM3dzWU0?oc=5",
+          "source": "U.S. Environmental Protection Agency (.gov)",
+          "source_url": "https://nepis.epa.gov",
+          "pub_kst": "2020-01-07T07:08+09:00"
+        }
+      ],
+      "queued_at": "2026-10-12T18:40:43+09:00",
+      "attempts": 0
+    },
+    "refinery:news:refinery_article_d8c628dad372f56495563d07": {
+      "topic": "refinery",
+      "kind": "news",
+      "event_key": "refinery_article_d8c628dad372f56495563d07",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "d8c628dad372f56495563d07",
+          "title": "Policy Update: Recent Trump EPA Biofuels Policy Under Attack - Fuels Market News",
+          "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTFBLY1FwWEFweTBMWC1zY2RxQ0pnVkdKdzZONnl6RFBvWjhBQWRiczAwbE11OFNqakhuZlZ3cmlkMmZkRUlEWi1ENUFnZ2ZOdVlLNG9qT05fNG9URk1DM09VZzhWejFIeVJQeDFfdktHNWhmbnR1THZ5bXlVamtZNXM?oc=5",
+          "source": "Fuels Market News",
+          "source_url": "https://fuelsmarketnews.com",
+          "pub_kst": "2019-10-15T16:00+09:00"
+        }
+      ],
+      "queued_at": "2026-10-12T18:40:43+09:00",
+      "attempts": 0
+    },
+    "refinery:news:refinery_article_de398f92f297e1325c8cb946": {
+      "topic": "refinery",
+      "kind": "news",
+      "event_key": "refinery_article_de398f92f297e1325c8cb946",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "de398f92f297e1325c8cb946",
+          "title": "Renewable Fuel Standard Program (RFS2) Regulatory Impact Analysis (EPA-420-R-10-006) (February 2010) - U.S. Environmental Protection Agency (.gov)",
+          "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPR0tLYl9TVkNiVWlPSE1Ra3pRSlI5MkVWWXFzZnBHQVFWVVZSMlM2M3FGY1VkQlk5dnZfM3ZxcGNLMHJzVUp0THlxN0gtWUE5eXpWVXF1YjVXNEloVFl3NVRFRDNfMG1VdF91dElkN0YwU2cxLWl2Yl9UeE10WUNKZW1ONlpVMFhDeUZQN3d4WjBsQ2JxcExN?oc=5",
+          "source": "U.S. Environmental Protection Agency (.gov)",
+          "source_url": "https://19january2017snapshot.epa.gov",
+          "pub_kst": "2017-03-01T23:08+09:00"
+        }
+      ],
+      "queued_at": "2026-10-12T18:40:43+09:00",
+      "attempts": 0
+    },
+    "refinery:news:refinery_article_7ee15e01563d294ab76ca572": {
+      "topic": "refinery",
+      "kind": "news",
+      "event_key": "refinery_article_7ee15e01563d294ab76ca572",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "7ee15e01563d294ab76ca572",
+          "title": "Overview of EPA’s Tier 3 Gasoline Sulfur Regulations - Webinar (September 20, 2016) - U.S. Environmental Protection Agency (.gov)",
+          "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPRktLUHpqY09qNnVmajFVWjlhWGJUQWVFRDZXNzZKLTJQUkwzaHMtTVQ0V1F4ODZXa3JQTjJieC1Nd0hKMzZmanBqMW4yZzliTGhQUzYxX2F5cnZ0Qm9Wc2psa2Q3cHFzSkdHREtjTXZPLUltaUhKWlE4TTZVb2o4MzNGQTZvSEJ2Wl8wTURnRXRGY3lTMjFVSUtNcDAtUnM4NUF1VWlCcmNMdmxXbk54Rw?oc=5",
+          "source": "U.S. Environmental Protection Agency (.gov)",
+          "source_url": "https://www.epa.gov",
+          "pub_kst": "2016-09-20T16:00+09:00"
+        }
+      ],
+      "queued_at": "2026-10-12T18:40:43+09:00",
+      "attempts": 0
+    },
+    "refinery:news:refinery_article_71c1f2b7f14b0b05533b23bb": {
+      "topic": "refinery",
+      "kind": "news",
+      "event_key": "refinery_article_71c1f2b7f14b0b05533b23bb",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "71c1f2b7f14b0b05533b23bb",
+          "title": "Renewable Fuel Standard Program (RFS2) Regulatory Impact Analysis United States Environmental Protection Agency - U.S. Environmental Protection Agency (.gov)",
+          "link": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTFB0WDVtOW1pTnZqbENHYWJMWThHdlVrVG51Ti1zQV9vbF9YLV81U2Y1VW9Mejk5NnotaE1xeUNvT0d5NDlPWjRJZ2lYZUVNbVQybXVpM0xpVXo1OUpEczl6MFB3emFaTTA?oc=5",
+          "source": "U.S. Environmental Protection Agency (.gov)",
+          "source_url": "https://nepis.epa.gov",
+          "pub_kst": "2016-08-14T06:54+09:00"
+        }
+      ],
+      "queued_at": "2026-10-12T18:40:43+09:00",
+      "attempts": 0
+    }
+  },
+  "receipts": [],
+  "dispositions": [],
+  "observed_data": {}
+}
