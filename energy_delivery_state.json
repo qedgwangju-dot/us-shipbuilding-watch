@@ -19,7 +19,8 @@
       ],
       "queued_at": "2026-10-13T05:24:57+09:00",
       "attempts": 1,
-      "invalid_items": []
+      "invalid_items": [],
+      "held_items": []
     },
     "refinery:news:refinery_article_96adc46e8ecaabe57cb502b9": {
       "topic": "refinery",
@@ -39,7 +40,26 @@
       ],
       "queued_at": "2026-10-13T05:24:57+09:00",
       "attempts": 1,
-      "invalid_items": []
+      "invalid_items": [],
+      "held_items": []
+    },
+    "refinery:news:refinery_article_293d71a2af580c82ff2b1143": {
+      "topic": "refinery",
+      "kind": "news",
+      "event_key": "refinery_article_293d71a2af580c82ff2b1143",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "293d71a2af580c82ff2b1143",
+          "title": "RFA Submits Comments Supporting EPA’s Proposed RFS Volumes for 2026, 2027 - Renewable Fuels Association",
+          "link": "https://news.google.com/rss/articles/CBMi4wFBVV95cUxQbTlENlc1Z1NibmI0bTdiekVnWk5hdkRvbDQtRWdyb0tyUXJ6SUd4Y1VWYUxleGRTQkxQdFRTdG1nZ2VqWTJRN09QazdQRkFqdDN2ZW8yQUc1ZEF1dDhOWHhzYV9MRC1xVGhIUVR0bzNGSEhoRVJtQzNndjIzMFJ6TjRhOFVhRW10TmdYTlNoLU45VDZQVDVVYXNxR29EQmUyUTE5QUNJNHF5dC16N29ZMVVEQnJaLTh1RlBqVFoxVTRQRjBXbjZUMjV6WEJsNnZBcVZyVW5yS2RKdDdwYjRjcnhqcw?oc=5",
+          "source": "Renewable Fuels Association",
+          "source_url": "https://ethanolrfa.org",
+          "pub_kst": "2025-08-07T16:00+09:00"
+        }
+      ],
+      "queued_at": "2026-10-13T08:13:22+09:00",
+      "attempts": 0
     }
   },
   "receipts": [],
