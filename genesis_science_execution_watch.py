@@ -63,7 +63,10 @@ KNOWN_PROJECTS=("axess","asqc","ai4hpc","moat-core","gridfm","prometheus")
 NAMED_ENTITIES=("argonne","los alamos","fermilab","harvard","oak ridge","lawrence berkeley","northeastern","mit","princeton","brookhaven","university","laboratory","nvidia","amd","micron","google","aws","crusoe","openai")
 
 def clean(value):
-    return re.sub(r"\s+"," ",BeautifulSoup(str(value or ""),"html.parser").get_text(" ",strip=True)).strip()
+    raw=str(value or "")
+    if "<" not in raw and ">" not in raw:
+        return re.sub(r"\s+"," ",html.unescape(raw)).strip()
+    return re.sub(r"\s+"," ",BeautifulSoup(raw,"html.parser").get_text(" ",strip=True)).strip()
 
 def canonical(url):
     u=urllib.parse.urlsplit(str(url or ""))
@@ -148,7 +151,7 @@ def article(url):
     if published is None and is_known_nvidia_release and len(body)>=150:
         published=dt.date(2026,10,8)
     if not title or not published or len(body)<150:
-        raise ValueError("원문 제목·발행일·본문 검증 실패")
+        raise ValueError(f"원문검증 실패: title={title[:70]!r} published={published!r} body_chars={len(body)}")
     return {"url":canonical(url),"title":title,"published":published.isoformat(),"body":body}
 
 def is_baseline(item):
