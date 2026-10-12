@@ -238,13 +238,23 @@ def initial_state():
     return {"schema":1,"seen":{key:{"kind":"기준 사건","published":"2026-10-08"} for key in BASELINE},"uncertain":{},"last_checked_kst":"","source_health":{}}
 
 def load_state():
+    # Only first installation may start with the known Oct 8 baseline.
+    # A corrupt existing state must STOP rather than silently resending
+    # already-delivered policy events as new ones.
+    if not STATE.exists():
+        return initial_state()
     try:
         state=json.loads(STATE.read_text(encoding="utf-8"))
-        if not isinstance(state,dict):raise ValueError
-        for k,default in initial_state().items():
-            state.setdefault(k,default)
-        return state
-    except Exception:return initial_state()
+        if not isinstance(state,dict):
+            raise ValueError("state must be an object")
+        if not isinstance(state.get("seen"),dict) or not isinstance(state.get("uncertain",{}),dict):
+            raise ValueError("seen and uncertain must be objects")
+    except (OSError,UnicodeError,ValueError,TypeError) as exc:
+        raise RuntimeError("Genesis 상태파일 손상·읽기실패: 이전 전송 상태를 추정하지 않고 알림 중단") from exc
+    defaults=initial_state()
+    for k,default in defaults.items():
+        state.setdefault(k,default)
+    return state
 
 def atomic_write(path,obj):
     fd,tmp=tempfile.mkstemp(prefix=".genesis_",dir=str(path.parent))
