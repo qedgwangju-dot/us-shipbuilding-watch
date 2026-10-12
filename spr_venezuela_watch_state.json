@@ -1,6 +1,34 @@
 {
   "initialized": true,
   "seen_news": [
+    "a5c2119983bde94b10be0922",
+    "9699f9172478b8f2de8214e3",
+    "bb93756a08d46b512b67e815",
+    "1d167aa56d0e93fd48924976",
+    "0a86e2f3407fe9c9fbd6e066",
+    "8ef5482518232fbbac315b22",
+    "a46c2a4f02beff1711da69bb",
+    "14129f5244d320f7b3c4b89f",
+    "97bcacfe9725a0ab88f223c6",
+    "98864229b7d4e876836b3709",
+    "93e4d6e1d496cc4a535221b8",
+    "a3e5b361f825c0fd3b6471df",
+    "6b95371ce63753c761af0776",
+    "952006d62229d2e0b4a5fd7e",
+    "b08ae1c6b91ac7108fc1c348",
+    "99c707f7ff50f305b3467480",
+    "bdcfae30f6ed9703b1bed6cb",
+    "d4ff6fb011ca435b07e8ebb3",
+    "7a9ea84df20d65d87b7281aa",
+    "040835ba27a5073ad55c7746",
+    "9f1fd5bbe3fda0cc9687bb3a",
+    "5621845094218969f3fcc323",
+    "cad6d444a4f6d1d65ac008b1",
+    "b8d8f85e23e913d108bb3285",
+    "97775a01835c7a4b235c64f5",
+    "2545333b3cb7bf6291453229",
+    "afa32ea256981d2f3eb60382",
+    "f2ba418824e195ccee6531ec",
     "4345e99e4b0e785ac5850363",
     "95b86efd2de145685426c878",
     "b09ac8a379d8b4d59e428f40",
@@ -357,7 +385,7 @@
     "prev_kbd": 553,
     "source": "https://www.eia.gov/dnav/pet/hist/LeafHandler.ashx?f=W&n=PET&s=W_EPC0_IM0_NUS-NVE_MBBLD"
   },
-  "last_run_kst": "2026-10-12T17:56:02+09:00",
+  "last_run_kst": "2026-10-12T18:41:09+09:00",
   "events": {
     "spr_venezuela_oil_agreement_20260831": {
       "priority": 5,
@@ -914,5 +942,8 @@
       "last_pub": "2026-09-25T17:41+09:00",
       "title": "The U.S. Strategic Petroleum Reserve is running low. Can Venezuelan oil help? - NPR"
     }
-  }
+  },
+  "last_source_error_count": 0,
+  "last_data_error_count": 0,
+  "last_translation_error_count": 0
 }

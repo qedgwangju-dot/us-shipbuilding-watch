@@ -1,451 +1,6 @@
 {
   "schema_version": 1,
-  "outbox": {
-    "spr:news:spr_refill_statement_20260830": {
-      "topic": "spr",
-      "kind": "news",
-      "event_key": "spr_refill_statement_20260830",
-      "status": "enrichment_pending",
-      "items": [
-        {
-          "id": "b8d8f85e23e913d108bb3285",
-          "title": "Trump Says U.S. Will Soon Refill Strategic Oil Reserves at No Cost – Could Venezuela Be the Answer? - EnergyNow.com",
-          "link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxQR2xhUUtRSzkyU3l3THl6c3NITzhmOXdySHc1dGRBLW9IY1dWY1h5cEdEOTBEWERTNVJxUk5hMHJBTE9VSHdQaXFmUjcxajhDTllzSVFLNGEwQjdDdF9qendCUmJmTkZBbGxaQ01LdHRsVWQzYmZfOXZQVkFUX3M4a18zRTVyMkt1dXFmX1lzT0xxakwwMnVhem00Q0VUSGdTR0dxblZQcEJvMEpaMWYtaFJzV05qbUVrbjBrSTE5QUE4WlJj?oc=5",
-          "source": "EnergyNow.com",
-          "source_url": "https://energynow.com",
-          "pub_kst": "2026-10-05T01:28+09:00"
-        },
-        {
-          "id": "97775a01835c7a4b235c64f5",
-          "title": "Trump Says U.S. Will Soon Refill Strategic Oil Reserves at No Cost — Could Venezuela Be the Answer and What Does That Mean Canadian Producers? - EnergyNow",
-          "link": "https://news.google.com/rss/articles/CBMi_AFBVV95cUxNaGpOY09hOWY1cS1uUVZTUnRUYTdqTExIQm9aM3ExWTAtRHJrbkplWWxuMENHSG1JUVVJM2Q4UG1wYjNCMlBTUVRpd19WeFJhM0lFUWZ2YXd0dldRTnNxSFFlTURqVGc5MnJDTl9PalEzOUJFQUFoTnlTcW53U3FXaE5CdE5USWt1ck1LSFBMRVUxeVhnX1VNNUR3cmVwcVBKMG5qRlNmOUtYNWtxT0M4Rk9SWFdKaGU2aERwZGhzaVNrMjdVZDZLWTFzTlI5alJvMENRVHVTeXp6NkFGQ1dzcTlWNEo2VGprVXlvRFpXR25nWkNQOG50Y2dLZWw?oc=5",
-          "source": "EnergyNow",
-          "source_url": "https://energynow.ca",
-          "pub_kst": "2026-10-05T01:28+09:00"
-        },
-        {
-          "id": "2545333b3cb7bf6291453229",
-          "title": "Trump Highlights Oil Price Stabilization With SPR Replenishment Using Venezuelan Crude - 아시아경제",
-          "link": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE1SYS1IRXUxWnYycFljVjNNMTRCYTI2d1p2aE9CQ1lNLVBPWmhtbFpyaFNhZlN2SzFvZVB1TFRTZVppWjR2SWFYZW9jOTZmRDltNXJfaVpUOE9jcnBTY21xb0dDX0w?oc=5",
-          "source": "아시아경제",
-          "source_url": "https://www.asiae.co.kr",
-          "pub_kst": "2026-10-03T10:48+09:00"
-        },
-        {
-          "id": "afa32ea256981d2f3eb60382",
-          "title": "Trump Says U.S. Strategic Petroleum Reserve Will Be Refilled with Venezuelan Oil, Process to Begin Soon - news.sbs.co.kr",
-          "link": "https://news.google.com/rss/articles/CBMibkFVX3lxTE02RGJpUWZKYkR2VmExZWx3TnVMeE5BVzdaS1VFejN1TE1sVkZMaVFWMlljSkhhczFheG1pUDhtdVRrcXlDbXpYaXdEV1pjTDZTX3ZDRlowaDRzdUtyVHhIQ200VXFEeEl4NlhZRXRB?oc=5",
-          "source": "news.sbs.co.kr",
-          "source_url": "https://news.sbs.co.kr",
-          "pub_kst": "2026-08-31T16:00+09:00"
-        },
-        {
-          "id": "f2ba418824e195ccee6531ec",
-          "title": "President Trump on Sunday posted that he would use the oil from his deal in Venezuela to refill the U.S.’s stockpile, which is known as the Strategic Petroleum Reserve. But new oil projects can take years to get off the ground, especially in Venezuela, and any - Facebook",
-          "link": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxPNVZ3THBjc2k5UlM4a2FRRjhwSjNCU2pTZkV0OTlQeUhTd2tFLWdXdzhDWkxxVVZSd2JubWdfV0NXTFMyOWpSaGdyb1pvSDFJaFJ4QXQ1RGhWQ3hJOFhGUTRjMG5YLXp2Y05yc19vZmMyTUo0TzliU2JxcW8xNXZ2cDAyTzBuSFpia2IxOS1ybndTWVBnaEc3ZmRYZVhveE9hakVDTklCUnBkVXdUNXpLajlBWjMzMzZSRnVMMTJJODB1ZGd0bUk0ZEZ4YWo5OWhjbHhr?oc=5",
-          "source": "Facebook",
-          "source_url": "https://www.facebook.com",
-          "pub_kst": "2026-08-30T16:00+09:00"
-        }
-      ],
-      "queued_at": "2026-10-12T18:41:07+09:00",
-      "attempts": 0
-    },
-    "spr:news:venezuela_output_double_deals_20260902": {
-      "topic": "spr",
-      "kind": "news",
-      "event_key": "venezuela_output_double_deals_20260902",
-      "status": "enrichment_pending",
-      "items": [
-        {
-          "id": "9f1fd5bbe3fda0cc9687bb3a",
-          "title": "Chevron eyes $7bn Venezuela investment to double oil output - Businessday NG",
-          "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxQcVk4bVV0RjRkTVl2RXM4T0ZRUndSeUN4NFYyRWFTakZQemx5R2VaVEhTRFQ1RGVSTUdabDg0djhpcGswVERvNm1WM19wdlB2dlBTVEdPLWhwQjhfZlh6NkRIcnNaeHd1d0YzTWJNazZTbnBNbE5iVm94a2xuM2JIYlZSLTZRTzY1dEoyM2J4RXVRVVBYaVNHQnJ2VUdvQdIBowFBVV95cUxQaWlBZ1ZHbmh6X1czUGp4cnQ0azJyTEpVdG1vWVJhVGhaTlBlcEVnWFp3ZmxxUjBQOVdGelAwb3RYNXpvOVJ4VzFUUU5acVR5bjFORzVieUN5Wnc3WnJJQ0xrVWxLdTd1ejFDYUFVWWpkcllmdGU0UXlFYzJPN2JtZGkwZEhBMW9XeGhWNFc5aUZIU0VmU2xGSF9XSGhXMmN6NVpZ?oc=5",
-          "source": "Businessday NG",
-          "source_url": "https://businessday.ng",
-          "pub_kst": "2026-09-08T15:37+09:00"
-        },
-        {
-          "id": "5621845094218969f3fcc323",
-          "title": "Venezuela oil output could more than double within years, U.S. energy secretary says - وكالة الأنباء السورية – سانا",
-          "link": "https://news.google.com/rss/articles/CBMiTEFVX3lxTE1IOG92V09SOS10a2hoYkt5a1duM0puaDRwT0RRVWZNR3NJTHNqdnhXdllQc29VdnNmSGRLU2VBSXZYTXN5R3EtWTZxYXk?oc=5",
-          "source": "وكالة الأنباء السورية – سانا",
-          "source_url": "https://sana.sy",
-          "pub_kst": "2026-09-02T16:00+09:00"
-        },
-        {
-          "id": "cad6d444a4f6d1d65ac008b1",
-          "title": "Chevron is committing $7 billion to more than double its Venezuela oil output - Quartz",
-          "link": "https://news.google.com/rss/articles/CBMid0FVX3lxTE1DWFdCQlFvUF9nSlZCUDBPSlFuelE0VkFyaGc0cE52XzlwNWJDRkw5SXZsTkp1QUR3b1ctMzVfV29rTWdka0ZNRDFHV09DRFdGRW1fd1JRaUZicFBGWHFDNHJKdHpZV1lPd0ozeUp6REh2ellWcjBR?oc=5",
-          "source": "Quartz",
-          "source_url": "https://qz.com",
-          "pub_kst": "2026-09-02T16:00+09:00"
-        }
-      ],
-      "queued_at": "2026-10-12T18:41:07+09:00",
-      "attempts": 0
-    },
-    "spr:news:spr_article_040835ba27a5073ad55c7746": {
-      "topic": "spr",
-      "kind": "news",
-      "event_key": "spr_article_040835ba27a5073ad55c7746",
-      "status": "enrichment_pending",
-      "items": [
-        {
-          "id": "040835ba27a5073ad55c7746",
-          "title": "U.S. shields 35% stake in Venezuela oil venture from dilution, Reuters reports - Yahoo Finance Australia",
-          "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxQaEhsT0NrU0QyUkVKc193NTR6ZW0tQjJkcFJlaG81cFV5amk3ajZHeUhNWTFFNGRVVHVCWlphbVVwRHBTVGZkZnJpMDNHNEYtZDZvejlsOE1zVFRUaWxKQVFJYUFNNG9SY0JHSHJfVzhpdzNqQWJpYmZ6YTZzaFM3OEtGTQ?oc=5",
-          "source": "Yahoo Finance Australia",
-          "source_url": "https://au.finance.yahoo.com",
-          "pub_kst": "2026-09-04T16:00+09:00"
-        }
-      ],
-      "queued_at": "2026-10-12T18:41:07+09:00",
-      "attempts": 0
-    },
-    "spr:news:spr_venezuela_quality_bottleneck": {
-      "topic": "spr",
-      "kind": "news",
-      "event_key": "spr_venezuela_quality_bottleneck",
-      "status": "enrichment_pending",
-      "items": [
-        {
-          "id": "7a9ea84df20d65d87b7281aa",
-          "title": "Venezuela's heavy crude isn't a great fit for the US emergency reserve. It could still help refill it. - Business Insider",
-          "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxPSXBUaXNuYldHZ3IyZHdpNk1Fd1I4bWVPaHdocDhhbGs5RDNMMVFHeGRRUWhIVy1vZENNeWtpc0ZPeXI0V1h4d0Mya2lqMm9Ya2l0LW9Nb28tMXVoRzZqaXg1eUFIUVVCZi1fY2w1X1A4MGpNT0FOVnlqNGJiWW52Q3dpYjZRMXFoZjJYTEthMzZFNU54VXo2SU9wZmk?oc=5",
-          "source": "Business Insider",
-          "source_url": "https://www.businessinsider.com",
-          "pub_kst": "2026-09-03T16:00+09:00"
-        }
-      ],
-      "queued_at": "2026-10-12T18:41:07+09:00",
-      "attempts": 0
-    },
-    "spr:news:spr_article_d4ff6fb011ca435b07e8ebb3": {
-      "topic": "spr",
-      "kind": "news",
-      "event_key": "spr_article_d4ff6fb011ca435b07e8ebb3",
-      "status": "enrichment_pending",
-      "items": [
-        {
-          "id": "d4ff6fb011ca435b07e8ebb3",
-          "title": "Chevron Expands Position in Venezuela - EnergyNow.com",
-          "link": "https://news.google.com/rss/articles/CBMid0FVX3lxTE90eEh6dzBKS1JkTHNGa3U4d2ExSU9kQkNZNXV4N0VPa3FPenM4dmRtQjFFOUlyem5ibUhWLV83azEyR3d1eWpqeVZscFVxMlA4VGZFRjM4NHd1djNJd1habHRhUnFTQXR4bVh4Sm92NUNJTWpabjVz?oc=5",
-          "source": "EnergyNow.com",
-          "source_url": "https://energynow.com",
-          "pub_kst": "2026-09-03T01:41+09:00"
-        }
-      ],
-      "queued_at": "2026-10-12T18:41:07+09:00",
-      "attempts": 0
-    },
-    "spr:news:spr_article_bdcfae30f6ed9703b1bed6cb": {
-      "topic": "spr",
-      "kind": "news",
-      "event_key": "spr_article_bdcfae30f6ed9703b1bed6cb",
-      "status": "enrichment_pending",
-      "items": [
-        {
-          "id": "bdcfae30f6ed9703b1bed6cb",
-          "title": "US oil giant Chevron confirms it will expand operations in Venezuela - KVUE",
-          "link": "https://news.google.com/rss/articles/CBMi-gFBVV95cUxQcEFzRXRDNnplR0prSC03dElCeDA2c1pIT3NEU19lOVNiS1ZYWHZUaGtqWm5YUkVDbDM4RjMtZVoxQktGQlU1T0FvX0NpVjB5SXhuSERaSVRXUVZHUjhLaDVxV2xlRFAwbEwzTGFMel9jVGpNUHRmM3k4c3ZWRHBBM0Ztam9keDEzdVlFUjFwWlVPZGF2ZUVCeGZwMFlZTE5NV1FzWDdnb2E0cERramtJMUVOdk13ajcxUGxnZlhJbU5jX25RZElLbWowZ01JYmNnVE51UjFOUlVtSU92UTM2amdCbzVETjlMcFlTT3BkOU9ER0dqOHcyTk13?oc=5",
-          "source": "KVUE",
-          "source_url": "https://www.kvue.com",
-          "pub_kst": "2026-09-02T16:00+09:00"
-        }
-      ],
-      "queued_at": "2026-10-12T18:41:07+09:00",
-      "attempts": 0
-    },
-    "spr:news:spr_article_99c707f7ff50f305b3467480": {
-      "topic": "spr",
-      "kind": "news",
-      "event_key": "spr_article_99c707f7ff50f305b3467480",
-      "status": "enrichment_pending",
-      "items": [
-        {
-          "id": "99c707f7ff50f305b3467480",
-          "title": "Chevron to invest over $7 bn in Venezuela, targets twofold rise in oil output - ANI News",
-          "link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxPdFZzNVEyQ2VSVVF3OEotT3BzM09EQmhmMWg3Ql9WV3Q4dEdvamZJeW5XZ1lRblF3Q184QnR4eGlHeHdVamNHa2tmUFNrM1JoTk1FRVhkbjJTU1o5SHJvdDhObzRoYWVJMFdPZ3NxQ29Ednd2dDlGU19iLWJKeDdCNzlHQW5Sai1FUjhYLUhMSE1rWnNnUlo2cklPQkdoTElEcUhPdFVnOFJySmV6cmFtY1lSWDdpTUs5ZGpSVE5INzVzeDND?oc=5",
-          "source": "ANI News",
-          "source_url": "https://www.aninews.in",
-          "pub_kst": "2026-09-02T16:00+09:00"
-        }
-      ],
-      "queued_at": "2026-10-12T18:41:07+09:00",
-      "attempts": 0
-    },
-    "spr:news:spr_article_b08ae1c6b91ac7108fc1c348": {
-      "topic": "spr",
-      "kind": "news",
-      "event_key": "spr_article_b08ae1c6b91ac7108fc1c348",
-      "status": "enrichment_pending",
-      "items": [
-        {
-          "id": "b08ae1c6b91ac7108fc1c348",
-          "title": "Why Venezuela’s oil production is poised for a major rebound - The Financial Express",
-          "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxQREc1d1I5TWR6TmZFdmpCOFZPbXNiWnhVTG1mTDRTT3BKbTN6SkJkTGZvV0IzQ3M2YTk4Z2xKeV83OEgwYWRqRVk0YjdDQllqZF82cUNYd0x3emVsMVhBeDdpQkpwZTFQSEN6RWJYQUpXMjZYUmdwZ1NpR1ozVlh4SW5KRG1iRHFFc0J6NnVGaGN3dnAzY3VQc2p2TU1MbjMxRlhmRjhKOVVKckF4V3lZ0gG2AUFVX3lxTE1LN1BfaGh0c2RtYWQ5N1VpMXozWXg2MzZWaWRGdzN4N1IwbE9kMzdqV21xVG5IQ3Y4amxvWnNiOGd2M1g5WjI3Z1lNc3ZDR0ZUSjd4Qnh6NDk0TDl6dlpMX1UyRHdURlNUdnJ6VDc5ZjZScmMzUDg5NER6WmpybXVRMmNpeFViZkY5Wnc0UVhmNTd4UWUxZzY4TzRaTDB0TUozUlZ0X3JhT3BTa3BfUURCZmZ0LXpR?oc=5",
-          "source": "The Financial Express",
-          "source_url": "https://www.financialexpress.com",
-          "pub_kst": "2026-09-02T16:00+09:00"
-        }
-      ],
-      "queued_at": "2026-10-12T18:41:07+09:00",
-      "attempts": 0
-    },
-    "spr:news:spr_article_952006d62229d2e0b4a5fd7e": {
-      "topic": "spr",
-      "kind": "news",
-      "event_key": "spr_article_952006d62229d2e0b4a5fd7e",
-      "status": "enrichment_pending",
-      "items": [
-        {
-          "id": "952006d62229d2e0b4a5fd7e",
-          "title": "U.S. Secures Venezuelan Oil Reserves - The Institute for Energy Research",
-          "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxNa1NJcTZBWW1DckpYT3JGbHBPd2dpZDdsdXFZd2VRSFBFUzNNTmNqdmh0YzVmdnpENDR2WUxRODM3WmJXQTNMbnBQT002VEVabDZJS0oybGJ5WTRaZFk0VmdQVlIydDcwbVFtQ09XOXJ4RWcyalFMbTdxZlMwa2FCT05ESVNhLTVtQVZzd1VTUjJ6OFVvUFln?oc=5",
-          "source": "The Institute for Energy Research",
-          "source_url": "https://www.instituteforenergyresearch.org",
-          "pub_kst": "2026-09-01T16:00+09:00"
-        }
-      ],
-      "queued_at": "2026-10-12T18:41:07+09:00",
-      "attempts": 0
-    },
-    "spr:news:spr_article_6b95371ce63753c761af0776": {
-      "topic": "spr",
-      "kind": "news",
-      "event_key": "spr_article_6b95371ce63753c761af0776",
-      "status": "enrichment_pending",
-      "items": [
-        {
-          "id": "6b95371ce63753c761af0776",
-          "title": "Does Trump Even Understand the Cursed Oil We’re Seizing from Venezuela? - Jezebel",
-          "link": "https://news.google.com/rss/articles/CBMizAFBVV95cUxQTjFtVTk2cWVtWmJ4c1ZhTW4yaVMtRi1ocC1kQzUzUVY1ZkUzbHFmbHdoUjBLM2JSNXVoQUt6angwTmRwMHZUcXREZ2NZWWpmU2E0VUFsSllTTFdpbVNOUC1MUy1mamFaX01ZdTRzVEE3WnZoS2VPRkZVVnRZRnBHMU1PR3c2blB2YVNWbmQzYXMwaDNYUDAtSmtVZWtfdmpWWFMzM0FFVkRGS3pnN0dtY3ZTR0Z1YzlsMXFfcmt2REhxUWp2NHU2TkEwU1M?oc=5",
-          "source": "Jezebel",
-          "source_url": "https://www.jezebel.com",
-          "pub_kst": "2026-08-31T16:00+09:00"
-        }
-      ],
-      "queued_at": "2026-10-12T18:41:07+09:00",
-      "attempts": 0
-    },
-    "spr:news:spr_article_a3e5b361f825c0fd3b6471df": {
-      "topic": "spr",
-      "kind": "news",
-      "event_key": "spr_article_a3e5b361f825c0fd3b6471df",
-      "status": "enrichment_pending",
-      "items": [
-        {
-          "id": "a3e5b361f825c0fd3b6471df",
-          "title": "Trump says Venezuelan oil will refill depleted US petroleum reserve - The National",
-          "link": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNak1sd2ZuN1ROd3NZWFktX3MzcE9WTXBLZXkyLVVLRC1iQk9QZ3JhanI0N1lmWFBFbmIxZGhqcEl3Y1YwazhKSEFPUWFQMTNEOUFzaHcwcUFrRW9QQW05QlF6bW52UFBwNWxMQjBYRU8xTVJtYTN5Zm1pVlVIc0NNTXlIVDdjRlVuRTlISVpWZ09DM1A2Rkg4VWUwM2xWOFp5dUQ2OUdtZzhLWWR4SGxCUVlsdU5yLU5Uc0Jv?oc=5",
-          "source": "The National",
-          "source_url": "https://www.thenationalnews.com",
-          "pub_kst": "2026-08-30T16:00+09:00"
-        }
-      ],
-      "queued_at": "2026-10-12T18:41:07+09:00",
-      "attempts": 0
-    },
-    "spr:news:spr_venezuela_oil_agreement_20260831": {
-      "topic": "spr",
-      "kind": "news",
-      "event_key": "spr_venezuela_oil_agreement_20260831",
-      "status": "enrichment_pending",
-      "items": [
-        {
-          "id": "93e4d6e1d496cc4a535221b8",
-          "title": "Trump Takes Majority Control of 65 Billion Barrels of Venezuelan Oil Reserves: 364 outlets compared - NewsCord",
-          "link": "https://news.google.com/rss/articles/CBMi6gFBVV95cUxNTXBnYkNQcGlUc0RlMnNtTkpMaURXeGhBOUlxelVqanZMYzZ5YWhvaHNPVURMZDFtWDVUNGowMUgzallRZWJCRWlualhRWnpKQWlDM2JjRGJjbFo1MDBRcmlmRWhOYXlKNkJwMXNzUEV5d2ktN09RbEx4cnM0MFZheU43Q09KRDdjZzlJYUJNM3J0akEyMzdsSWo4a2h6LW1SeWNtUVpqTEpoR25yLWxiWDNySnhuTXI5U295eGgzcmtEMTJIMGFHdTl3OG5waDZyMDJwcjVXM3Y1Um1WenB1Si1HMUtlUEhSbXc?oc=5",
-          "source": "NewsCord",
-          "source_url": "https://newscord.org",
-          "pub_kst": "2026-08-29T16:00+09:00"
-        }
-      ],
-      "queued_at": "2026-10-12T18:41:07+09:00",
-      "attempts": 0
-    },
-    "spr:news:spr_article_98864229b7d4e876836b3709": {
-      "topic": "spr",
-      "kind": "news",
-      "event_key": "spr_article_98864229b7d4e876836b3709",
-      "status": "enrichment_pending",
-      "items": [
-        {
-          "id": "98864229b7d4e876836b3709",
-          "title": "Trump Administration Eyes Venezuelan Oil Stakes as Diesel Hits $5.65. Here's Why It Matters - 24/7 Wall St.",
-          "link": "https://news.google.com/rss/articles/CBMizAFBVV95cUxQMUJOQnNuLWs2TzhSVmpLQVF6RUo4aFFYZGFhSGhhUWJQeE5vLU5ONWJaUFp0S3hoUnlJS21DQ0hYYnpxOXVkeTZ3MXdkMV9acmFjWW5nMlRNbnJqcWZrTGhMQklzZm9hSjlCWlRWSG1iUjZqSFpyUkxTeGl3cWd1RkZTcjBnQ1FybzRDV0pGTGZ4X3hzbFhWZzY0M2dSZ3NQQS1ZWmhyeFpKWVc0dzR4MWdMczBUN0Y4dlRqblN5WVlUOW9KVW1ZejBDbkU?oc=5",
-          "source": "24/7 Wall St.",
-          "source_url": "https://247wallst.com",
-          "pub_kst": "2026-08-28T16:00+09:00"
-        }
-      ],
-      "queued_at": "2026-10-12T18:41:07+09:00",
-      "attempts": 0
-    },
-    "spr:news:spr_article_97bcacfe9725a0ab88f223c6": {
-      "topic": "spr",
-      "kind": "news",
-      "event_key": "spr_article_97bcacfe9725a0ab88f223c6",
-      "status": "enrichment_pending",
-      "items": [
-        {
-          "id": "97bcacfe9725a0ab88f223c6",
-          "title": "Trump moves to lock long-term access to 17 Venezuelan oilfields - CHOSUNBIZ - Chosunbiz",
-          "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNYkt5VGRuWFB5Zm5CTVJVSlhNNjZGVFVNYnMwdUNvdExwcXRpMGxfZ3hKV28yMS1MTnVreGxjOXN5RGxzTWd3UkFUSlpJX0txaEFIaW9ra0lESE5IRVBxNEt6aF92YlNhZGlxTk9wMWdISGFvOWdsaEJQT1BfSGQtLWdlMU1yWXJQ0gGcAUFVX3lxTE9kTHI3d085SV9Da2xkeHl1RXptVFdkcWNMMlh5RTQ4WGJiNHpOMTVlNzBYVlhkOHJxdkFsaDNfS0d1OGRpQy1SY18yVDRYWldURTdUQmpuVE1QcmdwZDFHOG9SM0VqaXN5MFlnaC0tQUFQWGI2Um9VWG5DTWZwbVJOeE5jT211S21OSUhBS1N2ZjRTVU8wRThvd2hkYg?oc=5",
-          "source": "Chosunbiz",
-          "source_url": "https://biz.chosun.com",
-          "pub_kst": "2026-08-28T16:00+09:00"
-        }
-      ],
-      "queued_at": "2026-10-12T18:41:07+09:00",
-      "attempts": 0
-    },
-    "spr:news:spr_article_14129f5244d320f7b3c4b89f": {
-      "topic": "spr",
-      "kind": "news",
-      "event_key": "spr_article_14129f5244d320f7b3c4b89f",
-      "status": "enrichment_pending",
-      "items": [
-        {
-          "id": "14129f5244d320f7b3c4b89f",
-          "title": "What Are the Next Steps for Venezuela’s Oil Production? - Energy News Beat",
-          "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxNcUI2bE9hVmtwTF9yUkRqcXZsUTJNNnh3ajVrQVpRZ3ktMnZnQUxaTFVjN1Z4ZXoza2Y1RmJ1LV9YQzJIR0M4NEx6N3pfMWU4c1hsUFJsMWJhTUMzeU1DY0RvNHVJMlNMWWJ6a0JVTDYzR0xMeTJTTnhRdWpwSm53UkZuY3lwd2ZQcjE0R2RmenQxQ19FdFV0ZFM5ekpxMG8?oc=5",
-          "source": "Energy News Beat",
-          "source_url": "https://energynewsbeat.co",
-          "pub_kst": "2026-08-28T16:00+09:00"
-        }
-      ],
-      "queued_at": "2026-10-12T18:41:07+09:00",
-      "attempts": 0
-    },
-    "spr:news:spr_article_a46c2a4f02beff1711da69bb": {
-      "topic": "spr",
-      "kind": "news",
-      "event_key": "spr_article_a46c2a4f02beff1711da69bb",
-      "status": "enrichment_pending",
-      "items": [
-        {
-          "id": "a46c2a4f02beff1711da69bb",
-          "title": "Fixing Venezuela oil sector puts Energy Secretary Chris Wright in key diplomatic role - Washington Examiner",
-          "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxQb3JDcHljcVFfNGxiQ1psU1AtQXk0YmRVczd2OEVlemxad3hmdkhMYjhOVHpOckNhQWplbVZyNU9tSTJuemtORkFhaEhsTDFPbUl4S3pCVklsVDNpMnh6VXNCZzRDajcxNVEwWTFsZVdhQ19CcmJRR2hpZFJSWk15djIxTmRKaUx5M2JOT3ZuRlJ1UnYwemZhZWZmOVdyOTVxbVRGMHJ1UlNIbmxoWW1yMkJ3NnludGk3LWhaZTlubHM?oc=5",
-          "source": "Washington Examiner",
-          "source_url": "https://www.washingtonexaminer.com",
-          "pub_kst": "2026-02-14T17:00+09:00"
-        }
-      ],
-      "queued_at": "2026-10-12T18:41:07+09:00",
-      "attempts": 0
-    },
-    "spr:news:spr_article_8ef5482518232fbbac315b22": {
-      "topic": "spr",
-      "kind": "news",
-      "event_key": "spr_article_8ef5482518232fbbac315b22",
-      "status": "enrichment_pending",
-      "items": [
-        {
-          "id": "8ef5482518232fbbac315b22",
-          "title": "US Energy Secretary announces multimillion-dollar investments in Venezuelan oil - EL PAÍS English",
-          "link": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxQZF94dVVwSUoxR3F4V0FCaC1mUEZyaTEtTXFoLXFnOUxhR3Vxc3hJRWpNMXJNbUh3TFc4NGQtUUpfMEFYbDRLRHZtMXN2RFZ0MkRnbWwxemhmajFwRlpYbnlxMXRJLU1ydk95cWU5anl2WTFHSXAtUDJuTTlINGRLMy1WR3hzQjU3c05tUWlITndvT1BZdUZjTU81a3M5Q09IMktZTGFwUENCcWxoeUhuQkJyMm83Rmx3TG1rczJVbFVsbG9vRkZ0YnBjazl5M18wbHFqYWZSX0xfRVHSAe8BQVVfeXFMTmNxU2ZWbFVhT1p1MWNNN24yYTB1X0ZQSWtqTldvTkpkSTZtQklVOWd4NUM3R3NiRjBBTlBzNEZHWXZWcldobF9QTndvR2dlMF9EM2kyZ2VhS1BnSURnQTFfNkZiMnB0VXRLank0NFBoRGtUd3BtMEhKUXhwOEVtQTJ1WFMyUWtHbWJXUDR4dlo3cUkxTW05bzhYb29RNFFHZW4xTDVPODViWDBWSV9sclM2U0xjZG5RSEI4R3FadjBQMlBlczZkaDZ1MUNXWnpZR0RYSWZPWVJ0cllUSGprNzJBMXhZUHZCWnVIT0hHT2M?oc=5",
-          "source": "EL PAÍS English",
-          "source_url": "https://english.elpais.com",
-          "pub_kst": "2026-02-13T17:00+09:00"
-        }
-      ],
-      "queued_at": "2026-10-12T18:41:07+09:00",
-      "attempts": 0
-    },
-    "spr:news:spr_article_0a86e2f3407fe9c9fbd6e066": {
-      "topic": "spr",
-      "kind": "news",
-      "event_key": "spr_article_0a86e2f3407fe9c9fbd6e066",
-      "status": "enrichment_pending",
-      "items": [
-        {
-          "id": "0a86e2f3407fe9c9fbd6e066",
-          "title": "EXCLUSIVE: US eases sanctions to give oil majors broad scope to operate in Venezuela - Reuters",
-          "link": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxNWXAxX1JoREhpWXNuMGJkeW5LdE0yZXp4MkVZal9LSlVFcnVKY2tOYXlBbW1KM28za3F1VkxVaTljVXRVaWpyMVhLNE5uTHI4Uzk3aHFmeDhLMXNVdl9rYUs2bS1PdlFHcVlRU0FqYXAydmFwSV9qT3RMRGRMb0ExdFdTdWFiZUpwekRlV3pMX1lQbzdaazVxSnpVQ2F3VEZmYTNGUFJYT0FPQmplZVg2ZWE5YjNzblhLWnY1eF90S0RWc0k?oc=5",
-          "source": "Reuters",
-          "source_url": "https://www.reuters.com",
-          "pub_kst": "2026-02-13T17:00+09:00"
-        }
-      ],
-      "queued_at": "2026-10-12T18:41:07+09:00",
-      "attempts": 0
-    },
-    "spr:news:spr_article_1d167aa56d0e93fd48924976": {
-      "topic": "spr",
-      "kind": "news",
-      "event_key": "spr_article_1d167aa56d0e93fd48924976",
-      "status": "enrichment_pending",
-      "items": [
-        {
-          "id": "1d167aa56d0e93fd48924976",
-          "title": "Why Unlocking Venezuelan Oil Won’t Mean Much for US Energy Prices - The Fulcrum",
-          "link": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE9KdDVGOGY2cGJoWElfTXRjZU1KWTZSdGUwNXBoamhYQ2pnaFNmZ1ZOV0dUeEs1UWhiVTVTeWN0eXFnWWwyTVc3cTJkYjE4VU9WdzFOR1VVdzVJMTNhNFE?oc=5",
-          "source": "The Fulcrum",
-          "source_url": "https://thefulcrum.us",
-          "pub_kst": "2026-01-21T17:00+09:00"
-        }
-      ],
-      "queued_at": "2026-10-12T18:41:07+09:00",
-      "attempts": 0
-    },
-    "spr:news:spr_article_bb93756a08d46b512b67e815": {
-      "topic": "spr",
-      "kind": "news",
-      "event_key": "spr_article_bb93756a08d46b512b67e815",
-      "status": "enrichment_pending",
-      "items": [
-        {
-          "id": "bb93756a08d46b512b67e815",
-          "title": "GOP plan to refill US reserves with Venezuelan oil hits roadblock - E&E News by POLITICO",
-          "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxNTE1ycUROUTZYd1ZKakIzZktsNk5YT2FWT2UyeGZKbFViTzhYOHBJT3kzb28zUk9PbnF3dWtjN29wdnZjMmFPc0w2OWxOZVRFalJ3cm9UeVo0LTVfQlNMMHc4azQyM2twd1c0dXdoZWtiT2cteHBLbTBycG1jaDMya2x2b2JXMWdKMGZ6Y3Y1Y0NscEpUQVRBbW9COGI1SXM?oc=5",
-          "source": "E&E News by POLITICO",
-          "source_url": "https://www.eenews.net",
-          "pub_kst": "2026-01-16T17:00+09:00"
-        }
-      ],
-      "queued_at": "2026-10-12T18:41:07+09:00",
-      "attempts": 0
-    },
-    "spr:news:spr_article_9699f9172478b8f2de8214e3": {
-      "topic": "spr",
-      "kind": "news",
-      "event_key": "spr_article_9699f9172478b8f2de8214e3",
-      "status": "enrichment_pending",
-      "items": [
-        {
-          "id": "9699f9172478b8f2de8214e3",
-          "title": "What Does Regime Change in Venezuela Mean for U.S. Energy? - Bipartisan Policy Center",
-          "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxQVTdZenJUMFl4YzJuU2tGYVpZZ2N6a2tsVmlMOUJCSENjbS1yNTJSVlI1OHZGY1RCUG5nbFA3NkQ5b1g1Rmxlc1BHVkliZWh4X0xQa085LTNTMktKOFp2bE1hbndlNWZnSDFFbVJ5TkJUQnloX1BPRlItUEFYZVJQckJmYm1xYnBoaTMzTk42WXowS09ZZGVjWGd3?oc=5",
-          "source": "Bipartisan Policy Center",
-          "source_url": "https://bipartisanpolicy.org",
-          "pub_kst": "2026-01-08T17:00+09:00"
-        }
-      ],
-      "queued_at": "2026-10-12T18:41:07+09:00",
-      "attempts": 0
-    },
-    "spr:news:spr_article_a5c2119983bde94b10be0922": {
-      "topic": "spr",
-      "kind": "news",
-      "event_key": "spr_article_a5c2119983bde94b10be0922",
-      "status": "enrichment_pending",
-      "items": [
-        {
-          "id": "a5c2119983bde94b10be0922",
-          "title": "U.S. seeks to tap Venezuela's vast oil reserves after military strikes. Here's what to know. - CBS News",
-          "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNaVo4Y3hXT0pGSWVzak8yQnJSTU4xV0liWVdtVDVjMzhXU1ZKSlZRNThxZkFSTm5ab1hJMWEtcFNPbVEwNjBiOXVmTW9xUWZpbVE0VlMzSEJSRk5nLUxTbmxvOGRRakpVbjF4NlZsNGVOY1RvdzZhWnRvUE1mY2pmX1h1OUcyR0c4?oc=5",
-          "source": "CBS News",
-          "source_url": "https://www.cbsnews.com",
-          "pub_kst": "2026-01-05T17:00+09:00"
-        }
-      ],
-      "queued_at": "2026-10-12T18:41:07+09:00",
-      "attempts": 0
-    }
-  },
+  "outbox": {},
   "receipts": [],
   "dispositions": [
     {
@@ -847,6 +402,188 @@
       "at": "2026-10-12T18:40:44+09:00",
       "ids": [
         "71c1f2b7f14b0b05533b23bb"
+      ]
+    },
+    {
+      "key": "spr:news:spr_refill_statement_20260830",
+      "reason": "news_outside_three_day_window",
+      "at": "2026-10-12T18:41:09+09:00",
+      "ids": [
+        "b8d8f85e23e913d108bb3285",
+        "97775a01835c7a4b235c64f5",
+        "2545333b3cb7bf6291453229",
+        "afa32ea256981d2f3eb60382",
+        "f2ba418824e195ccee6531ec"
+      ]
+    },
+    {
+      "key": "spr:news:venezuela_output_double_deals_20260902",
+      "reason": "news_outside_three_day_window",
+      "at": "2026-10-12T18:41:09+09:00",
+      "ids": [
+        "9f1fd5bbe3fda0cc9687bb3a",
+        "5621845094218969f3fcc323",
+        "cad6d444a4f6d1d65ac008b1"
+      ]
+    },
+    {
+      "key": "spr:news:spr_article_040835ba27a5073ad55c7746",
+      "reason": "news_outside_three_day_window",
+      "at": "2026-10-12T18:41:09+09:00",
+      "ids": [
+        "040835ba27a5073ad55c7746"
+      ]
+    },
+    {
+      "key": "spr:news:spr_venezuela_quality_bottleneck",
+      "reason": "news_outside_three_day_window",
+      "at": "2026-10-12T18:41:09+09:00",
+      "ids": [
+        "7a9ea84df20d65d87b7281aa"
+      ]
+    },
+    {
+      "key": "spr:news:spr_article_d4ff6fb011ca435b07e8ebb3",
+      "reason": "news_outside_three_day_window",
+      "at": "2026-10-12T18:41:09+09:00",
+      "ids": [
+        "d4ff6fb011ca435b07e8ebb3"
+      ]
+    },
+    {
+      "key": "spr:news:spr_article_bdcfae30f6ed9703b1bed6cb",
+      "reason": "news_outside_three_day_window",
+      "at": "2026-10-12T18:41:09+09:00",
+      "ids": [
+        "bdcfae30f6ed9703b1bed6cb"
+      ]
+    },
+    {
+      "key": "spr:news:spr_article_99c707f7ff50f305b3467480",
+      "reason": "news_outside_three_day_window",
+      "at": "2026-10-12T18:41:09+09:00",
+      "ids": [
+        "99c707f7ff50f305b3467480"
+      ]
+    },
+    {
+      "key": "spr:news:spr_article_b08ae1c6b91ac7108fc1c348",
+      "reason": "news_outside_three_day_window",
+      "at": "2026-10-12T18:41:09+09:00",
+      "ids": [
+        "b08ae1c6b91ac7108fc1c348"
+      ]
+    },
+    {
+      "key": "spr:news:spr_article_952006d62229d2e0b4a5fd7e",
+      "reason": "news_outside_three_day_window",
+      "at": "2026-10-12T18:41:09+09:00",
+      "ids": [
+        "952006d62229d2e0b4a5fd7e"
+      ]
+    },
+    {
+      "key": "spr:news:spr_article_6b95371ce63753c761af0776",
+      "reason": "news_outside_three_day_window",
+      "at": "2026-10-12T18:41:09+09:00",
+      "ids": [
+        "6b95371ce63753c761af0776"
+      ]
+    },
+    {
+      "key": "spr:news:spr_article_a3e5b361f825c0fd3b6471df",
+      "reason": "news_outside_three_day_window",
+      "at": "2026-10-12T18:41:09+09:00",
+      "ids": [
+        "a3e5b361f825c0fd3b6471df"
+      ]
+    },
+    {
+      "key": "spr:news:spr_venezuela_oil_agreement_20260831",
+      "reason": "news_outside_three_day_window",
+      "at": "2026-10-12T18:41:09+09:00",
+      "ids": [
+        "93e4d6e1d496cc4a535221b8"
+      ]
+    },
+    {
+      "key": "spr:news:spr_article_98864229b7d4e876836b3709",
+      "reason": "news_outside_three_day_window",
+      "at": "2026-10-12T18:41:09+09:00",
+      "ids": [
+        "98864229b7d4e876836b3709"
+      ]
+    },
+    {
+      "key": "spr:news:spr_article_97bcacfe9725a0ab88f223c6",
+      "reason": "news_outside_three_day_window",
+      "at": "2026-10-12T18:41:09+09:00",
+      "ids": [
+        "97bcacfe9725a0ab88f223c6"
+      ]
+    },
+    {
+      "key": "spr:news:spr_article_14129f5244d320f7b3c4b89f",
+      "reason": "news_outside_three_day_window",
+      "at": "2026-10-12T18:41:09+09:00",
+      "ids": [
+        "14129f5244d320f7b3c4b89f"
+      ]
+    },
+    {
+      "key": "spr:news:spr_article_a46c2a4f02beff1711da69bb",
+      "reason": "news_outside_three_day_window",
+      "at": "2026-10-12T18:41:09+09:00",
+      "ids": [
+        "a46c2a4f02beff1711da69bb"
+      ]
+    },
+    {
+      "key": "spr:news:spr_article_8ef5482518232fbbac315b22",
+      "reason": "news_outside_three_day_window",
+      "at": "2026-10-12T18:41:09+09:00",
+      "ids": [
+        "8ef5482518232fbbac315b22"
+      ]
+    },
+    {
+      "key": "spr:news:spr_article_0a86e2f3407fe9c9fbd6e066",
+      "reason": "news_outside_three_day_window",
+      "at": "2026-10-12T18:41:09+09:00",
+      "ids": [
+        "0a86e2f3407fe9c9fbd6e066"
+      ]
+    },
+    {
+      "key": "spr:news:spr_article_1d167aa56d0e93fd48924976",
+      "reason": "news_outside_three_day_window",
+      "at": "2026-10-12T18:41:09+09:00",
+      "ids": [
+        "1d167aa56d0e93fd48924976"
+      ]
+    },
+    {
+      "key": "spr:news:spr_article_bb93756a08d46b512b67e815",
+      "reason": "news_outside_three_day_window",
+      "at": "2026-10-12T18:41:09+09:00",
+      "ids": [
+        "bb93756a08d46b512b67e815"
+      ]
+    },
+    {
+      "key": "spr:news:spr_article_9699f9172478b8f2de8214e3",
+      "reason": "news_outside_three_day_window",
+      "at": "2026-10-12T18:41:09+09:00",
+      "ids": [
+        "9699f9172478b8f2de8214e3"
+      ]
+    },
+    {
+      "key": "spr:news:spr_article_a5c2119983bde94b10be0922",
+      "reason": "news_outside_three_day_window",
+      "at": "2026-10-12T18:41:09+09:00",
+      "ids": [
+        "a5c2119983bde94b10be0922"
       ]
     }
   ],
