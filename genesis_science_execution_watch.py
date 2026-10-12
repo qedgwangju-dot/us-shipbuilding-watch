@@ -321,9 +321,10 @@ def main():
         try:
             mid=send(render(event,fx,fx_day))
         except Exception as exc:
-            # A timeout may occur after Telegram accepted the message.
-            # Quarantine the event rather than silently sending duplicates.
-            state["uncertain"][event["key"]]={"reason":type(exc).__name__,"at_kst":now_kst().isoformat(timespec="seconds"),"official_url":event["source"]["url"]}
+            # Only transport uncertainty (not a definite HTTP rejection or
+            # missing token) risks an accepted-but-unacknowledged message.
+            if isinstance(exc,(requests.exceptions.Timeout,requests.exceptions.ConnectionError)):
+                state["uncertain"][event["key"]]={"reason":type(exc).__name__,"at_kst":now_kst().isoformat(timespec="seconds"),"official_url":event["source"]["url"]}
             atomic_write(STATE,state)
             raise
         receipt={"message_id":mid,"official_url":event["source"]["url"],"confirmed_at_kst":now_kst().isoformat(timespec="seconds")}
