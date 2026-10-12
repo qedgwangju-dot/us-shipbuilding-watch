@@ -5,7 +5,9 @@
     "IonQ|상용화·고객배치|nvidia|generic",
     "IonQ|상용화·고객배치|nvidia|superion256",
     "IonQ|상용화·고객배치|sdt|superion256",
-    "IonQ|오류정정·내결함성|none|generic"
+    "IonQ|양자연결·메모리 실증|memory-interconnect|1khz-2026-10-09",
+    "IonQ|오류정정·내결함성|none|generic",
+    "IonQ|정부 기술검증·계약|darpa|qbi-stage-c-2026-10-07"
   ],
   "initialized": true,
   "sources": {
