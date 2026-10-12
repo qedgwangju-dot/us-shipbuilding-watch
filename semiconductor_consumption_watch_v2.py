@@ -16,9 +16,12 @@ import requests
 from bs4 import BeautifulSoup
 from deep_translator import GoogleTranslator
 from googlenewsdecoder import gnewsdecoder
+from tesla_state_checkpoint import persist_intent as durable_checkpoint
 
 KST = ZoneInfo("Asia/Seoul")
 STATE_PATH = pathlib.Path("semiconductor_consumption_state.json")
+CHECKPOINT_PATH = pathlib.Path("out/semiconductor_consumption_checkpoint.json")
+DIAGNOSTICS_PATH = pathlib.Path("out/semiconductor_consumption_diagnostics.json")
 EXPECTED_BOT = "khs887900_bot"
 SCHEMA_VERSION = 2
 BOK_LIST_URL = "https://www.bok.or.kr/portal/bbs/P0002353/list.do?menuNo=200433"
@@ -113,21 +116,42 @@ def load_state():
         return {}
     try:
         return json.loads(STATE_PATH.read_text(encoding="utf-8"))
-    except Exception:
-        return {}
+    except Exception as exc:
+        raise RuntimeError("Existing consumption state is unreadable; refusing to reset deduplication") from exc
 
 
 def save_state(state):
-    STATE_PATH.write_text(json.dumps(state, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    body = json.dumps(state, ensure_ascii=False, indent=2) + "\n"
+    temporary = STATE_PATH.with_suffix(STATE_PATH.suffix + ".tmp")
+    temporary.write_text(body, encoding="utf-8")
+    temporary.replace(STATE_PATH)
+
+
+class TelegramRejected(RuntimeError):
+    """A definitive API rejection, with no response body or credential in the error."""
+    def __init__(self, code, retry_after=None):
+        self.code = code
+        self.retry_after = retry_after
+        super().__init__(f"Telegram rejected request (code={code})")
+
+
+class TelegramDeliveryUnknown(RuntimeError):
+    """A send was attempted but its result cannot safely be retried automatically."""
+    pass
 
 
 def tg_api(token, method, payload=None):
     url = f"https://api.telegram.org/bot{token}/{method}"
     r = requests.post(url, data=payload or {}, timeout=25) if payload is not None else requests.get(url, timeout=25)
-    r.raise_for_status()
     data = r.json()
-    if not data.get("ok"):
-        raise RuntimeError(f"Telegram API error: {data}")
+    if isinstance(data, dict) and data.get("ok") is False:
+        code = data.get("error_code")
+        if type(code) is int and 400 <= code < 500 and r.status_code < 500:
+            retry_after = (data.get("parameters") or {}).get("retry_after")
+            raise TelegramRejected(code, retry_after)
+    r.raise_for_status()
+    if not isinstance(data, dict) or data.get("ok") is not True:
+        raise RuntimeError("Telegram response has no verified success acknowledgement")
     return data
 
 
@@ -152,12 +176,24 @@ def resolve_chat_id(token, configured=""):
 
 
 def send_telegram(token, chat_id, text):
-    tg_api(token, "sendMessage", {
-        "chat_id": chat_id,
-        "text": text[:3900],
-        "parse_mode": "HTML",
-        "disable_web_page_preview": "true",
-    })
+    try:
+        data = tg_api(token, "sendMessage", {
+            "chat_id": chat_id,
+            "text": text[:3900],
+            "parse_mode": "HTML",
+            "disable_web_page_preview": "true",
+        })
+        result = data.get("result") or {}
+        message_id = result.get("message_id")
+        destination = (result.get("chat") or {}).get("id")
+        if type(message_id) is not int or message_id <= 0 or str(destination) != str(chat_id):
+            raise TelegramDeliveryUnknown("Telegram acknowledgement lacks a matching delivery receipt")
+        return {"message_id": message_id, "bot_username": EXPECTED_BOT,
+                "confirmed_at_kst": now_kst().isoformat(timespec="seconds")}
+    except TelegramRejected:
+        raise
+    except Exception as exc:
+        raise TelegramDeliveryUnknown(f"Send outcome unverified: {type(exc).__name__}") from None
 
 
 def relevant_text(text):
@@ -365,85 +401,291 @@ def fuzzy_duplicate(item, recent_titles):
     return False
 
 
+def checkpoint_state(state, persistence_blocked=False):
+    """Local crash checkpoint; the workflow must persist it even after a failed scan."""
+    save_state(state)
+    CHECKPOINT_PATH.parent.mkdir(parents=True, exist_ok=True)
+    marker = {
+        "run_id": os.getenv("GITHUB_RUN_ID", "local"),
+        "state_sha256": hashlib.sha256(STATE_PATH.read_bytes()).hexdigest(),
+        "schema_version": state.get("schema_version"),
+        "persistence_blocked": persistence_blocked,
+    }
+    CHECKPOINT_PATH.write_text(json.dumps(marker, sort_keys=True) + "\n", encoding="utf-8")
+
+
+def safe_item_error(stage, exc):
+    result = {"stage": stage, "error_type": type(exc).__name__}
+    code = getattr(exc, "code", None)
+    response = getattr(exc, "response", None)
+    code = code if type(code) is int else getattr(response, "status_code", None)
+    if type(code) is int:
+        result["http_status"] = code
+    return result
+
+
 def main():
+    for path in (CHECKPOINT_PATH, DIAGNOSTICS_PATH):
+        if path.exists():
+            path.unlink()
     token = clean(os.getenv("KHS887900_BOT_TOKEN"))
     configured_chat_id = clean(os.getenv("KHS887900_CHAT_ID"))
     if not token:
         raise RuntimeError("KHS887900_BOT_TOKEN secret이 없습니다")
 
+    # Do not turn unreadable existing history into a fresh baseline.
+    state = load_state()
+    if not isinstance(state, dict):
+        raise RuntimeError("Invalid consumption state; refusing to reset deduplication")
     validate_bot(token)
     chat_id = resolve_chat_id(token, configured_chat_id)
     items, errors = collect_items()
-    state = load_state()
+    errors = list(errors)
 
-    # v1의 Google News URL 기반 ID가 매 실행마다 달라져 중복 알림이 발생했으므로,
-    # v2 최초 실행에서는 현재 검색 결과 전체를 새 안정 키 기준으로 기준선 처리한다.
+    # Preserve the existing v1 -> v2 baseline policy. Existing v2 seen history,
+    # including the historical 43 items, is never cleared or replayed here.
     if state.get("schema_version") != SCHEMA_VERSION:
+        if errors:
+            raise RuntimeError("Incomplete collection; refusing to create a new baseline")
         state["schema_version"] = SCHEMA_VERSION
         state["initialized"] = True
         state["seen_keys"] = [i["key"] for i in items][-3000:]
         state["sent_urls"] = []
         state["recent_titles"] = [
-            {
-                "title_norm": normalize_title(i.get("title", ""), i.get("source", "")),
-                "numbers": list(extract_numeric_tokens(i.get("title", ""))),
-                "seen_at": now_kst().isoformat(timespec="seconds"),
-            }
+            {"title_norm": normalize_title(i.get("title", ""), i.get("source", "")),
+             "numbers": list(extract_numeric_tokens(i.get("title", ""))),
+             "seen_at": now_kst().isoformat(timespec="seconds")}
             for i in items[:300]
         ]
-        state["last_run_kst"] = now_kst().isoformat(timespec="seconds")
-        state["last_new_count"] = 0
-        state["last_sent_count"] = 0
-        state["last_duplicate_suppressed"] = 0
-        state["last_errors"] = errors[:10]
-        save_state(state)
+        state.update(last_run_kst=now_kst().isoformat(timespec="seconds"),
+                     last_new_count=0, last_sent_count=0,
+                     last_duplicate_suppressed=0, last_errors=[],
+                     pending_items={}, delivery_receipts={}, last_outcome="baseline")
+        checkpoint_state(state)
         return
 
-    seen = set(state.get("seen_keys") or [])
-    sent_urls = set(state.get("sent_urls") or [])
+    seen_order = list(state.get("seen_keys") or [])
+    seen = set(seen_order)
+    sent_urls = list(dict.fromkeys(state.get("sent_urls") or []))
     recent_titles = list(state.get("recent_titles") or [])
-    new_items = [i for i in items if i["key"] not in seen]
+    pending = state.get("pending_items", {})
+    receipts = state.get("delivery_receipts", {})
+    if not isinstance(pending, dict) or not isinstance(receipts, dict):
+        raise RuntimeError("Invalid delivery state; refusing to reset pending work")
+    pending = dict(pending)
+    receipts = dict(receipts)
+    cooldown = None
+    if state.get("telegram_retry_after_kst"):
+        try:
+            cooldown = dt.datetime.fromisoformat(state["telegram_retry_after_kst"])
+            if cooldown.tzinfo is None:
+                raise ValueError("Missing timezone")
+        except (TypeError, ValueError):
+            raise RuntimeError("Invalid Telegram cooldown; manual review required") from None
+        if now_kst() >= cooldown:
+            state.pop("telegram_retry_after_kst", None)
+            cooldown = None
+    hold_statuses = {"delivery_unknown", "delivery_unknown_duplicate", "delivery_rejected"}
+    allowed_statuses = hold_statuses | {"pending_pre_send", "pending_cap", "pending_retry_after"}
+    candidates = {}
+    for key, record in pending.items():
+        if (not isinstance(record, dict) or record.get("status") not in allowed_statuses
+                or not isinstance(record.get("item"), dict) or record["item"].get("key") != key
+                or key in seen):
+            raise RuntimeError("Inconsistent pending delivery state; manual review required")
+        candidates[key] = record["item"]
+    current_new = [i for i in items if i["key"] not in seen]
+    for item in current_new:
+        if pending.get(item["key"], {}).get("status") not in hold_statuses:
+            candidates[item["key"]] = item
+    work = sorted(candidates.values(), key=lambda i: i.get("pub_kst", ""))
     sent_count = 0
+    send_attempt_count = 0
     duplicate_suppressed = 0
+    outcomes = {}
 
-    for item in reversed(new_items):
-        if sent_count >= MAX_ALERTS_PER_RUN:
-            break
+    def outcome(item, status, **details):
+        outcomes[item["key"]] = {"status": status, **details}
+
+    def queue(item, status, **details):
+        previous = pending.get(item["key"], {})
+        preserved = {k: previous[k] for k in ("canonical_url", "message_sha256", "destination_sha256", "checkpoint_commit") if k in previous}
+        pending[item["key"]] = {
+            **preserved, "item": dict(item), "status": status,
+            "updated_at_kst": now_kst().isoformat(timespec="seconds"), **details,
+        }
+        outcome(item, status, **details)
+
+    def terminal(item, status):
+        seen.add(item["key"])
+        seen_order.append(item["key"])
+        pending.pop(item["key"], None)
+        outcome(item, status)
+
+    persistence_blocked = False
+
+    def checkpoint():
+        state.update(
+            seen_keys=list(dict.fromkeys(seen_order))[-3000:],
+            sent_urls=sent_urls[-1500:], recent_titles=recent_titles[-500:],
+            pending_items=pending, delivery_receipts=receipts,
+            last_run_kst=now_kst().isoformat(timespec="seconds"),
+            last_new_count=len(current_new), last_candidate_count=len(work),
+            last_sent_count=sent_count, last_duplicate_suppressed=duplicate_suppressed,
+            last_send_attempt_count=send_attempt_count,
+            last_pending_count=len(pending), last_errors=errors[:50],
+            last_error_count=len(errors), last_item_outcomes=outcomes,
+        )
+        checkpoint_state(state, persistence_blocked=persistence_blocked)
+
+    state["last_outcome"] = "in_progress"
+    for item in work:
+        if item["key"] not in pending:
+            queue(item, "pending_pre_send", stage="queued")
+    checkpoint()
+
+    for item in work:
+        key = item["key"]
+        prior = pending.get(key, {})
+        if prior.get("status") in hold_statuses:
+            outcome(item, prior["status"], stage="manual_delivery_review")
+            errors.append(f"{key}: manual_delivery_review:{prior['status']}")
+            continue
+        if cooldown is not None and now_kst() < cooldown:
+            queue(item, "pending_retry_after", stage="bot_rate_limit_wait",
+                  retry_after_kst=cooldown.isoformat(timespec="seconds"))
+            errors.append(f"{key}: bot_rate_limit_wait")
+            continue
+        if prior.get("status") == "pending_retry_after":
+            try:
+                retry_at = dt.datetime.fromisoformat(prior["retry_after_kst"])
+                if now_kst() < retry_at:
+                    outcome(item, "pending_retry_after", stage="rate_limit_wait")
+                    errors.append(f"{key}: rate_limit_wait")
+                    continue
+            except (KeyError, TypeError, ValueError):
+                outcome(item, "pending_retry_after", stage="invalid_retry_deadline")
+                errors.append(f"{key}: invalid_retry_deadline")
+                continue
+        # Unknown results may have been delivered too; bound all send attempts.
+        if send_attempt_count >= MAX_ALERTS_PER_RUN:
+            queue(item, "pending_cap", stage="run_alert_limit")
+            continue
         if not is_recent(item):
+            terminal(item, "suppressed_stale")
             continue
         if fuzzy_duplicate(item, recent_titles):
             duplicate_suppressed += 1
+            terminal(item, "suppressed_fuzzy_duplicate")
             continue
+        # An alias of an uncertain send must not become an automatic retry.
+        uncertain = [r for r in pending.values() if r.get("status") in {"delivery_unknown", "delivery_unknown_duplicate"}]
+        uncertain_titles = [
+            {"title_norm": normalize_title(r["item"].get("title", ""), r["item"].get("source", "")),
+             "numbers": list(extract_numeric_tokens(r["item"].get("title", "")))}
+            for r in uncertain
+        ]
+        if any(fuzzy_duplicate(item, [old]) for old in uncertain_titles):
+            queue(item, "delivery_unknown_duplicate", stage="uncertain_title_match")
+            errors.append(f"{key}: uncertain_title_match")
+            continue
+        stage = "publisher_resolution"
         try:
             url = publisher_url(item)
             if not url:
-                continue
+                raise RuntimeError("Publisher URL unavailable")
             c_url = canonical_url(url)
             if c_url in sent_urls:
                 duplicate_suppressed += 1
+                terminal(item, "suppressed_confirmed_url")
                 continue
+            if any(r.get("canonical_url") == c_url for r in uncertain):
+                queue(item, "delivery_unknown_duplicate", stage="uncertain_url_match", canonical_url=c_url)
+                errors.append(f"{key}: uncertain_url_match")
+                continue
+            stage = "article_extraction"
             sentences = article_sentences(url)
-            send_telegram(token, chat_id, build_alert(item, url, sentences))
+            if not sentences:
+                raise RuntimeError("Article body unavailable")
+            stage = "alert_formatting"
+            message = build_alert(item, url, sentences)
+            if not clean(message):
+                raise RuntimeError("Empty alert")
+        except Exception as exc:
+            detail = safe_item_error(stage, exc)
+            queue(item, "pending_pre_send", **detail)
+            errors.append(f"{key}: {stage}:{detail['error_type']}")
+            continue
+
+        # The exact payload and destination intent must be remotely durable
+        # BEFORE Telegram is called. A restart sees the hold even if this runner
+        # disappears between transmission and receipt persistence.
+        message_digest = hashlib.sha256(message[:3900].encode("utf-8")).hexdigest()
+        destination_digest = hashlib.sha256((EXPECTED_BOT + "\0" + str(chat_id)).encode("utf-8")).hexdigest()
+        queue(item, "delivery_unknown", stage="send_prepared", canonical_url=c_url,
+              message_sha256=message_digest, destination_sha256=destination_digest)
+        checkpoint()
+        try:
+            remote_commit = durable_checkpoint(STATE_PATH, CHECKPOINT_PATH, key, message_digest, destination_digest)
+            if not isinstance(remote_commit, str) or not re.fullmatch(r"[0-9a-f]{40}", remote_commit):
+                raise RuntimeError("Remote checkpoint was not acknowledged")
+        except Exception as exc:
+            # The helper may have rebased or published an unacknowledged hold.
+            # Never let the final workflow step overwrite that remote snapshot.
+            persistence_blocked = True
+            queue(item, "pending_pre_send", **safe_item_error("durable_checkpoint", exc))
+            errors.append(f"{key}: durable_checkpoint:{type(exc).__name__}")
+            # The transport was never called. Keep the already-queued tail and
+            # stop attempting sends until state persistence is healthy again.
+            break
+        print(f"tesla_send_intent_durable=true item_key={key} commit={remote_commit}")
+        send_attempt_count += 1
+        try:
+            receipt = send_telegram(token, chat_id, message)
+            if (not isinstance(receipt, dict) or type(receipt.get("message_id")) is not int
+                    or receipt["message_id"] <= 0):
+                raise TelegramDeliveryUnknown("No verified message receipt")
+        except TelegramRejected as exc:
+            if exc.code == 429:
+                delay = exc.retry_after if type(exc.retry_after) is int and exc.retry_after >= 0 else 300
+                cooldown = now_kst() + dt.timedelta(seconds=delay)
+                state["telegram_retry_after_kst"] = cooldown.isoformat(timespec="seconds")
+                queue(item, "pending_retry_after", stage="verified_rejection", http_status=exc.code,
+                      retry_after_kst=cooldown.isoformat(timespec="seconds"))
+            else:
+                queue(item, "delivery_rejected", stage="verified_rejection", http_status=exc.code)
+            errors.append(f"{key}: verified_rejection:{exc.code}")
+        except Exception as exc:
+            queue(item, "delivery_unknown", checkpoint_commit=remote_commit,
+                  **safe_item_error("send_outcome_unknown", exc))
+            errors.append(f"{key}: send_outcome_unknown:{type(exc).__name__}")
+        else:
             sent_count += 1
-            sent_urls.add(c_url)
+            sent_urls.append(c_url)
             recent_titles.append({
                 "title_norm": normalize_title(item.get("title", ""), item.get("source", "")),
                 "numbers": list(extract_numeric_tokens(item.get("title", ""))),
                 "seen_at": now_kst().isoformat(timespec="seconds"),
             })
-        except Exception:
-            # 같은 실패 항목을 매 실행마다 다시 신규로 취급하지 않도록 아래에서 seen_keys에는 포함한다.
-            continue
+            receipts[key] = {**receipt, "checkpoint_commit": remote_commit}
+            terminal(item, "delivery_confirmed")
+            outcome(item, "delivery_confirmed", message_id=receipt["message_id"])
+            print(f"tesla_delivery_confirmed=true item_key={key} message_id={receipt['message_id']}")
+        checkpoint()
 
-    state["seen_keys"] = list(dict.fromkeys((state.get("seen_keys") or []) + [i["key"] for i in items]))[-3000:]
-    state["sent_urls"] = list(sent_urls)[-1500:]
-    state["recent_titles"] = recent_titles[-500:]
-    state["last_run_kst"] = now_kst().isoformat(timespec="seconds")
-    state["last_new_count"] = len(new_items)
-    state["last_sent_count"] = sent_count
-    state["last_duplicate_suppressed"] = duplicate_suppressed
-    state["last_errors"] = errors[:10]
-    save_state(state)
+    state["last_outcome"] = "degraded" if errors else ("deferred" if pending else "complete")
+    checkpoint()
+    DIAGNOSTICS_PATH.parent.mkdir(parents=True, exist_ok=True)
+    report = {k: state[k] for k in (
+        "last_run_kst", "last_outcome", "last_new_count", "last_candidate_count",
+        "last_sent_count", "last_duplicate_suppressed", "last_pending_count",
+        "last_send_attempt_count",
+        "last_errors", "last_error_count", "last_item_outcomes",
+    )}
+    DIAGNOSTICS_PATH.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    print("tesla_scan_summary=" + json.dumps({k: v for k, v in report.items() if k not in {"last_item_outcomes", "last_errors"}}, sort_keys=True))
+    if errors:
+        raise RuntimeError("Tesla collection/delivery incomplete; diagnostics and pending work retained")
 
 
 if __name__ == "__main__":
