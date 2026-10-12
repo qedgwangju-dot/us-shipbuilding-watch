@@ -301,6 +301,7 @@ def candidate_is_specific(item, full_text):
     """Fail closed on stock commentary, generic official landing pages and recaps."""
     low = full_text.lower()
     headline = clean(item.get("title", "")).lower()
+    evidence = f"{headline} {low}"
     kind = item_event_type(item, full_text)
     if item.get("origin") == "official":
         link_path = urlparse(item.get("url", "")).path.lower()
@@ -309,9 +310,9 @@ def candidate_is_specific(item, full_text):
         if not any(x in headline for x in OFFICIAL_HEADLINE_ACTIONS):
             return False
         if kind == "정부 기술검증·계약":
-            return ("darpa" in low and "stage c" in low and
-                    any(x in low for x in QBI_STAGE_C_TERMS) and
-                    any(x in low for x in ("agreement", "signed", "contract")))
+            return ("darpa" in evidence and "stage c" in evidence and
+                    any(x in evidence for x in QBI_STAGE_C_TERMS) and
+                    any(x in evidence for x in ("agreement", "signed", "contract")))
         if kind == "양자연결·메모리 실증":
             return any(x in low for x in ("1,000", "1000", "1 khz", "1khz")) and "interconnect" in low
         if kind == "오류정정·내결함성":
