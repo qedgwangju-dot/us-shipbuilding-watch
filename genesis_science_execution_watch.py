@@ -167,8 +167,18 @@ def is_baseline(item):
     url=canonical(item["url"])
     if url in {canonical(source_url) for source_url in DIRECT_BASELINE_SOURCES}:return True
     t=item["title"].lower()
+    # Never suppress a genuine later procurement merely because the new
+    # headline also mentions NVIDIA and a $1 billion science commitment.
+    concrete_execution=any(x in t for x in (
+        "signed contract","signs contract","contract with","contract to",
+        "procurement award","awarded to","equipment delivered",
+        "installed at","purchase order","additional award","new contract",
+    ))
     return (
-        ("nvidia" in t and ("$1 billion" in t or "1 billion" in t) and ("science" in t or "five years" in t) and any(x in t for x in ("commit","invest","pledge")))
+        (not concrete_execution and "nvidia" in t
+         and ("$1 billion" in t or "1 billion" in t)
+         and ("science" in t or "five years" in t)
+         and any(x in t for x in ("commit","invest","pledge")))
         or ("most ambitious set of science initiatives" in t and "trump" in t)
         or ("genesis mission awards" in t and "energy department announces" in t and "2026-10-08"==item["published"])
     )
