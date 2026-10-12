@@ -212,10 +212,17 @@ def classification(item):
     # Require a named third-party recipient in the headline, or an explicit
     # recipient/lead/contract relation tied to a named institution in the body.
     counterparts=tuple(x for x in NAMED_ENTITIES if x not in ("nvidia","amd","openai","google","aws","micron"))
-    other_in_title=any(x in title for x in counterparts)
+    # Never match a short institution name inside a different word:
+    # e.g. MIT is not an award recipient just because a title says "commitment".
+    def named_party_in(text):
+        return any(
+            re.search(r"(?<![a-z0-9])"+re.escape(entity)+r"(?![a-z0-9])",text)
+            for entity in counterparts
+        )
+    other_in_title=named_party_in(title)
     body_lead=body[:3000]
     recipient_relation=any(x in body_lead for x in ("led by","awarded to","award to","recipient","contract with","signed with","selected for","delivery to","installed at"))
-    other_in_body=any(x in body_lead for x in counterparts)
+    other_in_body=named_party_in(body_lead)
     specific=(other_in_title or (recipient_relation and other_in_body))
     if not specific:return None
     if selected=="조건 변경·증액" and not (re.search(r"\$[\d,.]+\s*(?:million|billion|trillion)\b",title) or "from $" in body_lead and "to $" in body_lead):
