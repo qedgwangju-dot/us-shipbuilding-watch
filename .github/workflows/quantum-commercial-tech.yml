@@ -65,6 +65,9 @@ jobs:
           if not data.get("ok"):
               raise RuntimeError(f"Telegram getMe 실패: {data}")
           username=str((data.get("result") or {}).get("username") or "")
+          expected="khs88798879_bot"
+          if username.lower()!=expected:
+              raise RuntimeError(f"양자 알림 Telegram 봇 불일치: expected=@{expected}, actual=@{username or '확인불가'}")
           print(f"telegram_bot_verified=@{username} chat_id_configured=true")
           PY
 
@@ -75,6 +78,10 @@ jobs:
         run: python quantum_commercial_tech_watch.py
 
       - name: 감시 상태 저장
+        # A later Telegram send may fail after an earlier message succeeded.
+        # Commit confirmed per-message state even if the detection step fails,
+        # so the successful message cannot be replayed as a fresh event.
+        if: ${{ always() }}
         run: |
           if [ -z "$(git status --porcelain -- quantum_commercial_tech_state.json)" ]; then
             echo "상태 변화 없음"
