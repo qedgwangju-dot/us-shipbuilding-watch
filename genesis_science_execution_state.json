@@ -1,23 +1,33 @@
 {
+  "last_checked_kst": "2026-10-12T18:19:56+09:00",
   "schema": 1,
   "seen": {
-    "nvidia-science-commitment:2026-10-08": {
+    "doe-genesis-phase2-awards:2026-10-08": {
       "kind": "기준 사건",
       "published": "2026-10-08",
-      "source": "NVIDIA 공식 발표"
+      "source": "DOE 2단계 12개 과제 1억5,900만달러"
     },
     "genesis-industry-commitments:2026-10-08": {
       "kind": "기준 사건",
       "published": "2026-10-08",
       "source": "백악관 24억달러 산업계 약정"
     },
-    "doe-genesis-phase2-awards:2026-10-08": {
+    "nvidia-science-commitment:2026-10-08": {
       "kind": "기준 사건",
       "published": "2026-10-08",
-      "source": "DOE 2단계 12개 과제 1억5,900만달러"
+      "source": "NVIDIA 공식 발표"
     }
   },
-  "uncertain": {},
-  "last_checked_kst": "",
-  "source_health": {}
+  "source_health": {
+    "baseline_verified": 2,
+    "decoded_official": 12,
+    "feed_items": 12,
+    "new_candidates": 0,
+    "official_pages_checked": 13,
+    "source_errors": [
+      "공식 기준원문 실패 https://nvidianews.nvidia.com/news/nvidia-commits-1-billion-to-advance-us-science-over-the-next-five-years: ValueError",
+      "원문검증 실패 https://nvidianews.nvidia.com/news/nvidia-commits-1-billion-to-advance-us-science-over-the-next-five-years: ValueError"
+    ]
+  },
+  "uncertain": {}
 }
