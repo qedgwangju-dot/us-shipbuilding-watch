@@ -131,6 +131,10 @@ def main():
     from pathlib import Path
     from datetime import datetime
     old_workdir=os.getcwd()
+    old_token=os.environ.get("TELEGRAM_BOT_TOKEN")
+    old_chat=os.environ.get("TELEGRAM_CHAT_ID")
+    os.environ["TELEGRAM_BOT_TOKEN"]="offline-fake-test-token"
+    os.environ["TELEGRAM_CHAT_ID"]="offline-fake-test-chat"
     saved={
         "STATE_FILE":q.STATE_FILE,
         "OFFICIAL_SOURCES":q.OFFICIAL_SOURCES,
@@ -188,6 +192,11 @@ def main():
             assert not done["retry_candidates"]
     finally:
         os.chdir(old_workdir)
+        for var, original in (("TELEGRAM_BOT_TOKEN",old_token),("TELEGRAM_CHAT_ID",old_chat)):
+            if original is None:
+                os.environ.pop(var,None)
+            else:
+                os.environ[var]=original
         for key,value in saved.items():
             setattr(q,key,value)
 
