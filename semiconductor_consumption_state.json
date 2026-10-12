@@ -151,8 +151,8 @@
     "00bfb6e5e915c14fa83cb568"
   ],
   "connected_notified": true,
-  "last_run_kst": "2026-10-13T02:01:08+09:00",
-  "last_new_count": 1,
+  "last_run_kst": "2026-10-13T08:35:48+09:00",
+  "last_new_count": 0,
   "last_sent_count": 0,
   "last_errors": [],
   "schema_version": 2,
@@ -1309,13 +1309,9 @@
   "last_outcome": "complete",
   "pending_items": {},
   "delivery_receipts": {},
-  "last_candidate_count": 1,
+  "last_candidate_count": 0,
   "last_send_attempt_count": 0,
   "last_pending_count": 0,
   "last_error_count": 0,
-  "last_item_outcomes": {
-    "e0e8e52ea136fa06eca820a3437cbb16": {
-      "status": "suppressed_stale"
-    }
-  }
+  "last_item_outcomes": {}
 }
