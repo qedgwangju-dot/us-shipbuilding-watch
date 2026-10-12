@@ -116,6 +116,79 @@ def main():
     finally:
         q.get = original_get
 
+    # The actual 2026-10-03 AD HOC NEWS recap must not enter RSS alerts,
+    # while an official release can have irrelevant "analyst"/"conference"
+    # boilerplate in its body without being rejected.
+    assert not q.trusted_news_source("AD HOC NEWS")
+    assert q.material(darpa_title + " " + darpa_full + " analyst conference",
+                      headline=darpa_title)
+
+    # Regression: a send failure after one successful Telegram response must
+    # preserve the first event and queue the unsent one, not lose both.
+    import os
+    import json
+    import tempfile
+    from pathlib import Path
+    from datetime import datetime
+    old_workdir=os.getcwd()
+    saved={
+        "STATE_FILE":q.STATE_FILE,
+        "OFFICIAL_SOURCES":q.OFFICIAL_SOURCES,
+        "OFFICIAL_NEWS_RSS":q.OFFICIAL_NEWS_RSS,
+        "NEWS_RSS":q.NEWS_RSS,
+        "DIRECT_OFFICIAL_EVENTS":q.DIRECT_OFFICIAL_EVENTS,
+        "get":q.get,
+        "send":q.send,
+    }
+    try:
+        with tempfile.TemporaryDirectory() as tmp:
+            os.chdir(tmp)
+            q.STATE_FILE=Path("quantum_commercial_tech_state.json")
+            q.STATE_FILE.write_text(json.dumps({
+                "initialized":True, "bootstrap_sent":True, "sources":{}, "events":[]
+            }))
+            q.OFFICIAL_SOURCES=[]
+            q.OFFICIAL_NEWS_RSS=[]
+            q.NEWS_RSS=[]
+            now_day=datetime.now(q.KST).date().isoformat()
+            q.DIRECT_OFFICIAL_EVENTS=[
+                {**darpa_item,"published":now_day},
+                {**memory_item,"published":now_day},
+            ]
+            q.get=lambda url: (
+                "<html><main><h1>IonQ Press Release</h1><p>"
+                + datetime.now(q.KST).strftime("%B %d, %Y")
+                + "</p><p>" + (
+                    darpa_full if "darpa" in url.lower() else memory_full
+                ) + "</p></main></html>"
+            )
+            sent=[]
+            def fail_second(msg):
+                sent.append(msg)
+                if len(sent)==2:
+                    raise RuntimeError("simulated Telegram partial outage")
+                return 901
+            q.send=fail_second
+            try:
+                q.main()
+                assert False, "Second send failure was not raised"
+            except RuntimeError as e:
+                assert "partial outage" in str(e)
+            partial=json.loads(q.STATE_FILE.read_text())
+            assert "IonQ|정부 기술검증·계약|darpa|qbi-stage-c-2026-10-07" in partial["events"]
+            assert len(partial["retry_candidates"])>=1
+            sent2=[]
+            q.send=lambda msg: sent2.append(msg) or 902
+            q.main()
+            done=json.loads(q.STATE_FILE.read_text())
+            assert len(sent2)==1
+            assert "IonQ|양자연결·메모리 실증|memory-interconnect|1khz-2026-10-09" in done["events"]
+            assert not done["retry_candidates"]
+    finally:
+        os.chdir(old_workdir)
+        for key,value in saved.items():
+            setattr(q,key,value)
+
     print("quantum_commercial_tech_tests=passed")
 
 if __name__=="__main__":
