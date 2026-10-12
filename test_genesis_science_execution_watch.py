@@ -106,6 +106,15 @@ def main():
         }
         assert g.classification(contract)["stage"]=="계약·발주"
 
+        # The 8 Oct $1bn pledge is not a reason to suppress a DIFFERENT
+        # later signed NVIDIA/Argonne equipment contract.
+        later_contract={
+            **contract,
+            "title":"NVIDIA Invests $1 Billion in Science and Signs Contract With Argonne for Genesis Mission",
+        }
+        assert not g.is_baseline(later_contract)
+        assert g.classification(later_contract)["stage"]=="계약·발주"
+
         # Previously missed: a DOE follow-on award can name Harvard in the
         # title and identify the Genesis Mission only in the verified lead.
         # Its publication day must still be new and its recipient must be named.
