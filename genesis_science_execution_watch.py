@@ -182,9 +182,18 @@ def classification(item):
             selected=stage
             break
     if selected is None:return None
-    # Every alert must identify a real recipient/project and a concrete execution action.
-    specific=any(x in body for x in NAMED_ENTITIES) and any(x in body for x in ("project","research","facility","contract","award","resource","computing"))
+    # The grantor/supplier mentioning itself is not proof of a new beneficiary.
+    # Require a named third-party recipient in the headline, or an explicit
+    # recipient/lead/contract relation tied to a named institution in the body.
+    counterparts=tuple(x for x in NAMED_ENTITIES if x not in ("nvidia","amd","openai","google","aws","micron"))
+    other_in_title=any(x in title for x in counterparts)
+    body_lead=body[:3000]
+    recipient_relation=any(x in body_lead for x in ("led by","awarded to","award to","recipient","contract with","signed with","selected for","delivery to","installed at"))
+    other_in_body=any(x in body_lead for x in counterparts)
+    specific=(other_in_title or (recipient_relation and other_in_body))
     if not specific:return None
+    if selected=="조건 변경·증액" and not (re.search(r"\$[\d,.]+\s*(?:million|billion|trillion)\b",title) or "from $" in body_lead and "to $" in body_lead):
+        return None
     subject="NVIDIA" if "nvidia" in title else "미 에너지부" if "energy.gov" in item["url"] else "백악관" if "whitehouse.gov" in item["url"] else "미국 연구기관"
     areas=[name for name,terms in TECH_AREAS if any(x in title+" "+body[:3500] for x in terms)]
     # Repeated media headlines from a new URL use the same event if project,
@@ -366,6 +375,8 @@ def main():
     sources,health,rss_documents=discover()
     candidates=[]
     baseline_urls={canonical(u) for u in DIRECT_BASELINE_SOURCES}
+    verified_new=0
+    rss_fallbacks=0
     for url in sources:
         if canonical(url) in baseline_urls:
             continue  # already checked by discover() using original page and date
@@ -376,13 +387,18 @@ def main():
             if not item or len(item.get("body",""))<150:
                 health["source_errors"].append(f"원문검증 실패 {url}: {type(exc).__name__}")
                 continue
+            rss_fallbacks+=1
             print(f"genesis_primary_rss_fallback={url}")
+        if item:
+            verified_new+=1
         if item and not is_baseline(item):
             event=classification(item)
             if event and event["key"] not in state["seen"] and event["key"] not in state["uncertain"]:
                 candidates.append(event)
     state["last_checked_kst"]=now_kst().isoformat(timespec="seconds")
-    health["official_pages_checked"]=len(sources)
+    health["official_urls_considered"]=len(sources)
+    health["official_new_docs_verified"]=verified_new
+    health["nvidia_rss_article_fallbacks"]=rss_fallbacks
     health["new_candidates"]=len(candidates)
     state["source_health"]=health
     print("genesis_watch="+json.dumps(health,ensure_ascii=False))
