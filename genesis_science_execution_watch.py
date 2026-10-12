@@ -45,6 +45,7 @@ SEARCHES=(
     'site:energy.gov/articles "Genesis Mission" (award OR selected OR grant OR funding OR procurement)',
     'site:whitehouse.gov/fact-sheets "Genesis Mission" (award OR funding OR procurement OR agreement)',
 )
+DOE_GENESIS_NEWS_INDEX="https://www.energy.gov/undersecretaryforscience/genesis-mission/listings/genesis-mission-news"
 ACTION_GROUPS=(
     ("실제 지급·사용",("disbursed","disbursement","funds distributed","credits redeemed","compute credits used","delivered computing resources")),
     ("계약·발주",("signed contract","signs contract","contract awarded","awards contract","purchase order","procurement contract","purchase agreement","executed agreement")),
@@ -309,9 +310,23 @@ def fetch_nvidia_press_rss():
         rows[link]={"url":link,"title":title,"published":published.isoformat(),"body":summary,"source_mode":"NVIDIA 공식 RSS"}
     return rows
 
+def fetch_doe_genesis_index():
+    """Get real DOE article URLs directly; Google News must not be the only discovery path."""
+    soup=BeautifulSoup(get(DOE_GENESIS_NEWS_INDEX,timeout=18),"html.parser")
+    area=soup.find("main") or soup
+    rows=set()
+    for a in area.find_all("a",href=True):
+        url=canonical(urllib.parse.urljoin(DOE_GENESIS_NEWS_INDEX,a["href"]))
+        path=urllib.parse.urlsplit(url).path.lower()
+        if official_host(url) and path.startswith("/articles/"):
+            rows.add(url)
+        if len(rows)>=16:
+            break
+    return sorted(rows)
+
 def discover():
     sources=set(DIRECT_BASELINE_SOURCES)
-    diagnostics={"baseline_verified":0,"nvidia_verified":0,"doe_verified":0,"whitehouse_verified":0,"feed_items":0,"decoded_official":0,"nvidia_rss_count":0,"nvidia_source_mode":"unverified","source_errors":[]}
+    diagnostics={"baseline_verified":0,"nvidia_verified":0,"doe_verified":0,"whitehouse_verified":0,"feed_items":0,"decoded_official":0,"nvidia_rss_count":0,"nvidia_source_mode":"unverified","doe_listing_count":0,"search_coverage_gap":False,"source_errors":[]}
     rss_documents={}
     try:
         rss_documents=fetch_nvidia_press_rss()
@@ -342,6 +357,17 @@ def discover():
                 if family:diagnostics[family+"_verified"]+=1
         except Exception as exc:
             diagnostics["source_errors"].append(f"공식 기준원문 실패 {url}: {type(exc).__name__}")
+    # Official DOE listing is a separate primary-source lane. An empty
+    # Google News result can no longer silently erase DOE follow-on discovery.
+    try:
+        doe_links=fetch_doe_genesis_index()
+        sources.update(doe_links)
+        diagnostics["doe_listing_count"]=len(doe_links)
+        if not doe_links:
+            diagnostics["source_errors"].append("DOE Genesis 공식 뉴스 목록 추출 0건")
+    except Exception as exc:
+        diagnostics["source_errors"].append(f"DOE Genesis 공식 뉴스 목록 실패: {type(exc).__name__}: {exc}")
+
     try:
         from googlenewsdecoder import gnewsdecoder
     except ImportError:
@@ -369,6 +395,9 @@ def discover():
             if direct and official_host(direct):
                 diagnostics["decoded_official"]+=1
                 sources.add(canonical(direct))
+    if diagnostics["feed_items"]==0:
+        diagnostics["search_coverage_gap"]=True
+        print("genesis_search_coverage_gap=true; checking direct DOE index and NVIDIA official RSS")
     return sorted(sources),diagnostics,rss_documents
 
 def quote_fx():
@@ -458,6 +487,9 @@ def main():
     if health["baseline_verified"]==0:
         atomic_write(STATE,state)
         raise RuntimeError("핵심 공식 기준원문 3곳 모두 실패: 정상 감시로 처리 불가")
+    if health["feed_items"]==0 and health.get("doe_listing_count",0)==0:
+        atomic_write(STATE,state)
+        raise RuntimeError("DOE 후속사업 원천 수집 공백: 공식 뉴스 목록과 보조 검색 모두 0건이므로 신규 발표 없음으로 단정할 수 없음")
     fx,fx_day=quote_fx() if candidates else (None,None)
     receipts=[]
     for event in candidates[:3]:
