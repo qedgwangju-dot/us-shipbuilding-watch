@@ -1,5 +1,5 @@
 {
-  "last_checked_kst": "2026-10-12T18:19:56+09:00",
+  "last_checked_kst": "2026-10-12T18:22:08+09:00",
   "schema": 1,
   "seen": {
     "doe-genesis-phase2-awards:2026-10-08": {
@@ -20,14 +20,17 @@
   },
   "source_health": {
     "baseline_verified": 2,
-    "decoded_official": 12,
-    "feed_items": 12,
+    "decoded_official": 11,
+    "doe_verified": 1,
+    "feed_items": 11,
     "new_candidates": 0,
+    "nvidia_verified": 0,
     "official_pages_checked": 13,
     "source_errors": [
       "공식 기준원문 실패 https://nvidianews.nvidia.com/news/nvidia-commits-1-billion-to-advance-us-science-over-the-next-five-years: ValueError",
-      "원문검증 실패 https://nvidianews.nvidia.com/news/nvidia-commits-1-billion-to-advance-us-science-over-the-next-five-years: ValueError"
-    ]
+      "공식 기준원문 실패 https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Commits-1-Billion-to-Advance-US-Science-Over-the-Next-Five-Years/default.aspx: ValueError"
+    ],
+    "whitehouse_verified": 1
   },
   "uncertain": {}
 }
