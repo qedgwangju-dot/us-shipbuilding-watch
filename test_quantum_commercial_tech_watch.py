@@ -160,7 +160,9 @@ def main():
                 + datetime.now(q.KST).strftime("%B %d, %Y")
                 + "</p><p>" + (
                     darpa_full if "darpa" in url.lower() else memory_full
-                ) + "</p></main></html>"
+                ) + "</p><p>" + ("This first-party release describes an independently verifiable " +
+                  "technical system milestone and its performance, validation methods and status. ") * 3 +
+                  "</p></main></html>"
             )
             sent=[]
             def fail_second(msg):
