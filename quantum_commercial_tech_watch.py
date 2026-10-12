@@ -540,7 +540,7 @@ def title_ko(item, full_text):
     return t
 
 def build_message(item):
-    full = article_text(item)
+    full = item.get("_verified_article_text") or article_text(item)
     combined = f"{item.get('title','')} {item.get('summary','')} {full}"
     # A publisher's RSS timestamp is NOT the company's official release date.
     if item.get("origin") == "official":
@@ -723,6 +723,13 @@ def main():
         if not candidate_is_specific(item, combined):
             print(f"[QTECH NONSPECIFIC] {item.get('source')} - {item.get('title','')}")
             continue
+        # Never send an unnamed "important change". Hold unsupported English
+        # headlines until a specific, source-faithful Korean event exists.
+        display_title = title_ko(item, combined)
+        if not display_title or display_title.endswith(" 중요 변화"):
+            print(f"[QTECH TITLE BLOCKED] {item.get('source')} - {item.get('title','')}")
+            continue
+        item["_verified_article_text"] = full
         date = extract_official_date(full) or (item.get("published","").split(" ")[0] if item.get("published") else "")
         if date:
             try:
