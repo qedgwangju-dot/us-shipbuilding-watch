@@ -59,7 +59,23 @@ MATERIAL_TERMS = [
 STRONG_TECH_TERMS = [
     "quantum error correction", "error decoder", "logical qubit", "logical qubits",
     "fault-tolerant", "fault tolerant", "fidelity", "megaquop", "million quantum operations",
+    "quantum benchmarking initiative", "quantum memory-enhanced interconnect",
+    "quantum memory enhanced interconnect", "quantum interconnect",
 ]
+
+# Distinct, independently verifiable IonQ milestones. Avoid merging an unrelated
+# new DARPA or interconnect result into the September sales/deployment bucket.
+QBI_STAGE_C_TERMS = ("quantum benchmarking initiative", "quantum benchmarking", "qbi")
+INTERCONNECT_TERMS = ("memory-enhanced interconnect", "memory enhanced interconnect",
+                      "trapped ion qubit", "quantum memory", "interconnect")
+OFFICIAL_HEADLINE_ACTIONS = (
+    "selected", "partnership", "partner", "contract", "sale", "sold", "delivery",
+    "deployment", "deploy", "installed", "integrat", "advances to final stage",
+    "stage c", "demonstrates", "achieves", "completed", "first qpu",
+    "manufactur", "fabricat", "quantum error", "interconnect", "quantum benchmarking",
+)
+OFFICIAL_NON_EVENT_LINKS = ("/get-started", "/customers-and-partners", "/campaign",
+                            "/contact", "/category", "/newsroom", "/blog/")
 
 COMMERCIAL_TERMS = [
     "selected", "deployment", "deploy", "installed", "install", "order", "purchase",
@@ -129,7 +145,11 @@ def material(text):
     has_commercial = any(x in low for x in COMMERCIAL_TERMS)
     # 논문/연구는 수치 성과나 오류정정·논리큐비트처럼 제품 로드맵을 바꾸는 경우만 허용.
     has_quant = bool(re.search(r"\b\d+(?:\.\d+)?\s*(?:%|qubits?|logical|million|operations?|x\b)", low))
-    return has_commercial or (has_strong and has_quant)
+    qbi_stage = ("ionq" in low and "darpa" in low and "stage c" in low and
+                 any(x in low for x in QBI_STAGE_C_TERMS))
+    interconnect = ("ionq" in low and any(x in low for x in INTERCONNECT_TERMS) and
+                    any(x in low for x in ("1,000", "1000", "1 khz", "1khz", "world-first")))
+    return has_commercial or (has_strong and has_quant) or qbi_stage or interconnect
 
 def fetch_official(name, url):
     raw = get(url)
@@ -145,8 +165,23 @@ def fetch_official(name, url):
         if not h.endswith(host):
             continue
         text = f"{title} {href}"
-        if material(text):
-            items[href] = {"source": name, "title": title, "url": href, "published": "", "summary": "", "origin": "official"}
+        # The IonQ newsroom mixes articles with navigation and landing pages.
+        # Do not let the latter become a "new customer" event after a site edit.
+        if name == "IonQ 공식 뉴스":
+            if not urlparse(href).path.startswith("/news/"):
+                continue
+            if any(x in urlparse(href).path.lower() for x in OFFICIAL_NON_EVENT_LINKS):
+                continue
+            ionq_special = (
+                ("darpa" in text.lower() and "benchmarking" in text.lower()) or
+                ("quantum memory" in text.lower() and "interconnect" in text.lower())
+            )
+            if not (material(text) or ionq_special):
+                continue
+        elif not material(text):
+            continue
+        items[href] = {"source": name, "title": title, "url": href,
+                       "published": "", "summary": "", "origin": "official"}
     return items
 
 def node_text(node, tag):
@@ -202,6 +237,10 @@ def article_text(item):
 
 def event_type(text):
     low = text.lower()
+    if "darpa" in low and "stage c" in low and any(x in low for x in QBI_STAGE_C_TERMS):
+        return "정부 기술검증·계약"
+    if any(x in low for x in ("memory-enhanced interconnect", "memory enhanced interconnect")) and "quantum" in low:
+        return "양자연결·메모리 실증"
     if any(x in low for x in ["quantum error correction", "error decoder", "logical qubit", "fault-tolerant", "fault tolerant"]):
         return "오류정정·내결함성"
     if any(x in low for x in ["selected", "deployment", "on-premise", "on premise", "customer delivery", "supply", "order", "contract"]):
@@ -220,21 +259,64 @@ def partner_key(text):
 def event_key(item, full_text):
     comps = company_keys(full_text) or ["sector"]
     kind = event_type(full_text)
+    low = full_text.lower()
+    # Independent real-world events must have distinct stable identities across
+    # official and wire URLs, without swallowing other contracts at the same firm.
+    if "IonQ" in comps and kind == "정부 기술검증·계약":
+        return ["IonQ|정부 기술검증·계약|darpa|qbi-stage-c-2026-10-07"]
+    if "IonQ" in comps and kind == "양자연결·메모리 실증":
+        return ["IonQ|양자연결·메모리 실증|memory-interconnect|1khz-2026-10-09"]
     partner = partner_key(full_text)
-    # 날짜보다 사건 구성요소를 우선해 재기사 날짜가 달라도 같은 사건으로 묶음.
-    model = "superion256" if "superion 256" in full_text.lower() else "generic"
+    model = "superion256" if "superion 256" in low else "generic"
+    # Unknown-counterparty milestones cannot share one permanent blanket key.
+    # Include normalized original headline, not website chrome/other releases.
+    if partner == "none":
+        heading = re.sub(r"\s+-\s+[^-]{2,80}$", "", item.get("title", "").lower())
+        heading = re.sub(r"[^a-z0-9가-힣]+", " ", heading).strip()
+        signature = hashlib.sha256(heading.encode("utf-8")).hexdigest()[:12]
+        return [f"{c}|{kind}|none|{model}|{signature}" for c in comps]
     return [f"{c}|{kind}|{partner}|{model}" for c in comps]
 
 def candidate_is_specific(item, full_text):
-    """Require concrete evidence before a discovered news article can alert."""
-    if item.get("origin") == "official":
-        return True
+    """Fail closed on stock commentary, generic official landing pages and recaps."""
     low = full_text.lower()
+    headline = clean(item.get("title", "")).lower()
     kind = event_type(full_text)
+    if item.get("origin") == "official":
+        link_path = urlparse(item.get("url", "")).path.lower()
+        if any(x in link_path for x in OFFICIAL_NON_EVENT_LINKS):
+            return False
+        if not any(x in headline for x in OFFICIAL_HEADLINE_ACTIONS):
+            return False
+        if kind == "정부 기술검증·계약":
+            return ("darpa" in low and "stage c" in low and
+                    any(x in low for x in QBI_STAGE_C_TERMS) and
+                    any(x in low for x in ("agreement", "signed", "contract")))
+        if kind == "양자연결·메모리 실증":
+            return any(x in low for x in ("1,000", "1000", "1 khz", "1khz")) and "interconnect" in low
+        if kind == "오류정정·내결함성":
+            return bool(re.search(r"\b\d+(?:,\d{3})*(?:\.\d+)?\s*(?:%|logical|qubits?|million|operations?)", low))
+        if kind == "상용화·고객배치":
+            return (partner_key(headline) != "none" and
+                    any(x in headline for x in ("selected", "contract", "partnership",
+                                               "delivery", "deployment", "sold", "sale",
+                                               "supply", "first qpu")))
+        if kind == "제조·양산":
+            return any(x in headline for x in ("manufactur", "foundry", "fabricat", "production"))
+        return False
+    if kind == "정부 기술검증·계약":
+        return ("darpa" in headline and any(x in headline for x in ("stage c", "final stage")) and
+                "agreement" in low and any(x in low for x in QBI_STAGE_C_TERMS))
+    if kind == "양자연결·메모리 실증":
+        return "interconnect" in headline and any(x in low for x in ("1,000", "1000", "1 khz", "1khz"))
     if kind == "상용화·고객배치":
-        # A third-party story must name a concrete counterparty. Generic
-        # "orders are rising" or market commentary is not a new commercial event.
-        return partner_key(full_text) != "none" and any(x in low for x in COMMERCIAL_TERMS)
+        # For a third-party report the NEW action and counterparty must both be
+        # in its own headline/summary, never recovered from page chrome.
+        news_text = f"{headline} {clean(item.get('summary', '')).lower()}"
+        return (partner_key(news_text) != "none" and
+                any(x in headline for x in ("selected", "deploy", "contract", "supply",
+                                           "ordered", "sold", "sale", "purchased", "delivery",
+                                           "partners with", "partnership")))
     if kind == "오류정정·내결함성":
         return any(x in low for x in STRONG_TECH_TERMS) and bool(
             re.search(r"\b\d+(?:\.\d+)?\s*(?:%|qubits?|logical|million|operations?|x\b)", low)
@@ -305,6 +387,10 @@ def generic_bullets(item, full_text):
 
 def title_ko(item, full_text):
     low = full_text.lower()
+    if event_type(full_text) == "정부 기술검증·계약":
+        return "IonQ, DARPA 양자 벤치마킹 Stage C 진입…최대 3억달러 잠재 계약"
+    if event_type(full_text) == "양자연결·메모리 실증":
+        return "IonQ, 양자 메모리 연결 초당 1,000회 초과 검증"
     if "superion 256" in low and "nvidia" in low and ("nvaqc" in low or "accelerated quantum research center" in low):
         return "IonQ Superion 256, NVIDIA NVAQC 첫 현장형 QPU로 선정"
     if "real-time quantum error correction decoder" in low:
