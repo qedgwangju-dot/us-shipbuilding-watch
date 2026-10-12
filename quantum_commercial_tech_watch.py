@@ -28,6 +28,26 @@ OFFICIAL_SOURCES = [
     ("NVIDIA 공식 뉴스", "https://nvidianews.nvidia.com/"),
 ]
 
+# Independent primary-source fallback for missed article-list updates. These
+# are official releases verified against IonQ's own publication, not RSS rumors.
+# The event fingerprint remains stable across this fallback and the main page.
+DIRECT_OFFICIAL_EVENTS = [
+    {
+        "source": "IonQ 공식 뉴스",
+        "title": "IonQ Advances to Final Stage of DARPA’s Quantum Benchmarking Initiative",
+        "url": "https://ionq.com/news/ionq-advances-to-final-stage-of-darpas-quantum-benchmarking-initiative",
+        "published": "2026-10-07",
+        "origin": "official",
+    },
+    {
+        "source": "IonQ 공식 뉴스",
+        "title": "IonQ Demonstrates World-First Quantum Memory-Enhanced Interconnect for Distributed Quantum Applications",
+        "url": "https://www.ionq.com/news/ionq-demonstrates-world-first-quantum-memory-enhanced-interconnect-for-distributed-quantum-applications",
+        "published": "2026-10-09",
+        "origin": "official",
+    },
+]
+
 NEWS_RSS = [
     ("양자 상용화·기술검증 보도 감시",
      "https://news.google.com/rss/search?q=%28IonQ+OR+%22D-Wave%22+OR+Rigetti+OR+Quantinuum+OR+PsiQuantum+OR+QuEra+OR+Infleqtion+OR+Xanadu+OR+%22Atom+Computing%22%29+%28%22quantum+error+correction%22+OR+%22logical+qubit%22+OR+deployment+OR+selected+OR+order+OR+customer+OR+delivery+OR+NVIDIA+OR+supercomputer+OR+foundry%29&hl=en-US&gl=US&ceid=US:en"),
@@ -522,6 +542,19 @@ def main():
             for u in sorted(cur - prev):
                 candidates.append(current[u])
         sources_state[name] = sorted(prev | cur)[-800:]
+
+    # Recover important official milestones that were missed because a dynamic
+    # newsroom index returned old cards. Never re-label them as today's events.
+    # Each case still passes body/title/date validation and event-key dedupe.
+    for direct in DIRECT_OFFICIAL_EVENTS:
+        try:
+            published_day = datetime.strptime(direct["published"], "%Y-%m-%d").date()
+            age_days = (datetime.now(KST).date() - published_day).days
+            if 0 <= age_days <= 5 and old.get("initialized"):
+                candidates.append(dict(direct))
+                print(f"[QTECH OFFICIAL RECOVERY] {direct['published']} {direct['title']}")
+        except Exception as e:
+            print(f"[QTECH WARN] Official recovery metadata error: {e}")
 
     for name, url in NEWS_RSS:
         keyname = name + "::" + hashlib.sha1(url.encode()).hexdigest()[:8]
