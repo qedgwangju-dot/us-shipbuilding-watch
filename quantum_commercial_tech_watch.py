@@ -223,17 +223,37 @@ def fetch_rss(name, url):
     return out
 
 def article_text(item):
-    # Never scrape the Google News wrapper as if it were the publisher article:
-    # wrapper chrome contains words such as "Google" and can corrupt partner/event
-    # classification. For RSS discoveries, use the headline+RSS description only.
+    # Google News supplies discovery metadata, not verified publisher content.
     if "news.google.com" in (item.get("url") or "").lower():
         return clean(item.get("summary", ""))
     try:
         raw = get(item["url"])
-        txt = clean(raw)
-        return txt[:14000]
+        if re.match(r"^https?://\\S+$", raw.strip()):
+            return ""
+        soup = BeautifulSoup(raw, "html.parser")
+        for tag in soup.find_all(["script", "style", "nav", "aside", "footer", "header"]):
+            tag.decompose()
+        article = soup.find("article") or soup.find("main")
+        if article:
+            return clean(str(article))[:14000]
+        # Jina text fallback is not HTML; only the article markdown portion is
+        # eligible, never links and site navigation above 'Markdown Content:'.
+        if "Markdown Content:" in raw:
+            return clean(raw.split("Markdown Content:", 1)[1])[:14000]
+        return clean(raw)[:14000]
     except Exception:
         return clean(item.get("summary", ""))
+
+
+def item_event_type(item, full_text):
+    headline = clean(item.get("title", "")).lower()
+    body = full_text.lower()
+    if "darpa" in headline and any(x in headline for x in ("benchmarking", "qbi")) and "stage c" in body:
+        return "정부 기술검증·계약"
+    if "memory-enhanced interconnect" in headline or "memory enhanced interconnect" in headline:
+        if any(x in body for x in ("1,000", "1000", "1 khz", "1khz")):
+            return "양자연결·메모리 실증"
+    return event_type(full_text)
 
 def event_type(text):
     low = text.lower()
@@ -258,7 +278,7 @@ def partner_key(text):
 
 def event_key(item, full_text):
     comps = company_keys(full_text) or ["sector"]
-    kind = event_type(full_text)
+    kind = item_event_type(item, full_text)
     low = full_text.lower()
     # Independent real-world events must have distinct stable identities across
     # official and wire URLs, without swallowing other contracts at the same firm.
@@ -281,7 +301,7 @@ def candidate_is_specific(item, full_text):
     """Fail closed on stock commentary, generic official landing pages and recaps."""
     low = full_text.lower()
     headline = clean(item.get("title", "")).lower()
-    kind = event_type(full_text)
+    kind = item_event_type(item, full_text)
     if item.get("origin") == "official":
         link_path = urlparse(item.get("url", "")).path.lower()
         if any(x in link_path for x in OFFICIAL_NON_EVENT_LINKS):
@@ -371,7 +391,23 @@ def summarize_ionq_nvidia_qec(full_text):
     return []
 
 def generic_bullets(item, full_text):
-    kind = event_type(full_text)
+    kind = item_event_type(item, full_text)
+    if kind == "정부 기술검증·계약":
+        return [
+            "단계: DARPA 양자 벤치마킹 Stage C 진입·독립검증 대상 확정",
+            "금액: 최대 3억달러는 잠재 계약 상한이며 전액 확정 매출·현금 유입이 아님",
+            "기간: 2029년까지 Superion 여러 세대의 기술성능·확장성·경제성을 검증",
+            "실패 경로: 검증 미달·추가 예산 미배정·시스템 반복 생산성 부족",
+            "다음 확인: DARPA 실제 지급 의무액, 단계별 검증 결과, 고객 시스템 인도와 매출 인식",
+        ]
+    if kind == "양자연결·메모리 실증":
+        return [
+            "단계: 양자 프로세서와 고체 양자 메모리 간 광학 연결 기술 실증",
+            "검증 수치: 이온 큐비트와 실리콘 공공 중심 양자 메모리 사이 초당 1,000회 초과 얽힘 생성",
+            "매출 구분: 기술 시연은 고객 계약·상업용 장치 양산·반복 사용권 매출과 구분",
+            "실패 경로: 장거리 효율·연결 충실도·실제 다중 프로세서 확장성 미달",
+            "다음 확인: 실제 시스템 연결 길이·충실도·고객 설치 대수·검증 결과",
+        ]
     comps = "·".join(company_keys(full_text)) or "양자기업"
     bullets = [f"단계: {kind}", f"당사자: {comps}"]
     low = full_text.lower()
@@ -387,29 +423,36 @@ def generic_bullets(item, full_text):
 
 def title_ko(item, full_text):
     low = full_text.lower()
-    if event_type(full_text) == "정부 기술검증·계약":
+    if item_event_type(item, full_text) == "정부 기술검증·계약":
         return "IonQ, DARPA 양자 벤치마킹 Stage C 진입…최대 3억달러 잠재 계약"
-    if event_type(full_text) == "양자연결·메모리 실증":
+    if item_event_type(item, full_text) == "양자연결·메모리 실증":
         return "IonQ, 양자 메모리 연결 초당 1,000회 초과 검증"
     if "superion 256" in low and "nvidia" in low and ("nvaqc" in low or "accelerated quantum research center" in low):
         return "IonQ Superion 256, NVIDIA NVAQC 첫 현장형 QPU로 선정"
     if "real-time quantum error correction decoder" in low:
         return "IonQ, 실시간 양자오류정정 디코더 검증…최대 408 논리큐비트·3,150만회 연산 모사"
     t = item.get("title", "")
-    # 자동 번역 실패 시 영어 제목을 그대로 보내지 않고 식별 가능한 고정 한국어 설명으로 대체.
+    # Generic templates hid the actual subject of the false Oct. 3 alert.
+    # Never publish "important change" without a verifiable claim in the title.
     if re.search(r"[A-Za-z]{4,}", t) and not re.search(r"[가-힣]", t):
-        return f"{'·'.join(company_keys(full_text)) or '양자기업'} {event_type(full_text)} 중요 변화"
+        return ""
     return t
 
 def build_message(item):
     full = article_text(item)
     combined = f"{item.get('title','')} {item.get('summary','')} {full}"
-    date = extract_official_date(full) or (item.get("published","").split(" ")[0] if item.get("published") else "")
+    # A publisher's RSS timestamp is NOT the company's official release date.
+    if item.get("origin") == "official":
+        date = extract_official_date(full)
+        date_label = "공식 발표일"
+    else:
+        date = (item.get("published", "").split(" ")[0] if item.get("published") else "")
+        date_label = "기사 게시일(공식 발표일 아님)"
     title = title_ko(item, combined)
     bullets = summarize_ionq_nvidia_qec(combined) or generic_bullets(item, combined)
     safe_url = html.escape(item["url"], quote=True)
-    source = html.escape(item.get("source") or "공식자료")
-    date_line = f"공식 발표일: <b>{html.escape(ko_date(date))}</b>\n" if date else ""
+    source = html.escape(item.get("source") or "출처 확인 불가")
+    date_line = f"{date_label}: <b>{html.escape(ko_date(date))}</b>\n" if date else ""
     return (
         "🚨 <b>양자컴퓨팅 상용화·기술검증 중요 변화</b>\n\n"
         f"<b>{html.escape(title)}</b>\n"
