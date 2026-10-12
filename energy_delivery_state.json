@@ -40,122 +40,6 @@
       "queued_at": "2026-10-13T05:24:57+09:00",
       "attempts": 1,
       "invalid_items": []
-    },
-    "spr:news:spr_article_4010f2415b631640fa87a6ca": {
-      "topic": "spr",
-      "kind": "news",
-      "event_key": "spr_article_4010f2415b631640fa87a6ca",
-      "status": "enrichment_pending",
-      "items": [
-        {
-          "id": "4010f2415b631640fa87a6ca",
-          "title": "Chevron’s $7B Venezuela Gambit Rides Trump’s Oil Power Grab - Hart Energy",
-          "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxOd2lEenZ0MDBJMlc3eFMyQ0ZtNDhyeWc5OWNGdU1JOUxsRjRSR05XYzhfdXhBOXVQYndzVW9aV0tpbEJmazB2UDR1OUFmbXVBYms3VHpkWThfaGZnV0c5c2V4VW9CTGtVZXFJaDVJc0JYSjg4M0w1MGJMV3BHNmlTdGIzN3BCbk5fY3BiUlpNZzhFZmVndWNneWs3V2xNNUhR?oc=5",
-          "source": "Hart Energy",
-          "source_url": "https://www.hartenergy.com",
-          "pub_kst": "2026-09-02T16:00+09:00"
-        }
-      ],
-      "queued_at": "2026-10-13T05:25:26+09:00",
-      "attempts": 0
-    },
-    "spr:news:venezuela_output_double_deals_20260902": {
-      "topic": "spr",
-      "kind": "news",
-      "event_key": "venezuela_output_double_deals_20260902",
-      "status": "enrichment_pending",
-      "items": [
-        {
-          "id": "868ee880c64067e2ed8ee23f",
-          "title": "US energy chief says Venezuela oil output to more than double in next few years - Awani International",
-          "link": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxOak5MR3pIX19IX3F1c21uanpUM1RwVGItd2NVanltR2ZyUldWZGpFLXlueDlSWjlMVXl6c1ZhTFZZMHl6dkowVDBGLUNvcUcwZjFMRUdza0dXdWE5aXFCQ2pfbHBCcnpEOWpVVEoxc3prZW9YX3h6Und5TUxwZUx2N2dXRUY2Z0ZNa0dsdnp1OU1LaFJKQXpBalpyb0dJdXdWaXUzSGFHNFVJY0Fsa0k4WUY5d0dRTXVGYi1n?oc=5",
-          "source": "Awani International",
-          "source_url": "https://international.astroawani.com",
-          "pub_kst": "2026-09-01T16:00+09:00"
-        }
-      ],
-      "queued_at": "2026-10-13T05:25:26+09:00",
-      "attempts": 0
-    },
-    "spr:news:spr_refill_statement_20260830": {
-      "topic": "spr",
-      "kind": "news",
-      "event_key": "spr_refill_statement_20260830",
-      "status": "enrichment_pending",
-      "items": [
-        {
-          "id": "3842eef8f33e383638815e41",
-          "title": "Trump says US will refill Strategic Petroleum Reserve using Venezuelan oil - Al Arabiya English",
-          "link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxPM0E2X0NNdUQwcUplSDE2bElpNUpSTGEzZEtySGNBdDJRalEyLUkxVF9sMmtfeVdnSUpsZmRhb3ZpQllyUGx1OE5nbmhBcTdwUU8tNnlSeDJmdlRHZDZOWTRVQzFDYkd4LV9xSTdtVnBhSUExOEdIdXhaRjVUWXA0Qk1tQTRUZU9DYklNUFU2Y3ZNdGFZbmFmeUVMX1JwMFVZRGNIdHlGTlBuLV92YTVzQXJZWWx3cHI1MmJEc01lRzlkNHUx0gHKAUFVX3lxTE9FX2JUMHFRNm9KVVJ3blhmUEdaUEx1V3FHUWpRZ19RMUdKTS1PeXBYWjFiTzJLbS1YZzV0U0xmSWpCcC15bmp6UFNoekVpWkt6U0N4WTBvcmNDdmhJZ25PVDRacWtxXzVOY2VlUkdMc1lDZWtvUUduMUdjZEI4OTllckhVWDU4Y0NEOHAwZXA1Zks4TmswdnpHaml3OG5rcnVEUUV2b3QxMlgzdV90azFIWVJVRFpTbzhHbDVkY1RXQ0pQYm0tZk5sUVE?oc=5",
-          "source": "Al Arabiya English",
-          "source_url": "https://english.alarabiya.net",
-          "pub_kst": "2026-08-30T16:00+09:00"
-        }
-      ],
-      "queued_at": "2026-10-13T05:25:26+09:00",
-      "attempts": 0
-    },
-    "spr:news:spr_venezuela_oil_agreement_20260831": {
-      "topic": "spr",
-      "kind": "news",
-      "event_key": "spr_venezuela_oil_agreement_20260831",
-      "status": "enrichment_pending",
-      "items": [
-        {
-          "id": "3296628fb1bce78ba625ea1d",
-          "title": "Trump Lays Out Plan for 65 Billion Barrels of Venezuelan Oil - Newsweek",
-          "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxON3hpUkgzU3BtZDZiUHV1NTZzczJ4aGRtdHFnay1qRVBZSHBSbkdWWEZuMHlPcE95alpyZDhzeWNqcXRBTlJKZkxLRjlGQUkxcjNfSE00YTNKQWtsczlieUlna08zZXc5T2Z6TFdiQVJXT0ZPN0R2MEsyNG5rWHY1UlNqcFI0YVRnTzhoaXdVdko5bHYxMUZCT012bHF1TFpHR0lwdWVn?oc=5",
-          "source": "Newsweek",
-          "source_url": "https://www.newsweek.com",
-          "pub_kst": "2026-08-29T16:00+09:00"
-        },
-        {
-          "id": "26543722cec350185ecd3f39",
-          "title": "Trump and Venezuelan Oil: 65 Billion Barrels on Paper. Almost None in the Tank. - Anas Alhajji | Substack",
-          "link": "https://news.google.com/rss/articles/CBMifkFVX3lxTFBvenF0dVZjN1l2ZTJXQzRleWxaWWNMT0FZUm4tWWVpSVl1Wk5WclVFVlRLejJWeExnNzlCZDlXa2hhQ1lQSWpmamRNSElZNVY1VTNaUmxWd1pPN2pUbWdHTEliSWJmZHJkbEo0MWZyV2NnekxoZmx2Vng5VVdodw?oc=5",
-          "source": "Anas Alhajji | Substack",
-          "source_url": "https://anasalhajjieoa.substack.com",
-          "pub_kst": "2026-08-28T16:00+09:00"
-        }
-      ],
-      "queued_at": "2026-10-13T05:25:26+09:00",
-      "attempts": 0
-    },
-    "spr:news:spr_article_a4f9ae883db1e7ecb109ecb3": {
-      "topic": "spr",
-      "kind": "news",
-      "event_key": "spr_article_a4f9ae883db1e7ecb109ecb3",
-      "status": "enrichment_pending",
-      "items": [
-        {
-          "id": "a4f9ae883db1e7ecb109ecb3",
-          "title": "Breaking News: President Trump said the U.S. had secured an agreement to take majority control of a large portion of Venezuela’s oil reserves. - Facebook",
-          "link": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxPYmJpYTN0MDJUb1U5dDlpaGJXc0gzWExjdkN2MjUxOWFvNWJiaGE0VG9lVURZeG0xQmd3TEQ2RW9DSkZvdGgydGdKSDVvWjZUWnViWlhVamY3MjloYVh4WFFPTzA1a0tWS0paT1l5ODR6ZDJIVVRYbzdmWUNzQkxGZGk3bDZxUWFibGFRdVlQOUxpZWZKdnc3emNtbzdKdkF1WG8zV2hhNjdFVGVlR0poUkVXT0lXZ0NoczJFMThhRlllY2ktdjJiSFJEWVhFa1RDbGs0?oc=5",
-          "source": "Facebook",
-          "source_url": "https://www.facebook.com",
-          "pub_kst": "2026-08-29T16:00+09:00"
-        }
-      ],
-      "queued_at": "2026-10-13T05:25:26+09:00",
-      "attempts": 0
-    },
-    "spr:news:spr_article_084152df9847423bba13ec37": {
-      "topic": "spr",
-      "kind": "news",
-      "event_key": "spr_article_084152df9847423bba13ec37",
-      "status": "enrichment_pending",
-      "items": [
-        {
-          "id": "084152df9847423bba13ec37",
-          "title": "U.S. nears deal to secure long-term access to Venezuela’s oil reserves, sources say - BNN Bloomberg",
-          "link": "https://news.google.com/rss/articles/CBMiywFBVV95cUxOYzMtemprcC1FSWs5d20wNjNTcWdnMVFyR1VRWFN4Y1dPSmFvXzBnZmc0ZXhkeWNIQTlmVGwtTmVpMTdNSDVOMUpkbjhJZGc5X3lLR3FMUjdrNy1mR0NmVWZWalhpb2pzbzY1VlFLNEozZ0lQdl9qclBTVy0ydVJUU1hXTXJuNXI4eVlETC1OYlJWbUROalZyMWFtNWxEd0RXV3R5enB2QWxCa3o0bkRhbUVuaU5ySkYydkdaLUN4RjgxQnRqUURlUUViVQ?oc=5",
-          "source": "BNN Bloomberg",
-          "source_url": "https://www.bnnbloomberg.ca",
-          "pub_kst": "2026-08-27T16:00+09:00"
-        }
-      ],
-      "queued_at": "2026-10-13T05:25:26+09:00",
-      "attempts": 0
     }
   },
   "receipts": [],
@@ -781,6 +665,55 @@
       "at": "2026-10-13T05:25:01+09:00",
       "ids": [
         "39c579ef41d03a43bd1ed060"
+      ]
+    },
+    {
+      "key": "spr:news:spr_article_4010f2415b631640fa87a6ca",
+      "reason": "news_outside_three_day_window",
+      "at": "2026-10-13T05:25:28+09:00",
+      "ids": [
+        "4010f2415b631640fa87a6ca"
+      ]
+    },
+    {
+      "key": "spr:news:venezuela_output_double_deals_20260902",
+      "reason": "news_outside_three_day_window",
+      "at": "2026-10-13T05:25:28+09:00",
+      "ids": [
+        "868ee880c64067e2ed8ee23f"
+      ]
+    },
+    {
+      "key": "spr:news:spr_refill_statement_20260830",
+      "reason": "news_outside_three_day_window",
+      "at": "2026-10-13T05:25:28+09:00",
+      "ids": [
+        "3842eef8f33e383638815e41"
+      ]
+    },
+    {
+      "key": "spr:news:spr_venezuela_oil_agreement_20260831",
+      "reason": "news_outside_three_day_window",
+      "at": "2026-10-13T05:25:28+09:00",
+      "ids": [
+        "3296628fb1bce78ba625ea1d",
+        "26543722cec350185ecd3f39"
+      ]
+    },
+    {
+      "key": "spr:news:spr_article_a4f9ae883db1e7ecb109ecb3",
+      "reason": "news_outside_three_day_window",
+      "at": "2026-10-13T05:25:28+09:00",
+      "ids": [
+        "a4f9ae883db1e7ecb109ecb3"
+      ]
+    },
+    {
+      "key": "spr:news:spr_article_084152df9847423bba13ec37",
+      "reason": "news_outside_three_day_window",
+      "at": "2026-10-13T05:25:28+09:00",
+      "ids": [
+        "084152df9847423bba13ec37"
       ]
     }
   ],
