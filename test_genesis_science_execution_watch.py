@@ -89,6 +89,15 @@ def main():
         assert g.classification(uncertified) is None
         no_event_date={**fixtures(),"published":"2026-10-08"}
         assert g.classification(no_event_date) is None
+        # NVIDIA repeating its own research pledge without a newly named
+        # customer or award recipient is not a real new execution milestone.
+        self_promotion={
+            "url":"https://nvidianews.nvidia.com/news/genesis-promises",
+            "title":"NVIDIA Expands Commitment to Genesis Mission Science",
+            "published":"2026-10-15",
+            "body":"NVIDIA expands its commitment and supports the Genesis Mission research project with quantum computing infrastructure."*3,
+        }
+        assert g.classification(self_promotion) is None
         contract={
             "url":"https://nvidianews.nvidia.com/news/nvidia-genesis-contract-argonne",
             "title":"NVIDIA Signs Contract to Deliver Genesis Mission GPU Systems to Argonne",
