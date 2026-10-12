@@ -1,0 +1,23 @@
+{
+  "schema": 1,
+  "seen": {
+    "nvidia-science-commitment:2026-10-08": {
+      "kind": "기준 사건",
+      "published": "2026-10-08",
+      "source": "NVIDIA 공식 발표"
+    },
+    "genesis-industry-commitments:2026-10-08": {
+      "kind": "기준 사건",
+      "published": "2026-10-08",
+      "source": "백악관 24억달러 산업계 약정"
+    },
+    "doe-genesis-phase2-awards:2026-10-08": {
+      "kind": "기준 사건",
+      "published": "2026-10-08",
+      "source": "DOE 2단계 12개 과제 1억5,900만달러"
+    }
+  },
+  "uncertain": {},
+  "last_checked_kst": "",
+  "source_health": {}
+}
