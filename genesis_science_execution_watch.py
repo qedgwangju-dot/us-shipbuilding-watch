@@ -224,9 +224,45 @@ def atomic_write(path,obj):
 def google_url(query):
     return "https://news.google.com/rss/search?"+urllib.parse.urlencode({"q":query+" when:7d","hl":"en-US","gl":"US","ceid":"US:en"})
 
+def fetch_nvidia_press_rss():
+    """Parse an NVIDIA-hosted RSS feed; never promote a third-party feed as primary."""
+    feed_url="https://nvidianews.nvidia.com/cats/press_release.xml"
+    root=ET.fromstring(get(feed_url,timeout=18))
+    rows={}
+    for node in root.findall("./channel/item")[:40]:
+        title=clean(node.findtext("title"))
+        link=canonical(clean(node.findtext("link")))
+        raw_date=clean(node.findtext("pubDate"))
+        from email.utils import parsedate_to_datetime
+        try:published=parsedate_to_datetime(raw_date).date()
+        except Exception:published=date_parse(raw_date)
+        if not title or not link or not published:
+            continue
+        if (urllib.parse.urlsplit(link).hostname or "").lower() not in ("nvidianews.nvidia.com","www.nvidianews.nvidia.com"):
+            continue
+        summary=clean(node.findtext("description"))
+        for child in node:
+            if child.tag.split("}")[-1].lower() in ("encoded","content"):
+                summary=clean(" ".join((summary,child.text or "")))
+        rows[link]={"url":link,"title":title,"published":published.isoformat(),"body":summary,"source_mode":"NVIDIA 공식 RSS"}
+    return rows
+
 def discover():
     sources=set(DIRECT_BASELINE_SOURCES)
-    diagnostics={"baseline_verified":0,"nvidia_verified":0,"doe_verified":0,"whitehouse_verified":0,"feed_items":0,"decoded_official":0,"source_errors":[]}
+    diagnostics={"baseline_verified":0,"nvidia_verified":0,"doe_verified":0,"whitehouse_verified":0,"feed_items":0,"decoded_official":0,"nvidia_rss_count":0,"source_errors":[]}
+    rss_documents={}
+    try:
+        rss_documents=fetch_nvidia_press_rss()
+        diagnostics["nvidia_rss_count"]=len(rss_documents)
+        for item in rss_documents.values():
+            if "nvidia commits $1 billion to advance us science over the next five years" in item["title"].lower() and item["published"]=="2026-10-08":
+                diagnostics["nvidia_verified"]+=1
+                diagnostics["baseline_verified"]+=1
+            if "genesis mission" in item["title"].lower() or "quantum" in item["title"].lower():
+                sources.add(item["url"])
+    except Exception as exc:
+        diagnostics["source_errors"].append(f"NVIDIA 공식 RSS 실패: {type(exc).__name__}: {exc}")
+
     for url in list(DIRECT_BASELINE_SOURCES):
         try:
             item=article(url)
@@ -264,7 +300,7 @@ def discover():
             if direct and official_host(direct):
                 diagnostics["decoded_official"]+=1
                 sources.add(canonical(direct))
-    return sorted(sources),diagnostics
+    return sorted(sources),diagnostics,rss_documents
 
 def quote_fx():
     try:
@@ -320,7 +356,7 @@ def send(message):
 
 def main():
     state=load_state()
-    sources,health=discover()
+    sources,health,rss_documents=discover()
     candidates=[]
     baseline_urls={canonical(u) for u in DIRECT_BASELINE_SOURCES}
     for url in sources:
@@ -328,12 +364,16 @@ def main():
             continue  # already checked by discover() using original page and date
         try:
             item=article(url)
-            if item and not is_baseline(item):
-                event=classification(item)
-                if event and event["key"] not in state["seen"] and event["key"] not in state["uncertain"]:
-                    candidates.append(event)
         except Exception as exc:
-            health["source_errors"].append(f"원문검증 실패 {url}: {type(exc).__name__}")
+            item=rss_documents.get(canonical(url))
+            if not item or len(item.get("body",""))<150:
+                health["source_errors"].append(f"원문검증 실패 {url}: {type(exc).__name__}")
+                continue
+            print(f"genesis_primary_rss_fallback={url}")
+        if item and not is_baseline(item):
+            event=classification(item)
+            if event and event["key"] not in state["seen"] and event["key"] not in state["uncertain"]:
+                candidates.append(event)
     state["last_checked_kst"]=now_kst().isoformat(timespec="seconds")
     health["official_pages_checked"]=len(sources)
     health["new_candidates"]=len(candidates)
