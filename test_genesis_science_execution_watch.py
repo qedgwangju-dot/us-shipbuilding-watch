@@ -137,6 +137,23 @@ def main():
         }
         assert g.classification(unrelated_source) is None
 
+        # A damaged historical seen-state must never be treated as an empty
+        # state, which could replay previously delivered real alerts.
+        with tempfile.TemporaryDirectory() as directory:
+            original_state=g.STATE
+            try:
+                g.STATE=Path(directory)/"damaged.json"
+                g.STATE.write_text('{"seen": [',encoding="utf-8")
+                with patch.object(g,"send",side_effect=AssertionError("must not send when state is damaged")):
+                    try:
+                        g.load_state()
+                    except RuntimeError as exc:
+                        assert "상태파일" in str(exc)
+                    else:
+                        raise AssertionError("corrupt Genesis state should block alerting")
+            finally:
+                g.STATE=original_state
+
         # A successful, acknowledged send persists message_id and prevents repeat.
         with tempfile.TemporaryDirectory() as directory:
             target=Path(directory)
