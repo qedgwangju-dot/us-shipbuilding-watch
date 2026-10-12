@@ -1,5 +1,5 @@
 {
-  "last_checked_kst": "2026-10-12T20:11:31+09:00",
+  "last_checked_kst": "2026-10-12T20:14:35+09:00",
   "schema": 1,
   "seen": {
     "doe-genesis-phase2-awards:2026-10-08": {
@@ -20,16 +20,16 @@
   },
   "source_health": {
     "baseline_verified": 3,
-    "decoded_official": 12,
+    "decoded_official": 10,
     "doe_verified": 1,
-    "feed_items": 12,
+    "feed_items": 10,
     "new_candidates": 0,
     "nvidia_rss_article_fallbacks": 1,
     "nvidia_rss_count": 20,
     "nvidia_source_mode": "공식 보도자료 RSS",
     "nvidia_verified": 1,
     "official_new_docs_verified": 10,
-    "official_urls_considered": 15,
+    "official_urls_considered": 14,
     "source_errors": [],
     "whitehouse_verified": 1
   },
