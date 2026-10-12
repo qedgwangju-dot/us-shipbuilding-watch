@@ -787,7 +787,8 @@ def main():
         new["events"] = sorted(sent_events)[-2000:]
         new["retry_candidates"] = public_retry_items(outstanding) + retry_candidates
         save_state(new)
-        print(f"[QTECH SENT] message_id={message_id} {item.get('source')} - {item.get('title')}")
+        marker = "[QTECH TEST SENT]" if os.getenv("QTECH_TEST_MODE") == "1" else "[QTECH SENT]"
+        print(f"{marker} message_id={message_id} {item.get('source')} - {item.get('title')}")
 
     new["initialized"] = True
     new["bootstrap_sent"] = bool(old.get("bootstrap_sent", True))
