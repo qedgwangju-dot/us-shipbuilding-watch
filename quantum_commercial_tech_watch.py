@@ -156,7 +156,11 @@ def load_state():
         return {}
 
 def save_state(state):
-    STATE_FILE.write_text(json.dumps(state, ensure_ascii=False, indent=2, sort_keys=True), encoding="utf-8")
+    """Atomic on-runner write. GitHub persists this only after the workflow commit."""
+    temp = STATE_FILE.with_suffix(".json.tmp")
+    temp.write_text(json.dumps(state, ensure_ascii=False, indent=2, sort_keys=True) + "\n",
+                    encoding="utf-8")
+    os.replace(temp, STATE_FILE)
 
 def company_keys(text):
     low = (text or "").lower()
@@ -561,13 +565,15 @@ def build_message(item):
     )
 
 def send(text):
+    if len(text.encode("utf-16-le")) // 2 > 4096:
+        raise RuntimeError("Telegram 메시지 제한 초과: HTML을 임의로 잘라서 보내지 않습니다")
     token = (os.environ.get("TELEGRAM_BOT_TOKEN") or "").strip()
     chat_id = (os.environ.get("TELEGRAM_CHAT_ID") or "").strip()
     if not token or not chat_id:
         raise RuntimeError("Telegram Secret 없음")
     r = requests.post(
         f"https://api.telegram.org/bot{token}/sendMessage",
-        json={"chat_id": chat_id, "text": text[:4096], "parse_mode": "HTML", "link_preview_options": {"is_disabled": True}},
+        json={"chat_id": chat_id, "text": text, "parse_mode": "HTML", "link_preview_options": {"is_disabled": True}},
         timeout=TIMEOUT,
     )
     r.raise_for_status()
@@ -603,7 +609,10 @@ def main():
     sources_state = dict(old.get("sources") or {})
     old_events = set(old.get("events") or [])
     new = dict(old)
-    candidates = []
+    # Unsent items from a previous partial delivery must be retried even when
+    # their URL has already entered a source listing.
+    candidates = list(old.get("retry_candidates") or [])
+    retry_candidates = []
 
     for name, url in OFFICIAL_SOURCES:
         try:
@@ -693,6 +702,16 @@ def main():
         full = article_text(item)
         combined = f"{item.get('title','')} {item.get('summary','')} {full}"
         heading = f"{item.get('title','')} {item.get('summary','')}"
+        # The official article body/date can fail temporarily even though its
+        # listing is visible. Hold for retry instead of silently consuming it.
+        if item.get("origin") == "official" and (
+            len(full) < 200 or not extract_official_date(full)
+        ):
+            if item.get("url"):
+                retry_candidates.append({k: item.get(k, "") for k in
+                    ("source", "title", "url", "summary", "published", "origin")})
+            print(f"[QTECH SOURCE DEFERRED] {item.get('title','')[:100]}")
+            continue
         eligible = material(combined, headline=heading)
         if item.get("url") in {x["url"] for x in DIRECT_OFFICIAL_EVENTS}:
             print("[QTECH SOURCE CHECK]", "chars=", len(full),
@@ -728,29 +747,43 @@ def main():
     sent_events = set(old_events)
     sent = 0
     message_ids = []
+    outstanding = alerts[:]
+    def public_retry_items(items):
+        return [{k: it.get(k, "") for k in
+                 ("source", "title", "url", "summary", "published", "origin")}
+                for it in items]
+
     for item in alerts[:8]:
+        # If a send fails after the previous message was confirmed, its
+        # already-sent event is durable. Unsent events remain in retry queue.
         message_id = send(build_message(item))
         sent += 1
         message_ids.append(message_id)
         sent_events.update(item.get("_event_keys") or [])
-        print(f"[QTECH SENT] message_id={message_id} {item.get('source')} - {item.get('title')}")
-
-    if message_ids:
+        outstanding = outstanding[1:]
         Path("quantum_commercial_tech_delivery.json").write_text(
             json.dumps({
                 "status": "confirmed",
                 "message_ids": message_ids,
                 "confirmed_at_kst": datetime.now(KST).isoformat(timespec="seconds"),
-            }, ensure_ascii=False, indent=2) + "\n",
-            encoding="utf-8",
+            }, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
         )
+        new["initialized"] = True
+        new["bootstrap_sent"] = bool(old.get("bootstrap_sent", True))
+        new["sources"] = sources_state
+        new["events"] = sorted(sent_events)[-2000:]
+        new["retry_candidates"] = public_retry_items(outstanding) + retry_candidates
+        save_state(new)
+        print(f"[QTECH SENT] message_id={message_id} {item.get('source')} - {item.get('title')}")
 
     new["initialized"] = True
     new["bootstrap_sent"] = bool(old.get("bootstrap_sent", True))
     new["sources"] = sources_state
     new["events"] = sorted(sent_events)[-2000:]
+    new["retry_candidates"] = public_retry_items(outstanding) + retry_candidates
+    new["last_checked_kst"] = datetime.now(KST).isoformat(timespec="seconds")
     save_state(new)
-    print(f"[QTECH DONE] 신규 알림 {sent}건")
+    print(f"[QTECH DONE] 신규 알림 {sent}건, 재시도 대기 {len(new['retry_candidates'])}건")
 
 if __name__ == "__main__":
     main()
