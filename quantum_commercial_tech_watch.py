@@ -454,8 +454,8 @@ def ko_date(value):
 
 def extract_official_date(text):
     patterns = [
-        r"(September|October|November|December|August|July|June|May|April|March|February|January)\s+(\d{1,2}),\s+(2026)",
-        r"(2026)-(\d{1,2})-(\d{1,2})",
+        r"(September|October|November|December|August|July|June|May|April|March|February|January)\s+(\d{1,2}),\s+(20\d{2})",
+        r"(20\d{2})-(\d{1,2})-(\d{1,2})",
     ]
     m = re.search(patterns[0], text, re.I)
     if m:
