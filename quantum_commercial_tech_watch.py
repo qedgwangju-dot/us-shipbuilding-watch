@@ -155,9 +155,12 @@ def trusted_news_source(value):
     normalized = clean(value).lower()
     return normalized in TRUSTED_NEWS_SOURCES
 
-def material(text):
+def material(text, headline=None):
     low = (text or "").lower()
-    if any(x in low for x in EXCLUDE_TERMS):
+    # Exclude market commentary based on its OWN title/description, not on
+    # unrelated "analyst", "conference" etc. in a verified official body/footer.
+    source_heading = (headline if headline is not None else text or "").lower()
+    if any(x in source_heading for x in EXCLUDE_TERMS):
         return False
     if not company_keys(low):
         return False
@@ -596,12 +599,14 @@ def main():
     for item in candidates:
         full = article_text(item)
         combined = f"{item.get('title','')} {item.get('summary','')} {full}"
+        heading = f"{item.get('title','')} {item.get('summary','')}"
+        eligible = material(combined, headline=heading)
         if item.get("url") in {x["url"] for x in DIRECT_OFFICIAL_EVENTS}:
             print("[QTECH SOURCE CHECK]", "chars=", len(full),
                   "date=", extract_official_date(full),
-                  "material=", material(combined),
+                  "material=", eligible,
                   "specific=", candidate_is_specific(item, combined))
-        if not material(combined):
+        if not eligible:
             continue
         if not candidate_is_specific(item, combined):
             print(f"[QTECH NONSPECIFIC] {item.get('source')} - {item.get('title','')}")
