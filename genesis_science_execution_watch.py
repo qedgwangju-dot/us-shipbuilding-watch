@@ -136,7 +136,7 @@ def article(url):
 
 def is_baseline(item):
     url=canonical(item["url"])
-    if url in DIRECT_BASELINE_SOURCES:return True
+    if url in {canonical(source_url) for source_url in DIRECT_BASELINE_SOURCES}:return True
     t=item["title"].lower()
     return (
         ("nvidia" in t and ("$1 billion" in t or "1 billion" in t) and ("science" in t or "five years" in t) and any(x in t for x in ("commit","invest","pledge")))
