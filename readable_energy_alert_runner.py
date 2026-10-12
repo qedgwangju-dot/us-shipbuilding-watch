@@ -7,6 +7,7 @@ from collections import defaultdict
 
 import refinery_watch as rw
 import spr_venezuela_watch as sv
+from energy_delivery import Outbox
 
 KST = rw.KST
 
@@ -344,192 +345,201 @@ def choose_primary(group):
     return sorted(group, key=lambda x: (source_priority(x), parse_pub(x)), reverse=True)
 
 
-def process_refinery(token, chat_id):
-    state = rw.load_state()
-    state.setdefault("events", {})
-    items, errors = rw.collect_items()
-    seen = set(state.get("seen") or [])
+def _news_time(item):
+    # Never turn malformed/undated pending data into freshly published news.
+    try:
+        value = dt.datetime.fromisoformat(item.get('pub_kst') or '')
+        if value.tzinfo is None:
+            return None
+        return value
+    except (ValueError, TypeError):
+        return None
 
-    if not state.get("initialized"):
-        state["initialized"] = True
-        state["seen"] = [x["id"] for x in items[:300]]
-        state["last_run_kst"] = now_kst().isoformat(timespec="seconds")
-        rw.save_state(state)
-        print(f"refinery_readable_baseline=true news={len(state['seen'])}")
-        return [], errors
 
-    cutoff = now_kst() - dt.timedelta(days=3)
-    fresh = []
+def _queue_news(engine, topic, items):
+    state = engine.legacy(topic)
+    seen = set(state[engine.seen_key(topic)])
+    groups = defaultdict(list)
+    key_fn = refinery_event_key if topic == 'refinery' else spr_event_key
     for item in items:
-        if item["id"] in seen:
-            continue
-        if parse_pub(item) < cutoff:
-            continue
-        fresh.append(item)
-
-    groups = defaultdict(list)
-    for item in fresh:
-        groups[refinery_event_key(item)].append(item)
-
-    messages = []
-    newly_seen = []
-    for key, group in groups.items():
-        newly_seen.extend(x["id"] for x in group)
-        candidates = choose_primary(group)
-        old = state["events"].get(key) or {}
-        best_priority = source_priority(candidates[0]) if candidates else 0
-        if old and best_priority <= int(old.get("priority", 0)):
-            continue
-
-        enriched = None
-        chosen = None
-        for item in candidates:
-            if should_skip_opinion("refinery", item, key):
-                continue
-            try:
-                enriched = rw.enrich_korean(item)
-                chosen = item
-                break
-            except Exception as exc:
-                print(f"refinery_readable_enrich_skip={item['id']} error={exc}")
-        if not enriched:
-            continue
-
-        messages.append(readable_news_alert("refinery", enriched, key, group))
-        state["events"][key] = {
-            "priority": source_priority(chosen),
-            "last_pub": chosen.get("pub_kst"),
-            "title": chosen.get("title"),
-        }
-
-    state["seen"] = list(dict.fromkeys(newly_seen + list(seen)))[:800]
-    state["last_run_kst"] = now_kst().isoformat(timespec="seconds")
-    rw.save_state(state)
-
-    sent = []
-    for message in messages:
-        results = rw.send_telegram(token, chat_id, message)
-        sent.extend((x.get("result") or {}).get("message_id") for x in results)
-    print(f"refinery_readable_ok=true messages={len(messages)} ids={sent}")
-    return sent, errors
+        if item['id'] not in seen:
+            groups[key_fn(item)].append(item)
+    for event_key, group in groups.items():
+        engine.queue_news(topic, event_key, group)
 
 
-def process_spr(token, chat_id):
-    state = sv.load_state()
-    state.setdefault("events", {})
-    data_errors = []
-
-    spr = None
-    ven = None
-    try:
-        spr = sv.fetch_spr_latest()
-    except Exception as exc:
-        data_errors.append(f"SPR: {exc}")
-    try:
-        ven = sv.fetch_venezuela_imports_latest()
-    except Exception as exc:
-        data_errors.append(f"Venezuela imports: {exc}")
-
-    news, source_errors = sv.collect_news()
-
-    if not state.get("initialized"):
-        state["initialized"] = True
-        state["seen_news"] = [x["id"] for x in news[:300]]
-        if spr:
-            state["spr"] = spr
-        if ven:
-            state["venezuela_imports"] = ven
-        sv.save_state(state)
-        print(f"spr_readable_baseline=true news={len(state['seen_news'])}")
-        return [], data_errors + source_errors
-
-    messages = []
-    if spr:
-        old = state.get("spr") or {}
-        if old.get("date") and spr["date"] != old.get("date"):
-            messages.append(readable_spr_data_alert(spr))
-        state["spr"] = spr
-
-    if ven:
-        old = state.get("venezuela_imports") or {}
-        if old.get("date") and ven["date"] != old.get("date"):
-            messages.append(readable_import_data_alert(ven))
-        state["venezuela_imports"] = ven
-
-    seen = set(state.get("seen_news") or [])
+def _prepare_news(engine, key):
+    entry = engine.state['outbox'][key]
+    topic = entry['topic']
+    event_key = entry['event_key']
     cutoff = now_kst() - dt.timedelta(days=3)
     fresh = []
-    for item in news:
-        if item["id"] in seen:
+    invalid = []
+    all_items = {x['id']: x for x in entry.get('invalid_items', []) + entry['items']}
+    for item in all_items.values():
+        pub = _news_time(item)
+        if pub is None or pub > now_kst() + dt.timedelta(minutes=5):
+            invalid.append(item)
+        elif pub >= cutoff:
+            fresh.append(item)
+    entry['invalid_items'] = invalid
+    if invalid:
+        engine.record_error('invalid_publication_time', key)
+        if not fresh:
+            entry['status'] = 'source_blocked'
+            entry['items'] = invalid
+            entry['invalid_items'] = []
+            return
+    if not fresh:
+        engine.suppress(key, 'news_outside_three_day_window')
+        return
+    stale = [item['id'] for item in all_items.values() if item not in fresh and item not in invalid]
+    if stale:
+        engine.mark_seen(topic, stale)
+        engine.state['dispositions'].append({'key': key, 'reason': 'news_outside_three_day_window',
+                                             'ids': stale, 'at': engine.timestamp()})
+    entry['items'] = fresh
+    old = engine.legacy(topic)['events'].get(event_key) or {}
+    candidates = choose_primary(fresh)
+    if old and source_priority(candidates[0]) <= int(old.get('priority', 0)):
+        engine.suppress(key, 'existing_event_priority')
+        return
+    candidates = [item for item in candidates
+                  if (not old or source_priority(item) > int(old.get('priority', 0)))
+                  and not should_skip_opinion(topic, item, event_key)]
+    if not candidates:
+        engine.suppress(key, 'existing_opinion_filter')
+        return
+    failed = []
+    for item in candidates:
+        if item.get('_source_blocked'):
+            failed.append(item)
             continue
-        if parse_pub(item) < cutoff:
+        try:
+            enriched = rw.enrich_korean(item)
+            message = readable_news_alert(topic, enriched, event_key, fresh)
+        except Exception as exc:
+            failed.append(item)
+            # Retry ordinary extraction/translation failures, never bypass explicit access blocks.
+            if rw.is_access_denied(exc):
+                item['_source_blocked'] = True
+            engine.record_error('enrichment_failed', item['id'], exc)
             continue
-        fresh.append(item)
+        priority = source_priority(item)
+        retry_items = [x for x in failed if source_priority(x) > priority]
+        entry.update(status='ready', message=message,
+            accepted_ids=[x['id'] for x in fresh if x not in retry_items], retry_items=retry_items,
+            event={'priority': priority, 'last_pub': item.get('pub_kst'), 'title': item.get('title')})
+        return
+    entry['status'] = ('source_blocked' if all(x.get('_source_blocked') for x in candidates)
+                       else 'enrichment_pending')
+    entry['attempts'] += 1
 
-    groups = defaultdict(list)
-    for item in fresh:
-        groups[spr_event_key(item)].append(item)
 
-    newly_seen = []
-    for key, group in groups.items():
-        newly_seen.extend(x["id"] for x in group)
-        candidates = choose_primary(group)
-        old = state["events"].get(key) or {}
-        best_priority = source_priority(candidates[0]) if candidates else 0
-        if old and best_priority <= int(old.get("priority", 0)):
+def _deliver_topic(engine, topic, token, chat_id):
+    for key in list(engine.state['outbox']):
+        entry = engine.state['outbox'][key]
+        if entry['topic'] != topic:
             continue
-
-        enriched = None
-        chosen = None
-        for item in candidates:
-            if should_skip_opinion("spr", item, key):
+        if entry['kind'] == 'news' and entry['status'] == 'enrichment_pending':
+            _prepare_news(engine, key)
+            entry = engine.state['outbox'].get(key)
+            if not entry:
                 continue
-            try:
-                enriched = rw.enrich_korean(item)
-                chosen = item
-                break
-            except Exception as exc:
-                print(f"spr_readable_enrich_skip={item['id']} error={exc}")
-        if not enriched:
+        if entry['status'] != 'ready':
             continue
+        if entry.get('chunks') and all(x.get('status') == 'confirmed' for x in entry['chunks']):
+            engine.complete(key)
+            engine.checkpoint()
+            continue
+        if entry['kind'] == 'news':
+            # Retried prepared payloads must still meet the unchanged three-day window.
+            chosen_pub = _news_time({'pub_kst': entry['event'].get('last_pub')})
+            if not chosen_pub or chosen_pub < now_kst() - dt.timedelta(days=3):
+                if any(x.get('status') == 'confirmed' for x in entry.get('chunks', [])):
+                    entry['status'] = 'delivery_unknown'
+                    engine.record_error('partial_delivery_expired', key)
+                else:
+                    engine.suppress(key, 'news_outside_three_day_window')
+                continue
+        else:
+            observed = engine.state['observed_data'].get(entry['field']) or {}
+            if entry['current']['date'] < observed.get('date', ''):
+                engine.suppress(key, 'official_observation_superseded')
+                continue
+        engine.deliver(key, token, chat_id, rw)
 
-        messages.append(readable_news_alert("spr", enriched, key, group))
-        state["events"][key] = {
-            "priority": source_priority(chosen),
-            "last_pub": chosen.get("pub_kst"),
-            "title": chosen.get("title"),
-        }
 
-    state["seen_news"] = list(dict.fromkeys(newly_seen + list(seen)))[:800]
-    sv.save_state(state)
+def process_refinery(token, chat_id, engine=None):
+    engine = engine or Outbox(now=now_kst)
+    items, errors = rw.collect_items()
+    for index, error in enumerate(errors):
+        source_id = next((f'query-{i}' for i, query in enumerate(rw.QUERIES) if str(error).startswith(query + ':')), f'unknown-query-{index}')
+        engine.record_error('refinery_source_failed', source_id)
+    before_enrichment = sum(x.startswith('enrichment_failed:') for x in engine.errors)
+    _queue_news(engine, 'refinery', items)
+    engine.checkpoint()  # Full candidates survive feed rotation, even if enrichment crashes.
+    _deliver_topic(engine, 'refinery', token, chat_id)
+    engine.refinery['last_run_kst'] = now_kst().isoformat(timespec='seconds')
+    engine.refinery['last_source_error_count'] = len(errors)
+    engine.refinery['last_translation_error_count'] = sum(x.startswith('enrichment_failed:') for x in engine.errors) - before_enrichment
+    engine.checkpoint()
+    return engine.sent['refinery'], errors
 
-    sent = []
-    for message in messages:
-        results = rw.send_telegram(token, chat_id, message)
-        sent.extend((x.get("result") or {}).get("message_id") for x in results)
-    print(f"spr_readable_ok=true messages={len(messages)} ids={sent}")
-    return sent, data_errors + source_errors
+
+def process_spr(token, chat_id, engine=None):
+    engine = engine or Outbox(now=now_kst)
+    errors = []
+    for field, fetch, formatter in (
+        ('spr', sv.fetch_spr_latest, readable_spr_data_alert),
+        ('venezuela_imports', sv.fetch_venezuela_imports_latest, readable_import_data_alert),
+    ):
+        try:
+            current = fetch()
+            engine.queue_data(field, current, formatter(current))
+        except Exception as exc:
+            errors.append(engine.record_error('official_data_failed', field, exc))
+    news, source_errors = sv.collect_news()
+    for index, error in enumerate(source_errors):
+        source_id = next((f'query-{i}' for i, query in enumerate(sv.NEWS_QUERIES) if str(error).startswith(query + ':')), f'unknown-query-{index}')
+        errors.append(engine.record_error('spr_source_failed', source_id))
+    before_enrichment = sum(x.startswith('enrichment_failed:') for x in engine.errors)
+    _queue_news(engine, 'spr', news)
+    engine.checkpoint()
+    _deliver_topic(engine, 'spr', token, chat_id)
+    engine.spr['last_run_kst'] = now_kst().isoformat(timespec='seconds')
+    engine.spr['last_source_error_count'] = len(source_errors)
+    engine.spr['last_data_error_count'] = len(errors) - len(source_errors)
+    engine.spr['last_translation_error_count'] = sum(x.startswith('enrichment_failed:') for x in engine.errors) - before_enrichment
+    engine.checkpoint()
+    return engine.sent['spr'], errors
 
 
 def main():
-    token = (os.getenv("TELEGRAM_BOT_TOKEN") or "").strip()
-    chat_id = (os.getenv("TELEGRAM_CHAT_ID") or "").strip()
+    rw.reset_source_circuits()
+    token = (os.getenv('TELEGRAM_BOT_TOKEN') or '').strip()
+    chat_id = (os.getenv('TELEGRAM_CHAT_ID') or '').strip()
     if not token or not chat_id:
-        raise RuntimeError("TELEGRAM_BOT_TOKEN / TELEGRAM_CHAT_ID secret is missing")
+        raise RuntimeError('TELEGRAM_BOT_TOKEN / TELEGRAM_CHAT_ID secret is missing')
+    engine = Outbox(now=now_kst)
+    try:
+        bot_username = rw.validate_telegram(token)
+    except Exception:
+        raise RuntimeError('Telegram bot identity verification failed; no sends attempted') from None
+    process_refinery(token, chat_id, engine)
+    process_spr(token, chat_id, engine)
+    pending = len(engine.state['outbox'])
+    ok = not engine.errors and not pending
+    engine.state['last_result'] = {'ok': ok, 'errors': len(engine.errors), 'pending': pending,
+        'refinery_sent': len(engine.sent['refinery']), 'spr_sent': len(engine.sent['spr']),
+        'at': engine.timestamp()}
+    engine.checkpoint()
+    print(f'readable_energy_alerts_ok={str(ok).lower()} bot=@{bot_username} '
+          f'refinery_sent={len(engine.sent["refinery"])} spr_sent={len(engine.sent["spr"])} '
+          f'errors={len(engine.errors)} pending={pending}')
+    if not ok:
+        raise RuntimeError('Energy delivery incomplete; inspect retained queue and diagnostics')
 
-    bot_username = rw.validate_telegram(token)
-    ref_sent, ref_errors = process_refinery(token, chat_id)
-    spr_sent, spr_errors = process_spr(token, chat_id)
-    print(
-        f"readable_energy_alerts_ok=true bot=@{bot_username} "
-        f"refinery_sent={len(ref_sent)} spr_sent={len(spr_sent)} "
-        f"errors={len(ref_errors) + len(spr_errors)}"
-    )
-    if ref_errors:
-        print("refinery_errors=" + " | ".join(ref_errors))
-    if spr_errors:
-        print("spr_errors=" + " | ".join(spr_errors))
 
-
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()

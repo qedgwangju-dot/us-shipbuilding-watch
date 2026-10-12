@@ -7,6 +7,7 @@ import os
 import pathlib
 import re
 import time
+import threading
 import urllib.parse
 from email.utils import parsedate_to_datetime
 from zoneinfo import ZoneInfo
@@ -15,7 +16,9 @@ import xml.etree.ElementTree as ET
 import requests
 from bs4 import BeautifulSoup
 from deep_translator import GoogleTranslator
+import deep_translator.google as google_translate_runtime
 from googlenewsdecoder import gnewsdecoder
+import googlenewsdecoder.new_decoderv2 as decoder_runtime
 
 KST = ZoneInfo("Asia/Seoul")
 STATE_PATH = pathlib.Path("refinery_watch_state.json")
@@ -57,6 +60,76 @@ HEADERS = {
 }
 
 
+class SourceAccessDenied(RuntimeError):
+    """An explicit access denial must not trigger retries or alternate access paths."""
+
+
+def is_access_denied(exc):
+    response = getattr(exc, 'response', None)
+    status = getattr(response, 'status_code', None)
+    if status in (401, 403, 429) or isinstance(exc, SourceAccessDenied):
+        return True
+    text = str(exc).lower()
+    return any(marker in text for marker in (
+        'http 401', 'http 403', 'http 429', '401 client error', '403 client error', '429 client error', 'too many requests',
+        'access denied', 'request blocked', 'verify you are human', 'captcha',
+        '접근이 거부', '원문 접근이 거부됨',
+    ))
+
+
+def source_block_page(text):
+    """Recognize an actual HTTP-200 challenge page, not script/metadata mentions."""
+    soup = BeautifulSoup(text or '', 'html.parser')
+    title = clean_paragraph(soup.title.get_text(' ', strip=True)).lower() if soup.title else ''
+    if any(marker in title for marker in ('access denied', 'request blocked', 'just a moment',
+                                          'verify you are human', 'attention required', 'too many requests')):
+        return True
+    if soup.select_one("form#challenge-form, form[action*='/sorry/']"):
+        return True
+    for tag in soup(['script', 'style', 'noscript', 'meta']):
+        tag.decompose()
+    visible = clean_paragraph(soup.get_text(' ', strip=True)).lower()
+    return len(visible) < 1000 and visible.startswith((
+        'access denied', 'request blocked', 'verify you are human', 'please verify you are human',
+        'too many requests', 'sorry, you have been blocked', 'sorry you have been blocked'))
+
+
+_NEWS_DENIED_HOSTS = set()
+
+
+def reset_source_circuits():
+    # Called once at production main start, never between topics/items.
+    _NEWS_DENIED_HOSTS.clear()
+
+
+def source_request(transport, method, url, **kwargs):
+    host = urllib.parse.urlparse(url).hostname or ''
+    if host in _NEWS_DENIED_HOSTS:
+        raise SourceAccessDenied('access denied earlier in this run; source circuit held')
+    try:
+        response = getattr(transport, method)(url, **kwargs)
+    except Exception as exc:
+        if is_access_denied(exc):
+            if host == 'news.google.com':
+                _NEWS_DENIED_HOSTS.add(host)
+            raise SourceAccessDenied('access denied by source provider') from None
+        raise
+    if response.status_code in (401, 403, 429) or source_block_page(response.text[:20000]):
+        if host == 'news.google.com':
+            _NEWS_DENIED_HOSTS.add(host)
+        raise SourceAccessDenied('access denied by source provider')
+    return response
+
+
+def source_get(url, **kwargs):
+    return source_request(requests, 'get', url, **kwargs)
+
+
+def raise_if_access_denied(exc):
+    if is_access_denied(exc):
+        raise SourceAccessDenied('Explicit source access denial; no automatic retry or fallback') from None
+
+
 def now_kst():
     return dt.datetime.now(KST)
 
@@ -89,14 +162,16 @@ def tg_api(token, method, payload=None):
     )
     r.raise_for_status()
     data = r.json()
-    if not data.get("ok"):
+    if not isinstance(data, dict) or data.get("ok") is not True:
         raise RuntimeError(f"Telegram API error: {data}")
     return data
 
 
 def validate_telegram(token):
     data = tg_api(token, "getMe")
-    username = str((data.get("result") or {}).get("username") or "").lstrip("@")
+    if data.get("ok") is not True or not isinstance(data.get("result"), dict):
+        raise RuntimeError("Invalid Telegram bot identity receipt")
+    username = str(data["result"].get("username") or "").lstrip("@")
     if username.lower() != EXPECTED_BOT.lower():
         raise RuntimeError(
             f"Wrong Telegram bot: expected @{EXPECTED_BOT}, got @{username or 'unknown'}"
@@ -146,9 +221,13 @@ def google_news_rss(query):
         "gl": "US",
         "ceid": "US:en",
     })
-    r = requests.get(url, headers=HEADERS, timeout=25)
+    r = source_get(url, headers=HEADERS, timeout=25)
     r.raise_for_status()
+    if source_block_page(r.text[:20000]):
+        raise SourceAccessDenied('RSS provider explicitly denied access')
     root = ET.fromstring(r.content)
+    if root.tag != 'rss' or root.find('channel') is None:
+        raise RuntimeError('Expected RSS/channel response; source returned unexpected content')
     out = []
     for node in root.findall("./channel/item"):
         title = (node.findtext("title") or "").strip()
@@ -167,7 +246,7 @@ def google_news_rss(query):
                 pub = pub.replace(tzinfo=dt.timezone.utc)
             pub_kst = pub.astimezone(KST)
         except Exception:
-            pub_kst = now_kst()
+            pub_kst = None
         key = hashlib.sha256((title + "|" + link).encode("utf-8")).hexdigest()[:24]
         out.append({
             "id": key,
@@ -175,7 +254,7 @@ def google_news_rss(query):
             "link": link,
             "source": source,
             "source_url": source_url,
-            "pub_kst": pub_kst.isoformat(timespec="minutes"),
+            "pub_kst": pub_kst.isoformat(timespec="minutes") if pub_kst else "",
         })
     return out
 
@@ -215,7 +294,9 @@ def collect_items():
                 if relevant(item):
                     merged[item["id"]] = item
         except Exception as exc:
-            errors.append(f"{query}: {exc}")
+            errors.append(f"{query}: {type(exc).__name__}")
+            if is_access_denied(exc):
+                break
     items = list(merged.values())
     items.sort(key=lambda x: x["pub_kst"], reverse=True)
     return items, errors
@@ -237,21 +318,78 @@ def is_publisher_url(url):
         return False
 
 
+_SOURCE_TRANSPORT_LOCK = threading.RLock()
+
+
+class _SourceTransport:
+    """Preserve denial/rate-limit signals before dependencies swallow HTTP status."""
+    def __init__(self, transport):
+        self.transport = transport
+        self.denied = False
+
+    def __getattr__(self, name):
+        return getattr(self.transport, name)
+
+    def _request(self, method, *args, **kwargs):
+        if self.denied:
+            raise SourceAccessDenied('access denied earlier in dependency operation')
+        kwargs.setdefault('timeout', 25)
+        try:
+            return source_request(self.transport, method, *args, **kwargs)
+        except SourceAccessDenied:
+            self.denied = True
+            # Not a requests.RequestException: the pinned decoder would retry it.
+            raise
+
+    def get(self, *args, **kwargs):
+        return self._request('get', *args, **kwargs)
+
+    def post(self, *args, **kwargs):
+        return self._request('post', *args, **kwargs)
+
+
+def guarded_source_call(module, operation):
+    # Scope this guard to a dependency module, never application-wide HTTP.
+    # Restore its transport even when an operation fails or the run stops.
+    with _SOURCE_TRANSPORT_LOCK:
+        original = module.requests
+        transport = _SourceTransport(original)
+        module.requests = transport
+        try:
+            result = operation()
+        finally:
+            module.requests = original
+        if transport.denied:
+            raise SourceAccessDenied('access denied by source provider')
+        return result
+
+
+def guarded_gnewsdecoder(news_url):
+    return guarded_source_call(decoder_runtime, lambda: gnewsdecoder(news_url, interval=0.2))
+
+
 def decode_google_news_url(news_url):
     try:
-        decoded = gnewsdecoder(news_url, interval=0.2)
+        decoded = guarded_gnewsdecoder(news_url)
+        if isinstance(decoded, dict) and is_access_denied(decoded.get('message', '') or decoded.get('error', '')):
+            raise SourceAccessDenied('News decoder explicitly denied access')
         if isinstance(decoded, dict) and decoded.get("status"):
             candidate = (decoded.get("decoded_url") or "").strip()
             if is_publisher_url(candidate):
                 return candidate
-    except Exception:
+    except Exception as exc:
+        raise_if_access_denied(exc)
         pass
 
     try:
-        r = requests.get(news_url, headers=HEADERS, timeout=25, allow_redirects=True)
+        r = source_get(news_url, headers=HEADERS, timeout=25, allow_redirects=True)
+        r.raise_for_status()
+        if source_block_page(r.text[:20000]):
+            raise SourceAccessDenied('News redirect explicitly denied access')
         if is_publisher_url(r.url):
             return r.url
-    except Exception:
+    except Exception as exc:
+        raise_if_access_denied(exc)
         pass
     return ""
 
@@ -290,7 +428,8 @@ def search_publisher_url(item):
             host = urllib.parse.urlparse(href).netloc.lower()
             if domain in host and is_publisher_url(href):
                 return href
-    except Exception:
+    except Exception as exc:
+        raise_if_access_denied(exc)
         pass
     return ""
 
@@ -317,6 +456,8 @@ def clean_paragraph(text):
 
 def extract_article_body(url):
     r = requests.get(url, headers=HEADERS, timeout=30, allow_redirects=True)
+    if r.status_code in (401, 403, 429):
+        raise SourceAccessDenied('원문 접근이 거부됨')
     if r.status_code >= 400:
         raise RuntimeError(f"원문 접속 실패 HTTP {r.status_code}")
     final_url = r.url
@@ -324,6 +465,8 @@ def extract_article_body(url):
         raise RuntimeError("원문이 언론사 페이지로 연결되지 않음")
 
     page_text = clean_paragraph(r.text)
+    if source_block_page(r.text[:20000]):
+        raise SourceAccessDenied('원문 접근이 거부됨')
     if looks_like_error_page(page_text[:5000]):
         raise RuntimeError("언론사 오류 페이지를 기사 본문으로 판정하여 차단")
 
@@ -442,9 +585,11 @@ def translate_ko(text):
     last_error = None
     for attempt in range(2):
         try:
-            translated = GoogleTranslator(source="auto", target="ko").translate(text=text)
+            translated = guarded_source_call(google_translate_runtime,
+                lambda: GoogleTranslator(source="auto", target="ko").translate(text=text))
             return validate_korean_translation(text, translated)
         except Exception as exc:
+            raise_if_access_denied(exc)
             last_error = exc
             time.sleep(0.8 * (attempt + 1))
 
@@ -452,6 +597,7 @@ def translate_ko(text):
         translated = google_translate_http(text)
         return validate_korean_translation(text, translated)
     except Exception as exc:
+        raise_if_access_denied(exc)
         last_error = exc
 
     raise RuntimeError(f"한국어 번역 실패: {last_error}")
