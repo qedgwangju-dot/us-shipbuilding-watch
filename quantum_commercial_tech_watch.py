@@ -596,6 +596,11 @@ def main():
     for item in candidates:
         full = article_text(item)
         combined = f"{item.get('title','')} {item.get('summary','')} {full}"
+        if item.get("url") in {x["url"] for x in DIRECT_OFFICIAL_EVENTS}:
+            print("[QTECH SOURCE CHECK]", "chars=", len(full),
+                  "date=", extract_official_date(full),
+                  "material=", material(combined),
+                  "specific=", candidate_is_specific(item, combined))
         if not material(combined):
             continue
         if not candidate_is_specific(item, combined):
