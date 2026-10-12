@@ -10,7 +10,7 @@
     "IonQ|정부 기술검증·계약|darpa|qbi-stage-c-2026-10-07"
   ],
   "initialized": true,
-  "last_checked_kst": "2026-10-12T20:18:32+09:00",
+  "last_checked_kst": "2026-10-13T03:13:23+09:00",
   "retry_candidates": [],
   "sources": {
     "D-Wave 공식 뉴스": [
@@ -31,6 +31,7 @@
       "https://www.ionq.com/news/ionqs-superion-256-platform-selected-by-florida-international-university-for-flagship-deployment"
     ],
     "IonQ 공식 발표 검색(원문검증)::cd4571df": [
+      "https://www.ionq.com/news/ionq-advances-to-final-stage-of-darpas-quantum-benchmarking-initiative",
       "https://www.ionq.com/news/ionq-demonstrates-world-first-quantum-memory-enhanced-interconnect-for-distributed-quantum-applications"
     ],
     "NVIDIA 공식 뉴스": [],
