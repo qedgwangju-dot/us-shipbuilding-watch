@@ -127,6 +127,16 @@ def main():
                    "laboratory research but has not named any recipient." * 3,
         }
         assert g.classification(generic) is None
+        # "MIT" must be a standalone institution, not the substring in
+        # "commitment".  No real recipient is named in this release.
+        substring_false_positive={
+            **followup,
+            "title":"DOE Announces New Grants for Genesis Mission Quantum Research Commitment",
+            "body":"The Genesis Mission commitment supports scientific work. "
+                   "No named institution has an executed grant award. " * 3,
+        }
+        assert g.classification(substring_false_positive) is None
+
         unrelated={**followup,
             "body":("This unrelated research grant supports Harvard University. " * 50)
                    +"Elsewhere on this site: Genesis Mission upcoming news.",
