@@ -116,6 +116,10 @@ def main():
     finally:
         q.get = original_get
 
+    # Future official releases must keep working after the 2026 calendar year.
+    assert q.extract_official_date("February 2, 2027 New system release") == "2027-02-02"
+    assert q.extract_official_date("2028-11-04 New system release") == "2028-11-04"
+
     # The actual 2026-10-03 AD HOC NEWS recap must not enter RSS alerts,
     # while an official release can have irrelevant "analyst"/"conference"
     # boilerplate in its body without being rejected.
