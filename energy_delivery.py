@@ -62,6 +62,7 @@ class Outbox:
         self.marker = self.root / 'out/energy_delivery_checkpoint.json'
         self.blocked = False
         self.errors = []
+        self.source_failures = []
         self.sent = {'refinery': [], 'spr': []}
         self.attempts = 0
 
@@ -95,11 +96,15 @@ class Outbox:
     def timestamp(self):
         return self.now().isoformat(timespec='seconds')
 
-    def record_error(self, stage, key, exc=None):
+    def record_error(self, stage, key, exc=None, source_details=None):
         # Exception text can contain token-bearing request URLs. Keep identifiers/stages only.
         text = f'{stage}:{key}' + (f':{type(exc).__name__}' if exc else '')
         self.errors.append(text)
         print('energy_delivery_error=' + text)
+        if source_details is not None:
+            detail = {'item_id': key, **copy.deepcopy(source_details)}
+            self.source_failures.append(detail)
+            print('energy_source_failure=' + json.dumps(detail, sort_keys=True))
         return text
 
     def save_local(self):
@@ -110,7 +115,8 @@ class Outbox:
             'state_sha256': {name: hashlib.sha256((self.root / name).read_bytes()).hexdigest()
                              for name in durable.STATE_NAMES}})
         atomic_json(self.root / 'out/energy_delivery_diagnostics.json', {
-            'errors': self.errors, 'sent': self.sent, 'attempts': self.attempts,
+            'errors': self.errors, 'source_failures': self.source_failures,
+            'sent': self.sent, 'attempts': self.attempts,
             'pending': {key: entry.get('status') for key, entry in self.state['outbox'].items()},
             'persistence_blocked': self.blocked, 'run_id': os.getenv('GITHUB_RUN_ID')})
 
@@ -169,6 +175,8 @@ class Outbox:
                 updated = copy.deepcopy(item)
                 if previous.get('_source_blocked'):
                     updated['_source_blocked'] = True
+                    if previous.get('_source_failure') is not None:
+                        updated['_source_failure'] = copy.deepcopy(previous['_source_failure'])
                 merged[item['id']] = updated
             existing['items'] = list(merged.values())
         else:

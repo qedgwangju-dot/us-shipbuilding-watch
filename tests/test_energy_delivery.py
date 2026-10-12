@@ -742,5 +742,196 @@ class GitBarrierTests(unittest.TestCase):
             durable.persist(self.root, self.engine.marker, intent=(key, 0, 'false-digest', 'destination'))
 
 
+
+class SourceDiagnosticTests(unittest.TestCase):
+    def setUp(self):
+        runner.rw.reset_source_circuits()
+        p = mock.patch.object(runner.rw.requests.sessions.Session, 'request', side_effect=AssertionError('live HTTP forbidden'))
+        p.start(); self.addCleanup(p.stop)
+
+    def response(self, status, url='https://provider.example/article', text='denied'):
+        return mock.Mock(status_code=status, url=url, text=text)
+
+    def failure(self, status=403, stage='news_decode', url='https://news.google.com/articles/fixture'):
+        transport = mock.Mock(get=mock.Mock(return_value=self.response(status, url)))
+        with self.assertRaises(runner.rw.SourceAccessDenied) as ctx:
+            runner.rw.source_request(transport, 'get', url, stage=stage)
+        return ctx.exception
+
+    def test_http_denial_keeps_actual_provider_status_stage_without_url(self):
+        for status in (401, 403, 429):
+            runner.rw.reset_source_circuits()
+            failure = self.failure(status)
+            details = runner.rw.source_failure_details(failure)
+            self.assertEqual(details['http_status'], status)
+            self.assertEqual(details['provider'], 'news.google.com')
+            self.assertEqual(details['stage'], 'news_decode')
+            self.assertEqual(details['reason'], 'http_rate_limit' if status == 429 else 'http_denial')
+            self.assertFalse(details['blocked_before_request'])
+            self.assertNotIn('url', details)
+
+    def test_wrapper_reraise_preserves_diagnostic_identity(self):
+        original = self.failure()
+        with self.assertRaises(runner.rw.SourceAccessDenied) as ctx:
+            runner.rw.raise_if_access_denied(original)
+        self.assertIs(ctx.exception, original)
+        self.assertEqual(ctx.exception.source_details['http_status'], 403)
+
+    def test_circuit_hold_reports_earlier_status_not_new_http_response(self):
+        self.failure(429, 'rss', 'https://news.google.com/rss/search?q=fixture')
+        transport = mock.Mock(get=mock.Mock(side_effect=AssertionError('no second request')))
+        with self.assertRaises(runner.rw.SourceAccessDenied) as ctx:
+            runner.rw.source_request(transport, 'get', 'https://news.google.com/articles/other', stage='news_decode')
+        details = runner.rw.source_failure_details(ctx.exception)
+        self.assertEqual(details['reason'], 'in_run_circuit')
+        self.assertEqual(details['origin_http_status'], 429)
+        self.assertEqual(details['origin_stage'], 'rss')
+        self.assertNotIn('http_status', details)
+        self.assertTrue(details['blocked_before_request']); transport.get.assert_not_called()
+
+    def test_real_decoder_swallowed_exception_preserves_observed_status(self):
+        import requests
+        response = requests.Response(); response.status_code = 403
+        response.url = 'https://news.google.com/articles/fixture'; response._content = b'denied'
+        with mock.patch.object(requests.sessions.Session, 'request', return_value=response) as request:
+            with self.assertRaises(runner.rw.SourceAccessDenied) as ctx:
+                runner.rw.decode_google_news_url(response.url)
+        details = runner.rw.source_failure_details(ctx.exception)
+        self.assertEqual(details['stage'], 'news_decode'); self.assertEqual(details['http_status'], 403)
+        self.assertEqual(request.call_count, 1)
+
+    def test_real_translators_preserve_provider_and_stage(self):
+        import requests
+        for translate, stage, host in (
+            (v2._original_translate_ko, 'translation_google', 'translate.google.com'),
+            (v2._translate_with_mymemory, 'translation_mymemory', 'api.mymemory.translated.net')):
+            response = requests.Response(); response.status_code = 403
+            response.url = 'https://' + host + '/private?secret=never-record'; response._content = b'denied'
+            with mock.patch.object(requests.sessions.Session, 'request', return_value=response) as request:
+                with self.assertRaises(runner.rw.SourceAccessDenied) as ctx:
+                    translate('A general English sentence requiring translation.')
+            details = runner.rw.source_failure_details(ctx.exception)
+            self.assertEqual(details['stage'], stage); self.assertEqual(details['provider'], host)
+            self.assertEqual(details['http_status'], 403); self.assertEqual(request.call_count, 1)
+            self.assertNotIn('never-record', json.dumps(details))
+
+    def test_article_denial_and_http200_challenge_are_distinguished(self):
+        for status, text, reason in ((403, 'denied', 'http_denial'),
+                                    (200, '<html><title>Access denied</title></html>', 'challenge_page')):
+            with mock.patch.object(runner.rw.requests, 'get', return_value=self.response(status, text=text)):
+                with self.assertRaises(runner.rw.SourceAccessDenied) as ctx:
+                    runner.rw.extract_article_body('https://provider.example/article')
+            details = runner.rw.source_failure_details(ctx.exception)
+            self.assertEqual(details['stage'], 'article_fetch'); self.assertEqual(details['reason'], reason)
+            self.assertEqual(details['http_status'], status)
+
+    def test_direct_http_wrappers_keep_status_and_context(self):
+        import requests
+        response = self.response(403, 'https://html.duckduckgo.com/html/?q=private-query')
+        response.raise_for_status.side_effect = requests.HTTPError(response=response)
+        with mock.patch.object(runner.rw.requests, 'get', return_value=response):
+            with self.assertRaises(runner.rw.SourceAccessDenied) as ctx:
+                runner.rw.search_publisher_url({'title': 'Fixture', 'source_url': 'https://publisher.example'})
+        details = runner.rw.source_failure_details(ctx.exception)
+        self.assertEqual(details['stage'], 'publisher_search'); self.assertEqual(details['http_status'], 403)
+        self.assertEqual(details['provider'], 'html.duckduckgo.com')
+        response = self.response(403, 'https://translate.googleapis.com/translate_a/single?q=private-text')
+        response.raise_for_status.side_effect = requests.HTTPError(response=response)
+        with mock.patch.object(runner.rw.GoogleTranslator, 'translate', side_effect=RuntimeError('temporary failure')), \
+             mock.patch.object(runner.rw.time, 'sleep'), mock.patch.object(runner.rw.requests, 'get', return_value=response):
+            with self.assertRaises(runner.rw.SourceAccessDenied) as ctx:
+                v2._original_translate_ko('A general sentence requiring translation.')
+        details = runner.rw.source_failure_details(ctx.exception)
+        self.assertEqual(details['stage'], 'translation_google_http'); self.assertEqual(details['http_status'], 403)
+        self.assertEqual(details['provider'], 'translate.googleapis.com')
+        self.assertNotIn('private-text', json.dumps(details))
+
+    def test_unknown_exception_does_not_invent_provider_or_status(self):
+        failure = runner.rw.SourceAccessDenied('HTTP 403 secret response text')
+        details = runner.rw.source_failure_details(failure)
+        self.assertEqual(details['stage'], 'unknown'); self.assertEqual(details['reason'], 'unknown')
+        self.assertNotIn('provider', details); self.assertNotIn('http_status', details)
+        self.assertNotIn('secret', json.dumps(details))
+
+    def test_raw_userinfo_path_query_fragment_body_never_enter_diagnostics(self):
+        url = 'https://user:password@provider.example/private-credential?token=api-secret#private-fragment'
+        failure = self.failure(403, 'article_fetch', url)
+        failure.source_details.update(response_body='do-not-record', exception='do-not-record', raw_url=url)
+        details = runner.rw.source_failure_details(failure)
+        text = json.dumps(details)
+        for secret in ('password', 'private-credential', 'api-secret', 'private-fragment', 'do-not-record', 'user:'):
+            self.assertNotIn(secret, text)
+        self.assertEqual(details['provider'], 'provider.example')
+        self.assertEqual(details['request_url_sha256'], hashlib.sha256(url.encode()).hexdigest())
+
+    def test_mutated_metadata_fields_are_validated(self):
+        failure = runner.rw.SourceAccessDenied()
+        failure.source_details.update(provider='secret@invalid\n', request_url_sha256='raw-url', stage='secret',
+                                      reason='secret', http_status=True, origin_http_status='403', ignored='secret')
+        details = runner.rw.source_failure_details(failure)
+        self.assertEqual(details, {'stage': 'unknown', 'reason': 'unknown', 'blocked_before_request': False})
+
+    def test_malformed_diagnostic_metadata_degrades_to_unknown(self):
+        for malformed in (None, [], {'stage': [], 'reason': {}, 'origin_stage': [], 'origin_reason': {}}):
+            failure = runner.rw.SourceAccessDenied(stage=[], reason={})
+            failure.source_details = malformed
+            self.assertEqual(runner.rw.source_failure_details(failure),
+                {'stage': 'unknown', 'reason': 'unknown', 'blocked_before_request': False})
+
+    def test_redirect_denial_origin_provider_survives_next_circuit_hold(self):
+        transport = mock.Mock(get=mock.Mock(return_value=self.response(403, 'https://publisher.example/redirect-target')))
+        with self.assertRaises(runner.rw.SourceAccessDenied):
+            runner.rw.source_request(transport, 'get', 'https://news.google.com/articles/first', stage='news_decode')
+        with self.assertRaises(runner.rw.SourceAccessDenied) as ctx:
+            runner.rw.source_request(transport, 'get', 'https://news.google.com/articles/second', stage='news_decode')
+        details = runner.rw.source_failure_details(ctx.exception)
+        self.assertEqual(details['provider'], 'news.google.com')
+        self.assertEqual(details['origin_provider'], 'publisher.example')
+        self.assertEqual(details['origin_http_status'], 403)
+        self.assertEqual(transport.get.call_count, 1)
+
+    def test_future_blocked_item_and_artifact_retain_metadata_after_restart_merge(self):
+        with tempfile.TemporaryDirectory() as folder:
+            root = Path(folder)
+            delivery.atomic_json(root / 'refinery_watch_state.json', {'initialized': True, 'seen': [], 'events': {}})
+            delivery.atomic_json(root / 'spr_venezuela_watch_state.json', {'initialized': True, 'seen_news': [], 'events': {}})
+            now = dt.datetime(2026, 10, 12, 21, tzinfo=dt.timezone.utc)
+            item = {'id': 'new', 'title': 'Trump refinery capacity', 'source': 'EPA', 'source_url': 'https://epa.gov', 'pub_kst': now.isoformat()}
+            engine = delivery.Outbox(root, now=lambda: now)
+            key = engine.queue_news('refinery', runner.refinery_event_key(item), [item])
+            with mock.patch.object(runner, 'now_kst', return_value=now), \
+                 mock.patch.object(runner.rw, 'enrich_korean', side_effect=self.failure()) as enrich, \
+                 mock.patch.object(runner.rw.requests, 'post', side_effect=AssertionError('no Telegram')):
+                runner._prepare_news(engine, key)
+                engine.save_local()
+            state = json.loads((root / 'energy_delivery_state.json').read_text())
+            self.assertEqual(state['outbox'][key]['items'][0]['_source_failure']['http_status'], 403)
+            diag = json.loads((root / 'out/energy_delivery_diagnostics.json').read_text())
+            self.assertEqual(diag['source_failures'][0]['provider'], 'news.google.com')
+            reloaded = delivery.Outbox(root, now=lambda: now)
+            # A new same-event alternative must not erase the original metadata.
+            reloaded.queue_news('refinery', runner.refinery_event_key(item), [item, dict(item, id='alternative')])
+            original = next(x for x in reloaded.state['outbox'][key]['items'] if x['id'] == 'new')
+            self.assertTrue(original['_source_blocked']); self.assertEqual(original['_source_failure']['http_status'], 403)
+            self.assertEqual(reloaded.refinery['seen'], [])
+
+    def test_existing_legacy_hold_does_not_get_inferred_metadata_or_retry(self):
+        with tempfile.TemporaryDirectory() as folder:
+            root = Path(folder)
+            delivery.atomic_json(root / 'refinery_watch_state.json', {'initialized': True, 'seen': ['historic'], 'events': {}})
+            delivery.atomic_json(root / 'spr_venezuela_watch_state.json', {'initialized': True, 'seen_news': [], 'events': {}})
+            item = {'id': '3732d92a79dc14aedccf4fe8', 'title': 'Existing blocked article', 'source': 'Energy News Beat',
+                    'source_url': 'https://energynewsbeat.co', 'pub_kst': '2026-10-13T01:33+09:00', '_source_blocked': True}
+            old = {'schema_version': 1, 'outbox': {'refinery:news:legacy': {'topic': 'refinery', 'kind': 'news',
+                'event_key': 'legacy', 'status': 'source_blocked', 'items': [item], 'attempts': 1}},
+                'receipts': [], 'dispositions': [], 'observed_data': {}}
+            delivery.atomic_json(root / 'energy_delivery_state.json', old)
+            engine = delivery.Outbox(root)
+            with mock.patch.object(runner.rw, 'enrich_korean', side_effect=AssertionError('no refetch')), \
+                 mock.patch.object(runner.rw.requests, 'post', side_effect=AssertionError('no Telegram')):
+                runner._deliver_topic(engine, 'refinery', 'fixture', '42')
+            self.assertEqual(engine.state, old); self.assertEqual(engine.source_failures, [])
+            self.assertNotIn('_source_failure', engine.state['outbox']['refinery:news:legacy']['items'][0])
+
 if __name__ == '__main__':
     unittest.main()
