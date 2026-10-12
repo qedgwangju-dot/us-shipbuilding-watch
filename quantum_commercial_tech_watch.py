@@ -617,7 +617,10 @@ def main():
     for name, url in OFFICIAL_SOURCES:
         try:
             current = fetch_official(name, url)
-            print(f"[QTECH OK] {name}: {len(current)}개")
+            if current:
+                print(f"[QTECH SOURCE] {name}: 검출 대상 링크 {len(current)}개")
+            else:
+                print(f"[QTECH COVERAGE UNCERTAIN] {name}: 추출 0개(신규 발표 0건으로 단정 금지)")
         except Exception as e:
             print(f"[QTECH WARN] {name}: {e}")
             continue
@@ -665,7 +668,10 @@ def main():
         keyname = name + "::" + hashlib.sha1(url.encode()).hexdigest()[:8]
         try:
             current = fetch_rss(name, url)
-            print(f"[QTECH OK] {keyname}: {len(current)}개")
+            if current:
+                print(f"[QTECH SOURCE] {keyname}: 검출 대상 링크 {len(current)}개")
+            else:
+                print(f"[QTECH COVERAGE UNCERTAIN] {keyname}: 추출 0개(조회 성공과 뉴스 부재는 구분)")
         except Exception as e:
             print(f"[QTECH WARN] {keyname}: {e}")
             continue
