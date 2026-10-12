@@ -106,6 +106,37 @@ def main():
         }
         assert g.classification(contract)["stage"]=="계약·발주"
 
+        # Previously missed: a DOE follow-on award can name Harvard in the
+        # title and identify the Genesis Mission only in the verified lead.
+        # Its publication day must still be new and its recipient must be named.
+        followup={
+            "url":"https://www.energy.gov/articles/award-harvard-quantum-error-correction",
+            "title":"DOE Announces New Grants for Quantum Error Correction at Harvard University",
+            "published":"2026-10-15",
+            "body":"As part of the Genesis Mission, DOE has selected Harvard University "
+                   "for a new quantum error correction research award with test "
+                   "milestones and project funding. " * 3,
+        }
+        followup_event=g.classification(followup)
+        assert followup_event and followup_event["stage"]=="신규 선정·자금 배정"
+        assert "양자컴퓨팅" in followup_event["area"]
+
+        generic={**followup,
+            "title":"DOE Announces New Grants for Quantum Research at Universities",
+            "body":"As part of the Genesis Mission, DOE will support university and "
+                   "laboratory research but has not named any recipient." * 3,
+        }
+        assert g.classification(generic) is None
+        unrelated={**followup,
+            "body":("This unrelated research grant supports Harvard University. " * 50)
+                   +"Elsewhere on this site: Genesis Mission upcoming news.",
+        }
+        assert g.classification(unrelated) is None
+        unrelated_source={**followup,
+            "url":"https://www.energy.gov.evil.example/articles/award-harvard",
+        }
+        assert g.classification(unrelated_source) is None
+
         # A successful, acknowledged send persists message_id and prevents repeat.
         with tempfile.TemporaryDirectory() as directory:
             target=Path(directory)
