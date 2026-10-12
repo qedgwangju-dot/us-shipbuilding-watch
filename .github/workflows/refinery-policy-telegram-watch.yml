@@ -3,6 +3,16 @@ name: 트럼프 정유업계 고유가 대응 Telegram 웹감시
 on:
   schedule:
     - cron: '3,13,23,33,43,53 * * * *'
+  pull_request:
+    paths:
+      - 'refinery_watch.py'
+      - 'spr_venezuela_watch.py'
+      - 'requirements.txt'
+      - 'readable_energy_alert_runner*.py'
+      - 'energy_delivery.py'
+      - 'energy_state_checkpoint.py'
+      - 'tests/test_energy_delivery.py'
+      - '.github/workflows/refinery-policy-telegram-watch.yml'
   workflow_dispatch:
   push:
     branches:
@@ -12,17 +22,37 @@ on:
       - 'spr_venezuela_watch.py'
       - 'readable_energy_alert_runner.py'
       - 'readable_energy_alert_runner_v2.py'
+      - 'energy_delivery.py'
+      - 'energy_state_checkpoint.py'
       - '.github/workflows/refinery-policy-telegram-watch.yml'
 
 permissions:
-  contents: write
+  contents: read
 
 concurrency:
-  group: refinery-policy-telegram-watch
-  cancel-in-progress: true
+  group: ${{ github.event_name == 'pull_request' && format('refinery-policy-telegram-watch-pr-{0}', github.event.pull_request.number) || 'refinery-policy-telegram-watch' }}
+  cancel-in-progress: false
 
 jobs:
+  offline-tests:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install -r requirements.txt
+      - run: python -m unittest discover -s tests -p 'test_energy_delivery.py' -v
+
   monitor:
+    needs: offline-tests
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    permissions:
+      contents: write
     runs-on: ubuntu-latest
     timeout-minutes: 10
 
@@ -31,6 +61,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          ref: main
 
       - name: Python 설정
         uses: actions/setup-python@v5
@@ -53,23 +84,14 @@ jobs:
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: python readable_energy_alert_runner_v2.py
 
-      - name: 감시 상태 저장
+      - name: Preserve delivery receipts and ambiguity diagnostics
         if: always()
-        run: |
-          files=""
-          [ -f refinery_watch_state.json ] && files="$files refinery_watch_state.json"
-          [ -f spr_venezuela_watch_state.json ] && files="$files spr_venezuela_watch_state.json"
-          if [ -z "$files" ]; then
-            echo "감시 상태 파일 없음"
-            exit 0
-          fi
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add $files
-          if git diff --cached --quiet; then
-            echo "상태 변화 없음"
-            exit 0
-          fi
-          git commit -m "Update refinery and SPR watch states" || exit 0
-          git pull --rebase origin main
-          git push
+        uses: actions/upload-artifact@v4
+        with:
+          name: energy-delivery-${{ github.run_id }}-${{ github.run_attempt }}
+          retention-days: 14
+          path: |
+            out/energy_delivery_*.json
+            refinery_watch_state.json
+            spr_venezuela_watch_state.json
+            energy_delivery_state.json

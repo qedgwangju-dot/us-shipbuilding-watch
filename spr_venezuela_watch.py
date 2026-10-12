@@ -16,6 +16,10 @@ from bs4 import BeautifulSoup
 
 from refinery_watch import (
     HEADERS,
+    SourceAccessDenied,
+    is_access_denied,
+    source_block_page,
+    source_get,
     enrich_korean,
     send_telegram,
     validate_telegram,
@@ -237,9 +241,13 @@ def google_news_rss(query):
         "gl": "US",
         "ceid": "US:en",
     })
-    r = requests.get(url, headers=HEADERS, timeout=25)
+    r = source_get(url, headers=HEADERS, timeout=25)
     r.raise_for_status()
+    if source_block_page(r.text[:20000]):
+        raise SourceAccessDenied('RSS provider explicitly denied access')
     root = ET.fromstring(r.content)
+    if root.tag != 'rss' or root.find('channel') is None:
+        raise RuntimeError('Expected RSS/channel response; source returned unexpected content')
     items = []
     for node in root.findall("./channel/item"):
         title = (node.findtext("title") or "").strip()
@@ -254,7 +262,7 @@ def google_news_rss(query):
                 pub = pub.replace(tzinfo=dt.timezone.utc)
             pub_kst = pub.astimezone(KST)
         except Exception:
-            pub_kst = now_kst()
+            pub_kst = None
         ident = hashlib.sha256((title + "|" + link).encode("utf-8")).hexdigest()[:24]
         items.append({
             "id": ident,
@@ -262,7 +270,7 @@ def google_news_rss(query):
             "link": link,
             "source": source,
             "source_url": source_url,
-            "pub_kst": pub_kst.isoformat(timespec="minutes"),
+            "pub_kst": pub_kst.isoformat(timespec="minutes") if pub_kst else "",
         })
     return items
 
@@ -288,7 +296,9 @@ def collect_news():
                 if relevant_news(item):
                     merged[item["id"]] = item
         except Exception as exc:
-            errors.append(f"{query}: {exc}")
+            errors.append(f"{query}: {type(exc).__name__}")
+            if is_access_denied(exc):
+                break
     items = list(merged.values())
     items.sort(key=lambda x: x["pub_kst"], reverse=True)
     return items, errors

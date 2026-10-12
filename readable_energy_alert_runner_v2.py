@@ -3,6 +3,7 @@ import html
 import re
 
 from deep_translator import MyMemoryTranslator
+import deep_translator.mymemory as mymemory_runtime
 import readable_energy_alert_runner as base
 
 _original_refinery_event_key = base.refinery_event_key
@@ -171,7 +172,8 @@ def _korean_quality_ok(text):
 def _translate_with_mymemory(text):
     parts = []
     for chunk in _chunks(text):
-        translated = MyMemoryTranslator(source='en-GB', target='ko-KR').translate(text=chunk)
+        translated = base.rw.guarded_source_call(mymemory_runtime,
+            lambda: MyMemoryTranslator(source='en-GB', target='ko-KR').translate(text=chunk))
         translated = _normalize_korean_output(translated)
         parts.append(base.rw.validate_korean_translation(chunk, translated))
     return _normalize_korean_output(' '.join(parts).strip())
@@ -197,6 +199,7 @@ def translate_ko_resilient(text):
             return translated
         first_error = RuntimeError('1차 번역 뒤 영문 일반문장이 남아 있음')
     except Exception as exc:
+        base.rw.raise_if_access_denied(exc)
         first_error = exc
 
     try:
@@ -205,6 +208,7 @@ def translate_ko_resilient(text):
             return translated
         raise RuntimeError('2차 번역 뒤 영문 일반문장이 남아 있음')
     except Exception as exc:
+        base.rw.raise_if_access_denied(exc)
         # 영어 원문이나 반쪽 번역을 절대 대체 송출하지 않는다.
         raise RuntimeError(f'한국어 완전 번역 실패: 1차={first_error}; 2차={exc}') from exc
 
@@ -300,6 +304,12 @@ def _is_noise(text):
     return any(x in low for x in NOISE_MARKERS)
 
 
+def opinion_or_proposal(enriched):
+    title = (enriched.get("title") or "").lower()
+    return (title.startswith(("should ", "could ", "opinion:", "analysis:", "what if "))
+            or any(term in title for term in ("opinion |", "analysis and opinion", "proposes ", "proposal ")))
+
+
 def compact_snapshot(enriched, key):
     fixed = {
         "rfs_sre_2025_package_20260831": [
@@ -320,7 +330,7 @@ def compact_snapshot(enriched, key):
             "최대 역풍은 노후 유전·송유관·전력·희석제 부족과 장기간 투자 공백입니다. 현재 약 110만~120만 배럴/일에서 2배 이상 증산하려면 수년이 걸리고, 과거 300만 배럴/일 수준 회복은 더 오래 걸릴 수 있습니다.",
         ],
     }
-    if key in fixed:
+    if key in fixed and not opinion_or_proposal(enriched):
         return fixed[key]
 
     candidates = []
@@ -365,6 +375,8 @@ def event_headline(topic, key, enriched):
         "spr_venezuela_quality_bottleneck": "베네수엘라 초중질유, SPR 저장 적합성이 핵심 병목",
         "venezuela_output_double_deals_20260902": "미국, 베네수엘라 산유량 향후 몇 년 내 2배 이상 확대 추진",
     }
+    if opinion_or_proposal(enriched):
+        return "[의견·제안] " + base.short(_normalize_korean_output(enriched.get("title_ko") or "의견·제안 기사"), 110)
     if key in headlines:
         return headlines[key]
     return base.short(_normalize_korean_output(enriched.get("title_ko") or "정책·시장 변화"), 125)
@@ -398,7 +410,10 @@ def concise_news_alert(topic, enriched, key, grouped_items):
                 raise RuntimeError('본문 한국어 품질검사 실패')
             lines.append(f"• {html.escape(item, quote=False)}")
 
-    impacts = impact_lines_v2(topic, key)
+    if opinion_or_proposal(enriched):
+        lines.extend(["", "기사 성격: 의견·제안. 본문에 인용된 기존 조치와 향후 제안을 구분해 확인해야 합니다."])
+
+    impacts = [] if opinion_or_proposal(enriched) else impact_lines_v2(topic, key)
     if impacts:
         impact = _normalize_korean_output(impacts[0])
         if not _korean_quality_ok(impact):
@@ -406,7 +421,8 @@ def concise_news_alert(topic, enriched, key, grouped_items):
         lines.append("")
         lines.append(f"<b>의미</b> · {html.escape(impact, quote=False)}")
 
-    checks = next_checks_v2(topic, key)
+    checks = (["정부 공식 발표에서 확정된 조치·배정과 향후 제안·검토를 구분 확인"]
+              if opinion_or_proposal(enriched) else next_checks_v2(topic, key))
     if checks:
         lines.extend(["", "<b>다음 확인</b>"])
         for check in checks[:2]:
