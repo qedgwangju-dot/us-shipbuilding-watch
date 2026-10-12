@@ -60,7 +60,16 @@ TECH_AREAS=(
     ("연구용 연산 인프라",("supercomputer","cloud","compute credits","gpu","argonne","los alamos")),
 )
 KNOWN_PROJECTS=("axess","asqc","ai4hpc","moat-core","gridfm","prometheus")
-NAMED_ENTITIES=("argonne","los alamos","fermilab","harvard","oak ridge","lawrence berkeley","northeastern","mit","princeton","brookhaven","university","laboratory","nvidia","amd","micron","google","aws","crusoe","openai")
+NAMED_ENTITIES=(
+    "argonne","los alamos","fermilab","harvard","oak ridge","lawrence berkeley",
+    "northeastern","mit","princeton","brookhaven","commonwealth fusion systems",
+    "university of california san diego","university of california irvine",
+    "university of illinois urbana-champaign","university of washington",
+    "nvidia","amd","micron","google","aws","crusoe","openai",
+)
+# General words such as "university" and "laboratory" do not identify an
+# awarded institution.  A named recipient is required before sending.
+
 
 def clean(value):
     raw=str(value or "")
@@ -172,7 +181,24 @@ def classification(item):
     if (now_kst().date()-day).days>MAX_AGE_DAYS or day>now_kst().date():return None
     title=clean(item["title"]).lower()
     body=clean(item["body"]).lower()
-    if not ("genesis mission" in title or ("genesis mission" in body and ("nvidia" in title or "quantum genesis" in title))):return None
+    # Official DOE follow-on award releases sometimes name only the actual
+    # beneficiary in their headline, placing "Genesis Mission" in the lead.
+    # The previous title-only exception missed these actionable executions.
+    # Do not accept a generic footer/sidebar reference or unrelated awards.
+    source_host=(urllib.parse.urlsplit(item["url"]).hostname or "").lower()
+    title_genesis="genesis mission" in title
+    lead_genesis="genesis mission" in body[:1800]
+    primary_followup=(
+        (source_host=="energy.gov" or source_host.endswith(".energy.gov")
+         or source_host=="nvidianews.nvidia.com"
+         or source_host=="investor.nvidia.com")
+        and lead_genesis
+        and any(x in title for x in (
+            "award","grant","contract","procurement","deploy","install",
+            "delivered","selected","funding","purchase order",
+        ))
+    )
+    if not (title_genesis or primary_followup):return None
     # Broad summit recaps or pledge repetitions are never execution milestones.
     if any(x in title for x in ("summit","pledge","commitment to advance us science","over the next five years","science: a new golden age")):
         return None
