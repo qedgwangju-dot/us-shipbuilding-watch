@@ -60,8 +60,67 @@ HEADERS = {
 }
 
 
+_SOURCE_STAGES = {'unknown', 'rss', 'news_decode', 'news_redirect', 'publisher_search',
+                  'article_fetch', 'translation_google', 'translation_google_http', 'translation_mymemory'}
+_SOURCE_REASONS = {'unknown', 'http_denial', 'http_rate_limit', 'challenge_page',
+                   'exception_denial', 'in_run_circuit', 'decoder_result_denial'}
+
+
 class SourceAccessDenied(RuntimeError):
-    """An explicit access denial must not trigger retries or alternate access paths."""
+    """A held source failure with allowlisted nonsecret evidence, never raw URLs/body."""
+    def __init__(self, message='Source access denied', *, stage='unknown', url=None,
+                 status_code=None, reason='unknown', blocked_before_request=False):
+        super().__init__(message)
+        details = {'stage': stage if isinstance(stage, str) and stage in _SOURCE_STAGES else 'unknown',
+                   'reason': reason if isinstance(reason, str) and reason in _SOURCE_REASONS else 'unknown',
+                   'blocked_before_request': bool(blocked_before_request)}
+        if type(status_code) is int and 100 <= status_code <= 599:
+            details['http_status'] = status_code
+        if isinstance(url, str) and url:
+            # Never persist URL query strings, userinfo, paths, translation input,
+            # exception messages or response bodies. A digest permits comparison
+            # against a URL already independently known to the operator.
+            details['request_url_sha256'] = hashlib.sha256(url.encode()).hexdigest()
+            try:
+                host = (urllib.parse.urlparse(url).hostname or '').encode('idna').decode().lower()
+                if re.fullmatch(r'[a-z0-9.-]{1,253}', host):
+                    details['provider'] = host
+            except (ValueError, UnicodeError):
+                pass
+        self.source_details = details
+
+
+def source_failure_details(exc):
+    if not isinstance(exc, SourceAccessDenied):
+        return None
+    # Revalidate every field so mutated/external dictionaries cannot leak data.
+    raw = getattr(exc, 'source_details', {})
+    raw = raw if isinstance(raw, dict) else {}
+    out = {'stage': raw.get('stage') if isinstance(raw.get('stage'), str) and raw['stage'] in _SOURCE_STAGES else 'unknown',
+           'reason': raw.get('reason') if isinstance(raw.get('reason'), str) and raw['reason'] in _SOURCE_REASONS else 'unknown',
+           'blocked_before_request': raw.get('blocked_before_request') is True}
+    for name, pattern in (('provider', r'[a-z0-9.-]{1,253}'), ('request_url_sha256', r'[a-f0-9]{64}'),
+                          ('origin_provider', r'[a-z0-9.-]{1,253}'), ('origin_request_url_sha256', r'[a-f0-9]{64}')):
+        if isinstance(raw.get(name), str) and re.fullmatch(pattern, raw[name]):
+            out[name] = raw[name]
+    for name in ('http_status', 'origin_http_status'):
+        if type(raw.get(name)) is int and 100 <= raw[name] <= 599:
+            out[name] = raw[name]
+    if isinstance(raw.get('origin_stage'), str) and raw['origin_stage'] in _SOURCE_STAGES:
+        out['origin_stage'] = raw['origin_stage']
+    if isinstance(raw.get('origin_reason'), str) and raw['origin_reason'] in _SOURCE_REASONS:
+        out['origin_reason'] = raw['origin_reason']
+    return out
+
+
+def _source_denial(stage, url, response=None, reason=None):
+    status = getattr(response, 'status_code', None)
+    effective_url = getattr(response, 'url', None)
+    if not isinstance(effective_url, str) or not effective_url:
+        effective_url = url
+    if reason is None:
+        reason = 'http_rate_limit' if status == 429 else 'http_denial' if status in (401, 403) else 'exception_denial'
+    return SourceAccessDenied(stage=stage, url=effective_url, status_code=status, reason=reason)
 
 
 def is_access_denied(exc):
@@ -95,29 +154,48 @@ def source_block_page(text):
 
 
 _NEWS_DENIED_HOSTS = set()
+_NEWS_DENIAL_DETAILS = {}
 
 
 def reset_source_circuits():
     # Called once at production main start, never between topics/items.
     _NEWS_DENIED_HOSTS.clear()
+    _NEWS_DENIAL_DETAILS.clear()
 
 
-def source_request(transport, method, url, **kwargs):
+def source_request(transport, method, url, *, stage='unknown', **kwargs):
     host = urllib.parse.urlparse(url).hostname or ''
+    if stage == 'unknown' and host == 'news.google.com':
+        stage = 'rss' if urllib.parse.urlparse(url).path == '/rss/search' else 'news_redirect'
     if host in _NEWS_DENIED_HOSTS:
-        raise SourceAccessDenied('access denied earlier in this run; source circuit held')
+        failure = SourceAccessDenied(stage=stage, url=url, reason='in_run_circuit', blocked_before_request=True)
+        cause = _NEWS_DENIAL_DETAILS.get(host, {})
+        # Status describes the earlier observed denial, not an unmade request.
+        if 'http_status' in cause:
+            failure.source_details['origin_http_status'] = cause['http_status']
+        for name in ('provider', 'request_url_sha256'):
+            if name in cause:
+                failure.source_details['origin_' + name] = cause[name]
+        failure.source_details['origin_stage'] = cause.get('stage', 'unknown')
+        failure.source_details['origin_reason'] = cause.get('reason', 'unknown')
+        raise failure
     try:
         response = getattr(transport, method)(url, **kwargs)
     except Exception as exc:
         if is_access_denied(exc):
+            failure = exc if isinstance(exc, SourceAccessDenied) else _source_denial(stage, url, getattr(exc, 'response', None))
             if host == 'news.google.com':
                 _NEWS_DENIED_HOSTS.add(host)
-            raise SourceAccessDenied('access denied by source provider') from None
+                _NEWS_DENIAL_DETAILS[host] = source_failure_details(failure)
+            raise failure from None
         raise
     if response.status_code in (401, 403, 429) or source_block_page(response.text[:20000]):
+        failure = _source_denial(stage, url, response,
+            'challenge_page' if response.status_code not in (401, 403, 429) else None)
         if host == 'news.google.com':
             _NEWS_DENIED_HOSTS.add(host)
-        raise SourceAccessDenied('access denied by source provider')
+            _NEWS_DENIAL_DETAILS[host] = source_failure_details(failure)
+        raise failure
     return response
 
 
@@ -125,9 +203,11 @@ def source_get(url, **kwargs):
     return source_request(requests, 'get', url, **kwargs)
 
 
-def raise_if_access_denied(exc):
+def raise_if_access_denied(exc, *, stage='unknown'):
+    if isinstance(exc, SourceAccessDenied):
+        raise exc from None
     if is_access_denied(exc):
-        raise SourceAccessDenied('Explicit source access denial; no automatic retry or fallback') from None
+        raise _source_denial(stage, None, getattr(exc, 'response', None)) from None
 
 
 def now_kst():
@@ -323,21 +403,24 @@ _SOURCE_TRANSPORT_LOCK = threading.RLock()
 
 class _SourceTransport:
     """Preserve denial/rate-limit signals before dependencies swallow HTTP status."""
-    def __init__(self, transport):
+    def __init__(self, transport, stage='unknown'):
         self.transport = transport
+        self.stage = stage
         self.denied = False
+        self.denial = None
 
     def __getattr__(self, name):
         return getattr(self.transport, name)
 
     def _request(self, method, *args, **kwargs):
         if self.denied:
-            raise SourceAccessDenied('access denied earlier in dependency operation')
+            raise self.denial
         kwargs.setdefault('timeout', 25)
         try:
-            return source_request(self.transport, method, *args, **kwargs)
-        except SourceAccessDenied:
+            return source_request(self.transport, method, *args, stage=self.stage, **kwargs)
+        except SourceAccessDenied as exc:
             self.denied = True
+            self.denial = exc
             # Not a requests.RequestException: the pinned decoder would retry it.
             raise
 
@@ -353,14 +436,16 @@ def guarded_source_call(module, operation):
     # Restore its transport even when an operation fails or the run stops.
     with _SOURCE_TRANSPORT_LOCK:
         original = module.requests
-        transport = _SourceTransport(original)
+        stage = {'googlenewsdecoder.new_decoderv2': 'news_decode', 'deep_translator.google': 'translation_google',
+                 'deep_translator.mymemory': 'translation_mymemory'}.get(getattr(module, '__name__', ''), 'unknown')
+        transport = _SourceTransport(original, stage)
         module.requests = transport
         try:
             result = operation()
         finally:
             module.requests = original
         if transport.denied:
-            raise SourceAccessDenied('access denied by source provider')
+            raise transport.denial
         return result
 
 
@@ -372,7 +457,7 @@ def decode_google_news_url(news_url):
     try:
         decoded = guarded_gnewsdecoder(news_url)
         if isinstance(decoded, dict) and is_access_denied(decoded.get('message', '') or decoded.get('error', '')):
-            raise SourceAccessDenied('News decoder explicitly denied access')
+            raise SourceAccessDenied(stage='news_decode', url=news_url, reason='decoder_result_denial')
         if isinstance(decoded, dict) and decoded.get("status"):
             candidate = (decoded.get("decoded_url") or "").strip()
             if is_publisher_url(candidate):
@@ -385,7 +470,7 @@ def decode_google_news_url(news_url):
         r = source_get(news_url, headers=HEADERS, timeout=25, allow_redirects=True)
         r.raise_for_status()
         if source_block_page(r.text[:20000]):
-            raise SourceAccessDenied('News redirect explicitly denied access')
+            raise _source_denial('news_redirect', news_url, r, 'challenge_page')
         if is_publisher_url(r.url):
             return r.url
     except Exception as exc:
@@ -429,7 +514,7 @@ def search_publisher_url(item):
             if domain in host and is_publisher_url(href):
                 return href
     except Exception as exc:
-        raise_if_access_denied(exc)
+        raise_if_access_denied(exc, stage='publisher_search')
         pass
     return ""
 
@@ -457,7 +542,7 @@ def clean_paragraph(text):
 def extract_article_body(url):
     r = requests.get(url, headers=HEADERS, timeout=30, allow_redirects=True)
     if r.status_code in (401, 403, 429):
-        raise SourceAccessDenied('원문 접근이 거부됨')
+        raise _source_denial('article_fetch', url, r)
     if r.status_code >= 400:
         raise RuntimeError(f"원문 접속 실패 HTTP {r.status_code}")
     final_url = r.url
@@ -466,7 +551,7 @@ def extract_article_body(url):
 
     page_text = clean_paragraph(r.text)
     if source_block_page(r.text[:20000]):
-        raise SourceAccessDenied('원문 접근이 거부됨')
+        raise _source_denial('article_fetch', url, r, 'challenge_page')
     if looks_like_error_page(page_text[:5000]):
         raise RuntimeError("언론사 오류 페이지를 기사 본문으로 판정하여 차단")
 
@@ -589,7 +674,7 @@ def translate_ko(text):
                 lambda: GoogleTranslator(source="auto", target="ko").translate(text=text))
             return validate_korean_translation(text, translated)
         except Exception as exc:
-            raise_if_access_denied(exc)
+            raise_if_access_denied(exc, stage='translation_google')
             last_error = exc
             time.sleep(0.8 * (attempt + 1))
 
@@ -597,7 +682,7 @@ def translate_ko(text):
         translated = google_translate_http(text)
         return validate_korean_translation(text, translated)
     except Exception as exc:
-        raise_if_access_denied(exc)
+        raise_if_access_denied(exc, stage='translation_google_http')
         last_error = exc
 
     raise RuntimeError(f"한국어 번역 실패: {last_error}")

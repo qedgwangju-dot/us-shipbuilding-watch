@@ -423,7 +423,10 @@ def _prepare_news(engine, key):
             # Retry ordinary extraction/translation failures, never bypass explicit access blocks.
             if rw.is_access_denied(exc):
                 item['_source_blocked'] = True
-            engine.record_error('enrichment_failed', item['id'], exc)
+                details = rw.source_failure_details(exc)
+                if details is not None:
+                    item['_source_failure'] = details
+            engine.record_error('enrichment_failed', item['id'], exc, source_details=rw.source_failure_details(exc))
             continue
         priority = source_priority(item)
         retry_items = [x for x in failed if source_priority(x) > priority]
