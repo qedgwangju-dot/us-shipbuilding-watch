@@ -35,6 +35,24 @@ def main():
         assert g.is_baseline(item)
         assert g.classification(item) is None
 
+    # The actual first-party NVIDIA RSS must carry the original announcement
+    # date. Do not trust a 12 Oct Google News wrapper as the source date.
+    rss_fixture='''<rss><channel>
+      <item><title>NVIDIA Commits $1 Billion to Advance US Science Over the Next Five Years</title>
+      <link>https://nvidianews.nvidia.com/news/nvidia-commits-1-billion-to-advance-us-science-over-the-next-five-years</link>
+      <pubDate>Thu, 08 Oct 2026 10:00:00 GMT</pubDate>
+      <description>NVIDIA Genesis Mission science and quantum research commitments, including cloud computing credits.</description></item>
+      <item><title>Fake unsupported item</title>
+      <link>https://news.google.com/rss/articles/xyz</link>
+      <pubDate>Thu, 08 Oct 2026 10:00:00 GMT</pubDate></item>
+      </channel></rss>'''
+    with patch.object(g,"get",return_value=rss_fixture):
+        official_rss=g.fetch_nvidia_press_rss()
+        assert len(official_rss)==1
+        item=next(iter(official_rss.values()))
+        assert item["published"]=="2026-10-08"
+        assert g.is_baseline(item)
+
     # A new publication date or a new URL cannot revive the October 8 pledge.
     recap={
         "url":"https://nvidianews.nvidia.com/news/another-copy",
@@ -83,7 +101,7 @@ def main():
             origin_state,origin_delivery=g.STATE,g.DELIVERY
             g.STATE=target/"state.json";g.DELIVERY=target/"delivery.json"
             try:
-                with patch.object(g,"discover",return_value=([fixtures()["url"]],{"baseline_verified":1,"feed_items":1,"decoded_official":1,"source_errors":[]})),patch.object(g,"article",return_value=fixtures()),patch.object(g,"quote_fx",return_value=(1400.0,"2026-10-19")):
+                with patch.object(g,"discover",return_value=([fixtures()["url"]],{"baseline_verified":1,"nvidia_verified":1,"feed_items":1,"decoded_official":1,"source_errors":[]},{})),patch.object(g,"article",return_value=fixtures()),patch.object(g,"quote_fx",return_value=(1400.0,"2026-10-19")):
                     sent=[]
                     with patch.object(g,"send",side_effect=lambda msg: sent.append(msg) or 987):
                         assert g.main()==0
@@ -101,7 +119,7 @@ def main():
             origin_state,origin_delivery=g.STATE,g.DELIVERY
             g.STATE=Path(directory)/"state.json";g.DELIVERY=Path(directory)/"delivery.json"
             try:
-                with patch.object(g,"discover",return_value=([fixtures()["url"]],{"baseline_verified":1,"feed_items":1,"decoded_official":1,"source_errors":[]})),patch.object(g,"article",return_value=fixtures()):
+                with patch.object(g,"discover",return_value=([fixtures()["url"]],{"baseline_verified":1,"nvidia_verified":1,"feed_items":1,"decoded_official":1,"source_errors":[]},{})),patch.object(g,"article",return_value=fixtures()):
                     with patch.object(g,"send",side_effect=requests.exceptions.ReadTimeout("mock accepted?")):
                         try:g.main()
                         except requests.exceptions.ReadTimeout:pass
