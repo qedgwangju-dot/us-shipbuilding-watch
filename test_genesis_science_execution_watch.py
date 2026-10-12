@@ -2,6 +2,8 @@
 """Fail-closed regression tests for Genesis Mission science execution alert."""
 import datetime as dt
 import json
+import os
+os.environ["GENESIS_TEST_MODE"]="1"  # Mock message_id values must never resemble live proof.
 import tempfile
 from decimal import Decimal
 from pathlib import Path
