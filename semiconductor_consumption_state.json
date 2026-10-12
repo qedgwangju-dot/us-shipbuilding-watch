@@ -151,8 +151,8 @@
     "00bfb6e5e915c14fa83cb568"
   ],
   "connected_notified": true,
-  "last_run_kst": "2026-10-12T16:36:50+09:00",
-  "last_new_count": 43,
+  "last_run_kst": "2026-10-12T18:40:03+09:00",
+  "last_new_count": 1,
   "last_sent_count": 0,
   "last_errors": [],
   "schema_version": 2,
@@ -467,7 +467,8 @@
     "c19a1300077fe3324d3222395f8bdecc",
     "ce2aa85f316815d47c5d3d09a6b13d43",
     "35f4185abf53ee3873b0472e3d14216f",
-    "2837ed90db1a76fb5c5a05da3ed54e82"
+    "2837ed90db1a76fb5c5a05da3ed54e82",
+    "adcdae3712991e6222a3691d19ffce20"
   ],
   "sent_urls": [
     "https://www.polinews.co.kr/news/articleView.html",
@@ -1303,5 +1304,17 @@
       "seen_at": "2026-09-02T10:18:57+09:00"
     }
   ],
-  "last_duplicate_suppressed": 0
+  "last_duplicate_suppressed": 0,
+  "last_outcome": "complete",
+  "pending_items": {},
+  "delivery_receipts": {},
+  "last_candidate_count": 1,
+  "last_send_attempt_count": 0,
+  "last_pending_count": 0,
+  "last_error_count": 0,
+  "last_item_outcomes": {
+    "adcdae3712991e6222a3691d19ffce20": {
+      "status": "suppressed_stale"
+    }
+  }
 }
