@@ -37,6 +37,19 @@ def main():
         assert g.is_baseline(item)
         assert g.classification(item) is None
 
+    # DOE's own mission news listing is a first-party discovery path, not
+    # Google News RSS. Reject off-site and non-article links.
+    doe_index_html=(
+        '<html><main><a href="/articles/new-genesis-mission-harvard-quantum-grant">'
+        'DOE Announces a New Harvard Quantum Grant</a>'
+        '<a href="https://evil.example/articles/fake-award">Impostor</a>'
+        '<a href="/undersecretaryforscience/genesis-mission">Mission home</a>'
+        '</main></html>'
+    )
+    with patch.object(g,"get",return_value=doe_index_html):
+        doe_links=g.fetch_doe_genesis_index()
+        assert doe_links == ["https://www.energy.gov/articles/new-genesis-mission-harvard-quantum-grant"],doe_links
+
     # The actual first-party NVIDIA RSS must carry the original announcement
     # date. Do not trust a 12 Oct Google News wrapper as the source date.
     rss_fixture='''<rss><channel>
@@ -170,6 +183,29 @@ def main():
                         assert "상태파일" in str(exc)
                     else:
                         raise AssertionError("corrupt Genesis state should block alerting")
+            finally:
+                g.STATE=original_state
+
+        # Even if the Oct 8 releases stay accessible, an empty primary DOE
+        # listing AND empty Google search must raise instead of claiming 0 news.
+        with tempfile.TemporaryDirectory() as directory:
+            original_state=g.STATE
+            try:
+                g.STATE=Path(directory)/"coverage-state.json"
+                broken_health={
+                    "baseline_verified":1,
+                    "feed_items":0,
+                    "doe_listing_count":0,
+                    "source_errors":["DOE index returned zero"],
+                }
+                with patch.object(g,"discover",return_value=([],broken_health,{})), \
+                     patch.object(g,"send",side_effect=AssertionError("coverage gap must never send")):
+                    try:
+                        g.main()
+                    except RuntimeError as exc:
+                        assert "수집 공백" in str(exc)
+                    else:
+                        raise AssertionError("dual-source gap must fail closed")
             finally:
                 g.STATE=original_state
 
