@@ -7,7 +7,7 @@ import xml.etree.ElementTree as ET
 from datetime import datetime, timedelta, timezone
 from email.utils import parsedate_to_datetime
 from pathlib import Path
-from urllib.parse import urljoin, urlparse
+from urllib.parse import urljoin, urlparse, quote_plus
 from zoneinfo import ZoneInfo
 
 import requests
@@ -47,6 +47,17 @@ DIRECT_OFFICIAL_EVENTS = [
         "origin": "official",
     },
 ]
+
+def ionq_official_search_url():
+    query = (
+        'site:ionq.com/news/ ("IonQ" OR "Superion") '
+        '(DARPA OR benchmark OR "Stage C" OR interconnect OR "quantum memory" '
+        'OR QPU OR customer OR selected OR deployment OR "logical qubit" '
+        'OR manufacturing OR contract OR agreement) when:7d'
+    )
+    return "https://news.google.com/rss/search?q=" + quote_plus(query) + "&hl=en-US&gl=US&ceid=US:en"
+
+OFFICIAL_NEWS_RSS = [("IonQ 공식 발표 검색(원문검증)", ionq_official_search_url())]
 
 NEWS_RSS = [
     ("양자 상용화·기술검증 보도 감시",
@@ -244,6 +255,68 @@ def fetch_rss(name, url):
         key = normalize_url(link)
         out[key] = {"source": src or name, "title": title, "url": link, "published": published, "summary": desc, "origin": "news"}
     return out
+
+def fetch_ionq_official_rss(name, url):
+    """
+    Google News is discovery ONLY. A candidate becomes 'official' only after
+    the Google link resolves to an actual /news/ page on ionq.com, whose own
+    article body and publication date are subsequently checked.
+    """
+    from googlenewsdecoder import gnewsdecoder
+
+    r = requests.get(url, headers=HEADERS, timeout=TIMEOUT)
+    r.raise_for_status()
+    root = ET.fromstring(r.text)
+    result = {}
+    now = datetime.now(KST)
+    examined = 0
+    for entry in [x for x in root.iter() if x.tag.split("}")[-1].lower() == "item"]:
+        title = node_text(entry, "title")
+        link = node_text(entry, "link")
+        pub = node_text(entry, "pubdate")
+        source_node = next((x for x in list(entry) if x.tag.split("}")[-1].lower() == "source"), None)
+        official_url = source_node.attrib.get("url", "") if source_node is not None else ""
+        official_host = urlparse(official_url).netloc.lower().removeprefix("www.")
+        if official_host != "ionq.com" or not title or not link:
+            continue
+        try:
+            published = parsedate_to_datetime(pub)
+            if published.tzinfo is None:
+                published = published.replace(tzinfo=timezone.utc)
+            published = published.astimezone(KST)
+        except Exception:
+            continue
+        if not (-2 <= (now - published).total_seconds() / 3600 <= 120):
+            continue
+        title = re.sub(r"\\s+-\\s+IonQ\\s*$", "", title, flags=re.I)
+        # Limit network-dependent Google URL decoding. Any failed decoding is a
+        # source gap; never send the wrapper URL or invent a company's URL.
+        if examined >= 8:
+            break
+        examined += 1
+        try:
+            decoded = gnewsdecoder(link, interval=0)
+            direct = decoded.get("decoded_url", "") if decoded.get("status") else ""
+        except Exception:
+            direct = ""
+        canonical = normalize_url(direct)
+        parsed = urlparse(canonical)
+        if parsed.netloc.lower().removeprefix("www.") != "ionq.com":
+            continue
+        if not parsed.path.startswith("/news/"):
+            continue
+        if not material(title + " " + canonical):
+            if not ("darpa" in title.lower() and "benchmark" in title.lower()) and not (
+                "quantum memory" in title.lower() and "interconnect" in title.lower()
+            ):
+                continue
+        result[canonical] = {
+            "source": "IonQ 공식 뉴스", "title": title, "url": canonical,
+            "published": published.strftime("%Y-%m-%d %H:%M"),
+            "summary": "", "origin": "official",
+        }
+    return result
+
 
 def article_text(item):
     # Google News supplies discovery metadata, not verified publisher content.
@@ -558,6 +631,26 @@ def main():
                 print(f"[QTECH OFFICIAL RECOVERY] {direct['published']} {direct['title']}")
         except Exception as e:
             print(f"[QTECH WARN] Official recovery metadata error: {e}")
+
+    for name, url in OFFICIAL_NEWS_RSS:
+        keyname = name + "::" + hashlib.sha1(url.encode()).hexdigest()[:8]
+        try:
+            current = fetch_ionq_official_rss(name, url)
+            print(f"[QTECH OK] {keyname}: 공식 원문 링크 {len(current)}개")
+        except Exception as e:
+            print(f"[QTECH WARN] {keyname}: {type(e).__name__}: {e}")
+            continue
+        prev = set(sources_state.get(keyname, []))
+        cur = set(current)
+        if old.get("initialized") and keyname in sources_state:
+            for url_key in sorted(cur - prev):
+                candidates.append(current[url_key])
+        else:
+            # On the first activation of this new fallback, recent independently
+            # verified official events may still be missing from event state.
+            for url_key in sorted(cur - prev):
+                candidates.append(current[url_key])
+        sources_state[keyname] = sorted(prev | cur)[-1000:]
 
     for name, url in NEWS_RSS:
         keyname = name + "::" + hashlib.sha1(url.encode()).hexdigest()[:8]
