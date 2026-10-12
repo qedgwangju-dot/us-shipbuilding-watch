@@ -1,0 +1,118 @@
+#!/usr/bin/env python3
+"""Fail-closed regression tests for Genesis Mission science execution alert."""
+import datetime as dt
+import json
+import tempfile
+from decimal import Decimal
+from pathlib import Path
+from unittest.mock import patch
+
+import requests
+import genesis_science_execution_watch as g
+
+def fixtures():
+    return {
+        "url":"https://www.energy.gov/articles/genesis-mission-new-project-grants",
+        "title":"DOE Announces New Grants for Genesis Mission Quantum Research at Harvard University",
+        "published":"2026-10-15",
+        "body":"The Department of Energy selected Harvard University for a new Genesis Mission quantum research project. The grant award funds quantum error correction research at the laboratory and requires milestones. " * 2,
+    }
+
+def main():
+    assert g.official_host("https://www.energy.gov/articles/test")
+    assert g.official_host("https://investor.nvidia.com/news/test")
+    assert not g.official_host("https://www.energy.gov.evil.example/articles/test")
+    assert not g.official_host("https://news.google.com/rss/articles/abc")
+    assert g.date_parse("October 8, 2026")==dt.date(2026,10,8)
+    assert g.date_parse("2026-10-08T10:00:00Z")==dt.date(2026,10,8)
+    from bs4 import BeautifulSoup
+    soup=BeautifulSoup('<html><meta property="article:published_time" content="2026-10-08T12:00:00Z"><article><h1>NVIDIA</h1></article></html>',"html.parser")
+    assert g.primary_date(soup)==dt.date(2026,10,8)
+
+    for url,event in g.DIRECT_BASELINE_SOURCES.items():
+        assert event in g.BASELINE
+        item={"url":url,"title":"Known Genesis Mission base announcement","published":"2026-10-12","body":"NVIDIA Genesis Mission commitments"}
+        assert g.is_baseline(item)
+        assert g.classification(item) is None
+
+    # A new publication date or a new URL cannot revive the October 8 pledge.
+    recap={
+        "url":"https://nvidianews.nvidia.com/news/another-copy",
+        "title":"NVIDIA Commits $1 Billion to Advance US Science Over the Next Five Years",
+        "published":"2026-10-12",
+        "body":"NVIDIA Genesis Mission quantum computing support and research infrastructure."
+    }
+    assert g.is_baseline(recap)
+    assert g.classification(recap) is None
+
+    # The eleven commitments sum to $2.4bn; NVIDIA's $1bn is a COMPONENT,
+    # not a fresh addition. DOE's $159m project awards are a separate bucket.
+    commitments=list(map(Decimal,["1.0","0.5","0.2","0.15","0.15","0.1","0.1","0.05","0.05","0.05","0.05"]))
+    assert len(commitments)==11
+    assert sum(commitments)==Decimal("2.40")
+    assert g.won("$1 billion",1400)=="약 1조4,000억원"
+    assert g.won("$159 million",1400)=="약 2,226억원"
+
+    # Require a NEW, specific execution milestone and verified primary date.
+    with patch.object(g,"now_kst",return_value=dt.datetime(2026,10,20,tzinfo=g.KST)):
+        new=g.classification(fixtures())
+        assert new is not None
+        assert new["stage"]=="신규 선정·자금 배정"
+        assert "양자컴퓨팅" in new["area"]
+        assert "금액 미공개" in g.render(new)
+        assert "NVIDIA 10억달러" in g.render(new)
+        no_action={**fixtures(),"title":"Genesis Mission Quantum Computing Outlook and Market Forecast"}
+        assert g.classification(no_action) is None
+        no_recipient={**fixtures(),"body":"Genesis Mission quantum computing experiment only, with no confirmed institution, award, contract or supplier."}
+        assert g.classification(no_recipient) is None
+        uncertified={**fixtures(),"url":"https://news.google.com/rss/articles/repost"}
+        assert g.classification(uncertified) is None
+        no_event_date={**fixtures(),"published":"2026-10-08"}
+        assert g.classification(no_event_date) is None
+        contract={
+            "url":"https://nvidianews.nvidia.com/news/nvidia-genesis-contract-argonne",
+            "title":"NVIDIA Signs Contract to Deliver Genesis Mission GPU Systems to Argonne",
+            "published":"2026-10-15",
+            "body":"NVIDIA has signed a contract with Argonne National Laboratory for the Genesis Mission research project to deliver and deploy computing resources." * 2,
+        }
+        assert g.classification(contract)["stage"]=="계약·발주"
+
+        # A successful, acknowledged send persists message_id and prevents repeat.
+        with tempfile.TemporaryDirectory() as directory:
+            target=Path(directory)
+            origin_state,origin_delivery=g.STATE,g.DELIVERY
+            g.STATE=target/"state.json";g.DELIVERY=target/"delivery.json"
+            try:
+                with patch.object(g,"discover",return_value=([fixtures()["url"]],{"baseline_verified":1,"feed_items":1,"decoded_official":1,"source_errors":[]})),patch.object(g,"article",return_value=fixtures()),patch.object(g,"quote_fx",return_value=(1400.0,"2026-10-19")):
+                    sent=[]
+                    with patch.object(g,"send",side_effect=lambda msg: sent.append(msg) or 987):
+                        assert g.main()==0
+                        assert len(sent)==1
+                        s=json.loads(g.STATE.read_text())
+                        assert len(s["seen"])==4 and s["seen"][new["key"]]["message_id"]==987
+                        assert json.loads(g.DELIVERY.read_text())["receipts"][0]["message_id"]==987
+                        assert g.main()==0
+                        assert len(sent)==1
+            finally:g.STATE,g.DELIVERY=origin_state,origin_delivery
+
+        # An ambiguous HTTP timeout must not trigger repeated Telegram sends;
+        # missing secrets/definite rejections must remain retryable.
+        with tempfile.TemporaryDirectory() as directory:
+            origin_state,origin_delivery=g.STATE,g.DELIVERY
+            g.STATE=Path(directory)/"state.json";g.DELIVERY=Path(directory)/"delivery.json"
+            try:
+                with patch.object(g,"discover",return_value=([fixtures()["url"]],{"baseline_verified":1,"feed_items":1,"decoded_official":1,"source_errors":[]})),patch.object(g,"article",return_value=fixtures()):
+                    with patch.object(g,"send",side_effect=requests.exceptions.ReadTimeout("mock accepted?")):
+                        try:g.main()
+                        except requests.exceptions.ReadTimeout:pass
+                        else:raise AssertionError("Timeout should fail run")
+                    s=json.loads(g.STATE.read_text())
+                    assert new["key"] in s["uncertain"] and new["key"] not in s["seen"]
+                    with patch.object(g,"send",side_effect=AssertionError("re-sent quarantined event")):
+                        assert g.main()==0
+            finally:g.STATE,g.DELIVERY=origin_state,origin_delivery
+
+    print("genesis_science_execution_tests=passed")
+
+if __name__=="__main__":
+    main()
