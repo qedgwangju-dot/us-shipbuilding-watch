@@ -732,11 +732,11 @@
     }
   },
   "last_result": {
-    "ok": true,
-    "errors": 0,
-    "pending": 0,
+    "ok": false,
+    "errors": 2,
+    "pending": 2,
     "refinery_sent": 0,
     "spr_sent": 0,
-    "at": "2026-10-12T20:36:04+09:00"
+    "at": "2026-10-13T05:25:29+09:00"
   }
 }
