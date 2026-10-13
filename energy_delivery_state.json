@@ -811,10 +811,10 @@
   },
   "last_result": {
     "ok": false,
-    "errors": 0,
-    "pending": 2,
+    "errors": 1,
+    "pending": 3,
     "refinery_sent": 0,
     "spr_sent": 0,
-    "at": "2026-10-13T11:10:35+09:00"
+    "at": "2026-10-13T18:21:10+09:00"
   }
 }
