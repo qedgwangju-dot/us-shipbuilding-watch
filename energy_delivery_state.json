@@ -47,7 +47,7 @@
       "topic": "spr",
       "kind": "news",
       "event_key": "spr_article_9f58a057e3c97b602ebcc8ea",
-      "status": "enrichment_pending",
+      "status": "source_blocked",
       "items": [
         {
           "id": "9f58a057e3c97b602ebcc8ea",
@@ -55,47 +55,21 @@
           "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxOYzkzVjNXTFNkVG1scG15eWtRWVlSMkgtdjZ1TGZQSm1tRkdUZ28zcDJyek5NVjJQU3FGT1QyWjl2WnJWanBQT1FHMmhicGRvejNBcWlkb3MtSllGSkNseFhzWGIxQWRhUEdWZlZsay1WRzBqcmZCWjNtRHktaFhwMEFfeWFZQTZ1M3hzSE55TGVramZOMm9jNUprdm9IRGxubnY3S3dib1JCUE5XZnFWTzJIdjJBX0l3cWlyYQ?oc=5",
           "source": "EnergyNow",
           "source_url": "https://energynow.ca",
-          "pub_kst": "2026-10-13T04:48+09:00"
+          "pub_kst": "2026-10-13T04:48+09:00",
+          "_source_blocked": true,
+          "_source_failure": {
+            "stage": "article_fetch",
+            "reason": "http_denial",
+            "blocked_before_request": false,
+            "provider": "energynow.ca",
+            "request_url_sha256": "b652285e87601308353d0a029319ac55133cf225694b801ef38142dde2d82517",
+            "http_status": 403
+          }
         }
       ],
       "queued_at": "2026-10-13T18:21:04+09:00",
-      "attempts": 0
-    },
-    "spr:news:spr_article_d697084773807e9eb2841384": {
-      "topic": "spr",
-      "kind": "news",
-      "event_key": "spr_article_d697084773807e9eb2841384",
-      "status": "enrichment_pending",
-      "items": [
-        {
-          "id": "d697084773807e9eb2841384",
-          "title": "Chevron to invest over $7B in Venezuela, double oil production - AZƏRTAC",
-          "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxQb09nTlRwMkRUME5NbERKdkRCcTAySlJxUnRTeHZSXzVLM3ota0VPdndKOGx1MDNoSld1V2ZlNEJjZm00QWZ2aUp6X3N1OEFpcUdqYXRvOXJBWWUzcXJ3d0RSZkQwelBXUUowR3dPMkh1eVU1WjQtSG9BanZjVkFpbFd4cFdxUldDR1loVmlhUHRJNjdmZ2xBYkNTSi0?oc=5",
-          "source": "AZƏRTAC",
-          "source_url": "https://azertag.az",
-          "pub_kst": "2026-09-02T16:00+09:00"
-        }
-      ],
-      "queued_at": "2026-10-13T18:21:04+09:00",
-      "attempts": 0
-    },
-    "spr:news:spr_article_9cfab58956e734034d943a4e": {
-      "topic": "spr",
-      "kind": "news",
-      "event_key": "spr_article_9cfab58956e734034d943a4e",
-      "status": "enrichment_pending",
-      "items": [
-        {
-          "id": "9cfab58956e734034d943a4e",
-          "title": "The U.S. will own the majority of a Venezuelan oil company with the world's 2nd largest reserves - Fortune",
-          "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxNTnkxWmZXMGJNcS11c2Z3QTUzUkxMbURMQVBuRldVdkhOcGphZ1p5ZVI0dEtBM1AxNzhwNDZrbzRXU1NRMktBRWJfZWwwQW5NRGlVbjYzVmYxT1B6amVnUjl3b18xUUh0OEVyZ3lMcGRjb0RoTmJBTWo4eVJyTEhkdm5KTnVLRXZvMlgtSWIzZVJHeml6SmxseFl0ekU?oc=5",
-          "source": "Fortune",
-          "source_url": "https://fortune.com",
-          "pub_kst": "2026-08-29T16:00+09:00"
-        }
-      ],
-      "queued_at": "2026-10-13T18:21:04+09:00",
-      "attempts": 0
+      "attempts": 1,
+      "invalid_items": []
     }
   },
   "receipts": [],
@@ -802,6 +776,22 @@
       "at": "2026-10-13T18:20:41+09:00",
       "ids": [
         "39b15fb1113dc5c801394002"
+      ]
+    },
+    {
+      "key": "spr:news:spr_article_d697084773807e9eb2841384",
+      "reason": "news_outside_three_day_window",
+      "at": "2026-10-13T18:21:07+09:00",
+      "ids": [
+        "d697084773807e9eb2841384"
+      ]
+    },
+    {
+      "key": "spr:news:spr_article_9cfab58956e734034d943a4e",
+      "reason": "news_outside_three_day_window",
+      "at": "2026-10-13T18:21:07+09:00",
+      "ids": [
+        "9cfab58956e734034d943a4e"
       ]
     }
   ],
