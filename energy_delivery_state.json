@@ -70,6 +70,24 @@
       "queued_at": "2026-10-13T18:21:04+09:00",
       "attempts": 1,
       "invalid_items": []
+    },
+    "refinery:news:refinery_article_ce70849a2e1de94c410520ec": {
+      "topic": "refinery",
+      "kind": "news",
+      "event_key": "refinery_article_ce70849a2e1de94c410520ec",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "ce70849a2e1de94c410520ec",
+          "title": "Why Trump’s effort to build more refineries won’t lower gas prices - Egypt Independent",
+          "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPLXRkNnoyNkc3QjBHNEJVSGUtZDNSbmFCcl82djNNQ3BXbjBaMzJpLVM1ZTd2eDRkQjBxM3VVU2ZwX2dzZ2hJa2RPa1RQdkxBMnBNdk1SMnJGRWREdjFNbjFjblA5M0J1MF9uaTBlaUZ0NWJNSmY4R2RHT3RodjlKWl9zenpmZ3hUc2JwLUwwdnlTQkVuQmVsc1FzR0VnZjQ?oc=5",
+          "source": "Egypt Independent",
+          "source_url": "https://www.egyptindependent.com",
+          "pub_kst": "2026-09-14T16:00+09:00"
+        }
+      ],
+      "queued_at": "2026-10-14T02:00:23+09:00",
+      "attempts": 0
     }
   },
   "receipts": [],
