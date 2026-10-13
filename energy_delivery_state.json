@@ -71,42 +71,6 @@
       "attempts": 1,
       "invalid_items": [],
       "held_items": []
-    },
-    "spr:news:spr_article_ed2f1a95e145419012123bdf": {
-      "topic": "spr",
-      "kind": "news",
-      "event_key": "spr_article_ed2f1a95e145419012123bdf",
-      "status": "enrichment_pending",
-      "items": [
-        {
-          "id": "ed2f1a95e145419012123bdf",
-          "title": "Chevron, SLB signed Venezuela oil deals. Can smaller Houston firms do the same? - Houston Chronicle",
-          "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxPUnE2eGxlOE5nMFl0bE5DVG1JX01QRTFxc3hOdm02UE5UQTIzM09IdURVYTVwcjNtczRjNXdSNGdzdnlidHYyZUdwTkZlN2JjVkJCd3FGRzZVdFVRNXFBTVpmanNMRWE3R0laQmVJQ0ZrVHotaVBDamlSTXhPM0FRazh4RWpGaUY2UDNPWnp4Q2RGZGxHUzVmWFFwXzhmR256LXc?oc=5",
-          "source": "Houston Chronicle",
-          "source_url": "https://www.houstonchronicle.com",
-          "pub_kst": "2026-09-05T16:00+09:00"
-        }
-      ],
-      "queued_at": "2026-10-14T06:45:27+09:00",
-      "attempts": 0
-    },
-    "spr:news:spr_article_171364e4feee4a45e67ca404": {
-      "topic": "spr",
-      "kind": "news",
-      "event_key": "spr_article_171364e4feee4a45e67ca404",
-      "status": "enrichment_pending",
-      "items": [
-        {
-          "id": "171364e4feee4a45e67ca404",
-          "title": "White House, Caracas release details on historic US-Venezuela oil deal - The Long War Journal",
-          "link": "https://news.google.com/rss/articles/CBMivgFBVV95cUxNa3JuLTFMU1lVdUxVaWlFaXV0NFpRdXZKLTAya01lRkNFNmFneWthcGIweXlCaG1HdEptVG9ZUHNyQ0N3NmdNZi1wcmt2MENLX2liRl9hakVuYXVWVzRHNGQ0ZXFpX1FLMFB5Z0tWZ2FzMU91VXZvTjB5ZmxvM0lVMnlRaG5uaFpfclVVd1Y3am8xYjFxNU9tUEpoeml0cGxCc2I4WkZyUGVvaW93Y1pjdUVTV3pVNmszWWNyR1VR?oc=5",
-          "source": "The Long War Journal",
-          "source_url": "https://www.longwarjournal.org",
-          "pub_kst": "2026-09-02T16:00+09:00"
-        }
-      ],
-      "queued_at": "2026-10-14T06:45:27+09:00",
-      "attempts": 0
     }
   },
   "receipts": [],
@@ -861,6 +825,22 @@
       "at": "2026-10-14T06:45:00+09:00",
       "ids": [
         "9df2739ce6d4173156f7990d"
+      ]
+    },
+    {
+      "key": "spr:news:spr_article_ed2f1a95e145419012123bdf",
+      "reason": "news_outside_three_day_window",
+      "at": "2026-10-14T06:45:29+09:00",
+      "ids": [
+        "ed2f1a95e145419012123bdf"
+      ]
+    },
+    {
+      "key": "spr:news:spr_article_171364e4feee4a45e67ca404",
+      "reason": "news_outside_three_day_window",
+      "at": "2026-10-14T06:45:29+09:00",
+      "ids": [
+        "171364e4feee4a45e67ca404"
       ]
     }
   ],
