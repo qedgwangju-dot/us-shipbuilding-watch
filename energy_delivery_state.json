@@ -42,42 +42,6 @@
       "attempts": 1,
       "invalid_items": [],
       "held_items": []
-    },
-    "refinery:news:refinery_white_house_meeting_20260901": {
-      "topic": "refinery",
-      "kind": "news",
-      "event_key": "refinery_white_house_meeting_20260901",
-      "status": "enrichment_pending",
-      "items": [
-        {
-          "id": "b5f5c24eb5d22a62f0a1f524",
-          "title": "Trump to host oil executives after accusing refiners of gouging consumers - The Mighty 790 KFGO",
-          "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQV2hjemJEUmdKb2dTUWk1NUlkMWI3aGdqYWZkRFljTFIwSEZYZjFmVGs0Z1BleXJYYjZCWUdRZHN0TUpTZE05anJlV3lqRnltWkJrRW5wc21VMTZWVEZnUFk3eUxRakc1bmJwajNJaDhWUFNLSnlUa1hDOHN5TzZaRDlxM0s3Nk9oRXlWdlJPT1ZDRmdwWG96bWtpUHVUekJ2dWhnRw?oc=5",
-          "source": "The Mighty 790 KFGO",
-          "source_url": "https://kfgo.com",
-          "pub_kst": "2026-08-31T16:00+09:00"
-        }
-      ],
-      "queued_at": "2026-10-13T18:20:39+09:00",
-      "attempts": 0
-    },
-    "refinery:news:rfs_sre_2025_package_20260831": {
-      "topic": "refinery",
-      "kind": "news",
-      "event_key": "rfs_sre_2025_package_20260831",
-      "status": "enrichment_pending",
-      "items": [
-        {
-          "id": "39b15fb1113dc5c801394002",
-          "title": "Small Refinery Exemption Study: An Investigation into Disproportionate Economic Hardship (March 2011) - U.S. Environmental Protection Agency (.gov)",
-          "link": "https://news.google.com/rss/articles/CBMikwFBVV95cUxOTGxsa2JLeWROWTMzdUlqYTltdlpOUzhNTWhUcnRYd0l4SVdReHFqdlloeVpNMmEwODlyazE3bEZfTVAzMlBwalplOW8zV2RLbUtsS05OaDJtWVYwZExpRllTTTJlQmVhSTNhTHFzTUhtelNrTzRvU1VBR3hFV3pNeVEyRW03Y0ppUWN2emlrOTlic0E?oc=5",
-          "source": "U.S. Environmental Protection Agency (.gov)",
-          "source_url": "https://www.epa.gov",
-          "pub_kst": "2011-03-08T17:00+09:00"
-        }
-      ],
-      "queued_at": "2026-10-13T18:20:39+09:00",
-      "attempts": 0
     }
   },
   "receipts": [],
@@ -768,6 +732,22 @@
       "at": "2026-10-13T11:10:34+09:00",
       "ids": [
         "bdb9ee1d95f0ae4afb15d72a"
+      ]
+    },
+    {
+      "key": "refinery:news:refinery_white_house_meeting_20260901",
+      "reason": "news_outside_three_day_window",
+      "at": "2026-10-13T18:20:41+09:00",
+      "ids": [
+        "b5f5c24eb5d22a62f0a1f524"
+      ]
+    },
+    {
+      "key": "refinery:news:rfs_sre_2025_package_20260831",
+      "reason": "news_outside_three_day_window",
+      "at": "2026-10-13T18:20:41+09:00",
+      "ids": [
+        "39b15fb1113dc5c801394002"
       ]
     }
   ],
