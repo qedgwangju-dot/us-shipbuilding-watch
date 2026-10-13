@@ -71,42 +71,6 @@
       "attempts": 1,
       "invalid_items": [],
       "held_items": []
-    },
-    "spr:news:spr_article_38e9160f9e4465729c06cb69": {
-      "topic": "spr",
-      "kind": "news",
-      "event_key": "spr_article_38e9160f9e4465729c06cb69",
-      "status": "enrichment_pending",
-      "items": [
-        {
-          "id": "38e9160f9e4465729c06cb69",
-          "title": "Even with Venezuelan Crude Imports, U.S. Gasoline Prices Remain Elevated - 아시아경제",
-          "link": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE9vQ0lWcHpWRDNSQlZ4Zmp5aklHUGZONUJNbXJlWjJBcFB6b3Rmd0Vrd2xfVTlDOWFtd0dWeXJmbVFkQkppX0E1WElDWVZyMXpTS3FZY1RBZXVVTHR1UkJrZ3ZrNXQ?oc=5",
-          "source": "아시아경제",
-          "source_url": "https://www.asiae.co.kr",
-          "pub_kst": "2026-09-01T16:00+09:00"
-        }
-      ],
-      "queued_at": "2026-10-14T02:00:51+09:00",
-      "attempts": 0
-    },
-    "spr:news:spr_venezuela_quality_bottleneck": {
-      "topic": "spr",
-      "kind": "news",
-      "event_key": "spr_venezuela_quality_bottleneck",
-      "status": "enrichment_pending",
-      "items": [
-        {
-          "id": "62459aa7d9e13978f4b94e7c",
-          "title": "Venezuela Oil Deal Faces Steep Hurdles as Heavy Crude, Infrastructure Constraints Test Trump's SPR Promise - BigGo Finance",
-          "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTE1jb2l5OHc3SEt5SG9sanBBcGZxQS1JRHVlMXVUVFptVU5hV0hDZWFUVE5YdUpjM29oYmh0TTlJQnNuem5ZVGZPRHBucHlOQlJpdGQxZzBVWkc1ZGFac2dVejZuZnBhbXpLX1dtVGxEU3ZDdXpKaXc?oc=5",
-          "source": "BigGo Finance",
-          "source_url": "https://finance.biggo.com",
-          "pub_kst": "2026-08-31T16:00+09:00"
-        }
-      ],
-      "queued_at": "2026-10-14T02:00:51+09:00",
-      "attempts": 0
     }
   },
   "receipts": [],
@@ -837,6 +801,22 @@
       "at": "2026-10-14T02:00:26+09:00",
       "ids": [
         "ce70849a2e1de94c410520ec"
+      ]
+    },
+    {
+      "key": "spr:news:spr_article_38e9160f9e4465729c06cb69",
+      "reason": "news_outside_three_day_window",
+      "at": "2026-10-14T02:00:53+09:00",
+      "ids": [
+        "38e9160f9e4465729c06cb69"
+      ]
+    },
+    {
+      "key": "spr:news:spr_venezuela_quality_bottleneck",
+      "reason": "news_outside_three_day_window",
+      "at": "2026-10-14T02:00:53+09:00",
+      "ids": [
+        "62459aa7d9e13978f4b94e7c"
       ]
     }
   ],
