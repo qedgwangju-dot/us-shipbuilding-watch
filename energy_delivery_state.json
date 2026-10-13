@@ -42,24 +42,6 @@
       "attempts": 1,
       "invalid_items": [],
       "held_items": []
-    },
-    "spr:news:spr_refill_statement_20260830": {
-      "topic": "spr",
-      "kind": "news",
-      "event_key": "spr_refill_statement_20260830",
-      "status": "enrichment_pending",
-      "items": [
-        {
-          "id": "bdb9ee1d95f0ae4afb15d72a",
-          "title": "Trump promises to ‘fill up’ SPR after US-Venezuela oil deal - The Hill",
-          "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxNcmw0TkdjcGNzODBaLVlFeTdmbTdjMnVKUmZ4RElnWlc1ak8xSEZxME00UHEzcjJDZjgwSmFNWDdGcWRtU0lrQWRlTVRvN2hwc3lPTzRKWHhZckxQdThTTnVUUE1NTlNaVFZZdlY1eDdIN3hobnRPTnZuVnNuUHlZSkdRRQ?oc=5",
-          "source": "The Hill",
-          "source_url": "https://thehill.com",
-          "pub_kst": "2026-08-30T16:00+09:00"
-        }
-      ],
-      "queued_at": "2026-10-13T11:10:32+09:00",
-      "attempts": 0
     }
   },
   "receipts": [],
@@ -742,6 +724,14 @@
       "at": "2026-10-13T08:13:24+09:00",
       "ids": [
         "293d71a2af580c82ff2b1143"
+      ]
+    },
+    {
+      "key": "spr:news:spr_refill_statement_20260830",
+      "reason": "news_outside_three_day_window",
+      "at": "2026-10-13T11:10:34+09:00",
+      "ids": [
+        "bdb9ee1d95f0ae4afb15d72a"
       ]
     }
   ],
