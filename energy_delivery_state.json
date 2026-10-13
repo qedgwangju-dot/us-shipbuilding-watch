@@ -71,24 +71,6 @@
       "attempts": 1,
       "invalid_items": [],
       "held_items": []
-    },
-    "refinery:news:rfs_sre_2025_package_20260831": {
-      "topic": "refinery",
-      "kind": "news",
-      "event_key": "rfs_sre_2025_package_20260831",
-      "status": "enrichment_pending",
-      "items": [
-        {
-          "id": "9df2739ce6d4173156f7990d",
-          "title": "While in Iowa, Administrator Zeldin Proposes 100% Reallocation for Additional 2025 Small Refinery Exemption Volumes and Opens Markets for American Farmers - U.S. Environmental Protection Agency (.gov)",
-          "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxOQmNFUWhpdDJmNnVCN0ZGV3NDbkx5UThIN2J4YmJLZnZ6Sm1JMWZyc3hQcVlzNUlXWWFJaVpEU1Y3ZEtTbnBxYmJsV1FPd0RSdnE1YTc4VW1Ya0dxRkc3SGJEZG5lZ1RuRGg3a01DcHJ3T0lIcUQ4ZTlEdlJhTVJ2aldfMXM3bGFfcU94bmJIY1hxclk0RVktRHJZeEI0anNLQlBRYjVraXoyZGVjRUpqUWV3?oc=5",
-          "source": "U.S. Environmental Protection Agency (.gov)",
-          "source_url": "https://www.epa.gov",
-          "pub_kst": "2026-10-14T01:15+09:00"
-        }
-      ],
-      "queued_at": "2026-10-14T06:44:58+09:00",
-      "attempts": 0
     }
   },
   "receipts": [],
@@ -835,6 +817,14 @@
       "at": "2026-10-14T02:00:53+09:00",
       "ids": [
         "62459aa7d9e13978f4b94e7c"
+      ]
+    },
+    {
+      "key": "refinery:news:rfs_sre_2025_package_20260831",
+      "reason": "existing_event_priority",
+      "at": "2026-10-14T06:45:00+09:00",
+      "ids": [
+        "9df2739ce6d4173156f7990d"
       ]
     }
   ],
