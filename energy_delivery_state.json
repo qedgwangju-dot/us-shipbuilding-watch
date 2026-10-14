@@ -76,7 +76,7 @@
       "topic": "refinery",
       "kind": "news",
       "event_key": "refinery_article_bbce66074d2f6374585eb65d",
-      "status": "enrichment_pending",
+      "status": "source_blocked",
       "items": [
         {
           "id": "bbce66074d2f6374585eb65d",
@@ -84,11 +84,21 @@
           "link": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxPeWhoOXJVbElxOXRGS3BMdk1yYUpHd0tRc2ZjZFFweDVhUkZiTFk0VEZ5U1RDNjdEWDJiWHZYZmgtN095Z1MyLTRJbi1ySFBkb3N1YmItcVlNbTd2MmtRTFk5MmxhU3Y1N0NndVA1bXh5RnJiSElTWmtuUFh0aURUYWpXa3dkN2JtYW1DZlhmX1ROWm81VTRvclg0NjdhNHlyOUJJVzdQcDZVdm4zR0lrMHZsZERvQlRsYTRWSXFFbDlsanlPRkpkX28xZlpKSG5EcHd3Z1dVVDBadw?oc=5",
           "source": "TradingView",
           "source_url": "https://www.tradingview.com",
-          "pub_kst": "2026-10-11T23:48+09:00"
+          "pub_kst": "2026-10-11T23:48+09:00",
+          "_source_blocked": true,
+          "_source_failure": {
+            "stage": "translation_google",
+            "reason": "http_rate_limit",
+            "blocked_before_request": false,
+            "provider": "www.google.com",
+            "request_url_sha256": "acb52d22205ed254e3d7775f61e8078e0989b822cb09c2ce1322a80c8daff1c3",
+            "http_status": 429
+          }
         }
       ],
       "queued_at": "2026-10-14T14:19:49+09:00",
-      "attempts": 0
+      "attempts": 1,
+      "invalid_items": []
     }
   },
   "receipts": [],
