@@ -71,6 +71,24 @@
       "attempts": 1,
       "invalid_items": [],
       "held_items": []
+    },
+    "refinery:news:refinery_article_bbce66074d2f6374585eb65d": {
+      "topic": "refinery",
+      "kind": "news",
+      "event_key": "refinery_article_bbce66074d2f6374585eb65d",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "bbce66074d2f6374585eb65d",
+          "title": "Trump announces Russia-Ukraine energy ceasefire amid worries over diesel prices - TradingView",
+          "link": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxPeWhoOXJVbElxOXRGS3BMdk1yYUpHd0tRc2ZjZFFweDVhUkZiTFk0VEZ5U1RDNjdEWDJiWHZYZmgtN095Z1MyLTRJbi1ySFBkb3N1YmItcVlNbTd2MmtRTFk5MmxhU3Y1N0NndVA1bXh5RnJiSElTWmtuUFh0aURUYWpXa3dkN2JtYW1DZlhmX1ROWm81VTRvclg0NjdhNHlyOUJJVzdQcDZVdm4zR0lrMHZsZERvQlRsYTRWSXFFbDlsanlPRkpkX28xZlpKSG5EcHd3Z1dVVDBadw?oc=5",
+          "source": "TradingView",
+          "source_url": "https://www.tradingview.com",
+          "pub_kst": "2026-10-11T23:48+09:00"
+        }
+      ],
+      "queued_at": "2026-10-14T14:19:49+09:00",
+      "attempts": 0
     }
   },
   "receipts": [],
