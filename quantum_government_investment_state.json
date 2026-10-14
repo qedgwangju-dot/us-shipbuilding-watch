@@ -4,6 +4,7 @@
     "d-wave|chips|award|2026-09|na",
     "d-wave|chips|policy|2026-09|na",
     "d-wave|quantum|award|2026-10|na",
+    "globalfoundries|chips|award|2026-10|5b,955m",
     "ibm|chips|final_award|2026-09|1b",
     "ibm|chips|policy|2026-09|1b",
     "ibm|quantum|award|2026-09|1b",
@@ -86,6 +87,7 @@
       "https://www.nist.gov/news-events/news/2026/08/spooky-particles-transit-dc-suburbs-step-toward-quantum-network",
       "https://www.nist.gov/news-events/news/2026/09/department-commerce-announces-finalization-chips-rd-award-anderon",
       "https://www.nist.gov/news-events/news/2026/09/nist-developed-quantum-sensors-improve-nuclear-monitoring",
+      "https://www.nist.gov/news-events/news/2026/10/department-commerce-announces-agreement-globalfoundries-amend-its-existing",
       "https://www.nist.gov/quantum-information-science"
     ],
     "Quantinuum 공식 IR": [
