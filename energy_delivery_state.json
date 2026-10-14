@@ -904,10 +904,10 @@
   },
   "last_result": {
     "ok": false,
-    "errors": 0,
-    "pending": 3,
+    "errors": 1,
+    "pending": 4,
     "refinery_sent": 0,
     "spr_sent": 0,
-    "at": "2026-10-14T09:39:01+09:00"
+    "at": "2026-10-14T14:20:21+09:00"
   }
 }
