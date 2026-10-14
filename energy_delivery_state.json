@@ -71,42 +71,6 @@
       "attempts": 1,
       "invalid_items": [],
       "held_items": []
-    },
-    "spr:news:venezuela_output_double_deals_20260902": {
-      "topic": "spr",
-      "kind": "news",
-      "event_key": "venezuela_output_double_deals_20260902",
-      "status": "enrichment_pending",
-      "items": [
-        {
-          "id": "e1152dd8d0595f10abb428b1",
-          "title": "US Energy Secretary Says Venezuela Oil Output to More Than Double in Next Few Years - EnergyNow.com",
-          "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQWmUtRk1fT0NkMERCNklHQVVkZC12T1pUYXQyaHg5ZXJnSmxkMll4OElzLUFKZXdOMHprR3hWOGtQbDV5X1paRjRrdlhVdlJ0TXNvM3BzNGhmT3otbURBN0JyYUVVQUFsTmdZZXY1RVRhR1BBMkpBalVWTEpvQl9YNjQ4TF9DU3BtN0pvcmJ1TzNpZnRBYnhPNG1hckxwUGpUaTdqaDZRaXdjQ0kwc2w1WHEwRGw?oc=5",
-          "source": "EnergyNow.com",
-          "source_url": "https://energynow.com",
-          "pub_kst": "2026-10-13T21:06+09:00"
-        }
-      ],
-      "queued_at": "2026-10-14T09:38:58+09:00",
-      "attempts": 0
-    },
-    "spr:news:spr_venezuela_quality_bottleneck": {
-      "topic": "spr",
-      "kind": "news",
-      "event_key": "spr_venezuela_quality_bottleneck",
-      "status": "enrichment_pending",
-      "items": [
-        {
-          "id": "6734b5c2f9b83079ef3e96da",
-          "title": "Venezuela’s heavy crude could be swapped for American oil to fill emergency reserve, Wright says - BOE Report",
-          "link": "https://news.google.com/rss/articles/CBMixwFBVV95cUxQNDZ6Zk54ZmIwVjd2a2dXdk5sQmZiTUM5V0pBRVhfdlRmUnZ6bC12YjAxMG9VQjhyTzI2VEtHcWRyc2RSVlN5WWFKT1JHZ05acVBVdEZMbGg0OTlqeU9XVGNaNmY3bzBFWHpqMGtfaG9CZEdRVnlZbThsMFJYS2tHQ3dzcVF0Y1hrTC1zVTF3WlVydUc2eE9OSVR2N1NTTFdHbnU3SlJHNkFNMlVsc1dpbkdmeVRVaVNydzI1WGx0YkxKb3NMSXlz0gHMAUFVX3lxTE83bnIzX05MWGtrVFhhWWRNR1p3MW1UbUM3VktJa1R2R2ZiZ2VQYmhxVDMzQ212ejRVcXpqb0JiNEpBU3RmZ19UZ3ltcDFOYUljN0kxb1dhQWhNWTJXTGJXcjR1UzJ1akY1Y2VtRzlBM3Rva21kSXVQbUlWanhYWU80ek1ES1lYaGZPS0o2cTRHc2VWb3VhbVJURHUzSXhDWGhkNmhnTlZGWVhnN3I5QnBURzhVU19DMFdxOThrQVN3OTFzSjFSMUk0Y3NVbw?oc=5",
-          "source": "BOE Report",
-          "source_url": "https://boereport.com",
-          "pub_kst": "2026-09-03T16:00+09:00"
-        }
-      ],
-      "queued_at": "2026-10-14T09:38:58+09:00",
-      "attempts": 0
     }
   },
   "receipts": [],
@@ -877,6 +841,22 @@
       "at": "2026-10-14T06:45:29+09:00",
       "ids": [
         "171364e4feee4a45e67ca404"
+      ]
+    },
+    {
+      "key": "spr:news:venezuela_output_double_deals_20260902",
+      "reason": "existing_event_priority",
+      "at": "2026-10-14T09:38:59+09:00",
+      "ids": [
+        "e1152dd8d0595f10abb428b1"
+      ]
+    },
+    {
+      "key": "spr:news:spr_venezuela_quality_bottleneck",
+      "reason": "news_outside_three_day_window",
+      "at": "2026-10-14T09:38:59+09:00",
+      "ids": [
+        "6734b5c2f9b83079ef3e96da"
       ]
     }
   ],
