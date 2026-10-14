@@ -99,24 +99,6 @@
       "queued_at": "2026-10-14T14:19:49+09:00",
       "attempts": 1,
       "invalid_items": []
-    },
-    "refinery:news:refinery_article_40a7c1f577ab3b91ba756222": {
-      "topic": "refinery",
-      "kind": "news",
-      "event_key": "refinery_article_40a7c1f577ab3b91ba756222",
-      "status": "enrichment_pending",
-      "items": [
-        {
-          "id": "40a7c1f577ab3b91ba756222",
-          "title": "EPA delivers final rule to extend RFS compliance deadline to White House OMB - Biomass Magazine",
-          "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxQaHFZQXQ2Y3FpdVpma1VxM1FiZ3J0WkRpSVhzWW1OSkVrdGJOREw0WWkzQ3ZmRWJIMkJmYXRzZmZmSnlsNFFFelVvNHhfV29jVkZrV1RXQ1RMZTRpcnppQ09wajY0a2tPdFFjZDdlc1Nab0ItYVZTX1JLb1Q1TFM5UzFTd0VWNVBrZ0tRQzFjX05oelZtc1lzM2Q3R2N2Uk1teUtucnFLV3ZUNjFJV1RaSnIyMA?oc=5",
-          "source": "Biomass Magazine",
-          "source_url": "https://biomassmagazine.com",
-          "pub_kst": "2026-08-27T16:00+09:00"
-        }
-      ],
-      "queued_at": "2026-10-14T19:18:17+09:00",
-      "attempts": 0
     }
   },
   "receipts": [],
@@ -903,6 +885,14 @@
       "at": "2026-10-14T09:38:59+09:00",
       "ids": [
         "6734b5c2f9b83079ef3e96da"
+      ]
+    },
+    {
+      "key": "refinery:news:refinery_article_40a7c1f577ab3b91ba756222",
+      "reason": "news_outside_three_day_window",
+      "at": "2026-10-14T19:18:21+09:00",
+      "ids": [
+        "40a7c1f577ab3b91ba756222"
       ]
     }
   ],
