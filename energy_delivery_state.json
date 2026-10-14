@@ -920,10 +920,10 @@
   },
   "last_result": {
     "ok": false,
-    "errors": 1,
+    "errors": 0,
     "pending": 4,
     "refinery_sent": 0,
     "spr_sent": 0,
-    "at": "2026-10-14T14:20:21+09:00"
+    "at": "2026-10-14T19:18:52+09:00"
   }
 }
