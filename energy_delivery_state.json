@@ -99,6 +99,24 @@
       "queued_at": "2026-10-14T14:19:49+09:00",
       "attempts": 1,
       "invalid_items": []
+    },
+    "spr:news:spr_article_28d3ba7206d03e8906caabe8": {
+      "topic": "spr",
+      "kind": "news",
+      "event_key": "spr_article_28d3ba7206d03e8906caabe8",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "28d3ba7206d03e8906caabe8",
+          "title": "Trump says U.S. deal with Venezuela will boost oil reserves - CBS News",
+          "link": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxOVG94MVg5YWc0ZXNueE9PNGVwc0JBZDA1QmkxLWc1bG1UZDBDY2Y4aEg4bjdVdmZQajBPZEprTnZ5d1NvQk15UEhlVi1YckF2QUJ0eTl1SnVya2h1Z1BSYWF2aF9rX0VORHlYRU9yX2tVcDNsNWFMT25CUnpsVjF0OFpldmwwdVdMTF9J?oc=5",
+          "source": "CBS News",
+          "source_url": "https://www.cbsnews.com",
+          "pub_kst": "2026-08-31T16:00+09:00"
+        }
+      ],
+      "queued_at": "2026-10-14T19:18:47+09:00",
+      "attempts": 0
     }
   },
   "receipts": [],
