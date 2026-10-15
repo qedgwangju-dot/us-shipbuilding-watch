@@ -128,6 +128,24 @@
       "queued_at": "2026-10-15T14:07:18+09:00",
       "attempts": 1,
       "invalid_items": []
+    },
+    "spr:news:spr_article_01e6c367ab7eddd2d17ef655": {
+      "topic": "spr",
+      "kind": "news",
+      "event_key": "spr_article_01e6c367ab7eddd2d17ef655",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "01e6c367ab7eddd2d17ef655",
+          "title": "Chevron Outlines $7 Billion Investment Plan to Double Venezuela Oil Production in 5 Years - Bitget",
+          "link": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE14TVZVUG9PdFowLS1KaFl6eC1RTnMxT1RTU2RsWFdOWGtrdEw0M19PZ0xVWURSbmFJbU9HV0hSNjVEU0JHTFpWRFdPYU44d29tbXVyZVJRLW1COWFZTlHSAWNBVV95cUxQTDVmeVd1bVFtaXp4UTdWUGtRV0psSWVVNWVUY0E0bldPZG52b2U4VTdvMldWeFNURndBY3doX3oxNVc1QTJLOE9jTE5tUkZwX1M4elBzVG96RHFaMm04NVgzcjg?oc=5",
+          "source": "Bitget",
+          "source_url": "https://www.bitget.com",
+          "pub_kst": "2026-09-02T16:00+09:00"
+        }
+      ],
+      "queued_at": "2026-10-15T14:07:48+09:00",
+      "attempts": 0
     }
   },
   "receipts": [],
