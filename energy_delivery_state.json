@@ -973,10 +973,10 @@
   },
   "last_result": {
     "ok": false,
-    "errors": 0,
-    "pending": 4,
+    "errors": 1,
+    "pending": 5,
     "refinery_sent": 0,
     "spr_sent": 0,
-    "at": "2026-10-15T09:36:19+09:00"
+    "at": "2026-10-15T14:07:52+09:00"
   }
 }
