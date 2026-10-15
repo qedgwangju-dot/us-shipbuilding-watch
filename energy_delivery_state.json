@@ -99,6 +99,24 @@
       "queued_at": "2026-10-14T14:19:49+09:00",
       "attempts": 1,
       "invalid_items": []
+    },
+    "refinery:news:refinery_article_6b920f12b9d2161daf531b05": {
+      "topic": "refinery",
+      "kind": "news",
+      "event_key": "refinery_article_6b920f12b9d2161daf531b05",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "6b920f12b9d2161daf531b05",
+          "title": "Petition to Reconsider Denial of Petitions Regarding RFS Point of Obligation | EPA - U.S. Environmental Protection Agency (.gov)",
+          "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxObFFkSklqalRTcTdqMm41THNOV2JEYTJ2Z0oxeE1mcmFpN3RWNmNuRjNnc1hsLXR2bWk3YjJ3T29NMld3ZWRucFAxU1lfaFl3cjlVN2R1VW1welZYN2tVRWVleW01ckpIWGx3ZGZPaHRXYUVfLWNZWlEzNGxZcXM4Qi1WN1RZUTVNSVBIR0JlRld1a25aX0JNQ0xR?oc=5",
+          "source": "U.S. Environmental Protection Agency (.gov)",
+          "source_url": "https://www.epa.gov",
+          "pub_kst": "2018-01-21T17:00+09:00"
+        }
+      ],
+      "queued_at": "2026-10-15T09:35:49+09:00",
+      "attempts": 0
     }
   },
   "receipts": [],
