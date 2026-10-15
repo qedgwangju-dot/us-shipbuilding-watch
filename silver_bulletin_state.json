@@ -1,45 +1,45 @@
 {
-  "checked_at_utc": "2026-10-15T15:06:33.656132+00:00",
+  "checked_at_utc": "2026-10-15T19:13:26.080993+00:00",
   "data_date": "2026-10-15",
-  "datawrapper_revision": 7953,
-  "issue_chart": "https://datawrapper.dwcdn.net/RFXsV/7953/",
-  "last_alert_data_date": "2026-10-11",
+  "datawrapper_revision": 7957,
+  "issue_chart": "https://datawrapper.dwcdn.net/RFXsV/7957/",
+  "last_alert_data_date": "2026-10-15",
   "last_alert_values": {
     "cost_of_living": {
-      "chart": "https://datawrapper.dwcdn.net/RFXsV/7893/",
-      "value": -47.54833
+      "chart": "https://datawrapper.dwcdn.net/RFXsV/7957/",
+      "value": -48.92509
     },
     "economy": {
-      "chart": "https://datawrapper.dwcdn.net/RFXsV/7893/",
-      "value": -29.93589
+      "chart": "https://datawrapper.dwcdn.net/RFXsV/7957/",
+      "value": -32.92413
     },
     "immigration": {
-      "chart": "https://datawrapper.dwcdn.net/RFXsV/7893/",
-      "value": -11.98257
+      "chart": "https://datawrapper.dwcdn.net/RFXsV/7957/",
+      "value": -11.60148
     },
     "trade": {
-      "chart": "https://datawrapper.dwcdn.net/RFXsV/7893/",
-      "value": -28.67488
+      "chart": "https://datawrapper.dwcdn.net/RFXsV/7957/",
+      "value": -30.55493
     }
   },
   "parser_version": 4,
   "source": "https://www.natesilver.net/p/trump-approval-ratings-nate-silver-bulletin",
   "values": {
     "cost_of_living": {
-      "chart": "https://datawrapper.dwcdn.net/RFXsV/7953/",
-      "value": -45.56345
+      "chart": "https://datawrapper.dwcdn.net/RFXsV/7957/",
+      "value": -48.92509
     },
     "economy": {
-      "chart": "https://datawrapper.dwcdn.net/RFXsV/7953/",
-      "value": -29.86373
+      "chart": "https://datawrapper.dwcdn.net/RFXsV/7957/",
+      "value": -32.92413
     },
     "immigration": {
-      "chart": "https://datawrapper.dwcdn.net/RFXsV/7953/",
-      "value": -11.57838
+      "chart": "https://datawrapper.dwcdn.net/RFXsV/7957/",
+      "value": -11.60148
     },
     "trade": {
-      "chart": "https://datawrapper.dwcdn.net/RFXsV/7953/",
-      "value": -28.23003
+      "chart": "https://datawrapper.dwcdn.net/RFXsV/7957/",
+      "value": -30.55493
     }
   }
 }
