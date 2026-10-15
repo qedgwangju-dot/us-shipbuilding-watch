@@ -101,29 +101,11 @@
       "invalid_items": [],
       "held_items": []
     },
-    "refinery:news:rfs_sre_2025_package_20260831": {
-      "topic": "refinery",
-      "kind": "news",
-      "event_key": "rfs_sre_2025_package_20260831",
-      "status": "enrichment_pending",
-      "items": [
-        {
-          "id": "2303f6455cfd70f645edccf9",
-          "title": "Proposed Reallocation of Additional 2025 Small Refinery Exemptions - U.S. Environmental Protection Agency (.gov)",
-          "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxOYmJyNmV6Q0NaN1RXSXlVZHpXNmVMSVNuMmNqY3FPMzRHXzV1d0tXMnE2eFpRcUpMdk53cnRlS2pXRVlwajA2MWZjNnoyMHBpcWItYnFqdWhKN0lNWnVxVkdqejZOczRwMlZrSi1sTDJGVEFlYjJNemdlYWFOdzJITVpUbEJEZVQ2eElNQWtkNGRpNGxqSHJuTkhKbVotV3pTSHVGMjRKNXBfLTA?oc=5",
-          "source": "U.S. Environmental Protection Agency (.gov)",
-          "source_url": "https://www.epa.gov",
-          "pub_kst": "2026-10-15T09:42+09:00"
-        }
-      ],
-      "queued_at": "2026-10-15T14:07:18+09:00",
-      "attempts": 0
-    },
     "refinery:news:refinery_article_efc8ce3efea6c854eb705cc1": {
       "topic": "refinery",
       "kind": "news",
       "event_key": "refinery_article_efc8ce3efea6c854eb705cc1",
-      "status": "enrichment_pending",
+      "status": "source_blocked",
       "items": [
         {
           "id": "efc8ce3efea6c854eb705cc1",
@@ -131,11 +113,21 @@
           "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxObG5YWndtYmhpZG1OSWNWSmp1R1NXSjFTMWhYUk5DalR1UF9ONUpaWGlMUkRDdWdFSGR1ZDVoaU9CTW1GdzZmWi1lV3QwZjhLdnh1ZFBFZy1wZ3l4RENnQTdneDV1UkJSVVJKSmhXREVTejQwSURZVWdfTXliNlBsQWM1NTVNU296VU9OSzJwYTdXeW5qcUhjSVkyZXRIVGlqNUJ3YzRxSDY?oc=5",
           "source": "The Guardian",
           "source_url": "https://www.theguardian.com",
-          "pub_kst": "2026-10-14T21:26+09:00"
+          "pub_kst": "2026-10-14T21:26+09:00",
+          "_source_blocked": true,
+          "_source_failure": {
+            "stage": "translation_google",
+            "reason": "http_rate_limit",
+            "blocked_before_request": false,
+            "provider": "www.google.com",
+            "request_url_sha256": "80635bb01a2604319aa5bda143d5f7150c97c283dafd58262f978f00979357bf",
+            "http_status": 429
+          }
         }
       ],
       "queued_at": "2026-10-15T14:07:18+09:00",
-      "attempts": 0
+      "attempts": 1,
+      "invalid_items": []
     }
   },
   "receipts": [],
@@ -946,6 +938,14 @@
       "at": "2026-10-15T09:35:51+09:00",
       "ids": [
         "6b920f12b9d2161daf531b05"
+      ]
+    },
+    {
+      "key": "refinery:news:rfs_sre_2025_package_20260831",
+      "reason": "existing_event_priority",
+      "at": "2026-10-15T14:07:21+09:00",
+      "ids": [
+        "2303f6455cfd70f645edccf9"
       ]
     }
   ],
