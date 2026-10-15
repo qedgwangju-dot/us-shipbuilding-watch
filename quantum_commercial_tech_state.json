@@ -10,10 +10,11 @@
     "IonQ|정부 기술검증·계약|darpa|qbi-stage-c-2026-10-07"
   ],
   "initialized": true,
-  "last_checked_kst": "2026-10-15T18:55:04+09:00",
+  "last_checked_kst": "2026-10-15T23:52:49+09:00",
   "retry_candidates": [],
   "sources": {
     "D-Wave 공식 뉴스": [
+      "https://www.dwavequantum.com/company/newsroom/press-release/d-wave-delivers-italy-s-first-annealing-quantum-computer",
       "https://www.dwavequantum.com/company/newsroom/press-release/d-wave-partners-with-university-of-arkansas-to-establish-quantum-supply-chain-initiative"
     ],
     "IBM 연구·혁신 공식 뉴스": [
