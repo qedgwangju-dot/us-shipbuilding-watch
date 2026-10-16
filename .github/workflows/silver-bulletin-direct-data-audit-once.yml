@@ -15,7 +15,7 @@ jobs:
       - name: Independently refetch published Datawrapper snapshots
         run: |
           python - <<'PY'
-          import csv, io, json, urllib.request
+          import csv, io, json, urllib.request, datetime as dt
           from pathlib import Path
           state=json.loads(Path("silver_bulletin_state.json").read_text(encoding="utf-8"))
           accepted = [
@@ -37,7 +37,8 @@ jobs:
               rows=list(csv.DictReader(io.StringIO(raw)))
               if not rows:raise RuntimeError(f"Empty published dataset {rev}")
               latest=rows[-1]
-              observed_date=latest.get("modeldate","")
+              raw_date=latest.get("modeldate","")
+              observed_date=dt.datetime.strptime(raw_date,"%m/%d/%y").date().isoformat()
               actual={k:float(latest[k]) for k in vals}
               matched=observed_date==d and all(abs(actual[k]-vals[k])<0.00001 for k in vals)
               result={"revision":rev,"date":observed_date,"expected_date":d,
