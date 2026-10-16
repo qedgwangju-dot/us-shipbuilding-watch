@@ -128,6 +128,24 @@
       "queued_at": "2026-10-15T14:07:18+09:00",
       "attempts": 1,
       "invalid_items": []
+    },
+    "spr:news:spr_refill_statement_20260830": {
+      "topic": "spr",
+      "kind": "news",
+      "event_key": "spr_refill_statement_20260830",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "e95b2d87337e4b9bb3ef5acc",
+          "title": "Trump says US will refill Strategic Petroleum Reserve using Venezuelan oil - Free Malaysia Today",
+          "link": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxNX2pseVRRQkFrSVlfbmV1VGIwUlFiaGthY2NwVmlFc0VsNTFKYWZINzZsWHlFMTRSTTNHMFFBOWpRUFAyWTZ0ZU4wZ291ZmRQeF9UYVpmakRjN1YxcWRva3JDT2I1dmEwSnNqcUc4aS13SGxqX19JSXYzUHZoYnhfMldfSEFMMjdkbzB6MXJvdEVUNVJTMXVNajBQOUFqaGlPMTc0THltOUUyeGxsM3RtSnBCbGRPTW9lZjhQS2JZdXp5THRLMzEzQ0dQQ1Vwa29rbHFB?oc=5",
+          "source": "Free Malaysia Today",
+          "source_url": "https://www.freemalaysiatoday.com",
+          "pub_kst": "2026-08-30T16:00+09:00"
+        }
+      ],
+      "queued_at": "2026-10-17T06:53:23+09:00",
+      "attempts": 0
     }
   },
   "receipts": [
