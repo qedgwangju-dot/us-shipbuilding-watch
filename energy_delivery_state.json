@@ -128,6 +128,36 @@
       "queued_at": "2026-10-15T14:07:18+09:00",
       "attempts": 1,
       "invalid_items": []
+    },
+    "spr:data:spr:2026-10-09": {
+      "topic": "spr",
+      "kind": "data",
+      "field": "spr",
+      "current": {
+        "date": "2026-10-09",
+        "value_kbbl": 282983,
+        "prev_kbbl": 282983,
+        "source": "https://www.eia.gov/dnav/pet/PET_STOC_WSTK_A_EPC0_SAS_MBBL_W.htm"
+      },
+      "status": "ready",
+      "message": "<b>[SPR 공식 수치]</b>\n<b>2026-10-09 | 282.983백만 배럴</b>\n\n<b>한눈에 보기</b>\n• 전주 변화: <b>0.000백만 배럴</b>\n• 저장능력 7억1,400만 배럴 대비: <b>39.6%</b>\n• 완전 충전까지: <b>431.017백만 배럴</b> 부족\n\n<b>판정</b>\n• 아직 보충 효과 미확인\n• 증가분이 나와도 베네수엘라 신규 반입과 기존 교환계약 반환물량을 DOE 자료로 분리 확인\n\n<a href=\"https://www.eia.gov/dnav/pet/PET_STOC_WSTK_A_EPC0_SAS_MBBL_W.htm\">EIA 원문</a>",
+      "queued_at": "2026-10-16T13:07:12+09:00",
+      "attempts": 0
+    },
+    "spr:data:venezuela_imports:2026-10-09": {
+      "topic": "spr",
+      "kind": "data",
+      "field": "venezuela_imports",
+      "current": {
+        "date": "2026-10-09",
+        "value_kbd": 455,
+        "prev_kbd": 624,
+        "source": "https://www.eia.gov/dnav/pet/hist/LeafHandler.ashx?f=W&n=PET&s=W_EPC0_IM0_NUS-NVE_MBBLD"
+      },
+      "status": "ready",
+      "message": "<b>[베네수엘라산 원유 미국 유입]</b>\n<b>2026-10-09 | 455천 배럴/일</b>\n\n<b>한눈에 보기</b>\n• 전주 변화: <b>-169천 배럴/일</b>\n• 7일 단순 환산: <b>3.185백만 배럴</b>\n\n<b>판정</b>\n• 미국 전체 수입량이지 SPR 직접 입고량은 아님\n• 정유사 투입분과 SPR 저장분을 DOE 조달·반입 자료로 분리 확인\n\n<a href=\"https://www.eia.gov/dnav/pet/hist/LeafHandler.ashx?f=W&amp;n=PET&amp;s=W_EPC0_IM0_NUS-NVE_MBBLD\">EIA 원문</a>",
+      "queued_at": "2026-10-16T13:07:21+09:00",
+      "attempts": 0
     }
   },
   "receipts": [],
@@ -959,15 +989,15 @@
   ],
   "observed_data": {
     "spr": {
-      "date": "2026-10-02",
+      "date": "2026-10-09",
       "value_kbbl": 282983,
-      "prev_kbbl": 283767,
+      "prev_kbbl": 282983,
       "source": "https://www.eia.gov/dnav/pet/PET_STOC_WSTK_A_EPC0_SAS_MBBL_W.htm"
     },
     "venezuela_imports": {
-      "date": "2026-10-02",
-      "value_kbd": 624,
-      "prev_kbd": 553,
+      "date": "2026-10-09",
+      "value_kbd": 455,
+      "prev_kbd": 624,
       "source": "https://www.eia.gov/dnav/pet/hist/LeafHandler.ashx?f=W&n=PET&s=W_EPC0_IM0_NUS-NVE_MBBLD"
     }
   },
