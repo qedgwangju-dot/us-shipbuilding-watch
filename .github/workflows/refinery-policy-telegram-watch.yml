@@ -24,6 +24,7 @@ on:
       - 'readable_energy_alert_runner_v2.py'
       - 'energy_delivery.py'
       - 'energy_state_checkpoint.py'
+      - 'tests/test_energy_delivery.py'
       - '.github/workflows/refinery-policy-telegram-watch.yml'
 
 permissions:
