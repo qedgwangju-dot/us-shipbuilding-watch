@@ -529,6 +529,11 @@ class GitBarrierTests(unittest.TestCase):
         self.git(self.root, 'config', 'user.email', 'offline@example.invalid')
         self.git(self.root, 'config', 'user.name', 'Offline Test')
         self.now = dt.datetime(2026, 10, 12, 17, tzinfo=runner.KST)
+        # Keep the production three-day publication gate tied to the fixture's
+        # controlled clock, not the wall clock. Otherwise this test begins
+        # failing permanently 3 days after its fixed 2026-10-12 fixture.
+        simulated_clock = mock.patch.object(runner, 'now_kst', side_effect=lambda: self.now)
+        simulated_clock.start(); self.addCleanup(simulated_clock.stop)
         delivery.atomic_json(self.root / durable.STATE_NAMES[0], {'initialized': True, 'seen': [], 'events': {}})
         delivery.atomic_json(self.root / durable.STATE_NAMES[1], {'initialized': True, 'seen_news': [], 'events': {},
                             'spr': {'date': '2026-10-02'}, 'venezuela_imports': {'date': '2026-10-02'}})
