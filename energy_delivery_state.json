@@ -128,24 +128,6 @@
       "queued_at": "2026-10-15T14:07:18+09:00",
       "attempts": 1,
       "invalid_items": []
-    },
-    "refinery:news:refinery_gasoline_policy_202609": {
-      "topic": "refinery",
-      "kind": "news",
-      "event_key": "refinery_gasoline_policy_202609",
-      "status": "enrichment_pending",
-      "items": [
-        {
-          "id": "33918b32154efdfad40d1ff8",
-          "title": "Why Trump Diesel Export Ban Could Push Pump Prices Higher - Valero Energy (NYSE:VLO) - Benzinga",
-          "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxQQkk4dmx1VlZST1RVVGYzaVhBZjNuSmd2dDVLdDlReDRNZW1wZk1JelBCQ2dKOWVLQVpHUUgyV0VxdXoyYVJzZTJkUXVidDJTb2IwTV96WjFfS0FOYlhEM0dGSG5tUkFDeFhRY2IxSDJycHJ4QmF2ODZiNU5jem5KY0VobGJNeHBXVnM5MmFNbXhmSXhKVzFnVTYzY200Z2J5TFE4V0wzZw?oc=5",
-          "source": "Benzinga",
-          "source_url": "https://www.benzinga.com",
-          "pub_kst": "2026-09-23T16:00+09:00"
-        }
-      ],
-      "queued_at": "2026-10-17T11:44:37+09:00",
-      "attempts": 0
     }
   },
   "receipts": [
@@ -1011,6 +993,14 @@
       "at": "2026-10-17T06:53:24+09:00",
       "ids": [
         "e95b2d87337e4b9bb3ef5acc"
+      ]
+    },
+    {
+      "key": "refinery:news:refinery_gasoline_policy_202609",
+      "reason": "news_outside_three_day_window",
+      "at": "2026-10-17T11:44:39+09:00",
+      "ids": [
+        "33918b32154efdfad40d1ff8"
       ]
     }
   ],
