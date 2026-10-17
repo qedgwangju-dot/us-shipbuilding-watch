@@ -133,7 +133,7 @@
       "topic": "refinery",
       "kind": "news",
       "event_key": "refinery_article_0d8b6cfd7c2c7b9be40b2209",
-      "status": "enrichment_pending",
+      "status": "source_blocked",
       "items": [
         {
           "id": "0d8b6cfd7c2c7b9be40b2209",
@@ -141,11 +141,21 @@
           "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxQY3E1cW1sNlA0ZDVyX0pGSHpZNFJtNFhfN2Q4eF80cXFUZ2l3c2h4THpBcVR0QllHLWhIWW5FblFiN0NGTndFM0tDUHU1NjhjR3ByTWJRNGNjaVhraHJJS2djSHBLZVFoOWRmRi1MMzA1dFhDVVc4Nl9US0FVaDZHVnpjeEFOaWN0SkFONVVMUC15WXBDSXlmMnZhU0dxOGRXaE1R?oc=5",
           "source": "Military.com",
           "source_url": "https://www.military.com",
-          "pub_kst": "2026-10-17T05:47+09:00"
+          "pub_kst": "2026-10-17T05:47+09:00",
+          "_source_blocked": true,
+          "_source_failure": {
+            "stage": "translation_google",
+            "reason": "http_rate_limit",
+            "blocked_before_request": false,
+            "provider": "www.google.com",
+            "request_url_sha256": "82b4f9f9f39655ca32822613e86fc2250490df3d83530e8a55250737e8e14639",
+            "http_status": 429
+          }
         }
       ],
       "queued_at": "2026-10-17T20:35:13+09:00",
-      "attempts": 0
+      "attempts": 1,
+      "invalid_items": []
     }
   },
   "receipts": [
