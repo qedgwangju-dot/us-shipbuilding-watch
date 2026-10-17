@@ -128,6 +128,24 @@
       "queued_at": "2026-10-15T14:07:18+09:00",
       "attempts": 1,
       "invalid_items": []
+    },
+    "refinery:news:refinery_article_0d8b6cfd7c2c7b9be40b2209": {
+      "topic": "refinery",
+      "kind": "news",
+      "event_key": "refinery_article_0d8b6cfd7c2c7b9be40b2209",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "0d8b6cfd7c2c7b9be40b2209",
+          "title": "Trump’s Russian Diesel Fuel Plan Runs Into Drone Strikes and a US Import Ban - Military.com",
+          "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxQY3E1cW1sNlA0ZDVyX0pGSHpZNFJtNFhfN2Q4eF80cXFUZ2l3c2h4THpBcVR0QllHLWhIWW5FblFiN0NGTndFM0tDUHU1NjhjR3ByTWJRNGNjaVhraHJJS2djSHBLZVFoOWRmRi1MMzA1dFhDVVc4Nl9US0FVaDZHVnpjeEFOaWN0SkFONVVMUC15WXBDSXlmMnZhU0dxOGRXaE1R?oc=5",
+          "source": "Military.com",
+          "source_url": "https://www.military.com",
+          "pub_kst": "2026-10-17T05:47+09:00"
+        }
+      ],
+      "queued_at": "2026-10-17T20:35:13+09:00",
+      "attempts": 0
     }
   },
   "receipts": [
