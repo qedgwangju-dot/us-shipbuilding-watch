@@ -155,7 +155,8 @@
       ],
       "queued_at": "2026-10-17T20:35:13+09:00",
       "attempts": 1,
-      "invalid_items": []
+      "invalid_items": [],
+      "held_items": []
     }
   },
   "receipts": [
