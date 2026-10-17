@@ -128,6 +128,24 @@
       "queued_at": "2026-10-15T14:07:18+09:00",
       "attempts": 1,
       "invalid_items": []
+    },
+    "refinery:news:rfs_sre_2025_package_20260831": {
+      "topic": "refinery",
+      "kind": "news",
+      "event_key": "rfs_sre_2025_package_20260831",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "c64301e685eea5073ac2bfdf",
+          "title": "EPA takes action on Small Refinery Exemption petitions - Waste Today -",
+          "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxQbTl4WmpTYXMwLTJ5c2dxTGkzaGJZY0V3WlcyRGgyUW5KWlhwdkpFQjd4blhxQmQ3UEhiU212ekp1Qloyb0ZzSVRIYWIycjBTM285TUotRlJxZ2FFRlk0MlZEc3JXSDNOM0RTRTdUWlNFSGprYkhqZEtpSENGelUtUmwwenMtZUJ4Vk94WGlDV0VnS0ZYSE5LWklobw?oc=5",
+          "source": "Waste Today -",
+          "source_url": "https://www.wastetodaymagazine.com",
+          "pub_kst": "2025-08-22T16:00+09:00"
+        }
+      ],
+      "queued_at": "2026-10-17T16:12:51+09:00",
+      "attempts": 0
     }
   },
   "receipts": [
