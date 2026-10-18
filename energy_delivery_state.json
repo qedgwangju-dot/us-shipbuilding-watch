@@ -157,6 +157,24 @@
       "attempts": 1,
       "invalid_items": [],
       "held_items": []
+    },
+    "refinery:news:refinery_white_house_meeting_20260901": {
+      "topic": "refinery",
+      "kind": "news",
+      "event_key": "refinery_white_house_meeting_20260901",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "17ca9e53c2e44dbd16d72dc1",
+          "title": "Trump to host oil executives after accusing refiners of gouging consumers - News Tribune",
+          "link": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxOdUFJQlpXeWJQZXFVaHhEMkJENzE0QzA5elZlMldLeUVsdktwTnd1cTdBY0tXMFFkZVUwWkh1bVdvUWpsY2xTQlJxQUNxU3EydTg0VTIxd2ZaSHdDRlo4bnJsSVhiX1lCOUJuUzJmcnBIN0xqSVIyVlZFOU90UWNJTldkV25ZRF9aZlI5QmxvS2RTN1JCWWVJdHVvaWVfUkxEYlRkelhpRW9ENzFHRTZDM3hMZ3BwdTNPYlg0?oc=5",
+          "source": "News Tribune",
+          "source_url": "https://www.newstribune.com",
+          "pub_kst": "2026-08-31T19:08+09:00"
+        }
+      ],
+      "queued_at": "2026-10-19T02:17:54+09:00",
+      "attempts": 0
     }
   },
   "receipts": [
