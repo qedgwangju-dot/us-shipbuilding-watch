@@ -157,42 +157,6 @@
       "attempts": 1,
       "invalid_items": [],
       "held_items": []
-    },
-    "refinery:news:refinery_article_8c8c389ba07dd8ee8b3d8a61": {
-      "topic": "refinery",
-      "kind": "news",
-      "event_key": "refinery_article_8c8c389ba07dd8ee8b3d8a61",
-      "status": "enrichment_pending",
-      "items": [
-        {
-          "id": "8c8c389ba07dd8ee8b3d8a61",
-          "title": "US President Donald Trump: Refineries Driving Up Gas Prices - https://www.ababnews.com/",
-          "link": "https://news.google.com/rss/articles/CBMidEFVX3lxTFB0aG5hTFVtUTdzM3lyZC1XOXVzYzF1ckc1eE1DSzdsejNtYlZkZUxDYXhIUllINVRCdFY5Xy0wZm5nd1BzWUVpYW9nMVRZNzVVUUU1NExqSDcyS1NmYWZkeGNXWmZlNFpyeVhvNVYxOUk0Y056?oc=5",
-          "source": "https://www.ababnews.com/",
-          "source_url": "https://www.ababnews.com",
-          "pub_kst": "2026-10-06T05:53+09:00"
-        }
-      ],
-      "queued_at": "2026-10-18T10:20:08+09:00",
-      "attempts": 0
-    },
-    "refinery:news:refinery_article_0a82ff758755c62d8b3ba146": {
-      "topic": "refinery",
-      "kind": "news",
-      "event_key": "refinery_article_0a82ff758755c62d8b3ba146",
-      "status": "enrichment_pending",
-      "items": [
-        {
-          "id": "0a82ff758755c62d8b3ba146",
-          "title": "US Diesel Prices Near Record Highs as White House Pressure on Refiners Likely Falls Short - BigGo Finance",
-          "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTFAxakhsNm9LdXd5cldVSVhPY3Rqc19sdkxRTXk2cVJnM2dQd2V3RG5DOUs1ZXRpWjFGRGVVZllhZGJzb1d0NWFBZDc2Z2dzWUpKWi10RUZnRzF3ZTZJWHZQWjB0a1R2WFV6MTJjZUczWHQwUjJLdXc?oc=5",
-          "source": "BigGo Finance",
-          "source_url": "https://finance.biggo.com",
-          "pub_kst": "2026-09-02T16:00+09:00"
-        }
-      ],
-      "queued_at": "2026-10-18T10:20:08+09:00",
-      "attempts": 0
     }
   },
   "receipts": [
@@ -1082,6 +1046,22 @@
       "at": "2026-10-18T02:24:51+09:00",
       "ids": [
         "89ca31e8b938492a53515cfd"
+      ]
+    },
+    {
+      "key": "refinery:news:refinery_article_8c8c389ba07dd8ee8b3d8a61",
+      "reason": "news_outside_three_day_window",
+      "at": "2026-10-18T10:20:10+09:00",
+      "ids": [
+        "8c8c389ba07dd8ee8b3d8a61"
+      ]
+    },
+    {
+      "key": "refinery:news:refinery_article_0a82ff758755c62d8b3ba146",
+      "reason": "news_outside_three_day_window",
+      "at": "2026-10-18T10:20:10+09:00",
+      "ids": [
+        "0a82ff758755c62d8b3ba146"
       ]
     }
   ],
