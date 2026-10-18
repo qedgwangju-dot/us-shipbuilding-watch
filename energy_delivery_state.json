@@ -157,6 +157,24 @@
       "attempts": 1,
       "invalid_items": [],
       "held_items": []
+    },
+    "spr:news:spr_refill_statement_20260830": {
+      "topic": "spr",
+      "kind": "news",
+      "event_key": "spr_refill_statement_20260830",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "060e9f0c7b63f6286f47dc26",
+          "title": "Why U.S. Venezuela oil deal could help refinery output and refill SPR - Yahoo Finance",
+          "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxQX3FydThYX0loMnNzZzRvcnpJVUNqZDNpcTl3RDhNNjRaVDRmaXpTY2wyMGhzMUR0dmFMQUxPdzVYVjNNNWFWeGNKSm9Sb3AxUU9qMGV0bUprZGFDWEJKbmsxRlFOVUVtcW9VU2lwLUJ0NXJZZUNnQ093ZzJuMGVOMnJ2OFR2Rmsy?oc=5",
+          "source": "Yahoo Finance",
+          "source_url": "https://finance.yahoo.com",
+          "pub_kst": "2026-09-02T16:00+09:00"
+        }
+      ],
+      "queued_at": "2026-10-18T10:20:34+09:00",
+      "attempts": 0
     }
   },
   "receipts": [
