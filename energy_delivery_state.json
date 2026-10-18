@@ -157,24 +157,6 @@
       "attempts": 1,
       "invalid_items": [],
       "held_items": []
-    },
-    "spr:news:spr_article_ee035818bbd881ea7c46a640": {
-      "topic": "spr",
-      "kind": "news",
-      "event_key": "spr_article_ee035818bbd881ea7c46a640",
-      "status": "enrichment_pending",
-      "items": [
-        {
-          "id": "ee035818bbd881ea7c46a640",
-          "title": "US eyes stake in Venezuelan oil as wars in Iran, Ukraine strain supplies: Report - Straight Arrow",
-          "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxNeTl3cmRrSlRjWXI0aHpWZVBjaDF6a0RybUVLMUxKOE8xV3pJQzBuSFRyN3dHM1diSlQyZXVoQ2x4cFg2UnFUSnpwS254eDk0M2ZDMkZyNlZmRkJDLW81bmpoWDBBYVgwX1J0UVg5cWMzdlFiU3IwUXpVZ2tlSFU1UGZIZ190WVItYksyRGJwOWZmaXlBY2dULTNXb3l0dFU?oc=5",
-          "source": "Straight Arrow",
-          "source_url": "https://san.com",
-          "pub_kst": "2026-08-28T16:00+09:00"
-        }
-      ],
-      "queued_at": "2026-10-19T04:27:37+09:00",
-      "attempts": 0
     }
   },
   "receipts": [
@@ -1128,6 +1110,14 @@
       "at": "2026-10-19T02:17:56+09:00",
       "ids": [
         "17ca9e53c2e44dbd16d72dc1"
+      ]
+    },
+    {
+      "key": "spr:news:spr_article_ee035818bbd881ea7c46a640",
+      "reason": "news_outside_three_day_window",
+      "at": "2026-10-19T04:27:38+09:00",
+      "ids": [
+        "ee035818bbd881ea7c46a640"
       ]
     }
   ],
