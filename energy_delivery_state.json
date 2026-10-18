@@ -157,24 +157,6 @@
       "attempts": 1,
       "invalid_items": [],
       "held_items": []
-    },
-    "refinery:news:refinery_article_1d6ecdb5e3acbe4d055dd754": {
-      "topic": "refinery",
-      "kind": "news",
-      "event_key": "refinery_article_1d6ecdb5e3acbe4d055dd754",
-      "status": "enrichment_pending",
-      "items": [
-        {
-          "id": "1d6ecdb5e3acbe4d055dd754",
-          "title": "Perkins Coie, LLP Petition for Waiver Under Clean Air Act Section 211(o)(7)(A)(i) of the Renewable Fuel Standard (RFS) - U.S. Environmental Protection Agency (.gov)",
-          "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxNeHlvTkRTd3FhUWl6T1BqOGhkbXRwNWNkTmh0dzlRWU44Q3JsNmdob1l3dVVfUkZsZlJhc2E0RzBoMVpFdEtVRkJNRVlXNFpVV3FzaWREUEljWkNGX0NBTXpJbjBHUmdMZm9GQndwS1p5azRrbWstM1BkZC1ReFU1cDdnMGExMHV3RENQbjQ1RW5rNE8xOEd0QmZwam5WcTJNcFE1Y0JPbVlxNU9TZ19UNHBqMlhUZGt6ZW9BSU9HX0g?oc=5",
-          "source": "U.S. Environmental Protection Agency (.gov)",
-          "source_url": "https://19january2025snapshot.epa.gov",
-          "pub_kst": "2026-10-01T12:48+09:00"
-        }
-      ],
-      "queued_at": "2026-10-18T23:08:48+09:00",
-      "attempts": 0
     }
   },
   "receipts": [
@@ -1112,6 +1094,14 @@
       "at": "2026-10-18T19:36:30+09:00",
       "ids": [
         "c09ae507c636b0c519c3269d"
+      ]
+    },
+    {
+      "key": "refinery:news:refinery_article_1d6ecdb5e3acbe4d055dd754",
+      "reason": "news_outside_three_day_window",
+      "at": "2026-10-18T23:08:50+09:00",
+      "ids": [
+        "1d6ecdb5e3acbe4d055dd754"
       ]
     }
   ],
