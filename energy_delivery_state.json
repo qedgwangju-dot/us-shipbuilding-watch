@@ -157,6 +157,42 @@
       "attempts": 1,
       "invalid_items": [],
       "held_items": []
+    },
+    "refinery:news:rfs_sre_2025_package_20260831": {
+      "topic": "refinery",
+      "kind": "news",
+      "event_key": "rfs_sre_2025_package_20260831",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "7527235f49f2beffb076ae12",
+          "title": "EPA: 2 SRE petitions filed, 8 SRE petitions currently pending - Biodiesel Magazine",
+          "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPalRiSGRmRVFHUG9XX1Z1UmVBMWlRejh4Y3llTG1yZHdYZWk4dTNQei1NVjlhZ1NnSmpad0p0bmhicDJMZVljYkZvN3ZNYWtpV0hPOWxGRjZsUnJmeTQ3TjhuOEVJdzdvOVlsMDh0d1ROdGNyUi1lT2FiVWQ1VS1sV3VlWlE2Mkl5X3dnWlk1bjVrWkNCeHZrc1ZSRVFZN2c?oc=5",
+          "source": "Biodiesel Magazine",
+          "source_url": "https://biodieselmagazine.com",
+          "pub_kst": "2026-09-17T16:00+09:00"
+        }
+      ],
+      "queued_at": "2026-10-18T19:36:28+09:00",
+      "attempts": 0
+    },
+    "refinery:news:refinery_white_house_meeting_20260901": {
+      "topic": "refinery",
+      "kind": "news",
+      "event_key": "refinery_white_house_meeting_20260901",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "c09ae507c636b0c519c3269d",
+          "title": "Trump to host oil executives after accusing refiners of gouging consumers - American Journal of Transportation",
+          "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNR1RCX2pSV3BHYzdGZmtQRzVHeXh0RUZaZThySUJINk9oLWo0cG83SzhqR1ctajF3bnlkX1J4MWk3eXJqWjhKMU9JX25udUV5Rm44Vm1IYTFla2ZMdUZiMkRBMFVyWnU0Zzd2dHhHTEFocUhZOHAtTGJoVDZLNklKYXUtdlRBSHVwY2NubG4yaGpsTDI2dnA3ZkcxdEtMWEcw?oc=5",
+          "source": "American Journal of Transportation",
+          "source_url": "https://www.ajot.com",
+          "pub_kst": "2026-08-31T16:00+09:00"
+        }
+      ],
+      "queued_at": "2026-10-18T19:36:28+09:00",
+      "attempts": 0
     }
   },
   "receipts": [
