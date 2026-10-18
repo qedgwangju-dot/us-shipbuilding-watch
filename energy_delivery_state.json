@@ -157,6 +157,24 @@
       "attempts": 1,
       "invalid_items": [],
       "held_items": []
+    },
+    "spr:news:spr_article_f8f189ded3a15d30ebe95a96": {
+      "topic": "spr",
+      "kind": "news",
+      "event_key": "spr_article_f8f189ded3a15d30ebe95a96",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "f8f189ded3a15d30ebe95a96",
+          "title": "Chevron commits $7 billion to double Venezuela oil production - Quartz",
+          "link": "https://news.google.com/rss/articles/CBMid0FVX3lxTE1DWFdCQlFvUF9nSlZCUDBPSlFuelE0VkFyaGc0cE52XzlwNWJDRkw5SXZsTkp1QUR3b1ctMzVfV29rTWdka0ZNRDFHV09DRFdGRW1fd1JRaUZicFBGWHFDNHJKdHpZV1lPd0ozeUp6REh2ellWcjBR?oc=5",
+          "source": "Quartz",
+          "source_url": "https://qz.com",
+          "pub_kst": "2026-09-02T20:21+09:00"
+        }
+      ],
+      "queued_at": "2026-10-18T15:01:53+09:00",
+      "attempts": 0
     }
   },
   "receipts": [
