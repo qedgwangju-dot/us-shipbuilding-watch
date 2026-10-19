@@ -157,24 +157,6 @@
       "attempts": 1,
       "invalid_items": [],
       "held_items": []
-    },
-    "refinery:news:refinery_article_5cc716f77d9c140d580cc76e": {
-      "topic": "refinery",
-      "kind": "news",
-      "event_key": "refinery_article_5cc716f77d9c140d580cc76e",
-      "status": "enrichment_pending",
-      "items": [
-        {
-          "id": "5cc716f77d9c140d580cc76e",
-          "title": "Why US oil companies are not rushing to build new refineries despite Trump’s push - Gulf News",
-          "link": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxNQkxtN1NkSDRoTUFGLWpyWUZoXy1UOHU5QXE3RXlzWE5YcE1RTFZmampZVFp6eG1sWkpEdXZod1RLYTJDX0JpQWpzcFhfZnpucG1WQlNMckphNF9JamRYaEVDU21WN2ppRjgyM25vc1FWVTU3eFNMdmw0bGMxLUJOLXVIWnNDMWV0YlZIVjMxVF83Z20xenN0aGcyOWljODBqMDNXVS1sWWpRNldfaE0tS3lrNEFuOGRuSHJGZC03blFhYTZ6OGw4Xw?oc=5",
-          "source": "Gulf News",
-          "source_url": "https://gulfnews.com",
-          "pub_kst": "2026-09-07T16:00+09:00"
-        }
-      ],
-      "queued_at": "2026-10-19T10:37:21+09:00",
-      "attempts": 0
     }
   },
   "receipts": [
@@ -1136,6 +1118,14 @@
       "at": "2026-10-19T04:27:38+09:00",
       "ids": [
         "ee035818bbd881ea7c46a640"
+      ]
+    },
+    {
+      "key": "refinery:news:refinery_article_5cc716f77d9c140d580cc76e",
+      "reason": "news_outside_three_day_window",
+      "at": "2026-10-19T10:37:24+09:00",
+      "ids": [
+        "5cc716f77d9c140d580cc76e"
       ]
     }
   ],
