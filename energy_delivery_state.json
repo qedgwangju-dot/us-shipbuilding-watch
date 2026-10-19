@@ -157,42 +157,6 @@
       "attempts": 1,
       "invalid_items": [],
       "held_items": []
-    },
-    "spr:news:spr_article_45adc74ff5a251f669d0c3dc": {
-      "topic": "spr",
-      "kind": "news",
-      "event_key": "spr_article_45adc74ff5a251f669d0c3dc",
-      "status": "enrichment_pending",
-      "items": [
-        {
-          "id": "45adc74ff5a251f669d0c3dc",
-          "title": "Chevron (CVX) Doubles Down on Venezuela with a $7 Billion Oil Bet - Yahoo Finance",
-          "link": "https://news.google.com/rss/articles/CBMilgFBVV95cUxOSm4zZFY0T01tNl9QdWJiZXZjTFliWHBjeHVpV1ZCNS1ZNUhvRWcwdy00NUl6bWhidV84RS1Rc0dTU0RHSS1pNkloY1JQX2I0TTNEbGRlZDZLamluV19KVWtMdGh5QnhlYVZrWmd2ZXFBX2gyd2pzX3VCWW9mSDZKZzdDaVp6VllXNU4wdWVTazdxVGhldlE?oc=5",
-          "source": "Yahoo Finance",
-          "source_url": "https://finance.yahoo.com",
-          "pub_kst": "2026-09-07T16:00+09:00"
-        }
-      ],
-      "queued_at": "2026-10-19T23:01:06+09:00",
-      "attempts": 0
-    },
-    "spr:news:spr_article_ae408bfeec778af4edfe2174": {
-      "topic": "spr",
-      "kind": "news",
-      "event_key": "spr_article_ae408bfeec778af4edfe2174",
-      "status": "enrichment_pending",
-      "items": [
-        {
-          "id": "ae408bfeec778af4edfe2174",
-          "title": "Trump's Venezuela Gambit Puts the World's Largest Oil Reserves Back in Play - Crude Oil Prices Today | OilPrice.com",
-          "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxPbHVKUkZDT2ltOWRPYzRzNUxWSDg2R1dDMUNSTEhaZnRYM1YtNEsyZ1JMbEpVTm5SZUg1ZnNwcWxuXy1zc1VUNWd0cl9mdWhYcjA2T2F0dm5IV0dWZk9GSlZ1ajNyb1oyQ095YWY4dmhSTDJBZXhLMXYtc24yNXJlZVpNdndlMlFlQ2V5QUVmSm9aS2xOVjQ3UHNyaEZxOUdnWGRNMFpFVDg2X2V1TXFkV3lmSVRoeTTSAbwBQVVfeXFMTld6VkktUUswU3E4N0ZwcWU5M01kZThpbTU5SFA5cXhvQXNOM0Jfcm55X1R5aTRNYUw3cXNBaDNxNk1TSWxlNVlnTGVfVk1vczdtdHlJT1BfQ0Vlc01YTlM0empjUXVROG51d2ExR1dGbDBTQnltRU9rTmMwOE9PWk5qSEJCbHVDdFhoSEM4WVBrV0FCQ0xwQzRicHh2bkJxRlNLTU9MWWFZVGo1U0loQ21JamtYNGtBQTZWRzE?oc=5",
-          "source": "Crude Oil Prices Today | OilPrice.com",
-          "source_url": "https://oilprice.com",
-          "pub_kst": "2026-01-07T17:00+09:00"
-        }
-      ],
-      "queued_at": "2026-10-19T23:01:06+09:00",
-      "attempts": 0
     }
   },
   "receipts": [
@@ -1178,6 +1142,22 @@
       "at": "2026-10-19T15:45:26+09:00",
       "ids": [
         "b6196aad9b4404e93504133d"
+      ]
+    },
+    {
+      "key": "spr:news:spr_article_45adc74ff5a251f669d0c3dc",
+      "reason": "news_outside_three_day_window",
+      "at": "2026-10-19T23:01:08+09:00",
+      "ids": [
+        "45adc74ff5a251f669d0c3dc"
+      ]
+    },
+    {
+      "key": "spr:news:spr_article_ae408bfeec778af4edfe2174",
+      "reason": "news_outside_three_day_window",
+      "at": "2026-10-19T23:01:08+09:00",
+      "ids": [
+        "ae408bfeec778af4edfe2174"
       ]
     }
   ],
