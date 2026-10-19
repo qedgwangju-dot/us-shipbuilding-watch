@@ -157,6 +157,24 @@
       "attempts": 1,
       "invalid_items": [],
       "held_items": []
+    },
+    "spr:news:venezuela_output_double_deals_20260902": {
+      "topic": "spr",
+      "kind": "news",
+      "event_key": "venezuela_output_double_deals_20260902",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "8f394dfe278fecc3ed708a76",
+          "title": "US energy secretary says Venezuela oil output to more than double in next few years - The Edge Malaysia",
+          "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTFAzV05USTdEbHdXbFppa2lkQmFScjZ4d24tdjJoNjhNMlNSYnFFZ25WNmRqY3NqX1NRcW9iNjVjVmtCTkV6RjVFX1lGQkg1eWI4?oc=5",
+          "source": "The Edge Malaysia",
+          "source_url": "https://theedgemalaysia.com",
+          "pub_kst": "2026-09-02T16:00+09:00"
+        }
+      ],
+      "queued_at": "2026-10-19T10:37:48+09:00",
+      "attempts": 0
     }
   },
   "receipts": [
