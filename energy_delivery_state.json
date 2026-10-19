@@ -157,6 +157,24 @@
       "attempts": 1,
       "invalid_items": [],
       "held_items": []
+    },
+    "refinery:news:refinery_article_b6196aad9b4404e93504133d": {
+      "topic": "refinery",
+      "kind": "news",
+      "event_key": "refinery_article_b6196aad9b4404e93504133d",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "b6196aad9b4404e93504133d",
+          "title": "The San Antonio Refinery LLC v. EPA, No. 23-60399, 5th Cir. - U.S. Environmental Protection Agency (.gov)",
+          "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxNUnlramlmSUFGRzlvT3h5bHVwX2VTSlJIZVVGbUV0by1jOFZ1Sk52dmJfLXFtc0NaMERfeWQtMEVxdjcwSlVxaUpzcGdxRkhua3AxUVhKUmotb250Y2dIb1RKMHRaeEpkNm45ZzMtN25aWkVpSXNocHZjXzlyajNtNjIyT1lHQU5oajl2T1JqWmIwZGRMTzlWb0pUVnV2ak1IT1E?oc=5",
+          "source": "U.S. Environmental Protection Agency (.gov)",
+          "source_url": "https://www.epa.gov",
+          "pub_kst": "2023-07-27T16:00+09:00"
+        }
+      ],
+      "queued_at": "2026-10-19T15:45:24+09:00",
+      "attempts": 0
     }
   },
   "receipts": [
