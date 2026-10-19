@@ -157,60 +157,6 @@
       "attempts": 1,
       "invalid_items": [],
       "held_items": []
-    },
-    "spr:news:spr_article_1dcc513f3faac32085f2885f": {
-      "topic": "spr",
-      "kind": "news",
-      "event_key": "spr_article_1dcc513f3faac32085f2885f",
-      "status": "enrichment_pending",
-      "items": [
-        {
-          "id": "1dcc513f3faac32085f2885f",
-          "title": "Chevron Bets $7 Billion on Venezuela Oil Expansion - Crude Oil Prices Today | OilPrice.com",
-          "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxOTzk2V3RsS0RGdXZzMnZMd2RHQXpHLXZ5RU5maVE5NkxGMVRIVm1qNUtCUjd0aTZVdmk1WFlZRkp3MTg5dFlRaHNDdWlObDhLUnZHRURISGkxVHdia1FDN2NnYmxab0lCelpzLTk2ZEdYWUotaGNNd045dUVWZUNtUXl0VlB1TWYzTk9PbmdoVGFNYzhXVHJJd2RnbUx5WFJucXN6bWVMSV_SAa4BQVVfeXFMT1lqdXJHRUQ5VUt6bjBOcWdxSW9zM2V2cUpNc3R0bVNvTTZRcHA1REVfUDNaSEpGMWh4TFlLeGVtZjlFdTdhQkY2YjVwRjRlVUU4NTdDa1dzSVNHSWl2UXhmM1VWMkVxRFhwUTEzMmdDdzlONXpSelBSTnJielREallvZHYzNTVFQS0xYmo1QlZqMDhLT3RaREM4R3JWRjZIYVVOaWlvT1hjaHpHLWNB?oc=5",
-          "source": "Crude Oil Prices Today | OilPrice.com",
-          "source_url": "https://oilprice.com",
-          "pub_kst": "2026-09-02T16:00+09:00"
-        }
-      ],
-      "queued_at": "2026-10-20T08:04:51+09:00",
-      "attempts": 0
-    },
-    "spr:news:venezuela_output_double_deals_20260902": {
-      "topic": "spr",
-      "kind": "news",
-      "event_key": "venezuela_output_double_deals_20260902",
-      "status": "enrichment_pending",
-      "items": [
-        {
-          "id": "0802df91a949b694031ac61e",
-          "title": "Chevron to invest $7bn in Venezuela to double oil output - Business Day",
-          "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPNGx5N0ZjaU1SVTBJSzBYeGVPNUYzcUYxcDVncXVZVFJkTDhkY0JQQ3NnX2UwZktBYkRLazNuTWRNd3FoUHZ4dGlMMlgyckIxV2tEaV9ZaURYaDEzUUlwd0VtdElDd2poTnA4a1ZxdjVFQzQ5RUtRalhCdi1VRFNpODFOdm9FY1R0Mm1kVDR5T0RQbkhMOEUxVzFPTUV1aGpaMEMzNE9B?oc=5",
-          "source": "Business Day",
-          "source_url": "https://www.businessday.co.za",
-          "pub_kst": "2026-09-02T16:00+09:00"
-        }
-      ],
-      "queued_at": "2026-10-20T08:04:51+09:00",
-      "attempts": 0
-    },
-    "spr:news:spr_article_126b463336495de841a642d0": {
-      "topic": "spr",
-      "kind": "news",
-      "event_key": "spr_article_126b463336495de841a642d0",
-      "status": "enrichment_pending",
-      "items": [
-        {
-          "id": "126b463336495de841a642d0",
-          "title": "Chevron to invest over $7bn in Venezuela, targets twofold rise in oil output - Times of Oman",
-          "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxQTTZybVVMbXk1czI0Ulk5aURWc0pqX0xRam12aDJaU3FSUS16WXluaWIyMHE4ZUN1NXduZUZBb2hjNy1HeHNDYjZKMHFhVkphSUlOVlJOR0NRUS1qbkl1WlFLbTlEczJ3Vi1IczNKXzhnanJjQTJiUUtPeHBtWEtrQWFEMVFweDN2UGR0SW16QVk2bU5RTVFqNWZBMGs3LWs2YmZXWVRXcXJOd1p3X2lyMGtWSQ?oc=5",
-          "source": "Times of Oman",
-          "source_url": "https://timesofoman.com",
-          "pub_kst": "2026-09-02T16:00+09:00"
-        }
-      ],
-      "queued_at": "2026-10-20T08:04:51+09:00",
-      "attempts": 0
     }
   },
   "receipts": [
@@ -1212,6 +1158,30 @@
       "at": "2026-10-19T23:01:08+09:00",
       "ids": [
         "ae408bfeec778af4edfe2174"
+      ]
+    },
+    {
+      "key": "spr:news:spr_article_1dcc513f3faac32085f2885f",
+      "reason": "news_outside_three_day_window",
+      "at": "2026-10-20T08:04:53+09:00",
+      "ids": [
+        "1dcc513f3faac32085f2885f"
+      ]
+    },
+    {
+      "key": "spr:news:venezuela_output_double_deals_20260902",
+      "reason": "news_outside_three_day_window",
+      "at": "2026-10-20T08:04:53+09:00",
+      "ids": [
+        "0802df91a949b694031ac61e"
+      ]
+    },
+    {
+      "key": "spr:news:spr_article_126b463336495de841a642d0",
+      "reason": "news_outside_three_day_window",
+      "at": "2026-10-20T08:04:53+09:00",
+      "ids": [
+        "126b463336495de841a642d0"
       ]
     }
   ],
