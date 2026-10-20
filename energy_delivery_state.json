@@ -157,6 +157,24 @@
       "attempts": 1,
       "invalid_items": [],
       "held_items": []
+    },
+    "refinery:news:refinery_article_be6b21943f38b1e652dd200d": {
+      "topic": "refinery",
+      "kind": "news",
+      "event_key": "refinery_article_be6b21943f38b1e652dd200d",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "be6b21943f38b1e652dd200d",
+          "title": "Trump says he will discuss strikes on Russian oil refineries with Zelenskyy - Українська правда",
+          "link": "https://news.google.com/rss/articles/CBMiZEFVX3lxTFBWRjg4Rk96bU1lWTVjOWVzck1VVkcxemhmb0tuTXRRYjFkeFhBVlRrcW9RM2ZESzZkMjVqV045SVJiRXZodDZpRlhuYVBEeldIU3RycV92ZVkteWVoazA0blN6R2fSAXBBVV95cUxOVVJtODFJWUtHSDc2QVlxZkRsVVRtUHNDY3lrTDI1dy1UMmpqX1B4amRSSG5wamZSOGNwRTFzM1pFMHRpZG5iYUZxdVZxRTRVVEY4RTRFQjJsaHE2alBaX0c2aXNHNFNfVkZnZ3pMb0RW?oc=5",
+          "source": "Українська правда",
+          "source_url": "https://www.pravda.com.ua",
+          "pub_kst": "2026-09-22T16:00+09:00"
+        }
+      ],
+      "queued_at": "2026-10-21T08:12:47+09:00",
+      "attempts": 0
     }
   },
   "receipts": [
