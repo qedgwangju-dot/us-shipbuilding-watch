@@ -157,6 +157,24 @@
       "attempts": 1,
       "invalid_items": [],
       "held_items": []
+    },
+    "spr:news:spr_article_888ae89ecc244a85349bd52c": {
+      "topic": "spr",
+      "kind": "news",
+      "event_key": "spr_article_888ae89ecc244a85349bd52c",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "888ae89ecc244a85349bd52c",
+          "title": "Chevron to Plow $7 Billion Into Venezuela, Targeting 600,000 Barrels a Day - BigGo Finance",
+          "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTE5GZGJQYWc4YzBNR2hqTXphMHQxSXo5cFlHcjgyeVVxdTNsOF82MVVPMWJMOXZjc3JYUUxxNnlpUlpkNVpBQm5ER3RNM1JDa0dkNVBHYTdCd1B3MElqdWduVlh6MGc4NndNZVRhVnQ1Nl9nSDA4Q1E?oc=5",
+          "source": "BigGo Finance",
+          "source_url": "https://finance.biggo.com",
+          "pub_kst": "2026-09-02T16:00+09:00"
+        }
+      ],
+      "queued_at": "2026-10-20T15:41:12+09:00",
+      "attempts": 0
     }
   },
   "receipts": [
