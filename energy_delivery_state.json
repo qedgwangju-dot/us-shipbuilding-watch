@@ -157,6 +157,24 @@
       "attempts": 1,
       "invalid_items": [],
       "held_items": []
+    },
+    "refinery:news:refinery_article_5957cfa0924ce7374c1c8823": {
+      "topic": "refinery",
+      "kind": "news",
+      "event_key": "refinery_article_5957cfa0924ce7374c1c8823",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "5957cfa0924ce7374c1c8823",
+          "title": "EPA Plans to Postpone 2025 Renewable Fuel Standard Compliance Deadline - energynews.pro",
+          "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxQckRDVm1IRXBuU1ViVmJraFNKNXA1ZUowVkxOWVY2UWZaODJXWlZkLUlqTGlaNXR3a2loc1JuUWZDLTVqLTBKMEhZaTVVWHQwZWJNUEZNMUEyOHFzSW8xSGJqMHcxbFNNN20xMm83bHZwb09rRU5ZTGhoWjVDZzBWeGsteUFEOXZmOTB5Um9DYmM2NGJHYXIzSDBJSDY?oc=5",
+          "source": "energynews.pro",
+          "source_url": "https://energynews.pro",
+          "pub_kst": "2026-08-23T16:00+09:00"
+        }
+      ],
+      "queued_at": "2026-10-20T10:44:39+09:00",
+      "attempts": 0
     }
   },
   "receipts": [
