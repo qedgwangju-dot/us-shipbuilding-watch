@@ -157,6 +157,50 @@
       "attempts": 1,
       "invalid_items": [],
       "held_items": []
+    },
+    "refinery:news:refinery_article_b1e85cec0a335564bd07867a": {
+      "topic": "refinery",
+      "kind": "news",
+      "event_key": "refinery_article_b1e85cec0a335564bd07867a",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "b1e85cec0a335564bd07867a",
+          "title": "Why Trump says Ukraine’s attacks on Russian refineries are ‘hurting the world’ - The Financial Express",
+          "link": "https://news.google.com/rss/articles/CBMixwFBVV95cUxPSHlqb3JPaFpqNWZrQ3ZJY1J2N3VjV2diblhwcDhJVnptZ0FFVXgyOUVub0dtZGliMmJNZHB0eXIteF9CRHI0VVRTb2ktQnZkV0lWcFdOUlVTN0VCaWM4dDlGMHBfMUlVR1Zsb2M3X2hGdGRxWE5qZkE1WGh0UHZoNlRoUi1kSV9wLVctbmRuNTJXNFhDWGNuZm9nVm9LYzdTNUZ2MFBLM1dkTFJjbHFhRFdxU0tIYzA0UnBNOVl4YTB0SjhDZ0RJ0gHOAUFVX3lxTFBXQkFHTzBrM2VxUlIxWEJwdUJ3ZGhkdkdyRWtvYjZLcGhyYjJUVk5NRnNpSWtQVXI4Zm9yN2lDZHNoOG15Sld4RnpDTVc0YUZHcDA2NEpRS1E0MWQ0eHdpTllRUVBfemlTQ2ZtWnhoUS1oSHBzR3RwSXVpS2JJbV9DXzFsM3pMWjZDQVcwQmdxMkhTQ2VRMzRWVER0R0xzaGxqNS1kZ19SanJhU050LXhMTk16MUNuRHJTbVp1M0JWWUZhcVNHdU9ybXFoQ2dB?oc=5",
+          "source": "The Financial Express",
+          "source_url": "https://www.financialexpress.com",
+          "pub_kst": "2026-09-22T16:00+09:00"
+        }
+      ],
+      "queued_at": "2026-10-20T21:08:12+09:00",
+      "attempts": 0
+    },
+    "refinery:news:rfs_sre_2025_package_20260831": {
+      "topic": "refinery",
+      "kind": "news",
+      "event_key": "rfs_sre_2025_package_20260831",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "2fe1e639040be598d5b36305",
+          "title": "EPA Grants 1.76 Billion RIN Exemptions to Small Refineries, Promises Reallocation to 2026‑27 - Forth.News",
+          "link": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE5Jd3U2ZENlWUVWZ2Q5dl8zeG1DSm1sd3U5dVN4V042M0ZhbnBQQWVFZ0I5MlFhdmdEZEx6OTV6UTg3eVhvd2JBXzF3c0JvUTg3cGkzMVNlcEJwUk1VS2JtTmx3?oc=5",
+          "source": "Forth.News",
+          "source_url": "https://www.forth.news",
+          "pub_kst": "2026-08-31T16:00+09:00"
+        },
+        {
+          "id": "cc8edfc95d6dbc6dcb9bfe66",
+          "title": "July 2023 Denial of Petitions for RFS Small Refinery Exemptions £% United States Environmental Protect Agency - U.S. Environmental Protection Agency (.gov)",
+          "link": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTFBIX0hfZW13ODdEa1RPMVhrdU5jMFZMVGZNYXM3TzZJaXhxaUkzdzdXSnNaQnRrWTBOdDRJU2hrR2MwZFpXVEM0X2MtODlSTW1ucEZLaU1Ma2d0bmhUaEd4MHdTTkJFMm8?oc=5",
+          "source": "U.S. Environmental Protection Agency (.gov)",
+          "source_url": "https://nepis.epa.gov",
+          "pub_kst": "2024-07-29T21:40+09:00"
+        }
+      ],
+      "queued_at": "2026-10-20T21:08:12+09:00",
+      "attempts": 0
     }
   },
   "receipts": [
