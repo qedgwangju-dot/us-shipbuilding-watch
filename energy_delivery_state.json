@@ -197,7 +197,7 @@
         "prev_kbd": 455,
         "source": "https://www.eia.gov/dnav/pet/hist/LeafHandler.ashx?f=W&n=PET&s=W_EPC0_IM0_NUS-NVE_MBBLD"
       },
-      "status": "delivery_unknown",
+      "status": "ready",
       "message": "<b>[베네수엘라산 원유 미국 유입]</b>\n<b>2026-10-16 | 571천 배럴/일</b>\n\n<b>한눈에 보기</b>\n• 전주 변화: <b>+116천 배럴/일</b>\n• 7일 단순 환산: <b>3.997백만 배럴</b>\n\n<b>판정</b>\n• 미국 전체 수입량이지 SPR 직접 입고량은 아님\n• 정유사 투입분과 SPR 저장분을 DOE 조달·반입 자료로 분리 확인\n\n<a href=\"https://www.eia.gov/dnav/pet/hist/LeafHandler.ashx?f=W&amp;n=PET&amp;s=W_EPC0_IM0_NUS-NVE_MBBLD\">EIA 원문</a>",
       "queued_at": "2026-10-22T05:34:54+09:00",
       "attempts": 1,
@@ -206,8 +206,10 @@
         {
           "text": "<b>[베네수엘라산 원유 미국 유입]</b>\n<b>2026-10-16 | 571천 배럴/일</b>\n\n<b>한눈에 보기</b>\n• 전주 변화: <b>+116천 배럴/일</b>\n• 7일 단순 환산: <b>3.997백만 배럴</b>\n\n<b>판정</b>\n• 미국 전체 수입량이지 SPR 직접 입고량은 아님\n• 정유사 투입분과 SPR 저장분을 DOE 조달·반입 자료로 분리 확인\n\n<a href=\"https://www.eia.gov/dnav/pet/hist/LeafHandler.ashx?f=W&amp;n=PET&amp;s=W_EPC0_IM0_NUS-NVE_MBBLD\">EIA 원문</a>",
           "message_sha256": "7b8599f4a1209029645840598651e1d64504ee5ca722babd93efe2469135791c",
-          "status": "delivery_unknown",
-          "prepared_at": "2026-10-22T05:34:59+09:00"
+          "status": "confirmed",
+          "prepared_at": "2026-10-22T05:34:59+09:00",
+          "message_id": 481,
+          "confirmed_at": "2026-10-22T05:35:02+09:00"
         }
       ]
     },
