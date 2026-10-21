@@ -184,7 +184,62 @@
       ],
       "queued_at": "2026-10-21T10:32:35+09:00",
       "attempts": 1,
-      "invalid_items": []
+      "invalid_items": [],
+      "held_items": []
+    },
+    "refinery:news:refinery_article_4349617d84794e4ea759babc": {
+      "topic": "refinery",
+      "kind": "news",
+      "event_key": "refinery_article_4349617d84794e4ea759babc",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "4349617d84794e4ea759babc",
+          "title": "Trump is eyeing an export ban on U.S. diesel. It could cause gas prices to soar, experts warn. - CBS News",
+          "link": "https://news.google.com/rss/articles/CBMickFVX3lxTE9BWTkycmlDXzk5LVlTZVBYVVdrMmRjYlViSjVQcy1OczNxR3ZFU182RUc2SVdUZ0JlZDlSUTNpYWFaUnhxUUJRX25ubmFSZGtEazF2ay1jRnZyNUFtZDhmWFEyU1lUTXhtODktbUR4dHhSZw?oc=5",
+          "source": "CBS News",
+          "source_url": "https://www.cbsnews.com",
+          "pub_kst": "2026-09-28T16:00+09:00"
+        }
+      ],
+      "queued_at": "2026-10-21T21:09:44+09:00",
+      "attempts": 0
+    },
+    "refinery:news:rfs_sre_2025_package_20260831": {
+      "topic": "refinery",
+      "kind": "news",
+      "event_key": "rfs_sre_2025_package_20260831",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "b5c5f0e32f243c33fcd31005",
+          "title": "RFA Challenges EPA's Latest Round of Small-Refinery Exemptions in Appeals Court - DTN Progressive Farmer",
+          "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxPT2hvcTRkcThYemtPWWUxNFR6OTlhVzc5MG5SaDg1dDdmLTRHWGQ4NXgyMlliNTZsbGJWMkg1SzFQbGp3N0h4Y0Q0dHB0WDgtdmNQaVVsaDVnOUpIRHpDVnFMSnpRLXhpWndKa1NjRkQ5WllJNklXTmdPWGVZVWVPdG96SzY2ZWhxTHJ6UUx4cHc4bmtiNjEtVkpvTFFoUQ?oc=5",
+          "source": "DTN Progressive Farmer",
+          "source_url": "https://www.dtnpf.com",
+          "pub_kst": "2026-09-21T16:00+09:00"
+        }
+      ],
+      "queued_at": "2026-10-21T21:09:44+09:00",
+      "attempts": 0
+    },
+    "refinery:news:refinery_article_f98a8512c17f787d80f1b53d": {
+      "topic": "refinery",
+      "kind": "news",
+      "event_key": "refinery_article_f98a8512c17f787d80f1b53d",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "f98a8512c17f787d80f1b53d",
+          "title": "Trump blames Ukraine for diesel fuel price spike, urges Zelensky to stop hitting Russian refineries - New York Post",
+          "link": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxPTUhJbDFlWERYWXl0bU1fRU1ibFdYMXFmMll1OFlHdDNROTl6SWZMMjNTdUJmdG9RdFhBNldpSU01OWhaeGw0VG9zc2hrcWdpNGVMWkNDVmQ2dVdaZ1F6NUFMc3Q2bzZ0RjhxWTZVRnZiZnNWdEY1clFtdHBIMGtsQVJtVGhRSWhudzVhdGlIcXI3RHgwSXJnYU5MdXNwa3JaZnEtTnRGcnZNTUpQUUR3RFYzWUVNbDdneTYwcXBVUzk5elJTSkFPaE5xeHVLR1kySzlZ?oc=5",
+          "source": "New York Post",
+          "source_url": "https://nypost.com",
+          "pub_kst": "2026-09-13T16:00+09:00"
+        }
+      ],
+      "queued_at": "2026-10-21T21:09:44+09:00",
+      "attempts": 0
     }
   },
   "receipts": [
