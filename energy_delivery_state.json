@@ -186,6 +186,78 @@
       "attempts": 1,
       "invalid_items": [],
       "held_items": []
+    },
+    "spr:news:spr_article_5e675ec48edd24659dd3c0ab": {
+      "topic": "spr",
+      "kind": "news",
+      "event_key": "spr_article_5e675ec48edd24659dd3c0ab",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "5e675ec48edd24659dd3c0ab",
+          "title": "US structured Venezuela oil position to protect it from dilution, official says - Reuters",
+          "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxPSGdUWXpiLXc1VnNBZ3NRU2Q5Tkp6T1Z0YU1RSm9JR0RBTlFCNEN3SkFfU1hfTXM2V0VpbHRnZF90djZFRHl2aDZPOGdzOGc5U1ZRVXUxTzNMcVVIMDZZV2JBbjlUUjlvMFFXM0FVUjVEazJWZXVWWmFXNG5uQ2JGd0gwOFVRc3VUODYxLXM3Ulg1Zm9KUlF3YnM3WlZlOGRPVWVZOUlWZXBQeGM3MDYzUzc4cmZkUndaRTZ0OGVSM3I?oc=5",
+          "source": "Reuters",
+          "source_url": "https://www.reuters.com",
+          "pub_kst": "2026-09-05T16:00+09:00"
+        }
+      ],
+      "queued_at": "2026-10-21T21:10:08+09:00",
+      "attempts": 0
+    },
+    "spr:news:spr_article_ba6fef285a9f2c35106af7b8": {
+      "topic": "spr",
+      "kind": "news",
+      "event_key": "spr_article_ba6fef285a9f2c35106af7b8",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "ba6fef285a9f2c35106af7b8",
+          "title": "US gets Venezuela's oil. Venezuelans don't get democracy. | Opinion - USA Today",
+          "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPSVVmRV9VRlJ5MlZiMlR1eUxVdkF6X1lxQU9MOVVRaWlNX3hpajJ0SnIwYVdWd2E4dWZPSXdUMkUtS2swQXpYX2tpaEJGOGpOR2ZPX091M3VVM3EtY2ROdzVGaEs5dlc4cHFqbWlTcXFSa3B5SnliRTVpUWkxWjk5MUZTM1pJejd3S3lTR1B5NVJDTHJza0NrWi1GQXM2Q2c0MEF6MUNn?oc=5",
+          "source": "USA Today",
+          "source_url": "https://www.usatoday.com",
+          "pub_kst": "2026-09-03T16:00+09:00"
+        }
+      ],
+      "queued_at": "2026-10-21T21:10:08+09:00",
+      "attempts": 0
+    },
+    "spr:news:spr_article_1ff19998f9b2276ca0387dca": {
+      "topic": "spr",
+      "kind": "news",
+      "event_key": "spr_article_1ff19998f9b2276ca0387dca",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "1ff19998f9b2276ca0387dca",
+          "title": "Scholar discusses Trump's claims of a new Venezuelan oil agreement - NPR",
+          "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxQVktPbWQ3N0Q4QUNQQkdCRFVMS1JjOUtVVS1rVjBERE9hS0hqWG5zMDRXeTdSeHh3QVZHdjRwMUJELUlxYzJidE5hbUdxVmdKX3FWc1R1S1VjRVpMVTQ5bUN4Y2lQY3h2eDE3b280ZkFZOEhtTzE1czQwOUxxaWFFWnNvcVotS0ltUzdoZk53cnltT25CUDNjMmowM1dwZDQyOEhsSGQxdlhGWHUzcmdN?oc=5",
+          "source": "NPR",
+          "source_url": "https://www.npr.org",
+          "pub_kst": "2026-08-31T16:00+09:00"
+        }
+      ],
+      "queued_at": "2026-10-21T21:10:08+09:00",
+      "attempts": 0
+    },
+    "spr:news:spr_article_3806b30f0007c347935faf48": {
+      "topic": "spr",
+      "kind": "news",
+      "event_key": "spr_article_3806b30f0007c347935faf48",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "3806b30f0007c347935faf48",
+          "title": "What we know about Trump's deal giving U.S. access to vast oil reserves in Venezuela - PBS",
+          "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxOTXJUY0dZQ3oyWnpyZXh1Tm56Ul9XdUJLRlJhWVVnX2xBQTJGMXRINjg5a1pJcTJfd09lakZINVBzeXBZRXZtS0NlSFJ0WG5NbjBaUWJ0UnVNXzZBRVYyalhZbnowQ05wLVQ3RzNid2tvZW1DRlpld3JWd282WFFlYldRVjJGMk9XeEY5d0U3Z0dNS1N3T1Zaa0JIOXRoWVlTUUJ0ZXU0Z2VaUExVeFZjZ2RHUm50R2lfRTQtWdIBwgFBVV95cUxQVGpUd1AxaVJjRkNHWGpyRjNwZVdmbllVN2UzTXdpUHFIM2NNN0s3QnZWUGJvd2NIWDF3RDVubGt4czdhVkdIUTZtUXZ0QmxhTXgybUV1TTNEYTZ0M3FUNnk0VGNNNWVLX0RHV2R2cTlpOGJ5VFNzQXh3TEZYbGpyX3ZJeFVPb0gxaDIzczBlM19tSFBXTm5aV2RkazA4b0Zub214UUtPQ0hkT1hBSXV2dGJNSFNfeFdpZFlWeUl1cVY2dw?oc=5",
+          "source": "PBS",
+          "source_url": "https://www.pbs.org",
+          "pub_kst": "2026-08-29T16:00+09:00"
+        }
+      ],
+      "queued_at": "2026-10-21T21:10:08+09:00",
+      "attempts": 0
     }
   },
   "receipts": [
