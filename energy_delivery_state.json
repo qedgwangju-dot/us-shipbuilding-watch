@@ -213,7 +213,8 @@
       ],
       "queued_at": "2026-10-22T05:34:58+09:00",
       "attempts": 1,
-      "invalid_items": []
+      "invalid_items": [],
+      "held_items": []
     },
     "spr:news:spr_article_f256747acf78978beebe2551": {
       "topic": "spr",
