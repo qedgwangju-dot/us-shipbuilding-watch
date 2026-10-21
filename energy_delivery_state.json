@@ -185,6 +185,60 @@
       "queued_at": "2026-10-21T10:32:35+09:00",
       "attempts": 1,
       "invalid_items": []
+    },
+    "refinery:news:refinery_article_99346297d9360dca887168ef": {
+      "topic": "refinery",
+      "kind": "news",
+      "event_key": "refinery_article_99346297d9360dca887168ef",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "99346297d9360dca887168ef",
+          "title": "Trump’s plan to ban diesel exports aggravates Europe and Latin America’s energy crisis - EL PAÍS English",
+          "link": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxOZ0ltRENiQnpScUNBdzgydElyYTlUekFDZUV5eDJjMHp0eHUtckNJQ0VQbjRpZ0NCSmcwX0ZVb2JBeElQQzRKUlNQLW1Yb0dpNGN6U09IQ2l3YWs5ckowOWNQOVdTSXhXdEROOHJWbng5dFROOUEwTnZlN2pmbDk2aGNVRXgyQm5vZVlsOWVDZF95MU1reXVKMGVMNy1MeWEzVVRhYjNtWVNOVEcxdnZNWUt2bEhwM1pmN2JaRGZCY3BlUXZZUTFfS0ZoYTdGeWFBUFB2OUM4RU1KWnJOWWhOSXhR0gH2AUFVX3lxTE1SYzFQczNPVWtDZWNiNzBDZjFNLWRIMnYwZnJjdUw3clhkMkhocG1uZGNndktUNmZTdlFBbFpXbnhibjF1NTRWLXZ5dVczRVhLLTVlTTQwd2tTSUZoa1VRWDRGcG5VY1BYVXBGeUFlTmRhUXdlQ0pKRzh6TFp3MWdQT2UzbmFvRUdoamROZUhQTlEwTVpfZ3J2cmlxTTNYWlZkdF9uUHB0RzF6YldQd0tncFdIUklDSkxEUjV4Tnl1NzdfejVOVUw5UlJELTNIVE1Yb2JXT1UyaXh2aFY2YVJ1dVRlRFVXYkhzTmpQS2pIRWV1b25uZw?oc=5",
+          "source": "EL PAÍS English",
+          "source_url": "https://english.elpais.com",
+          "pub_kst": "2026-09-26T16:00+09:00"
+        }
+      ],
+      "queued_at": "2026-10-21T15:27:07+09:00",
+      "attempts": 0
+    },
+    "refinery:news:refinery_gasoline_policy_202609": {
+      "topic": "refinery",
+      "kind": "news",
+      "event_key": "refinery_gasoline_policy_202609",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "6e344aae174494ac40aa42fd",
+          "title": "Trump Ramps Up Pressure on Squeezed Refiners to Ease Pump Prices - Bloomberg.com",
+          "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxOVHVESE9BVmF5M29kOWFIS3JaeHpVSWZlZEcwOUJ2SW42NWQ1aS10azRfSmcxUjVzcVFpRXlHYlNhUjVja3hPdmlWWDlGRW5SU1lpdXpXVV9EakVRdkdkVzh0M1pVRkNQVjJLNzRQS0ZjNnhhbGFMLXdxMlFqLW5JZTVkME5RSGVQUzN1UWliOGFMQ1NrWUJid19mR3JhZlRhNUxVNk0xajhkT3o5WUptT3ZLWnpudw?oc=5",
+          "source": "Bloomberg.com",
+          "source_url": "https://www.bloomberg.com",
+          "pub_kst": "2026-09-01T16:00+09:00"
+        }
+      ],
+      "queued_at": "2026-10-21T15:27:07+09:00",
+      "attempts": 0
+    },
+    "refinery:news:refinery_article_461f39e9895f09eb257a0dc2": {
+      "topic": "refinery",
+      "kind": "news",
+      "event_key": "refinery_article_461f39e9895f09eb257a0dc2",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "461f39e9895f09eb257a0dc2",
+          "title": "Renewable Fuel Standard Program -- Summary and Analysis of Comments (EPA420-R-07-006) - U.S. Environmental Protection Agency (.gov)",
+          "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPZ3BjcXhGX1RKTG9Bc2loY09CVllFV1U2WnUtS1MzazZveDNNQ2lCM3VzMTM2bjg0ejdyRmVnNmJUaGlLOU5WMkQ4Q1B6RmNEUFQyaUpOemZDeG1DTDFsV0RqXzh2N3h1bWVaenR2VTdMUjZmRmlwUWdUMXEySExFSm5PYkRhVkl0RHYxNThlV3l5U1NSU3k4?oc=5",
+          "source": "U.S. Environmental Protection Agency (.gov)",
+          "source_url": "https://19january2017snapshot.epa.gov",
+          "pub_kst": "2017-03-02T17:47+09:00"
+        }
+      ],
+      "queued_at": "2026-10-21T15:27:07+09:00",
+      "attempts": 0
     }
   },
   "receipts": [
