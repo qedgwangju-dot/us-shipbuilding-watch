@@ -186,6 +186,93 @@
       "attempts": 1,
       "invalid_items": [],
       "held_items": []
+    },
+    "spr:data:venezuela_imports:2026-10-16": {
+      "topic": "spr",
+      "kind": "data",
+      "field": "venezuela_imports",
+      "current": {
+        "date": "2026-10-16",
+        "value_kbd": 571,
+        "prev_kbd": 455,
+        "source": "https://www.eia.gov/dnav/pet/hist/LeafHandler.ashx?f=W&n=PET&s=W_EPC0_IM0_NUS-NVE_MBBLD"
+      },
+      "status": "ready",
+      "message": "<b>[베네수엘라산 원유 미국 유입]</b>\n<b>2026-10-16 | 571천 배럴/일</b>\n\n<b>한눈에 보기</b>\n• 전주 변화: <b>+116천 배럴/일</b>\n• 7일 단순 환산: <b>3.997백만 배럴</b>\n\n<b>판정</b>\n• 미국 전체 수입량이지 SPR 직접 입고량은 아님\n• 정유사 투입분과 SPR 저장분을 DOE 조달·반입 자료로 분리 확인\n\n<a href=\"https://www.eia.gov/dnav/pet/hist/LeafHandler.ashx?f=W&amp;n=PET&amp;s=W_EPC0_IM0_NUS-NVE_MBBLD\">EIA 원문</a>",
+      "queued_at": "2026-10-22T05:34:54+09:00",
+      "attempts": 0
+    },
+    "spr:news:spr_article_13ee2880c785543bf421d89f": {
+      "topic": "spr",
+      "kind": "news",
+      "event_key": "spr_article_13ee2880c785543bf421d89f",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "13ee2880c785543bf421d89f",
+          "title": "TRUMP’S VENEZUELA OIL DEAL: A Strategic Win for America, but is it a Good Deal for Venezuelans? - EnergyNow",
+          "link": "https://news.google.com/rss/articles/CBMivgFBVV95cUxONlEzeVVJclF5cHdXcF9yY01KMVdpNnlINGRua2NvQ21yZmozVU9pTG5RQTczMHQybDZnVGYyNXNNcHc0ZjBkZEYxMWZMWnZxbzRXQzBJbXJvc2tIeEZwV1Eyd2l4TjBMYXZPU2lSLUF3bDhlY3NyczNxbFVxOGxVVnlXSUpDbkRuTXNMSTlSb0NLUmR2NVlkVE5mZzNQTXZLcFlRdFJQUDc4WEdRUFFXbGJUMWNlVFdXMUF2dndR?oc=5",
+          "source": "EnergyNow",
+          "source_url": "https://energynow.ca",
+          "pub_kst": "2026-10-22T00:39+09:00"
+        }
+      ],
+      "queued_at": "2026-10-22T05:34:58+09:00",
+      "attempts": 0
+    },
+    "spr:news:spr_article_f256747acf78978beebe2551": {
+      "topic": "spr",
+      "kind": "news",
+      "event_key": "spr_article_f256747acf78978beebe2551",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "f256747acf78978beebe2551",
+          "title": "The Secret Terms of Trump’s Venezuelan Oil Deal - ProPublica",
+          "link": "https://news.google.com/rss/articles/CBMiekFVX3lxTFA4REI5YllScE1WWl9mN0JhLURTd3p5NDdCU2xyaVA5ZkRlVWhXMVl2eENRYk4xa3hRcXkzTmV2bFJuS2wxUENZdTNZNlhBczdmZjBxRE5udXNON3otaE9NRU5vX1V4Y0Zwb251SE9hcmpFSWt2NXJzNzl3?oc=5",
+          "source": "ProPublica",
+          "source_url": "https://www.propublica.org",
+          "pub_kst": "2026-10-21T10:53+09:00"
+        }
+      ],
+      "queued_at": "2026-10-22T05:34:58+09:00",
+      "attempts": 0
+    },
+    "spr:news:spr_article_c9e2208e55cb4a4a6db0b2cc": {
+      "topic": "spr",
+      "kind": "news",
+      "event_key": "spr_article_c9e2208e55cb4a4a6db0b2cc",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "c9e2208e55cb4a4a6db0b2cc",
+          "title": "Claims And Facts About Venezuela Oil Deal—It Won’t Save The SPR - Forbes",
+          "link": "https://news.google.com/rss/articles/CBMiugFBVV95cUxQeTdlWVBjWXVSQ3FubGFmcDlxVmtrMmhWbXRHWXptanByOUtqTDVFUGpqYWZwUXlzZVZGYngyaXZBUzgyeTI1ZVg4NElpWmd0OEt6ZG01Zjk4LTF1SVFVWWQ4QnE0V0dtMDM0NFQ3a3hFaTJ5UV9icTdjTTFFRUE2TGZuWlNHcE9ROEkxQkN5aWtlQTVjVXQzNlZGUjI1c3R2NDhZRDNxVXZmdnRQMGIyZkprOW9odmpuQnc?oc=5",
+          "source": "Forbes",
+          "source_url": "https://www.forbes.com",
+          "pub_kst": "2026-09-04T16:00+09:00"
+        }
+      ],
+      "queued_at": "2026-10-22T05:34:58+09:00",
+      "attempts": 0
+    },
+    "spr:news:spr_article_5d66e010aa51e57f7d70b13b": {
+      "topic": "spr",
+      "kind": "news",
+      "event_key": "spr_article_5d66e010aa51e57f7d70b13b",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "5d66e010aa51e57f7d70b13b",
+          "title": "How the US is taking direct control of Venezuelan oil - The Straits Times",
+          "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxOUWJvSmFyWVNPUHNNTnZmNnZVelRrSk5BYVRueFRxY2FBcWl6MEpTZHo0bjNSTDBwMVlsSlRDNkFTNmFPcHl4SnlTOEJRTXp0QVlQejhRdlFUeVdmTk13MTJ0bHhFQlhKSEJ4MnlNYlJ2c0RfbVYxb0tlQXpkMS1xRnptMFNoOEg2aVIycHk0alRSdw?oc=5",
+          "source": "The Straits Times",
+          "source_url": "https://www.straitstimes.com",
+          "pub_kst": "2026-09-04T16:00+09:00"
+        }
+      ],
+      "queued_at": "2026-10-22T05:34:58+09:00",
+      "attempts": 0
     }
   },
   "receipts": [
@@ -1418,9 +1505,9 @@
       "source": "https://www.eia.gov/dnav/pet/PET_STOC_WSTK_A_EPC0_SAS_MBBL_W.htm"
     },
     "venezuela_imports": {
-      "date": "2026-10-09",
-      "value_kbd": 455,
-      "prev_kbd": 624,
+      "date": "2026-10-16",
+      "value_kbd": 571,
+      "prev_kbd": 455,
       "source": "https://www.eia.gov/dnav/pet/hist/LeafHandler.ashx?f=W&n=PET&s=W_EPC0_IM0_NUS-NVE_MBBLD"
     }
   },
