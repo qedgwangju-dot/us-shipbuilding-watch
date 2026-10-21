@@ -162,7 +162,7 @@
       "topic": "refinery",
       "kind": "news",
       "event_key": "refinery_article_63092df45e13445b6f19f01f",
-      "status": "enrichment_pending",
+      "status": "source_blocked",
       "items": [
         {
           "id": "63092df45e13445b6f19f01f",
@@ -170,11 +170,21 @@
           "link": "https://news.google.com/rss/articles/CBMiygFBVV95cUxQczBsMElXTmU3MHktOU91QkR4MWE3TkFnNjZ2OWNZakp6bFIzY1NGZk1nQWJ6T1h0VjExcUlBOUVHSW9KekVmVW54X25HNjBZM1oxOWUxN05pLXRZOENWOG53QnBqTEwwODlIWGVseU1PQjlHU1VzdERwclZGS0JxSi1PdFlmd2RjbE56c0E1RER2VzhYTExoY0gzaFdZUmdsb1REMHRCNTBERFYyT1NDNlZJWFg2enJvaV9rOEtoeDZqSXl6a2JRX3hR?oc=5",
           "source": "Reuters",
           "source_url": "https://www.reuters.com",
-          "pub_kst": "2026-10-21T07:38+09:00"
+          "pub_kst": "2026-10-21T07:38+09:00",
+          "_source_blocked": true,
+          "_source_failure": {
+            "stage": "article_fetch",
+            "reason": "http_denial",
+            "blocked_before_request": false,
+            "provider": "www.reuters.com",
+            "request_url_sha256": "55796101e5cb889729db541eb363fa6c114cdbbaeb191f0d36d79981043cd9b3",
+            "http_status": 401
+          }
         }
       ],
       "queued_at": "2026-10-21T10:32:35+09:00",
-      "attempts": 0
+      "attempts": 1,
+      "invalid_items": []
     }
   },
   "receipts": [
