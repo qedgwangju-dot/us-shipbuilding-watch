@@ -185,6 +185,60 @@
       "queued_at": "2026-10-21T10:32:35+09:00",
       "attempts": 1,
       "invalid_items": []
+    },
+    "spr:news:spr_article_daef10db878718fff54b3076": {
+      "topic": "spr",
+      "kind": "news",
+      "event_key": "spr_article_daef10db878718fff54b3076",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "daef10db878718fff54b3076",
+          "title": "Chevron's Venezuela JV Expansion: Time to Buy, Sell or Hold the Stock? - The Globe and Mail",
+          "link": "https://news.google.com/rss/articles/CBMi5wFBVV95cUxQSlY2b2QwcmlkWE9EQ0kycV90UGt3clVZYTQyRXFpMzNBWWFpUXF4emZjd3VoWWdZYnhYTnM2SjR4TUJmc3NubXZmeUdnano1cENIdTFEbkM4Tmg1Y3RTc1V4XzF1N3BDRXlyOGk3VHJZRVFfYmZsMVN5SVpGaUdwOGI1dUxFQ1FORmU4UXFQcVlMT3RXQ0xfb0cxOGl6YVVpZGVvb0dCaGVmNGp2bEMtcE5ZS0RUMDZsZFVvRGdaMG9TN1BVS3c4R1ZfX29fd3JMV3Q0NHpRWFRCMFYtOFhwODVVNk5BR1U?oc=5",
+          "source": "The Globe and Mail",
+          "source_url": "https://www.theglobeandmail.com",
+          "pub_kst": "2026-09-08T16:00+09:00"
+        }
+      ],
+      "queued_at": "2026-10-21T15:27:32+09:00",
+      "attempts": 0
+    },
+    "spr:news:spr_article_343d4867a3d114d57f0d3ad8": {
+      "topic": "spr",
+      "kind": "news",
+      "event_key": "spr_article_343d4867a3d114d57f0d3ad8",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "343d4867a3d114d57f0d3ad8",
+          "title": "Chevron Bets $7 Billion on Venezuela Oil Expansion - Yahoo Finance",
+          "link": "https://news.google.com/rss/articles/CBMikwFBVV95cUxPZjhhUDBoSW9HcU1HRWR6Q3ZGM2d4MnJ0STRaM2hSQ1RSU2VoWXJBV0h2bzYtOEdYeFlaeVp6YzFIYkxnZU45d1h2M2pReE5lVFBNdW1oaFJPSHdLamNGOEd2MS1oMGRMY0NSUVBZR3RZY21ZSGZlZjNYbVEzVF9fWDRLWmdRZjNOMk1HRThqZ2p1dmc?oc=5",
+          "source": "Yahoo Finance",
+          "source_url": "https://finance.yahoo.com",
+          "pub_kst": "2026-09-02T16:00+09:00"
+        }
+      ],
+      "queued_at": "2026-10-21T15:27:32+09:00",
+      "attempts": 0
+    },
+    "spr:news:spr_article_ddafe0befb066430daefea3e": {
+      "topic": "spr",
+      "kind": "news",
+      "event_key": "spr_article_ddafe0befb066430daefea3e",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "ddafe0befb066430daefea3e",
+          "title": "Trump says US will refill its petroleum reserves using Venezuelan oil - Al Jazeera",
+          "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxNLTdpZnB0cWp2QnJXcklTNmdkS0U0bF9YZGVzTXJQdE1obG9wN2g3NzIzNjloX0tvZkxBWC0tTkVyTFpuX1ZUeV9wamZWeXFiWmprOHJyNFVTalZZMUtrUWJuNDExR0ctMkFYYUt4Ykw5aWVhYlJEeUZLdUdSSnpwVk4zOGNsclFYZTBSR05yZ2xidGtQSlpxTHdEb3FNZWVQQURXNlpVcXJvOUNtREZj0gG0AUFVX3lxTFA0YXJ1bXdnaFd6WElYS094X0dEOVpiWDM0NEdCeHllZTNYakhhTzVqQnlqNlRsN3pVT0RheWtJQ3Y5c1FOTXBRZkhfUzYxZkFSYWVjZEphLWNYR0hVaHVZb0tFQ3FJVEVrMXpLUFRiUmpTaXVWdC1KdUJYUkM2cDdZQlhtVG1xckNtbkJqZ1UwNm1rTGVmT1JYR01zU3pZcHpOdmhjNlZUQzJfeTlZR3hzMnNlWA?oc=5",
+          "source": "Al Jazeera",
+          "source_url": "https://www.aljazeera.com",
+          "pub_kst": "2026-08-30T16:00+09:00"
+        }
+      ],
+      "queued_at": "2026-10-21T15:27:32+09:00",
+      "attempts": 0
     }
   },
   "receipts": [
