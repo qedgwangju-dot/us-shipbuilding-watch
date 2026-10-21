@@ -186,6 +186,39 @@
       "attempts": 1,
       "invalid_items": [],
       "held_items": []
+    },
+    "spr:data:spr:2026-10-16": {
+      "topic": "spr",
+      "kind": "data",
+      "field": "spr",
+      "current": {
+        "date": "2026-10-16",
+        "value_kbbl": 282683,
+        "prev_kbbl": 282983,
+        "source": "https://www.eia.gov/dnav/pet/PET_STOC_WSTK_A_EPC0_SAS_MBBL_W.htm"
+      },
+      "status": "ready",
+      "message": "<b>[SPR 공식 수치]</b>\n<b>2026-10-16 | 282.683백만 배럴</b>\n\n<b>한눈에 보기</b>\n• 전주 변화: <b>-0.300백만 배럴</b>\n• 저장능력 7억1,400만 배럴 대비: <b>39.6%</b>\n• 완전 충전까지: <b>431.317백만 배럴</b> 부족\n\n<b>판정</b>\n• 아직 보충 효과 미확인\n• 증가분이 나와도 베네수엘라 신규 반입과 기존 교환계약 반환물량을 DOE 자료로 분리 확인\n\n<a href=\"https://www.eia.gov/dnav/pet/PET_STOC_WSTK_A_EPC0_SAS_MBBL_W.htm\">EIA 원문</a>",
+      "queued_at": "2026-10-22T02:06:42+09:00",
+      "attempts": 0
+    },
+    "spr:news:spr_article_8a51355caf0b90df59b6f6b1": {
+      "topic": "spr",
+      "kind": "news",
+      "event_key": "spr_article_8a51355caf0b90df59b6f6b1",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "8a51355caf0b90df59b6f6b1",
+          "title": "Venezuelan Oil and Trump’s Imaginary $20 Trillion in Foreign Investment - Center for Economic and Policy Research",
+          "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxPempwNXN6WDdsanRfQmZQZ3J4TUpUU2JqLWllUkFSTjZUYjRvWmVaSGQtUjNXVHZXS2R2ZFdQMmpjV2hRc0tCMlRfMEdaYWpqY0hpUmhyUXltRFhVWnpCQlJMUjlWU25zUXpUX0Z2SHFzSVItNDExZWhkS0pBckE4eHNYVU05dmFOeU1NYVFpN2JLYjFTVjMxTTdmUGI4RDVDT0E?oc=5",
+          "source": "Center for Economic and Policy Research",
+          "source_url": "https://cepr.net",
+          "pub_kst": "2026-09-01T16:00+09:00"
+        }
+      ],
+      "queued_at": "2026-10-22T02:06:45+09:00",
+      "attempts": 0
     }
   },
   "receipts": [
@@ -1393,8 +1426,8 @@
   ],
   "observed_data": {
     "spr": {
-      "date": "2026-10-09",
-      "value_kbbl": 282983,
+      "date": "2026-10-16",
+      "value_kbbl": 282683,
       "prev_kbbl": 282983,
       "source": "https://www.eia.gov/dnav/pet/PET_STOC_WSTK_A_EPC0_SAS_MBBL_W.htm"
     },
