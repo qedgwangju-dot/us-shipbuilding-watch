@@ -157,6 +157,24 @@
       "attempts": 1,
       "invalid_items": [],
       "held_items": []
+    },
+    "refinery:news:refinery_article_63092df45e13445b6f19f01f": {
+      "topic": "refinery",
+      "kind": "news",
+      "event_key": "refinery_article_63092df45e13445b6f19f01f",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "63092df45e13445b6f19f01f",
+          "title": "US coaxing refiners to produce more diesel as prices surge, energy officials say - Reuters",
+          "link": "https://news.google.com/rss/articles/CBMiygFBVV95cUxQczBsMElXTmU3MHktOU91QkR4MWE3TkFnNjZ2OWNZakp6bFIzY1NGZk1nQWJ6T1h0VjExcUlBOUVHSW9KekVmVW54X25HNjBZM1oxOWUxN05pLXRZOENWOG53QnBqTEwwODlIWGVseU1PQjlHU1VzdERwclZGS0JxSi1PdFlmd2RjbE56c0E1RER2VzhYTExoY0gzaFdZUmdsb1REMHRCNTBERFYyT1NDNlZJWFg2enJvaV9rOEtoeDZqSXl6a2JRX3hR?oc=5",
+          "source": "Reuters",
+          "source_url": "https://www.reuters.com",
+          "pub_kst": "2026-10-21T07:38+09:00"
+        }
+      ],
+      "queued_at": "2026-10-21T10:32:35+09:00",
+      "attempts": 0
     }
   },
   "receipts": [
