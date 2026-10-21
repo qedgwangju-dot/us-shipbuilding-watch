@@ -186,24 +186,6 @@
       "attempts": 1,
       "invalid_items": [],
       "held_items": []
-    },
-    "spr:news:spr_article_8a51355caf0b90df59b6f6b1": {
-      "topic": "spr",
-      "kind": "news",
-      "event_key": "spr_article_8a51355caf0b90df59b6f6b1",
-      "status": "enrichment_pending",
-      "items": [
-        {
-          "id": "8a51355caf0b90df59b6f6b1",
-          "title": "Venezuelan Oil and Trump’s Imaginary $20 Trillion in Foreign Investment - Center for Economic and Policy Research",
-          "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxPempwNXN6WDdsanRfQmZQZ3J4TUpUU2JqLWllUkFSTjZUYjRvWmVaSGQtUjNXVHZXS2R2ZFdQMmpjV2hRc0tCMlRfMEdaYWpqY0hpUmhyUXltRFhVWnpCQlJMUjlWU25zUXpUX0Z2SHFzSVItNDExZWhkS0pBckE4eHNYVU05dmFOeU1NYVFpN2JLYjFTVjMxTTdmUGI4RDVDT0E?oc=5",
-          "source": "Center for Economic and Policy Research",
-          "source_url": "https://cepr.net",
-          "pub_kst": "2026-09-01T16:00+09:00"
-        }
-      ],
-      "queued_at": "2026-10-22T02:06:45+09:00",
-      "attempts": 0
     }
   },
   "receipts": [
@@ -1417,6 +1399,14 @@
       "at": "2026-10-21T21:10:10+09:00",
       "ids": [
         "3806b30f0007c347935faf48"
+      ]
+    },
+    {
+      "key": "spr:news:spr_article_8a51355caf0b90df59b6f6b1",
+      "reason": "news_outside_three_day_window",
+      "at": "2026-10-22T02:06:56+09:00",
+      "ids": [
+        "8a51355caf0b90df59b6f6b1"
       ]
     }
   ],
