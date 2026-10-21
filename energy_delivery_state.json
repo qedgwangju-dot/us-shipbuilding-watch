@@ -185,78 +185,6 @@
       "queued_at": "2026-10-21T10:32:35+09:00",
       "attempts": 1,
       "invalid_items": []
-    },
-    "spr:news:spr_venezuela_oil_agreement_20260831": {
-      "topic": "spr",
-      "kind": "news",
-      "event_key": "spr_venezuela_oil_agreement_20260831",
-      "status": "enrichment_pending",
-      "items": [
-        {
-          "id": "e6d7a6d54e86b8963dcb158f",
-          "title": "Exxon Nears Venezuelan Oil Deal, After Trump Says U.S. Secured 65 Billion Barrel Agreement With Country - 24/7 Wall St.",
-          "link": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxOVE90alRMSTg1MkJoU0lONG1lZkJFTjdBRTM3aXRSM01jTFYzQ1c2b19PWTh2TGNlWkFrQXlHN0NtVVF3NWFDd3Y5M3JiQ0RnTUhlZFYtQWt1Ty1oS2pSVUNoX2hVNlhSN1dNaG1jNzU2RW9pYW9FZzFVVExYRlM2UHpIN18tMkdlT3F0M0xtUnJQdW5BMDBGZzZnMHZfRFpxa1VmTXZEVk9LR3o0bldrbVVsajRfTFRNeS1BeHluemZQUDlTZHI0dUx0VVdtNUhJYnROWlpyZVhPc2RRTUE?oc=5",
-          "source": "24/7 Wall St.",
-          "source_url": "https://247wallst.com",
-          "pub_kst": "2026-09-17T16:00+09:00"
-        }
-      ],
-      "queued_at": "2026-10-21T10:33:02+09:00",
-      "attempts": 0
-    },
-    "spr:news:spr_article_b7cb15c7539bad1b3946a3e1": {
-      "topic": "spr",
-      "kind": "news",
-      "event_key": "spr_article_b7cb15c7539bad1b3946a3e1",
-      "status": "enrichment_pending",
-      "items": [
-        {
-          "id": "b7cb15c7539bad1b3946a3e1",
-          "title": "Gulf Coast Refineries Pour Cold Water on Trump’s 65-Billion-Barrel Venezuelan Victory Lap - 24/7 Wall St.",
-          "link": "https://news.google.com/rss/articles/CBMizAFBVV95cUxOUGpTNjB4WFZCeEdOaTdTMUVoem1SbFBXT3lnOUJQeENKUmdXLThhZFJiWVNHeVNyV0YxekQ4MzQyRG9RU2lNWkNmYVNOc0hXMUxpVVFjdHVqaHp1TUFlR05aYXhTdmVhbFNKTTJtbzVPU2N2NTFIdUhiclF6UV9JUG1kaHpjN25DRUQwR0l2RWJCYWlvTWprbXN5ZEZ5UWl6UzBudjdna2htc3lLMXp6akE5bzROS0JLV3RzT1hxWi1XUldDVER5NEpqelc?oc=5",
-          "source": "24/7 Wall St.",
-          "source_url": "https://247wallst.com",
-          "pub_kst": "2026-09-01T16:00+09:00"
-        }
-      ],
-      "queued_at": "2026-10-21T10:33:02+09:00",
-      "attempts": 0
-    },
-    "spr:news:spr_article_b4be7eb0d52b90e703472d92": {
-      "topic": "spr",
-      "kind": "news",
-      "event_key": "spr_article_b4be7eb0d52b90e703472d92",
-      "status": "enrichment_pending",
-      "items": [
-        {
-          "id": "b4be7eb0d52b90e703472d92",
-          "title": "Trump says Venezuelan oil will refill US reserves. Is it that simple? - Yahoo Finance",
-          "link": "https://news.google.com/rss/articles/CBMihgFBVV95cUxQZG55SjNUcEtwUE0wekFsMTAxYl9YRms5Y19XNzFKcmQtRG1mbWRsOVgwLXRNdEpwQVZTc1hDNEE4S3VaN181THVaZmF1ZHdwcnR0QU80Mk01TmlaWmk0TlRWSndXdVZnNXp1SjczZWo5VENRYnZhOUgzSVMzbTNnbG5vUEhaQQ?oc=5",
-          "source": "Yahoo Finance",
-          "source_url": "https://finance.yahoo.com",
-          "pub_kst": "2026-08-31T16:00+09:00"
-        }
-      ],
-      "queued_at": "2026-10-21T10:33:02+09:00",
-      "attempts": 0
-    },
-    "spr:news:spr_refill_statement_20260830": {
-      "topic": "spr",
-      "kind": "news",
-      "event_key": "spr_refill_statement_20260830",
-      "status": "enrichment_pending",
-      "items": [
-        {
-          "id": "5b3e6213776f0854aed91afa",
-          "title": "Trump Says Venezuelan Oil Will Refill the U.S.’s Strategic Reserves. Reality Says Don’t Count On It - AOL.com",
-          "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxPb0JaeFpaQ3ppdlBLWGdMN3NrUjh4cGtwWFNHTzY2MTBkUERRMXBnTWtLZXVEdURLMnNFZ2VhNFlacHc5Mzd1UEQwZ2oxb2hYWEd1bElFRzY3T2JCQ1Vsc3ItN3pta2VKbkRuQ2ZobXAtWTFZVmJNUEtleWd2WGtTeC13?oc=5",
-          "source": "AOL.com",
-          "source_url": "https://www.aol.com",
-          "pub_kst": "2026-08-30T16:00+09:00"
-        }
-      ],
-      "queued_at": "2026-10-21T10:33:02+09:00",
-      "attempts": 0
     }
   },
   "receipts": [
@@ -1323,6 +1251,38 @@
       "at": "2026-10-21T08:12:49+09:00",
       "ids": [
         "be6b21943f38b1e652dd200d"
+      ]
+    },
+    {
+      "key": "spr:news:spr_venezuela_oil_agreement_20260831",
+      "reason": "news_outside_three_day_window",
+      "at": "2026-10-21T10:33:05+09:00",
+      "ids": [
+        "e6d7a6d54e86b8963dcb158f"
+      ]
+    },
+    {
+      "key": "spr:news:spr_article_b7cb15c7539bad1b3946a3e1",
+      "reason": "news_outside_three_day_window",
+      "at": "2026-10-21T10:33:05+09:00",
+      "ids": [
+        "b7cb15c7539bad1b3946a3e1"
+      ]
+    },
+    {
+      "key": "spr:news:spr_article_b4be7eb0d52b90e703472d92",
+      "reason": "news_outside_three_day_window",
+      "at": "2026-10-21T10:33:05+09:00",
+      "ids": [
+        "b4be7eb0d52b90e703472d92"
+      ]
+    },
+    {
+      "key": "spr:news:spr_refill_statement_20260830",
+      "reason": "news_outside_three_day_window",
+      "at": "2026-10-21T10:33:05+09:00",
+      "ids": [
+        "5b3e6213776f0854aed91afa"
       ]
     }
   ],
