@@ -247,7 +247,7 @@
       "topic": "refinery",
       "kind": "news",
       "event_key": "refinery_article_fa8ba5be738006b59afe9f9e",
-      "status": "enrichment_pending",
+      "status": "source_blocked",
       "items": [
         {
           "id": "fa8ba5be738006b59afe9f9e",
@@ -255,17 +255,27 @@
           "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNcmE3dl9RY0wxY2piTG14Q0FoWEI4QmxtZUFORzZDYkE3WjRvU2lkVW1aZDNvWjlCWjM4cVc5RHFSLW5OdzdMNm9WcVczbDFoVTRabEw5U29EVEJFYlhtLVdiQ0xUWmV1WFhtNzh6aWxVZDRYWmJ5SzVhaTV6dmQzNGk1Q0xtT1lUZ0Nadzc1RzBQN0RoYVhyRQ?oc=5",
           "source": "Yahoo",
           "source_url": "https://www.yahoo.com",
-          "pub_kst": "2026-10-22T07:35+09:00"
+          "pub_kst": "2026-10-22T07:35+09:00",
+          "_source_blocked": true,
+          "_source_failure": {
+            "stage": "translation_google",
+            "reason": "http_rate_limit",
+            "blocked_before_request": false,
+            "provider": "www.google.com",
+            "request_url_sha256": "5b5bc56b3105f99b64687fad64b082bdfe5839b676c25cf4edfd8cf668802c1d",
+            "http_status": 429
+          }
         }
       ],
       "queued_at": "2026-10-22T08:35:48+09:00",
-      "attempts": 0
+      "attempts": 1,
+      "invalid_items": []
     },
     "refinery:news:refinery_article_d7450ca541cc2c0d02e77e2b": {
       "topic": "refinery",
       "kind": "news",
       "event_key": "refinery_article_d7450ca541cc2c0d02e77e2b",
-      "status": "enrichment_pending",
+      "status": "source_blocked",
       "items": [
         {
           "id": "d7450ca541cc2c0d02e77e2b",
@@ -273,11 +283,21 @@
           "link": "https://news.google.com/rss/articles/CBMi_wFBVV95cUxPNHlUS3RqNExHT0syOGtZNUdOdzlra1Y1bEQzLTZDQU05b2tNOUdYcG96OXQ3cnF5Qi0xcEFzOHVWOXlGWjVaNThYVmVFcVl4LVdkZVN2d1dZSUVubktkdnRveXpkNVdUWE1ZUTFEdnBQa056VFBfZXMtQWNkeE1uSWQwVVBkWGlzSGhkV0JZalZyVUFVYU03UTNRdkptQVVybG9qQ3Z0MFdsS3NFS0xxN2haMnlWS2dSMUY2VThpbjZmZjJHUVY2WW9oaTJaTXhzVTV4TTZndExRcTRLLXNHVUdXdzZJUkFBTWZlUWstOGdmaUtqRVRHb0hYT2JZR2PSAYQCQVVfeXFMT0VhWUVKSi1tTXZENDBCWFhBcFhkS1Blcy1nRHhLZmgyc0dvRHpnd0xOeUJYSnYtejl4aVBSTUJtOFJZS2FjMDZjbGFHdGhnQWtrLWJFekVlNnBGZ2s2VHRmMzIyMHpoN3hvVXVWWWREdGZnc0U2TFJER3ZVbk9oemdRWnhFU0w2d1gyTUY5UE9RMWZqckFUUnhnLVpoTTV5N1gzdlNvQk5VOUZwMWJmM29FZk5pWTlOUGZ5LWZmeXlra0dNVTN6cVMwVVc1bWtqY3h5cTR0Z3pZNGFqTWVWTThUQl9WTnZsejN0Wm5mMjRXSDhiQ1loejVqTGtsdU9LRl9sems?oc=5",
           "source": "Meduza",
           "source_url": "https://meduza.io",
-          "pub_kst": "2026-10-22T00:55+09:00"
+          "pub_kst": "2026-10-22T00:55+09:00",
+          "_source_blocked": true,
+          "_source_failure": {
+            "stage": "translation_google",
+            "reason": "http_rate_limit",
+            "blocked_before_request": false,
+            "provider": "www.google.com",
+            "request_url_sha256": "a24397e5c97af855e085ce291535d3833b13d23163306351be286f0fec4d06c4",
+            "http_status": 429
+          }
         }
       ],
       "queued_at": "2026-10-22T08:35:48+09:00",
-      "attempts": 0
+      "attempts": 1,
+      "invalid_items": []
     },
     "refinery:news:refinery_article_23c7be763a7a6eef1b7c668d": {
       "topic": "refinery",
@@ -295,13 +315,14 @@
         }
       ],
       "queued_at": "2026-10-22T08:35:48+09:00",
-      "attempts": 0
+      "attempts": 1,
+      "invalid_items": []
     },
     "refinery:news:refinery_article_c6256c0270b89f96cf21a58e": {
       "topic": "refinery",
       "kind": "news",
       "event_key": "refinery_article_c6256c0270b89f96cf21a58e",
-      "status": "enrichment_pending",
+      "status": "source_blocked",
       "items": [
         {
           "id": "c6256c0270b89f96cf21a58e",
@@ -309,17 +330,27 @@
           "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxQTEpaYkF4aGtRQ3lnMkx6THFPTmhYc3d2UTlHRmhyYlg4Z1h4dHVWdUNxTndaMlVWajF6R0dURmZjVG1HUDNhdU4zSjF3SERnZjZQaTVPN2REMjdySzRxUkdKV0ptS2x5NWV0d1hTTzJRZ2RBSmw0YXdINUN2ekFOd250N0NnU2Z2N2VfSFVWUkdHZw?oc=5",
           "source": "The Dispatch",
           "source_url": "https://thedispatch.com",
-          "pub_kst": "2026-10-21T05:15+09:00"
+          "pub_kst": "2026-10-21T05:15+09:00",
+          "_source_blocked": true,
+          "_source_failure": {
+            "stage": "translation_google",
+            "reason": "http_rate_limit",
+            "blocked_before_request": false,
+            "provider": "www.google.com",
+            "request_url_sha256": "2a7431b017669db3dbfa99a2f1e5465fc8555bf08d941de08f2436e368a20870",
+            "http_status": 429
+          }
         }
       ],
       "queued_at": "2026-10-22T08:35:48+09:00",
-      "attempts": 0
+      "attempts": 1,
+      "invalid_items": []
     },
     "refinery:news:refinery_article_6817544c3a5eeef8375bef67": {
       "topic": "refinery",
       "kind": "news",
       "event_key": "refinery_article_6817544c3a5eeef8375bef67",
-      "status": "enrichment_pending",
+      "status": "source_blocked",
       "items": [
         {
           "id": "6817544c3a5eeef8375bef67",
@@ -327,11 +358,21 @@
           "link": "https://news.google.com/rss/articles/CBMixwFBVV95cUxQeHdEQjBRWFdxRzNWeUI5TFBJTG1YZFZUenlzaE82NEswY1VVSkJwSUV4bThNR0JRdkRxWm1ScWppbENmdjdtZHFhaEhFRnpqem9mcmE1MlA4SVlmc1lhRjJ6UUFFNG04MFJiLVRKQ3IxSWFKbkZLOHk3a0ZzdV9NZWdabm4zbDM1OTV0MHU0Ri1wYkkxUG4xei0xZlFodzJ4Qk9QekNONHV2czdNckdwTm5WQ0prcTQyTlJyTWV1OUlHNVRFZ29n?oc=5",
           "source": "Seeking Alpha",
           "source_url": "https://seekingalpha.com",
-          "pub_kst": "2026-10-20T22:05+09:00"
+          "pub_kst": "2026-10-20T22:05+09:00",
+          "_source_blocked": true,
+          "_source_failure": {
+            "stage": "article_fetch",
+            "reason": "http_denial",
+            "blocked_before_request": false,
+            "provider": "seekingalpha.com",
+            "request_url_sha256": "587c5ca59e1716a27a2cc0f1301030c416152f2454bcb49ded8f318e9e88df7c",
+            "http_status": 403
+          }
         }
       ],
       "queued_at": "2026-10-22T08:35:48+09:00",
-      "attempts": 0
+      "attempts": 1,
+      "invalid_items": []
     }
   },
   "receipts": [
