@@ -242,6 +242,96 @@
       "queued_at": "2026-10-22T05:34:58+09:00",
       "attempts": 1,
       "invalid_items": []
+    },
+    "refinery:news:refinery_article_fa8ba5be738006b59afe9f9e": {
+      "topic": "refinery",
+      "kind": "news",
+      "event_key": "refinery_article_fa8ba5be738006b59afe9f9e",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "fa8ba5be738006b59afe9f9e",
+          "title": "Experts warn Trump's diesel export ban could cut supply and hit Texas refineries - Yahoo",
+          "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNcmE3dl9RY0wxY2piTG14Q0FoWEI4QmxtZUFORzZDYkE3WjRvU2lkVW1aZDNvWjlCWjM4cVc5RHFSLW5OdzdMNm9WcVczbDFoVTRabEw5U29EVEJFYlhtLVdiQ0xUWmV1WFhtNzh6aWxVZDRYWmJ5SzVhaTV6dmQzNGk1Q0xtT1lUZ0Nadzc1RzBQN0RoYVhyRQ?oc=5",
+          "source": "Yahoo",
+          "source_url": "https://www.yahoo.com",
+          "pub_kst": "2026-10-22T07:35+09:00"
+        }
+      ],
+      "queued_at": "2026-10-22T08:35:48+09:00",
+      "attempts": 0
+    },
+    "refinery:news:refinery_article_d7450ca541cc2c0d02e77e2b": {
+      "topic": "refinery",
+      "kind": "news",
+      "event_key": "refinery_article_d7450ca541cc2c0d02e77e2b",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "d7450ca541cc2c0d02e77e2b",
+          "title": "Trump strikes a deal with Putin to bring down diesel prices. But Russia may not have enough fuel to make it work, analysts tell Reuters. - Meduza",
+          "link": "https://news.google.com/rss/articles/CBMi_wFBVV95cUxPNHlUS3RqNExHT0syOGtZNUdOdzlra1Y1bEQzLTZDQU05b2tNOUdYcG96OXQ3cnF5Qi0xcEFzOHVWOXlGWjVaNThYVmVFcVl4LVdkZVN2d1dZSUVubktkdnRveXpkNVdUWE1ZUTFEdnBQa056VFBfZXMtQWNkeE1uSWQwVVBkWGlzSGhkV0JZalZyVUFVYU03UTNRdkptQVVybG9qQ3Z0MFdsS3NFS0xxN2haMnlWS2dSMUY2VThpbjZmZjJHUVY2WW9oaTJaTXhzVTV4TTZndExRcTRLLXNHVUdXdzZJUkFBTWZlUWstOGdmaUtqRVRHb0hYT2JZR2PSAYQCQVVfeXFMT0VhWUVKSi1tTXZENDBCWFhBcFhkS1Blcy1nRHhLZmgyc0dvRHpnd0xOeUJYSnYtejl4aVBSTUJtOFJZS2FjMDZjbGFHdGhnQWtrLWJFekVlNnBGZ2s2VHRmMzIyMHpoN3hvVXVWWWREdGZnc0U2TFJER3ZVbk9oemdRWnhFU0w2d1gyTUY5UE9RMWZqckFUUnhnLVpoTTV5N1gzdlNvQk5VOUZwMWJmM29FZk5pWTlOUGZ5LWZmeXlra0dNVTN6cVMwVVc1bWtqY3h5cTR0Z3pZNGFqTWVWTThUQl9WTnZsejN0Wm5mMjRXSDhiQ1loejVqTGtsdU9LRl9sems?oc=5",
+          "source": "Meduza",
+          "source_url": "https://meduza.io",
+          "pub_kst": "2026-10-22T00:55+09:00"
+        }
+      ],
+      "queued_at": "2026-10-22T08:35:48+09:00",
+      "attempts": 0
+    },
+    "refinery:news:refinery_article_23c7be763a7a6eef1b7c668d": {
+      "topic": "refinery",
+      "kind": "news",
+      "event_key": "refinery_article_23c7be763a7a6eef1b7c668d",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "23c7be763a7a6eef1b7c668d",
+          "title": "Trump Administration Pushes Refiners to Boost Diesel Output as Prices Soar - Crude Oil Prices Today | OilPrice.com",
+          "link": "https://news.google.com/rss/articles/CBMiygFBVV95cUxPZld6S0Z4bE5GZGxkV1R0aERhamFKWmpqVlpYYjRLc0c0XzU1a0dTUEhlbkpvYlM1Y2xwOHk1UEpBaGJkMnZ4eEJYUXRDV045dkROVVB6X0xaQWxIOEJ4NjRxQzVHMF8xY3hid2h6c3h5V1lGYW5tZGFOMmRJaU9ScGU1QnEzemZQYzd3bzNFZkJPR2tpWXF0RGlnSlNJcGx2TUJkczQzalVRMTliQkVGUy1nOGhNSTdQZ1pPSGNxS3hKQVFVZTBTTVdR0gHPAUFVX3lxTE1aWXhmOFZXTnVkRHRPQ0dmRTFRdm5fUmh3QmFocDJocDRqSi1LVzFfdXZGZVBCUXpWa21kNUJ2ZlkyZXRWV2FJcXFEQXJhczVhY1VKSmRLbmI0ZXNNcEx0clotZDZ1WlF6Smd0Umw4UHZucVEzS0NrYjVSOXlQQ0dfWk9GU3hNc1Q5eHRPTWJmNl9BU2NFeHRNSWJ2Ry0xMGpoZkNRclBYRVdxSXdMaFJlUkxMaDZ4QURkSjBwWG5wdGdrc3JJcnhrSllvTEJtVQ?oc=5",
+          "source": "Crude Oil Prices Today | OilPrice.com",
+          "source_url": "https://oilprice.com",
+          "pub_kst": "2026-10-21T16:00+09:00"
+        }
+      ],
+      "queued_at": "2026-10-22T08:35:48+09:00",
+      "attempts": 0
+    },
+    "refinery:news:refinery_article_c6256c0270b89f96cf21a58e": {
+      "topic": "refinery",
+      "kind": "news",
+      "event_key": "refinery_article_c6256c0270b89f96cf21a58e",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "c6256c0270b89f96cf21a58e",
+          "title": "Donald Trump’s Diesel Desperation - The Dispatch",
+          "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxQTEpaYkF4aGtRQ3lnMkx6THFPTmhYc3d2UTlHRmhyYlg4Z1h4dHVWdUNxTndaMlVWajF6R0dURmZjVG1HUDNhdU4zSjF3SERnZjZQaTVPN2REMjdySzRxUkdKV0ptS2x5NWV0d1hTTzJRZ2RBSmw0YXdINUN2ekFOd250N0NnU2Z2N2VfSFVWUkdHZw?oc=5",
+          "source": "The Dispatch",
+          "source_url": "https://thedispatch.com",
+          "pub_kst": "2026-10-21T05:15+09:00"
+        }
+      ],
+      "queued_at": "2026-10-22T08:35:48+09:00",
+      "attempts": 0
+    },
+    "refinery:news:refinery_article_6817544c3a5eeef8375bef67": {
+      "topic": "refinery",
+      "kind": "news",
+      "event_key": "refinery_article_6817544c3a5eeef8375bef67",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "6817544c3a5eeef8375bef67",
+          "title": "Trump Administration's Last-Ditch Effort To Avoid A Global Diesel And Energy Crisis Failed - Seeking Alpha",
+          "link": "https://news.google.com/rss/articles/CBMixwFBVV95cUxQeHdEQjBRWFdxRzNWeUI5TFBJTG1YZFZUenlzaE82NEswY1VVSkJwSUV4bThNR0JRdkRxWm1ScWppbENmdjdtZHFhaEhFRnpqem9mcmE1MlA4SVlmc1lhRjJ6UUFFNG04MFJiLVRKQ3IxSWFKbkZLOHk3a0ZzdV9NZWdabm4zbDM1OTV0MHU0Ri1wYkkxUG4xei0xZlFodzJ4Qk9QekNONHV2czdNckdwTm5WQ0prcTQyTlJyTWV1OUlHNVRFZ29n?oc=5",
+          "source": "Seeking Alpha",
+          "source_url": "https://seekingalpha.com",
+          "pub_kst": "2026-10-20T22:05+09:00"
+        }
+      ],
+      "queued_at": "2026-10-22T08:35:48+09:00",
+      "attempts": 0
     }
   },
   "receipts": [
