@@ -187,32 +187,6 @@
       "invalid_items": [],
       "held_items": []
     },
-    "spr:data:spr:2026-10-16": {
-      "topic": "spr",
-      "kind": "data",
-      "field": "spr",
-      "current": {
-        "date": "2026-10-16",
-        "value_kbbl": 282683,
-        "prev_kbbl": 282983,
-        "source": "https://www.eia.gov/dnav/pet/PET_STOC_WSTK_A_EPC0_SAS_MBBL_W.htm"
-      },
-      "status": "ready",
-      "message": "<b>[SPR 공식 수치]</b>\n<b>2026-10-16 | 282.683백만 배럴</b>\n\n<b>한눈에 보기</b>\n• 전주 변화: <b>-0.300백만 배럴</b>\n• 저장능력 7억1,400만 배럴 대비: <b>39.6%</b>\n• 완전 충전까지: <b>431.317백만 배럴</b> 부족\n\n<b>판정</b>\n• 아직 보충 효과 미확인\n• 증가분이 나와도 베네수엘라 신규 반입과 기존 교환계약 반환물량을 DOE 자료로 분리 확인\n\n<a href=\"https://www.eia.gov/dnav/pet/PET_STOC_WSTK_A_EPC0_SAS_MBBL_W.htm\">EIA 원문</a>",
-      "queued_at": "2026-10-22T02:06:42+09:00",
-      "attempts": 1,
-      "destination_sha256": "728ec791404aeb88f2a5ccd146b28840c29808c1d672417c35a08bbc69fed5bc",
-      "chunks": [
-        {
-          "text": "<b>[SPR 공식 수치]</b>\n<b>2026-10-16 | 282.683백만 배럴</b>\n\n<b>한눈에 보기</b>\n• 전주 변화: <b>-0.300백만 배럴</b>\n• 저장능력 7억1,400만 배럴 대비: <b>39.6%</b>\n• 완전 충전까지: <b>431.317백만 배럴</b> 부족\n\n<b>판정</b>\n• 아직 보충 효과 미확인\n• 증가분이 나와도 베네수엘라 신규 반입과 기존 교환계약 반환물량을 DOE 자료로 분리 확인\n\n<a href=\"https://www.eia.gov/dnav/pet/PET_STOC_WSTK_A_EPC0_SAS_MBBL_W.htm\">EIA 원문</a>",
-          "message_sha256": "2786e161c11a05a4a826bd2e638dd62ac18126c7b2f57c6421a0b8f51381c03d",
-          "status": "confirmed",
-          "prepared_at": "2026-10-22T02:06:47+09:00",
-          "message_id": 478,
-          "confirmed_at": "2026-10-22T02:06:51+09:00"
-        }
-      ]
-    },
     "spr:news:spr_article_8a51355caf0b90df59b6f6b1": {
       "topic": "spr",
       "kind": "news",
@@ -252,6 +226,17 @@
         {
           "message_id": 469,
           "message_sha256": "780ff5bb51449dc60b316563375e0a6c8f6a71371b761fc3e9a4bcd5029bc718"
+        }
+      ]
+    },
+    {
+      "key": "spr:data:spr:2026-10-16",
+      "at": "2026-10-22T02:06:53+09:00",
+      "destination_sha256": "728ec791404aeb88f2a5ccd146b28840c29808c1d672417c35a08bbc69fed5bc",
+      "chunks": [
+        {
+          "message_id": 478,
+          "message_sha256": "2786e161c11a05a4a826bd2e638dd62ac18126c7b2f57c6421a0b8f51381c03d"
         }
       ]
     }
