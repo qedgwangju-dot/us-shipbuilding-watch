@@ -191,7 +191,7 @@
       "topic": "spr",
       "kind": "news",
       "event_key": "spr_article_13ee2880c785543bf421d89f",
-      "status": "enrichment_pending",
+      "status": "source_blocked",
       "items": [
         {
           "id": "13ee2880c785543bf421d89f",
@@ -199,17 +199,27 @@
           "link": "https://news.google.com/rss/articles/CBMivgFBVV95cUxONlEzeVVJclF5cHdXcF9yY01KMVdpNnlINGRua2NvQ21yZmozVU9pTG5RQTczMHQybDZnVGYyNXNNcHc0ZjBkZEYxMWZMWnZxbzRXQzBJbXJvc2tIeEZwV1Eyd2l4TjBMYXZPU2lSLUF3bDhlY3NyczNxbFVxOGxVVnlXSUpDbkRuTXNMSTlSb0NLUmR2NVlkVE5mZzNQTXZLcFlRdFJQUDc4WEdRUFFXbGJUMWNlVFdXMUF2dndR?oc=5",
           "source": "EnergyNow",
           "source_url": "https://energynow.ca",
-          "pub_kst": "2026-10-22T00:39+09:00"
+          "pub_kst": "2026-10-22T00:39+09:00",
+          "_source_blocked": true,
+          "_source_failure": {
+            "stage": "article_fetch",
+            "reason": "http_denial",
+            "blocked_before_request": false,
+            "provider": "energynow.ca",
+            "request_url_sha256": "4be4313f0133c30a1376bed4e81bdd755013b78efe912ffa79b109e853bbb57c",
+            "http_status": 403
+          }
         }
       ],
       "queued_at": "2026-10-22T05:34:58+09:00",
-      "attempts": 0
+      "attempts": 1,
+      "invalid_items": []
     },
     "spr:news:spr_article_f256747acf78978beebe2551": {
       "topic": "spr",
       "kind": "news",
       "event_key": "spr_article_f256747acf78978beebe2551",
-      "status": "enrichment_pending",
+      "status": "source_blocked",
       "items": [
         {
           "id": "f256747acf78978beebe2551",
@@ -217,47 +227,21 @@
           "link": "https://news.google.com/rss/articles/CBMiekFVX3lxTFA4REI5YllScE1WWl9mN0JhLURTd3p5NDdCU2xyaVA5ZkRlVWhXMVl2eENRYk4xa3hRcXkzTmV2bFJuS2wxUENZdTNZNlhBczdmZjBxRE5udXNON3otaE9NRU5vX1V4Y0Zwb251SE9hcmpFSWt2NXJzNzl3?oc=5",
           "source": "ProPublica",
           "source_url": "https://www.propublica.org",
-          "pub_kst": "2026-10-21T10:53+09:00"
+          "pub_kst": "2026-10-21T10:53+09:00",
+          "_source_blocked": true,
+          "_source_failure": {
+            "stage": "translation_google",
+            "reason": "http_rate_limit",
+            "blocked_before_request": false,
+            "provider": "www.google.com",
+            "request_url_sha256": "bc77c51ad9b14b9b4285f433ffda16c6ffbea9c3d3c18081484100e38aac8472",
+            "http_status": 429
+          }
         }
       ],
       "queued_at": "2026-10-22T05:34:58+09:00",
-      "attempts": 0
-    },
-    "spr:news:spr_article_c9e2208e55cb4a4a6db0b2cc": {
-      "topic": "spr",
-      "kind": "news",
-      "event_key": "spr_article_c9e2208e55cb4a4a6db0b2cc",
-      "status": "enrichment_pending",
-      "items": [
-        {
-          "id": "c9e2208e55cb4a4a6db0b2cc",
-          "title": "Claims And Facts About Venezuela Oil Deal—It Won’t Save The SPR - Forbes",
-          "link": "https://news.google.com/rss/articles/CBMiugFBVV95cUxQeTdlWVBjWXVSQ3FubGFmcDlxVmtrMmhWbXRHWXptanByOUtqTDVFUGpqYWZwUXlzZVZGYngyaXZBUzgyeTI1ZVg4NElpWmd0OEt6ZG01Zjk4LTF1SVFVWWQ4QnE0V0dtMDM0NFQ3a3hFaTJ5UV9icTdjTTFFRUE2TGZuWlNHcE9ROEkxQkN5aWtlQTVjVXQzNlZGUjI1c3R2NDhZRDNxVXZmdnRQMGIyZkprOW9odmpuQnc?oc=5",
-          "source": "Forbes",
-          "source_url": "https://www.forbes.com",
-          "pub_kst": "2026-09-04T16:00+09:00"
-        }
-      ],
-      "queued_at": "2026-10-22T05:34:58+09:00",
-      "attempts": 0
-    },
-    "spr:news:spr_article_5d66e010aa51e57f7d70b13b": {
-      "topic": "spr",
-      "kind": "news",
-      "event_key": "spr_article_5d66e010aa51e57f7d70b13b",
-      "status": "enrichment_pending",
-      "items": [
-        {
-          "id": "5d66e010aa51e57f7d70b13b",
-          "title": "How the US is taking direct control of Venezuelan oil - The Straits Times",
-          "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxOUWJvSmFyWVNPUHNNTnZmNnZVelRrSk5BYVRueFRxY2FBcWl6MEpTZHo0bjNSTDBwMVlsSlRDNkFTNmFPcHl4SnlTOEJRTXp0QVlQejhRdlFUeVdmTk13MTJ0bHhFQlhKSEJ4MnlNYlJ2c0RfbVYxb0tlQXpkMS1xRnptMFNoOEg2aVIycHk0alRSdw?oc=5",
-          "source": "The Straits Times",
-          "source_url": "https://www.straitstimes.com",
-          "pub_kst": "2026-09-04T16:00+09:00"
-        }
-      ],
-      "queued_at": "2026-10-22T05:34:58+09:00",
-      "attempts": 0
+      "attempts": 1,
+      "invalid_items": []
     }
   },
   "receipts": [
@@ -1490,6 +1474,22 @@
       "at": "2026-10-22T02:06:56+09:00",
       "ids": [
         "8a51355caf0b90df59b6f6b1"
+      ]
+    },
+    {
+      "key": "spr:news:spr_article_c9e2208e55cb4a4a6db0b2cc",
+      "reason": "news_outside_three_day_window",
+      "at": "2026-10-22T05:35:07+09:00",
+      "ids": [
+        "c9e2208e55cb4a4a6db0b2cc"
+      ]
+    },
+    {
+      "key": "spr:news:spr_article_5d66e010aa51e57f7d70b13b",
+      "reason": "news_outside_three_day_window",
+      "at": "2026-10-22T05:35:07+09:00",
+      "ids": [
+        "5d66e010aa51e57f7d70b13b"
       ]
     }
   ],
