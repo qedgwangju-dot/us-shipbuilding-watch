@@ -317,7 +317,7 @@
         }
       ],
       "queued_at": "2026-10-22T08:35:48+09:00",
-      "attempts": 3,
+      "attempts": 4,
       "invalid_items": []
     },
     "refinery:news:refinery_article_c6256c0270b89f96cf21a58e": {
@@ -403,24 +403,6 @@
       "queued_at": "2026-10-22T10:48:10+09:00",
       "attempts": 1,
       "invalid_items": []
-    },
-    "refinery:news:refinery_article_bab984b347c870c37b941ca0": {
-      "topic": "refinery",
-      "kind": "news",
-      "event_key": "refinery_article_bab984b347c870c37b941ca0",
-      "status": "enrichment_pending",
-      "items": [
-        {
-          "id": "bab984b347c870c37b941ca0",
-          "title": "President Trump Delivers on a Key Promise to American Farmers as EPA, USDA Announce Agreement on Promoting Biofuels - U.S. Environmental Protection Agency (.gov)",
-          "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPQ0o3b1pORlNHNVpRaWkyM2J6Y0hkTHlJVHdNS1RVdHBpZVNuLTFwdkpVNG56NUJaenlCNTB1UTI3Rmx2YmNHS3RVbmJFc1Rwd3dRb2VVVEJTVVd5M0RCNzB6T1ozWTFCQ1F0eTYzT0FEMUpIUWFzWHhUbVhCUXlSMHJ1NllpellleGVhdlphWUU3RHF6b2Q3aXY0ZXZxbFR4eHJ4eXZxanJrZS1rRjJxMGpKNHU?oc=5",
-          "source": "U.S. Environmental Protection Agency (.gov)",
-          "source_url": "https://www.epa.gov",
-          "pub_kst": "2023-01-30T17:00+09:00"
-        }
-      ],
-      "queued_at": "2026-10-22T21:21:16+09:00",
-      "attempts": 0
     }
   },
   "receipts": [
@@ -1693,6 +1675,14 @@
       "at": "2026-10-22T15:38:11+09:00",
       "ids": [
         "b5368440b7d7f2ee48d65239"
+      ]
+    },
+    {
+      "key": "refinery:news:refinery_article_bab984b347c870c37b941ca0",
+      "reason": "news_outside_three_day_window",
+      "at": "2026-10-22T21:21:20+09:00",
+      "ids": [
+        "bab984b347c870c37b941ca0"
       ]
     }
   ],
