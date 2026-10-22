@@ -546,6 +546,24 @@
       "queued_at": "2026-10-23T05:35:15+09:00",
       "attempts": 1,
       "invalid_items": []
+    },
+    "spr:news:spr_article_fdf5f03c30a9ef6318006563": {
+      "topic": "spr",
+      "kind": "news",
+      "event_key": "spr_article_fdf5f03c30a9ef6318006563",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "fdf5f03c30a9ef6318006563",
+          "title": "Trump’s math on US deal for Venezuelan oil doesn't add up, experts say. The bad data began years ago - AP News",
+          "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxNYW93dzdYRlFUeEhOUHBwWlhObXNER0RNN2NBckh0ZHBTY2VnRTk4XzRPZE4wRG0tOUExY0hHcFpyWkduWWUyR0ZRdjRJaFhWUlFjWGgtZW5UdEhtUTM4M2IweTlna0duR1BlVXcxRDkzNUczUk9kQVNBa0xwM21GNXE5Uzc0NS03QzliN1JJbXdzTk9oUDVvWjZ2RnpnaWU1NWV3?oc=5",
+          "source": "AP News",
+          "source_url": "https://apnews.com",
+          "pub_kst": "2026-10-23T02:13+09:00"
+        }
+      ],
+      "queued_at": "2026-10-23T05:35:29+09:00",
+      "attempts": 0
     }
   },
   "receipts": [
