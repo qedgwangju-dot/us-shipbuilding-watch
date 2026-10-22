@@ -346,7 +346,8 @@
       ],
       "queued_at": "2026-10-22T08:35:48+09:00",
       "attempts": 1,
-      "invalid_items": []
+      "invalid_items": [],
+      "held_items": []
     },
     "refinery:news:refinery_article_6817544c3a5eeef8375bef67": {
       "topic": "refinery",
@@ -374,7 +375,8 @@
       ],
       "queued_at": "2026-10-22T08:35:48+09:00",
       "attempts": 1,
-      "invalid_items": []
+      "invalid_items": [],
+      "held_items": []
     },
     "refinery:news:refinery_article_a747d9b82c45207fa168ee36": {
       "topic": "refinery",
@@ -403,6 +405,42 @@
       "queued_at": "2026-10-22T10:48:10+09:00",
       "attempts": 1,
       "invalid_items": []
+    },
+    "refinery:news:refinery_article_837ceaa06d279564c159da05": {
+      "topic": "refinery",
+      "kind": "news",
+      "event_key": "refinery_article_837ceaa06d279564c159da05",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "837ceaa06d279564c159da05",
+          "title": "Trump is desperate to bring gas prices down. The solution might be in India. - NBC News",
+          "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxOdkNMWXZ2ZXFvWW1SNEFHQXVZWVdISkI4U1lFbnczYlVqZTBsQTh1NkZBQTNUaW9LYnRvUElRaFd1QlIzeUlfMEMtNnZ3bWZRRnNMZGhTeWQzX1V2UDBnUzU0MmVDR1N5ZUZCTGdUWjQzN1lpVjk2REJ0R05FZVJ3bnliM1FzR1BNdTRTaUM0aFJtQVNxeFA0SjFPdS1FaW5Z?oc=5",
+          "source": "NBC News",
+          "source_url": "https://www.nbcnews.com",
+          "pub_kst": "2026-10-22T22:51+09:00"
+        }
+      ],
+      "queued_at": "2026-10-23T02:18:53+09:00",
+      "attempts": 0
+    },
+    "refinery:news:refinery_article_e3ab44da7463f4fe547d99c3": {
+      "topic": "refinery",
+      "kind": "news",
+      "event_key": "refinery_article_e3ab44da7463f4fe547d99c3",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "e3ab44da7463f4fe547d99c3",
+          "title": "Trump Administration Pushes Refiners to Boost Diesel Output as Prices Soar - Yahoo Finance",
+          "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNQ2VINDJzOXQzclFBOWpPaHltRDZabWVtaThaM193T3kybnFoUlprdlJmV1ozX1hjbkxkQnBCeHJxT1VwQWdqZWdBTFpYZzNfMXNCa0FQNThEaEladmJic0RFcXg5Y1BkcHY1OEZtX2luNWFDMWFLNDdxOEUyYVp2NmdHSlN6dFRDZ1h6dkR1ZTlxZ1JtbHhQenBHYjNfS21Q?oc=5",
+          "source": "Yahoo Finance",
+          "source_url": "https://finance.yahoo.com",
+          "pub_kst": "2026-10-21T16:00+09:00"
+        }
+      ],
+      "queued_at": "2026-10-23T02:18:53+09:00",
+      "attempts": 0
     }
   },
   "receipts": [
