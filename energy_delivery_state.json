@@ -575,24 +575,6 @@
       "queued_at": "2026-10-23T05:35:29+09:00",
       "attempts": 1,
       "invalid_items": []
-    },
-    "spr:news:spr_article_5adc189c469dc34599c475a3": {
-      "topic": "spr",
-      "kind": "news",
-      "event_key": "spr_article_5adc189c469dc34599c475a3",
-      "status": "enrichment_pending",
-      "items": [
-        {
-          "id": "5adc189c469dc34599c475a3",
-          "title": "Chevron to Invest $7 Billion to Double Its Venezuelan Output - Bloomberg.com",
-          "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxQNXA3aFFsU2g1eHIwQXE1MkxlY3Q0QVlPSXdybGVsTmZBRUM1TzJaUUdxa0poN2syczY0VnNaRlN5ckVIVmxKU0dCSU1uenRDR0NKODBnVWpXNUJiLUJHOTBEd2hMcThncHhXVDB2aGJHTmFHOU0ybzVrNHNjN3FwN2hXM3J3UlFYVHVhbmRFYzJKQUNQaGs0X2pBNzhweXhldjRYeklCb19NMzBuUDlOMg?oc=5",
-          "source": "Bloomberg.com",
-          "source_url": "https://www.bloomberg.com",
-          "pub_kst": "2026-09-02T16:00+09:00"
-        }
-      ],
-      "queued_at": "2026-10-23T08:34:29+09:00",
-      "attempts": 0
     }
   },
   "receipts": [
@@ -1889,6 +1871,14 @@
       "at": "2026-10-23T08:34:22+09:00",
       "ids": [
         "3735fc388fc87dcb13dea6ff"
+      ]
+    },
+    {
+      "key": "spr:news:spr_article_5adc189c469dc34599c475a3",
+      "reason": "news_outside_three_day_window",
+      "at": "2026-10-23T08:34:31+09:00",
+      "ids": [
+        "5adc189c469dc34599c475a3"
       ]
     }
   ],
