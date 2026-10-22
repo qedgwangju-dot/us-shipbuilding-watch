@@ -461,6 +461,60 @@
       "queued_at": "2026-10-23T02:18:53+09:00",
       "attempts": 1,
       "invalid_items": []
+    },
+    "spr:news:spr_article_af90073003753247b90e0876": {
+      "topic": "spr",
+      "kind": "news",
+      "event_key": "spr_article_af90073003753247b90e0876",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "af90073003753247b90e0876",
+          "title": "Experts cast doubt on Venezuela’s longtime claim of 300 billion barrels of reserve oil - AP News",
+          "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxNYW93dzdYRlFUeEhOUHBwWlhObXNER0RNN2NBckh0ZHBTY2VnRTk4XzRPZE4wRG0tOUExY0hHcFpyWkduWWUyR0ZRdjRJaFhWUlFjWGgtZW5UdEhtUTM4M2IweTlna0duR1BlVXcxRDkzNUczUk9kQVNBa0xwM21GNXE5Uzc0NS03QzliN1JJbXdzTk9oUDVvWjZ2RnpnaWU1NWV3?oc=5",
+          "source": "AP News",
+          "source_url": "https://apnews.com",
+          "pub_kst": "2026-10-22T23:26+09:00"
+        }
+      ],
+      "queued_at": "2026-10-23T02:19:15+09:00",
+      "attempts": 0
+    },
+    "spr:news:spr_article_3988b6da2a9b97e76b90c7cb": {
+      "topic": "spr",
+      "kind": "news",
+      "event_key": "spr_article_3988b6da2a9b97e76b90c7cb",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "3988b6da2a9b97e76b90c7cb",
+          "title": "The secret terms of Trump’s Venezuelan oil deal - Raw Story",
+          "link": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE1BUEVZemVxcTBXWVU4N1l1SFE4QWRENFJvNVYza2pfNlFMWHM5RUlXbnBNdFJwa3BqQXBwdGJhLUtFbUk3blV2VTZfRmZXcVpsc0FyRGlmNnV4X2c3T1Y5S2Jn0gF0QVVfeXFMUFI0ZzdBVFVyTjJRMm1IUkozejRPUDQ1WldyUGJRNE92OE1ETEZYT19vVW5iVEczdHJ4Wi1jT1NKTmJkQ29GcGc1c3g5WmIzNm5tNkY5LVRWMFJxbElLUnJPQkxwem5zU1ktMzZGZmdNM24zQTQ?oc=5",
+          "source": "Raw Story",
+          "source_url": "https://www.rawstory.com",
+          "pub_kst": "2026-10-21T23:20+09:00"
+        }
+      ],
+      "queued_at": "2026-10-23T02:19:15+09:00",
+      "attempts": 0
+    },
+    "spr:news:spr_venezuela_oil_agreement_20260831": {
+      "topic": "spr",
+      "kind": "news",
+      "event_key": "spr_venezuela_oil_agreement_20260831",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "4ec900e9fcc25689ff2eedb6",
+          "title": "Trump Takes Majority Control of 65 Billion Barrels of Venezuelan Oil Reserves: 222 outlets compared - NewsCord",
+          "link": "https://news.google.com/rss/articles/CBMi6gFBVV95cUxNTXBnYkNQcGlUc0RlMnNtTkpMaURXeGhBOUlxelVqanZMYzZ5YWhvaHNPVURMZDFtWDVUNGowMUgzallRZWJCRWlualhRWnpKQWlDM2JjRGJjbFo1MDBRcmlmRWhOYXlKNkJwMXNzUEV5d2ktN09RbEx4cnM0MFZheU43Q09KRDdjZzlJYUJNM3J0akEyMzdsSWo4a2h6LW1SeWNtUVpqTEpoR25yLWxiWDNySnhuTXI5U295eGgzcmtEMTJIMGFHdTl3OG5waDZyMDJwcjVXM3Y1Um1WenB1Si1HMUtlUEhSbXc?oc=5",
+          "source": "NewsCord",
+          "source_url": "https://newscord.org",
+          "pub_kst": "2026-08-29T16:00+09:00"
+        }
+      ],
+      "queued_at": "2026-10-23T02:19:15+09:00",
+      "attempts": 0
     }
   },
   "receipts": [
