@@ -316,7 +316,7 @@
         }
       ],
       "queued_at": "2026-10-22T08:35:48+09:00",
-      "attempts": 1,
+      "attempts": 2,
       "invalid_items": []
     },
     "refinery:news:refinery_article_c6256c0270b89f96cf21a58e": {
@@ -379,7 +379,7 @@
       "topic": "refinery",
       "kind": "news",
       "event_key": "refinery_article_a747d9b82c45207fa168ee36",
-      "status": "enrichment_pending",
+      "status": "source_blocked",
       "items": [
         {
           "id": "a747d9b82c45207fa168ee36",
@@ -387,11 +387,21 @@
           "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxPa2NNV0NZVXhLTEtvYXBfTXNubGhFWkZjOUdDNU1mbG9LTkZxWFdSNVQwU2dDY1FieGpZTFRCOFBIZVRDRS1XR3k0WWRvTE9rQWpBNHdpZGR3U0J2eURqRTJFWTlwcFhvUmw2NjRlR3hXRnJ1Y3F2VW52SUNHRnpMMEZNQ3AtMjFRVFNRWWtn?oc=5",
           "source": "The Cool Down",
           "source_url": "https://www.thecooldown.com",
-          "pub_kst": "2026-10-22T07:35+09:00"
+          "pub_kst": "2026-10-22T07:35+09:00",
+          "_source_blocked": true,
+          "_source_failure": {
+            "stage": "translation_google",
+            "reason": "http_rate_limit",
+            "blocked_before_request": false,
+            "provider": "www.google.com",
+            "request_url_sha256": "652e7519e7e9e9744ca69d7bacc84b77fe20fdea495ca0b391c6573f203dfd5f",
+            "http_status": 429
+          }
         }
       ],
       "queued_at": "2026-10-22T10:48:10+09:00",
-      "attempts": 0
+      "attempts": 1,
+      "invalid_items": []
     }
   },
   "receipts": [
