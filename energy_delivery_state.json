@@ -545,7 +545,8 @@
       ],
       "queued_at": "2026-10-23T05:35:15+09:00",
       "attempts": 1,
-      "invalid_items": []
+      "invalid_items": [],
+      "held_items": []
     },
     "spr:news:spr_article_fdf5f03c30a9ef6318006563": {
       "topic": "spr",
@@ -574,6 +575,24 @@
       "queued_at": "2026-10-23T05:35:29+09:00",
       "attempts": 1,
       "invalid_items": []
+    },
+    "refinery:news:refinery_article_3735fc388fc87dcb13dea6ff": {
+      "topic": "refinery",
+      "kind": "news",
+      "event_key": "refinery_article_3735fc388fc87dcb13dea6ff",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "3735fc388fc87dcb13dea6ff",
+          "title": "Trump can't cure gasoline headache before crucial deadline: experts - Raw Story",
+          "link": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE1paEVZcUdMTmpuN3BORXdrbkJkMTU3ZmhmS2NMVEgxdHZvYzhlN3VmZVo3c0VZME1oenM4Yml6MUR5NlNsZ1NNU01WRnV1enBLNW1iODVKX1ZHVk14RDUycjB6Z9IBdkFVX3lxTE5TSWcxaFo4UmJzbDZWdGl6emtKQ1VnVW4tb0ZPYmNxVGROZWVxdDMxa05URFJOSjNNS25IT05CYi1nS3dLWW05OXBMQmhTQU45VTZTVFNQR0NnQXZZaXk0MW9RQkNBZnI3eXdBRnhqb3N6cGxFSEE?oc=5",
+          "source": "Raw Story",
+          "source_url": "https://www.rawstory.com",
+          "pub_kst": "2026-09-04T16:00+09:00"
+        }
+      ],
+      "queued_at": "2026-10-23T08:34:17+09:00",
+      "attempts": 0
     }
   },
   "receipts": [
