@@ -374,6 +374,24 @@
       "queued_at": "2026-10-22T08:35:48+09:00",
       "attempts": 1,
       "invalid_items": []
+    },
+    "refinery:news:refinery_article_a747d9b82c45207fa168ee36": {
+      "topic": "refinery",
+      "kind": "news",
+      "event_key": "refinery_article_a747d9b82c45207fa168ee36",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "a747d9b82c45207fa168ee36",
+          "title": "Experts warn Trump's diesel export ban could cut supply and hit Texas refineries - The Cool Down",
+          "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxPa2NNV0NZVXhLTEtvYXBfTXNubGhFWkZjOUdDNU1mbG9LTkZxWFdSNVQwU2dDY1FieGpZTFRCOFBIZVRDRS1XR3k0WWRvTE9rQWpBNHdpZGR3U0J2eURqRTJFWTlwcFhvUmw2NjRlR3hXRnJ1Y3F2VW52SUNHRnpMMEZNQ3AtMjFRVFNRWWtn?oc=5",
+          "source": "The Cool Down",
+          "source_url": "https://www.thecooldown.com",
+          "pub_kst": "2026-10-22T07:35+09:00"
+        }
+      ],
+      "queued_at": "2026-10-22T10:48:10+09:00",
+      "attempts": 0
     }
   },
   "receipts": [
