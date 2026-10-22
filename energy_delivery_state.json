@@ -1881,10 +1881,10 @@
   },
   "last_result": {
     "ok": false,
-    "errors": 5,
-    "pending": 19,
+    "errors": 3,
+    "pending": 21,
     "refinery_sent": 0,
     "spr_sent": 0,
-    "at": "2026-10-23T02:19:26+09:00"
+    "at": "2026-10-23T05:35:35+09:00"
   }
 }
