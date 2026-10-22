@@ -460,7 +460,8 @@
       ],
       "queued_at": "2026-10-23T02:18:53+09:00",
       "attempts": 1,
-      "invalid_items": []
+      "invalid_items": [],
+      "held_items": []
     },
     "spr:news:spr_article_af90073003753247b90e0876": {
       "topic": "spr",
@@ -517,6 +518,24 @@
       "queued_at": "2026-10-23T02:19:15+09:00",
       "attempts": 1,
       "invalid_items": []
+    },
+    "refinery:news:refinery_article_b7b42d0ca367bd9773e14d69": {
+      "topic": "refinery",
+      "kind": "news",
+      "event_key": "refinery_article_b7b42d0ca367bd9773e14d69",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "b7b42d0ca367bd9773e14d69",
+          "title": "US refiners have run harder in 2026 as tight diesel supplies boost margins, EIA says - Reuters",
+          "link": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxPTXRDSVZqUlhiVXJHdV80OVNPVERRZDlMRWJXOTl4eEw3MWZ3ZVBFX2E3TGdhd2xWSWxkTkpVZkhRa3NlT0Jaa3JyTHNTMU9BaWxkeFV4SVVkZU1FV3Fockk4RWNKRW9fb3NZMHkzWVh5QndCRzVSUW54a09DM09vWEpMQVdTR2NQV0hmenlaZmxpdWJyN1Vuak15azFfU1gxb3RCQlFRb1BrTVZZTEFjMjlaZUJINkNmWW4yNm5YcWc3UTdnU0d6Nw?oc=5",
+          "source": "Reuters",
+          "source_url": "https://www.reuters.com",
+          "pub_kst": "2026-10-23T00:59+09:00"
+        }
+      ],
+      "queued_at": "2026-10-23T05:35:15+09:00",
+      "attempts": 0
     }
   },
   "receipts": [
