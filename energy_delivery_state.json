@@ -317,7 +317,7 @@
         }
       ],
       "queued_at": "2026-10-22T08:35:48+09:00",
-      "attempts": 5,
+      "attempts": 6,
       "invalid_items": []
     },
     "refinery:news:refinery_article_c6256c0270b89f96cf21a58e": {
@@ -523,7 +523,7 @@
       "topic": "refinery",
       "kind": "news",
       "event_key": "refinery_article_b7b42d0ca367bd9773e14d69",
-      "status": "enrichment_pending",
+      "status": "source_blocked",
       "items": [
         {
           "id": "b7b42d0ca367bd9773e14d69",
@@ -531,11 +531,21 @@
           "link": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxPTXRDSVZqUlhiVXJHdV80OVNPVERRZDlMRWJXOTl4eEw3MWZ3ZVBFX2E3TGdhd2xWSWxkTkpVZkhRa3NlT0Jaa3JyTHNTMU9BaWxkeFV4SVVkZU1FV3Fockk4RWNKRW9fb3NZMHkzWVh5QndCRzVSUW54a09DM09vWEpMQVdTR2NQV0hmenlaZmxpdWJyN1Vuak15azFfU1gxb3RCQlFRb1BrTVZZTEFjMjlaZUJINkNmWW4yNm5YcWc3UTdnU0d6Nw?oc=5",
           "source": "Reuters",
           "source_url": "https://www.reuters.com",
-          "pub_kst": "2026-10-23T00:59+09:00"
+          "pub_kst": "2026-10-23T00:59+09:00",
+          "_source_blocked": true,
+          "_source_failure": {
+            "stage": "article_fetch",
+            "reason": "http_denial",
+            "blocked_before_request": false,
+            "provider": "www.reuters.com",
+            "request_url_sha256": "1e9c26992c88ae33b8629c8de6a223b9bac8a28ad16648e5b75d3a844990891c",
+            "http_status": 401
+          }
         }
       ],
       "queued_at": "2026-10-23T05:35:15+09:00",
-      "attempts": 0
+      "attempts": 1,
+      "invalid_items": []
     }
   },
   "receipts": [
