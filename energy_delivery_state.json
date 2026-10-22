@@ -402,6 +402,42 @@
       "queued_at": "2026-10-22T10:48:10+09:00",
       "attempts": 1,
       "invalid_items": []
+    },
+    "refinery:news:refinery_gasoline_policy_202609": {
+      "topic": "refinery",
+      "kind": "news",
+      "event_key": "refinery_gasoline_policy_202609",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "bf9462fc9d00eba24ae37249",
+          "title": "Trump blames rising gasoline prices on Ukrainian strikes against Russian refineries - energynews.pro",
+          "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxQMEtYWFoxMDZEbmtBRGlPWnRlWW1hZ05jZkJuSUstM2FOdzY0ZFV5WXRuVW5oaUtKYlliTTljdkFKTXhwLWpEUGpXYnNTbkhjZ3I0OUE4WGhyQ3J6SGRUeUpHWXQ5cEViTEtqcmVrSXg1dzhMSnNxVURvNXlFSnZiUDhnaWtoZXRkTm1DT0ljZkpWVnMwQ0Z6VU96QVpNQVhyanpleF9YcHNNYUk1UEE?oc=5",
+          "source": "energynews.pro",
+          "source_url": "https://energynews.pro",
+          "pub_kst": "2026-10-06T16:00+09:00"
+        }
+      ],
+      "queued_at": "2026-10-22T15:37:58+09:00",
+      "attempts": 0
+    },
+    "refinery:news:refinery_article_46bb1c951b0139025c2a5bb2": {
+      "topic": "refinery",
+      "kind": "news",
+      "event_key": "refinery_article_46bb1c951b0139025c2a5bb2",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "46bb1c951b0139025c2a5bb2",
+          "title": "Trump to Discuss High Fuel Prices With Oil Refiners Next Week - Bloomberg.com",
+          "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxNQ0k1Y3IzZlNTVkx3RmlQbWItZGFhaW9xSWJWN052Qkp2bFQ4ck96MFNFenBmX1pMTC1pZDhIOFFEcDA5RTVxOEhpMExfdmhyX0tTalJFLURHSzZHS2tOaGpqeVJqTlJMZkw1MjlFM0hkZER3d2xyQXk4QzR2RlBZRHZQSFNkcFhaSlBGOVA5a1BhVTRFWUZWSEplWFlNZXZNX1Q3aUJYanB4WG9DSlRfOTlR?oc=5",
+          "source": "Bloomberg.com",
+          "source_url": "https://www.bloomberg.com",
+          "pub_kst": "2026-08-28T16:00+09:00"
+        }
+      ],
+      "queued_at": "2026-10-22T15:37:58+09:00",
+      "attempts": 0
     }
   },
   "receipts": [
