@@ -317,7 +317,7 @@
         }
       ],
       "queued_at": "2026-10-22T08:35:48+09:00",
-      "attempts": 8,
+      "attempts": 9,
       "invalid_items": []
     },
     "refinery:news:refinery_article_c6256c0270b89f96cf21a58e": {
@@ -576,24 +576,6 @@
       "attempts": 1,
       "invalid_items": [],
       "held_items": []
-    },
-    "refinery:news:refinery_article_07852c9767aab15d78156fdb": {
-      "topic": "refinery",
-      "kind": "news",
-      "event_key": "refinery_article_07852c9767aab15d78156fdb",
-      "status": "enrichment_pending",
-      "items": [
-        {
-          "id": "07852c9767aab15d78156fdb",
-          "title": "White House Weighs Defense Production Act as U.S. Refineries Maxed Out - Crude Oil Prices Today | OilPrice.com",
-          "link": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxPRGdGOTVFTk9zdWdLVWYtWWgtd0d4Q2tld0c5LXY3cnI0YVBpZVpKUXExN1ZNcThFdFVtVXZjeWwxRVExVUxDNVlTWjBTZlcxeHhSaW9nbXRyT1d2Rl90dXRpbUp2ZVFsbjlJQ29USVlFTHA0UlE0a1Jja0ZqUmx2TWt5S1BTVlRWV1JPM05oNkplU01XQmozbVpRWGNTZVZLYk5DN3lOcFN2QkdGbW5aUzV0b1ZtSXZNRDFZX0tHMjZwUdIBxwFBVV95cUxPbnFURGwzVTdJdDlVSUl1R2hBZDdCZ3Vmd1ZTeV9oYmNEYUZXN1NxM2JsSkVUQjBXZXlkYUQ3bTVUTVl1dVd1RW1vUlU2ajdUWTkwWFpVcnlGRkpPRFFDVWhmRjdQb0pZZlpiNFkyendYMFRHN01RTDZvQjdGQV8wME5HWm9WUWJjbERVY2NrNm41VXFEQmlUNE9KemRhNHJLTTZFYnlkNjQweFdsOVowS2oyY0dJOUdocnJkaHNZTV9lUnBOOXlF?oc=5",
-          "source": "Crude Oil Prices Today | OilPrice.com",
-          "source_url": "https://oilprice.com",
-          "pub_kst": "2026-09-11T16:00+09:00"
-        }
-      ],
-      "queued_at": "2026-10-23T15:35:58+09:00",
-      "attempts": 0
     }
   },
   "receipts": [
@@ -1898,6 +1880,14 @@
       "at": "2026-10-23T08:34:31+09:00",
       "ids": [
         "5adc189c469dc34599c475a3"
+      ]
+    },
+    {
+      "key": "refinery:news:refinery_article_07852c9767aab15d78156fdb",
+      "reason": "news_outside_three_day_window",
+      "at": "2026-10-23T15:36:00+09:00",
+      "ids": [
+        "07852c9767aab15d78156fdb"
       ]
     }
   ],
