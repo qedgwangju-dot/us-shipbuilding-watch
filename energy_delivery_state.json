@@ -719,6 +719,24 @@
       "queued_at": "2026-10-24T01:46:12+09:00",
       "attempts": 1,
       "invalid_items": []
+    },
+    "spr:news:spr_venezuela_oil_agreement_20260831": {
+      "topic": "spr",
+      "kind": "news",
+      "event_key": "spr_venezuela_oil_agreement_20260831",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "a97f749f16a6c5bf964adb42",
+          "title": "US, Venezuela reach deal covering 65 billion bbl of oil reserves - Oil & Gas Journal",
+          "link": "https://news.google.com/rss/articles/CBMizAFBVV95cUxNeWVHdDJTNGthWndzWUdoYmUzOG02R2UwX2dTNFV0UjZIaTFFaUc5NXZBRjI0OVA3SXFVdXVkMjBSZk8yc05VbElHdEdDYTZIMXkweWlKY0dGdjdmNWw1VEo1Ynp2eHZxdnNUQVFjaVhwemZHNXRjd0hsdnJ4OVhvMWd1WUllYncyTHZ3cTlBWjdIYkhqNW5kcHpOSmhwbV9iWDE2bllJWW5Ya19yc2JwRDZDTUJfVVUtMGgyaFpsTXNYZUtMNGRySDlaTFg?oc=5",
+          "source": "Oil & Gas Journal",
+          "source_url": "https://www.ogj.com",
+          "pub_kst": "2026-08-31T16:00+09:00"
+        }
+      ],
+      "queued_at": "2026-10-24T05:07:20+09:00",
+      "attempts": 0
     }
   },
   "receipts": [
