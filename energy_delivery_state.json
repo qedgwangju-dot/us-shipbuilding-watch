@@ -317,8 +317,7 @@
         }
       ],
       "queued_at": "2026-10-22T08:35:48+09:00",
-      "attempts": 9,
-      "invalid_items": []
+      "attempts": 9
     },
     "refinery:news:refinery_article_c6256c0270b89f96cf21a58e": {
       "topic": "refinery",
@@ -576,6 +575,24 @@
       "attempts": 1,
       "invalid_items": [],
       "held_items": []
+    },
+    "refinery:news:refinery_article_55db5196343f10f44da0efc4": {
+      "topic": "refinery",
+      "kind": "news",
+      "event_key": "refinery_article_55db5196343f10f44da0efc4",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "55db5196343f10f44da0efc4",
+          "title": "Trump invokes Cold War-era act to bolster U.S. gasoline production - UPI.com",
+          "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNQXJsQ2lRTV9MSGNuMWR2Mkg0amRENWpva1FaTENYVVRabjRmaktNb0Q5RnNXeXVmV3FEZDY3SHdFZlJVY09SNWk3R0ZMYy0wbTB4REc0S0xZbWJCMS1Da3BnUm4wLVRMRURLRmNHRVZZVEtERzRYeTYxOHQxUjhMVXQ3VEFZNVMwa2dLcXdncEJiVmpZZVFjeA?oc=5",
+          "source": "UPI.com",
+          "source_url": "https://www.upi.com",
+          "pub_kst": "2026-10-23T14:50+09:00"
+        }
+      ],
+      "queued_at": "2026-10-23T21:02:04+09:00",
+      "attempts": 0
     }
   },
   "receipts": [
