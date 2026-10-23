@@ -660,7 +660,8 @@
       ],
       "queued_at": "2026-10-24T01:46:12+09:00",
       "attempts": 1,
-      "invalid_items": []
+      "invalid_items": [],
+      "held_items": []
     },
     "refinery:news:refinery_article_074fd0d310216c472455d385": {
       "topic": "refinery",
@@ -688,7 +689,8 @@
       ],
       "queued_at": "2026-10-24T01:46:12+09:00",
       "attempts": 1,
-      "invalid_items": []
+      "invalid_items": [],
+      "held_items": []
     },
     "refinery:news:refinery_article_f5af5c87754b40e618015255": {
       "topic": "refinery",
