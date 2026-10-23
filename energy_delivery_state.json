@@ -609,7 +609,7 @@
       "topic": "spr",
       "kind": "news",
       "event_key": "spr_article_c3ac4c053b38e49e1ccec446",
-      "status": "enrichment_pending",
+      "status": "source_blocked",
       "items": [
         {
           "id": "c3ac4c053b38e49e1ccec446",
@@ -617,11 +617,21 @@
           "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxObFNoZG1RcGdLV21ZeGxES3ZpRUx6S0ZkU3ZIXzkxdGpyYUM5dWJCV1FuSXRyd3NiZS1WM1prN0VIVHZka0FaTWlHSFRoY05uN0ZDSWlzTlBBRXFvRFM2NXc1LWFfQzJrVGlWZnRUdHM5WGlvUEdvWlRabHNSTDFwQWFzSzh3akdORlp4Q2VhbkhtQQ?oc=5",
           "source": "Salon.com",
           "source_url": "https://www.salon.com",
-          "pub_kst": "2026-10-23T19:00+09:00"
+          "pub_kst": "2026-10-23T19:00+09:00",
+          "_source_blocked": true,
+          "_source_failure": {
+            "stage": "translation_google",
+            "reason": "http_rate_limit",
+            "blocked_before_request": false,
+            "provider": "www.google.com",
+            "request_url_sha256": "4991d622d2ae16efb93438ec2f1a06d86ca6abf2e411d66d617e4d8cecfbf86b",
+            "http_status": 429
+          }
         }
       ],
       "queued_at": "2026-10-23T21:02:15+09:00",
-      "attempts": 0
+      "attempts": 1,
+      "invalid_items": []
     }
   },
   "receipts": [
