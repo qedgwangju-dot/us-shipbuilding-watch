@@ -328,9 +328,9 @@
     "c99a2657478daa3c4a8a896e",
     "a8e7de25f5234e183c67fd9e"
   ],
-  "last_run_kst": "2026-10-24T01:46:19+09:00",
+  "last_run_kst": "2026-10-24T05:07:14+09:00",
   "last_source_error_count": 0,
-  "last_translation_error_count": 4,
+  "last_translation_error_count": 1,
   "events": {
     "rfs_sre_2025_decision": {
       "priority": 5,
