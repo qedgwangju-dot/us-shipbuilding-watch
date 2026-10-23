@@ -604,6 +604,24 @@
       "queued_at": "2026-10-23T21:02:04+09:00",
       "attempts": 1,
       "invalid_items": []
+    },
+    "spr:news:spr_article_c3ac4c053b38e49e1ccec446": {
+      "topic": "spr",
+      "kind": "news",
+      "event_key": "spr_article_c3ac4c053b38e49e1ccec446",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "c3ac4c053b38e49e1ccec446",
+          "title": "The secret terms of Trump’s Venezuelan oil deal - Salon.com",
+          "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxObFNoZG1RcGdLV21ZeGxES3ZpRUx6S0ZkU3ZIXzkxdGpyYUM5dWJCV1FuSXRyd3NiZS1WM1prN0VIVHZka0FaTWlHSFRoY05uN0ZDSWlzTlBBRXFvRFM2NXc1LWFfQzJrVGlWZnRUdHM5WGlvUEdvWlRabHNSTDFwQWFzSzh3akdORlp4Q2VhbkhtQQ?oc=5",
+          "source": "Salon.com",
+          "source_url": "https://www.salon.com",
+          "pub_kst": "2026-10-23T19:00+09:00"
+        }
+      ],
+      "queued_at": "2026-10-23T21:02:15+09:00",
+      "attempts": 0
     }
   },
   "receipts": [
