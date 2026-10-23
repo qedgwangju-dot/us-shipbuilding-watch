@@ -317,7 +317,8 @@
         }
       ],
       "queued_at": "2026-10-22T08:35:48+09:00",
-      "attempts": 9
+      "attempts": 10,
+      "invalid_items": []
     },
     "refinery:news:refinery_article_c6256c0270b89f96cf21a58e": {
       "topic": "refinery",
@@ -580,7 +581,7 @@
       "topic": "refinery",
       "kind": "news",
       "event_key": "refinery_article_55db5196343f10f44da0efc4",
-      "status": "enrichment_pending",
+      "status": "source_blocked",
       "items": [
         {
           "id": "55db5196343f10f44da0efc4",
@@ -588,11 +589,21 @@
           "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNQXJsQ2lRTV9MSGNuMWR2Mkg0amRENWpva1FaTENYVVRabjRmaktNb0Q5RnNXeXVmV3FEZDY3SHdFZlJVY09SNWk3R0ZMYy0wbTB4REc0S0xZbWJCMS1Da3BnUm4wLVRMRURLRmNHRVZZVEtERzRYeTYxOHQxUjhMVXQ3VEFZNVMwa2dLcXdncEJiVmpZZVFjeA?oc=5",
           "source": "UPI.com",
           "source_url": "https://www.upi.com",
-          "pub_kst": "2026-10-23T14:50+09:00"
+          "pub_kst": "2026-10-23T14:50+09:00",
+          "_source_blocked": true,
+          "_source_failure": {
+            "stage": "translation_google",
+            "reason": "http_rate_limit",
+            "blocked_before_request": false,
+            "provider": "www.google.com",
+            "request_url_sha256": "025a2e8f7acce06a76edc45c1f5097f7bd9b1e9c13ffbcc11d905e55964a3ceb",
+            "http_status": 429
+          }
         }
       ],
       "queued_at": "2026-10-23T21:02:04+09:00",
-      "attempts": 0
+      "attempts": 1,
+      "invalid_items": []
     }
   },
   "receipts": [
