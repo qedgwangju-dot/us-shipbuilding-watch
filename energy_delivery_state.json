@@ -317,7 +317,7 @@
         }
       ],
       "queued_at": "2026-10-22T08:35:48+09:00",
-      "attempts": 10,
+      "attempts": 11,
       "invalid_items": []
     },
     "refinery:news:refinery_article_c6256c0270b89f96cf21a58e": {
@@ -638,7 +638,7 @@
       "topic": "refinery",
       "kind": "news",
       "event_key": "refinery_article_9daea8fdf4f8540c86463c61",
-      "status": "enrichment_pending",
+      "status": "source_blocked",
       "items": [
         {
           "id": "9daea8fdf4f8540c86463c61",
@@ -646,17 +646,27 @@
           "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxNTndpdURnSUR0d0V0cDNpajY0aWJBLVFoNU5sVkdzNHRnVlZiT0lsbm81RzhMU2dvb1V6NkxGcEtFN1ZoTTZUQVZSdnA4U2ZwNDM1eVREck1rNkxkeGpMZ09ITzhOYmoxMmFxZXQ5LW1FUHJqUFplalNNSXJ1WW0xcHJR?oc=5",
           "source": "CBS News",
           "source_url": "https://www.cbsnews.com",
-          "pub_kst": "2026-10-24T00:24+09:00"
+          "pub_kst": "2026-10-24T00:24+09:00",
+          "_source_blocked": true,
+          "_source_failure": {
+            "stage": "translation_google",
+            "reason": "http_rate_limit",
+            "blocked_before_request": false,
+            "provider": "www.google.com",
+            "request_url_sha256": "bfbc61928bc6593988b6647b2fae13777abd3a6a243bc4e4868a63d68b18856b",
+            "http_status": 429
+          }
         }
       ],
       "queued_at": "2026-10-24T01:46:12+09:00",
-      "attempts": 0
+      "attempts": 1,
+      "invalid_items": []
     },
     "refinery:news:refinery_article_074fd0d310216c472455d385": {
       "topic": "refinery",
       "kind": "news",
       "event_key": "refinery_article_074fd0d310216c472455d385",
-      "status": "enrichment_pending",
+      "status": "source_blocked",
       "items": [
         {
           "id": "074fd0d310216c472455d385",
@@ -664,17 +674,27 @@
           "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNQXJsQ2lRTV9MSGNuMWR2Mkg0amRENWpva1FaTENYVVRabjRmaktNb0Q5RnNXeXVmV3FEZDY3SHdFZlJVY09SNWk3R0ZMYy0wbTB4REc0S0xZbWJCMS1Da3BnUm4wLVRMRURLRmNHRVZZVEtERzRYeTYxOHQxUjhMVXQ3VEFZNVMwa2dLcXdncEJiVmpZZVFjeNIBngFBVV95cUxOandvZXRQYUw1aUd3cTB0WXd6aUZ0WEt1ZEF0enFFemJNdlRwNzA5bHZ0cFkyUlBjaVlOdUhoV0dfWTJ4WWp1d0FvaUZMaTlWWm91c2RGOU0ySGFrQXZUb2VPbllVdE1mQWlZS3l1Qi1ZbmZUM0lOSGJZU1BuZHFLa0Z2SEgyRjZZcWxCQWFpZVVLODZUanNxVTc2NHNBdw?oc=5",
           "source": "upi",
           "source_url": "https://www.upi.com",
-          "pub_kst": "2026-10-23T14:50+09:00"
+          "pub_kst": "2026-10-23T14:50+09:00",
+          "_source_blocked": true,
+          "_source_failure": {
+            "stage": "translation_google",
+            "reason": "http_rate_limit",
+            "blocked_before_request": false,
+            "provider": "www.google.com",
+            "request_url_sha256": "e01118f712c779ab6a16e3d392019d15ef5b85766fca4bd0b05a57d5075122a7",
+            "http_status": 429
+          }
         }
       ],
       "queued_at": "2026-10-24T01:46:12+09:00",
-      "attempts": 0
+      "attempts": 1,
+      "invalid_items": []
     },
     "refinery:news:refinery_article_f5af5c87754b40e618015255": {
       "topic": "refinery",
       "kind": "news",
       "event_key": "refinery_article_f5af5c87754b40e618015255",
-      "status": "enrichment_pending",
+      "status": "source_blocked",
       "items": [
         {
           "id": "f5af5c87754b40e618015255",
@@ -682,29 +702,21 @@
           "link": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxOdm9ka0hnal9OOUFnN19HQmRZd0ljY2tJOVNoN2tIWURrMHExZ0p0NWN0UEpTMmFORG1TTU1CeXZkb3RhenhtelltYVY2SmRyZEctMnRIcUNEQlFXODdsZGxBMXhpem81NjJwRjRCbVl1N2tyWVkxeXU0T2k3ZEttNk5lbzZCVzRrUEtwT3JPTlJiUUVmSjU4b25EaXNIQ3dyS3c3NlJUSkFBdWZSMDFZVmZ1dmhncGFIYjNQU0tOd1I5dFk?oc=5",
           "source": "Reuters",
           "source_url": "https://www.reuters.com",
-          "pub_kst": "2026-10-23T06:14+09:00"
+          "pub_kst": "2026-10-23T06:14+09:00",
+          "_source_blocked": true,
+          "_source_failure": {
+            "stage": "article_fetch",
+            "reason": "http_denial",
+            "blocked_before_request": false,
+            "provider": "www.reuters.com",
+            "request_url_sha256": "6d3c6d4f7fa25ae690950d2783c28a0c819377a1a7fbb4149a1aac8c0771f069",
+            "http_status": 401
+          }
         }
       ],
       "queued_at": "2026-10-24T01:46:12+09:00",
-      "attempts": 0
-    },
-    "refinery:news:refinery_article_30a2d6f3b9e7ad2387cac14b": {
-      "topic": "refinery",
-      "kind": "news",
-      "event_key": "refinery_article_30a2d6f3b9e7ad2387cac14b",
-      "status": "enrichment_pending",
-      "items": [
-        {
-          "id": "30a2d6f3b9e7ad2387cac14b",
-          "title": "Why Trump’s effort to build more refineries won’t lower gas prices - Yahoo Finance",
-          "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxQbF9MSDU3UUtYc0lkVlhVbnVXdWNFdFdkMDZkZ1VmN2JWdF9udWZjaGJVUVoxOUpsaThvXzF2QTNFTFJYZkN3Ry0wMnFxU3h6TG9rOFNNMEdIWlp0ZXJNakJzajI5WVZzNFBZM2txZzFzVkczQk5MMlVxblVhX2R0eXdEamZyVnB3ZmJaYQ?oc=5",
-          "source": "Yahoo Finance",
-          "source_url": "https://finance.yahoo.com",
-          "pub_kst": "2026-09-13T16:00+09:00"
-        }
-      ],
-      "queued_at": "2026-10-24T01:46:12+09:00",
-      "attempts": 0
+      "attempts": 1,
+      "invalid_items": []
     }
   },
   "receipts": [
@@ -2025,6 +2037,14 @@
       "at": "2026-10-23T15:36:07+09:00",
       "ids": [
         "858cbdf240439dba5ba60de2"
+      ]
+    },
+    {
+      "key": "refinery:news:refinery_article_30a2d6f3b9e7ad2387cac14b",
+      "reason": "news_outside_three_day_window",
+      "at": "2026-10-24T01:46:19+09:00",
+      "ids": [
+        "30a2d6f3b9e7ad2387cac14b"
       ]
     }
   ],
