@@ -2110,10 +2110,10 @@
   },
   "last_result": {
     "ok": false,
-    "errors": 1,
-    "pending": 27,
+    "errors": 0,
+    "pending": 26,
     "refinery_sent": 0,
     "spr_sent": 0,
-    "at": "2026-10-24T15:17:29+09:00"
+    "at": "2026-10-24T20:09:07+09:00"
   }
 }
