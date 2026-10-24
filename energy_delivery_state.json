@@ -731,24 +731,6 @@
       "attempts": 1,
       "invalid_items": [],
       "held_items": []
-    },
-    "spr:news:spr_article_e5ebd45e36f29a29785283b0": {
-      "topic": "spr",
-      "kind": "news",
-      "event_key": "spr_article_e5ebd45e36f29a29785283b0",
-      "status": "enrichment_pending",
-      "items": [
-        {
-          "id": "e5ebd45e36f29a29785283b0",
-          "title": "Venezuelan Oil Will Be Used to Refill US Reserve, Trump Says - Bloomberg",
-          "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxNQjRqWjFIOWhGRGNlbjRTUWM1WWx4dm9nT08yMkZCUElISFU2a20ybF84R2s2ZUxGZllRa1AtYWVhU0pJRmluTUJWU2pFZGktMjFONmNwbDI2aHEyNkRqcnQyQzZLT0dnWEt4MUJZSTM4QTR3LU1pemJWUWZXUDFwNkY1YXd3MnBHOWktTkh4M0N3NFVOTVUwSXl0MWlhUlhPVTBXWUpydWkwcXU5VXFJ?oc=5",
-          "source": "Bloomberg",
-          "source_url": "https://www.bloomberg.com",
-          "pub_kst": "2026-08-31T16:00+09:00"
-        }
-      ],
-      "queued_at": "2026-10-24T23:27:54+09:00",
-      "attempts": 0
     }
   },
   "receipts": [
@@ -2109,6 +2091,14 @@
       "at": "2026-10-24T20:08:58+09:00",
       "ids": [
         "5b0374d10f09209020fb0b8a"
+      ]
+    },
+    {
+      "key": "spr:news:spr_article_e5ebd45e36f29a29785283b0",
+      "reason": "news_outside_three_day_window",
+      "at": "2026-10-24T23:27:55+09:00",
+      "ids": [
+        "e5ebd45e36f29a29785283b0"
       ]
     }
   ],
