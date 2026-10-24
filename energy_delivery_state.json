@@ -317,7 +317,7 @@
         }
       ],
       "queued_at": "2026-10-22T08:35:48+09:00",
-      "attempts": 14,
+      "attempts": 15,
       "invalid_items": []
     },
     "refinery:news:refinery_article_c6256c0270b89f96cf21a58e": {
@@ -750,24 +750,6 @@
       "attempts": 1,
       "invalid_items": [],
       "held_items": []
-    },
-    "refinery:news:refinery_article_859e0d5b2bd9e9ff81483ed3": {
-      "topic": "refinery",
-      "kind": "news",
-      "event_key": "refinery_article_859e0d5b2bd9e9ff81483ed3",
-      "status": "enrichment_pending",
-      "items": [
-        {
-          "id": "859e0d5b2bd9e9ff81483ed3",
-          "title": "U.S. business, energy, manufacturing groups urge President Trump to reject fuel export restrictions - American Fuel & Petrochemical Manufacturers",
-          "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxOMTRaRXcwaUFwLWt6Q2lOM1ZGR1hITldsR0xGMVVmZWhoMTdiOGVsVENzRUl2dmd6QlNhRThHUkFOc0ViVExyMGdUSk50OVFDOFNCSWZOQ2tCTVlUdTRzYV9idTJwY3NQZFNtclMyZW1FS0tlRGhpNHJSN2lLT09RUUtZTzVqelhNWU5reldyZTVKSkNtMC16dlNla09wOEZsTjBfTFliUzVLbUlKVVdB?oc=5",
-          "source": "American Fuel & Petrochemical Manufacturers",
-          "source_url": "https://afpm.org",
-          "pub_kst": "2026-09-23T16:00+09:00"
-        }
-      ],
-      "queued_at": "2026-10-24T15:17:19+09:00",
-      "attempts": 0
     }
   },
   "receipts": [
@@ -2104,6 +2086,14 @@
       "at": "2026-10-24T05:07:22+09:00",
       "ids": [
         "a97f749f16a6c5bf964adb42"
+      ]
+    },
+    {
+      "key": "refinery:news:refinery_article_859e0d5b2bd9e9ff81483ed3",
+      "reason": "news_outside_three_day_window",
+      "at": "2026-10-24T15:17:22+09:00",
+      "ids": [
+        "859e0d5b2bd9e9ff81483ed3"
       ]
     }
   ],
