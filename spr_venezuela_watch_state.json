@@ -1,6 +1,7 @@
 {
   "initialized": true,
   "seen_news": [
+    "fddb7da8b931fa926b357a44",
     "c4b86eea9c6a6d5246ea50ea",
     "5a5d68aa11dbd57e717cb814",
     "e5ebd45e36f29a29785283b0",
@@ -436,7 +437,7 @@
     "prev_kbd": 455,
     "source": "https://www.eia.gov/dnav/pet/hist/LeafHandler.ashx?f=W&n=PET&s=W_EPC0_IM0_NUS-NVE_MBBLD"
   },
-  "last_run_kst": "2026-10-25T06:51:57+09:00",
+  "last_run_kst": "2026-10-25T08:48:48+09:00",
   "events": {
     "spr_venezuela_oil_agreement_20260831": {
       "priority": 5,
