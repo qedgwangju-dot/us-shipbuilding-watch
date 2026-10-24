@@ -317,7 +317,7 @@
         }
       ],
       "queued_at": "2026-10-22T08:35:48+09:00",
-      "attempts": 13,
+      "attempts": 14,
       "invalid_items": []
     },
     "refinery:news:refinery_article_c6256c0270b89f96cf21a58e": {
@@ -725,7 +725,7 @@
       "topic": "refinery",
       "kind": "news",
       "event_key": "refinery_article_60bc4c67eb16dba4f551ac25",
-      "status": "enrichment_pending",
+      "status": "source_blocked",
       "items": [
         {
           "id": "60bc4c67eb16dba4f551ac25",
@@ -733,11 +733,21 @@
           "link": "https://news.google.com/rss/articles/CBMiugFBVV95cUxQWGNZUnoxWGtHOGFKamFLSDFXc2xVVExwZ2dkM1lfcDhqUWkxN3hQNDJESFhXUnlqX3pialN2ZTN4Q3RNTW5lTGo4bTRLV3BkR09yeG43NlpyUEhRQzJhMk5OZG4zOVNteFpULTZ5cTNzYVlvQk9NTDZLZVZJUVJiOXphRWhwZGlfUldiLXpqbjhDUmxkaTVTRzJSRG1GUWVPNnMyVFNUdjRBS08xS0J5VFczRUNVZzk5OGc?oc=5",
           "source": "The Daily Caller",
           "source_url": "https://dailycaller.com",
-          "pub_kst": "2026-10-24T06:12+09:00"
+          "pub_kst": "2026-10-24T06:12+09:00",
+          "_source_blocked": true,
+          "_source_failure": {
+            "stage": "translation_google",
+            "reason": "http_rate_limit",
+            "blocked_before_request": false,
+            "provider": "www.google.com",
+            "request_url_sha256": "9ff06b08a67e84580cdbe6f2eba064037fa22834be3f12e4aac0bc41f86f1702",
+            "http_status": 429
+          }
         }
       ],
       "queued_at": "2026-10-24T10:31:28+09:00",
-      "attempts": 0
+      "attempts": 1,
+      "invalid_items": []
     }
   },
   "receipts": [
