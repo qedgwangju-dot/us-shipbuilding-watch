@@ -750,6 +750,24 @@
       "attempts": 1,
       "invalid_items": [],
       "held_items": []
+    },
+    "refinery:news:refinery_article_5b0374d10f09209020fb0b8a": {
+      "topic": "refinery",
+      "kind": "news",
+      "event_key": "refinery_article_5b0374d10f09209020fb0b8a",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "5b0374d10f09209020fb0b8a",
+          "title": "'History Is Unambiguous': Ag Groups Pressure Trump to Stand Strong Against Sweeping RFS Waivers - DTN Progressive Farmer",
+          "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxPYzhTdjhvb1hxWS1ZUXR2UHdZcDZKUHIyblpMcWhMU1NVUHBwcWxOMFNmOEFIZnZaYmhQdVZpR0k5WkhqdGVla0s3YWRGemN4LU51cHczT3NndWhVLXMyU0dDUzRkcVN0eFI4d3RCaGFiREJ4ZXN4TWt2SjdOZ2RuLTRxTW9xTUF6b3Fmd3BtUG9CMW5zODRHb2hiN0pqMVg2TFE?oc=5",
+          "source": "DTN Progressive Farmer",
+          "source_url": "https://www.dtnpf.com",
+          "pub_kst": "2026-08-27T16:00+09:00"
+        }
+      ],
+      "queued_at": "2026-10-24T20:08:56+09:00",
+      "attempts": 0
     }
   },
   "receipts": [
