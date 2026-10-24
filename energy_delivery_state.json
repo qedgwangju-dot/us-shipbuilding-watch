@@ -731,6 +731,24 @@
       "attempts": 1,
       "invalid_items": [],
       "held_items": []
+    },
+    "spr:news:spr_article_c4b86eea9c6a6d5246ea50ea": {
+      "topic": "spr",
+      "kind": "news",
+      "event_key": "spr_article_c4b86eea9c6a6d5246ea50ea",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "c4b86eea9c6a6d5246ea50ea",
+          "title": "US Lets Some Oil Companies Produce Oil, Gas in Venezuela - Bloomberg.com",
+          "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxNTERucWFVMVFHbnV3TzFadGRpVGwtMFp2WW9iOWFNc1JiQjR0QjIzVlZzNUdFSGtjaFZyV0tiVG1iTHRUX1V2WW9WNXlqd1BfMG1kc1U1TFBKOUowNE1lQ1p4VEZEcHR1NWQ4ZGdhS2tXeG5SSy0wUWZHLU1SUjdOX2VBNnRtbVFtSTZpU1R4SVZmT0FyNnB5a1ViTHA1MG1VX0toUWx3R2FpWUZEa1V4dA?oc=5",
+          "source": "Bloomberg.com",
+          "source_url": "https://www.bloomberg.com",
+          "pub_kst": "2026-02-13T17:00+09:00"
+        }
+      ],
+      "queued_at": "2026-10-25T06:51:56+09:00",
+      "attempts": 0
     }
   },
   "receipts": [
