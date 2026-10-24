@@ -435,7 +435,7 @@
     "prev_kbd": 455,
     "source": "https://www.eia.gov/dnav/pet/hist/LeafHandler.ashx?f=W&n=PET&s=W_EPC0_IM0_NUS-NVE_MBBLD"
   },
-  "last_run_kst": "2026-10-25T02:31:29+09:00",
+  "last_run_kst": "2026-10-25T04:42:33+09:00",
   "events": {
     "spr_venezuela_oil_agreement_20260831": {
       "priority": 5,
@@ -993,7 +993,7 @@
       "title": "The U.S. Strategic Petroleum Reserve is running low. Can Venezuelan oil help? - NPR"
     }
   },
-  "last_source_error_count": 0,
+  "last_source_error_count": 8,
   "last_data_error_count": 0,
   "last_translation_error_count": 0
 }
