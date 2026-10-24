@@ -301,25 +301,6 @@
       "attempts": 1,
       "invalid_items": []
     },
-    "refinery:news:refinery_article_23c7be763a7a6eef1b7c668d": {
-      "topic": "refinery",
-      "kind": "news",
-      "event_key": "refinery_article_23c7be763a7a6eef1b7c668d",
-      "status": "enrichment_pending",
-      "items": [
-        {
-          "id": "23c7be763a7a6eef1b7c668d",
-          "title": "Trump Administration Pushes Refiners to Boost Diesel Output as Prices Soar - Crude Oil Prices Today | OilPrice.com",
-          "link": "https://news.google.com/rss/articles/CBMiygFBVV95cUxPZld6S0Z4bE5GZGxkV1R0aERhamFKWmpqVlpYYjRLc0c0XzU1a0dTUEhlbkpvYlM1Y2xwOHk1UEpBaGJkMnZ4eEJYUXRDV045dkROVVB6X0xaQWxIOEJ4NjRxQzVHMF8xY3hid2h6c3h5V1lGYW5tZGFOMmRJaU9ScGU1QnEzemZQYzd3bzNFZkJPR2tpWXF0RGlnSlNJcGx2TUJkczQzalVRMTliQkVGUy1nOGhNSTdQZ1pPSGNxS3hKQVFVZTBTTVdR0gHPAUFVX3lxTE1aWXhmOFZXTnVkRHRPQ0dmRTFRdm5fUmh3QmFocDJocDRqSi1LVzFfdXZGZVBCUXpWa21kNUJ2ZlkyZXRWV2FJcXFEQXJhczVhY1VKSmRLbmI0ZXNNcEx0clotZDZ1WlF6Smd0Umw4UHZucVEzS0NrYjVSOXlQQ0dfWk9GU3hNc1Q5eHRPTWJmNl9BU2NFeHRNSWJ2Ry0xMGpoZkNRclBYRVdxSXdMaFJlUkxMaDZ4QURkSjBwWG5wdGdrc3JJcnhrSllvTEJtVQ?oc=5",
-          "source": "Crude Oil Prices Today | OilPrice.com",
-          "source_url": "https://oilprice.com",
-          "pub_kst": "2026-10-21T16:00+09:00"
-        }
-      ],
-      "queued_at": "2026-10-22T08:35:48+09:00",
-      "attempts": 15,
-      "invalid_items": []
-    },
     "refinery:news:refinery_article_c6256c0270b89f96cf21a58e": {
       "topic": "refinery",
       "kind": "news",
@@ -750,24 +731,6 @@
       "attempts": 1,
       "invalid_items": [],
       "held_items": []
-    },
-    "refinery:news:refinery_article_5b0374d10f09209020fb0b8a": {
-      "topic": "refinery",
-      "kind": "news",
-      "event_key": "refinery_article_5b0374d10f09209020fb0b8a",
-      "status": "enrichment_pending",
-      "items": [
-        {
-          "id": "5b0374d10f09209020fb0b8a",
-          "title": "'History Is Unambiguous': Ag Groups Pressure Trump to Stand Strong Against Sweeping RFS Waivers - DTN Progressive Farmer",
-          "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxPYzhTdjhvb1hxWS1ZUXR2UHdZcDZKUHIyblpMcWhMU1NVUHBwcWxOMFNmOEFIZnZaYmhQdVZpR0k5WkhqdGVla0s3YWRGemN4LU51cHczT3NndWhVLXMyU0dDUzRkcVN0eFI4d3RCaGFiREJ4ZXN4TWt2SjdOZ2RuLTRxTW9xTUF6b3Fmd3BtUG9CMW5zODRHb2hiN0pqMVg2TFE?oc=5",
-          "source": "DTN Progressive Farmer",
-          "source_url": "https://www.dtnpf.com",
-          "pub_kst": "2026-08-27T16:00+09:00"
-        }
-      ],
-      "queued_at": "2026-10-24T20:08:56+09:00",
-      "attempts": 0
     }
   },
   "receipts": [
@@ -2112,6 +2075,22 @@
       "at": "2026-10-24T15:17:22+09:00",
       "ids": [
         "859e0d5b2bd9e9ff81483ed3"
+      ]
+    },
+    {
+      "key": "refinery:news:refinery_article_23c7be763a7a6eef1b7c668d",
+      "reason": "news_outside_three_day_window",
+      "at": "2026-10-24T20:08:58+09:00",
+      "ids": [
+        "23c7be763a7a6eef1b7c668d"
+      ]
+    },
+    {
+      "key": "refinery:news:refinery_article_5b0374d10f09209020fb0b8a",
+      "reason": "news_outside_three_day_window",
+      "at": "2026-10-24T20:08:58+09:00",
+      "ids": [
+        "5b0374d10f09209020fb0b8a"
       ]
     }
   ],
