@@ -720,6 +720,24 @@
       "queued_at": "2026-10-24T01:46:12+09:00",
       "attempts": 1,
       "invalid_items": []
+    },
+    "refinery:news:refinery_article_60bc4c67eb16dba4f551ac25": {
+      "topic": "refinery",
+      "kind": "news",
+      "event_key": "refinery_article_60bc4c67eb16dba4f551ac25",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "60bc4c67eb16dba4f551ac25",
+          "title": "Trump Puts Federal Cash Behind Getting More American Refineries Running As Diesel Tops $6 - The Daily Caller",
+          "link": "https://news.google.com/rss/articles/CBMiugFBVV95cUxQWGNZUnoxWGtHOGFKamFLSDFXc2xVVExwZ2dkM1lfcDhqUWkxN3hQNDJESFhXUnlqX3pialN2ZTN4Q3RNTW5lTGo4bTRLV3BkR09yeG43NlpyUEhRQzJhMk5OZG4zOVNteFpULTZ5cTNzYVlvQk9NTDZLZVZJUVJiOXphRWhwZGlfUldiLXpqbjhDUmxkaTVTRzJSRG1GUWVPNnMyVFNUdjRBS08xS0J5VFczRUNVZzk5OGc?oc=5",
+          "source": "The Daily Caller",
+          "source_url": "https://dailycaller.com",
+          "pub_kst": "2026-10-24T06:12+09:00"
+        }
+      ],
+      "queued_at": "2026-10-24T10:31:28+09:00",
+      "attempts": 0
     }
   },
   "receipts": [
