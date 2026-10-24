@@ -731,24 +731,6 @@
       "attempts": 1,
       "invalid_items": [],
       "held_items": []
-    },
-    "spr:news:spr_article_5a5d68aa11dbd57e717cb814": {
-      "topic": "spr",
-      "kind": "news",
-      "event_key": "spr_article_5a5d68aa11dbd57e717cb814",
-      "status": "enrichment_pending",
-      "items": [
-        {
-          "id": "5a5d68aa11dbd57e717cb814",
-          "title": "Chevron, Eni Lead Wave of Deals to Lift Venezuela Oil Output - Bloomberg",
-          "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxQekVva0xUNHdQWmNoRmF0UFU3WTZEc2RoaENFT09TN2JQcmVLLXFLVUt0akVaQ0lXMnJMeEh6Vm9JV0tfNExjN3NLU3J6MGpIZGpLMUg5VUkybjVzWkltT1dveXJFUmVhb2xiOHVsUDBTRjJIVER6ZXlPV2lRWnZfREtiX2tjTUdHWk9nY2NybTE0clZEeVVuMW8tUURqSlpYQ2RoTW1iV3JFRm1EZjl3YQ?oc=5",
-          "source": "Bloomberg",
-          "source_url": "https://www.bloomberg.com",
-          "pub_kst": "2026-09-02T16:00+09:00"
-        }
-      ],
-      "queued_at": "2026-10-25T02:31:27+09:00",
-      "attempts": 0
     }
   },
   "receipts": [
@@ -2117,6 +2099,14 @@
       "at": "2026-10-24T23:27:55+09:00",
       "ids": [
         "e5ebd45e36f29a29785283b0"
+      ]
+    },
+    {
+      "key": "spr:news:spr_article_5a5d68aa11dbd57e717cb814",
+      "reason": "news_outside_three_day_window",
+      "at": "2026-10-25T02:31:29+09:00",
+      "ids": [
+        "5a5d68aa11dbd57e717cb814"
       ]
     }
   ],
