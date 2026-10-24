@@ -731,6 +731,24 @@
       "attempts": 1,
       "invalid_items": [],
       "held_items": []
+    },
+    "spr:news:spr_article_fddb7da8b931fa926b357a44": {
+      "topic": "spr",
+      "kind": "news",
+      "event_key": "spr_article_fddb7da8b931fa926b357a44",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "fddb7da8b931fa926b357a44",
+          "title": "The Mystery of Venezuela's Oil: Why the World's Largest Reserves Are Barely Being Pumped - Investopedia",
+          "link": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxPbWtQSmNvYm44YlRPZjN2b3VwLVZ4ZVBEbWhyVm1Wb0phdnJncV9pWVlNUDluWnE1TFBWcHJiSFgtQXIwdHpMN3VsVXpsY1BsbnpNb2lFMFZ6M3pmVzdkVnNSV0pRMWI3ZkllX3AzbU9wRVJ4czZlYUxLZDdUc0E0WWxEb1BzMzU3bUZlWkhHcEhMcjRtZHNrTmszdVdaSGlZT1NadHBCcllXNWVXbzRsN3N2RGwyWDBXc3ZUYjVpU056czA?oc=5",
+          "source": "Investopedia",
+          "source_url": "https://www.investopedia.com",
+          "pub_kst": "2026-02-22T17:00+09:00"
+        }
+      ],
+      "queued_at": "2026-10-25T08:48:45+09:00",
+      "attempts": 0
     }
   },
   "receipts": [
