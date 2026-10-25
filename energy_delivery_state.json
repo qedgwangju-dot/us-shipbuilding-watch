@@ -731,6 +731,24 @@
       "attempts": 1,
       "invalid_items": [],
       "held_items": []
+    },
+    "spr:news:spr_article_32ac2f31b09a566231bacff3": {
+      "topic": "spr",
+      "kind": "news",
+      "event_key": "spr_article_32ac2f31b09a566231bacff3",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "32ac2f31b09a566231bacff3",
+          "title": "Chevron to invest over $7B in Venezuela, double oil production - Anadolu Ajansı",
+          "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxPNHZ2ZndrWDVJVWpaQ2lDZFdxV0poaUp4U0hrSGFVV3R2aWJKbF8yeDBaZmNnSHJPV3BXTEZ6QkFaWEZIUE5VVEo0d29zMkpWUTc0ZUlSanhXMVVUeHlOU21YazZTYVdvS3FKVk84Vnpfdzc5MENxMXMzdHhvMFBPQVBIZDZhR2tNSExDYjhzODRHMzFiYUY0ZmNhRTdSUQ?oc=5",
+          "source": "Anadolu Ajansı",
+          "source_url": "https://aa.com.tr",
+          "pub_kst": "2026-09-02T16:00+09:00"
+        }
+      ],
+      "queued_at": "2026-10-25T21:05:57+09:00",
+      "attempts": 0
     }
   },
   "receipts": [
