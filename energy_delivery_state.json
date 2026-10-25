@@ -732,6 +732,42 @@
       "attempts": 1,
       "invalid_items": [],
       "held_items": []
+    },
+    "spr:news:spr_article_fde60d88d30f35e5cd9eda3b": {
+      "topic": "spr",
+      "kind": "news",
+      "event_key": "spr_article_fde60d88d30f35e5cd9eda3b",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "fde60d88d30f35e5cd9eda3b",
+          "title": "Western Media Accept Trump’s Plundering of Venezuelan Oil as Business as Usual - Venezuelanalysis",
+          "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPQTZCUTNSZ1NObmtfZTVyekQ1UVNDLXdselpfZGQ0Qnd1UTdEYjd2SDdzdktNTW5hRHo4QzRxbFd2Q3VZYk1kZXRxZGFxN2RYdXk5WERybkE3Q2VYTEJSVlE1U3VNWU5Xb2UyNDZOckRmSXlvaGtUWHh4TEthZng4WVJUdmRtWlctSTV2QllsWGNoQklpVzdadzk1WUZaLTAyVmljSm9Xalc3Q0xiQVVRRXlvU0FDUQ?oc=5",
+          "source": "Venezuelanalysis",
+          "source_url": "https://venezuelanalysis.com",
+          "pub_kst": "2026-10-25T05:50+09:00"
+        }
+      ],
+      "queued_at": "2026-10-26T06:21:13+09:00",
+      "attempts": 0
+    },
+    "spr:news:spr_article_fd2cbdd3cd098a7144a9f971": {
+      "topic": "spr",
+      "kind": "news",
+      "event_key": "spr_article_fd2cbdd3cd098a7144a9f971",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "fd2cbdd3cd098a7144a9f971",
+          "title": "Experts cast doubt on Venezuela’s longtime claim of 300 billion barrels of reserve oil - WRAL",
+          "link": "https://news.google.com/rss/articles/CBMizgFBVV95cUxQYnBnblhzYjF6alFSTjAyQzdtVHpUbXpTdXhjVVlfZUF0aGNfZ0FrM1p2ajM3c1MwODZETTVWS0RjcnhpQVo0dHMwVXA1amN6ck0ybmMzZjRzTVBPNXZ3QnY4c1prWFhvOFFEU0JJYmJuM0dvdDdsTlVpSHkxdGt4d09tWTlEMjQ3Z0RDM0YtMWxYRzJ2ajZBRmIybmxlOUpzU3lsX0VUTHc2OGlwd2NhQTdWS3BjM0lwRXM4U1VSR0JWaFV3WlZhRDFwaGg2Zw?oc=5",
+          "source": "WRAL",
+          "source_url": "https://www.wral.com",
+          "pub_kst": "2026-10-22T20:26+09:00"
+        }
+      ],
+      "queued_at": "2026-10-26T06:21:13+09:00",
+      "attempts": 0
     }
   },
   "receipts": [
