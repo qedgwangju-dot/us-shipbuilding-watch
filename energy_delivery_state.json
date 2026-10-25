@@ -731,6 +731,24 @@
       "attempts": 1,
       "invalid_items": [],
       "held_items": []
+    },
+    "refinery:news:refinery_article_81873029389f1bc306d736ed": {
+      "topic": "refinery",
+      "kind": "news",
+      "event_key": "refinery_article_81873029389f1bc306d736ed",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "81873029389f1bc306d736ed",
+          "title": "White House Abruptly Reverses Course on Diesel Export Ban, Shifts Focus to Red Diesel and Tax Relief - BigGo Finance",
+          "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTE5Nazhtal9zR2NIa19jQXlwSEZEWUsxbGJ3VTBqbGZ6eEN2Q1ZveEVzaVgzV0ExNU1yaWlSVWhjaHRBM1Q5WW8zdjktanVlbVlzUU52VGJYbnpBZGRjMVc5UHFwUGZiNm9EOUJEa0RqWV9fNHVER3c?oc=5",
+          "source": "BigGo Finance",
+          "source_url": "https://finance.biggo.com",
+          "pub_kst": "2026-09-26T16:00+09:00"
+        }
+      ],
+      "queued_at": "2026-10-25T10:42:56+09:00",
+      "attempts": 0
     }
   },
   "receipts": [
