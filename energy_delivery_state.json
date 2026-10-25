@@ -385,7 +385,8 @@
       ],
       "queued_at": "2026-10-22T10:48:10+09:00",
       "attempts": 1,
-      "invalid_items": []
+      "invalid_items": [],
+      "held_items": []
     },
     "refinery:news:refinery_article_837ceaa06d279564c159da05": {
       "topic": "refinery",
