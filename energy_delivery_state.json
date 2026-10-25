@@ -749,25 +749,8 @@
         }
       ],
       "queued_at": "2026-10-26T06:21:13+09:00",
-      "attempts": 0
-    },
-    "spr:news:spr_article_fd2cbdd3cd098a7144a9f971": {
-      "topic": "spr",
-      "kind": "news",
-      "event_key": "spr_article_fd2cbdd3cd098a7144a9f971",
-      "status": "enrichment_pending",
-      "items": [
-        {
-          "id": "fd2cbdd3cd098a7144a9f971",
-          "title": "Experts cast doubt on Venezuela’s longtime claim of 300 billion barrels of reserve oil - WRAL",
-          "link": "https://news.google.com/rss/articles/CBMizgFBVV95cUxQYnBnblhzYjF6alFSTjAyQzdtVHpUbXpTdXhjVVlfZUF0aGNfZ0FrM1p2ajM3c1MwODZETTVWS0RjcnhpQVo0dHMwVXA1amN6ck0ybmMzZjRzTVBPNXZ3QnY4c1prWFhvOFFEU0JJYmJuM0dvdDdsTlVpSHkxdGt4d09tWTlEMjQ3Z0RDM0YtMWxYRzJ2ajZBRmIybmxlOUpzU3lsX0VUTHc2OGlwd2NhQTdWS3BjM0lwRXM4U1VSR0JWaFV3WlZhRDFwaGg2Zw?oc=5",
-          "source": "WRAL",
-          "source_url": "https://www.wral.com",
-          "pub_kst": "2026-10-22T20:26+09:00"
-        }
-      ],
-      "queued_at": "2026-10-26T06:21:13+09:00",
-      "attempts": 0
+      "attempts": 1,
+      "invalid_items": []
     }
   },
   "receipts": [
@@ -2200,6 +2183,14 @@
       "at": "2026-10-25T21:05:58+09:00",
       "ids": [
         "32ac2f31b09a566231bacff3"
+      ]
+    },
+    {
+      "key": "spr:news:spr_article_fd2cbdd3cd098a7144a9f971",
+      "reason": "news_outside_three_day_window",
+      "at": "2026-10-26T06:21:35+09:00",
+      "ids": [
+        "fd2cbdd3cd098a7144a9f971"
       ]
     }
   ],
