@@ -439,7 +439,7 @@
     "prev_kbd": 455,
     "source": "https://www.eia.gov/dnav/pet/hist/LeafHandler.ashx?f=W&n=PET&s=W_EPC0_IM0_NUS-NVE_MBBLD"
   },
-  "last_run_kst": "2026-10-25T21:05:58+09:00",
+  "last_run_kst": "2026-10-26T01:05:34+09:00",
   "events": {
     "spr_venezuela_oil_agreement_20260831": {
       "priority": 5,
