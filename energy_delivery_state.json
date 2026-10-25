@@ -731,6 +731,24 @@
       "attempts": 1,
       "invalid_items": [],
       "held_items": []
+    },
+    "refinery:news:refinery_article_94c1eb99acf6b0d4971b78dc": {
+      "topic": "refinery",
+      "kind": "news",
+      "event_key": "refinery_article_94c1eb99acf6b0d4971b78dc",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "94c1eb99acf6b0d4971b78dc",
+          "title": "EPA letter to Chevron U.S.A., Inc. approving petition for pathway for the generation of D-code 6 RINs for renewable fuels - U.S. Environmental Protection Agency (.gov)",
+          "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxPd1k4R0l3Ml9SdWdSVHlwZmROM2w5cmZDdlJXOE04TkpiUUNzNTlkbVZRd1hqY3ZsRTE4czItaW5PZkZyY0c5aXR0QVFGMURlWmw5eVNsdGFVMV9BeW10dTNTd1Q4amtsNGd1NlhIUHFzQVhuMFkxZDJfVTBhcTlCaXZlaV80N0psR1YxU2M2Vi1yMjJ2R0xxZVFRTFRpNXAwajBYUllYajJxcUJ4S3A4Z1l1aw?oc=5",
+          "source": "U.S. Environmental Protection Agency (.gov)",
+          "source_url": "https://19january2025snapshot.epa.gov",
+          "pub_kst": "2026-09-30T05:32+09:00"
+        }
+      ],
+      "queued_at": "2026-10-25T21:05:49+09:00",
+      "attempts": 0
     }
   },
   "receipts": [
