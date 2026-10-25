@@ -731,24 +731,6 @@
       "attempts": 1,
       "invalid_items": [],
       "held_items": []
-    },
-    "spr:news:venezuela_output_double_deals_20260902": {
-      "topic": "spr",
-      "kind": "news",
-      "event_key": "venezuela_output_double_deals_20260902",
-      "status": "enrichment_pending",
-      "items": [
-        {
-          "id": "9d5991268a85ce34f391f3e0",
-          "title": "Trump’s Energy Chief Says Venezuela Poised to Double Oil Output - Bloomberg",
-          "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPV05DZzUxWjdSRW9LaUlvLXNFUFNMYlVXblRzYkpwSno3VWFtUUY2UnVORHpUUWtaRE1JaXZJR0lQb211eEQ3d0xldHBQckdBNTV1dThHRndPYXZ3eFBvOWJSOURyWTBNWXYtbUZOejFXdlh2T3RsMXZTT2UzRTZHdEFOZUo0YlNHYXBKNlR5SVo3Y25JbDZEOXlmXzVhSERnVnFXcVRDOUlIVWNHbGRGU2RncFM?oc=5",
-          "source": "Bloomberg",
-          "source_url": "https://www.bloomberg.com",
-          "pub_kst": "2026-09-01T16:00+09:00"
-        }
-      ],
-      "queued_at": "2026-10-25T15:51:50+09:00",
-      "attempts": 0
     }
   },
   "receipts": [
@@ -2157,6 +2139,14 @@
       "at": "2026-10-25T10:42:58+09:00",
       "ids": [
         "81873029389f1bc306d736ed"
+      ]
+    },
+    {
+      "key": "spr:news:venezuela_output_double_deals_20260902",
+      "reason": "news_outside_three_day_window",
+      "at": "2026-10-25T15:51:51+09:00",
+      "ids": [
+        "9d5991268a85ce34f391f3e0"
       ]
     }
   ],
