@@ -737,7 +737,7 @@
       "topic": "spr",
       "kind": "news",
       "event_key": "spr_article_fde60d88d30f35e5cd9eda3b",
-      "status": "enrichment_pending",
+      "status": "source_blocked",
       "items": [
         {
           "id": "fde60d88d30f35e5cd9eda3b",
@@ -745,11 +745,20 @@
           "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPQTZCUTNSZ1NObmtfZTVyekQ1UVNDLXdselpfZGQ0Qnd1UTdEYjd2SDdzdktNTW5hRHo4QzRxbFd2Q3VZYk1kZXRxZGFxN2RYdXk5WERybkE3Q2VYTEJSVlE1U3VNWU5Xb2UyNDZOckRmSXlvaGtUWHh4TEthZng4WVJUdmRtWlctSTV2QllsWGNoQklpVzdadzk1WUZaLTAyVmljSm9Xalc3Q0xiQVVRRXlvU0FDUQ?oc=5",
           "source": "Venezuelanalysis",
           "source_url": "https://venezuelanalysis.com",
-          "pub_kst": "2026-10-25T05:50+09:00"
+          "pub_kst": "2026-10-25T05:50+09:00",
+          "_source_blocked": true,
+          "_source_failure": {
+            "stage": "translation_google",
+            "reason": "http_rate_limit",
+            "blocked_before_request": false,
+            "provider": "www.google.com",
+            "request_url_sha256": "e51f9f68d3388f3cb370cf6ed816379f708b111ea2b6bda1c044b10b8bf45f7b",
+            "http_status": 429
+          }
         }
       ],
       "queued_at": "2026-10-26T06:21:13+09:00",
-      "attempts": 1,
+      "attempts": 2,
       "invalid_items": []
     }
   },
