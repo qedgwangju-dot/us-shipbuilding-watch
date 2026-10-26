@@ -760,6 +760,24 @@
       "queued_at": "2026-10-26T06:21:13+09:00",
       "attempts": 2,
       "invalid_items": []
+    },
+    "spr:news:spr_venezuela_oil_agreement_20260831": {
+      "topic": "spr",
+      "kind": "news",
+      "event_key": "spr_venezuela_oil_agreement_20260831",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "5c96c53b35f809eb022ca1c6",
+          "title": "Trump: US enters deal with Venezuela to take control of 65 billion barrels of oil reserves - FOX 8 News",
+          "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxQNmhOWEJYQ28ybm91OWJjT2JsT0FQNVYwN2dhblJ2cDhtbDFYVC1GR1JSNjEyQkN2MDFXakhtbmZXOHVURm92NC00OVY4eGRrVm1obTRNRHp1SzF0bi1rd1ZoWlRiOVZOd1ZsR25taHZudG9jeEJ0Wkp5YnpOaTFHYVF1ZXNodENUUFEtSTFBWkNwR2tZLXZYS3FpQUFHSVFhd0VieVdQRW50SlZyMTVoWC1B0gG3AUFVX3lxTFA0aVY3RVlzRVJ0UkcwZXRRbm5vVi1xMFJkUFJfXzA0RnpHYmk4TS12dGx2d01vbHNyY2VHQXdyM3FFZTI0M0I5akhqcDExbVhQVlVSTlJyeWVkZkZ2ZEd0d3pwcXE4V0xUYXNHSDdSQWFJNzYwODRzZm9saHg5ZWxPeThXYVZKMkdTMnJpelBiQVlTeFZwOWx5TktDdGMxSEI2SUE1ZTNoeDZnY1JDd19PNzdqRXhBVQ?oc=5",
+          "source": "FOX 8 News",
+          "source_url": "https://fox8.com",
+          "pub_kst": "2026-08-28T16:00+09:00"
+        }
+      ],
+      "queued_at": "2026-10-26T15:19:52+09:00",
+      "attempts": 0
     }
   },
   "receipts": [
