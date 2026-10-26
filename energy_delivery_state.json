@@ -760,6 +760,24 @@
       "queued_at": "2026-10-26T06:21:13+09:00",
       "attempts": 2,
       "invalid_items": []
+    },
+    "refinery:news:refinery_article_562db32966315bbeba10e489": {
+      "topic": "refinery",
+      "kind": "news",
+      "event_key": "refinery_article_562db32966315bbeba10e489",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "562db32966315bbeba10e489",
+          "title": "Record Diesel Prices Could be Trump’s Achilles’ Heel: Bousso - EnergyNow.com",
+          "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxPcmszWUlLY2NkMHV4Zko2QlhubUpBSTFMdHBvaWptU1JOUXU2cmU5ZUkxMEtfQ0xrZEVnb1B2U0QyZFUycGxQNmZWM2xxaGpNYzhhMXBYRmdrS20xOXFJMktoRmFBeko3VjZvcDZoMURHY01kNDdSZ3dpZExMVXh1b2FWamwtUUpwLTlVMTgzVmRzZw?oc=5",
+          "source": "EnergyNow.com",
+          "source_url": "https://energynow.com",
+          "pub_kst": "2026-10-27T00:56+09:00"
+        }
+      ],
+      "queued_at": "2026-10-27T04:22:05+09:00",
+      "attempts": 0
     }
   },
   "receipts": [
