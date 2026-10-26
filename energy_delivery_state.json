@@ -760,6 +760,24 @@
       "queued_at": "2026-10-26T06:21:13+09:00",
       "attempts": 2,
       "invalid_items": []
+    },
+    "refinery:news:rfs_sre_2025_package_20260831": {
+      "topic": "refinery",
+      "kind": "news",
+      "event_key": "rfs_sre_2025_package_20260831",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "b56bad40278ee12aed6311ce",
+          "title": "RFS Small Refinery Exemptions - U.S. Environmental Protection Agency (.gov)",
+          "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxQVjRjcU1VeXdTS0lBVlBGQTB1Xzd4eVlBOFpwdTNQa1VERWpTWGpWTzNrWWx6LVFjRTFIVGN3TUI4SW1OYVBkdTd1N04zNFJUUlMtQjdJVlNaLUlJY1BQR3Q0VExVTGpDQjZCbC1hVGhoNXNkR0pDRTJtS0hrZnNrZzdTS2RtUlJtVWJmWlY2d0NEZTNPRHVteE1lRER1NHZWak1jT1NkNDhCMU40czFlQ1hmMzhUM2ZlUm14RWwtWQ?oc=5",
+          "source": "U.S. Environmental Protection Agency (.gov)",
+          "source_url": "https://19january2021snapshot.epa.gov",
+          "pub_kst": "2021-12-26T08:08+09:00"
+        }
+      ],
+      "queued_at": "2026-10-26T22:15:01+09:00",
+      "attempts": 0
     }
   },
   "receipts": [
