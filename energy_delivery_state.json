@@ -788,24 +788,6 @@
       "queued_at": "2026-10-27T04:22:05+09:00",
       "attempts": 1,
       "invalid_items": []
-    },
-    "refinery:news:refinery_article_2f7386007f3158a05ea934af": {
-      "topic": "refinery",
-      "kind": "news",
-      "event_key": "refinery_article_2f7386007f3158a05ea934af",
-      "status": "enrichment_pending",
-      "items": [
-        {
-          "id": "2f7386007f3158a05ea934af",
-          "title": "Trump’s proposed ban on diesel exports could have unintended consequences for Texas refineries - Houston Public Media",
-          "link": "https://news.google.com/rss/articles/CBMijAJBVV95cUxNa19tb3VJamUtWTkyY0ZVUUQxNEx3RGp1SHBsZ3gtV1dEWjJUTkhRN2ZpdE9rYWZuUWRpbHdwaXl5d3FzLUREYmszdEVjdjF2bEdSSmZlRlNSVmlCS0FTdTZrc1o5NTY3d0hhMWhwREkwcmJJYnRwdkxjNDZMbl9nTUNfVEpHVUFHWXZtVzlRWWJBcnQ4SC1qN0VsTHpfQnViNnZka0kteUtQOTVoem1LR1RwcnphcnVXSGZsZGY4M29pTTlBSm9Md0Y1eEJMckFQSFIteHlzZHVXOE40b2RtVXBaMDdUX2ZNQU5qX1ZnUUpDTmF1cUJvNTBrZER0b1B6c1NncFBURkNaMUtE0gGUAkFVX3lxTE53ZUh4Tk5xTFNJcGlkUTR1UFlXWTRIZ29tdy1zRFlLSDlDT08yVVFjVURKSnR6LWN3NE9sOU9MRGpMTHhsTkZoTnVEMVNJVEpFbkNLU2E4akt3U2VjdkF3SHJPVVpnRzF2d3I2cEIwTmlKTE5UT3ZPVk5oaVVrUjhZak4xUjMyMkRrLUNsajRWc2R5ckQ2RE9vcUNvUy1HVnppQlpaM1hXb0ZJOWxJX1ZTdS1QWUNsUkNYWVpVSlNGWXBBX19EN1ZrY0tyOWdGR3d2SndaeTc4TGNiX0R1TDJKenBPWTVIUzhmMTNoVVpfOUxWZmZWUEp2enZRdGpDakN4ajZVcUdkXzdIcy1ZOEg0RmhRRw?oc=5",
-          "source": "Houston Public Media",
-          "source_url": "https://www.houstonpublicmedia.org",
-          "pub_kst": "2026-10-01T16:00+09:00"
-        }
-      ],
-      "queued_at": "2026-10-27T08:10:52+09:00",
-      "attempts": 0
     }
   },
   "receipts": [
@@ -2262,6 +2244,14 @@
       "at": "2026-10-26T22:15:03+09:00",
       "ids": [
         "b56bad40278ee12aed6311ce"
+      ]
+    },
+    {
+      "key": "refinery:news:refinery_article_2f7386007f3158a05ea934af",
+      "reason": "news_outside_three_day_window",
+      "at": "2026-10-27T08:10:55+09:00",
+      "ids": [
+        "2f7386007f3158a05ea934af"
       ]
     }
   ],
