@@ -789,6 +789,150 @@
       "attempts": 1,
       "invalid_items": [],
       "held_items": []
+    },
+    "spr:news:spr_article_293507419f7fd4fcc3586481": {
+      "topic": "spr",
+      "kind": "news",
+      "event_key": "spr_article_293507419f7fd4fcc3586481",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "293507419f7fd4fcc3586481",
+          "title": "Trump showcases Venezuelan oil as he seeks to rally voters in Texas - Al Jazeera",
+          "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxQaF9uZTZjMHNYV1N2VGc3RUJMbVZvWkNQbXJPdWRtN3ZHbUdDVTFXdVFlaU5fNE1wczUzak9sOEVUQm45UGNqdGpiRXU5Zzlaa3NSTmR2QWI1NVdpNUt5TmYxX0NfcXN3dTZ2ZGdkVlF1emltTXU3ZHBBcnk1ZUQ3Z0NkVnNyb3JhcmVHZGxNR1Rqdkxsemlkd0d6OVFmQ2t5RmlZWXFjWWVudThWaVHSAbMBQVVfeXFMTmZLQl9ubVFSOVZxclNaMW0wQmZwZTVDTEtzUGZvbGx2cWNYWjlVd2kxbDB0d2hHS2JtTnFuQU43eXdtd0h3UW5ZS1h4Y2FubW9HekF2djF1NEZCRk15RHphcXFNdXg2dmRscDBNYjlja1dja1h6TTNmT1RMZGVzNXYySGJCUG1NTW13ekdUQ2dmYVlMZDBnanNzT0NFNGpFZzBXYW9jOVpXWFBrS19HRGRxQVU?oc=5",
+          "source": "Al Jazeera",
+          "source_url": "https://www.aljazeera.com",
+          "pub_kst": "2026-10-28T06:31+09:00"
+        }
+      ],
+      "queued_at": "2026-10-28T07:39:33+09:00",
+      "attempts": 0
+    },
+    "spr:news:spr_article_a555960915d1b8a81c7ca8be": {
+      "topic": "spr",
+      "kind": "news",
+      "event_key": "spr_article_a555960915d1b8a81c7ca8be",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "a555960915d1b8a81c7ca8be",
+          "title": "Trump says 'billions' of barrels of Venezuelan oil will 'soon' lower gas prices - Yahoo",
+          "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxQRWFzNGE4bkhjSGVnSE9XaHh2REM1R01YaVp3cUpudHE1VzB4SjlUbGlZMkFaSVVWR0lKdWtfNkw0eTNwUDVmSHFjbm8xNzEtY25kYi1KeG1GVEpXa2xldDJQOXBwRnJNQlhPX3FraTl4NFczeUFINFlfWHBqMDhXcjZKbGp1ck45NXFwbFFtTnBzLWtxYUtPM1BJWWZuaXM?oc=5",
+          "source": "Yahoo",
+          "source_url": "https://www.yahoo.com",
+          "pub_kst": "2026-10-28T06:21+09:00"
+        }
+      ],
+      "queued_at": "2026-10-28T07:39:33+09:00",
+      "attempts": 0
+    },
+    "spr:news:spr_article_d1ae1c78487268f3c8b20831": {
+      "topic": "spr",
+      "kind": "news",
+      "event_key": "spr_article_d1ae1c78487268f3c8b20831",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "d1ae1c78487268f3c8b20831",
+          "title": "Trump to greet Venezuelan oil shipment, calling it a ‘gift.’ The U.S. paid for it. - The Washington Post",
+          "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxQcWpkTGctM09hUGpnVG1la0F6NXl5VmRRczl3aUJFeUtiMnh0T0c0ZmhhZEtDMWlreWtBeWdxel9FN1ROZXk5dUVReFlHUUxaLWQxX09oUHF1cmJ5LXZ6elAwMDdGVlY1VlpJT09hdVBuQnFvNzRZNzRjdzRJUkMySTZGbkVXSUI2R19fNE4zWkg2ZGh4cjdGWl9YVWd3NE1WTDJIeWNpYUpsejR5UlpxdQ?oc=5",
+          "source": "The Washington Post",
+          "source_url": "https://www.washingtonpost.com",
+          "pub_kst": "2026-10-28T06:19+09:00"
+        }
+      ],
+      "queued_at": "2026-10-28T07:39:33+09:00",
+      "attempts": 0
+    },
+    "spr:news:spr_article_8a52db56f8ecdc6e3791edf2": {
+      "topic": "spr",
+      "kind": "news",
+      "event_key": "spr_article_8a52db56f8ecdc6e3791edf2",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "8a52db56f8ecdc6e3791edf2",
+          "title": "Trump says he will visit tanker in Texas with first oil from Venezuela deal - Reuters",
+          "link": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxQS2xReG5IbDd2VEVRZXJ1VUtaNGtlSFhpa3paSkFQVWhLWVk3NzNkendFMXNTZ3p5b3R6aTJTUzluYk1PUGlySXNEaDZPdXN2ZEx2WTF0SlRZZ1lmRmtRZnpFSVU4WGp0ZkdfY18tQlYwck9GbVBRUXR0Q2x2bVlkWDdMbVNFSVVZNnh2bXpjMm9hRjd3eThsYXRqQ0JhT05hc2hIWG93U005R2pFOXlORmZmNV9uYW02cGM4?oc=5",
+          "source": "Reuters",
+          "source_url": "https://www.reuters.com",
+          "pub_kst": "2026-10-28T05:16+09:00"
+        }
+      ],
+      "queued_at": "2026-10-28T07:39:33+09:00",
+      "attempts": 0
+    },
+    "spr:news:spr_article_b1ad54e8d441435d86e5b552": {
+      "topic": "spr",
+      "kind": "news",
+      "event_key": "spr_article_b1ad54e8d441435d86e5b552",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "b1ad54e8d441435d86e5b552",
+          "title": "Trump, Rubio to oversee shipment of 1 million barrels of Venezuelan oil after deal with US - New York Post",
+          "link": "https://news.google.com/rss/articles/CBMi7wFBVV95cUxOeGlQRjZrc1RUczZsUExlS2RCeTJDT1U0UnpMM3BJeWxkMUpSVHpWb09KRXRaZlRkY1JTWUQ1QkcxaEZJSDZaNXhGc3dRLWNGVEJ6VUVxM0lEZ3RaaXJ4dHNPSTkzNk5VVUMzZWU4aUl4ZHdXNnN4ZG4zLTVhUlZraHZ4UVl0S3VoRHYwQ0RlMDBGSjA4dF9iVHd4aGVVOGJGZ1FBTnlPRXp5OFk1QzdHTGN1STVaZ0JPUkdTTWVTRzhuS2ZMMW13d0N5OGlrVkVNamdydm55bHY4YzFwX0stVnlWTmV0NmJVNlluYjJCUQ?oc=5",
+          "source": "New York Post",
+          "source_url": "https://nypost.com",
+          "pub_kst": "2026-10-28T02:49+09:00"
+        }
+      ],
+      "queued_at": "2026-10-28T07:39:33+09:00",
+      "attempts": 0
+    },
+    "spr:news:spr_article_4680ac86ae095bce05fa9c51": {
+      "topic": "spr",
+      "kind": "news",
+      "event_key": "spr_article_4680ac86ae095bce05fa9c51",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "4680ac86ae095bce05fa9c51",
+          "title": "Trump, Rubio Plan to Visit Tanker With Venezuelan Crude in Texas - Bloomberg.com",
+          "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPRWZlREJ5cUZLaEF0eXQ0SnlESjNBVWhtcDJ4UHJvdFZLUmtwVzE5Y2VkdlRTaUd2a2gxOFFSWkc1VVZBdk9RM0RYRWQzSmtWQ1dhbzNGVjVVNWFObXF5TDRqRlcxZzE0ZmpFLXYwWlp0YXBpdUpmR2dfRXZ3XzFrNTRJcHNFSjE4QkdMUUw4OENsY2ZJTkNkOWhUaC1wZGZDV2NEWk9OeFhkblFWVTBIa2pjemY?oc=5",
+          "source": "Bloomberg.com",
+          "source_url": "https://www.bloomberg.com",
+          "pub_kst": "2026-10-28T01:24+09:00"
+        }
+      ],
+      "queued_at": "2026-10-28T07:39:33+09:00",
+      "attempts": 0
+    },
+    "spr:news:spr_article_4a6f1793bcb6d05e384c1d75": {
+      "topic": "spr",
+      "kind": "news",
+      "event_key": "spr_article_4a6f1793bcb6d05e384c1d75",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "4a6f1793bcb6d05e384c1d75",
+          "title": "Trump and Rubio plan to visit oil tanker carrying Venezuelan crude in Texas - ABC News - Breaking News, Latest News and Videos",
+          "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxPeWs1VmpWZGFULWxiNWJQb0JHWFhMeTRXNFdwUjlNbU5kY0pZU25feGh4Y0lIN0hybE52TWdNRjdmOUF5eEl3MFAyclZ0MFU0bU9JLXJaTGxRblhwM3dSMjF5T0tGTnpBckQ1ZDBmSXVXWjZzT0gyaUlEU29SZDRfLWVEc3dTaTB6bFZZOUF2cXdDUGxHb21ud1ItWTJlbTRKdjZOVNIBqgFBVV95cUxQSjAybF9ONk5DbjJrLW55UGRMRUpPSVdiUFdyRnVJYlNZejUyX0JocnRqMkEzdHZpdUdIZHBDbmhTalJQbmtBcnNmZTRZWnhkWUdUZk1FUEwxaE9lLWp4aFVjOUVFVEItcTluc0FUTlI2MXhpdWRKWU1JeVZOSkZmclI5a1JnQjVWaVhZWUZ4MEQ1RkwtRG0zWmJ6TUswSTBEZVRiSGZJSHZNUQ?oc=5",
+          "source": "ABC News - Breaking News, Latest News and Videos",
+          "source_url": "https://abcnews.com",
+          "pub_kst": "2026-10-27T16:42+09:00"
+        }
+      ],
+      "queued_at": "2026-10-28T07:39:33+09:00",
+      "attempts": 0
+    },
+    "spr:news:spr_article_f535b08db569881b51bab608": {
+      "topic": "spr",
+      "kind": "news",
+      "event_key": "spr_article_f535b08db569881b51bab608",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "f535b08db569881b51bab608",
+          "title": "Venezuelan Oil And Trump’s Imaginary $20 Trillion In Foreign Investment – OpEd - Eurasia Review",
+          "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxNRkxyMHhUbUpzVW10blV1TTNLM1JhUUF2UExQRVZ3cFRrd1NFX0hhX2JyV09IT1hrdS1FYVBoMnBMMVAxVDZQMTNlYkhFaEtEZ1VfUnU3dC1vQV8zVkdJbVpQeUJaVVpnMS1Nd00yTXp1a3RCMGZ3WFpEOHhvUUtvUVpOQXA2cERFczlDNmxIazJQcU1TdUU0MkVWNVR1cmpZcmtMOWswOEV3SUkwU3JCOTV1UDI?oc=5",
+          "source": "Eurasia Review",
+          "source_url": "https://www.eurasiareview.com",
+          "pub_kst": "2026-09-08T16:00+09:00"
+        }
+      ],
+      "queued_at": "2026-10-28T07:39:33+09:00",
+      "attempts": 0
     }
   },
   "receipts": [
