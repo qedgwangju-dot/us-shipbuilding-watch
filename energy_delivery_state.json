@@ -789,6 +789,96 @@
       "attempts": 1,
       "invalid_items": [],
       "held_items": []
+    },
+    "spr:news:spr_article_924316095c2badbbc1863456": {
+      "topic": "spr",
+      "kind": "news",
+      "event_key": "spr_article_924316095c2badbbc1863456",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "924316095c2badbbc1863456",
+          "title": "How the US Is Taking Direct Control of Venezuelan Oil - Bloomberg.com",
+          "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxOaDZENFQ1aEVpUllRNDZEUi16elppdXlkSEtVOUNEV1h6ZXozQXNCZ1VDN0hmV2E4ODJuN3U4WHFLaDZIUHg0aEx2bmNqYV9ieDN5WlFZX2pJS2l1Vk8xT2pESFVwSU9KV29yS1VZOWdpS3otVlk0cmxxRjd1RlAwVjUyMm5PeWF4cnhUSk5td3NjZTFpVjVSX2MxSmhUdFVFaDkzcElFcDNkdEdPYUE?oc=5",
+          "source": "Bloomberg.com",
+          "source_url": "https://www.bloomberg.com",
+          "pub_kst": "2026-09-02T16:00+09:00"
+        }
+      ],
+      "queued_at": "2026-10-28T03:49:36+09:00",
+      "attempts": 0
+    },
+    "spr:news:spr_article_3e85d2b21d589ad4f132f0c6": {
+      "topic": "spr",
+      "kind": "news",
+      "event_key": "spr_article_3e85d2b21d589ad4f132f0c6",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "3e85d2b21d589ad4f132f0c6",
+          "title": "Experts, lawyers puzzled over US-Venezuela oil deal, call for contract transparency - Reuters",
+          "link": "https://news.google.com/rss/articles/CBMiygFBVV95cUxNS1RaRjJaenRoMjVSVG16Nmx3Ym0wV3IxVy16WXVFT1NqdVRncm9SQmpMNnhENDRORmRxdkZ2bk51R210NVVvUjNkUGljaUNzYmZPemtSOUVVUmJNVjM1VFJGOEV2bDF1N1owR3hZb3ZBU1NMekNyU182dmxzTEU4aC11NVFTOHBpNk03MVkwOVRsSnBhMGNNazY0UjdzaU9Od0UxUmR2akdBaVdlQXJXcmxpWWQycnExd1dIUExfMVlER3Y1WENTVGZ3?oc=5",
+          "source": "Reuters",
+          "source_url": "https://www.reuters.com",
+          "pub_kst": "2026-08-31T16:00+09:00"
+        }
+      ],
+      "queued_at": "2026-10-28T03:49:36+09:00",
+      "attempts": 0
+    },
+    "spr:news:spr_article_a51bb60e3dd7c446049c53ef": {
+      "topic": "spr",
+      "kind": "news",
+      "event_key": "spr_article_a51bb60e3dd7c446049c53ef",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "a51bb60e3dd7c446049c53ef",
+          "title": "Trump calls plunder of Venezuelan oil a ‘gift’ as Washington tries to refill war-drained reserves - PressTV",
+          "link": "https://news.google.com/rss/articles/CBMi9wFBVV95cUxOYzViZXBrMlBZYi1VV3YxbEk3VTg2SldKb3Z6LVZXQkhzZHZmTm92MzM0bDFHOUx2cVFwWUZGem01bm52RVVXZ0QtXzF5SjlrUmtJTl9BNmVVSGZMT0Q1bjYwc2xlOE13TkZXZEVQMWpXLTk2SGYwQnVRelZnRVhqVVJGSi1LTWpjMkl1YURIeHp4WXVUal94bDJkcmJPMFdtLWxwaTF4M3NfWnVxaF9XQS00bVJNWXN1N1VWcDFVU2JwODJTLTVXenhvZm9pWm9TLUlqQmR1MHpYNFJvcHowZjIzbkZJajhsdjBxUmNQTldHbUoyVlJN?oc=5",
+          "source": "PressTV",
+          "source_url": "https://www.presstv.co.uk",
+          "pub_kst": "2026-08-31T16:00+09:00"
+        }
+      ],
+      "queued_at": "2026-10-28T03:49:36+09:00",
+      "attempts": 0
+    },
+    "spr:news:spr_article_d460093ba33e8f3f3d6a4790": {
+      "topic": "spr",
+      "kind": "news",
+      "event_key": "spr_article_d460093ba33e8f3f3d6a4790",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "d460093ba33e8f3f3d6a4790",
+          "title": "Trump administration weighs deal for U.S. access to Venezuelan oil - The Journal Record",
+          "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxQVy0zZ1AxUk1Odk8yNlpmN2ZaOE90NDNURjdISDBHaWxZenFsXzJ5OFI0Mkl1cGFDbzVqZXdXalU4VmY3UFlrU1VRZUl3TFRoQzg1V0duT0ZGWlZWa2JiZjVBWEw2dWN1ZldvT0VRQTdNNkZWbzVTX2tHZ0xqd1Y4cXRQamtJNWFnRU1KTzNxZEpIWjZ5d0Rv?oc=5",
+          "source": "The Journal Record",
+          "source_url": "https://journalrecord.com",
+          "pub_kst": "2026-08-28T16:00+09:00"
+        }
+      ],
+      "queued_at": "2026-10-28T03:49:36+09:00",
+      "attempts": 0
+    },
+    "spr:news:spr_venezuela_oil_agreement_20260831": {
+      "topic": "spr",
+      "kind": "news",
+      "event_key": "spr_venezuela_oil_agreement_20260831",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "41c6b187cfae46096d2f5779",
+          "title": "Trump says U.S. makes deal to control 65 billion barrels of Venezuelan oil reserves - CBC",
+          "link": "https://news.google.com/rss/articles/CBMifkFVX3lxTE80WEQzTGxDRWhTYjVRb0NCZDZGWkhXdkVlUDcyR0JKOXpaQUw0aDE4TnN3eWo0LWo1cm5WZHFtZldWNGZrQTBRb3Y2Qy1kdTRUXy1VdF96VU5QVGljZG9USTh6VUEzZjZYeThDbmtrQURPd2lxZXBPa3g2bWpwUQ?oc=5",
+          "source": "CBC",
+          "source_url": "https://www.cbc.ca",
+          "pub_kst": "2026-08-28T16:00+09:00"
+        }
+      ],
+      "queued_at": "2026-10-28T03:49:36+09:00",
+      "attempts": 0
     }
   },
   "receipts": [
