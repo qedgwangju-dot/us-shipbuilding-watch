@@ -787,7 +787,26 @@
       ],
       "queued_at": "2026-10-27T04:22:05+09:00",
       "attempts": 1,
-      "invalid_items": []
+      "invalid_items": [],
+      "held_items": []
+    },
+    "refinery:news:refinery_article_d56181ffca5be3c17d9ebd14": {
+      "topic": "refinery",
+      "kind": "news",
+      "event_key": "refinery_article_d56181ffca5be3c17d9ebd14",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "d56181ffca5be3c17d9ebd14",
+          "title": "Trump says Ukraine strikes on Russia refinery, not Iran war, driving gas prices - The Times of India",
+          "link": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxOdmh4TmV6LVYzaWV3bUkyaHNBSGdlcmkzOXhaazgxVTE3OUUtRUZoMFZMUFVoRDBKWDNHMHZNQ0hndEVOMnpDTjFUQUpwVmtqQmRGckFPNnN0Vk0yQlJwZ3VPWjVBQ1c3QTJIOUZreFdjUlQ5dms3VDlueVdra0pVenVib2ZUUnF0WGptcmh6RHF3QXZELTg0VFZUYUs1aTJuYXoxTU55OXFoOGNZWXdIVVZjQ2F0blRKNHFFN0ZJRUJNRmRpaE5uX1dpU0k0Wkx3SWp5Wi1fUGRydUV1eEtJbEZR0gHnAUFVX3lxTFAtcFkwZUpDVzFOMFR4VTRjSzZVV1RYRDlCTDJhQWNlWHR6azBmTEVlWXlldml2a0ZWZUVQZGpfb2pXaThkQW1xUXVOSmF0Y0wzMl82Y1JSZEp3UWpVYXM2TG81M1VYSFU1LWl4clpRU2FnVXdRRl9QempVQ2pfdzk3aDdjd3dZaXh1VWdfSG1PMl9jV29qRVEwVFhCU0dLUmJHajFmZzVPMHhpTjEwdld6WTFtZjRPNjZjakZEcGVBZ25Kdm9zWUZhLWcxZzBVOE1MdXNOYS14blNXN1RjV1RnOGsyVFk5dw?oc=5",
+          "source": "The Times of India",
+          "source_url": "https://timesofindia.indiatimes.com",
+          "pub_kst": "2026-10-05T16:00+09:00"
+        }
+      ],
+      "queued_at": "2026-10-27T16:27:15+09:00",
+      "attempts": 0
     }
   },
   "receipts": [
