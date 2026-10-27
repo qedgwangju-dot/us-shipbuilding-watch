@@ -789,24 +789,6 @@
       "attempts": 1,
       "invalid_items": [],
       "held_items": []
-    },
-    "refinery:news:refinery_article_b7e80a91328e0ae6083c023a": {
-      "topic": "refinery",
-      "kind": "news",
-      "event_key": "refinery_article_b7e80a91328e0ae6083c023a",
-      "status": "enrichment_pending",
-      "items": [
-        {
-          "id": "b7e80a91328e0ae6083c023a",
-          "title": "Trump: Refinery disruptions, not Hormuz, are driving gas prices - The Hill",
-          "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPMDY5X3J2YXNnRXppNUhIQXhlT1ZpRXlXODB6UHluVnhERDUyYW5zX1dwVlZYSkxIUTlGdXUxSzgzQWdHV0piOEk3aTZkdGdvUXJqN0pJeW5JUnhwUW9FaDRDS28xSC1OTC03N3pONHdJeVh2OXRmbTVHWnVLLUozZVV0ZkxvVlFZWG9yTkVmLVh5TW1JbEJwdlJJUk5pRi1kNVIzcm5B?oc=5",
-          "source": "The Hill",
-          "source_url": "https://thehill.com",
-          "pub_kst": "2026-10-05T16:00+09:00"
-        }
-      ],
-      "queued_at": "2026-10-27T22:27:54+09:00",
-      "attempts": 0
     }
   },
   "receipts": [
@@ -2279,6 +2261,14 @@
       "at": "2026-10-27T16:27:17+09:00",
       "ids": [
         "d56181ffca5be3c17d9ebd14"
+      ]
+    },
+    {
+      "key": "refinery:news:refinery_article_b7e80a91328e0ae6083c023a",
+      "reason": "news_outside_three_day_window",
+      "at": "2026-10-27T22:27:56+09:00",
+      "ids": [
+        "b7e80a91328e0ae6083c023a"
       ]
     }
   ],
