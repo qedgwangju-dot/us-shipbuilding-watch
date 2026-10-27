@@ -789,158 +789,6 @@
       "attempts": 1,
       "invalid_items": [],
       "held_items": []
-    },
-    "refinery:news:refinery_article_d521042ade98103c15a8b6c8": {
-      "topic": "refinery",
-      "kind": "news",
-      "event_key": "refinery_article_d521042ade98103c15a8b6c8",
-      "status": "enrichment_pending",
-      "items": [
-        {
-          "id": "d521042ade98103c15a8b6c8",
-          "title": "Trump Administration Presses Refiners to Raise Diesel Output - TOKENPOST",
-          "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTFBTcUw3alhOSFk4YXNhRkNNQTRheU50YUw2VnpZSlRwRFJHT2RwWGQ0NnZRMmJGbnE2UWhDMXFEZTFWOWJnQjZQc1NTd0xMRGJZUjBxSjJSV01iNVE?oc=5",
-          "source": "TOKENPOST",
-          "source_url": "https://www.tokenpost.com",
-          "pub_kst": "2026-10-22T01:53+09:00"
-        }
-      ],
-      "queued_at": "2026-10-28T07:39:23+09:00",
-      "attempts": 0
-    },
-    "refinery:news:refinery_article_e00e1b187be40c75e87fcb35": {
-      "topic": "refinery",
-      "kind": "news",
-      "event_key": "refinery_article_e00e1b187be40c75e87fcb35",
-      "status": "enrichment_pending",
-      "items": [
-        {
-          "id": "e00e1b187be40c75e87fcb35",
-          "title": "Trump’s Push and Pull Relationship With Oil Execs as Midterms Approach - Bloomberg.com",
-          "link": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxNbzJUYWNxZnlSdm81ZHBWRV9zVXlkT0JlOWdSdUdUTlJPNHJRYUJuVnE0b1gxcXlxanZFSVQxMV9SQXVMOTlIeG9XWWpUYWNEWURnMDBINTNsV3hoeDluMy15SjhTc1RuUXpINU94SDdKWG1INHN6N3A2cjlGV0tYQXlBaFQ3eDZmYnFsNTFrc1JqOXhsUllkS1lyN0djQmdZdnJkSmNRMWNndHpUQTUtV19qcjJ1M3lCQzBzem5QQXlndw?oc=5",
-          "source": "Bloomberg.com",
-          "source_url": "https://www.bloomberg.com",
-          "pub_kst": "2026-09-01T16:00+09:00"
-        }
-      ],
-      "queued_at": "2026-10-28T07:39:23+09:00",
-      "attempts": 0
-    },
-    "refinery:news:refinery_article_8a349c5f3b4e0e17e9c6e11e": {
-      "topic": "refinery",
-      "kind": "news",
-      "event_key": "refinery_article_8a349c5f3b4e0e17e9c6e11e",
-      "status": "enrichment_pending",
-      "items": [
-        {
-          "id": "8a349c5f3b4e0e17e9c6e11e",
-          "title": "White House seeks refinery output boost as Iran conflict lifts U.S. fuel prices - Traders Union",
-          "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxNdXNzTlFHM3FKY0pfa0tvRkpqV2cxMWJjVTJvREFBajZVZXNpT2lIekZZVXdTZzlXM0k0OWtHSlNLdlhyRWEySHdCYV9YSWltei1HclZGQ1hoSlc0bUk5NHJ6M1FuVDRHLWlSejRibldrWEpqaVpjYkxTdGNiVTk5eVVuM0VCS3hLdEpTNFkxZWdWemlVd2k1QVFnaFZZZw?oc=5",
-          "source": "Traders Union",
-          "source_url": "https://tradersunion.com",
-          "pub_kst": "2026-09-01T16:00+09:00"
-        }
-      ],
-      "queued_at": "2026-10-28T07:39:23+09:00",
-      "attempts": 0
-    },
-    "refinery:news:refinery_article_fc1ac295e7a8b2ec40092b5f": {
-      "topic": "refinery",
-      "kind": "news",
-      "event_key": "refinery_article_fc1ac295e7a8b2ec40092b5f",
-      "status": "enrichment_pending",
-      "items": [
-        {
-          "id": "fc1ac295e7a8b2ec40092b5f",
-          "title": "White House meeting with U.S. refiners sharpens pressure over fuel prices - Traders Union",
-          "link": "https://news.google.com/rss/articles/CBMilgFBVV95cUxQWUNFT1hyTVpZTU12bERKWWwyZ2pSTDl6dW5ndVg0VjJvcXVvNXZtNmc1b1BURktzWXdpS3I3REppSHF0U1dXZTNyTHM0LUZ4NVlROTF3ZjBldDZJUi1vSDdGajdTdmU1VDZlSDU5QWRNakFNSDlmR1Y4TGl0Qm80eENNUjFCMkxjNkRpdjFnLXozQWV5SlE?oc=5",
-          "source": "Traders Union",
-          "source_url": "https://tradersunion.com",
-          "pub_kst": "2026-08-31T19:32+09:00"
-        }
-      ],
-      "queued_at": "2026-10-28T07:39:23+09:00",
-      "attempts": 0
-    },
-    "refinery:news:refinery_article_34ed35dfd3107635321bd5ee": {
-      "topic": "refinery",
-      "kind": "news",
-      "event_key": "refinery_article_34ed35dfd3107635321bd5ee",
-      "status": "enrichment_pending",
-      "items": [
-        {
-          "id": "34ed35dfd3107635321bd5ee",
-          "title": "Trump vs Oil Refiners: Inside The High-Stakes Push To Cut US Gas Price - Outlook Business",
-          "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQZzZKRDFjZjlwbFMxY1AwOFJ0THUtVFhqVkVnQUF6Q2JJVGJINXFxLW1WbEFGVUZEcEZ5bWtaSjV1RU8zVVd1QkVfQ29wT0l0YkZkdTZaajVmYkVmX3BSdTNCZHBjaVZ1VW1PcXpITkRIekVPUjZHeW9iUDVYNlM2dDhqbThTNkVnZUlmamJ3aUpjbXFkelBPc2duTVQxLVZUUXB5UFVxV0c3UdIBtwFBVV95cUxQazNiUzlaT2p3bWNxVHF4OENldm5UMkladExxTDhDNEZkdVpPWmRRWGtlUXNPTkw3S3BaWTlNZGlCODdocmdhUXNNaGE5Q3ZFdlhJSTQ1OXBwLUV4clBTRmZHbDlNU1dUS2pLdm1RZnZMSGV6WC00ZUJFbWptQjRiTzd3VXItRTBVT0JjN05ORzdjTExHY2ktMTg2VUhGckVURHB4MU85QzdOLWFHTnhOTGFub2tLUTA?oc=5",
-          "source": "Outlook Business",
-          "source_url": "https://www.outlookbusiness.com",
-          "pub_kst": "2026-08-31T16:00+09:00"
-        }
-      ],
-      "queued_at": "2026-10-28T07:39:23+09:00",
-      "attempts": 0
-    },
-    "refinery:news:refinery_article_8ec1c56c2e84617da67cd5ff": {
-      "topic": "refinery",
-      "kind": "news",
-      "event_key": "refinery_article_8ec1c56c2e84617da67cd5ff",
-      "status": "enrichment_pending",
-      "items": [
-        {
-          "id": "8ec1c56c2e84617da67cd5ff",
-          "title": "Trump Hosts White House Dinner to Pressure Refiners on Prices as 25-Year U.S.-Venezuela Crude Deal Becomes Bargaining Chip - BigGo Finance",
-          "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTFB6WHUzN21uNmJQeU96Sl9CWGFjRXlabm45WXNWQmRzOW90Z0ZWVDcyWXVtZFNORHBocmhVaWtybDNianQwOVFkSmxMVzczWnZ6T21tb2RNR3owTWk5QXgzSU5lYUtTc2tyNXc5U3JTdlhYWjUxaHc?oc=5",
-          "source": "BigGo Finance",
-          "source_url": "https://finance.biggo.com",
-          "pub_kst": "2026-08-31T16:00+09:00"
-        }
-      ],
-      "queued_at": "2026-10-28T07:39:23+09:00",
-      "attempts": 0
-    },
-    "refinery:news:refinery_article_bd0f159b16ec8d304297a5ce": {
-      "topic": "refinery",
-      "kind": "news",
-      "event_key": "refinery_article_bd0f159b16ec8d304297a5ce",
-      "status": "enrichment_pending",
-      "items": [
-        {
-          "id": "bd0f159b16ec8d304297a5ce",
-          "title": "White House pushes for more refinery waivers to ease pump prices - Reuters",
-          "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxNXzNBc3U2RXg4a2M3YWxQNTl3anc3clFXQjV0ZmdKTXJkakNVNnQ5Ym9BQW1vbjk2ZE85a3l5RVp1U3ZxWE1ucWFxY1U3SHdXMzJVNXJBMDhWWDRHQjVFNmFUd0lXa284d1AzVnBRbUlvLWVkaDEwMnZsemZOaFJGeS1TTWh1YVRSM0pHVEduUEpPUUtNTlJPc3JDd29LaFU0eVBUZ2l5T0REeWpoai04?oc=5",
-          "source": "Reuters",
-          "source_url": "https://www.reuters.com",
-          "pub_kst": "2026-08-29T16:00+09:00"
-        }
-      ],
-      "queued_at": "2026-10-28T07:39:23+09:00",
-      "attempts": 0
-    },
-    "refinery:news:rfs_sre_2025_package_20260831": {
-      "topic": "refinery",
-      "kind": "news",
-      "event_key": "rfs_sre_2025_package_20260831",
-      "status": "enrichment_pending",
-      "items": [
-        {
-          "id": "e3fd55338426aa274e4c0032",
-          "title": "EPA Restores Viability of RFS Small Refinery Exemption, Signals New Policy Approach Moving Forward - JD Supra",
-          "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxQZURxUG5LcFRVTHFHUGhoVlhQZ0d5eVFvMlBtbzBNak9xaFVwU0FiYXNnNW50bUg2SnNwbjU0bVZxRjk1enQwSGw3STh6U0JvNTFwcXA3U0t4SEQ4SWpiTXhoa29RZTVDUk5yZXBvYWN4bmtlQVplckk1OFFILW5FaEw1OE8?oc=5",
-          "source": "JD Supra",
-          "source_url": "https://www.jdsupra.com",
-          "pub_kst": "2025-08-29T16:00+09:00"
-        },
-        {
-          "id": "252d5d6ab32f766084cf22c1",
-          "title": "The Renewable Fuel Standard (RFS): Frequently Asked Questions About Small Refinery Exemptions (SREs) - EveryCRSReport.com",
-          "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5NS1R4SkgxNjZ5UElJTmtsV2JiQ25WanByUXFfX0JOT0VGNFMxa0p5VkFGeU4xQkg0YnJpbklqMnpQY2Q0bVFibXd5V1pGY3ZfMHR3TlZzSDczeEZkRV8w?oc=5",
-          "source": "EveryCRSReport.com",
-          "source_url": "https://www.everycrsreport.com",
-          "pub_kst": "2020-03-02T17:00+09:00"
-        }
-      ],
-      "queued_at": "2026-10-28T07:39:23+09:00",
-      "attempts": 0
     }
   },
   "receipts": [
@@ -2509,6 +2357,71 @@
       "at": "2026-10-28T03:49:38+09:00",
       "ids": [
         "41c6b187cfae46096d2f5779"
+      ]
+    },
+    {
+      "key": "refinery:news:refinery_article_d521042ade98103c15a8b6c8",
+      "reason": "news_outside_three_day_window",
+      "at": "2026-10-28T07:39:25+09:00",
+      "ids": [
+        "d521042ade98103c15a8b6c8"
+      ]
+    },
+    {
+      "key": "refinery:news:refinery_article_e00e1b187be40c75e87fcb35",
+      "reason": "news_outside_three_day_window",
+      "at": "2026-10-28T07:39:25+09:00",
+      "ids": [
+        "e00e1b187be40c75e87fcb35"
+      ]
+    },
+    {
+      "key": "refinery:news:refinery_article_8a349c5f3b4e0e17e9c6e11e",
+      "reason": "news_outside_three_day_window",
+      "at": "2026-10-28T07:39:25+09:00",
+      "ids": [
+        "8a349c5f3b4e0e17e9c6e11e"
+      ]
+    },
+    {
+      "key": "refinery:news:refinery_article_fc1ac295e7a8b2ec40092b5f",
+      "reason": "news_outside_three_day_window",
+      "at": "2026-10-28T07:39:25+09:00",
+      "ids": [
+        "fc1ac295e7a8b2ec40092b5f"
+      ]
+    },
+    {
+      "key": "refinery:news:refinery_article_34ed35dfd3107635321bd5ee",
+      "reason": "news_outside_three_day_window",
+      "at": "2026-10-28T07:39:25+09:00",
+      "ids": [
+        "34ed35dfd3107635321bd5ee"
+      ]
+    },
+    {
+      "key": "refinery:news:refinery_article_8ec1c56c2e84617da67cd5ff",
+      "reason": "news_outside_three_day_window",
+      "at": "2026-10-28T07:39:25+09:00",
+      "ids": [
+        "8ec1c56c2e84617da67cd5ff"
+      ]
+    },
+    {
+      "key": "refinery:news:refinery_article_bd0f159b16ec8d304297a5ce",
+      "reason": "news_outside_three_day_window",
+      "at": "2026-10-28T07:39:25+09:00",
+      "ids": [
+        "bd0f159b16ec8d304297a5ce"
+      ]
+    },
+    {
+      "key": "refinery:news:rfs_sre_2025_package_20260831",
+      "reason": "news_outside_three_day_window",
+      "at": "2026-10-28T07:39:25+09:00",
+      "ids": [
+        "e3fd55338426aa274e4c0032",
+        "252d5d6ab32f766084cf22c1"
       ]
     }
   ],

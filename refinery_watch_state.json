@@ -1,6 +1,15 @@
 {
   "initialized": true,
   "seen": [
+    "e3fd55338426aa274e4c0032",
+    "252d5d6ab32f766084cf22c1",
+    "bd0f159b16ec8d304297a5ce",
+    "8ec1c56c2e84617da67cd5ff",
+    "34ed35dfd3107635321bd5ee",
+    "fc1ac295e7a8b2ec40092b5f",
+    "8a349c5f3b4e0e17e9c6e11e",
+    "e00e1b187be40c75e87fcb35",
+    "d521042ade98103c15a8b6c8",
     "ed0693271e0dab58863d8ae2",
     "3b1662b33c64c702672a7566",
     "19177414480c8cd372082a7d",
@@ -344,7 +353,7 @@
     "c99a2657478daa3c4a8a896e",
     "a8e7de25f5234e183c67fd9e"
   ],
-  "last_run_kst": "2026-10-28T03:49:30+09:00",
+  "last_run_kst": "2026-10-28T07:39:25+09:00",
   "last_source_error_count": 0,
   "last_translation_error_count": 0,
   "events": {
