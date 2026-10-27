@@ -789,6 +789,114 @@
       "attempts": 1,
       "invalid_items": [],
       "held_items": []
+    },
+    "refinery:news:refinery_article_38c28f29f3d1efa8a271fec2": {
+      "topic": "refinery",
+      "kind": "news",
+      "event_key": "refinery_article_38c28f29f3d1efa8a271fec2",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "38c28f29f3d1efa8a271fec2",
+          "title": "EPA Reallocation Rule Would Deliver on Promise of Trump Administration’s Commitment to Rural America - Growth Energy",
+          "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTFBqUUNFbWNhdl8yWWZGdkJ4RkE4MWlIUWtMS0oweFl2M1hENVRYWHViNmRxYnFwQUxoZUNmTUFlaHlkUFR4RnEzZDJLY0R6MUR2NDVHOHJVRk53VzNEOFZwRWlsd2JQc3VoTWc?oc=5",
+          "source": "Growth Energy",
+          "source_url": "https://growthenergy.org",
+          "pub_kst": "2026-10-13T16:00+09:00"
+        }
+      ],
+      "queued_at": "2026-10-28T03:49:28+09:00",
+      "attempts": 0
+    },
+    "refinery:news:refinery_article_9e8beb72f99bc1abd5db5fd6": {
+      "topic": "refinery",
+      "kind": "news",
+      "event_key": "refinery_article_9e8beb72f99bc1abd5db5fd6",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "9e8beb72f99bc1abd5db5fd6",
+          "title": "EPA Proposes Reallocating Refinery Exemptions to Preserve Biofuel Demand - DTN Progressive Farmer",
+          "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxOVjJKU24wQVd2aXNlaUU0YUh3WEMyRm9CeDh5TXhHOHl6UVNmOVlzU1RhWTZzdHdJbk4yTm9KUkJ1U1BkSGZzaTNvMUIwTzlOYWlHWWtocXg4aU1jcnNhd1ZZWjBSSmRUTzhuRjZQYnkxNjl4NUpEVHZPT3l0MFJWYVRZUGdEbmV0RUxCOFNmWV9sMVhrZTJOR3RlM3BIWXBWanB0QV9TY1ltS3RIWnR5ZEdKV3pvdw?oc=5",
+          "source": "DTN Progressive Farmer",
+          "source_url": "https://www.dtnpf.com",
+          "pub_kst": "2026-10-13T16:00+09:00"
+        }
+      ],
+      "queued_at": "2026-10-28T03:49:28+09:00",
+      "attempts": 0
+    },
+    "refinery:news:refinery_article_580bd889674f6e80a45565c8": {
+      "topic": "refinery",
+      "kind": "news",
+      "event_key": "refinery_article_580bd889674f6e80a45565c8",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "580bd889674f6e80a45565c8",
+          "title": "Trump's diesel order spurs new round of fuel policy clashes - Agri-Pulse Communications, Inc.",
+          "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxQelE3anpScEN6bUtGOGVlQU9QdjhEUWZWNkh6VXNjTGc4cHhPRlJ4VE9rb25ITWFLSTVEenBJYWRydTV1UWhyMEs0Z2daT3M0VUp3Sms3bTY4UXJ1RGQ1cUI0ZmNvbkxkOXo1UEhXSl9Gc3B6allsRDk3OXNZcnFZendhSzFmTGxGeDR5aUFKV1hteUFlby1PN0UwZWR0UkhQQzFYZTBB?oc=5",
+          "source": "Agri-Pulse Communications, Inc.",
+          "source_url": "https://www.agri-pulse.com",
+          "pub_kst": "2026-10-07T20:37+09:00"
+        }
+      ],
+      "queued_at": "2026-10-28T03:49:28+09:00",
+      "attempts": 0
+    },
+    "refinery:news:refinery_article_19177414480c8cd372082a7d": {
+      "topic": "refinery",
+      "kind": "news",
+      "event_key": "refinery_article_19177414480c8cd372082a7d",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "19177414480c8cd372082a7d",
+          "title": "Trump weighs refinery waivers as U.S. farmers warn of biofuel demand losses - AgroLatam",
+          "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxPbGlGSDJBYmxlRUtCbVFxTzh5bWVnWWhlREdoaDgzM2phSU5BRUYxVzhvVm5HZjI2N2FVTEowNDhPWU0xUGtZNTMzNWtnT2ZSX3IxQzBhSzQ4T2FSR2hBcE9rX1BGSnpZbkp5VjAwTU1sY2tmRnFaczJ1b09fQzRRZWZPTXI3UGItS0NpNw?oc=5",
+          "source": "AgroLatam",
+          "source_url": "https://www.agrolatam.com",
+          "pub_kst": "2026-08-27T16:00+09:00"
+        }
+      ],
+      "queued_at": "2026-10-28T03:49:28+09:00",
+      "attempts": 0
+    },
+    "refinery:news:refinery_article_3b1662b33c64c702672a7566": {
+      "topic": "refinery",
+      "kind": "news",
+      "event_key": "refinery_article_3b1662b33c64c702672a7566",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "3b1662b33c64c702672a7566",
+          "title": "Rewriting the RFS Playbook: Final 2026–2027 RVOs for Biomass-Based Diesel - Successful Farming",
+          "link": "https://news.google.com/rss/articles/CBMiugFBVV95cUxQWFdEcmNzejBJZk05V0NnU1lrSXpnUkpjeXE1Y3JSMGZialcxM1hTUlpLSWZZZVRfeFVqbGF5SXBzZ0M1WG51c0NrYURkaTdKa190VDM0S1pfTHh4Tktfa05qem11YVlOakVCZExmNlFMWEdPaTBNOGVENmxNanJnQWpUTkRrREs1cjFnWFYyZmF0dHdSVV9rdDItNHY1LUc5RHF4RXU4UXA2S0x6cXRMM0NxN1hLeVEtWFE?oc=5",
+          "source": "Successful Farming",
+          "source_url": "https://www.agriculture.com",
+          "pub_kst": "2026-04-17T16:00+09:00"
+        }
+      ],
+      "queued_at": "2026-10-28T03:49:28+09:00",
+      "attempts": 0
+    },
+    "refinery:news:rfs_sre_2025_package_20260831": {
+      "topic": "refinery",
+      "kind": "news",
+      "event_key": "rfs_sre_2025_package_20260831",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "ed0693271e0dab58863d8ae2",
+          "title": "EPA small refinery exemptions in the Renewable Fuel Standard explained - U.S. Energy Information Administration (EIA) (.gov)",
+          "link": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE02TGxDdHFZc0llRnhMQkM1VWd4WFR4UmlaXzl0MEZzOTNQVkxFMlI3M1ViNmptY3dId29fVVpPOFhWVEl1b01pbTJQeThmUjllWk1KNDVtSHR6NHcwMFJJQnBEcw?oc=5",
+          "source": "U.S. Energy Information Administration (EIA) (.gov)",
+          "source_url": "https://www.eia.gov",
+          "pub_kst": "2019-11-14T17:00+09:00"
+        }
+      ],
+      "queued_at": "2026-10-28T03:49:28+09:00",
+      "attempts": 0
     }
   },
   "receipts": [
