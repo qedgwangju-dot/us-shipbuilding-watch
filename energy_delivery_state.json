@@ -1127,7 +1127,7 @@
       "topic": "spr",
       "kind": "news",
       "event_key": "spr_article_dc1267d68bac564ebfa25f56",
-      "status": "enrichment_pending",
+      "status": "source_blocked",
       "items": [
         {
           "id": "dc1267d68bac564ebfa25f56",
@@ -1135,11 +1135,21 @@
           "link": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxQdGdXN3NZVndTU04wMW5MZ0s1U3otQ1BsMnZ2R1FaeVNaZWdTUjZiQUt5WXJoczZmNFllbDUybVlHeVpfSEYtWlF5dUV5WUJnY1BJc0o0QUQtRFZfQkxTV2I0U0pIMTdTSmloRGRBSkFfMDJEWFFjWjZWOHVoVTdMak5sTjE1RG05VUt2SjNzdWpoYWhnUWI5ZHAyeGhoTDNoVGZ4dFRNbXhKTTJUZmM3aEQwUHAyQ01hVEFjbkh3STFNWjJqMkNzUw?oc=5",
           "source": "TradeWinds News",
           "source_url": "https://www.tradewindsnews.com",
-          "pub_kst": "2026-10-29T01:33+09:00"
+          "pub_kst": "2026-10-29T01:33+09:00",
+          "_source_blocked": true,
+          "_source_failure": {
+            "stage": "translation_google",
+            "reason": "http_rate_limit",
+            "blocked_before_request": false,
+            "provider": "www.google.com",
+            "request_url_sha256": "60b03803341f9fe7675925b0bcafc1222f913ee1fe4835ead6d8a95355636e2e",
+            "http_status": 429
+          }
         }
       ],
       "queued_at": "2026-10-29T04:29:44+09:00",
-      "attempts": 0
+      "attempts": 1,
+      "invalid_items": []
     },
     "spr:news:spr_article_ddbb7af17e7c90f0bb365447": {
       "topic": "spr",
@@ -1157,61 +1167,8 @@
         }
       ],
       "queued_at": "2026-10-29T04:29:44+09:00",
-      "attempts": 0
-    },
-    "spr:news:spr_venezuela_oil_agreement_20260831": {
-      "topic": "spr",
-      "kind": "news",
-      "event_key": "spr_venezuela_oil_agreement_20260831",
-      "status": "enrichment_pending",
-      "items": [
-        {
-          "id": "64907101a8c26a770f5b0e0b",
-          "title": "Trump says US has entered deal with Venezuela to take control of 65 billion barrels of oil reserves - AP News",
-          "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxPandFWnE5LWFYSWl5SEtwWmlTZVF3cXp2WDFlNVBEdXNUQjVtR0NUTktzS24wb1VYdDdRZVpVQmR4SjhvblU2QzFVLS1DS0xtYnVUb2tTclhweEFZUHhPYVVtWlpxNVRxYUQ2QkJiWDhBNVFJQUt1TTIxME9DM2EzTDZ0YUFCYm1FdGR0SFFzTkVmUQ?oc=5",
-          "source": "AP News",
-          "source_url": "https://apnews.com",
-          "pub_kst": "2026-08-28T16:00+09:00"
-        }
-      ],
-      "queued_at": "2026-10-29T04:29:44+09:00",
-      "attempts": 0
-    },
-    "spr:news:spr_article_7ddc2f815d089dcbfff3339e": {
-      "topic": "spr",
-      "kind": "news",
-      "event_key": "spr_article_7ddc2f815d089dcbfff3339e",
-      "status": "enrichment_pending",
-      "items": [
-        {
-          "id": "7ddc2f815d089dcbfff3339e",
-          "title": "Venezuela has the world's largest proven oil reserves, but it can’t solve for the Strait of Hormuz ‘math problem’ - Fortune",
-          "link": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxONzVIQ0FCbWt6SVpUVkhaNTZZWDFUaldHSlVaOUhYZ1h4ejJNM1hDTm9mUEZXVzA4RWlnR3NZX3NURHVRUzhuWG5HUEdkLUxob3VZSUF4d2FLelZXSzl2LWZodk5PRE1xbE56V0hrWHJ5aE5yNzJ5cDJyUDlDOC1PWG1lT0RkYkJ5TjJtY3pUNGk3ejhGcTZwTzl1THBDaWxiRWRzUlFqYms3TEhBbGRYeU1WX2o1b21BV0licFBKZkdKb25odVlqZkJxdmhBR2pfOWRqYnRKamtjQ1Nxd2RvWQ?oc=5",
-          "source": "Fortune",
-          "source_url": "https://fortune.com",
-          "pub_kst": "2026-03-17T16:00+09:00"
-        }
-      ],
-      "queued_at": "2026-10-29T04:29:44+09:00",
-      "attempts": 0
-    },
-    "spr:news:spr_article_d6995fe2e3a83a9d97a47c9e": {
-      "topic": "spr",
-      "kind": "news",
-      "event_key": "spr_article_d6995fe2e3a83a9d97a47c9e",
-      "status": "enrichment_pending",
-      "items": [
-        {
-          "id": "d6995fe2e3a83a9d97a47c9e",
-          "title": "Trump says US is taking control of Venezuela’s oil reserves. Here’s what it means | CNN Business - CNN",
-          "link": "https://news.google.com/rss/articles/CBMickFVX3lxTE14b3diNkxFZnh6YmR2T1VBalBVWThrbzNkYl91Rk13YkNCaVBOWEJrbTZMZ3h3aHBfbUpMVFVybkc4NHFESHMxYkZPbFRORUR1bU9jWVlBVE40d2Ria1NuRDluMFlOelM0ZXF3dWFQQ1Q0Zw?oc=5",
-          "source": "CNN",
-          "source_url": "https://www.cnn.com",
-          "pub_kst": "2026-01-03T17:00+09:00"
-        }
-      ],
-      "queued_at": "2026-10-29T04:29:44+09:00",
-      "attempts": 0
+      "attempts": 1,
+      "invalid_items": []
     }
   },
   "receipts": [
@@ -2995,6 +2952,30 @@
       "at": "2026-10-28T23:07:26+09:00",
       "ids": [
         "6da363876c205599292104c9"
+      ]
+    },
+    {
+      "key": "spr:news:spr_venezuela_oil_agreement_20260831",
+      "reason": "news_outside_three_day_window",
+      "at": "2026-10-29T04:30:43+09:00",
+      "ids": [
+        "64907101a8c26a770f5b0e0b"
+      ]
+    },
+    {
+      "key": "spr:news:spr_article_7ddc2f815d089dcbfff3339e",
+      "reason": "news_outside_three_day_window",
+      "at": "2026-10-29T04:30:43+09:00",
+      "ids": [
+        "7ddc2f815d089dcbfff3339e"
+      ]
+    },
+    {
+      "key": "spr:news:spr_article_d6995fe2e3a83a9d97a47c9e",
+      "reason": "news_outside_three_day_window",
+      "at": "2026-10-29T04:30:43+09:00",
+      "ids": [
+        "d6995fe2e3a83a9d97a47c9e"
       ]
     }
   ],
