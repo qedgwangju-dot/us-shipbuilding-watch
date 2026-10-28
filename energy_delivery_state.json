@@ -864,7 +864,8 @@
         }
       ],
       "queued_at": "2026-10-28T07:39:33+09:00",
-      "attempts": 5
+      "attempts": 6,
+      "invalid_items": []
     },
     "spr:news:spr_article_8a52db56f8ecdc6e3791edf2": {
       "topic": "spr",
@@ -1169,44 +1170,8 @@
         }
       ],
       "queued_at": "2026-10-29T04:29:44+09:00",
-      "attempts": 1,
+      "attempts": 2,
       "invalid_items": []
-    },
-    "spr:news:spr_article_00c598bff17be6b8465932db": {
-      "topic": "spr",
-      "kind": "news",
-      "event_key": "spr_article_00c598bff17be6b8465932db",
-      "status": "enrichment_pending",
-      "items": [
-        {
-          "id": "00c598bff17be6b8465932db",
-          "title": "Four questions on the US-Venezuelan oil deal - Atlantic Council",
-          "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxNaXFsVEpPUHNXRTBfcFpBcmdjMTBmeEc0YVBLeGd6VlRnQXFrOExDRVB1TGFhXzgyYllFVTFUcDc1R0RXVHZfUGRlVFR1bWc4aTNBejVUTXNyQ1Bpb244NGY3cExHZ0NzLU16MFdqS2dxRzhwUnBkcFpPSFJGUC1tdnVhQncyMlk0M0FxbnZjdjVUeVRGdU5MZFhvdWo?oc=5",
-          "source": "Atlantic Council",
-          "source_url": "https://www.atlanticcouncil.org",
-          "pub_kst": "2026-09-01T16:00+09:00"
-        }
-      ],
-      "queued_at": "2026-10-29T08:23:41+09:00",
-      "attempts": 0
-    },
-    "spr:news:spr_article_4925869385793ce8b9df7c53": {
-      "topic": "spr",
-      "kind": "news",
-      "event_key": "spr_article_4925869385793ce8b9df7c53",
-      "status": "enrichment_pending",
-      "items": [
-        {
-          "id": "4925869385793ce8b9df7c53",
-          "title": "The U.S. doesn’t have a state-owned oil giant. But in Venezuela, the federal government will control a company with the world’s 2nd largest reserves - Yahoo Finance",
-          "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxQOUt3cmlwMnlhWmpuNy0wakVPR1U1NEFfTXVoOFdsN21kbHd2S2FvY2tWRHh1NmFjMkhSclVjclpGcnZULXQ4WGNEV3hGNmxwYU44MWNNTExYaWh1ZXRzU2VOLThmNFFWNXlYemZacExOMUh0YlFMRkNZM2NNT0ZndHFRT1Y?oc=5",
-          "source": "Yahoo Finance",
-          "source_url": "https://finance.yahoo.com",
-          "pub_kst": "2026-08-29T16:00+09:00"
-        }
-      ],
-      "queued_at": "2026-10-29T08:23:41+09:00",
-      "attempts": 0
     }
   },
   "receipts": [
@@ -3014,6 +2979,22 @@
       "at": "2026-10-29T04:30:43+09:00",
       "ids": [
         "d6995fe2e3a83a9d97a47c9e"
+      ]
+    },
+    {
+      "key": "spr:news:spr_article_00c598bff17be6b8465932db",
+      "reason": "news_outside_three_day_window",
+      "at": "2026-10-29T08:24:14+09:00",
+      "ids": [
+        "00c598bff17be6b8465932db"
+      ]
+    },
+    {
+      "key": "spr:news:spr_article_4925869385793ce8b9df7c53",
+      "reason": "news_outside_three_day_window",
+      "at": "2026-10-29T08:24:14+09:00",
+      "ids": [
+        "4925869385793ce8b9df7c53"
       ]
     }
   ],
