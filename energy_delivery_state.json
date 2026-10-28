@@ -1009,204 +1009,6 @@
       "queued_at": "2026-10-28T10:40:31+09:00",
       "attempts": 1,
       "invalid_items": []
-    },
-    "refinery:news:refinery_gasoline_policy_202609": {
-      "topic": "refinery",
-      "kind": "news",
-      "event_key": "refinery_gasoline_policy_202609",
-      "status": "enrichment_pending",
-      "items": [
-        {
-          "id": "5f645703ef770320b9fe36a9",
-          "title": "Gasoline Prices Under Trump Now Exceed Biden-Era Average, Diesel at Record High, Republicans Under Pressure Ahead of Midterms - BigGo Finance",
-          "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTFB2cGtUT3M0M2NOTXlBOTUwU2c5b3dobVAwNkdIalJDeXo3QVdqcHRNX2xVLTNaemlvMlcta3RObUxlcllCWDAwal85bHp3OXNtckYtTVFoU3pSQndoTjZucGNhVjZqWTNia2VWZ3RJUDZkLTJZQkE?oc=5",
-          "source": "BigGo Finance",
-          "source_url": "https://finance.biggo.com",
-          "pub_kst": "2026-10-27T09:35+09:00"
-        }
-      ],
-      "queued_at": "2026-10-28T16:22:26+09:00",
-      "attempts": 0
-    },
-    "refinery:news:refinery_article_8e0c2d1789e22ce28b7cccfe": {
-      "topic": "refinery",
-      "kind": "news",
-      "event_key": "refinery_article_8e0c2d1789e22ce28b7cccfe",
-      "status": "enrichment_pending",
-      "items": [
-        {
-          "id": "8e0c2d1789e22ce28b7cccfe",
-          "title": "Trump Taps Wartime Powers In $150 Million Push To Fire Up U.S. Oil Refineries - AOL.com",
-          "link": "https://news.google.com/rss/articles/CBMifkFVX3lxTE9rV1NCT2laMm1TMC1obVkyODdnUWprNzJHZE1Bck03bVVEOXJxbk85UHN5S2dFUzF4OEFyQzhzUnJXY0diYXU5UjFhNWdyTVkxajhnNEM1TXVwOWIxOEVqdjk5Tk1RUHBVRDVvNExCOFVaT1pCV0l4MVFKcXE3Zw?oc=5",
-          "source": "AOL.com",
-          "source_url": "https://www.aol.com",
-          "pub_kst": "2026-10-24T21:18+09:00"
-        }
-      ],
-      "queued_at": "2026-10-28T16:22:26+09:00",
-      "attempts": 0
-    },
-    "refinery:news:refinery_article_cde023f6f7f931d5fd612869": {
-      "topic": "refinery",
-      "kind": "news",
-      "event_key": "refinery_article_cde023f6f7f931d5fd612869",
-      "status": "enrichment_pending",
-      "items": [
-        {
-          "id": "cde023f6f7f931d5fd612869",
-          "title": "Trump Taps Wartime Powers In $150 Million Push To Fire Up U.S. Oil Refineries - Tampa Free Press",
-          "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxOVDJSdlR2ZUItM19uaDNTbTkwWmtyVzhSdjI4aG1WX3d6aHhycmFQZUtMdWF6SFJZdzRyT2h6MnZZTlFkeUVicFZpdHB3SHllbmRJRHI3SEZBcXhMN1RQeGNKUTNtOWJvVzVyX3JTRjhDbFFkQVRScWVGRERkbTI2d3JaMWVacU9IaGF4SGFfRVV5bVRxa0NySnYwaUtrRl91RXc?oc=5",
-          "source": "Tampa Free Press",
-          "source_url": "https://www.tampafp.com",
-          "pub_kst": "2026-10-24T21:10+09:00"
-        }
-      ],
-      "queued_at": "2026-10-28T16:22:26+09:00",
-      "attempts": 0
-    },
-    "refinery:news:refinery_article_da959186b0f05f28ebedd0a5": {
-      "topic": "refinery",
-      "kind": "news",
-      "event_key": "refinery_article_da959186b0f05f28ebedd0a5",
-      "status": "enrichment_pending",
-      "items": [
-        {
-          "id": "da959186b0f05f28ebedd0a5",
-          "title": "Russia's first diesel tanker just sailed for the U.S. — but can its battered refineries deliver? - Latin Times",
-          "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxPcW03OVA0ZFU1aXJoMTNOMURXbDFSMG81dE1SbmQ4RDI5TmFVbzdlckY0R09FUUhlaUVRUGtKM1B5TURZVjBWNWE2VG5lMFV4Rk1ybjdFazBLVUxzZ3cxWEtoZW1YM1BfX1hIM1huQkNxNXEzYlhpR2duV0p3RHM0WDJ1U2ttNU9FMmxacXl2aHp4X0V6ZDlEYzVWTHBoa0NjdDRDaC1UdER0d01TWWc?oc=5",
-          "source": "Latin Times",
-          "source_url": "https://www.latintimes.com",
-          "pub_kst": "2026-10-23T04:48+09:00"
-        }
-      ],
-      "queued_at": "2026-10-28T16:22:26+09:00",
-      "attempts": 0
-    },
-    "refinery:news:refinery_article_33c2402a5e660493d65006bd": {
-      "topic": "refinery",
-      "kind": "news",
-      "event_key": "refinery_article_33c2402a5e660493d65006bd",
-      "status": "enrichment_pending",
-      "items": [
-        {
-          "id": "33c2402a5e660493d65006bd",
-          "title": "Oil industry warns a diesel export ban will raise fuel prices as Trump weighs restrictions - CNBC",
-          "link": "https://news.google.com/rss/articles/CBMie0FVX3lxTFB2NjFmd2U2TjBiUk90ZEhjN21WVGxUSWJNaUlNcExrZVNsN1FHRGlWRXZSMnVLb2NpcDdiUEFzMVVMa3dWMkpIME5SZDM2TmY3UkEzajFqSUI0QWZwZGR3V211X05VNFZZSkxsYVlUckZtc3N3aEY1dzFsONIBgAFBVV95cUxNczFLaGlTQWRhSnRlVWtiLWNQYXcyN2ZBZ1hZYU8yOWE1STBTUmVyR1hCQUVYYWtvQ0ljZHdjeFRtQzZCTUF6cF9TbmM5UkdfVml2a2dQZTdUNmd2NTUwcXItc1hQT0tLXy0zT3VQZTFfUTB4cW1WUFBrTzlvWHN1Ug?oc=5",
-          "source": "CNBC",
-          "source_url": "https://www.cnbc.com",
-          "pub_kst": "2026-09-23T16:00+09:00"
-        }
-      ],
-      "queued_at": "2026-10-28T16:22:26+09:00",
-      "attempts": 0
-    },
-    "refinery:news:rfs_sre_2025_package_20260831": {
-      "topic": "refinery",
-      "kind": "news",
-      "event_key": "rfs_sre_2025_package_20260831",
-      "status": "enrichment_pending",
-      "items": [
-        {
-          "id": "43be1fab742a2485fbdb7557",
-          "title": "EPA’s small refinery exemptions draw mixed reviews - Agri News",
-          "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxPMlo0djl5amg5MWJkaG9Ga1dPblRDclpZeDFGckh0Q3hmbnFMcmpZZ1M0UWtBT0F2YzBvaWREQUNYMjBQZW5yb0ZsTko3cllxLVNZYnRncHhzUkxwMHc5aDRuM3ZLUThYNFQxMjZ3WHFNQnFXYlJ0YjJNYjV4MGZINEdwQWdsYWFQdE15elFPeFpYc1Y0cWFFeXloRkc5aUl3UGc?oc=5",
-          "source": "Agri News",
-          "source_url": "https://www.agrinews-pubs.com",
-          "pub_kst": "2026-09-12T16:00+09:00"
-        }
-      ],
-      "queued_at": "2026-10-28T16:22:26+09:00",
-      "attempts": 0
-    },
-    "refinery:news:refinery_article_1334090e5413fcba302a1568": {
-      "topic": "refinery",
-      "kind": "news",
-      "event_key": "refinery_article_1334090e5413fcba302a1568",
-      "status": "enrichment_pending",
-      "items": [
-        {
-          "id": "1334090e5413fcba302a1568",
-          "title": "EPA grants 1.76 billion biofuel exemptions, weighs shifting obligations to larger refiners - Reuters",
-          "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxOT01vc1lsWWw5b1FnYV8yZ3pRQ21ZQmRjOElKa3hQT2I4U0MtVkJKRk0ycFYxZzZlb2ZSLWxLWlgzN0JfZi13WjlFUjFTZVpLdHVrVjdNcU02VGJleTFZMEYzSjF5dElLS0JPSHRoQ0lHREs0emg5WmZBRVZfSHhNVE9RNU5iVXBJQU8tMUtzYU5NSlQxYUwwX2kzQjNjbndheklUYTVBczZTaWpCdWJnTWs0MlYtZW5nZXRyb3FBVQ?oc=5",
-          "source": "Reuters",
-          "source_url": "https://www.reuters.com",
-          "pub_kst": "2026-08-31T16:00+09:00"
-        }
-      ],
-      "queued_at": "2026-10-28T16:22:26+09:00",
-      "attempts": 0
-    },
-    "refinery:news:refinery_article_d72a0cd415697d86964b6715": {
-      "topic": "refinery",
-      "kind": "news",
-      "event_key": "refinery_article_d72a0cd415697d86964b6715",
-      "status": "enrichment_pending",
-      "items": [
-        {
-          "id": "d72a0cd415697d86964b6715",
-          "title": "Trump to meet with oil refiners amid stubborn gas prices - The Hill",
-          "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxQXzM2T2l5UW1ILXlwckpEUkk1Rm9QVTdQQlczdmpHd0hKRVd4ZjczSk1jajlUZFYwMERwcU56ZDltZUxrWGs0M1dIb1VlbC1NUUlMMms4NExjYUNjTEdtUFphaFZlSy15NGpWYmx3M1ZyYmo3R1ZFRVoycmxZWnAtNnNkQm91aFhpZ2xRVkpLSk9oTzNUcmR2VFZDclXSAaIBQVVfeXFMT2lsZ3NsUXg5WjRFb1o2ZVRWSnFla1gzZUFNVXZ3Y3lRMVNtb0RHdzFpRXhBN0gtUjl5ZThhUVhFMHQ5S3BlWWFfZXRuN09veWJGTU02eEN2MDgwTW9EMEVLbjFkSjBGQVp0cFRwa3Vqck5BcGJlak1nYl9yOFJ5UVRfeWo3OTBWRXJFQkpHNjRFUVlEdjFKcjZNcTF0RlA0bjNR?oc=5",
-          "source": "The Hill",
-          "source_url": "https://thehill.com",
-          "pub_kst": "2026-08-31T16:00+09:00"
-        }
-      ],
-      "queued_at": "2026-10-28T16:22:26+09:00",
-      "attempts": 0
-    },
-    "refinery:news:refinery_article_e7ccbae6c761332e03594e0a": {
-      "topic": "refinery",
-      "kind": "news",
-      "event_key": "refinery_article_e7ccbae6c761332e03594e0a",
-      "status": "enrichment_pending",
-      "items": [
-        {
-          "id": "e7ccbae6c761332e03594e0a",
-          "title": "White House eyes reopening oil refineries amid high gasoline prices - The Hill",
-          "link": "https://news.google.com/rss/articles/CBMikwFBVV95cUxQLUFSdHZPUGJwTGI5M3FoQl92aGU4NFp2MmRPY1RqM3U0WHl3UkFBLXVkQkJpMkYzQmlYOVNRamprS1VZM0RkQzFiLW9LaEVRMDd4SkVTeERRaHlvd1VIX0ExOVJWQnE1TTVWdXRHaklQNUdkRUtlV2hPYWFUcjl3NjhibUt3cHhtWHNGYUJGU01iXzDSAZgBQVVfeXFMT3JFXzRrVnNaQnlacUQwdzJlN2hZQXJwZGVnSjF2YjZZMFpURkVEYlFWUERGMm1UT1NlV01ReE9OWXZpMnluQWp2R3ZkZXRQNHF3ZUxhS1pXcVhTWHBSWk45Q19Idl9kTFEzRFZHaC1XMGF6N28yM3NZUnRmWmNodUdQZEt3WUNCcWo0WUNzdFZ5S3FEWThRNzM?oc=5",
-          "source": "The Hill",
-          "source_url": "https://thehill.com",
-          "pub_kst": "2026-07-30T16:00+09:00"
-        }
-      ],
-      "queued_at": "2026-10-28T16:22:26+09:00",
-      "attempts": 0
-    },
-    "refinery:news:refinery_article_805d4c301e3d75481e909e73": {
-      "topic": "refinery",
-      "kind": "news",
-      "event_key": "refinery_article_805d4c301e3d75481e909e73",
-      "status": "enrichment_pending",
-      "items": [
-        {
-          "id": "805d4c301e3d75481e909e73",
-          "title": "EPA releases rulemaking to reallocate waived RFS volumes, biofuel industry expresses cautious optimism - Ethanol Producer Magazine",
-          "link": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxNamRiT1d4eURZWXphVUhrVzhBdjh4bEs3bGdidXFRUVJxRXo4M0hINlFuczd6LVNFaUk3NXpVUGh0NzdZelpfSzB3cUVaeEpYc3Y4YWpva3dldm5jZkJTTElsbUZJYWt5YkhYalM2RUwxc3RzVG9yTFdLNXJkeDBJUTBld0xCN3liVFZaRTQtYUNxU2F5MVV3d0NCQUFWU3lXYmJuSzN1TmpQMGlwSTlGcDRkcTdSY0h0MnlZbHM5dy1xTGktQXJ6dmZCWUV3MVVRV3EwUg?oc=5",
-          "source": "Ethanol Producer Magazine",
-          "source_url": "https://ethanolproducer.com",
-          "pub_kst": "2025-09-16T16:00+09:00"
-        }
-      ],
-      "queued_at": "2026-10-28T16:22:26+09:00",
-      "attempts": 0
-    },
-    "refinery:news:refinery_article_cb4d3b5766fc2a754893d332": {
-      "topic": "refinery",
-      "kind": "news",
-      "event_key": "refinery_article_cb4d3b5766fc2a754893d332",
-      "status": "enrichment_pending",
-      "items": [
-        {
-          "id": "cb4d3b5766fc2a754893d332",
-          "title": "Study: Trump's Proposed 50% RINs Cut for Foreign Feedstocks in RFS Could Stall Biomass-Based Diesel Growth - DTN Progressive Farmer",
-          "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQNTNhZ25sV0MxMGd0dmcza0x2bVVFbWF4QzQ3MHBiaDZqYWFkMDYzdFo3MkNkMnpESjNEUHVFNEY5bUp6NlYyWllrMWxkVXh5NjZqbWNFRnBUaGphdndWeWgxc1Z1R0RSck53RnJCUE1Lb0V6alEtWUhDMjNFdG9lLU5wbkpBM0dVZThzZHNsaWNrNW0tUC1IcWstd0k0aXVaZFRrN0I3UDY2WndXWjJwS3pnVW4?oc=5",
-          "source": "DTN Progressive Farmer",
-          "source_url": "https://www.dtnpf.com",
-          "pub_kst": "2025-07-22T16:00+09:00"
-        }
-      ],
-      "queued_at": "2026-10-28T16:22:26+09:00",
-      "attempts": 0
     }
   },
   "receipts": [
@@ -2856,6 +2658,94 @@
       "at": "2026-10-28T10:41:04+09:00",
       "ids": [
         "bda58d9f4ca8a5165c6533e7"
+      ]
+    },
+    {
+      "key": "refinery:news:refinery_gasoline_policy_202609",
+      "reason": "existing_event_priority",
+      "at": "2026-10-28T16:22:28+09:00",
+      "ids": [
+        "5f645703ef770320b9fe36a9"
+      ]
+    },
+    {
+      "key": "refinery:news:refinery_article_8e0c2d1789e22ce28b7cccfe",
+      "reason": "news_outside_three_day_window",
+      "at": "2026-10-28T16:22:28+09:00",
+      "ids": [
+        "8e0c2d1789e22ce28b7cccfe"
+      ]
+    },
+    {
+      "key": "refinery:news:refinery_article_cde023f6f7f931d5fd612869",
+      "reason": "news_outside_three_day_window",
+      "at": "2026-10-28T16:22:28+09:00",
+      "ids": [
+        "cde023f6f7f931d5fd612869"
+      ]
+    },
+    {
+      "key": "refinery:news:refinery_article_da959186b0f05f28ebedd0a5",
+      "reason": "news_outside_three_day_window",
+      "at": "2026-10-28T16:22:28+09:00",
+      "ids": [
+        "da959186b0f05f28ebedd0a5"
+      ]
+    },
+    {
+      "key": "refinery:news:refinery_article_33c2402a5e660493d65006bd",
+      "reason": "news_outside_three_day_window",
+      "at": "2026-10-28T16:22:28+09:00",
+      "ids": [
+        "33c2402a5e660493d65006bd"
+      ]
+    },
+    {
+      "key": "refinery:news:rfs_sre_2025_package_20260831",
+      "reason": "news_outside_three_day_window",
+      "at": "2026-10-28T16:22:28+09:00",
+      "ids": [
+        "43be1fab742a2485fbdb7557"
+      ]
+    },
+    {
+      "key": "refinery:news:refinery_article_1334090e5413fcba302a1568",
+      "reason": "news_outside_three_day_window",
+      "at": "2026-10-28T16:22:28+09:00",
+      "ids": [
+        "1334090e5413fcba302a1568"
+      ]
+    },
+    {
+      "key": "refinery:news:refinery_article_d72a0cd415697d86964b6715",
+      "reason": "news_outside_three_day_window",
+      "at": "2026-10-28T16:22:28+09:00",
+      "ids": [
+        "d72a0cd415697d86964b6715"
+      ]
+    },
+    {
+      "key": "refinery:news:refinery_article_e7ccbae6c761332e03594e0a",
+      "reason": "news_outside_three_day_window",
+      "at": "2026-10-28T16:22:28+09:00",
+      "ids": [
+        "e7ccbae6c761332e03594e0a"
+      ]
+    },
+    {
+      "key": "refinery:news:refinery_article_805d4c301e3d75481e909e73",
+      "reason": "news_outside_three_day_window",
+      "at": "2026-10-28T16:22:28+09:00",
+      "ids": [
+        "805d4c301e3d75481e909e73"
+      ]
+    },
+    {
+      "key": "refinery:news:refinery_article_cb4d3b5766fc2a754893d332",
+      "reason": "news_outside_three_day_window",
+      "at": "2026-10-28T16:22:28+09:00",
+      "ids": [
+        "cb4d3b5766fc2a754893d332"
       ]
     }
   ],
