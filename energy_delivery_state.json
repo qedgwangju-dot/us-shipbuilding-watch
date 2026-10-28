@@ -1123,32 +1123,6 @@
       "attempts": 1,
       "invalid_items": []
     },
-    "spr:data:venezuela_imports:2026-10-23": {
-      "topic": "spr",
-      "kind": "data",
-      "field": "venezuela_imports",
-      "current": {
-        "date": "2026-10-23",
-        "value_kbd": 618,
-        "prev_kbd": 571,
-        "source": "https://www.eia.gov/dnav/pet/hist/LeafHandler.ashx?f=W&n=PET&s=W_EPC0_IM0_NUS-NVE_MBBLD"
-      },
-      "status": "ready",
-      "message": "<b>[베네수엘라산 원유 미국 유입]</b>\n<b>2026-10-23 | 618천 배럴/일</b>\n\n<b>한눈에 보기</b>\n• 전주 변화: <b>+47천 배럴/일</b>\n• 7일 단순 환산: <b>4.326백만 배럴</b>\n\n<b>판정</b>\n• 미국 전체 수입량이지 SPR 직접 입고량은 아님\n• 정유사 투입분과 SPR 저장분을 DOE 조달·반입 자료로 분리 확인\n\n<a href=\"https://www.eia.gov/dnav/pet/hist/LeafHandler.ashx?f=W&amp;n=PET&amp;s=W_EPC0_IM0_NUS-NVE_MBBLD\">EIA 원문</a>",
-      "queued_at": "2026-10-29T04:29:40+09:00",
-      "attempts": 1,
-      "destination_sha256": "728ec791404aeb88f2a5ccd146b28840c29808c1d672417c35a08bbc69fed5bc",
-      "chunks": [
-        {
-          "text": "<b>[베네수엘라산 원유 미국 유입]</b>\n<b>2026-10-23 | 618천 배럴/일</b>\n\n<b>한눈에 보기</b>\n• 전주 변화: <b>+47천 배럴/일</b>\n• 7일 단순 환산: <b>4.326백만 배럴</b>\n\n<b>판정</b>\n• 미국 전체 수입량이지 SPR 직접 입고량은 아님\n• 정유사 투입분과 SPR 저장분을 DOE 조달·반입 자료로 분리 확인\n\n<a href=\"https://www.eia.gov/dnav/pet/hist/LeafHandler.ashx?f=W&amp;n=PET&amp;s=W_EPC0_IM0_NUS-NVE_MBBLD\">EIA 원문</a>",
-          "message_sha256": "83a187e1f7359012f64aa67554974c953f3be626e7691d8ab078fed7ef8801cb",
-          "status": "confirmed",
-          "prepared_at": "2026-10-29T04:30:28+09:00",
-          "message_id": 498,
-          "confirmed_at": "2026-10-29T04:30:33+09:00"
-        }
-      ]
-    },
     "spr:news:spr_article_dc1267d68bac564ebfa25f56": {
       "topic": "spr",
       "kind": "news",
@@ -1293,6 +1267,17 @@
         {
           "message_id": 497,
           "message_sha256": "ffa987e6c315420d6bd7b4c9bfc9fcc1deb2671d6ed95733d20d6595e0976145"
+        }
+      ]
+    },
+    {
+      "key": "spr:data:venezuela_imports:2026-10-23",
+      "at": "2026-10-29T04:30:37+09:00",
+      "destination_sha256": "728ec791404aeb88f2a5ccd146b28840c29808c1d672417c35a08bbc69fed5bc",
+      "chunks": [
+        {
+          "message_id": 498,
+          "message_sha256": "83a187e1f7359012f64aa67554974c953f3be626e7691d8ab078fed7ef8801cb"
         }
       ]
     }
