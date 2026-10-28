@@ -864,7 +864,8 @@
         }
       ],
       "queued_at": "2026-10-28T07:39:33+09:00",
-      "attempts": 3
+      "attempts": 4,
+      "invalid_items": []
     },
     "spr:news:spr_article_8a52db56f8ecdc6e3791edf2": {
       "topic": "spr",
@@ -1098,7 +1099,7 @@
       "topic": "spr",
       "kind": "news",
       "event_key": "spr_article_e91075b7d29b855af54ad88c",
-      "status": "enrichment_pending",
+      "status": "source_blocked",
       "items": [
         {
           "id": "e91075b7d29b855af54ad88c",
@@ -1106,11 +1107,21 @@
           "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxPY1lQMDdtdmVjVTlZS1lRUTY4OEJGamlOTUV1TWVHelZ6VHFUYWhjZE1qYVZhSk5oamx5UkhzLXRTZks0dHZFX1A4X3BFMWpQWGhpa3ZENkhYWmFKNUxFbnJoX2E0anFtZWdIVzVCYzNjc1NIWmE3QXFNa2NyMlVxdlZMVUE4SDNBdVBjZzdtUTFlVF9uY0pzVl9ZSkM5T2V4eVE?oc=5",
           "source": "AP News",
           "source_url": "https://apnews.com",
-          "pub_kst": "2026-10-27T12:24+09:00"
+          "pub_kst": "2026-10-27T12:24+09:00",
+          "_source_blocked": true,
+          "_source_failure": {
+            "stage": "article_fetch",
+            "reason": "http_denial",
+            "blocked_before_request": false,
+            "provider": "apnews.com",
+            "request_url_sha256": "bc4421dfbaa57e67ee44cea36eb61a7a5fdb94a76f796d3f866d8c9f4c4729d5",
+            "http_status": 403
+          }
         }
       ],
       "queued_at": "2026-10-28T23:07:34+09:00",
-      "attempts": 0
+      "attempts": 1,
+      "invalid_items": []
     }
   },
   "receipts": [
