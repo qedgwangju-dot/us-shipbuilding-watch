@@ -816,7 +816,8 @@
       ],
       "queued_at": "2026-10-28T07:39:33+09:00",
       "attempts": 1,
-      "invalid_items": []
+      "invalid_items": [],
+      "held_items": []
     },
     "spr:news:spr_article_a555960915d1b8a81c7ca8be": {
       "topic": "spr",
@@ -844,7 +845,8 @@
       ],
       "queued_at": "2026-10-28T07:39:33+09:00",
       "attempts": 1,
-      "invalid_items": []
+      "invalid_items": [],
+      "held_items": []
     },
     "spr:news:spr_article_d1ae1c78487268f3c8b20831": {
       "topic": "spr",
@@ -858,12 +860,11 @@
           "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxQcWpkTGctM09hUGpnVG1la0F6NXl5VmRRczl3aUJFeUtiMnh0T0c0ZmhhZEtDMWlreWtBeWdxel9FN1ROZXk5dUVReFlHUUxaLWQxX09oUHF1cmJ5LXZ6elAwMDdGVlY1VlpJT09hdVBuQnFvNzRZNzRjdzRJUkMySTZGbkVXSUI2R19fNE4zWkg2ZGh4cjdGWl9YVWd3NE1WTDJIeWNpYUpsejR5UlpxdQ?oc=5",
           "source": "The Washington Post",
           "source_url": "https://www.washingtonpost.com",
-          "pub_kst": "2026-10-28T06:19+09:00"
+          "pub_kst": "2026-10-28T09:48+09:00"
         }
       ],
       "queued_at": "2026-10-28T07:39:33+09:00",
-      "attempts": 1,
-      "invalid_items": []
+      "attempts": 1
     },
     "spr:news:spr_article_8a52db56f8ecdc6e3791edf2": {
       "topic": "spr",
@@ -891,7 +892,8 @@
       ],
       "queued_at": "2026-10-28T07:39:33+09:00",
       "attempts": 1,
-      "invalid_items": []
+      "invalid_items": [],
+      "held_items": []
     },
     "spr:news:spr_article_b1ad54e8d441435d86e5b552": {
       "topic": "spr",
@@ -947,7 +949,8 @@
       ],
       "queued_at": "2026-10-28T07:39:33+09:00",
       "attempts": 1,
-      "invalid_items": []
+      "invalid_items": [],
+      "held_items": []
     },
     "spr:news:spr_article_4a6f1793bcb6d05e384c1d75": {
       "topic": "spr",
@@ -975,7 +978,44 @@
       ],
       "queued_at": "2026-10-28T07:39:33+09:00",
       "attempts": 1,
-      "invalid_items": []
+      "invalid_items": [],
+      "held_items": []
+    },
+    "spr:news:spr_venezuela_oil_agreement_20260831": {
+      "topic": "spr",
+      "kind": "news",
+      "event_key": "spr_venezuela_oil_agreement_20260831",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "bda58d9f4ca8a5165c6533e7",
+          "title": "First Venezuelan oil from US-NABEP deal arrives in Texas, to be sold to Exxon, Citgo - Reuters",
+          "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxOajN2UFlXd0wwM25Bd0ZIVVRPcEZQQkQydTRBQXBuT0RuYnBFRnFqbF9rYTZxdFhqWnBYYk10M0U3RGhXd1lReE5ndTk2VEd1SUI4SEUzLWx6YWRHOTBZaXdyOTFDMm9Cc1JjQ1ZPRHF2empCUy1wUmxaX2NnckhZeFFMOExJVnNHODU5YThsUWZ2RVRUX2xobXk4UUlLSDFvNFB6ZjhIVWZMRF9KYjhqcmVQUFhYUTlSLWdYaw?oc=5",
+          "source": "Reuters",
+          "source_url": "https://www.reuters.com",
+          "pub_kst": "2026-10-28T08:19+09:00"
+        }
+      ],
+      "queued_at": "2026-10-28T10:40:31+09:00",
+      "attempts": 0
+    },
+    "spr:news:spr_article_6f8cf83dc6ae7bd303e17a1e": {
+      "topic": "spr",
+      "kind": "news",
+      "event_key": "spr_article_6f8cf83dc6ae7bd303e17a1e",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "6f8cf83dc6ae7bd303e17a1e",
+          "title": "Trump to Showcase Venezuelan Oil Shipment in Texas Alongside Rubio During Midterm Campaign Trip - Latin Times",
+          "link": "https://news.google.com/rss/articles/CBMihgFBVV95cUxPOXdCd2dlMkJHaER6ZmI5bVlLbTNaZ2JlZnl2cll5SnNZQ1NGRGVOUHFMSVVpLUVERFZaNHhFNVo2U0N5bnNCOXVaRmdVYWN6RVUtODBHcDFmMHJoQW5CamFNRXhlNk14RklCX3oxMHFBVm5uM0Y4OW9tU1FJNHJWNTdqTVE1UQ?oc=5",
+          "source": "Latin Times",
+          "source_url": "https://www.latintimes.com",
+          "pub_kst": "2026-10-28T03:58+09:00"
+        }
+      ],
+      "queued_at": "2026-10-28T10:40:31+09:00",
+      "attempts": 0
     }
   },
   "receipts": [
