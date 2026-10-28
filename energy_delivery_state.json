@@ -860,12 +860,11 @@
           "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxQcWpkTGctM09hUGpnVG1la0F6NXl5VmRRczl3aUJFeUtiMnh0T0c0ZmhhZEtDMWlreWtBeWdxel9FN1ROZXk5dUVReFlHUUxaLWQxX09oUHF1cmJ5LXZ6elAwMDdGVlY1VlpJT09hdVBuQnFvNzRZNzRjdzRJUkMySTZGbkVXSUI2R19fNE4zWkg2ZGh4cjdGWl9YVWd3NE1WTDJIeWNpYUpsejR5UlpxdQ?oc=5",
           "source": "The Washington Post",
           "source_url": "https://www.washingtonpost.com",
-          "pub_kst": "2026-10-28T14:10+09:00"
+          "pub_kst": "2026-10-28T13:19+09:00"
         }
       ],
       "queued_at": "2026-10-28T07:39:33+09:00",
-      "attempts": 3,
-      "invalid_items": []
+      "attempts": 3
     },
     "spr:news:spr_article_8a52db56f8ecdc6e3791edf2": {
       "topic": "spr",
@@ -1064,7 +1063,8 @@
       ],
       "queued_at": "2026-10-28T16:22:33+09:00",
       "attempts": 1,
-      "invalid_items": []
+      "invalid_items": [],
+      "held_items": []
     },
     "spr:news:spr_article_321d692d8628dff2082f7aef": {
       "topic": "spr",
@@ -1093,6 +1093,24 @@
       "queued_at": "2026-10-28T16:22:33+09:00",
       "attempts": 1,
       "invalid_items": []
+    },
+    "spr:news:spr_article_e91075b7d29b855af54ad88c": {
+      "topic": "spr",
+      "kind": "news",
+      "event_key": "spr_article_e91075b7d29b855af54ad88c",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "e91075b7d29b855af54ad88c",
+          "title": "Trump and Rubio plan to visit oil tanker carrying Venezuelan crude in Texas - AP News",
+          "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxPY1lQMDdtdmVjVTlZS1lRUTY4OEJGamlOTUV1TWVHelZ6VHFUYWhjZE1qYVZhSk5oamx5UkhzLXRTZks0dHZFX1A4X3BFMWpQWGhpa3ZENkhYWmFKNUxFbnJoX2E0anFtZWdIVzVCYzNjc1NIWmE3QXFNa2NyMlVxdlZMVUE4SDNBdVBjZzdtUTFlVF9uY0pzVl9ZSkM5T2V4eVE?oc=5",
+          "source": "AP News",
+          "source_url": "https://apnews.com",
+          "pub_kst": "2026-10-27T12:24+09:00"
+        }
+      ],
+      "queued_at": "2026-10-28T23:07:34+09:00",
+      "attempts": 0
     }
   },
   "receipts": [
