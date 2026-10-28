@@ -3014,10 +3014,10 @@
   },
   "last_result": {
     "ok": false,
-    "errors": 3,
+    "errors": 2,
     "pending": 42,
     "refinery_sent": 0,
-    "spr_sent": 2,
-    "at": "2026-10-29T04:30:46+09:00"
+    "spr_sent": 0,
+    "at": "2026-10-29T08:24:16+09:00"
   }
 }
