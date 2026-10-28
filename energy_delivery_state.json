@@ -864,7 +864,8 @@
         }
       ],
       "queued_at": "2026-10-28T07:39:33+09:00",
-      "attempts": 2
+      "attempts": 3,
+      "invalid_items": []
     },
     "spr:news:spr_article_8a52db56f8ecdc6e3791edf2": {
       "topic": "spr",
@@ -1013,7 +1014,7 @@
       "topic": "spr",
       "kind": "news",
       "event_key": "spr_article_53ff0259020e106d3aeab20d",
-      "status": "enrichment_pending",
+      "status": "source_blocked",
       "items": [
         {
           "id": "53ff0259020e106d3aeab20d",
@@ -1021,17 +1022,27 @@
           "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPTnhCN0N2VzN4Wk1sRDljM0JUWDVXVlNMQ1hvSDFNbUE5MmpDMi1KVjBEdjJiamV0ZHh3NGxqd2VadHZEc0xJVURnTGFiSWR2QTdHbjBkN3h2eTJtX2pyV2hEeDNyRHN1N19BWWhIZU82bnVQTHF0UF9uWHVoMGhkaV9pb0xKWXFQbmI3UWdvd1N5QnNtTm42Z2FweXQ1UGU2WkZ5VUE3SC0?oc=5",
           "source": "The Maritime Executive",
           "source_url": "https://maritime-executive.com",
-          "pub_kst": "2026-10-28T11:02+09:00"
+          "pub_kst": "2026-10-28T11:02+09:00",
+          "_source_blocked": true,
+          "_source_failure": {
+            "stage": "translation_google",
+            "reason": "http_rate_limit",
+            "blocked_before_request": false,
+            "provider": "www.google.com",
+            "request_url_sha256": "78df9b0813bf1522f860b5bc6506ccd1ef4565199474a19778e3a67bca5d4bfc",
+            "http_status": 429
+          }
         }
       ],
       "queued_at": "2026-10-28T16:22:33+09:00",
-      "attempts": 0
+      "attempts": 1,
+      "invalid_items": []
     },
     "spr:news:spr_article_158f1222a4711b2f22e15919": {
       "topic": "spr",
       "kind": "news",
       "event_key": "spr_article_158f1222a4711b2f22e15919",
-      "status": "enrichment_pending",
+      "status": "source_blocked",
       "items": [
         {
           "id": "158f1222a4711b2f22e15919",
@@ -1039,17 +1050,27 @@
           "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxQaF9uZTZjMHNYV1N2VGc3RUJMbVZvWkNQbXJPdWRtN3ZHbUdDVTFXdVFlaU5fNE1wczUzak9sOEVUQm45UGNqdGpiRXU5Zzlaa3NSTmR2QWI1NVdpNUt5TmYxX0NfcXN3dTZ2ZGdkVlF1emltTXU3ZHBBcnk1ZUQ3Z0NkVnNyb3JhcmVHZGxNR1Rqdkxsemlkd0d6OVFmQ2t5RmlZWXFjWWVudThWaVHSAbMBQVVfeXFMTmZLQl9ubVFSOVZxclNaMW0wQmZwZTVDTEtzUGZvbGx2cWNYWjlVd2kxbDB0d2hHS2JtTnFuQU43eXdtd0h3UW5ZS1h4Y2FubW9HekF2djF1NEZCRk15RHphcXFNdXg2dmRscDBNYjlja1dja1h6TTNmT1RMZGVzNXYySGJCUG1NTW13ekdUQ2dmYVlMZDBnanNzT0NFNGpFZzBXYW9jOVpXWFBrS19HRGRxQVU?oc=5",
           "source": "Al Jazeera",
           "source_url": "https://www.aljazeera.com",
-          "pub_kst": "2026-10-28T06:31+09:00"
+          "pub_kst": "2026-10-28T06:31+09:00",
+          "_source_blocked": true,
+          "_source_failure": {
+            "stage": "translation_google",
+            "reason": "http_rate_limit",
+            "blocked_before_request": false,
+            "provider": "www.google.com",
+            "request_url_sha256": "587af77dcb8a561f14974e5e93f37e4adc5a114372526cade547bc7a9292cf97",
+            "http_status": 429
+          }
         }
       ],
       "queued_at": "2026-10-28T16:22:33+09:00",
-      "attempts": 0
+      "attempts": 1,
+      "invalid_items": []
     },
     "spr:news:spr_article_321d692d8628dff2082f7aef": {
       "topic": "spr",
       "kind": "news",
       "event_key": "spr_article_321d692d8628dff2082f7aef",
-      "status": "enrichment_pending",
+      "status": "source_blocked",
       "items": [
         {
           "id": "321d692d8628dff2082f7aef",
@@ -1057,11 +1078,21 @@
           "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPRWZlREJ5cUZLaEF0eXQ0SnlESjNBVWhtcDJ4UHJvdFZLUmtwVzE5Y2VkdlRTaUd2a2gxOFFSWkc1VVZBdk9RM0RYRWQzSmtWQ1dhbzNGVjVVNWFObXF5TDRqRlcxZzE0ZmpFLXYwWlp0YXBpdUpmR2dfRXZ3XzFrNTRJcHNFSjE4QkdMUUw4OENsY2ZJTkNkOWhUaC1wZGZDV2NEWk9OeFhkblFWVTBIa2pjemY?oc=5",
           "source": "Bloomberg",
           "source_url": "https://www.bloomberg.com",
-          "pub_kst": "2026-10-28T01:24+09:00"
+          "pub_kst": "2026-10-28T01:24+09:00",
+          "_source_blocked": true,
+          "_source_failure": {
+            "stage": "article_fetch",
+            "reason": "http_denial",
+            "blocked_before_request": false,
+            "provider": "www.bloomberg.com",
+            "request_url_sha256": "f1a2d2a74cbedc13546daafb22be8b4d28025a67b3536d38b61b218776141f65",
+            "http_status": 403
+          }
         }
       ],
       "queued_at": "2026-10-28T16:22:33+09:00",
-      "attempts": 0
+      "attempts": 1,
+      "invalid_items": []
     }
   },
   "receipts": [
