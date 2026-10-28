@@ -2677,10 +2677,10 @@
   },
   "last_result": {
     "ok": false,
-    "errors": 7,
-    "pending": 35,
+    "errors": 2,
+    "pending": 36,
     "refinery_sent": 0,
     "spr_sent": 0,
-    "at": "2026-10-28T07:40:18+09:00"
+    "at": "2026-10-28T10:41:07+09:00"
   }
 }
