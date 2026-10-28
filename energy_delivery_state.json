@@ -864,8 +864,7 @@
         }
       ],
       "queued_at": "2026-10-28T07:39:33+09:00",
-      "attempts": 4,
-      "invalid_items": []
+      "attempts": 4
     },
     "spr:news:spr_article_8a52db56f8ecdc6e3791edf2": {
       "topic": "spr",
@@ -1122,6 +1121,126 @@
       "queued_at": "2026-10-28T23:07:34+09:00",
       "attempts": 1,
       "invalid_items": []
+    },
+    "spr:data:spr:2026-10-23": {
+      "topic": "spr",
+      "kind": "data",
+      "field": "spr",
+      "current": {
+        "date": "2026-10-23",
+        "value_kbbl": 282583,
+        "prev_kbbl": 282683,
+        "source": "https://www.eia.gov/dnav/pet/PET_STOC_WSTK_A_EPC0_SAS_MBBL_W.htm"
+      },
+      "status": "ready",
+      "message": "<b>[SPR 공식 수치]</b>\n<b>2026-10-23 | 282.583백만 배럴</b>\n\n<b>한눈에 보기</b>\n• 전주 변화: <b>-0.100백만 배럴</b>\n• 저장능력 7억1,400만 배럴 대비: <b>39.6%</b>\n• 완전 충전까지: <b>431.417백만 배럴</b> 부족\n\n<b>판정</b>\n• 아직 보충 효과 미확인\n• 증가분이 나와도 베네수엘라 신규 반입과 기존 교환계약 반환물량을 DOE 자료로 분리 확인\n\n<a href=\"https://www.eia.gov/dnav/pet/PET_STOC_WSTK_A_EPC0_SAS_MBBL_W.htm\">EIA 원문</a>",
+      "queued_at": "2026-10-29T04:29:40+09:00",
+      "attempts": 0
+    },
+    "spr:data:venezuela_imports:2026-10-23": {
+      "topic": "spr",
+      "kind": "data",
+      "field": "venezuela_imports",
+      "current": {
+        "date": "2026-10-23",
+        "value_kbd": 618,
+        "prev_kbd": 571,
+        "source": "https://www.eia.gov/dnav/pet/hist/LeafHandler.ashx?f=W&n=PET&s=W_EPC0_IM0_NUS-NVE_MBBLD"
+      },
+      "status": "ready",
+      "message": "<b>[베네수엘라산 원유 미국 유입]</b>\n<b>2026-10-23 | 618천 배럴/일</b>\n\n<b>한눈에 보기</b>\n• 전주 변화: <b>+47천 배럴/일</b>\n• 7일 단순 환산: <b>4.326백만 배럴</b>\n\n<b>판정</b>\n• 미국 전체 수입량이지 SPR 직접 입고량은 아님\n• 정유사 투입분과 SPR 저장분을 DOE 조달·반입 자료로 분리 확인\n\n<a href=\"https://www.eia.gov/dnav/pet/hist/LeafHandler.ashx?f=W&amp;n=PET&amp;s=W_EPC0_IM0_NUS-NVE_MBBLD\">EIA 원문</a>",
+      "queued_at": "2026-10-29T04:29:40+09:00",
+      "attempts": 0
+    },
+    "spr:news:spr_article_dc1267d68bac564ebfa25f56": {
+      "topic": "spr",
+      "kind": "news",
+      "event_key": "spr_article_dc1267d68bac564ebfa25f56",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "dc1267d68bac564ebfa25f56",
+          "title": "Trump promises ‘billions’ of Venezuelan barrels as he visits Trafigura tanker - TradeWinds News",
+          "link": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxQdGdXN3NZVndTU04wMW5MZ0s1U3otQ1BsMnZ2R1FaeVNaZWdTUjZiQUt5WXJoczZmNFllbDUybVlHeVpfSEYtWlF5dUV5WUJnY1BJc0o0QUQtRFZfQkxTV2I0U0pIMTdTSmloRGRBSkFfMDJEWFFjWjZWOHVoVTdMak5sTjE1RG05VUt2SjNzdWpoYWhnUWI5ZHAyeGhoTDNoVGZ4dFRNbXhKTTJUZmM3aEQwUHAyQ01hVEFjbkh3STFNWjJqMkNzUw?oc=5",
+          "source": "TradeWinds News",
+          "source_url": "https://www.tradewindsnews.com",
+          "pub_kst": "2026-10-29T01:33+09:00"
+        }
+      ],
+      "queued_at": "2026-10-29T04:29:44+09:00",
+      "attempts": 0
+    },
+    "spr:news:spr_article_ddbb7af17e7c90f0bb365447": {
+      "topic": "spr",
+      "kind": "news",
+      "event_key": "spr_article_ddbb7af17e7c90f0bb365447",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "ddbb7af17e7c90f0bb365447",
+          "title": "Venezuelan oil shipment arrives in Texas - 香港電台新聞網",
+          "link": "https://news.google.com/rss/articles/CBMib0FVX3lxTE13cDdxS1UxWHE5QnItQ0tha2xYcEF4Z0pjNEN3TTZEcmZTMHpoYnNSTklXWndnZ25PY0ZOWXUtc3o5YzJKVW0tbnhoRW9qWDhWRGhZYl9hNnl2S3ZwNGFLNXhlcWJ4YXg1OHdpalQ2QQ?oc=5",
+          "source": "香港電台新聞網",
+          "source_url": "https://news.rthk.hk",
+          "pub_kst": "2026-10-28T09:03+09:00"
+        }
+      ],
+      "queued_at": "2026-10-29T04:29:44+09:00",
+      "attempts": 0
+    },
+    "spr:news:spr_venezuela_oil_agreement_20260831": {
+      "topic": "spr",
+      "kind": "news",
+      "event_key": "spr_venezuela_oil_agreement_20260831",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "64907101a8c26a770f5b0e0b",
+          "title": "Trump says US has entered deal with Venezuela to take control of 65 billion barrels of oil reserves - AP News",
+          "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxPandFWnE5LWFYSWl5SEtwWmlTZVF3cXp2WDFlNVBEdXNUQjVtR0NUTktzS24wb1VYdDdRZVpVQmR4SjhvblU2QzFVLS1DS0xtYnVUb2tTclhweEFZUHhPYVVtWlpxNVRxYUQ2QkJiWDhBNVFJQUt1TTIxME9DM2EzTDZ0YUFCYm1FdGR0SFFzTkVmUQ?oc=5",
+          "source": "AP News",
+          "source_url": "https://apnews.com",
+          "pub_kst": "2026-08-28T16:00+09:00"
+        }
+      ],
+      "queued_at": "2026-10-29T04:29:44+09:00",
+      "attempts": 0
+    },
+    "spr:news:spr_article_7ddc2f815d089dcbfff3339e": {
+      "topic": "spr",
+      "kind": "news",
+      "event_key": "spr_article_7ddc2f815d089dcbfff3339e",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "7ddc2f815d089dcbfff3339e",
+          "title": "Venezuela has the world's largest proven oil reserves, but it can’t solve for the Strait of Hormuz ‘math problem’ - Fortune",
+          "link": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxONzVIQ0FCbWt6SVpUVkhaNTZZWDFUaldHSlVaOUhYZ1h4ejJNM1hDTm9mUEZXVzA4RWlnR3NZX3NURHVRUzhuWG5HUEdkLUxob3VZSUF4d2FLelZXSzl2LWZodk5PRE1xbE56V0hrWHJ5aE5yNzJ5cDJyUDlDOC1PWG1lT0RkYkJ5TjJtY3pUNGk3ejhGcTZwTzl1THBDaWxiRWRzUlFqYms3TEhBbGRYeU1WX2o1b21BV0licFBKZkdKb25odVlqZkJxdmhBR2pfOWRqYnRKamtjQ1Nxd2RvWQ?oc=5",
+          "source": "Fortune",
+          "source_url": "https://fortune.com",
+          "pub_kst": "2026-03-17T16:00+09:00"
+        }
+      ],
+      "queued_at": "2026-10-29T04:29:44+09:00",
+      "attempts": 0
+    },
+    "spr:news:spr_article_d6995fe2e3a83a9d97a47c9e": {
+      "topic": "spr",
+      "kind": "news",
+      "event_key": "spr_article_d6995fe2e3a83a9d97a47c9e",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "d6995fe2e3a83a9d97a47c9e",
+          "title": "Trump says US is taking control of Venezuela’s oil reserves. Here’s what it means | CNN Business - CNN",
+          "link": "https://news.google.com/rss/articles/CBMickFVX3lxTE14b3diNkxFZnh6YmR2T1VBalBVWThrbzNkYl91Rk13YkNCaVBOWEJrbTZMZ3h3aHBfbUpMVFVybkc4NHFESHMxYkZPbFRORUR1bU9jWVlBVE40d2Ria1NuRDluMFlOelM0ZXF3dWFQQ1Q0Zw?oc=5",
+          "source": "CNN",
+          "source_url": "https://www.cnn.com",
+          "pub_kst": "2026-01-03T17:00+09:00"
+        }
+      ],
+      "queued_at": "2026-10-29T04:29:44+09:00",
+      "attempts": 0
     }
   },
   "receipts": [
@@ -2888,15 +3007,15 @@
   ],
   "observed_data": {
     "spr": {
-      "date": "2026-10-16",
-      "value_kbbl": 282683,
-      "prev_kbbl": 282983,
+      "date": "2026-10-23",
+      "value_kbbl": 282583,
+      "prev_kbbl": 282683,
       "source": "https://www.eia.gov/dnav/pet/PET_STOC_WSTK_A_EPC0_SAS_MBBL_W.htm"
     },
     "venezuela_imports": {
-      "date": "2026-10-16",
-      "value_kbd": 571,
-      "prev_kbd": 455,
+      "date": "2026-10-23",
+      "value_kbd": 618,
+      "prev_kbd": 571,
       "source": "https://www.eia.gov/dnav/pet/hist/LeafHandler.ashx?f=W&n=PET&s=W_EPC0_IM0_NUS-NVE_MBBLD"
     }
   },
