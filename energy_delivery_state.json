@@ -860,12 +860,11 @@
           "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxQcWpkTGctM09hUGpnVG1la0F6NXl5VmRRczl3aUJFeUtiMnh0T0c0ZmhhZEtDMWlreWtBeWdxel9FN1ROZXk5dUVReFlHUUxaLWQxX09oUHF1cmJ5LXZ6elAwMDdGVlY1VlpJT09hdVBuQnFvNzRZNzRjdzRJUkMySTZGbkVXSUI2R19fNE4zWkg2ZGh4cjdGWl9YVWd3NE1WTDJIeWNpYUpsejR5UlpxdQ?oc=5",
           "source": "The Washington Post",
           "source_url": "https://www.washingtonpost.com",
-          "pub_kst": "2026-10-28T09:48+09:00"
+          "pub_kst": "2026-10-28T14:10+09:00"
         }
       ],
       "queued_at": "2026-10-28T07:39:33+09:00",
-      "attempts": 2,
-      "invalid_items": []
+      "attempts": 2
     },
     "spr:news:spr_article_8a52db56f8ecdc6e3791edf2": {
       "topic": "spr",
@@ -1009,6 +1008,60 @@
       "queued_at": "2026-10-28T10:40:31+09:00",
       "attempts": 1,
       "invalid_items": []
+    },
+    "spr:news:spr_article_53ff0259020e106d3aeab20d": {
+      "topic": "spr",
+      "kind": "news",
+      "event_key": "spr_article_53ff0259020e106d3aeab20d",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "53ff0259020e106d3aeab20d",
+          "title": "Trump Puts Spotlight on Venezuelan Oil With Stop in Corpus Christi - The Maritime Executive",
+          "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPTnhCN0N2VzN4Wk1sRDljM0JUWDVXVlNMQ1hvSDFNbUE5MmpDMi1KVjBEdjJiamV0ZHh3NGxqd2VadHZEc0xJVURnTGFiSWR2QTdHbjBkN3h2eTJtX2pyV2hEeDNyRHN1N19BWWhIZU82bnVQTHF0UF9uWHVoMGhkaV9pb0xKWXFQbmI3UWdvd1N5QnNtTm42Z2FweXQ1UGU2WkZ5VUE3SC0?oc=5",
+          "source": "The Maritime Executive",
+          "source_url": "https://maritime-executive.com",
+          "pub_kst": "2026-10-28T11:02+09:00"
+        }
+      ],
+      "queued_at": "2026-10-28T16:22:33+09:00",
+      "attempts": 0
+    },
+    "spr:news:spr_article_158f1222a4711b2f22e15919": {
+      "topic": "spr",
+      "kind": "news",
+      "event_key": "spr_article_158f1222a4711b2f22e15919",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "158f1222a4711b2f22e15919",
+          "title": "Trump touts Venezuelan oil at Texas rally ahead of US midterms - Al Jazeera",
+          "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxQaF9uZTZjMHNYV1N2VGc3RUJMbVZvWkNQbXJPdWRtN3ZHbUdDVTFXdVFlaU5fNE1wczUzak9sOEVUQm45UGNqdGpiRXU5Zzlaa3NSTmR2QWI1NVdpNUt5TmYxX0NfcXN3dTZ2ZGdkVlF1emltTXU3ZHBBcnk1ZUQ3Z0NkVnNyb3JhcmVHZGxNR1Rqdkxsemlkd0d6OVFmQ2t5RmlZWXFjWWVudThWaVHSAbMBQVVfeXFMTmZLQl9ubVFSOVZxclNaMW0wQmZwZTVDTEtzUGZvbGx2cWNYWjlVd2kxbDB0d2hHS2JtTnFuQU43eXdtd0h3UW5ZS1h4Y2FubW9HekF2djF1NEZCRk15RHphcXFNdXg2dmRscDBNYjlja1dja1h6TTNmT1RMZGVzNXYySGJCUG1NTW13ekdUQ2dmYVlMZDBnanNzT0NFNGpFZzBXYW9jOVpXWFBrS19HRGRxQVU?oc=5",
+          "source": "Al Jazeera",
+          "source_url": "https://www.aljazeera.com",
+          "pub_kst": "2026-10-28T06:31+09:00"
+        }
+      ],
+      "queued_at": "2026-10-28T16:22:33+09:00",
+      "attempts": 0
+    },
+    "spr:news:spr_article_321d692d8628dff2082f7aef": {
+      "topic": "spr",
+      "kind": "news",
+      "event_key": "spr_article_321d692d8628dff2082f7aef",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "321d692d8628dff2082f7aef",
+          "title": "Trump, Rubio Plan to Visit Tanker With Venezuelan Crude in Texas - Bloomberg",
+          "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPRWZlREJ5cUZLaEF0eXQ0SnlESjNBVWhtcDJ4UHJvdFZLUmtwVzE5Y2VkdlRTaUd2a2gxOFFSWkc1VVZBdk9RM0RYRWQzSmtWQ1dhbzNGVjVVNWFObXF5TDRqRlcxZzE0ZmpFLXYwWlp0YXBpdUpmR2dfRXZ3XzFrNTRJcHNFSjE4QkdMUUw4OENsY2ZJTkNkOWhUaC1wZGZDV2NEWk9OeFhkblFWVTBIa2pjemY?oc=5",
+          "source": "Bloomberg",
+          "source_url": "https://www.bloomberg.com",
+          "pub_kst": "2026-10-28T01:24+09:00"
+        }
+      ],
+      "queued_at": "2026-10-28T16:22:33+09:00",
+      "attempts": 0
     }
   },
   "receipts": [
