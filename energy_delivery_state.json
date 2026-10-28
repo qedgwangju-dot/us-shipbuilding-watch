@@ -1093,60 +1093,6 @@
       "queued_at": "2026-10-28T16:22:33+09:00",
       "attempts": 1,
       "invalid_items": []
-    },
-    "refinery:news:refinery_article_ffa47dc7af70433da9695b9e": {
-      "topic": "refinery",
-      "kind": "news",
-      "event_key": "refinery_article_ffa47dc7af70433da9695b9e",
-      "status": "enrichment_pending",
-      "items": [
-        {
-          "id": "ffa47dc7af70433da9695b9e",
-          "title": "Trump’s red-dye diesel plan has a major flaw - The Washington Post",
-          "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxOTkppNVJqWFhhLXIxZXVfN2NJdmFlRi1Ld3FhRGNJX2Ffb1czblZlQlRUdXg4U0Zpdi1zSmQzLXh2MXlvcVJRaTBqWUJlU1VBWkhFZ0U5bjNWUWZ4am13ekRtdkJCN2I4bjE2WUhVX2dFMnBEMUdCQUFqZUY0T2F0eEM3dk1YbnUtdjZwa0pEMm5JbEt6MXAyYw?oc=5",
-          "source": "The Washington Post",
-          "source_url": "https://www.washingtonpost.com",
-          "pub_kst": "2026-10-06T16:00+09:00"
-        }
-      ],
-      "queued_at": "2026-10-28T23:07:24+09:00",
-      "attempts": 0
-    },
-    "refinery:news:refinery_article_54db2bfda2a66436fd9b9046": {
-      "topic": "refinery",
-      "kind": "news",
-      "event_key": "refinery_article_54db2bfda2a66436fd9b9046",
-      "status": "enrichment_pending",
-      "items": [
-        {
-          "id": "54db2bfda2a66436fd9b9046",
-          "title": "Trump: Zelenskyy Must Stop Destroying Russia's Diesel Fuel Reserves - LIGA.net",
-          "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxQeksxWTNOanU1UkxGVGZYMUlCU0JBQm44djE3bE5ZWkNDN1dTSzV3ektQRUpGc280S25teDZsZ2U3MTNxczRMRDdPOHl1NnhxYWJkMTNwSDI2dDVweDktTXVUVlBqUzFPbTBNNlpyRFU5b0hyTlRCRHlVb2p0Z1NFbThnTF9UWDdkUTZ2eUhxcWpsbUtXM19fU2ZERUdnR3BkYkpZWU9RSdIBrAFBVV95cUxQMUJBTEJMV2gtUGRNQVkyRVU1TDNxZFQ5ekVEVDRUaDN4bHIwVmNwamlrbW9SVlEwXzNZYmxKNGtIS0NyejhleTAxYlFtZm9VblNDMU1VRDIzWG9FNW9mWWRvNkJhVDl4a3NHalo0QXVYaUxBR2hrSXdnNXB6eVJiUlZkSm5KWnJ5QmNfa0t4SlFVSDc5NGk0Y1ZUd1VTQ2hMVWh3ckRLNjJIdUtk?oc=5",
-          "source": "LIGA.net",
-          "source_url": "https://news.liga.net",
-          "pub_kst": "2026-09-13T16:00+09:00"
-        }
-      ],
-      "queued_at": "2026-10-28T23:07:24+09:00",
-      "attempts": 0
-    },
-    "refinery:news:refinery_article_6da363876c205599292104c9": {
-      "topic": "refinery",
-      "kind": "news",
-      "event_key": "refinery_article_6da363876c205599292104c9",
-      "status": "enrichment_pending",
-      "items": [
-        {
-          "id": "6da363876c205599292104c9",
-          "title": "As net long positions in WTI crude oil hit a 20-week high, the Trump administration is considering invoking the Defense Production Act to expand refining capacity. - Moomoo",
-          "link": "https://news.google.com/rss/articles/CBMijwFBVV95cUxQMU5scXRGMHhtMlpRNkxiQzBkSkRlVDQ3TXYxLTktYzdxM3dodUFQMzF0U2FISXFhOXFyd3JJRElfTUU4dkJLZjVnbWpXakxLLWNPa3RpVDJvbFpsaUVmOXdJcDF0MlZ3ZURzdXpxNjRIZlpraXJxd2RQZ3JGY09rQkVVWGFlbUpRYUFEbFNNbw?oc=5",
-          "source": "Moomoo",
-          "source_url": "https://www.moomoo.com",
-          "pub_kst": "2026-09-11T16:00+09:00"
-        }
-      ],
-      "queued_at": "2026-10-28T23:07:24+09:00",
-      "attempts": 0
     }
   },
   "receipts": [
@@ -2884,6 +2830,30 @@
       "at": "2026-10-28T16:22:28+09:00",
       "ids": [
         "cb4d3b5766fc2a754893d332"
+      ]
+    },
+    {
+      "key": "refinery:news:refinery_article_ffa47dc7af70433da9695b9e",
+      "reason": "news_outside_three_day_window",
+      "at": "2026-10-28T23:07:26+09:00",
+      "ids": [
+        "ffa47dc7af70433da9695b9e"
+      ]
+    },
+    {
+      "key": "refinery:news:refinery_article_54db2bfda2a66436fd9b9046",
+      "reason": "news_outside_three_day_window",
+      "at": "2026-10-28T23:07:26+09:00",
+      "ids": [
+        "54db2bfda2a66436fd9b9046"
+      ]
+    },
+    {
+      "key": "refinery:news:refinery_article_6da363876c205599292104c9",
+      "reason": "news_outside_three_day_window",
+      "at": "2026-10-28T23:07:26+09:00",
+      "ids": [
+        "6da363876c205599292104c9"
       ]
     }
   ],
