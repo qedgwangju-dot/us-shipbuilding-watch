@@ -1177,7 +1177,7 @@
       "topic": "refinery",
       "kind": "news",
       "event_key": "refinery_gasoline_policy_202609",
-      "status": "enrichment_pending",
+      "status": "source_blocked",
       "items": [
         {
           "id": "7e58d29b2d583a29acf8dae8",
@@ -1185,83 +1185,21 @@
           "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQMTk3QTJ2VmRReExhYnZYYWhSdl9HNDRMVW01V3luNVozTGZ3LXdYUjVnSWh3M3NuUDMyMENORXZkRGVmN0N4ODl5Y2RpZW13aGFvNFVDNUFYS0hzLXpadmQ2NHJKS1k3czRibWV6S3c5VUxGNVp2TE1jVDl5dGZMZXUtWFdwd2Y1b3RQenN6VUNxdGJLZVUwWF8wM2I4TTJtVHN0cXNMTTM0eExEOUVGWnl3bTI?oc=5",
           "source": "Bloomberg",
           "source_url": "https://www.bloomberg.com",
-          "pub_kst": "2026-10-27T04:59+09:00"
+          "pub_kst": "2026-10-27T04:59+09:00",
+          "_source_blocked": true,
+          "_source_failure": {
+            "stage": "article_fetch",
+            "reason": "http_denial",
+            "blocked_before_request": false,
+            "provider": "www.bloomberg.com",
+            "request_url_sha256": "0be255b072d8294d4615a04afabb25febd3185d6b92c5d4a106110d02950a5ef",
+            "http_status": 403
+          }
         }
       ],
       "queued_at": "2026-10-29T11:32:03+09:00",
-      "attempts": 0
-    },
-    "refinery:news:refinery_article_d59252f14b072549672d8af1": {
-      "topic": "refinery",
-      "kind": "news",
-      "event_key": "refinery_article_d59252f14b072549672d8af1",
-      "status": "enrichment_pending",
-      "items": [
-        {
-          "id": "d59252f14b072549672d8af1",
-          "title": "Donald Trump Criticizes Volodymyr Zelenskyy Over Russian Diesel Refinery Attacks - Sahi",
-          "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQeHJtRjY1WXhxb3E5OV95VVU2Zkp2elF5SS01RkN2a1QwY19Hamkya3VROWtfT2EzQ0hTZjhwQ2VTMFRScnJqR0JteklVRGN2OHZBWDdMY052eTlzUC1KTmdhZl9EX0ZtbEFzRmF6ekF5aGltbmN3eDV4czlZZ3hsU1VwUXZaYUZNUDRXTUotNjJmeGluLXlqbnBkYVM0NFNnaURxT1FVSERfZw?oc=5",
-          "source": "Sahi",
-          "source_url": "https://www.sahi.com",
-          "pub_kst": "2026-10-26T08:14+09:00"
-        }
-      ],
-      "queued_at": "2026-10-29T11:32:03+09:00",
-      "attempts": 0
-    },
-    "refinery:news:refinery_article_2f15ba4598e2de35c57a10e5": {
-      "topic": "refinery",
-      "kind": "news",
-      "event_key": "refinery_article_2f15ba4598e2de35c57a10e5",
-      "status": "enrichment_pending",
-      "items": [
-        {
-          "id": "2f15ba4598e2de35c57a10e5",
-          "title": "Trump says decision on possible diesel export ban to come ‘fast’ - Politico",
-          "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxOWGlYY21oS3dmV1A2OFdNR2l6bVRtNDBLdmQwNF94eHRiUlhENlBsVTN4VjRIRDFDZ2F1RmFWNnhkNzVZSU9LOE9JaDhiWGhxZ0luMlRxOXZEQVpsN3N3QTRGenNVYXJISVplRWxqX1NsMTlJWHVZWWdfYmRpUGZfdnlsMTM0OUtHY0VMeHIwNmY?oc=5",
-          "source": "Politico",
-          "source_url": "https://www.politico.com",
-          "pub_kst": "2026-09-22T16:00+09:00"
-        }
-      ],
-      "queued_at": "2026-10-29T11:32:03+09:00",
-      "attempts": 0
-    },
-    "refinery:news:refinery_article_9f06bb2a2ecbcde84bed4feb": {
-      "topic": "refinery",
-      "kind": "news",
-      "event_key": "refinery_article_9f06bb2a2ecbcde84bed4feb",
-      "status": "enrichment_pending",
-      "items": [
-        {
-          "id": "9f06bb2a2ecbcde84bed4feb",
-          "title": "Trump administration is examining whether a diesel export ban is feasible, Treasury secretary says - CNBC",
-          "link": "https://news.google.com/rss/articles/CBMihwFBVV95cUxOc3Q3YUNiYWE4bnFXWC05cTh2ZWlyWlJsb1g2b3h5SXhEUEkxZXkxQXVWdUMxSENEQ1NESjFqeDJEa1prX2ZydEhQVHNrZG40WDhZcnVOYkJwMmVxZ0FUU1F3YUdJUVRGQ05yenpVSWRaLTRBbkx0TzdTb1RPdGJtOXRGMjZqZEnSAYwBQVVfeXFMUDhUeDI4QUVJWUg1VVF2NU52MGJaVW1YVlJ1ZjZFQ3M4X18tYmtUQnpYVW9qNFRIWmZETFdMRUVQeDBVWklPREw1QUtvMngzODE4N2JDWjdoQS1vQkptRFRHb2lnYWIzRVN4TkwtdllDYm9RZGpVY25GaHZ4M3NXcEZ5YUhzZ1B1RTNTZlU?oc=5",
-          "source": "CNBC",
-          "source_url": "https://www.cnbc.com",
-          "pub_kst": "2026-09-22T16:00+09:00"
-        }
-      ],
-      "queued_at": "2026-10-29T11:32:03+09:00",
-      "attempts": 0
-    },
-    "refinery:news:refinery_article_dd2dfa4f90dcd96a5c66a448": {
-      "topic": "refinery",
-      "kind": "news",
-      "event_key": "refinery_article_dd2dfa4f90dcd96a5c66a448",
-      "status": "enrichment_pending",
-      "items": [
-        {
-          "id": "dd2dfa4f90dcd96a5c66a448",
-          "title": "Diesel prices hit all-time high as Trump administration brandishes energy policies - Politico",
-          "link": "https://news.google.com/rss/articles/CBMizAFBVV95cUxNU29QTHhDNmN1d2NPYVBRRTFVTjFwUktQeFhaWDQ5dkFpSjV1UEZhdXU5ei1pQU1zVEloSEdzUlJmRmFIcTdLSlAzaC1ycElKd1ZqNlhNS012ZHRsMjFlZWREUWNsM0NaOTBQcnlrQ3hwbHNqRlJRM1h2dzhkSTBlYllHSi13X0d5QVFuWDl4Q1hTSFkwQkZGZU5EUDlrN2VZRVJEQTZfTXhuYm01ZmNXUzVoUDVRZUdtYndmOGk4TXg5Tk56bUlFS3VWbWk?oc=5",
-          "source": "Politico",
-          "source_url": "https://www.politico.com",
-          "pub_kst": "2026-09-03T16:00+09:00"
-        }
-      ],
-      "queued_at": "2026-10-29T11:32:03+09:00",
-      "attempts": 0
+      "attempts": 1,
+      "invalid_items": []
     }
   },
   "receipts": [
@@ -3085,6 +3023,38 @@
       "at": "2026-10-29T08:24:14+09:00",
       "ids": [
         "4925869385793ce8b9df7c53"
+      ]
+    },
+    {
+      "key": "refinery:news:refinery_article_d59252f14b072549672d8af1",
+      "reason": "news_outside_three_day_window",
+      "at": "2026-10-29T11:32:07+09:00",
+      "ids": [
+        "d59252f14b072549672d8af1"
+      ]
+    },
+    {
+      "key": "refinery:news:refinery_article_2f15ba4598e2de35c57a10e5",
+      "reason": "news_outside_three_day_window",
+      "at": "2026-10-29T11:32:07+09:00",
+      "ids": [
+        "2f15ba4598e2de35c57a10e5"
+      ]
+    },
+    {
+      "key": "refinery:news:refinery_article_9f06bb2a2ecbcde84bed4feb",
+      "reason": "news_outside_three_day_window",
+      "at": "2026-10-29T11:32:07+09:00",
+      "ids": [
+        "9f06bb2a2ecbcde84bed4feb"
+      ]
+    },
+    {
+      "key": "refinery:news:refinery_article_dd2dfa4f90dcd96a5c66a448",
+      "reason": "news_outside_three_day_window",
+      "at": "2026-10-29T11:32:07+09:00",
+      "ids": [
+        "dd2dfa4f90dcd96a5c66a448"
       ]
     }
   ],
