@@ -864,8 +864,7 @@
         }
       ],
       "queued_at": "2026-10-28T07:39:33+09:00",
-      "attempts": 8,
-      "invalid_items": []
+      "attempts": 8
     },
     "spr:news:spr_article_8a52db56f8ecdc6e3791edf2": {
       "topic": "spr",
@@ -1273,6 +1272,24 @@
       "queued_at": "2026-10-29T17:48:35+09:00",
       "attempts": 1,
       "invalid_items": []
+    },
+    "spr:news:spr_article_80ee8bb0509eeecca9b913bb": {
+      "topic": "spr",
+      "kind": "news",
+      "event_key": "spr_article_80ee8bb0509eeecca9b913bb",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "80ee8bb0509eeecca9b913bb",
+          "title": "The Hole in Donald Trump’s Venezuelan Oil Strategy - The New Yorker",
+          "link": "https://news.google.com/rss/articles/CBMikwFBVV95cUxPRkEzZXBPdUl3ZlFPbVNxWEFpaWtjbks3MlBqZVhUenRrd1lvOTF2S3duR0V2UkUtNlZLT3hnZ3JsMTVMNWw0NnNoSExmSW43RDR1ZnN5NThIeDlnUTRqangtbkRhYmhxN0lsYk5rYUtaOTRPdmdaVExWUExOY2xzNFp5MUZaTDdDcWd5M25pVUxGcWc?oc=5",
+          "source": "The New Yorker",
+          "source_url": "https://www.newyorker.com",
+          "pub_kst": "2026-06-17T16:00+09:00"
+        }
+      ],
+      "queued_at": "2026-10-30T00:37:13+09:00",
+      "attempts": 0
     }
   },
   "receipts": [
