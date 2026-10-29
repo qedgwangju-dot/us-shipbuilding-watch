@@ -3179,10 +3179,10 @@
   },
   "last_result": {
     "ok": false,
-    "errors": 3,
-    "pending": 43,
+    "errors": 5,
+    "pending": 45,
     "refinery_sent": 0,
     "spr_sent": 0,
-    "at": "2026-10-29T11:32:49+09:00"
+    "at": "2026-10-29T17:49:13+09:00"
   }
 }
