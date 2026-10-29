@@ -1273,42 +1273,6 @@
       "queued_at": "2026-10-29T17:48:35+09:00",
       "attempts": 1,
       "invalid_items": []
-    },
-    "refinery:news:refinery_article_358b074f0d028549c0c1819a": {
-      "topic": "refinery",
-      "kind": "news",
-      "event_key": "refinery_article_358b074f0d028549c0c1819a",
-      "status": "enrichment_pending",
-      "items": [
-        {
-          "id": "358b074f0d028549c0c1819a",
-          "title": "Trump’s proposed US diesel export ban: What this could mean for India, Europe, Latin America - Firstpost",
-          "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxQTERNd0lPS29tUlNqWGk0Sm9ITlE5RFVYVTBpMFhGTUF4QXlLekcyVGJ2bVlQdFQ1VjRGek1PT1FBZWM0aWMwOWU1dlJmU3locnNwelZzXzBjRHJldkY5QUtEb1hiX2pGU2tVUElWeGhDTjhPdmZqckZ3Z2JXOTA4ckJsc2JWSE1FZEptZWtrQjRBdF8waUtLNGNGdGxjRnNJNWJKdTVpUHgtT25ZN1YzemJhb1ZIc0RlVjY1TmlacFLSAcYBQVVfeXFMUDBPdjlDaU9OQnRJM2Z0bHpJOXBhYVFFMS1TSWc2M3pId3d4ZW5xdmE1dGpadU9KVHpaTjdIcndibmtzYU1pNUs3NXl3TzZTYWE2X3ByVEY2R2pobjJBYUEzU2plNFRGSXB5bklqZGMzUDV1ZHN4aEoxcDlfZ2JFUlZOYXhCWFpSZFBvdkstcFdQOU52TlB0RGVfY0lDMWhtTjNscXQtVElzSTIzVm9POURDdk9Rd0cxemNnTzZjbTJrdHRoemNR?oc=5",
-          "source": "Firstpost",
-          "source_url": "https://www.firstpost.com",
-          "pub_kst": "2026-09-29T16:00+09:00"
-        }
-      ],
-      "queued_at": "2026-10-30T00:37:01+09:00",
-      "attempts": 0
-    },
-    "refinery:news:refinery_article_68914a03e9e147a49b3c0db9": {
-      "topic": "refinery",
-      "kind": "news",
-      "event_key": "refinery_article_68914a03e9e147a49b3c0db9",
-      "status": "enrichment_pending",
-      "items": [
-        {
-          "id": "68914a03e9e147a49b3c0db9",
-          "title": "Trump: Ukraine should stop hitting Russia’s energy sector because it is causing diesel shortages - The New Voice of Ukraine",
-          "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxNMGVtUUYySzctQjZpYlJ1ZFFHSHZUaWNLT0p2c0hnUUN0TVkxejdjTmozdmdYaUFjUVlBM0M1bVp3QVJtQjdQQ29jN2FSVnFOd0hfSVpnZ2U1MDhmVlZ4X2x5ZFdzU1RpYzhaeU5CMUduY3JpZGFpRlVVeDhIS2YxMGhzeUplb0MySlJyWjF5ejZDR2oxZ0gzWmlCTkU2YjhIazZv0gGfAUFVX3lxTE5SRmpVMWp6SS1Cc21tRkpsbjFmQjB4eHRmTl9VbTd4TDNmRnE3d0xaQkN0UXFPaHFSYlZHSWJsUU9jc0RUVWtVYUlrdDU0ZEVmbjdpaHdOZ2Z0YzFPbldCdHZUMVozX096Yl9uN2RTTXZHQldWMFhGaTFGSHN6TXU1YTF3X0tIQS03SmRINXU4bzRyZUdQRm9UeXRaNzZ3UQ?oc=5",
-          "source": "The New Voice of Ukraine",
-          "source_url": "https://english.nv.ua",
-          "pub_kst": "2026-09-13T16:00+09:00"
-        }
-      ],
-      "queued_at": "2026-10-30T00:37:01+09:00",
-      "attempts": 0
     }
   },
   "receipts": [
@@ -3196,6 +3160,22 @@
       "at": "2026-10-29T17:49:11+09:00",
       "ids": [
         "d9936324a618b7784ad00b5e"
+      ]
+    },
+    {
+      "key": "refinery:news:refinery_article_358b074f0d028549c0c1819a",
+      "reason": "news_outside_three_day_window",
+      "at": "2026-10-30T00:37:04+09:00",
+      "ids": [
+        "358b074f0d028549c0c1819a"
+      ]
+    },
+    {
+      "key": "refinery:news:refinery_article_68914a03e9e147a49b3c0db9",
+      "reason": "news_outside_three_day_window",
+      "at": "2026-10-30T00:37:04+09:00",
+      "ids": [
+        "68914a03e9e147a49b3c0db9"
       ]
     }
   ],
