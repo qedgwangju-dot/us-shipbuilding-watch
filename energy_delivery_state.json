@@ -864,7 +864,8 @@
         }
       ],
       "queued_at": "2026-10-28T07:39:33+09:00",
-      "attempts": 9
+      "attempts": 10,
+      "invalid_items": []
     },
     "spr:news:spr_article_8a52db56f8ecdc6e3791edf2": {
       "topic": "spr",
@@ -1169,7 +1170,7 @@
         }
       ],
       "queued_at": "2026-10-29T04:29:44+09:00",
-      "attempts": 5,
+      "attempts": 6,
       "invalid_items": []
     },
     "refinery:news:refinery_gasoline_policy_202609": {
