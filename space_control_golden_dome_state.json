@@ -18,10 +18,12 @@
     "2026-09-16|space_defense||air force evolves deploys space control weapons into orbit investor s business daily",
     "2026-09-16|space_defense||china warns us as america confirms space control weapons are in orbit raising arms",
     "sbi|budget|sector|unknown|na",
-    "space_control|launch|sector|2026-09|na"
+    "space_control|launch|sector|2026-09|na",
+    "space_control|status|sector|unknown|na"
   ],
   "sources": {
     "Air & Space Forces": [
+      "https://www.airandspaceforces.com/china-developing-more-on-orbit-space-weapons-new-report",
       "https://www.airandspaceforces.com/lawmakers-bipartisan-solution-golden-dome-funding-crunch",
       "https://www.airandspaceforces.com/meink-space-force-on-orbit-space-control-weapons"
     ],
