@@ -864,8 +864,7 @@
         }
       ],
       "queued_at": "2026-10-28T07:39:33+09:00",
-      "attempts": 7,
-      "invalid_items": []
+      "attempts": 7
     },
     "spr:news:spr_article_8a52db56f8ecdc6e3791edf2": {
       "topic": "spr",
@@ -1217,6 +1216,78 @@
       "queued_at": "2026-10-29T11:32:03+09:00",
       "attempts": 2,
       "invalid_items": []
+    },
+    "spr:news:spr_article_d5dd23dc3a2f76281065ae8f": {
+      "topic": "spr",
+      "kind": "news",
+      "event_key": "spr_article_d5dd23dc3a2f76281065ae8f",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "d5dd23dc3a2f76281065ae8f",
+          "title": "Trump’s Claims About Drilling, Venezuelan Oil Imports Contradict Data - Eurasia Review",
+          "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxOV3pYdi1yRmpxbHhOci01N0NkSjY4T0huY3NEM21EbEs0RFhuTGxRVENSM1ZCSmVJeFNVZnJ3Y3E3bmQ5X3h6alowaVZSZEptTDNIN2JFVGNkTXc2cERVM1RHNHZaSmxhR05CclkwQ1paOGt3NlQxM3RHRXQySkRIVUI3SDluOXU3WlhzVWV2T0xsYmhFcGNVTEF2UjMxbUJ3a1NmREpRWjFPc1U?oc=5",
+          "source": "Eurasia Review",
+          "source_url": "https://www.eurasiareview.com",
+          "pub_kst": "2026-10-29T12:06+09:00"
+        }
+      ],
+      "queued_at": "2026-10-29T17:48:35+09:00",
+      "attempts": 0
+    },
+    "spr:news:spr_article_ceb88c7145399665661d4995": {
+      "topic": "spr",
+      "kind": "news",
+      "event_key": "spr_article_ceb88c7145399665661d4995",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "ceb88c7145399665661d4995",
+          "title": "Trump’s claims about drilling, Venezuelan oil imports contradict data - OCNJ Daily",
+          "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNODhHUG02YTlpOE9ZVF9nUDQ3SU5Ud2N3dGtydFFJODNVeGhSZ21vcTZVa3pzUjljcURSVnpaRndNWGxsOVpBYXZHNWVjeDQwdVNoc0h4N0t1UUNzSjF2T0pXbEthNktZZW03TFktdTcyYXZQcFFSUnpLNnZyVVFGUDZwdk13U2hvbTF6WjJtQzBEUE1RT29RSjIweFV6VnVvMkJTSGJiMA?oc=5",
+          "source": "OCNJ Daily",
+          "source_url": "https://ocnjdaily.com",
+          "pub_kst": "2026-10-29T07:00+09:00"
+        }
+      ],
+      "queued_at": "2026-10-29T17:48:35+09:00",
+      "attempts": 0
+    },
+    "spr:news:spr_article_f1355a1807dbba7e8e836e26": {
+      "topic": "spr",
+      "kind": "news",
+      "event_key": "spr_article_f1355a1807dbba7e8e836e26",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "f1355a1807dbba7e8e836e26",
+          "title": "Rubio pushes Venezuelan oil, but why India may find it tough to buy a lot more - The Indian Express",
+          "link": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxQdWNLSndrRFBzclpHTzRrNXFHVFdoRlRMaVo5QWVxLUJxWnMwX0dwSFQzemtzSi1ibzRJS2xSSnFGUnYzaHVYejdQdUJaTWJDZnRPLWpZVWRTUFNRbmVVTmt1WXdQTDdXT0ppUnZDOXBLZllfUHpZdG8tWENob1M1ekFNZjBWZXAxeUo4SmlqcVpjUVdlMEViY2pzUG1VYlFlNThlaldjZ0RmNjBZVE9OeGhURjV0TUFYLWtxeTUwT1FGcG9JQ0Fsakcta0FQNTlI0gHXAUFVX3lxTFBha1NlQXZvSWdtazhka1JFaG5WSjBRY3AyREQ5bTZsX3J2dHBReFdyTExocDhfa2hmMm1ZeHU0dzRnSUhDaXdNbWtaTGg0SEl0VV9KUGJBRmZfdkNOVHlNeVhjRU9lU3VWY1R6R0RqYkV4clBFb3B1TUJYWkVyQ3gwb1JncThZNmo5SjlHeTlpdWRpU0JPbmhaNm93ZHp0bDBxNjdydFRlRk9KRTNRZ29VZkFBdW5OSVlZVVF1MWtlUXJoTU1wWmZHTFBWSVVCcHM4WktUbkZZ?oc=5",
+          "source": "The Indian Express",
+          "source_url": "https://indianexpress.com",
+          "pub_kst": "2026-10-22T16:54+09:00"
+        }
+      ],
+      "queued_at": "2026-10-29T17:48:35+09:00",
+      "attempts": 0
+    },
+    "spr:news:spr_article_d9936324a618b7784ad00b5e": {
+      "topic": "spr",
+      "kind": "news",
+      "event_key": "spr_article_d9936324a618b7784ad00b5e",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "d9936324a618b7784ad00b5e",
+          "title": "The biggest unanswered question in Trump's Venezuelan oil deal: Where will the $100B in funding come from? - Yahoo Finance",
+          "link": "https://news.google.com/rss/articles/CBMi8AFBVV95cUxOUFZuaVZXZTlfX3BHdHEwbjVUUHFBRW5JNDFwMWppTmRvZG1ONzVUZi1rRTVJTnVTYzdFLXV2WWo1TWJCSENJSlNtcTVEc3J5ZTNvc180WnR5WjZGWV91aU9rQWwwQkczZGg2UzA1UnF1UkM4N1NKMG9DR1JpU25EVWZicFJ2Z2JoSTZIUEVCd1BsTFFKc1hpN0JaRHFRQjR4cjQ3dlZ0UkxZUWJKcFpraGtlb2lMLUxYbV9oaElSSmhRS0dyTHFZeXJpRU1xRnNQaHVIZGpnSU9YNUFDQ1NhNFB0aGRXMDlOMEROZ2tnZ3A?oc=5",
+          "source": "Yahoo Finance",
+          "source_url": "https://finance.yahoo.com",
+          "pub_kst": "2026-09-05T16:00+09:00"
+        }
+      ],
+      "queued_at": "2026-10-29T17:48:35+09:00",
+      "attempts": 0
     }
   },
   "receipts": [
