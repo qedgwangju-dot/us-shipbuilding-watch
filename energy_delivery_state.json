@@ -864,8 +864,7 @@
         }
       ],
       "queued_at": "2026-10-28T07:39:33+09:00",
-      "attempts": 6,
-      "invalid_items": []
+      "attempts": 6
     },
     "spr:news:spr_article_8a52db56f8ecdc6e3791edf2": {
       "topic": "spr",
@@ -1200,6 +1199,42 @@
       "queued_at": "2026-10-29T11:32:03+09:00",
       "attempts": 1,
       "invalid_items": []
+    },
+    "spr:news:spr_article_42c79ee6aa1010e09ccbb87b": {
+      "topic": "spr",
+      "kind": "news",
+      "event_key": "spr_article_42c79ee6aa1010e09ccbb87b",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "42c79ee6aa1010e09ccbb87b",
+          "title": "Chevron to Invest $7 Billion to Double Its Venezuelan Output - Bloomberg",
+          "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxQNXA3aFFsU2g1eHIwQXE1MkxlY3Q0QVlPSXdybGVsTmZBRUM1TzJaUUdxa0poN2syczY0VnNaRlN5ckVIVmxKU0dCSU1uenRDR0NKODBnVWpXNUJiLUJHOTBEd2hMcThncHhXVDB2aGJHTmFHOU0ybzVrNHNjN3FwN2hXM3J3UlFYVHVhbmRFYzJKQUNQaGs0X2pBNzhweXhldjRYeklCb19NMzBuUDlOMg?oc=5",
+          "source": "Bloomberg",
+          "source_url": "https://www.bloomberg.com",
+          "pub_kst": "2026-09-02T16:00+09:00"
+        }
+      ],
+      "queued_at": "2026-10-29T11:32:13+09:00",
+      "attempts": 0
+    },
+    "spr:news:spr_venezuela_oil_agreement_20260831": {
+      "topic": "spr",
+      "kind": "news",
+      "event_key": "spr_venezuela_oil_agreement_20260831",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "de70d3b650599d4b131b5634",
+          "title": "Trump says US reaches deal with Venezuela to control 65 billion barrels of country’s oil reserves - CNN",
+          "link": "https://news.google.com/rss/articles/CBMickFVX3lxTE80OFU1bXF2bDVORkNobXBTY3FxaDNwZWJ4b0Fra2dYaE02YlJuQVdXUHRrQVY2RnZpOEJvY0gyVzdLU2pRR0Nxd243WU4yNFpFVy1ySDlxNVVRcHpZVkMySVRHYmxfVllLRXVVU2RlY3JwQQ?oc=5",
+          "source": "CNN",
+          "source_url": "https://www.cnn.com",
+          "pub_kst": "2026-08-28T16:00+09:00"
+        }
+      ],
+      "queued_at": "2026-10-29T11:32:13+09:00",
+      "attempts": 0
     }
   },
   "receipts": [
