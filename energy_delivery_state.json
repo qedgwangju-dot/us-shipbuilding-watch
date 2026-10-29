@@ -3090,10 +3090,10 @@
   },
   "last_result": {
     "ok": false,
-    "errors": 2,
-    "pending": 42,
+    "errors": 3,
+    "pending": 43,
     "refinery_sent": 0,
     "spr_sent": 0,
-    "at": "2026-10-29T08:24:16+09:00"
+    "at": "2026-10-29T11:32:49+09:00"
   }
 }
