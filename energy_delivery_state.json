@@ -1177,7 +1177,7 @@
       "topic": "refinery",
       "kind": "news",
       "event_key": "refinery_gasoline_policy_202609",
-      "status": "enrichment_pending",
+      "status": "source_blocked",
       "items": [
         {
           "id": "7e58d29b2d583a29acf8dae8",
@@ -1202,11 +1202,21 @@
           "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQMTk3QTJ2VmRReExhYnZYYWhSdl9HNDRMVW01V3luNVozTGZ3LXdYUjVnSWh3M3NuUDMyMENORXZkRGVmN0N4ODl5Y2RpZW13aGFvNFVDNUFYS0hzLXpadmQ2NHJKS1k3czRibWV6S3c5VUxGNVp2TE1jVDl5dGZMZXUtWFdwd2Y1b3RQenN6VUNxdGJLZVUwWF8wM2I4TTJtVHN0cXNMTTM0eExEOUVGWnl3bTI?oc=5",
           "source": "Bloomberg.com",
           "source_url": "https://www.bloomberg.com",
-          "pub_kst": "2026-10-27T04:59+09:00"
+          "pub_kst": "2026-10-27T04:59+09:00",
+          "_source_blocked": true,
+          "_source_failure": {
+            "stage": "article_fetch",
+            "reason": "http_denial",
+            "blocked_before_request": false,
+            "provider": "www.bloomberg.com",
+            "request_url_sha256": "0be255b072d8294d4615a04afabb25febd3185d6b92c5d4a106110d02950a5ef",
+            "http_status": 403
+          }
         }
       ],
       "queued_at": "2026-10-29T11:32:03+09:00",
-      "attempts": 1
+      "attempts": 2,
+      "invalid_items": []
     }
   },
   "receipts": [
