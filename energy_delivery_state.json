@@ -864,7 +864,7 @@
         }
       ],
       "queued_at": "2026-10-28T07:39:33+09:00",
-      "attempts": 11,
+      "attempts": 12,
       "invalid_items": []
     },
     "spr:news:spr_article_8a52db56f8ecdc6e3791edf2": {
@@ -1170,7 +1170,7 @@
         }
       ],
       "queued_at": "2026-10-29T04:29:44+09:00",
-      "attempts": 7,
+      "attempts": 8,
       "invalid_items": []
     },
     "refinery:news:refinery_gasoline_policy_202609": {
@@ -1279,7 +1279,7 @@
       "topic": "spr",
       "kind": "news",
       "event_key": "spr_article_1516fb34eb8404294d8b5b05",
-      "status": "enrichment_pending",
+      "status": "source_blocked",
       "items": [
         {
           "id": "1516fb34eb8404294d8b5b05",
@@ -1287,11 +1287,21 @@
           "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxNcUFiTl95d3JXaERjejJQZ2lxcURrdmF1WDd3Tks1Mmo1RFBZckVZX3hWVkxvZTUwdmx0aFBxbDRWcUpjaWZuZVZPOHJDMHFzcEdtSjg1a0NTdFFzUXl4TndGam1nUmd1NHRtdWRnTHJSTnROX3BvNS1RNm1HbEJLcGhKdlFaYjFkRjIyMHBiQ3VUOTg4blFWZXgwZWcwOTBEd1VSd2FKTkxMS0k?oc=5",
           "source": "North Penn Now",
           "source_url": "https://northpennnow.com",
-          "pub_kst": "2026-10-29T07:00+09:00"
+          "pub_kst": "2026-10-29T07:00+09:00",
+          "_source_blocked": true,
+          "_source_failure": {
+            "stage": "translation_google",
+            "reason": "http_rate_limit",
+            "blocked_before_request": false,
+            "provider": "www.google.com",
+            "request_url_sha256": "a0c13869eb82e3592515680598929043abb7f49ca6bb3ea558e765d293f858ac",
+            "http_status": 429
+          }
         }
       ],
       "queued_at": "2026-10-30T14:37:41+09:00",
-      "attempts": 0
+      "attempts": 1,
+      "invalid_items": []
     }
   },
   "receipts": [
