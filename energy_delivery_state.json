@@ -1285,7 +1285,8 @@
       ],
       "queued_at": "2026-10-30T20:35:36+09:00",
       "attempts": 1,
-      "invalid_items": []
+      "invalid_items": [],
+      "held_items": []
     },
     "spr:news:spr_article_83aa4d78fd74f136b22b78c5": {
       "topic": "spr",
@@ -1313,7 +1314,26 @@
       ],
       "queued_at": "2026-10-30T20:35:36+09:00",
       "attempts": 1,
-      "invalid_items": []
+      "invalid_items": [],
+      "held_items": []
+    },
+    "spr:news:spr_article_d78d7a922a35195212f597f6": {
+      "topic": "spr",
+      "kind": "news",
+      "event_key": "spr_article_d78d7a922a35195212f597f6",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "d78d7a922a35195212f597f6",
+          "title": "Chevron's Venezuela JV Expansion: Time to Buy, Sell or Hold the Stock? - The Globe and Mail",
+          "link": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxNcWQyWG9XaS1MNS1Xd280cTlDQUpMQ1ZSVGJLM21YYkZvREdabzNwemhnM2hGR2pJLXJwTWhNWlY4dVNhd0lUZVJjMDlUWEVZQkNkRW5xOXhGOUxpcWdtbXJDcmFQcUl6ZllRYlR5R3Y0VXNia3dFQkY4cmdMLVdEMktHcWF4ZU11aTZ5a1llZkpTVG5kTjVYS0xNZXlxcEhjS1VSa3VyOUpzNWVyX05PWEpuNkZrWmVPUWZvZExITTVQS2d0a2lEYXl0TThnMVdvX3d3YkhvSGdQdUVUUWJwazln?oc=5",
+          "source": "The Globe and Mail",
+          "source_url": "https://www.theglobeandmail.com",
+          "pub_kst": "2026-09-08T16:00+09:00"
+        }
+      ],
+      "queued_at": "2026-10-31T02:09:06+09:00",
+      "attempts": 0
     }
   },
   "receipts": [
