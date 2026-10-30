@@ -864,7 +864,7 @@
         }
       ],
       "queued_at": "2026-10-28T07:39:33+09:00",
-      "attempts": 12,
+      "attempts": 13,
       "invalid_items": []
     },
     "spr:news:spr_article_8a52db56f8ecdc6e3791edf2": {
@@ -1170,7 +1170,7 @@
         }
       ],
       "queued_at": "2026-10-29T04:29:44+09:00",
-      "attempts": 8,
+      "attempts": 9,
       "invalid_items": []
     },
     "refinery:news:refinery_gasoline_policy_202609": {
@@ -1308,7 +1308,7 @@
       "topic": "spr",
       "kind": "news",
       "event_key": "spr_article_3947e1a54202b912263a0482",
-      "status": "enrichment_pending",
+      "status": "source_blocked",
       "items": [
         {
           "id": "3947e1a54202b912263a0482",
@@ -1316,17 +1316,27 @@
           "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQbnlBZkREN3B0WDN3R1dLeFNJTFJHQ0M4SlZDaTh6ZTRfMmhDSXdwal9PY1NpTXZZU2UyUXdldXZCanREd1RTRlozSUQwSVVGcUFpcUxZNDQ2YURHNmlobFNRR2JueEg0YjZzekN0VkFLU1RrLW1RQlJCNmtNaUltcjRQWjNwV1docFVaNkRNYjNDcmk1cFY2V0F2UWthYjV2dmVDazlFRkZGZl9wUGZWeGs5VUg?oc=5",
           "source": "Reuters",
           "source_url": "https://www.reuters.com",
-          "pub_kst": "2026-10-30T19:31+09:00"
+          "pub_kst": "2026-10-30T19:31+09:00",
+          "_source_blocked": true,
+          "_source_failure": {
+            "stage": "article_fetch",
+            "reason": "http_denial",
+            "blocked_before_request": false,
+            "provider": "www.reuters.com",
+            "request_url_sha256": "767eaa042b0367a5ad5b0686209a735e52f95426f19ce3aff6667d0b90a7343a",
+            "http_status": 401
+          }
         }
       ],
       "queued_at": "2026-10-30T20:35:36+09:00",
-      "attempts": 0
+      "attempts": 1,
+      "invalid_items": []
     },
     "spr:news:spr_article_83aa4d78fd74f136b22b78c5": {
       "topic": "spr",
       "kind": "news",
       "event_key": "spr_article_83aa4d78fd74f136b22b78c5",
-      "status": "enrichment_pending",
+      "status": "source_blocked",
       "items": [
         {
           "id": "83aa4d78fd74f136b22b78c5",
@@ -1334,11 +1344,21 @@
           "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNdDh3aVV6bkVnUFpWN3dvclA1emIxOTZlbU9OcFJSVnJQWXRkSUFsVjRucXRKWDFSTzhGbWR0aFlRMmtPYXFJYVdrNENTdDE3TDJuZm85ckJzOTI2WFdkZnJjS3FvSi1OWGk0bkJYVnp4cmtkaXYzN1A5S1hUNGROX1B3RGg4OGx5M0JMaFNJXzhFQmJzM2g2TEZIUzNGZE5iZTZ4WFlUbHRlZw?oc=5",
           "source": "Bloomberg.com",
           "source_url": "https://www.bloomberg.com",
-          "pub_kst": "2026-10-30T18:30+09:00"
+          "pub_kst": "2026-10-30T18:30+09:00",
+          "_source_blocked": true,
+          "_source_failure": {
+            "stage": "article_fetch",
+            "reason": "http_denial",
+            "blocked_before_request": false,
+            "provider": "www.bloomberg.com",
+            "request_url_sha256": "7d6e32cba10d449cb0f2b6ff32f107941206451a7052c097efbed54c8c91173b",
+            "http_status": 403
+          }
         }
       ],
       "queued_at": "2026-10-30T20:35:36+09:00",
-      "attempts": 0
+      "attempts": 1,
+      "invalid_items": []
     }
   },
   "receipts": [

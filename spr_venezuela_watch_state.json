@@ -458,7 +458,7 @@
     "prev_kbd": 571,
     "source": "https://www.eia.gov/dnav/pet/hist/LeafHandler.ashx?f=W&n=PET&s=W_EPC0_IM0_NUS-NVE_MBBLD"
   },
-  "last_run_kst": "2026-10-30T14:38:16+09:00",
+  "last_run_kst": "2026-10-30T20:36:12+09:00",
   "events": {
     "spr_venezuela_oil_agreement_20260831": {
       "priority": 5,
@@ -1018,5 +1018,5 @@
   },
   "last_source_error_count": 0,
   "last_data_error_count": 0,
-  "last_translation_error_count": 3
+  "last_translation_error_count": 4
 }
