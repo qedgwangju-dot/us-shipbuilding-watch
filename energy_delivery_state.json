@@ -1302,24 +1302,6 @@
       "queued_at": "2026-10-30T14:37:41+09:00",
       "attempts": 1,
       "invalid_items": []
-    },
-    "refinery:news:refinery_article_3a0aa5eb1ae4e97a748bc98c": {
-      "topic": "refinery",
-      "kind": "news",
-      "event_key": "refinery_article_3a0aa5eb1ae4e97a748bc98c",
-      "status": "enrichment_pending",
-      "items": [
-        {
-          "id": "3a0aa5eb1ae4e97a748bc98c",
-          "title": "Europe Lost 30 Refineries Since 2009 and Now Imports Diesel - European Business Magazine",
-          "link": "https://news.google.com/rss/articles/CBMieEFVX3lxTFB4SV94RkVIR2NLZndIdkM5bmFtTjVEMWZxZDNJcTRsSmVuU0N5NVZwakRycjQyWm1DMkVjcVVMdWtFc0JGQTNmbEw3Tk5vM2ZwWTIwVDNGNzNkajVrQzRtWDNaMHJNb2JTVlZHQV8wZ0lNdHoxdFVWRg?oc=5",
-          "source": "European Business Magazine",
-          "source_url": "https://europeanbusinessmagazine.com",
-          "pub_kst": "2026-10-03T16:00+09:00"
-        }
-      ],
-      "queued_at": "2026-10-30T20:35:26+09:00",
-      "attempts": 0
     }
   },
   "receipts": [
@@ -3287,6 +3269,14 @@
       "at": "2026-10-30T09:09:20+09:00",
       "ids": [
         "74a8cf2ec367df5bf6dcf62b"
+      ]
+    },
+    {
+      "key": "refinery:news:refinery_article_3a0aa5eb1ae4e97a748bc98c",
+      "reason": "news_outside_three_day_window",
+      "at": "2026-10-30T20:35:29+09:00",
+      "ids": [
+        "3a0aa5eb1ae4e97a748bc98c"
       ]
     }
   ],
