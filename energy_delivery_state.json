@@ -1273,6 +1273,42 @@
       "queued_at": "2026-10-29T17:48:35+09:00",
       "attempts": 1,
       "invalid_items": []
+    },
+    "refinery:news:refinery_article_1fffc6208ffa375a64eb391d": {
+      "topic": "refinery",
+      "kind": "news",
+      "event_key": "refinery_article_1fffc6208ffa375a64eb391d",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "1fffc6208ffa375a64eb391d",
+          "title": "Trump reiterated that strikes on Russian oil refineries have affected diesel market - Цензор.НЕТ",
+          "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQNVkzQWtzYkdtbm1mOWVqcEFSMHNuSlNoNGIxWldNMV9iU251LW9URXIyN2NsMHRJZXk2bDlVVzY1R1ZFa3F4X25HMU9EcUJwVTBmTHZoN2FyUEYydEd4UlphYU5wQkhqUWxNSlZzUW12eXphdGlnZ2QzVXAyZTBjSDFtM1oxemNqRm5ZUl9acUNDa3hVR3dqMEdrQk9xVzQ0MGpIbHplaURQUQ?oc=5",
+          "source": "Цензор.НЕТ",
+          "source_url": "https://censor.net",
+          "pub_kst": "2026-10-01T16:00+09:00"
+        }
+      ],
+      "queued_at": "2026-10-30T09:09:18+09:00",
+      "attempts": 0
+    },
+    "refinery:news:rfs_sre_2025_package_20260831": {
+      "topic": "refinery",
+      "kind": "news",
+      "event_key": "rfs_sre_2025_package_20260831",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "74a8cf2ec367df5bf6dcf62b",
+          "title": "Soybean Farmers Back EPA RIN Reallocation - Farms.com",
+          "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxQcnNZd1dyQ19iekI0SUt2VnhTS1NSQndCOWUyZUZEX0JIMTVLX3ZtS3YwYjlZLTdpSENBOVYtOWRMcDJxUkNSOGNtWGlsOGdkUDdGTlFXMTJYems3aUNWNXBpdENaN2FkcjBKZjBUMEdBVVEyYW1oclhLN0NjWG0wRjBmaC03Vk9zZHhDb1FfNnk?oc=5",
+          "source": "Farms.com",
+          "source_url": "https://m.farms.com",
+          "pub_kst": "2026-09-01T16:00+09:00"
+        }
+      ],
+      "queued_at": "2026-10-30T09:09:18+09:00",
+      "attempts": 0
     }
   },
   "receipts": [
