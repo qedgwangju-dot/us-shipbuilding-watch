@@ -1301,7 +1301,44 @@
       ],
       "queued_at": "2026-10-30T14:37:41+09:00",
       "attempts": 1,
-      "invalid_items": []
+      "invalid_items": [],
+      "held_items": []
+    },
+    "spr:news:spr_article_3947e1a54202b912263a0482": {
+      "topic": "spr",
+      "kind": "news",
+      "event_key": "spr_article_3947e1a54202b912263a0482",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "3947e1a54202b912263a0482",
+          "title": "Trump touted a record Venezuela oil deal. Now reality is setting in - Reuters",
+          "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQbnlBZkREN3B0WDN3R1dLeFNJTFJHQ0M4SlZDaTh6ZTRfMmhDSXdwal9PY1NpTXZZU2UyUXdldXZCanREd1RTRlozSUQwSVVGcUFpcUxZNDQ2YURHNmlobFNRR2JueEg0YjZzekN0VkFLU1RrLW1RQlJCNmtNaUltcjRQWjNwV1docFVaNkRNYjNDcmk1cFY2V0F2UWthYjV2dmVDazlFRkZGZl9wUGZWeGs5VUg?oc=5",
+          "source": "Reuters",
+          "source_url": "https://www.reuters.com",
+          "pub_kst": "2026-10-30T19:31+09:00"
+        }
+      ],
+      "queued_at": "2026-10-30T20:35:36+09:00",
+      "attempts": 0
+    },
+    "spr:news:spr_article_83aa4d78fd74f136b22b78c5": {
+      "topic": "spr",
+      "kind": "news",
+      "event_key": "spr_article_83aa4d78fd74f136b22b78c5",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "83aa4d78fd74f136b22b78c5",
+          "title": "Trump’s Venezuela Strategy Needs More Than Oil Deals - Bloomberg.com",
+          "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNdDh3aVV6bkVnUFpWN3dvclA1emIxOTZlbU9OcFJSVnJQWXRkSUFsVjRucXRKWDFSTzhGbWR0aFlRMmtPYXFJYVdrNENTdDE3TDJuZm85ckJzOTI2WFdkZnJjS3FvSi1OWGk0bkJYVnp4cmtkaXYzN1A5S1hUNGROX1B3RGg4OGx5M0JMaFNJXzhFQmJzM2g2TEZIUzNGZE5iZTZ4WFlUbHRlZw?oc=5",
+          "source": "Bloomberg.com",
+          "source_url": "https://www.bloomberg.com",
+          "pub_kst": "2026-10-30T18:30+09:00"
+        }
+      ],
+      "queued_at": "2026-10-30T20:35:36+09:00",
+      "attempts": 0
     }
   },
   "receipts": [
