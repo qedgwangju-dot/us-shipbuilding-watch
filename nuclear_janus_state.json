@@ -2,7 +2,7 @@
   "version": 1,
   "initialized": true,
   "initialized_at": "2026-08-28T03:59:39+00:00",
-  "last_checked_at": "2026-10-30T07:17:23+00:00",
+  "last_checked_at": "2026-10-30T14:16:52+00:00",
   "seen": [
     "0249bb5d136ff8b38e08f030d8c54a879ebef62948e8a7446153e8f0a241b247",
     "0cbdeb97e5f6a0643f5061d952ef45c7ab4c8d5a6e008885db6ef9ecf3b75413",
@@ -339,7 +339,8 @@
     "27855860666b29abb05a16761f095aaece8a2f14b74f7c6817bc96ec86dd2444",
     "181c22680dbaa7f46e650f43d18b7af982711fd7c15aa66da90df291a70bc323",
     "3e533905a63a13272a8c5a7aa0f1cd5018b71cf6783fe2484f0b194a0ec9b8b7",
-    "4a64f15022859db6fd7e0fdf05198c4ff417a2680675daaaa1ba8845c889e27e"
+    "4a64f15022859db6fd7e0fdf05198c4ff417a2680675daaaa1ba8845c889e27e",
+    "695d6cf140d20872385d75443ddce598e2e9255c3c65b337475b83b23ef6c8ca"
   ],
   "facts": {
     "미 육군 Janus 계약 발표": {
@@ -365,5 +366,5 @@
     "Fort Drum Janus 공식 페이지": {}
   },
   "source_count": 53,
-  "sources_ok": 48
+  "sources_ok": 51
 }
