@@ -1177,7 +1177,7 @@
       "topic": "refinery",
       "kind": "news",
       "event_key": "refinery_gasoline_policy_202609",
-      "status": "source_blocked",
+      "status": "enrichment_pending",
       "items": [
         {
           "id": "7e58d29b2d583a29acf8dae8",
@@ -1212,11 +1212,18 @@
             "request_url_sha256": "0be255b072d8294d4615a04afabb25febd3185d6b92c5d4a106110d02950a5ef",
             "http_status": 403
           }
+        },
+        {
+          "id": "cf30093d763635e81d7f560f",
+          "title": "Trump Says Gasoline Prices Will Come “Plummeting Down.” Exxon and Chevron Didn’t Get the Memo - TIKR.com",
+          "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxQZEltVDdLYkI1aVNWWUZWSDNOR3JlRGhUSlJrcUVjb0wwWmxmbElzUWVGUkMyV0lDZ3BPdE9Fbm5uYWN4RTJlU2ZranpkNjNoaWNqTGxDRVBrMll6bUp0cmowUi13cEJGa2xMbmt3ODlrUkhZWmJNTnpQeUlIZENkZV83ZkVSdVduUDJmcktpQnkzb3BfQmtwaDVrS00zQUR3Z0dFSklDUk5uZjBELVVCNHFRR1lMc2c?oc=5",
+          "source": "TIKR.com",
+          "source_url": "https://www.tikr.com",
+          "pub_kst": "2026-10-31T00:39+09:00"
         }
       ],
       "queued_at": "2026-10-29T11:32:03+09:00",
-      "attempts": 2,
-      "invalid_items": []
+      "attempts": 2
     },
     "spr:news:spr_article_d5dd23dc3a2f76281065ae8f": {
       "topic": "spr",
@@ -1359,6 +1366,42 @@
       "queued_at": "2026-10-30T20:35:36+09:00",
       "attempts": 1,
       "invalid_items": []
+    },
+    "refinery:news:refinery_article_dc5bc77a5a46001ddda9c22f": {
+      "topic": "refinery",
+      "kind": "news",
+      "event_key": "refinery_article_dc5bc77a5a46001ddda9c22f",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "dc5bc77a5a46001ddda9c22f",
+          "title": "Trump announces new US refinery backed by India's Reliance - Reuters",
+          "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxNcWlmYkNFZWR2Um1MRVZScEctd0czdUlzRDg1dVc3cEJqdGxwNHJtQ1dHR181MnB5eWR3VmlnQ2FueHJ6ZzNnd2RVSE10S3JmUzVzb0NGQWptQlRTVDhkbThVd3lHM3hHSkZubGpJU3RheUJYNmRnd3M2dUR6Si1URDNodzV3LThzRjhJaTdBd2JJU01KaFYxTTdB?oc=5",
+          "source": "Reuters",
+          "source_url": "https://www.reuters.com",
+          "pub_kst": "2026-03-10T16:00+09:00"
+        }
+      ],
+      "queued_at": "2026-10-31T02:08:56+09:00",
+      "attempts": 0
+    },
+    "refinery:news:refinery_article_1014a3c939251ed3cffae48d": {
+      "topic": "refinery",
+      "kind": "news",
+      "event_key": "refinery_article_1014a3c939251ed3cffae48d",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "1014a3c939251ed3cffae48d",
+          "title": "State AGs Accuse Small Refineries of Gaming Renewable Fuel Standard Exemptions While Reporting Strong Profits - DTN Progressive Farmer",
+          "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPTTdkMjZmZjhfdkJpcW1nN1M1elo5cGNGZ3pQSWlNSjAxWkFvcEFjRXNSU3RYdDNUaVZENFBLd0VQNGdsOVMtbHVLYl9HLWJadE9UMTJ5bXVJeTUySUpkNERhQ0s2U2FZTVVnUTk0ZlJkVy1lN1VGUTJOYWV2YVd1TGJBYlg5R2lOMjlRMzFtMko1Zkx3RzhzWk5pek80N05jb2ZKTHlLZFUzUHJQLS04Rmp0UTc?oc=5",
+          "source": "DTN Progressive Farmer",
+          "source_url": "https://www.dtnpf.com",
+          "pub_kst": "2025-10-30T16:00+09:00"
+        }
+      ],
+      "queued_at": "2026-10-31T02:08:56+09:00",
+      "attempts": 0
     }
   },
   "receipts": [
