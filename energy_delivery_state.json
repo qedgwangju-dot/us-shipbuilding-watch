@@ -3351,10 +3351,10 @@
   },
   "last_result": {
     "ok": false,
-    "errors": 4,
-    "pending": 48,
+    "errors": 2,
+    "pending": 47,
     "refinery_sent": 0,
     "spr_sent": 0,
-    "at": "2026-10-30T20:36:14+09:00"
+    "at": "2026-10-31T02:09:43+09:00"
   }
 }
