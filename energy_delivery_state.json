@@ -1316,6 +1316,24 @@
       "attempts": 1,
       "invalid_items": [],
       "held_items": []
+    },
+    "refinery:news:refinery_article_5e187973af6b0da2b6dfbe23": {
+      "topic": "refinery",
+      "kind": "news",
+      "event_key": "refinery_article_5e187973af6b0da2b6dfbe23",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "5e187973af6b0da2b6dfbe23",
+          "title": "Ukraine says it will keep attacking Russian refineries despite Trump-Putin diesel deal - The New Voice of Ukraine",
+          "link": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxPR1dORGh5MFcwQVJfQm5zSkk0ZmhZYjFZWFhpWFM5M05zUDBkRk1IWWVIOEhrMS1jbjBja3RHamhsWGVwbkZ4YTV5T1BhZUMxWWs2MU9MWW01N1pueHV2UTYtek9peEduOU1hUFNzUkI5SVcwalhUbjk2NkdzRlJtVlA2cVEySE1aZmtWemNtZGkwRnRTYlRfZHoyZHNEVTlhVjh2UzcyT2RGUm9xTHBiODhFaVdvMGZkT2ZBQXNhZUltR1FwUkNtSzBDVjlLSUQ1WU5VdFhvTknSAdQBQVVfeXFMTUpqUWJMaFFvMkxtM1k4cWVySE5odnF4eGt4WWdWYnNFaERUS0dMX25LRnNDZ3NYU3YwTU5zbWkxckxJdmpaTnFkWmNNQnFFRERkSXNkYzU5ZDhLa3A5X3dWSUpCUVVub3FpYlFwbjF4bVItdTRZMGkxUzV6c1A5c2RnVlNOcTBKQm5XMjE5blhPaXRSN3NzWHAyVnBtWklXaHF4aEptQUJXVHpqTFZxajdzNHhacWx2SlQxalpERlRfQjhFUkYtbEROVm0wTW45Q3dZZWo?oc=5",
+          "source": "The New Voice of Ukraine",
+          "source_url": "https://english.nv.ua",
+          "pub_kst": "2026-10-10T16:00+09:00"
+        }
+      ],
+      "queued_at": "2026-10-31T06:26:57+09:00",
+      "attempts": 0
     }
   },
   "receipts": [
