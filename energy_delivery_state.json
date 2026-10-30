@@ -1244,7 +1244,8 @@
       ],
       "queued_at": "2026-10-29T17:48:35+09:00",
       "attempts": 1,
-      "invalid_items": []
+      "invalid_items": [],
+      "held_items": []
     },
     "spr:news:spr_article_ceb88c7145399665661d4995": {
       "topic": "spr",
@@ -1273,6 +1274,24 @@
       "queued_at": "2026-10-29T17:48:35+09:00",
       "attempts": 1,
       "invalid_items": []
+    },
+    "spr:news:spr_article_1516fb34eb8404294d8b5b05": {
+      "topic": "spr",
+      "kind": "news",
+      "event_key": "spr_article_1516fb34eb8404294d8b5b05",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "1516fb34eb8404294d8b5b05",
+          "title": "Trump’s claims about drilling, Venezuelan oil imports contradict data - North Penn Now",
+          "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxNcUFiTl95d3JXaERjejJQZ2lxcURrdmF1WDd3Tks1Mmo1RFBZckVZX3hWVkxvZTUwdmx0aFBxbDRWcUpjaWZuZVZPOHJDMHFzcEdtSjg1a0NTdFFzUXl4TndGam1nUmd1NHRtdWRnTHJSTnROX3BvNS1RNm1HbEJLcGhKdlFaYjFkRjIyMHBiQ3VUOTg4blFWZXgwZWcwOTBEd1VSd2FKTkxMS0k?oc=5",
+          "source": "North Penn Now",
+          "source_url": "https://northpennnow.com",
+          "pub_kst": "2026-10-29T07:00+09:00"
+        }
+      ],
+      "queued_at": "2026-10-30T14:37:41+09:00",
+      "attempts": 0
     }
   },
   "receipts": [
