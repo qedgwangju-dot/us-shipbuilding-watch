@@ -1297,42 +1297,6 @@
       "attempts": 1,
       "invalid_items": [],
       "held_items": []
-    },
-    "refinery:news:refinery_article_39a7ce939981e9271b0f8698": {
-      "topic": "refinery",
-      "kind": "news",
-      "event_key": "refinery_article_39a7ce939981e9271b0f8698",
-      "status": "enrichment_pending",
-      "items": [
-        {
-          "id": "39a7ce939981e9271b0f8698",
-          "title": "Trump to Meet With Oil Refiners Amid Gas Price Surge - Newsmax",
-          "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTFAxRHE1Q2lNUm80SkRYeUFJLUNZck1mdnRGVTU3Uk1EdlcyTXFfOHIzaTlpVkw1WndEUjZtbDF1ZTNIbnJ0bHNER0E1blpTalA5MFp3Z3JEcEtWbDBQYnc3RlVFMjVXQlhpbHhMOWc3RUoyeENXbnN3b25wN3lKTm8?oc=5",
-          "source": "Newsmax",
-          "source_url": "https://www.newsmax.com",
-          "pub_kst": "2026-08-31T16:00+09:00"
-        }
-      ],
-      "queued_at": "2026-10-31T15:34:00+09:00",
-      "attempts": 0
-    },
-    "refinery:news:refinery_article_10dddc5ae3a7b79a44dafdf3": {
-      "topic": "refinery",
-      "kind": "news",
-      "event_key": "refinery_article_10dddc5ae3a7b79a44dafdf3",
-      "status": "enrichment_pending",
-      "items": [
-        {
-          "id": "10dddc5ae3a7b79a44dafdf3",
-          "title": "Renewable fuels industry concerned as EPA approves wave of refinery waivers - Brownfield Ag News",
-          "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxNZkxxd2VkOW9BQU9UTzNmcTZyYXVPWm9oUEJkMmhOWTZnY3BsbElKZWZEQzZyYVY3NVVoWTgycDJyNkxEWk5saWJDeGRwQndwcXQ2S2pzWGp1bG5CYnFTYVk4ZUxJSXZaVmg5VG9oOFRQaURtQ0lUOHJmM0Ryb3BlNWRick0tUHRvNmVHMDlvTUJ6NVpaQXV2WEMzb0NKU0xoSGlQTHhsVXVxOWF2OEVJ?oc=5",
-          "source": "Brownfield Ag News",
-          "source_url": "https://brownfieldagnews.com",
-          "pub_kst": "2025-11-11T17:00+09:00"
-        }
-      ],
-      "queued_at": "2026-10-31T15:34:00+09:00",
-      "attempts": 0
     }
   },
   "receipts": [
@@ -3365,6 +3329,22 @@
       "at": "2026-10-31T09:56:22+09:00",
       "ids": [
         "ddbb7af17e7c90f0bb365447"
+      ]
+    },
+    {
+      "key": "refinery:news:refinery_article_39a7ce939981e9271b0f8698",
+      "reason": "news_outside_three_day_window",
+      "at": "2026-10-31T15:34:02+09:00",
+      "ids": [
+        "39a7ce939981e9271b0f8698"
+      ]
+    },
+    {
+      "key": "refinery:news:refinery_article_10dddc5ae3a7b79a44dafdf3",
+      "reason": "news_outside_three_day_window",
+      "at": "2026-10-31T15:34:02+09:00",
+      "ids": [
+        "10dddc5ae3a7b79a44dafdf3"
       ]
     }
   ],
