@@ -1278,6 +1278,24 @@
       "attempts": 1,
       "invalid_items": [],
       "held_items": []
+    },
+    "refinery:news:refinery_article_94af26c4712b3b7c140b2ba3": {
+      "topic": "refinery",
+      "kind": "news",
+      "event_key": "refinery_article_94af26c4712b3b7c140b2ba3",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "94af26c4712b3b7c140b2ba3",
+          "title": "Trump's diesel order spurs new round of fuel policy clashes - Agri-Pulse Communications, Inc.",
+          "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxNdmVodUk5eXJXejlzOUd2eDdkMS1pS0JvY1VnSVFjUnd0dEw3YkoxalIwZDVIdjRjeWtUYXkxalR0Q3VNUllKcjhxMFMtMWtXZTN0d21CdGllcEJKQS1WMEdFcWcyZzAtZDVhOEwxTVJwaDRBXzZxSXo4R2VRVk9QSHRsVVE2Q1RkQnBhMkZrYk5wck9iLWYyS0tNdmNDU0xjQ0E?oc=5",
+          "source": "Agri-Pulse Communications, Inc.",
+          "source_url": "https://www.agri-pulse.com",
+          "pub_kst": "2026-10-07T16:00+09:00"
+        }
+      ],
+      "queued_at": "2026-11-01T08:40:39+09:00",
+      "attempts": 0
     }
   },
   "receipts": [
