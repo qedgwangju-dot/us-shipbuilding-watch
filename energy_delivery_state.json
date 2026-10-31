@@ -848,25 +848,6 @@
       "invalid_items": [],
       "held_items": []
     },
-    "spr:news:spr_article_d1ae1c78487268f3c8b20831": {
-      "topic": "spr",
-      "kind": "news",
-      "event_key": "spr_article_d1ae1c78487268f3c8b20831",
-      "status": "enrichment_pending",
-      "items": [
-        {
-          "id": "d1ae1c78487268f3c8b20831",
-          "title": "Trump to greet Venezuelan oil shipment, calling it a ‘gift.’ The U.S. paid for it. - The Washington Post",
-          "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxQcWpkTGctM09hUGpnVG1la0F6NXl5VmRRczl3aUJFeUtiMnh0T0c0ZmhhZEtDMWlreWtBeWdxel9FN1ROZXk5dUVReFlHUUxaLWQxX09oUHF1cmJ5LXZ6elAwMDdGVlY1VlpJT09hdVBuQnFvNzRZNzRjdzRJUkMySTZGbkVXSUI2R19fNE4zWkg2ZGh4cjdGWl9YVWd3NE1WTDJIeWNpYUpsejR5UlpxdQ?oc=5",
-          "source": "The Washington Post",
-          "source_url": "https://www.washingtonpost.com",
-          "pub_kst": "2026-10-28T13:19+09:00"
-        }
-      ],
-      "queued_at": "2026-10-28T07:39:33+09:00",
-      "attempts": 16,
-      "invalid_items": []
-    },
     "spr:news:spr_article_8a52db56f8ecdc6e3791edf2": {
       "topic": "spr",
       "kind": "news",
@@ -3345,6 +3326,14 @@
       "at": "2026-10-31T15:34:02+09:00",
       "ids": [
         "10dddc5ae3a7b79a44dafdf3"
+      ]
+    },
+    {
+      "key": "spr:news:spr_article_d1ae1c78487268f3c8b20831",
+      "reason": "news_outside_three_day_window",
+      "at": "2026-10-31T15:34:09+09:00",
+      "ids": [
+        "d1ae1c78487268f3c8b20831"
       ]
     }
   ],
