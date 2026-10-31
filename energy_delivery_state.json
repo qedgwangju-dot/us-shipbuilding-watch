@@ -864,7 +864,7 @@
         }
       ],
       "queued_at": "2026-10-28T07:39:33+09:00",
-      "attempts": 15,
+      "attempts": 16,
       "invalid_items": []
     },
     "spr:news:spr_article_8a52db56f8ecdc6e3791edf2": {
@@ -1153,25 +1153,6 @@
       "attempts": 1,
       "invalid_items": [],
       "held_items": []
-    },
-    "spr:news:spr_article_ddbb7af17e7c90f0bb365447": {
-      "topic": "spr",
-      "kind": "news",
-      "event_key": "spr_article_ddbb7af17e7c90f0bb365447",
-      "status": "enrichment_pending",
-      "items": [
-        {
-          "id": "ddbb7af17e7c90f0bb365447",
-          "title": "Venezuelan oil shipment arrives in Texas - 香港電台新聞網",
-          "link": "https://news.google.com/rss/articles/CBMib0FVX3lxTE13cDdxS1UxWHE5QnItQ0tha2xYcEF4Z0pjNEN3TTZEcmZTMHpoYnNSTklXWndnZ25PY0ZOWXUtc3o5YzJKVW0tbnhoRW9qWDhWRGhZYl9hNnl2S3ZwNGFLNXhlcWJ4YXg1OHdpalQ2QQ?oc=5",
-          "source": "香港電台新聞網",
-          "source_url": "https://news.rthk.hk",
-          "pub_kst": "2026-10-28T09:03+09:00"
-        }
-      ],
-      "queued_at": "2026-10-29T04:29:44+09:00",
-      "attempts": 11,
-      "invalid_items": []
     },
     "spr:news:spr_article_d5dd23dc3a2f76281065ae8f": {
       "topic": "spr",
@@ -3340,6 +3321,14 @@
       "at": "2026-10-31T06:26:59+09:00",
       "ids": [
         "5e187973af6b0da2b6dfbe23"
+      ]
+    },
+    {
+      "key": "spr:news:spr_article_ddbb7af17e7c90f0bb365447",
+      "reason": "news_outside_three_day_window",
+      "at": "2026-10-31T09:56:22+09:00",
+      "ids": [
+        "ddbb7af17e7c90f0bb365447"
       ]
     }
   ],
