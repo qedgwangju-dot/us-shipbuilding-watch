@@ -1,48 +1,6 @@
 {
   "schema_version": 1,
   "outbox": {
-    "refinery:news:refinery_article_3732d92a79dc14aedccf4fe8": {
-      "topic": "refinery",
-      "kind": "news",
-      "event_key": "refinery_article_3732d92a79dc14aedccf4fe8",
-      "status": "source_blocked",
-      "items": [
-        {
-          "id": "3732d92a79dc14aedccf4fe8",
-          "title": "Trump’s Energy Truce Hinges on Russian Refineries, and Seven Senators Say the Diesel Deal Defies a 2022 Law - Energy News Beat",
-          "link": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxOV3FWSWpqa29yZTNmVmhMYkk3eTN5N3RDZXdBYmVOckppN25LWHpJcTZmYTExTG5NTmNzMXpqMkt2S1Myb3gtRTVEVFBCVnpQbnNUZXhITlh4UEJXeHY4WlZONGxRYU94XzdjazhnbkR0MkQxWi0wcDFHOUxYX2dlVlR2RkJ5X2xSOTBQQzNDaFJid0tBVVZBSmc1R0xwZ1ZrQWVraWhTSFVYUnlRTEYzY0JVcWNOWFR4dllOcDNnTnU5dkNSZTc1bXFBTjdnVm9pLVBXZnh3?oc=5",
-          "source": "Energy News Beat",
-          "source_url": "https://energynewsbeat.co",
-          "pub_kst": "2026-10-13T01:33+09:00",
-          "_source_blocked": true
-        }
-      ],
-      "queued_at": "2026-10-13T05:24:57+09:00",
-      "attempts": 1,
-      "invalid_items": [],
-      "held_items": []
-    },
-    "refinery:news:refinery_article_96adc46e8ecaabe57cb502b9": {
-      "topic": "refinery",
-      "kind": "news",
-      "event_key": "refinery_article_96adc46e8ecaabe57cb502b9",
-      "status": "source_blocked",
-      "items": [
-        {
-          "id": "96adc46e8ecaabe57cb502b9",
-          "title": "Axios: Trump's \"energy ceasefire\" would cover only attacks on oil refineries - Українська правда",
-          "link": "https://news.google.com/rss/articles/CBMiZEFVX3lxTFBqSUVZTzFaZnFHSlZjTF9OcERrWXZlemo5a2d6UWR6a1lTYmFjSEJKMjh1ZGMwNHRnY1BHMXVlck5RbG1ZNzRiM3FVcGRaUWFOZmt0cTBWOFFrcFl6U24yMW1kaVfSAXBBVV95cUxOWGZ0eXl5NGJuQmd4dFl5ajRSMGFVTmphOEdHOU9YSlNUdExjd0RPYUM2aGRubk5Vd1B2RVVZdTk2c2ZwTHZDcXhUZ1ZKSWNpWHBaWlQ1R3NKX1RLeExwWnJSV0ZuTThWSHZaNHdXdVRY?oc=5",
-          "source": "Українська правда",
-          "source_url": "https://www.pravda.com.ua",
-          "pub_kst": "2026-10-12T05:18+09:00",
-          "_source_blocked": true
-        }
-      ],
-      "queued_at": "2026-10-13T05:24:57+09:00",
-      "attempts": 1,
-      "invalid_items": [],
-      "held_items": []
-    },
     "spr:news:spr_article_9f58a057e3c97b602ebcc8ea": {
       "topic": "spr",
       "kind": "news",
@@ -68,121 +26,6 @@
         }
       ],
       "queued_at": "2026-10-13T18:21:04+09:00",
-      "attempts": 1,
-      "invalid_items": [],
-      "held_items": []
-    },
-    "refinery:news:refinery_article_bbce66074d2f6374585eb65d": {
-      "topic": "refinery",
-      "kind": "news",
-      "event_key": "refinery_article_bbce66074d2f6374585eb65d",
-      "status": "source_blocked",
-      "items": [
-        {
-          "id": "bbce66074d2f6374585eb65d",
-          "title": "Trump announces Russia-Ukraine energy ceasefire amid worries over diesel prices - TradingView",
-          "link": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxPeWhoOXJVbElxOXRGS3BMdk1yYUpHd0tRc2ZjZFFweDVhUkZiTFk0VEZ5U1RDNjdEWDJiWHZYZmgtN095Z1MyLTRJbi1ySFBkb3N1YmItcVlNbTd2MmtRTFk5MmxhU3Y1N0NndVA1bXh5RnJiSElTWmtuUFh0aURUYWpXa3dkN2JtYW1DZlhmX1ROWm81VTRvclg0NjdhNHlyOUJJVzdQcDZVdm4zR0lrMHZsZERvQlRsYTRWSXFFbDlsanlPRkpkX28xZlpKSG5EcHd3Z1dVVDBadw?oc=5",
-          "source": "TradingView",
-          "source_url": "https://www.tradingview.com",
-          "pub_kst": "2026-10-11T23:48+09:00",
-          "_source_blocked": true,
-          "_source_failure": {
-            "stage": "translation_google",
-            "reason": "http_rate_limit",
-            "blocked_before_request": false,
-            "provider": "www.google.com",
-            "request_url_sha256": "acb52d22205ed254e3d7775f61e8078e0989b822cb09c2ce1322a80c8daff1c3",
-            "http_status": 429
-          }
-        }
-      ],
-      "queued_at": "2026-10-14T14:19:49+09:00",
-      "attempts": 1,
-      "invalid_items": [],
-      "held_items": []
-    },
-    "refinery:news:refinery_article_efc8ce3efea6c854eb705cc1": {
-      "topic": "refinery",
-      "kind": "news",
-      "event_key": "refinery_article_efc8ce3efea6c854eb705cc1",
-      "status": "source_blocked",
-      "items": [
-        {
-          "id": "efc8ce3efea6c854eb705cc1",
-          "title": "‘From liabilities to goldmines’: refineries eye record profits from diesel shortage - The Guardian",
-          "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxObG5YWndtYmhpZG1OSWNWSmp1R1NXSjFTMWhYUk5DalR1UF9ONUpaWGlMUkRDdWdFSGR1ZDVoaU9CTW1GdzZmWi1lV3QwZjhLdnh1ZFBFZy1wZ3l4RENnQTdneDV1UkJSVVJKSmhXREVTejQwSURZVWdfTXliNlBsQWM1NTVNU296VU9OSzJwYTdXeW5qcUhjSVkyZXRIVGlqNUJ3YzRxSDY?oc=5",
-          "source": "The Guardian",
-          "source_url": "https://www.theguardian.com",
-          "pub_kst": "2026-10-14T21:26+09:00",
-          "_source_blocked": true,
-          "_source_failure": {
-            "stage": "translation_google",
-            "reason": "http_rate_limit",
-            "blocked_before_request": false,
-            "provider": "www.google.com",
-            "request_url_sha256": "80635bb01a2604319aa5bda143d5f7150c97c283dafd58262f978f00979357bf",
-            "http_status": 429
-          }
-        }
-      ],
-      "queued_at": "2026-10-15T14:07:18+09:00",
-      "attempts": 1,
-      "invalid_items": []
-    },
-    "refinery:news:refinery_article_0d8b6cfd7c2c7b9be40b2209": {
-      "topic": "refinery",
-      "kind": "news",
-      "event_key": "refinery_article_0d8b6cfd7c2c7b9be40b2209",
-      "status": "source_blocked",
-      "items": [
-        {
-          "id": "0d8b6cfd7c2c7b9be40b2209",
-          "title": "Trump’s Russian Diesel Fuel Plan Runs Into Drone Strikes and a US Import Ban - Military.com",
-          "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxQY3E1cW1sNlA0ZDVyX0pGSHpZNFJtNFhfN2Q4eF80cXFUZ2l3c2h4THpBcVR0QllHLWhIWW5FblFiN0NGTndFM0tDUHU1NjhjR3ByTWJRNGNjaVhraHJJS2djSHBLZVFoOWRmRi1MMzA1dFhDVVc4Nl9US0FVaDZHVnpjeEFOaWN0SkFONVVMUC15WXBDSXlmMnZhU0dxOGRXaE1R?oc=5",
-          "source": "Military.com",
-          "source_url": "https://www.military.com",
-          "pub_kst": "2026-10-17T05:47+09:00",
-          "_source_blocked": true,
-          "_source_failure": {
-            "stage": "translation_google",
-            "reason": "http_rate_limit",
-            "blocked_before_request": false,
-            "provider": "www.google.com",
-            "request_url_sha256": "82b4f9f9f39655ca32822613e86fc2250490df3d83530e8a55250737e8e14639",
-            "http_status": 429
-          }
-        }
-      ],
-      "queued_at": "2026-10-17T20:35:13+09:00",
-      "attempts": 1,
-      "invalid_items": [],
-      "held_items": []
-    },
-    "refinery:news:refinery_article_63092df45e13445b6f19f01f": {
-      "topic": "refinery",
-      "kind": "news",
-      "event_key": "refinery_article_63092df45e13445b6f19f01f",
-      "status": "source_blocked",
-      "items": [
-        {
-          "id": "63092df45e13445b6f19f01f",
-          "title": "US coaxing refiners to produce more diesel as prices surge, energy officials say - Reuters",
-          "link": "https://news.google.com/rss/articles/CBMiygFBVV95cUxQczBsMElXTmU3MHktOU91QkR4MWE3TkFnNjZ2OWNZakp6bFIzY1NGZk1nQWJ6T1h0VjExcUlBOUVHSW9KekVmVW54X25HNjBZM1oxOWUxN05pLXRZOENWOG53QnBqTEwwODlIWGVseU1PQjlHU1VzdERwclZGS0JxSi1PdFlmd2RjbE56c0E1RER2VzhYTExoY0gzaFdZUmdsb1REMHRCNTBERFYyT1NDNlZJWFg2enJvaV9rOEtoeDZqSXl6a2JRX3hR?oc=5",
-          "source": "Reuters",
-          "source_url": "https://www.reuters.com",
-          "pub_kst": "2026-10-21T07:38+09:00",
-          "_source_blocked": true,
-          "_source_failure": {
-            "stage": "article_fetch",
-            "reason": "http_denial",
-            "blocked_before_request": false,
-            "provider": "www.reuters.com",
-            "request_url_sha256": "55796101e5cb889729db541eb363fa6c114cdbbaeb191f0d36d79981043cd9b3",
-            "http_status": 401
-          }
-        }
-      ],
-      "queued_at": "2026-10-21T10:32:35+09:00",
       "attempts": 1,
       "invalid_items": [],
       "held_items": []
@@ -245,207 +88,6 @@
       "invalid_items": [],
       "held_items": []
     },
-    "refinery:news:refinery_article_fa8ba5be738006b59afe9f9e": {
-      "topic": "refinery",
-      "kind": "news",
-      "event_key": "refinery_article_fa8ba5be738006b59afe9f9e",
-      "status": "source_blocked",
-      "items": [
-        {
-          "id": "fa8ba5be738006b59afe9f9e",
-          "title": "Experts warn Trump's diesel export ban could cut supply and hit Texas refineries - Yahoo",
-          "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNcmE3dl9RY0wxY2piTG14Q0FoWEI4QmxtZUFORzZDYkE3WjRvU2lkVW1aZDNvWjlCWjM4cVc5RHFSLW5OdzdMNm9WcVczbDFoVTRabEw5U29EVEJFYlhtLVdiQ0xUWmV1WFhtNzh6aWxVZDRYWmJ5SzVhaTV6dmQzNGk1Q0xtT1lUZ0Nadzc1RzBQN0RoYVhyRQ?oc=5",
-          "source": "Yahoo",
-          "source_url": "https://www.yahoo.com",
-          "pub_kst": "2026-10-22T07:35+09:00",
-          "_source_blocked": true,
-          "_source_failure": {
-            "stage": "translation_google",
-            "reason": "http_rate_limit",
-            "blocked_before_request": false,
-            "provider": "www.google.com",
-            "request_url_sha256": "5b5bc56b3105f99b64687fad64b082bdfe5839b676c25cf4edfd8cf668802c1d",
-            "http_status": 429
-          }
-        }
-      ],
-      "queued_at": "2026-10-22T08:35:48+09:00",
-      "attempts": 1,
-      "invalid_items": []
-    },
-    "refinery:news:refinery_article_d7450ca541cc2c0d02e77e2b": {
-      "topic": "refinery",
-      "kind": "news",
-      "event_key": "refinery_article_d7450ca541cc2c0d02e77e2b",
-      "status": "source_blocked",
-      "items": [
-        {
-          "id": "d7450ca541cc2c0d02e77e2b",
-          "title": "Trump strikes a deal with Putin to bring down diesel prices. But Russia may not have enough fuel to make it work, analysts tell Reuters. - Meduza",
-          "link": "https://news.google.com/rss/articles/CBMi_wFBVV95cUxPNHlUS3RqNExHT0syOGtZNUdOdzlra1Y1bEQzLTZDQU05b2tNOUdYcG96OXQ3cnF5Qi0xcEFzOHVWOXlGWjVaNThYVmVFcVl4LVdkZVN2d1dZSUVubktkdnRveXpkNVdUWE1ZUTFEdnBQa056VFBfZXMtQWNkeE1uSWQwVVBkWGlzSGhkV0JZalZyVUFVYU03UTNRdkptQVVybG9qQ3Z0MFdsS3NFS0xxN2haMnlWS2dSMUY2VThpbjZmZjJHUVY2WW9oaTJaTXhzVTV4TTZndExRcTRLLXNHVUdXdzZJUkFBTWZlUWstOGdmaUtqRVRHb0hYT2JZR2PSAYQCQVVfeXFMT0VhWUVKSi1tTXZENDBCWFhBcFhkS1Blcy1nRHhLZmgyc0dvRHpnd0xOeUJYSnYtejl4aVBSTUJtOFJZS2FjMDZjbGFHdGhnQWtrLWJFekVlNnBGZ2s2VHRmMzIyMHpoN3hvVXVWWWREdGZnc0U2TFJER3ZVbk9oemdRWnhFU0w2d1gyTUY5UE9RMWZqckFUUnhnLVpoTTV5N1gzdlNvQk5VOUZwMWJmM29FZk5pWTlOUGZ5LWZmeXlra0dNVTN6cVMwVVc1bWtqY3h5cTR0Z3pZNGFqTWVWTThUQl9WTnZsejN0Wm5mMjRXSDhiQ1loejVqTGtsdU9LRl9sems?oc=5",
-          "source": "Meduza",
-          "source_url": "https://meduza.io",
-          "pub_kst": "2026-10-22T00:55+09:00",
-          "_source_blocked": true,
-          "_source_failure": {
-            "stage": "translation_google",
-            "reason": "http_rate_limit",
-            "blocked_before_request": false,
-            "provider": "www.google.com",
-            "request_url_sha256": "a24397e5c97af855e085ce291535d3833b13d23163306351be286f0fec4d06c4",
-            "http_status": 429
-          }
-        }
-      ],
-      "queued_at": "2026-10-22T08:35:48+09:00",
-      "attempts": 1,
-      "invalid_items": []
-    },
-    "refinery:news:refinery_article_c6256c0270b89f96cf21a58e": {
-      "topic": "refinery",
-      "kind": "news",
-      "event_key": "refinery_article_c6256c0270b89f96cf21a58e",
-      "status": "source_blocked",
-      "items": [
-        {
-          "id": "c6256c0270b89f96cf21a58e",
-          "title": "Donald Trump’s Diesel Desperation - The Dispatch",
-          "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxQTEpaYkF4aGtRQ3lnMkx6THFPTmhYc3d2UTlHRmhyYlg4Z1h4dHVWdUNxTndaMlVWajF6R0dURmZjVG1HUDNhdU4zSjF3SERnZjZQaTVPN2REMjdySzRxUkdKV0ptS2x5NWV0d1hTTzJRZ2RBSmw0YXdINUN2ekFOd250N0NnU2Z2N2VfSFVWUkdHZw?oc=5",
-          "source": "The Dispatch",
-          "source_url": "https://thedispatch.com",
-          "pub_kst": "2026-10-21T05:15+09:00",
-          "_source_blocked": true,
-          "_source_failure": {
-            "stage": "translation_google",
-            "reason": "http_rate_limit",
-            "blocked_before_request": false,
-            "provider": "www.google.com",
-            "request_url_sha256": "2a7431b017669db3dbfa99a2f1e5465fc8555bf08d941de08f2436e368a20870",
-            "http_status": 429
-          }
-        }
-      ],
-      "queued_at": "2026-10-22T08:35:48+09:00",
-      "attempts": 1,
-      "invalid_items": [],
-      "held_items": []
-    },
-    "refinery:news:refinery_article_6817544c3a5eeef8375bef67": {
-      "topic": "refinery",
-      "kind": "news",
-      "event_key": "refinery_article_6817544c3a5eeef8375bef67",
-      "status": "source_blocked",
-      "items": [
-        {
-          "id": "6817544c3a5eeef8375bef67",
-          "title": "Trump Administration's Last-Ditch Effort To Avoid A Global Diesel And Energy Crisis Failed - Seeking Alpha",
-          "link": "https://news.google.com/rss/articles/CBMixwFBVV95cUxQeHdEQjBRWFdxRzNWeUI5TFBJTG1YZFZUenlzaE82NEswY1VVSkJwSUV4bThNR0JRdkRxWm1ScWppbENmdjdtZHFhaEhFRnpqem9mcmE1MlA4SVlmc1lhRjJ6UUFFNG04MFJiLVRKQ3IxSWFKbkZLOHk3a0ZzdV9NZWdabm4zbDM1OTV0MHU0Ri1wYkkxUG4xei0xZlFodzJ4Qk9QekNONHV2czdNckdwTm5WQ0prcTQyTlJyTWV1OUlHNVRFZ29n?oc=5",
-          "source": "Seeking Alpha",
-          "source_url": "https://seekingalpha.com",
-          "pub_kst": "2026-10-20T22:05+09:00",
-          "_source_blocked": true,
-          "_source_failure": {
-            "stage": "article_fetch",
-            "reason": "http_denial",
-            "blocked_before_request": false,
-            "provider": "seekingalpha.com",
-            "request_url_sha256": "587c5ca59e1716a27a2cc0f1301030c416152f2454bcb49ded8f318e9e88df7c",
-            "http_status": 403
-          }
-        }
-      ],
-      "queued_at": "2026-10-22T08:35:48+09:00",
-      "attempts": 1,
-      "invalid_items": [],
-      "held_items": []
-    },
-    "refinery:news:refinery_article_a747d9b82c45207fa168ee36": {
-      "topic": "refinery",
-      "kind": "news",
-      "event_key": "refinery_article_a747d9b82c45207fa168ee36",
-      "status": "source_blocked",
-      "items": [
-        {
-          "id": "a747d9b82c45207fa168ee36",
-          "title": "Experts warn Trump's diesel export ban could cut supply and hit Texas refineries - The Cool Down",
-          "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxPa2NNV0NZVXhLTEtvYXBfTXNubGhFWkZjOUdDNU1mbG9LTkZxWFdSNVQwU2dDY1FieGpZTFRCOFBIZVRDRS1XR3k0WWRvTE9rQWpBNHdpZGR3U0J2eURqRTJFWTlwcFhvUmw2NjRlR3hXRnJ1Y3F2VW52SUNHRnpMMEZNQ3AtMjFRVFNRWWtn?oc=5",
-          "source": "The Cool Down",
-          "source_url": "https://www.thecooldown.com",
-          "pub_kst": "2026-10-22T07:35+09:00",
-          "_source_blocked": true,
-          "_source_failure": {
-            "stage": "translation_google",
-            "reason": "http_rate_limit",
-            "blocked_before_request": false,
-            "provider": "www.google.com",
-            "request_url_sha256": "652e7519e7e9e9744ca69d7bacc84b77fe20fdea495ca0b391c6573f203dfd5f",
-            "http_status": 429
-          }
-        }
-      ],
-      "queued_at": "2026-10-22T10:48:10+09:00",
-      "attempts": 1,
-      "invalid_items": [],
-      "held_items": []
-    },
-    "refinery:news:refinery_article_837ceaa06d279564c159da05": {
-      "topic": "refinery",
-      "kind": "news",
-      "event_key": "refinery_article_837ceaa06d279564c159da05",
-      "status": "source_blocked",
-      "items": [
-        {
-          "id": "837ceaa06d279564c159da05",
-          "title": "Trump is desperate to bring gas prices down. The solution might be in India. - NBC News",
-          "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxOdkNMWXZ2ZXFvWW1SNEFHQXVZWVdISkI4U1lFbnczYlVqZTBsQTh1NkZBQTNUaW9LYnRvUElRaFd1QlIzeUlfMEMtNnZ3bWZRRnNMZGhTeWQzX1V2UDBnUzU0MmVDR1N5ZUZCTGdUWjQzN1lpVjk2REJ0R05FZVJ3bnliM1FzR1BNdTRTaUM0aFJtQVNxeFA0SjFPdS1FaW5Z?oc=5",
-          "source": "NBC News",
-          "source_url": "https://www.nbcnews.com",
-          "pub_kst": "2026-10-22T22:51+09:00",
-          "_source_blocked": true,
-          "_source_failure": {
-            "stage": "translation_google",
-            "reason": "http_rate_limit",
-            "blocked_before_request": false,
-            "provider": "www.google.com",
-            "request_url_sha256": "f9142abf2cd8893f047f9c56ce999134db18b907d6b10eb5a5366abbaf0be0ad",
-            "http_status": 429
-          }
-        }
-      ],
-      "queued_at": "2026-10-23T02:18:53+09:00",
-      "attempts": 1,
-      "invalid_items": [],
-      "held_items": []
-    },
-    "refinery:news:refinery_article_e3ab44da7463f4fe547d99c3": {
-      "topic": "refinery",
-      "kind": "news",
-      "event_key": "refinery_article_e3ab44da7463f4fe547d99c3",
-      "status": "source_blocked",
-      "items": [
-        {
-          "id": "e3ab44da7463f4fe547d99c3",
-          "title": "Trump Administration Pushes Refiners to Boost Diesel Output as Prices Soar - Yahoo Finance",
-          "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNQ2VINDJzOXQzclFBOWpPaHltRDZabWVtaThaM193T3kybnFoUlprdlJmV1ozX1hjbkxkQnBCeHJxT1VwQWdqZWdBTFpYZzNfMXNCa0FQNThEaEladmJic0RFcXg5Y1BkcHY1OEZtX2luNWFDMWFLNDdxOEUyYVp2NmdHSlN6dFRDZ1h6dkR1ZTlxZ1JtbHhQenBHYjNfS21Q?oc=5",
-          "source": "Yahoo Finance",
-          "source_url": "https://finance.yahoo.com",
-          "pub_kst": "2026-10-21T16:00+09:00",
-          "_source_blocked": true,
-          "_source_failure": {
-            "stage": "translation_google",
-            "reason": "http_rate_limit",
-            "blocked_before_request": false,
-            "provider": "www.google.com",
-            "request_url_sha256": "1c903d7216f55f7a25dfa4cfabee185b71a79185053a5f4330562e9ce36a5e86",
-            "http_status": 429
-          }
-        }
-      ],
-      "queued_at": "2026-10-23T02:18:53+09:00",
-      "attempts": 1,
-      "invalid_items": [],
-      "held_items": []
-    },
     "spr:news:spr_article_af90073003753247b90e0876": {
       "topic": "spr",
       "kind": "news",
@@ -502,35 +144,6 @@
       "attempts": 1,
       "invalid_items": []
     },
-    "refinery:news:refinery_article_b7b42d0ca367bd9773e14d69": {
-      "topic": "refinery",
-      "kind": "news",
-      "event_key": "refinery_article_b7b42d0ca367bd9773e14d69",
-      "status": "source_blocked",
-      "items": [
-        {
-          "id": "b7b42d0ca367bd9773e14d69",
-          "title": "US refiners have run harder in 2026 as tight diesel supplies boost margins, EIA says - Reuters",
-          "link": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxPTXRDSVZqUlhiVXJHdV80OVNPVERRZDlMRWJXOTl4eEw3MWZ3ZVBFX2E3TGdhd2xWSWxkTkpVZkhRa3NlT0Jaa3JyTHNTMU9BaWxkeFV4SVVkZU1FV3Fockk4RWNKRW9fb3NZMHkzWVh5QndCRzVSUW54a09DM09vWEpMQVdTR2NQV0hmenlaZmxpdWJyN1Vuak15azFfU1gxb3RCQlFRb1BrTVZZTEFjMjlaZUJINkNmWW4yNm5YcWc3UTdnU0d6Nw?oc=5",
-          "source": "Reuters",
-          "source_url": "https://www.reuters.com",
-          "pub_kst": "2026-10-23T00:59+09:00",
-          "_source_blocked": true,
-          "_source_failure": {
-            "stage": "article_fetch",
-            "reason": "http_denial",
-            "blocked_before_request": false,
-            "provider": "www.reuters.com",
-            "request_url_sha256": "1e9c26992c88ae33b8629c8de6a223b9bac8a28ad16648e5b75d3a844990891c",
-            "http_status": 401
-          }
-        }
-      ],
-      "queued_at": "2026-10-23T05:35:15+09:00",
-      "attempts": 1,
-      "invalid_items": [],
-      "held_items": []
-    },
     "spr:news:spr_article_fdf5f03c30a9ef6318006563": {
       "topic": "spr",
       "kind": "news",
@@ -560,34 +173,6 @@
       "invalid_items": [],
       "held_items": []
     },
-    "refinery:news:refinery_article_55db5196343f10f44da0efc4": {
-      "topic": "refinery",
-      "kind": "news",
-      "event_key": "refinery_article_55db5196343f10f44da0efc4",
-      "status": "source_blocked",
-      "items": [
-        {
-          "id": "55db5196343f10f44da0efc4",
-          "title": "Trump invokes Cold War-era act to bolster U.S. gasoline production - UPI.com",
-          "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNQXJsQ2lRTV9MSGNuMWR2Mkg0amRENWpva1FaTENYVVRabjRmaktNb0Q5RnNXeXVmV3FEZDY3SHdFZlJVY09SNWk3R0ZMYy0wbTB4REc0S0xZbWJCMS1Da3BnUm4wLVRMRURLRmNHRVZZVEtERzRYeTYxOHQxUjhMVXQ3VEFZNVMwa2dLcXdncEJiVmpZZVFjeA?oc=5",
-          "source": "UPI.com",
-          "source_url": "https://www.upi.com",
-          "pub_kst": "2026-10-23T14:50+09:00",
-          "_source_blocked": true,
-          "_source_failure": {
-            "stage": "translation_google",
-            "reason": "http_rate_limit",
-            "blocked_before_request": false,
-            "provider": "www.google.com",
-            "request_url_sha256": "025a2e8f7acce06a76edc45c1f5097f7bd9b1e9c13ffbcc11d905e55964a3ceb",
-            "http_status": 429
-          }
-        }
-      ],
-      "queued_at": "2026-10-23T21:02:04+09:00",
-      "attempts": 1,
-      "invalid_items": []
-    },
     "spr:news:spr_article_c3ac4c053b38e49e1ccec446": {
       "topic": "spr",
       "kind": "news",
@@ -613,122 +198,6 @@
         }
       ],
       "queued_at": "2026-10-23T21:02:15+09:00",
-      "attempts": 1,
-      "invalid_items": [],
-      "held_items": []
-    },
-    "refinery:news:refinery_article_9daea8fdf4f8540c86463c61": {
-      "topic": "refinery",
-      "kind": "news",
-      "event_key": "refinery_article_9daea8fdf4f8540c86463c61",
-      "status": "source_blocked",
-      "items": [
-        {
-          "id": "9daea8fdf4f8540c86463c61",
-          "title": "Trump to use the Defense Production Act to boost U.S. gas and diesel production. Could it help? - CBS News",
-          "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxNTndpdURnSUR0d0V0cDNpajY0aWJBLVFoNU5sVkdzNHRnVlZiT0lsbm81RzhMU2dvb1V6NkxGcEtFN1ZoTTZUQVZSdnA4U2ZwNDM1eVREck1rNkxkeGpMZ09ITzhOYmoxMmFxZXQ5LW1FUHJqUFplalNNSXJ1WW0xcHJR?oc=5",
-          "source": "CBS News",
-          "source_url": "https://www.cbsnews.com",
-          "pub_kst": "2026-10-24T00:24+09:00",
-          "_source_blocked": true,
-          "_source_failure": {
-            "stage": "translation_google",
-            "reason": "http_rate_limit",
-            "blocked_before_request": false,
-            "provider": "www.google.com",
-            "request_url_sha256": "bfbc61928bc6593988b6647b2fae13777abd3a6a243bc4e4868a63d68b18856b",
-            "http_status": 429
-          }
-        }
-      ],
-      "queued_at": "2026-10-24T01:46:12+09:00",
-      "attempts": 1,
-      "invalid_items": [],
-      "held_items": []
-    },
-    "refinery:news:refinery_article_074fd0d310216c472455d385": {
-      "topic": "refinery",
-      "kind": "news",
-      "event_key": "refinery_article_074fd0d310216c472455d385",
-      "status": "source_blocked",
-      "items": [
-        {
-          "id": "074fd0d310216c472455d385",
-          "title": "Trump invokes Cold War-era act to bolster U.S. gasoline production - upi",
-          "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNQXJsQ2lRTV9MSGNuMWR2Mkg0amRENWpva1FaTENYVVRabjRmaktNb0Q5RnNXeXVmV3FEZDY3SHdFZlJVY09SNWk3R0ZMYy0wbTB4REc0S0xZbWJCMS1Da3BnUm4wLVRMRURLRmNHRVZZVEtERzRYeTYxOHQxUjhMVXQ3VEFZNVMwa2dLcXdncEJiVmpZZVFjeNIBngFBVV95cUxOandvZXRQYUw1aUd3cTB0WXd6aUZ0WEt1ZEF0enFFemJNdlRwNzA5bHZ0cFkyUlBjaVlOdUhoV0dfWTJ4WWp1d0FvaUZMaTlWWm91c2RGOU0ySGFrQXZUb2VPbllVdE1mQWlZS3l1Qi1ZbmZUM0lOSGJZU1BuZHFLa0Z2SEgyRjZZcWxCQWFpZVVLODZUanNxVTc2NHNBdw?oc=5",
-          "source": "upi",
-          "source_url": "https://www.upi.com",
-          "pub_kst": "2026-10-23T14:50+09:00",
-          "_source_blocked": true,
-          "_source_failure": {
-            "stage": "translation_google",
-            "reason": "http_rate_limit",
-            "blocked_before_request": false,
-            "provider": "www.google.com",
-            "request_url_sha256": "e01118f712c779ab6a16e3d392019d15ef5b85766fca4bd0b05a57d5075122a7",
-            "http_status": 429
-          }
-        }
-      ],
-      "queued_at": "2026-10-24T01:46:12+09:00",
-      "attempts": 1,
-      "invalid_items": [],
-      "held_items": []
-    },
-    "refinery:news:refinery_article_f5af5c87754b40e618015255": {
-      "topic": "refinery",
-      "kind": "news",
-      "event_key": "refinery_article_f5af5c87754b40e618015255",
-      "status": "source_blocked",
-      "items": [
-        {
-          "id": "f5af5c87754b40e618015255",
-          "title": "Trump invokes Cold War-era Defense Production Act for oil production, refining - Reuters",
-          "link": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxOdm9ka0hnal9OOUFnN19HQmRZd0ljY2tJOVNoN2tIWURrMHExZ0p0NWN0UEpTMmFORG1TTU1CeXZkb3RhenhtelltYVY2SmRyZEctMnRIcUNEQlFXODdsZGxBMXhpem81NjJwRjRCbVl1N2tyWVkxeXU0T2k3ZEttNk5lbzZCVzRrUEtwT3JPTlJiUUVmSjU4b25EaXNIQ3dyS3c3NlJUSkFBdWZSMDFZVmZ1dmhncGFIYjNQU0tOd1I5dFk?oc=5",
-          "source": "Reuters",
-          "source_url": "https://www.reuters.com",
-          "pub_kst": "2026-10-23T06:14+09:00",
-          "_source_blocked": true,
-          "_source_failure": {
-            "stage": "article_fetch",
-            "reason": "http_denial",
-            "blocked_before_request": false,
-            "provider": "www.reuters.com",
-            "request_url_sha256": "6d3c6d4f7fa25ae690950d2783c28a0c819377a1a7fbb4149a1aac8c0771f069",
-            "http_status": 401
-          }
-        }
-      ],
-      "queued_at": "2026-10-24T01:46:12+09:00",
-      "attempts": 1,
-      "invalid_items": [],
-      "held_items": []
-    },
-    "refinery:news:refinery_article_60bc4c67eb16dba4f551ac25": {
-      "topic": "refinery",
-      "kind": "news",
-      "event_key": "refinery_article_60bc4c67eb16dba4f551ac25",
-      "status": "source_blocked",
-      "items": [
-        {
-          "id": "60bc4c67eb16dba4f551ac25",
-          "title": "Trump Puts Federal Cash Behind Getting More American Refineries Running As Diesel Tops $6 - The Daily Caller",
-          "link": "https://news.google.com/rss/articles/CBMiugFBVV95cUxQWGNZUnoxWGtHOGFKamFLSDFXc2xVVExwZ2dkM1lfcDhqUWkxN3hQNDJESFhXUnlqX3pialN2ZTN4Q3RNTW5lTGo4bTRLV3BkR09yeG43NlpyUEhRQzJhMk5OZG4zOVNteFpULTZ5cTNzYVlvQk9NTDZLZVZJUVJiOXphRWhwZGlfUldiLXpqbjhDUmxkaTVTRzJSRG1GUWVPNnMyVFNUdjRBS08xS0J5VFczRUNVZzk5OGc?oc=5",
-          "source": "The Daily Caller",
-          "source_url": "https://dailycaller.com",
-          "pub_kst": "2026-10-24T06:12+09:00",
-          "_source_blocked": true,
-          "_source_failure": {
-            "stage": "translation_google",
-            "reason": "http_rate_limit",
-            "blocked_before_request": false,
-            "provider": "www.google.com",
-            "request_url_sha256": "9ff06b08a67e84580cdbe6f2eba064037fa22834be3f12e4aac0bc41f86f1702",
-            "http_status": 429
-          }
-        }
-      ],
-      "queued_at": "2026-10-24T10:31:28+09:00",
       "attempts": 1,
       "invalid_items": [],
       "held_items": []
@@ -760,35 +229,6 @@
       "queued_at": "2026-10-26T06:21:13+09:00",
       "attempts": 2,
       "invalid_items": []
-    },
-    "refinery:news:refinery_article_562db32966315bbeba10e489": {
-      "topic": "refinery",
-      "kind": "news",
-      "event_key": "refinery_article_562db32966315bbeba10e489",
-      "status": "source_blocked",
-      "items": [
-        {
-          "id": "562db32966315bbeba10e489",
-          "title": "Record Diesel Prices Could be Trump’s Achilles’ Heel: Bousso - EnergyNow.com",
-          "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxPcmszWUlLY2NkMHV4Zko2QlhubUpBSTFMdHBvaWptU1JOUXU2cmU5ZUkxMEtfQ0xrZEVnb1B2U0QyZFUycGxQNmZWM2xxaGpNYzhhMXBYRmdrS20xOXFJMktoRmFBeko3VjZvcDZoMURHY01kNDdSZ3dpZExMVXh1b2FWamwtUUpwLTlVMTgzVmRzZw?oc=5",
-          "source": "EnergyNow.com",
-          "source_url": "https://energynow.com",
-          "pub_kst": "2026-10-27T00:56+09:00",
-          "_source_blocked": true,
-          "_source_failure": {
-            "stage": "article_fetch",
-            "reason": "http_denial",
-            "blocked_before_request": false,
-            "provider": "energynow.com",
-            "request_url_sha256": "b400ff7bc2febe414f88f32b615843fe7d19a76bfea1b13453fb7954bb66b2dc",
-            "http_status": 403
-          }
-        }
-      ],
-      "queued_at": "2026-10-27T04:22:05+09:00",
-      "attempts": 1,
-      "invalid_items": [],
-      "held_items": []
     },
     "spr:news:spr_article_293507419f7fd4fcc3586481": {
       "topic": "spr",
@@ -3462,6 +2902,206 @@
       "ids": [
         "a2312443f8b748a695de942e"
       ]
+    },
+    {
+      "key": "refinery:news:refinery_article_3732d92a79dc14aedccf4fe8",
+      "reason": "expired_unverified_no_telegram_delivery",
+      "at": "2026-11-02T03:41:27+09:00",
+      "ids": [
+        "3732d92a79dc14aedccf4fe8"
+      ],
+      "delivered": false,
+      "archived": true
+    },
+    {
+      "key": "refinery:news:refinery_article_96adc46e8ecaabe57cb502b9",
+      "reason": "expired_unverified_no_telegram_delivery",
+      "at": "2026-11-02T03:41:27+09:00",
+      "ids": [
+        "96adc46e8ecaabe57cb502b9"
+      ],
+      "delivered": false,
+      "archived": true
+    },
+    {
+      "key": "refinery:news:refinery_article_bbce66074d2f6374585eb65d",
+      "reason": "expired_unverified_no_telegram_delivery",
+      "at": "2026-11-02T03:41:27+09:00",
+      "ids": [
+        "bbce66074d2f6374585eb65d"
+      ],
+      "delivered": false,
+      "archived": true
+    },
+    {
+      "key": "refinery:news:refinery_article_efc8ce3efea6c854eb705cc1",
+      "reason": "expired_unverified_no_telegram_delivery",
+      "at": "2026-11-02T03:41:27+09:00",
+      "ids": [
+        "efc8ce3efea6c854eb705cc1"
+      ],
+      "delivered": false,
+      "archived": true
+    },
+    {
+      "key": "refinery:news:refinery_article_0d8b6cfd7c2c7b9be40b2209",
+      "reason": "expired_unverified_no_telegram_delivery",
+      "at": "2026-11-02T03:41:27+09:00",
+      "ids": [
+        "0d8b6cfd7c2c7b9be40b2209"
+      ],
+      "delivered": false,
+      "archived": true
+    },
+    {
+      "key": "refinery:news:refinery_article_63092df45e13445b6f19f01f",
+      "reason": "expired_unverified_no_telegram_delivery",
+      "at": "2026-11-02T03:41:27+09:00",
+      "ids": [
+        "63092df45e13445b6f19f01f"
+      ],
+      "delivered": false,
+      "archived": true
+    },
+    {
+      "key": "refinery:news:refinery_article_fa8ba5be738006b59afe9f9e",
+      "reason": "expired_unverified_no_telegram_delivery",
+      "at": "2026-11-02T03:41:27+09:00",
+      "ids": [
+        "fa8ba5be738006b59afe9f9e"
+      ],
+      "delivered": false,
+      "archived": true
+    },
+    {
+      "key": "refinery:news:refinery_article_d7450ca541cc2c0d02e77e2b",
+      "reason": "expired_unverified_no_telegram_delivery",
+      "at": "2026-11-02T03:41:27+09:00",
+      "ids": [
+        "d7450ca541cc2c0d02e77e2b"
+      ],
+      "delivered": false,
+      "archived": true
+    },
+    {
+      "key": "refinery:news:refinery_article_c6256c0270b89f96cf21a58e",
+      "reason": "expired_unverified_no_telegram_delivery",
+      "at": "2026-11-02T03:41:27+09:00",
+      "ids": [
+        "c6256c0270b89f96cf21a58e"
+      ],
+      "delivered": false,
+      "archived": true
+    },
+    {
+      "key": "refinery:news:refinery_article_6817544c3a5eeef8375bef67",
+      "reason": "expired_unverified_no_telegram_delivery",
+      "at": "2026-11-02T03:41:27+09:00",
+      "ids": [
+        "6817544c3a5eeef8375bef67"
+      ],
+      "delivered": false,
+      "archived": true
+    },
+    {
+      "key": "refinery:news:refinery_article_a747d9b82c45207fa168ee36",
+      "reason": "expired_unverified_no_telegram_delivery",
+      "at": "2026-11-02T03:41:27+09:00",
+      "ids": [
+        "a747d9b82c45207fa168ee36"
+      ],
+      "delivered": false,
+      "archived": true
+    },
+    {
+      "key": "refinery:news:refinery_article_837ceaa06d279564c159da05",
+      "reason": "expired_unverified_no_telegram_delivery",
+      "at": "2026-11-02T03:41:27+09:00",
+      "ids": [
+        "837ceaa06d279564c159da05"
+      ],
+      "delivered": false,
+      "archived": true
+    },
+    {
+      "key": "refinery:news:refinery_article_e3ab44da7463f4fe547d99c3",
+      "reason": "expired_unverified_no_telegram_delivery",
+      "at": "2026-11-02T03:41:27+09:00",
+      "ids": [
+        "e3ab44da7463f4fe547d99c3"
+      ],
+      "delivered": false,
+      "archived": true
+    },
+    {
+      "key": "refinery:news:refinery_article_b7b42d0ca367bd9773e14d69",
+      "reason": "expired_unverified_no_telegram_delivery",
+      "at": "2026-11-02T03:41:27+09:00",
+      "ids": [
+        "b7b42d0ca367bd9773e14d69"
+      ],
+      "delivered": false,
+      "archived": true
+    },
+    {
+      "key": "refinery:news:refinery_article_55db5196343f10f44da0efc4",
+      "reason": "expired_unverified_no_telegram_delivery",
+      "at": "2026-11-02T03:41:27+09:00",
+      "ids": [
+        "55db5196343f10f44da0efc4"
+      ],
+      "delivered": false,
+      "archived": true
+    },
+    {
+      "key": "refinery:news:refinery_article_9daea8fdf4f8540c86463c61",
+      "reason": "expired_unverified_no_telegram_delivery",
+      "at": "2026-11-02T03:41:27+09:00",
+      "ids": [
+        "9daea8fdf4f8540c86463c61"
+      ],
+      "delivered": false,
+      "archived": true
+    },
+    {
+      "key": "refinery:news:refinery_article_074fd0d310216c472455d385",
+      "reason": "expired_unverified_no_telegram_delivery",
+      "at": "2026-11-02T03:41:27+09:00",
+      "ids": [
+        "074fd0d310216c472455d385"
+      ],
+      "delivered": false,
+      "archived": true
+    },
+    {
+      "key": "refinery:news:refinery_article_f5af5c87754b40e618015255",
+      "reason": "expired_unverified_no_telegram_delivery",
+      "at": "2026-11-02T03:41:27+09:00",
+      "ids": [
+        "f5af5c87754b40e618015255"
+      ],
+      "delivered": false,
+      "archived": true
+    },
+    {
+      "key": "refinery:news:refinery_article_60bc4c67eb16dba4f551ac25",
+      "reason": "expired_unverified_no_telegram_delivery",
+      "at": "2026-11-02T03:41:27+09:00",
+      "ids": [
+        "60bc4c67eb16dba4f551ac25"
+      ],
+      "delivered": false,
+      "archived": true
+    },
+    {
+      "key": "refinery:news:refinery_article_562db32966315bbeba10e489",
+      "reason": "expired_unverified_no_telegram_delivery",
+      "at": "2026-11-02T03:41:27+09:00",
+      "ids": [
+        "562db32966315bbeba10e489"
+      ],
+      "delivered": false,
+      "archived": true
     }
   ],
   "observed_data": {
@@ -3485,5 +3125,647 @@
     "refinery_sent": 0,
     "spr_sent": 0,
     "at": "2026-11-02T01:19:00+09:00"
+  },
+  "archived_unverified": {
+    "refinery:news:refinery_article_3732d92a79dc14aedccf4fe8": {
+      "archived_at": "2026-11-02T03:41:27+09:00",
+      "reason": "expired_unverified_no_telegram_delivery",
+      "entry": {
+        "topic": "refinery",
+        "kind": "news",
+        "event_key": "refinery_article_3732d92a79dc14aedccf4fe8",
+        "status": "source_blocked",
+        "items": [
+          {
+            "id": "3732d92a79dc14aedccf4fe8",
+            "title": "Trump’s Energy Truce Hinges on Russian Refineries, and Seven Senators Say the Diesel Deal Defies a 2022 Law - Energy News Beat",
+            "link": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxOV3FWSWpqa29yZTNmVmhMYkk3eTN5N3RDZXdBYmVOckppN25LWHpJcTZmYTExTG5NTmNzMXpqMkt2S1Myb3gtRTVEVFBCVnpQbnNUZXhITlh4UEJXeHY4WlZONGxRYU94XzdjazhnbkR0MkQxWi0wcDFHOUxYX2dlVlR2RkJ5X2xSOTBQQzNDaFJid0tBVVZBSmc1R0xwZ1ZrQWVraWhTSFVYUnlRTEYzY0JVcWNOWFR4dllOcDNnTnU5dkNSZTc1bXFBTjdnVm9pLVBXZnh3?oc=5",
+            "source": "Energy News Beat",
+            "source_url": "https://energynewsbeat.co",
+            "pub_kst": "2026-10-13T01:33+09:00",
+            "_source_blocked": true
+          }
+        ],
+        "queued_at": "2026-10-13T05:24:57+09:00",
+        "attempts": 1,
+        "invalid_items": [],
+        "held_items": []
+      }
+    },
+    "refinery:news:refinery_article_96adc46e8ecaabe57cb502b9": {
+      "archived_at": "2026-11-02T03:41:27+09:00",
+      "reason": "expired_unverified_no_telegram_delivery",
+      "entry": {
+        "topic": "refinery",
+        "kind": "news",
+        "event_key": "refinery_article_96adc46e8ecaabe57cb502b9",
+        "status": "source_blocked",
+        "items": [
+          {
+            "id": "96adc46e8ecaabe57cb502b9",
+            "title": "Axios: Trump's \"energy ceasefire\" would cover only attacks on oil refineries - Українська правда",
+            "link": "https://news.google.com/rss/articles/CBMiZEFVX3lxTFBqSUVZTzFaZnFHSlZjTF9OcERrWXZlemo5a2d6UWR6a1lTYmFjSEJKMjh1ZGMwNHRnY1BHMXVlck5RbG1ZNzRiM3FVcGRaUWFOZmt0cTBWOFFrcFl6U24yMW1kaVfSAXBBVV95cUxOWGZ0eXl5NGJuQmd4dFl5ajRSMGFVTmphOEdHOU9YSlNUdExjd0RPYUM2aGRubk5Vd1B2RVVZdTk2c2ZwTHZDcXhUZ1ZKSWNpWHBaWlQ1R3NKX1RLeExwWnJSV0ZuTThWSHZaNHdXdVRY?oc=5",
+            "source": "Українська правда",
+            "source_url": "https://www.pravda.com.ua",
+            "pub_kst": "2026-10-12T05:18+09:00",
+            "_source_blocked": true
+          }
+        ],
+        "queued_at": "2026-10-13T05:24:57+09:00",
+        "attempts": 1,
+        "invalid_items": [],
+        "held_items": []
+      }
+    },
+    "refinery:news:refinery_article_bbce66074d2f6374585eb65d": {
+      "archived_at": "2026-11-02T03:41:27+09:00",
+      "reason": "expired_unverified_no_telegram_delivery",
+      "entry": {
+        "topic": "refinery",
+        "kind": "news",
+        "event_key": "refinery_article_bbce66074d2f6374585eb65d",
+        "status": "source_blocked",
+        "items": [
+          {
+            "id": "bbce66074d2f6374585eb65d",
+            "title": "Trump announces Russia-Ukraine energy ceasefire amid worries over diesel prices - TradingView",
+            "link": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxPeWhoOXJVbElxOXRGS3BMdk1yYUpHd0tRc2ZjZFFweDVhUkZiTFk0VEZ5U1RDNjdEWDJiWHZYZmgtN095Z1MyLTRJbi1ySFBkb3N1YmItcVlNbTd2MmtRTFk5MmxhU3Y1N0NndVA1bXh5RnJiSElTWmtuUFh0aURUYWpXa3dkN2JtYW1DZlhmX1ROWm81VTRvclg0NjdhNHlyOUJJVzdQcDZVdm4zR0lrMHZsZERvQlRsYTRWSXFFbDlsanlPRkpkX28xZlpKSG5EcHd3Z1dVVDBadw?oc=5",
+            "source": "TradingView",
+            "source_url": "https://www.tradingview.com",
+            "pub_kst": "2026-10-11T23:48+09:00",
+            "_source_blocked": true,
+            "_source_failure": {
+              "stage": "translation_google",
+              "reason": "http_rate_limit",
+              "blocked_before_request": false,
+              "provider": "www.google.com",
+              "request_url_sha256": "acb52d22205ed254e3d7775f61e8078e0989b822cb09c2ce1322a80c8daff1c3",
+              "http_status": 429
+            }
+          }
+        ],
+        "queued_at": "2026-10-14T14:19:49+09:00",
+        "attempts": 1,
+        "invalid_items": [],
+        "held_items": []
+      }
+    },
+    "refinery:news:refinery_article_efc8ce3efea6c854eb705cc1": {
+      "archived_at": "2026-11-02T03:41:27+09:00",
+      "reason": "expired_unverified_no_telegram_delivery",
+      "entry": {
+        "topic": "refinery",
+        "kind": "news",
+        "event_key": "refinery_article_efc8ce3efea6c854eb705cc1",
+        "status": "source_blocked",
+        "items": [
+          {
+            "id": "efc8ce3efea6c854eb705cc1",
+            "title": "‘From liabilities to goldmines’: refineries eye record profits from diesel shortage - The Guardian",
+            "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxObG5YWndtYmhpZG1OSWNWSmp1R1NXSjFTMWhYUk5DalR1UF9ONUpaWGlMUkRDdWdFSGR1ZDVoaU9CTW1GdzZmWi1lV3QwZjhLdnh1ZFBFZy1wZ3l4RENnQTdneDV1UkJSVVJKSmhXREVTejQwSURZVWdfTXliNlBsQWM1NTVNU296VU9OSzJwYTdXeW5qcUhjSVkyZXRIVGlqNUJ3YzRxSDY?oc=5",
+            "source": "The Guardian",
+            "source_url": "https://www.theguardian.com",
+            "pub_kst": "2026-10-14T21:26+09:00",
+            "_source_blocked": true,
+            "_source_failure": {
+              "stage": "translation_google",
+              "reason": "http_rate_limit",
+              "blocked_before_request": false,
+              "provider": "www.google.com",
+              "request_url_sha256": "80635bb01a2604319aa5bda143d5f7150c97c283dafd58262f978f00979357bf",
+              "http_status": 429
+            }
+          }
+        ],
+        "queued_at": "2026-10-15T14:07:18+09:00",
+        "attempts": 1,
+        "invalid_items": []
+      }
+    },
+    "refinery:news:refinery_article_0d8b6cfd7c2c7b9be40b2209": {
+      "archived_at": "2026-11-02T03:41:27+09:00",
+      "reason": "expired_unverified_no_telegram_delivery",
+      "entry": {
+        "topic": "refinery",
+        "kind": "news",
+        "event_key": "refinery_article_0d8b6cfd7c2c7b9be40b2209",
+        "status": "source_blocked",
+        "items": [
+          {
+            "id": "0d8b6cfd7c2c7b9be40b2209",
+            "title": "Trump’s Russian Diesel Fuel Plan Runs Into Drone Strikes and a US Import Ban - Military.com",
+            "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxQY3E1cW1sNlA0ZDVyX0pGSHpZNFJtNFhfN2Q4eF80cXFUZ2l3c2h4THpBcVR0QllHLWhIWW5FblFiN0NGTndFM0tDUHU1NjhjR3ByTWJRNGNjaVhraHJJS2djSHBLZVFoOWRmRi1MMzA1dFhDVVc4Nl9US0FVaDZHVnpjeEFOaWN0SkFONVVMUC15WXBDSXlmMnZhU0dxOGRXaE1R?oc=5",
+            "source": "Military.com",
+            "source_url": "https://www.military.com",
+            "pub_kst": "2026-10-17T05:47+09:00",
+            "_source_blocked": true,
+            "_source_failure": {
+              "stage": "translation_google",
+              "reason": "http_rate_limit",
+              "blocked_before_request": false,
+              "provider": "www.google.com",
+              "request_url_sha256": "82b4f9f9f39655ca32822613e86fc2250490df3d83530e8a55250737e8e14639",
+              "http_status": 429
+            }
+          }
+        ],
+        "queued_at": "2026-10-17T20:35:13+09:00",
+        "attempts": 1,
+        "invalid_items": [],
+        "held_items": []
+      }
+    },
+    "refinery:news:refinery_article_63092df45e13445b6f19f01f": {
+      "archived_at": "2026-11-02T03:41:27+09:00",
+      "reason": "expired_unverified_no_telegram_delivery",
+      "entry": {
+        "topic": "refinery",
+        "kind": "news",
+        "event_key": "refinery_article_63092df45e13445b6f19f01f",
+        "status": "source_blocked",
+        "items": [
+          {
+            "id": "63092df45e13445b6f19f01f",
+            "title": "US coaxing refiners to produce more diesel as prices surge, energy officials say - Reuters",
+            "link": "https://news.google.com/rss/articles/CBMiygFBVV95cUxQczBsMElXTmU3MHktOU91QkR4MWE3TkFnNjZ2OWNZakp6bFIzY1NGZk1nQWJ6T1h0VjExcUlBOUVHSW9KekVmVW54X25HNjBZM1oxOWUxN05pLXRZOENWOG53QnBqTEwwODlIWGVseU1PQjlHU1VzdERwclZGS0JxSi1PdFlmd2RjbE56c0E1RER2VzhYTExoY0gzaFdZUmdsb1REMHRCNTBERFYyT1NDNlZJWFg2enJvaV9rOEtoeDZqSXl6a2JRX3hR?oc=5",
+            "source": "Reuters",
+            "source_url": "https://www.reuters.com",
+            "pub_kst": "2026-10-21T07:38+09:00",
+            "_source_blocked": true,
+            "_source_failure": {
+              "stage": "article_fetch",
+              "reason": "http_denial",
+              "blocked_before_request": false,
+              "provider": "www.reuters.com",
+              "request_url_sha256": "55796101e5cb889729db541eb363fa6c114cdbbaeb191f0d36d79981043cd9b3",
+              "http_status": 401
+            }
+          }
+        ],
+        "queued_at": "2026-10-21T10:32:35+09:00",
+        "attempts": 1,
+        "invalid_items": [],
+        "held_items": []
+      }
+    },
+    "refinery:news:refinery_article_fa8ba5be738006b59afe9f9e": {
+      "archived_at": "2026-11-02T03:41:27+09:00",
+      "reason": "expired_unverified_no_telegram_delivery",
+      "entry": {
+        "topic": "refinery",
+        "kind": "news",
+        "event_key": "refinery_article_fa8ba5be738006b59afe9f9e",
+        "status": "source_blocked",
+        "items": [
+          {
+            "id": "fa8ba5be738006b59afe9f9e",
+            "title": "Experts warn Trump's diesel export ban could cut supply and hit Texas refineries - Yahoo",
+            "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNcmE3dl9RY0wxY2piTG14Q0FoWEI4QmxtZUFORzZDYkE3WjRvU2lkVW1aZDNvWjlCWjM4cVc5RHFSLW5OdzdMNm9WcVczbDFoVTRabEw5U29EVEJFYlhtLVdiQ0xUWmV1WFhtNzh6aWxVZDRYWmJ5SzVhaTV6dmQzNGk1Q0xtT1lUZ0Nadzc1RzBQN0RoYVhyRQ?oc=5",
+            "source": "Yahoo",
+            "source_url": "https://www.yahoo.com",
+            "pub_kst": "2026-10-22T07:35+09:00",
+            "_source_blocked": true,
+            "_source_failure": {
+              "stage": "translation_google",
+              "reason": "http_rate_limit",
+              "blocked_before_request": false,
+              "provider": "www.google.com",
+              "request_url_sha256": "5b5bc56b3105f99b64687fad64b082bdfe5839b676c25cf4edfd8cf668802c1d",
+              "http_status": 429
+            }
+          }
+        ],
+        "queued_at": "2026-10-22T08:35:48+09:00",
+        "attempts": 1,
+        "invalid_items": []
+      }
+    },
+    "refinery:news:refinery_article_d7450ca541cc2c0d02e77e2b": {
+      "archived_at": "2026-11-02T03:41:27+09:00",
+      "reason": "expired_unverified_no_telegram_delivery",
+      "entry": {
+        "topic": "refinery",
+        "kind": "news",
+        "event_key": "refinery_article_d7450ca541cc2c0d02e77e2b",
+        "status": "source_blocked",
+        "items": [
+          {
+            "id": "d7450ca541cc2c0d02e77e2b",
+            "title": "Trump strikes a deal with Putin to bring down diesel prices. But Russia may not have enough fuel to make it work, analysts tell Reuters. - Meduza",
+            "link": "https://news.google.com/rss/articles/CBMi_wFBVV95cUxPNHlUS3RqNExHT0syOGtZNUdOdzlra1Y1bEQzLTZDQU05b2tNOUdYcG96OXQ3cnF5Qi0xcEFzOHVWOXlGWjVaNThYVmVFcVl4LVdkZVN2d1dZSUVubktkdnRveXpkNVdUWE1ZUTFEdnBQa056VFBfZXMtQWNkeE1uSWQwVVBkWGlzSGhkV0JZalZyVUFVYU03UTNRdkptQVVybG9qQ3Z0MFdsS3NFS0xxN2haMnlWS2dSMUY2VThpbjZmZjJHUVY2WW9oaTJaTXhzVTV4TTZndExRcTRLLXNHVUdXdzZJUkFBTWZlUWstOGdmaUtqRVRHb0hYT2JZR2PSAYQCQVVfeXFMT0VhWUVKSi1tTXZENDBCWFhBcFhkS1Blcy1nRHhLZmgyc0dvRHpnd0xOeUJYSnYtejl4aVBSTUJtOFJZS2FjMDZjbGFHdGhnQWtrLWJFekVlNnBGZ2s2VHRmMzIyMHpoN3hvVXVWWWREdGZnc0U2TFJER3ZVbk9oemdRWnhFU0w2d1gyTUY5UE9RMWZqckFUUnhnLVpoTTV5N1gzdlNvQk5VOUZwMWJmM29FZk5pWTlOUGZ5LWZmeXlra0dNVTN6cVMwVVc1bWtqY3h5cTR0Z3pZNGFqTWVWTThUQl9WTnZsejN0Wm5mMjRXSDhiQ1loejVqTGtsdU9LRl9sems?oc=5",
+            "source": "Meduza",
+            "source_url": "https://meduza.io",
+            "pub_kst": "2026-10-22T00:55+09:00",
+            "_source_blocked": true,
+            "_source_failure": {
+              "stage": "translation_google",
+              "reason": "http_rate_limit",
+              "blocked_before_request": false,
+              "provider": "www.google.com",
+              "request_url_sha256": "a24397e5c97af855e085ce291535d3833b13d23163306351be286f0fec4d06c4",
+              "http_status": 429
+            }
+          }
+        ],
+        "queued_at": "2026-10-22T08:35:48+09:00",
+        "attempts": 1,
+        "invalid_items": []
+      }
+    },
+    "refinery:news:refinery_article_c6256c0270b89f96cf21a58e": {
+      "archived_at": "2026-11-02T03:41:27+09:00",
+      "reason": "expired_unverified_no_telegram_delivery",
+      "entry": {
+        "topic": "refinery",
+        "kind": "news",
+        "event_key": "refinery_article_c6256c0270b89f96cf21a58e",
+        "status": "source_blocked",
+        "items": [
+          {
+            "id": "c6256c0270b89f96cf21a58e",
+            "title": "Donald Trump’s Diesel Desperation - The Dispatch",
+            "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxQTEpaYkF4aGtRQ3lnMkx6THFPTmhYc3d2UTlHRmhyYlg4Z1h4dHVWdUNxTndaMlVWajF6R0dURmZjVG1HUDNhdU4zSjF3SERnZjZQaTVPN2REMjdySzRxUkdKV0ptS2x5NWV0d1hTTzJRZ2RBSmw0YXdINUN2ekFOd250N0NnU2Z2N2VfSFVWUkdHZw?oc=5",
+            "source": "The Dispatch",
+            "source_url": "https://thedispatch.com",
+            "pub_kst": "2026-10-21T05:15+09:00",
+            "_source_blocked": true,
+            "_source_failure": {
+              "stage": "translation_google",
+              "reason": "http_rate_limit",
+              "blocked_before_request": false,
+              "provider": "www.google.com",
+              "request_url_sha256": "2a7431b017669db3dbfa99a2f1e5465fc8555bf08d941de08f2436e368a20870",
+              "http_status": 429
+            }
+          }
+        ],
+        "queued_at": "2026-10-22T08:35:48+09:00",
+        "attempts": 1,
+        "invalid_items": [],
+        "held_items": []
+      }
+    },
+    "refinery:news:refinery_article_6817544c3a5eeef8375bef67": {
+      "archived_at": "2026-11-02T03:41:27+09:00",
+      "reason": "expired_unverified_no_telegram_delivery",
+      "entry": {
+        "topic": "refinery",
+        "kind": "news",
+        "event_key": "refinery_article_6817544c3a5eeef8375bef67",
+        "status": "source_blocked",
+        "items": [
+          {
+            "id": "6817544c3a5eeef8375bef67",
+            "title": "Trump Administration's Last-Ditch Effort To Avoid A Global Diesel And Energy Crisis Failed - Seeking Alpha",
+            "link": "https://news.google.com/rss/articles/CBMixwFBVV95cUxQeHdEQjBRWFdxRzNWeUI5TFBJTG1YZFZUenlzaE82NEswY1VVSkJwSUV4bThNR0JRdkRxWm1ScWppbENmdjdtZHFhaEhFRnpqem9mcmE1MlA4SVlmc1lhRjJ6UUFFNG04MFJiLVRKQ3IxSWFKbkZLOHk3a0ZzdV9NZWdabm4zbDM1OTV0MHU0Ri1wYkkxUG4xei0xZlFodzJ4Qk9QekNONHV2czdNckdwTm5WQ0prcTQyTlJyTWV1OUlHNVRFZ29n?oc=5",
+            "source": "Seeking Alpha",
+            "source_url": "https://seekingalpha.com",
+            "pub_kst": "2026-10-20T22:05+09:00",
+            "_source_blocked": true,
+            "_source_failure": {
+              "stage": "article_fetch",
+              "reason": "http_denial",
+              "blocked_before_request": false,
+              "provider": "seekingalpha.com",
+              "request_url_sha256": "587c5ca59e1716a27a2cc0f1301030c416152f2454bcb49ded8f318e9e88df7c",
+              "http_status": 403
+            }
+          }
+        ],
+        "queued_at": "2026-10-22T08:35:48+09:00",
+        "attempts": 1,
+        "invalid_items": [],
+        "held_items": []
+      }
+    },
+    "refinery:news:refinery_article_a747d9b82c45207fa168ee36": {
+      "archived_at": "2026-11-02T03:41:27+09:00",
+      "reason": "expired_unverified_no_telegram_delivery",
+      "entry": {
+        "topic": "refinery",
+        "kind": "news",
+        "event_key": "refinery_article_a747d9b82c45207fa168ee36",
+        "status": "source_blocked",
+        "items": [
+          {
+            "id": "a747d9b82c45207fa168ee36",
+            "title": "Experts warn Trump's diesel export ban could cut supply and hit Texas refineries - The Cool Down",
+            "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxPa2NNV0NZVXhLTEtvYXBfTXNubGhFWkZjOUdDNU1mbG9LTkZxWFdSNVQwU2dDY1FieGpZTFRCOFBIZVRDRS1XR3k0WWRvTE9rQWpBNHdpZGR3U0J2eURqRTJFWTlwcFhvUmw2NjRlR3hXRnJ1Y3F2VW52SUNHRnpMMEZNQ3AtMjFRVFNRWWtn?oc=5",
+            "source": "The Cool Down",
+            "source_url": "https://www.thecooldown.com",
+            "pub_kst": "2026-10-22T07:35+09:00",
+            "_source_blocked": true,
+            "_source_failure": {
+              "stage": "translation_google",
+              "reason": "http_rate_limit",
+              "blocked_before_request": false,
+              "provider": "www.google.com",
+              "request_url_sha256": "652e7519e7e9e9744ca69d7bacc84b77fe20fdea495ca0b391c6573f203dfd5f",
+              "http_status": 429
+            }
+          }
+        ],
+        "queued_at": "2026-10-22T10:48:10+09:00",
+        "attempts": 1,
+        "invalid_items": [],
+        "held_items": []
+      }
+    },
+    "refinery:news:refinery_article_837ceaa06d279564c159da05": {
+      "archived_at": "2026-11-02T03:41:27+09:00",
+      "reason": "expired_unverified_no_telegram_delivery",
+      "entry": {
+        "topic": "refinery",
+        "kind": "news",
+        "event_key": "refinery_article_837ceaa06d279564c159da05",
+        "status": "source_blocked",
+        "items": [
+          {
+            "id": "837ceaa06d279564c159da05",
+            "title": "Trump is desperate to bring gas prices down. The solution might be in India. - NBC News",
+            "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxOdkNMWXZ2ZXFvWW1SNEFHQXVZWVdISkI4U1lFbnczYlVqZTBsQTh1NkZBQTNUaW9LYnRvUElRaFd1QlIzeUlfMEMtNnZ3bWZRRnNMZGhTeWQzX1V2UDBnUzU0MmVDR1N5ZUZCTGdUWjQzN1lpVjk2REJ0R05FZVJ3bnliM1FzR1BNdTRTaUM0aFJtQVNxeFA0SjFPdS1FaW5Z?oc=5",
+            "source": "NBC News",
+            "source_url": "https://www.nbcnews.com",
+            "pub_kst": "2026-10-22T22:51+09:00",
+            "_source_blocked": true,
+            "_source_failure": {
+              "stage": "translation_google",
+              "reason": "http_rate_limit",
+              "blocked_before_request": false,
+              "provider": "www.google.com",
+              "request_url_sha256": "f9142abf2cd8893f047f9c56ce999134db18b907d6b10eb5a5366abbaf0be0ad",
+              "http_status": 429
+            }
+          }
+        ],
+        "queued_at": "2026-10-23T02:18:53+09:00",
+        "attempts": 1,
+        "invalid_items": [],
+        "held_items": []
+      }
+    },
+    "refinery:news:refinery_article_e3ab44da7463f4fe547d99c3": {
+      "archived_at": "2026-11-02T03:41:27+09:00",
+      "reason": "expired_unverified_no_telegram_delivery",
+      "entry": {
+        "topic": "refinery",
+        "kind": "news",
+        "event_key": "refinery_article_e3ab44da7463f4fe547d99c3",
+        "status": "source_blocked",
+        "items": [
+          {
+            "id": "e3ab44da7463f4fe547d99c3",
+            "title": "Trump Administration Pushes Refiners to Boost Diesel Output as Prices Soar - Yahoo Finance",
+            "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNQ2VINDJzOXQzclFBOWpPaHltRDZabWVtaThaM193T3kybnFoUlprdlJmV1ozX1hjbkxkQnBCeHJxT1VwQWdqZWdBTFpYZzNfMXNCa0FQNThEaEladmJic0RFcXg5Y1BkcHY1OEZtX2luNWFDMWFLNDdxOEUyYVp2NmdHSlN6dFRDZ1h6dkR1ZTlxZ1JtbHhQenBHYjNfS21Q?oc=5",
+            "source": "Yahoo Finance",
+            "source_url": "https://finance.yahoo.com",
+            "pub_kst": "2026-10-21T16:00+09:00",
+            "_source_blocked": true,
+            "_source_failure": {
+              "stage": "translation_google",
+              "reason": "http_rate_limit",
+              "blocked_before_request": false,
+              "provider": "www.google.com",
+              "request_url_sha256": "1c903d7216f55f7a25dfa4cfabee185b71a79185053a5f4330562e9ce36a5e86",
+              "http_status": 429
+            }
+          }
+        ],
+        "queued_at": "2026-10-23T02:18:53+09:00",
+        "attempts": 1,
+        "invalid_items": [],
+        "held_items": []
+      }
+    },
+    "refinery:news:refinery_article_b7b42d0ca367bd9773e14d69": {
+      "archived_at": "2026-11-02T03:41:27+09:00",
+      "reason": "expired_unverified_no_telegram_delivery",
+      "entry": {
+        "topic": "refinery",
+        "kind": "news",
+        "event_key": "refinery_article_b7b42d0ca367bd9773e14d69",
+        "status": "source_blocked",
+        "items": [
+          {
+            "id": "b7b42d0ca367bd9773e14d69",
+            "title": "US refiners have run harder in 2026 as tight diesel supplies boost margins, EIA says - Reuters",
+            "link": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxPTXRDSVZqUlhiVXJHdV80OVNPVERRZDlMRWJXOTl4eEw3MWZ3ZVBFX2E3TGdhd2xWSWxkTkpVZkhRa3NlT0Jaa3JyTHNTMU9BaWxkeFV4SVVkZU1FV3Fockk4RWNKRW9fb3NZMHkzWVh5QndCRzVSUW54a09DM09vWEpMQVdTR2NQV0hmenlaZmxpdWJyN1Vuak15azFfU1gxb3RCQlFRb1BrTVZZTEFjMjlaZUJINkNmWW4yNm5YcWc3UTdnU0d6Nw?oc=5",
+            "source": "Reuters",
+            "source_url": "https://www.reuters.com",
+            "pub_kst": "2026-10-23T00:59+09:00",
+            "_source_blocked": true,
+            "_source_failure": {
+              "stage": "article_fetch",
+              "reason": "http_denial",
+              "blocked_before_request": false,
+              "provider": "www.reuters.com",
+              "request_url_sha256": "1e9c26992c88ae33b8629c8de6a223b9bac8a28ad16648e5b75d3a844990891c",
+              "http_status": 401
+            }
+          }
+        ],
+        "queued_at": "2026-10-23T05:35:15+09:00",
+        "attempts": 1,
+        "invalid_items": [],
+        "held_items": []
+      }
+    },
+    "refinery:news:refinery_article_55db5196343f10f44da0efc4": {
+      "archived_at": "2026-11-02T03:41:27+09:00",
+      "reason": "expired_unverified_no_telegram_delivery",
+      "entry": {
+        "topic": "refinery",
+        "kind": "news",
+        "event_key": "refinery_article_55db5196343f10f44da0efc4",
+        "status": "source_blocked",
+        "items": [
+          {
+            "id": "55db5196343f10f44da0efc4",
+            "title": "Trump invokes Cold War-era act to bolster U.S. gasoline production - UPI.com",
+            "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNQXJsQ2lRTV9MSGNuMWR2Mkg0amRENWpva1FaTENYVVRabjRmaktNb0Q5RnNXeXVmV3FEZDY3SHdFZlJVY09SNWk3R0ZMYy0wbTB4REc0S0xZbWJCMS1Da3BnUm4wLVRMRURLRmNHRVZZVEtERzRYeTYxOHQxUjhMVXQ3VEFZNVMwa2dLcXdncEJiVmpZZVFjeA?oc=5",
+            "source": "UPI.com",
+            "source_url": "https://www.upi.com",
+            "pub_kst": "2026-10-23T14:50+09:00",
+            "_source_blocked": true,
+            "_source_failure": {
+              "stage": "translation_google",
+              "reason": "http_rate_limit",
+              "blocked_before_request": false,
+              "provider": "www.google.com",
+              "request_url_sha256": "025a2e8f7acce06a76edc45c1f5097f7bd9b1e9c13ffbcc11d905e55964a3ceb",
+              "http_status": 429
+            }
+          }
+        ],
+        "queued_at": "2026-10-23T21:02:04+09:00",
+        "attempts": 1,
+        "invalid_items": []
+      }
+    },
+    "refinery:news:refinery_article_9daea8fdf4f8540c86463c61": {
+      "archived_at": "2026-11-02T03:41:27+09:00",
+      "reason": "expired_unverified_no_telegram_delivery",
+      "entry": {
+        "topic": "refinery",
+        "kind": "news",
+        "event_key": "refinery_article_9daea8fdf4f8540c86463c61",
+        "status": "source_blocked",
+        "items": [
+          {
+            "id": "9daea8fdf4f8540c86463c61",
+            "title": "Trump to use the Defense Production Act to boost U.S. gas and diesel production. Could it help? - CBS News",
+            "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxNTndpdURnSUR0d0V0cDNpajY0aWJBLVFoNU5sVkdzNHRnVlZiT0lsbm81RzhMU2dvb1V6NkxGcEtFN1ZoTTZUQVZSdnA4U2ZwNDM1eVREck1rNkxkeGpMZ09ITzhOYmoxMmFxZXQ5LW1FUHJqUFplalNNSXJ1WW0xcHJR?oc=5",
+            "source": "CBS News",
+            "source_url": "https://www.cbsnews.com",
+            "pub_kst": "2026-10-24T00:24+09:00",
+            "_source_blocked": true,
+            "_source_failure": {
+              "stage": "translation_google",
+              "reason": "http_rate_limit",
+              "blocked_before_request": false,
+              "provider": "www.google.com",
+              "request_url_sha256": "bfbc61928bc6593988b6647b2fae13777abd3a6a243bc4e4868a63d68b18856b",
+              "http_status": 429
+            }
+          }
+        ],
+        "queued_at": "2026-10-24T01:46:12+09:00",
+        "attempts": 1,
+        "invalid_items": [],
+        "held_items": []
+      }
+    },
+    "refinery:news:refinery_article_074fd0d310216c472455d385": {
+      "archived_at": "2026-11-02T03:41:27+09:00",
+      "reason": "expired_unverified_no_telegram_delivery",
+      "entry": {
+        "topic": "refinery",
+        "kind": "news",
+        "event_key": "refinery_article_074fd0d310216c472455d385",
+        "status": "source_blocked",
+        "items": [
+          {
+            "id": "074fd0d310216c472455d385",
+            "title": "Trump invokes Cold War-era act to bolster U.S. gasoline production - upi",
+            "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNQXJsQ2lRTV9MSGNuMWR2Mkg0amRENWpva1FaTENYVVRabjRmaktNb0Q5RnNXeXVmV3FEZDY3SHdFZlJVY09SNWk3R0ZMYy0wbTB4REc0S0xZbWJCMS1Da3BnUm4wLVRMRURLRmNHRVZZVEtERzRYeTYxOHQxUjhMVXQ3VEFZNVMwa2dLcXdncEJiVmpZZVFjeNIBngFBVV95cUxOandvZXRQYUw1aUd3cTB0WXd6aUZ0WEt1ZEF0enFFemJNdlRwNzA5bHZ0cFkyUlBjaVlOdUhoV0dfWTJ4WWp1d0FvaUZMaTlWWm91c2RGOU0ySGFrQXZUb2VPbllVdE1mQWlZS3l1Qi1ZbmZUM0lOSGJZU1BuZHFLa0Z2SEgyRjZZcWxCQWFpZVVLODZUanNxVTc2NHNBdw?oc=5",
+            "source": "upi",
+            "source_url": "https://www.upi.com",
+            "pub_kst": "2026-10-23T14:50+09:00",
+            "_source_blocked": true,
+            "_source_failure": {
+              "stage": "translation_google",
+              "reason": "http_rate_limit",
+              "blocked_before_request": false,
+              "provider": "www.google.com",
+              "request_url_sha256": "e01118f712c779ab6a16e3d392019d15ef5b85766fca4bd0b05a57d5075122a7",
+              "http_status": 429
+            }
+          }
+        ],
+        "queued_at": "2026-10-24T01:46:12+09:00",
+        "attempts": 1,
+        "invalid_items": [],
+        "held_items": []
+      }
+    },
+    "refinery:news:refinery_article_f5af5c87754b40e618015255": {
+      "archived_at": "2026-11-02T03:41:27+09:00",
+      "reason": "expired_unverified_no_telegram_delivery",
+      "entry": {
+        "topic": "refinery",
+        "kind": "news",
+        "event_key": "refinery_article_f5af5c87754b40e618015255",
+        "status": "source_blocked",
+        "items": [
+          {
+            "id": "f5af5c87754b40e618015255",
+            "title": "Trump invokes Cold War-era Defense Production Act for oil production, refining - Reuters",
+            "link": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxOdm9ka0hnal9OOUFnN19HQmRZd0ljY2tJOVNoN2tIWURrMHExZ0p0NWN0UEpTMmFORG1TTU1CeXZkb3RhenhtelltYVY2SmRyZEctMnRIcUNEQlFXODdsZGxBMXhpem81NjJwRjRCbVl1N2tyWVkxeXU0T2k3ZEttNk5lbzZCVzRrUEtwT3JPTlJiUUVmSjU4b25EaXNIQ3dyS3c3NlJUSkFBdWZSMDFZVmZ1dmhncGFIYjNQU0tOd1I5dFk?oc=5",
+            "source": "Reuters",
+            "source_url": "https://www.reuters.com",
+            "pub_kst": "2026-10-23T06:14+09:00",
+            "_source_blocked": true,
+            "_source_failure": {
+              "stage": "article_fetch",
+              "reason": "http_denial",
+              "blocked_before_request": false,
+              "provider": "www.reuters.com",
+              "request_url_sha256": "6d3c6d4f7fa25ae690950d2783c28a0c819377a1a7fbb4149a1aac8c0771f069",
+              "http_status": 401
+            }
+          }
+        ],
+        "queued_at": "2026-10-24T01:46:12+09:00",
+        "attempts": 1,
+        "invalid_items": [],
+        "held_items": []
+      }
+    },
+    "refinery:news:refinery_article_60bc4c67eb16dba4f551ac25": {
+      "archived_at": "2026-11-02T03:41:27+09:00",
+      "reason": "expired_unverified_no_telegram_delivery",
+      "entry": {
+        "topic": "refinery",
+        "kind": "news",
+        "event_key": "refinery_article_60bc4c67eb16dba4f551ac25",
+        "status": "source_blocked",
+        "items": [
+          {
+            "id": "60bc4c67eb16dba4f551ac25",
+            "title": "Trump Puts Federal Cash Behind Getting More American Refineries Running As Diesel Tops $6 - The Daily Caller",
+            "link": "https://news.google.com/rss/articles/CBMiugFBVV95cUxQWGNZUnoxWGtHOGFKamFLSDFXc2xVVExwZ2dkM1lfcDhqUWkxN3hQNDJESFhXUnlqX3pialN2ZTN4Q3RNTW5lTGo4bTRLV3BkR09yeG43NlpyUEhRQzJhMk5OZG4zOVNteFpULTZ5cTNzYVlvQk9NTDZLZVZJUVJiOXphRWhwZGlfUldiLXpqbjhDUmxkaTVTRzJSRG1GUWVPNnMyVFNUdjRBS08xS0J5VFczRUNVZzk5OGc?oc=5",
+            "source": "The Daily Caller",
+            "source_url": "https://dailycaller.com",
+            "pub_kst": "2026-10-24T06:12+09:00",
+            "_source_blocked": true,
+            "_source_failure": {
+              "stage": "translation_google",
+              "reason": "http_rate_limit",
+              "blocked_before_request": false,
+              "provider": "www.google.com",
+              "request_url_sha256": "9ff06b08a67e84580cdbe6f2eba064037fa22834be3f12e4aac0bc41f86f1702",
+              "http_status": 429
+            }
+          }
+        ],
+        "queued_at": "2026-10-24T10:31:28+09:00",
+        "attempts": 1,
+        "invalid_items": [],
+        "held_items": []
+      }
+    },
+    "refinery:news:refinery_article_562db32966315bbeba10e489": {
+      "archived_at": "2026-11-02T03:41:27+09:00",
+      "reason": "expired_unverified_no_telegram_delivery",
+      "entry": {
+        "topic": "refinery",
+        "kind": "news",
+        "event_key": "refinery_article_562db32966315bbeba10e489",
+        "status": "source_blocked",
+        "items": [
+          {
+            "id": "562db32966315bbeba10e489",
+            "title": "Record Diesel Prices Could be Trump’s Achilles’ Heel: Bousso - EnergyNow.com",
+            "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxPcmszWUlLY2NkMHV4Zko2QlhubUpBSTFMdHBvaWptU1JOUXU2cmU5ZUkxMEtfQ0xrZEVnb1B2U0QyZFUycGxQNmZWM2xxaGpNYzhhMXBYRmdrS20xOXFJMktoRmFBeko3VjZvcDZoMURHY01kNDdSZ3dpZExMVXh1b2FWamwtUUpwLTlVMTgzVmRzZw?oc=5",
+            "source": "EnergyNow.com",
+            "source_url": "https://energynow.com",
+            "pub_kst": "2026-10-27T00:56+09:00",
+            "_source_blocked": true,
+            "_source_failure": {
+              "stage": "article_fetch",
+              "reason": "http_denial",
+              "blocked_before_request": false,
+              "provider": "energynow.com",
+              "request_url_sha256": "b400ff7bc2febe414f88f32b615843fe7d19a76bfea1b13453fb7954bb66b2dc",
+              "http_status": 403
+            }
+          }
+        ],
+        "queued_at": "2026-10-27T04:22:05+09:00",
+        "attempts": 1,
+        "invalid_items": [],
+        "held_items": []
+      }
+    }
   }
 }
