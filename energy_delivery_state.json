@@ -75,7 +75,8 @@
         }
       ],
       "queued_at": "2026-11-01T11:32:56+09:00",
-      "attempts": 5
+      "attempts": 6,
+      "invalid_items": []
     },
     "refinery:news:refinery_article_b862b9ef2ea340fb3e33c587": {
       "topic": "refinery",
@@ -168,7 +169,7 @@
       "topic": "refinery",
       "kind": "news",
       "event_key": "refinery_article_efa702975de1d09fe9d02e76",
-      "status": "enrichment_pending",
+      "status": "source_blocked",
       "items": [
         {
           "id": "efa702975de1d09fe9d02e76",
@@ -176,17 +177,27 @@
           "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQelJkV0FCT2V5NzZPY3VpaWoyXzhrYXFlUVZkSXhhbGNmYTA5TGZucm1hYlBoR0xjNDNJOGNFZWRRQTZtYzFNOFNsUGdlQi1CUVVBd09hZmVRVV9qZGwxZXc4eWNFdkg0LUNFbE51ZlBfdmdXbU80SUp0Mm5OWXJ3cW9IUHVhSV9iTFBVNDJRSlJoeDlnU1dMcFV6YkZwejZwc0c5blJud25PSl9SRjNKQ3p5eGdGbGF4QkxaNg?oc=5",
           "source": "Business Upturn",
           "source_url": "https://businessupturn.com",
-          "pub_kst": "2026-10-30T22:31+09:00"
+          "pub_kst": "2026-10-30T22:31+09:00",
+          "_source_blocked": true,
+          "_source_failure": {
+            "stage": "translation_google",
+            "reason": "http_rate_limit",
+            "blocked_before_request": false,
+            "provider": "www.google.com",
+            "request_url_sha256": "6a5b4a778a9a2bc9977cbcb0aa36200bb86df92a607232d1fa6aeeb1e1983b26",
+            "http_status": 429
+          }
         }
       ],
       "queued_at": "2026-11-02T08:51:52+09:00",
-      "attempts": 0
+      "attempts": 1,
+      "invalid_items": []
     },
     "refinery:news:refinery_article_c518b36efd43c055790b4090": {
       "topic": "refinery",
       "kind": "news",
       "event_key": "refinery_article_c518b36efd43c055790b4090",
-      "status": "enrichment_pending",
+      "status": "source_blocked",
       "items": [
         {
           "id": "c518b36efd43c055790b4090",
@@ -194,11 +205,21 @@
           "link": "https://news.google.com/rss/articles/CBMizgFBVV95cUxORE1fNGRUQ3VxOUx5c05VWjNkaW5EdWUxR29EUm5SSFFpLWNzVlAzVFZkYzB2ZWV6bkhhbHp3SzJfR20yUnNOeHdkNDB6TEJVOU1OSnlURV9tUGxPNGx2SXhwNDVZakgtczlMNTh6OUdNYVZNTkFuaEJwdDMwMUhYUUZUekdGajhJY0tWR3lHcGVpRjVjX0tJeWw0OUs4Skc4b0xDbWxRbWxNaW4xREFJR1g2UVdtNWNVV3J2WEJ4QVNuMGxVWS1BdWhYdUhEZw?oc=5",
           "source": "The Business Times",
           "source_url": "https://www.businesstimes.com.sg",
-          "pub_kst": "2026-10-30T21:01+09:00"
+          "pub_kst": "2026-10-30T21:01+09:00",
+          "_source_blocked": true,
+          "_source_failure": {
+            "stage": "translation_google",
+            "reason": "http_rate_limit",
+            "blocked_before_request": false,
+            "provider": "www.google.com",
+            "request_url_sha256": "9d8ee1df6fccd42addd7553b84760cf8135ee5b3a14c6077faaeea02607a9b35",
+            "http_status": 429
+          }
         }
       ],
       "queued_at": "2026-11-02T08:51:52+09:00",
-      "attempts": 0
+      "attempts": 1,
+      "invalid_items": []
     }
   },
   "receipts": [
