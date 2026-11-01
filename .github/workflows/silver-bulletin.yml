@@ -3,6 +3,15 @@ name: Silver Bulletin 트럼프 이슈 지지율 감시
 on:
   schedule:
     - cron: '17,47 * * * *'
+  # Supplement scheduled ticks with independent, already-running successful
+  # repository workflows. No changes to their schedules or send behavior.
+  workflow_run:
+    workflows:
+      - '미국 전력망 비상운영·PJM 웹감시'
+      - '미국 우주통제·골든돔 웹감시'
+      - '원전 Janus 전체 Telegram 웹감시'
+    types: [completed]
+    branches: [main]
   workflow_dispatch:
   push:
     branches:
