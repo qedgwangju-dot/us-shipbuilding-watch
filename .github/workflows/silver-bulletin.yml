@@ -21,6 +21,7 @@ on:
       - 'tests/test_silver_bulletin.py'
       - '.github/workflows/silver-bulletin.yml'
       - 'silver_bulletin_state.json'
+      - '.github/silver-bulletin-watchdog-trigger.txt'
 
 permissions:
   contents: write
