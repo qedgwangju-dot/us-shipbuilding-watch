@@ -161,24 +161,6 @@
       "queued_at": "2026-11-01T11:32:56+09:00",
       "attempts": 1,
       "invalid_items": []
-    },
-    "spr:news:spr_article_23d8140ef4e2499f32b5d1d3": {
-      "topic": "spr",
-      "kind": "news",
-      "event_key": "spr_article_23d8140ef4e2499f32b5d1d3",
-      "status": "enrichment_pending",
-      "items": [
-        {
-          "id": "23d8140ef4e2499f32b5d1d3",
-          "title": "US Not Currently Considering Using Venezuelan Oil in Exchange to Fill Strategic Reserve, Energy Department Says - EnergyNow.com",
-          "link": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxQcmxoeThhNWUyMFRXQTlnanRYQjZiQzZvbG5jLUZVVWc5WWJfSjJpaUpKTUpER3dsSUo3V3JmbW1NZ2FCUUF6ZHd0UzIxVnRlYWQtVHd5eHJ1VVhFVVhQNlBZaXduT19iVi1xeXhhb2FpZGJqUlVlTFk2Um8zLTRtUDZpaEZTTkYyWUdySENDUUk4c2lkbjlETlZING9sY0lHZzBEdnZlUF9BT2pvRk9JaDBNVng2a3JzZnp4dXlwX1MzUTdDVGZMUlB5Rld6czBvT0p2a2hrUXE?oc=5",
-          "source": "EnergyNow.com",
-          "source_url": "https://energynow.com",
-          "pub_kst": "2026-01-17T07:55+09:00"
-        }
-      ],
-      "queued_at": "2026-11-02T05:33:42+09:00",
-      "attempts": 0
     }
   },
   "receipts": [
@@ -2690,6 +2672,14 @@
       ],
       "delivered": false,
       "archived": true
+    },
+    {
+      "key": "spr:news:spr_article_23d8140ef4e2499f32b5d1d3",
+      "reason": "news_outside_three_day_window",
+      "at": "2026-11-02T05:33:43+09:00",
+      "ids": [
+        "23d8140ef4e2499f32b5d1d3"
+      ]
     }
   ],
   "observed_data": {
