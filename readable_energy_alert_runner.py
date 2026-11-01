@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 import datetime as dt
+import copy
 import html
 import os
 import re
@@ -356,6 +357,57 @@ def _news_time(item):
         return None
 
 
+def _archive_expired_unverified_news(engine, topic):
+    """Retire truly expired unverified holds without claiming Telegram delivery.
+
+    All content, URL, original failure evidence and status stay in the
+    durable outbox JSON under archived_unverified. Only articles with
+    verifiable timestamps older than the existing 3-day freshness policy
+    are eligible; undated, partial-delivery or newer items remain on hold.
+    """
+    archive = engine.state.setdefault('archived_unverified', {})
+    if not isinstance(archive, dict):
+        raise RuntimeError('Invalid unverified archive; refusing lossy cleanup')
+    cutoff = now_kst() - dt.timedelta(days=3)
+    for key, entry in list(engine.state['outbox'].items()):
+        if entry.get('topic') != topic or entry.get('kind') != 'news':
+            continue
+        if entry.get('status') not in ('source_blocked', 'enrichment_pending'):
+            continue
+        # A prepared or partially sent payload must never enter this cleanup.
+        if entry.get('chunks') or entry.get('message') or entry.get('destination_sha256'):
+            continue
+        candidates = (
+            list(entry.get('items') or [])
+            + list(entry.get('invalid_items') or [])
+            + list(entry.get('held_items') or [])
+            + list(entry.get('retry_items') or [])
+        )
+        if not candidates or any(not isinstance(i, dict) for i in candidates):
+            continue
+        publications = [_news_time(i) for i in candidates]
+        if any(pub is None or pub > cutoff for pub in publications):
+            continue
+        if key in archive:
+            raise RuntimeError('Unverified archive key collision; no data may be discarded')
+        # Preserve exact original record including source-failure metadata.
+        original = copy.deepcopy(entry)
+        archive[key] = {
+            'archived_at': engine.timestamp(),
+            'reason': 'expired_unverified_no_telegram_delivery',
+            'entry': original,
+        }
+        ids = list(dict.fromkeys(i['id'] for i in candidates))
+        engine.state['dispositions'].append({
+            'key': key, 'reason': 'expired_unverified_no_telegram_delivery',
+            'at': engine.timestamp(), 'ids': ids,
+            'delivered': False, 'archived': True,
+        })
+        # This is an expiration/skip key, NOT evidence of actual delivery.
+        engine.mark_seen(topic, ids)
+        del engine.state['outbox'][key]
+
+
 def _queue_news(engine, topic, items):
     state = engine.legacy(topic)
     seen = set(state[engine.seen_key(topic)])
@@ -475,6 +527,7 @@ def _deliver_topic(engine, topic, token, chat_id):
 
 def process_refinery(token, chat_id, engine=None):
     engine = engine or Outbox(now=now_kst)
+    _archive_expired_unverified_news(engine, 'refinery')
     items, errors = rw.collect_items()
     for index, error in enumerate(errors):
         source_id = next((f'query-{i}' for i, query in enumerate(rw.QUERIES) if str(error).startswith(query + ':')), f'unknown-query-{index}')
@@ -492,6 +545,7 @@ def process_refinery(token, chat_id, engine=None):
 
 def process_spr(token, chat_id, engine=None):
     engine = engine or Outbox(now=now_kst)
+    _archive_expired_unverified_news(engine, 'spr')
     errors = []
     for field, fetch, formatter in (
         ('spr', sv.fetch_spr_latest, readable_spr_data_alert),
@@ -533,8 +587,10 @@ def main():
     process_spr(token, chat_id, engine)
     pending = len(engine.state['outbox'])
     ok = not engine.errors and not pending
+    archived_unverified = len(engine.state.get('archived_unverified', {}))
     engine.state['last_result'] = {'ok': ok, 'errors': len(engine.errors), 'pending': pending,
         'refinery_sent': len(engine.sent['refinery']), 'spr_sent': len(engine.sent['spr']),
+        'unverified_archived': archived_unverified,
         'at': engine.timestamp()}
     engine.checkpoint()
     print(f'readable_energy_alerts_ok={str(ok).lower()} bot=@{bot_username} '
