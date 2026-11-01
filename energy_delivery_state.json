@@ -1278,6 +1278,96 @@
       "attempts": 1,
       "invalid_items": [],
       "held_items": []
+    },
+    "refinery:news:refinery_article_1842b4c95cc4f890419d9ca4": {
+      "topic": "refinery",
+      "kind": "news",
+      "event_key": "refinery_article_1842b4c95cc4f890419d9ca4",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "1842b4c95cc4f890419d9ca4",
+          "title": "US oil giants double profits as fuel supply crunch drives refinery expansion - Türkiye Today",
+          "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxQdHJnYXVuN2V0emhLdWhQa29CRkNSOHM3b1lwT2NJbkNUejcxSEF0c3Y3cWUwS1BTcDFiVzNLcTFOSkRxWmNObzlHZFJmUlJoZkp5NDFyY3RNbXFtZVpzYkdrdmlVLWdNSEg1NHY5SFgzNm9sTEJWRDNjU1FoZXozZjFCSnJfTmJJNElhQlFGdHVCYThpSDZ4MHBvd0RCbEZMUTZMY3RVa0p3VVNwSnFXc21ETFRwVWM0Q1ZQb1FZdw?oc=5",
+          "source": "Türkiye Today",
+          "source_url": "https://www.turkiyetoday.com",
+          "pub_kst": "2026-10-31T19:14+09:00"
+        }
+      ],
+      "queued_at": "2026-11-01T11:32:56+09:00",
+      "attempts": 0
+    },
+    "refinery:news:refinery_article_b862b9ef2ea340fb3e33c587": {
+      "topic": "refinery",
+      "kind": "news",
+      "event_key": "refinery_article_b862b9ef2ea340fb3e33c587",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "b862b9ef2ea340fb3e33c587",
+          "title": "Ukraine Invasion Day 1,710: RU oil refineries hit. Dum(b)ass thinks diesel price will drop - Daily Kos",
+          "link": "https://news.google.com/rss/articles/CBMieEFVX3lxTE40b3lud0NTNWRNVWJXN2YzbGxfaldNVTh2Yi0wOGkxZmFqR2tZM2VjVWtncGxxMFp6SUFqcW5ZOTJ1WDFIQ2I1UjNBUEpaM3pxNVZIekdud2Z3em9RRFJJVms0M3RFX1NUZGRKcVN5eHhDX0Rzc21TMg?oc=5",
+          "source": "Daily Kos",
+          "source_url": "https://www.dailykos.com",
+          "pub_kst": "2026-10-31T13:25+09:00"
+        }
+      ],
+      "queued_at": "2026-11-01T11:32:56+09:00",
+      "attempts": 0
+    },
+    "refinery:news:refinery_article_165ce69062132cbe53076bc4": {
+      "topic": "refinery",
+      "kind": "news",
+      "event_key": "refinery_article_165ce69062132cbe53076bc4",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "165ce69062132cbe53076bc4",
+          "title": "Exxon, Chevron report massive profits as Trump brags energy firms are ‘making a freaking fortune’ - Fortune",
+          "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxPMEpHbnc3X0YycUdWdU9mX2RrZjc5d3FkT0dUWk5Xa01NOXJUeUJvenQyZGVDVkdUMW14SEFwQkFkWUdmaG81TFBlUWVJQmY0Zmg2RDlpaXloV3R4RGlZemxBRnY2UWxCVURJY1FDdVJCRzA5SGppWlF3Ny1FUktMTENZYl9EZmVVVEJxVHVUWmtNcXdCb1VQNVB4RVBIXzZBdllPVzBfcWNHaXBkZ2JkYmJVUER4WFdLOVh0QVhVaHQ?oc=5",
+          "source": "Fortune",
+          "source_url": "https://fortune.com",
+          "pub_kst": "2026-10-31T03:44+09:00"
+        }
+      ],
+      "queued_at": "2026-11-01T11:32:56+09:00",
+      "attempts": 0
+    },
+    "refinery:news:refinery_article_23f4de7497f396d0f23d09a9": {
+      "topic": "refinery",
+      "kind": "news",
+      "event_key": "refinery_article_23f4de7497f396d0f23d09a9",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "23f4de7497f396d0f23d09a9",
+          "title": "Ukraine Resumes Strikes on Russian Refineries, Challenging Trump’s Pressure as Washington and Kyiv Clash Over Oil - EU Today",
+          "link": "https://news.google.com/rss/articles/CBMicEFVX3lxTE9TZXdRRHRYcTlhRlBlTDA4U255TV9PQkYwYXJuNEhNem1yd3dUVFBicTNzRmpFekdUU0tIaktwN1VOZWVMN2s3Q2lpUDREekxYM3FLQnNZcEQ1N1BzOFZKTjFsSFBhZzU2czh1ZjE3bXE?oc=5",
+          "source": "EU Today",
+          "source_url": "https://eutoday.net",
+          "pub_kst": "2026-10-31T02:59+09:00"
+        }
+      ],
+      "queued_at": "2026-11-01T11:32:56+09:00",
+      "attempts": 0
+    },
+    "refinery:news:refinery_article_a2312443f8b748a695de942e": {
+      "topic": "refinery",
+      "kind": "news",
+      "event_key": "refinery_article_a2312443f8b748a695de942e",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "a2312443f8b748a695de942e",
+          "title": "How a massive refinery shortage is contributing to high gas prices - NPR",
+          "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxPQk1kaUxiajNtTk1VOHlmeDJGXzJyRGdtVmZrZGpMdHZUd25Hd0ltTGhGanBnYzE4a0dlS040M0JNUlRnYnF4NmtkcTRFSllkbzlBVGF4b2ZjY2QwSUI1TFFFRmdtc3hDRjVUSS1uVzlUTDhEWUMyT3JvZW1HdTZFdTNQb3U3cmVTNFE?oc=5",
+          "source": "NPR",
+          "source_url": "https://www.npr.org",
+          "pub_kst": "2022-06-26T16:00+09:00"
+        }
+      ],
+      "queued_at": "2026-11-01T11:32:56+09:00",
+      "attempts": 0
     }
   },
   "receipts": [
