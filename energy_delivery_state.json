@@ -1,666 +1,6 @@
 {
   "schema_version": 1,
   "outbox": {
-    "spr:news:spr_article_9f58a057e3c97b602ebcc8ea": {
-      "topic": "spr",
-      "kind": "news",
-      "event_key": "spr_article_9f58a057e3c97b602ebcc8ea",
-      "status": "source_blocked",
-      "items": [
-        {
-          "id": "9f58a057e3c97b602ebcc8ea",
-          "title": "Trump Announces Sweeping US Grab for Control of Venezuela’s Vast Oil Reserves - What This Could Mean For Canadian Crude - EnergyNow",
-          "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxOYzkzVjNXTFNkVG1scG15eWtRWVlSMkgtdjZ1TGZQSm1tRkdUZ28zcDJyek5NVjJQU3FGT1QyWjl2WnJWanBQT1FHMmhicGRvejNBcWlkb3MtSllGSkNseFhzWGIxQWRhUEdWZlZsay1WRzBqcmZCWjNtRHktaFhwMEFfeWFZQTZ1M3hzSE55TGVramZOMm9jNUprdm9IRGxubnY3S3dib1JCUE5XZnFWTzJIdjJBX0l3cWlyYQ?oc=5",
-          "source": "EnergyNow",
-          "source_url": "https://energynow.ca",
-          "pub_kst": "2026-10-13T04:48+09:00",
-          "_source_blocked": true,
-          "_source_failure": {
-            "stage": "article_fetch",
-            "reason": "http_denial",
-            "blocked_before_request": false,
-            "provider": "energynow.ca",
-            "request_url_sha256": "b652285e87601308353d0a029319ac55133cf225694b801ef38142dde2d82517",
-            "http_status": 403
-          }
-        }
-      ],
-      "queued_at": "2026-10-13T18:21:04+09:00",
-      "attempts": 1,
-      "invalid_items": [],
-      "held_items": []
-    },
-    "spr:news:spr_article_13ee2880c785543bf421d89f": {
-      "topic": "spr",
-      "kind": "news",
-      "event_key": "spr_article_13ee2880c785543bf421d89f",
-      "status": "source_blocked",
-      "items": [
-        {
-          "id": "13ee2880c785543bf421d89f",
-          "title": "TRUMP’S VENEZUELA OIL DEAL: A Strategic Win for America, but is it a Good Deal for Venezuelans? - EnergyNow",
-          "link": "https://news.google.com/rss/articles/CBMivgFBVV95cUxONlEzeVVJclF5cHdXcF9yY01KMVdpNnlINGRua2NvQ21yZmozVU9pTG5RQTczMHQybDZnVGYyNXNNcHc0ZjBkZEYxMWZMWnZxbzRXQzBJbXJvc2tIeEZwV1Eyd2l4TjBMYXZPU2lSLUF3bDhlY3NyczNxbFVxOGxVVnlXSUpDbkRuTXNMSTlSb0NLUmR2NVlkVE5mZzNQTXZLcFlRdFJQUDc4WEdRUFFXbGJUMWNlVFdXMUF2dndR?oc=5",
-          "source": "EnergyNow",
-          "source_url": "https://energynow.ca",
-          "pub_kst": "2026-10-22T00:39+09:00",
-          "_source_blocked": true,
-          "_source_failure": {
-            "stage": "article_fetch",
-            "reason": "http_denial",
-            "blocked_before_request": false,
-            "provider": "energynow.ca",
-            "request_url_sha256": "4be4313f0133c30a1376bed4e81bdd755013b78efe912ffa79b109e853bbb57c",
-            "http_status": 403
-          }
-        }
-      ],
-      "queued_at": "2026-10-22T05:34:58+09:00",
-      "attempts": 1,
-      "invalid_items": [],
-      "held_items": []
-    },
-    "spr:news:spr_article_f256747acf78978beebe2551": {
-      "topic": "spr",
-      "kind": "news",
-      "event_key": "spr_article_f256747acf78978beebe2551",
-      "status": "source_blocked",
-      "items": [
-        {
-          "id": "f256747acf78978beebe2551",
-          "title": "The Secret Terms of Trump’s Venezuelan Oil Deal - ProPublica",
-          "link": "https://news.google.com/rss/articles/CBMiekFVX3lxTFA4REI5YllScE1WWl9mN0JhLURTd3p5NDdCU2xyaVA5ZkRlVWhXMVl2eENRYk4xa3hRcXkzTmV2bFJuS2wxUENZdTNZNlhBczdmZjBxRE5udXNON3otaE9NRU5vX1V4Y0Zwb251SE9hcmpFSWt2NXJzNzl3?oc=5",
-          "source": "ProPublica",
-          "source_url": "https://www.propublica.org",
-          "pub_kst": "2026-10-21T10:53+09:00",
-          "_source_blocked": true,
-          "_source_failure": {
-            "stage": "translation_google",
-            "reason": "http_rate_limit",
-            "blocked_before_request": false,
-            "provider": "www.google.com",
-            "request_url_sha256": "bc77c51ad9b14b9b4285f433ffda16c6ffbea9c3d3c18081484100e38aac8472",
-            "http_status": 429
-          }
-        }
-      ],
-      "queued_at": "2026-10-22T05:34:58+09:00",
-      "attempts": 1,
-      "invalid_items": [],
-      "held_items": []
-    },
-    "spr:news:spr_article_af90073003753247b90e0876": {
-      "topic": "spr",
-      "kind": "news",
-      "event_key": "spr_article_af90073003753247b90e0876",
-      "status": "source_blocked",
-      "items": [
-        {
-          "id": "af90073003753247b90e0876",
-          "title": "Experts cast doubt on Venezuela’s longtime claim of 300 billion barrels of reserve oil - AP News",
-          "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxNYW93dzdYRlFUeEhOUHBwWlhObXNER0RNN2NBckh0ZHBTY2VnRTk4XzRPZE4wRG0tOUExY0hHcFpyWkduWWUyR0ZRdjRJaFhWUlFjWGgtZW5UdEhtUTM4M2IweTlna0duR1BlVXcxRDkzNUczUk9kQVNBa0xwM21GNXE5Uzc0NS03QzliN1JJbXdzTk9oUDVvWjZ2RnpnaWU1NWV3?oc=5",
-          "source": "AP News",
-          "source_url": "https://apnews.com",
-          "pub_kst": "2026-10-22T23:26+09:00",
-          "_source_blocked": true,
-          "_source_failure": {
-            "stage": "article_fetch",
-            "reason": "http_denial",
-            "blocked_before_request": false,
-            "provider": "apnews.com",
-            "request_url_sha256": "5dce7afda7654ba6ffd302b29b51d1683845d6b75c8bc2c524743828b4536787",
-            "http_status": 403
-          }
-        }
-      ],
-      "queued_at": "2026-10-23T02:19:15+09:00",
-      "attempts": 1,
-      "invalid_items": []
-    },
-    "spr:news:spr_article_3988b6da2a9b97e76b90c7cb": {
-      "topic": "spr",
-      "kind": "news",
-      "event_key": "spr_article_3988b6da2a9b97e76b90c7cb",
-      "status": "source_blocked",
-      "items": [
-        {
-          "id": "3988b6da2a9b97e76b90c7cb",
-          "title": "The secret terms of Trump’s Venezuelan oil deal - Raw Story",
-          "link": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE1BUEVZemVxcTBXWVU4N1l1SFE4QWRENFJvNVYza2pfNlFMWHM5RUlXbnBNdFJwa3BqQXBwdGJhLUtFbUk3blV2VTZfRmZXcVpsc0FyRGlmNnV4X2c3T1Y5S2Jn0gF0QVVfeXFMUFI0ZzdBVFVyTjJRMm1IUkozejRPUDQ1WldyUGJRNE92OE1ETEZYT19vVW5iVEczdHJ4Wi1jT1NKTmJkQ29GcGc1c3g5WmIzNm5tNkY5LVRWMFJxbElLUnJPQkxwem5zU1ktMzZGZmdNM24zQTQ?oc=5",
-          "source": "Raw Story",
-          "source_url": "https://www.rawstory.com",
-          "pub_kst": "2026-10-21T23:20+09:00",
-          "_source_blocked": true,
-          "_source_failure": {
-            "stage": "translation_google",
-            "reason": "http_rate_limit",
-            "blocked_before_request": false,
-            "provider": "www.google.com",
-            "request_url_sha256": "1423f5563e1855524246ec1c4dc1915ac9aa2f4256332a46bdf9f031842f7f3e",
-            "http_status": 429
-          }
-        }
-      ],
-      "queued_at": "2026-10-23T02:19:15+09:00",
-      "attempts": 1,
-      "invalid_items": []
-    },
-    "spr:news:spr_article_fdf5f03c30a9ef6318006563": {
-      "topic": "spr",
-      "kind": "news",
-      "event_key": "spr_article_fdf5f03c30a9ef6318006563",
-      "status": "source_blocked",
-      "items": [
-        {
-          "id": "fdf5f03c30a9ef6318006563",
-          "title": "Trump’s math on US deal for Venezuelan oil doesn't add up, experts say. The bad data began years ago - AP News",
-          "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxNYW93dzdYRlFUeEhOUHBwWlhObXNER0RNN2NBckh0ZHBTY2VnRTk4XzRPZE4wRG0tOUExY0hHcFpyWkduWWUyR0ZRdjRJaFhWUlFjWGgtZW5UdEhtUTM4M2IweTlna0duR1BlVXcxRDkzNUczUk9kQVNBa0xwM21GNXE5Uzc0NS03QzliN1JJbXdzTk9oUDVvWjZ2RnpnaWU1NWV3?oc=5",
-          "source": "AP News",
-          "source_url": "https://apnews.com",
-          "pub_kst": "2026-10-23T02:13+09:00",
-          "_source_blocked": true,
-          "_source_failure": {
-            "stage": "article_fetch",
-            "reason": "http_denial",
-            "blocked_before_request": false,
-            "provider": "apnews.com",
-            "request_url_sha256": "5dce7afda7654ba6ffd302b29b51d1683845d6b75c8bc2c524743828b4536787",
-            "http_status": 403
-          }
-        }
-      ],
-      "queued_at": "2026-10-23T05:35:29+09:00",
-      "attempts": 1,
-      "invalid_items": [],
-      "held_items": []
-    },
-    "spr:news:spr_article_c3ac4c053b38e49e1ccec446": {
-      "topic": "spr",
-      "kind": "news",
-      "event_key": "spr_article_c3ac4c053b38e49e1ccec446",
-      "status": "source_blocked",
-      "items": [
-        {
-          "id": "c3ac4c053b38e49e1ccec446",
-          "title": "The secret terms of Trump’s Venezuelan oil deal - Salon.com",
-          "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxObFNoZG1RcGdLV21ZeGxES3ZpRUx6S0ZkU3ZIXzkxdGpyYUM5dWJCV1FuSXRyd3NiZS1WM1prN0VIVHZka0FaTWlHSFRoY05uN0ZDSWlzTlBBRXFvRFM2NXc1LWFfQzJrVGlWZnRUdHM5WGlvUEdvWlRabHNSTDFwQWFzSzh3akdORlp4Q2VhbkhtQQ?oc=5",
-          "source": "Salon.com",
-          "source_url": "https://www.salon.com",
-          "pub_kst": "2026-10-23T19:00+09:00",
-          "_source_blocked": true,
-          "_source_failure": {
-            "stage": "translation_google",
-            "reason": "http_rate_limit",
-            "blocked_before_request": false,
-            "provider": "www.google.com",
-            "request_url_sha256": "4991d622d2ae16efb93438ec2f1a06d86ca6abf2e411d66d617e4d8cecfbf86b",
-            "http_status": 429
-          }
-        }
-      ],
-      "queued_at": "2026-10-23T21:02:15+09:00",
-      "attempts": 1,
-      "invalid_items": [],
-      "held_items": []
-    },
-    "spr:news:spr_article_fde60d88d30f35e5cd9eda3b": {
-      "topic": "spr",
-      "kind": "news",
-      "event_key": "spr_article_fde60d88d30f35e5cd9eda3b",
-      "status": "source_blocked",
-      "items": [
-        {
-          "id": "fde60d88d30f35e5cd9eda3b",
-          "title": "Western Media Accept Trump’s Plundering of Venezuelan Oil as Business as Usual - Venezuelanalysis",
-          "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPQTZCUTNSZ1NObmtfZTVyekQ1UVNDLXdselpfZGQ0Qnd1UTdEYjd2SDdzdktNTW5hRHo4QzRxbFd2Q3VZYk1kZXRxZGFxN2RYdXk5WERybkE3Q2VYTEJSVlE1U3VNWU5Xb2UyNDZOckRmSXlvaGtUWHh4TEthZng4WVJUdmRtWlctSTV2QllsWGNoQklpVzdadzk1WUZaLTAyVmljSm9Xalc3Q0xiQVVRRXlvU0FDUQ?oc=5",
-          "source": "Venezuelanalysis",
-          "source_url": "https://venezuelanalysis.com",
-          "pub_kst": "2026-10-25T05:50+09:00",
-          "_source_blocked": true,
-          "_source_failure": {
-            "stage": "translation_google",
-            "reason": "http_rate_limit",
-            "blocked_before_request": false,
-            "provider": "www.google.com",
-            "request_url_sha256": "e51f9f68d3388f3cb370cf6ed816379f708b111ea2b6bda1c044b10b8bf45f7b",
-            "http_status": 429
-          }
-        }
-      ],
-      "queued_at": "2026-10-26T06:21:13+09:00",
-      "attempts": 2,
-      "invalid_items": []
-    },
-    "spr:news:spr_article_293507419f7fd4fcc3586481": {
-      "topic": "spr",
-      "kind": "news",
-      "event_key": "spr_article_293507419f7fd4fcc3586481",
-      "status": "source_blocked",
-      "items": [
-        {
-          "id": "293507419f7fd4fcc3586481",
-          "title": "Trump showcases Venezuelan oil as he seeks to rally voters in Texas - Al Jazeera",
-          "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxQaF9uZTZjMHNYV1N2VGc3RUJMbVZvWkNQbXJPdWRtN3ZHbUdDVTFXdVFlaU5fNE1wczUzak9sOEVUQm45UGNqdGpiRXU5Zzlaa3NSTmR2QWI1NVdpNUt5TmYxX0NfcXN3dTZ2ZGdkVlF1emltTXU3ZHBBcnk1ZUQ3Z0NkVnNyb3JhcmVHZGxNR1Rqdkxsemlkd0d6OVFmQ2t5RmlZWXFjWWVudThWaVHSAbMBQVVfeXFMTmZLQl9ubVFSOVZxclNaMW0wQmZwZTVDTEtzUGZvbGx2cWNYWjlVd2kxbDB0d2hHS2JtTnFuQU43eXdtd0h3UW5ZS1h4Y2FubW9HekF2djF1NEZCRk15RHphcXFNdXg2dmRscDBNYjlja1dja1h6TTNmT1RMZGVzNXYySGJCUG1NTW13ekdUQ2dmYVlMZDBnanNzT0NFNGpFZzBXYW9jOVpXWFBrS19HRGRxQVU?oc=5",
-          "source": "Al Jazeera",
-          "source_url": "https://www.aljazeera.com",
-          "pub_kst": "2026-10-28T06:31+09:00",
-          "_source_blocked": true,
-          "_source_failure": {
-            "stage": "translation_google",
-            "reason": "http_rate_limit",
-            "blocked_before_request": false,
-            "provider": "www.google.com",
-            "request_url_sha256": "471794dadabcbf5c58022ae70e2981190e24099a8ca116fccc2ec3d1d1443c75",
-            "http_status": 429
-          }
-        }
-      ],
-      "queued_at": "2026-10-28T07:39:33+09:00",
-      "attempts": 1,
-      "invalid_items": [],
-      "held_items": []
-    },
-    "spr:news:spr_article_a555960915d1b8a81c7ca8be": {
-      "topic": "spr",
-      "kind": "news",
-      "event_key": "spr_article_a555960915d1b8a81c7ca8be",
-      "status": "source_blocked",
-      "items": [
-        {
-          "id": "a555960915d1b8a81c7ca8be",
-          "title": "Trump says 'billions' of barrels of Venezuelan oil will 'soon' lower gas prices - Yahoo",
-          "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxQRWFzNGE4bkhjSGVnSE9XaHh2REM1R01YaVp3cUpudHE1VzB4SjlUbGlZMkFaSVVWR0lKdWtfNkw0eTNwUDVmSHFjbm8xNzEtY25kYi1KeG1GVEpXa2xldDJQOXBwRnJNQlhPX3FraTl4NFczeUFINFlfWHBqMDhXcjZKbGp1ck45NXFwbFFtTnBzLWtxYUtPM1BJWWZuaXM?oc=5",
-          "source": "Yahoo",
-          "source_url": "https://www.yahoo.com",
-          "pub_kst": "2026-10-28T06:21+09:00",
-          "_source_blocked": true,
-          "_source_failure": {
-            "stage": "translation_google",
-            "reason": "http_rate_limit",
-            "blocked_before_request": false,
-            "provider": "www.google.com",
-            "request_url_sha256": "dc89e544dfc36e3cdf527171ac46d1ac43e300fd06d831b3031b7779193fc3cb",
-            "http_status": 429
-          }
-        }
-      ],
-      "queued_at": "2026-10-28T07:39:33+09:00",
-      "attempts": 1,
-      "invalid_items": [],
-      "held_items": []
-    },
-    "spr:news:spr_article_8a52db56f8ecdc6e3791edf2": {
-      "topic": "spr",
-      "kind": "news",
-      "event_key": "spr_article_8a52db56f8ecdc6e3791edf2",
-      "status": "source_blocked",
-      "items": [
-        {
-          "id": "8a52db56f8ecdc6e3791edf2",
-          "title": "Trump says he will visit tanker in Texas with first oil from Venezuela deal - Reuters",
-          "link": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxQS2xReG5IbDd2VEVRZXJ1VUtaNGtlSFhpa3paSkFQVWhLWVk3NzNkendFMXNTZ3p5b3R6aTJTUzluYk1PUGlySXNEaDZPdXN2ZEx2WTF0SlRZZ1lmRmtRZnpFSVU4WGp0ZkdfY18tQlYwck9GbVBRUXR0Q2x2bVlkWDdMbVNFSVVZNnh2bXpjMm9hRjd3eThsYXRqQ0JhT05hc2hIWG93U005R2pFOXlORmZmNV9uYW02cGM4?oc=5",
-          "source": "Reuters",
-          "source_url": "https://www.reuters.com",
-          "pub_kst": "2026-10-28T05:16+09:00",
-          "_source_blocked": true,
-          "_source_failure": {
-            "stage": "article_fetch",
-            "reason": "http_denial",
-            "blocked_before_request": false,
-            "provider": "www.reuters.com",
-            "request_url_sha256": "7bdad2b89b7b34742b27a8c773edb4da9f1d3e998be51aefa166afaab17fb205",
-            "http_status": 401
-          }
-        }
-      ],
-      "queued_at": "2026-10-28T07:39:33+09:00",
-      "attempts": 1,
-      "invalid_items": [],
-      "held_items": []
-    },
-    "spr:news:spr_article_b1ad54e8d441435d86e5b552": {
-      "topic": "spr",
-      "kind": "news",
-      "event_key": "spr_article_b1ad54e8d441435d86e5b552",
-      "status": "source_blocked",
-      "items": [
-        {
-          "id": "b1ad54e8d441435d86e5b552",
-          "title": "Trump, Rubio to oversee shipment of 1 million barrels of Venezuelan oil after deal with US - New York Post",
-          "link": "https://news.google.com/rss/articles/CBMi7wFBVV95cUxOeGlQRjZrc1RUczZsUExlS2RCeTJDT1U0UnpMM3BJeWxkMUpSVHpWb09KRXRaZlRkY1JTWUQ1QkcxaEZJSDZaNXhGc3dRLWNGVEJ6VUVxM0lEZ3RaaXJ4dHNPSTkzNk5VVUMzZWU4aUl4ZHdXNnN4ZG4zLTVhUlZraHZ4UVl0S3VoRHYwQ0RlMDBGSjA4dF9iVHd4aGVVOGJGZ1FBTnlPRXp5OFk1QzdHTGN1STVaZ0JPUkdTTWVTRzhuS2ZMMW13d0N5OGlrVkVNamdydm55bHY4YzFwX0stVnlWTmV0NmJVNlluYjJCUQ?oc=5",
-          "source": "New York Post",
-          "source_url": "https://nypost.com",
-          "pub_kst": "2026-10-28T02:49+09:00",
-          "_source_blocked": true,
-          "_source_failure": {
-            "stage": "translation_google",
-            "reason": "http_rate_limit",
-            "blocked_before_request": false,
-            "provider": "www.google.com",
-            "request_url_sha256": "f440f5957db5a6ade71bed81ae93036485a24ce27e0bece04e29040800508cfb",
-            "http_status": 429
-          }
-        }
-      ],
-      "queued_at": "2026-10-28T07:39:33+09:00",
-      "attempts": 1,
-      "invalid_items": []
-    },
-    "spr:news:spr_article_4680ac86ae095bce05fa9c51": {
-      "topic": "spr",
-      "kind": "news",
-      "event_key": "spr_article_4680ac86ae095bce05fa9c51",
-      "status": "source_blocked",
-      "items": [
-        {
-          "id": "4680ac86ae095bce05fa9c51",
-          "title": "Trump, Rubio Plan to Visit Tanker With Venezuelan Crude in Texas - Bloomberg.com",
-          "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPRWZlREJ5cUZLaEF0eXQ0SnlESjNBVWhtcDJ4UHJvdFZLUmtwVzE5Y2VkdlRTaUd2a2gxOFFSWkc1VVZBdk9RM0RYRWQzSmtWQ1dhbzNGVjVVNWFObXF5TDRqRlcxZzE0ZmpFLXYwWlp0YXBpdUpmR2dfRXZ3XzFrNTRJcHNFSjE4QkdMUUw4OENsY2ZJTkNkOWhUaC1wZGZDV2NEWk9OeFhkblFWVTBIa2pjemY?oc=5",
-          "source": "Bloomberg.com",
-          "source_url": "https://www.bloomberg.com",
-          "pub_kst": "2026-10-28T01:24+09:00",
-          "_source_blocked": true,
-          "_source_failure": {
-            "stage": "article_fetch",
-            "reason": "http_denial",
-            "blocked_before_request": false,
-            "provider": "www.bloomberg.com",
-            "request_url_sha256": "f1a2d2a74cbedc13546daafb22be8b4d28025a67b3536d38b61b218776141f65",
-            "http_status": 403
-          }
-        }
-      ],
-      "queued_at": "2026-10-28T07:39:33+09:00",
-      "attempts": 1,
-      "invalid_items": [],
-      "held_items": []
-    },
-    "spr:news:spr_article_4a6f1793bcb6d05e384c1d75": {
-      "topic": "spr",
-      "kind": "news",
-      "event_key": "spr_article_4a6f1793bcb6d05e384c1d75",
-      "status": "source_blocked",
-      "items": [
-        {
-          "id": "4a6f1793bcb6d05e384c1d75",
-          "title": "Trump and Rubio plan to visit oil tanker carrying Venezuelan crude in Texas - ABC News - Breaking News, Latest News and Videos",
-          "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxPeWs1VmpWZGFULWxiNWJQb0JHWFhMeTRXNFdwUjlNbU5kY0pZU25feGh4Y0lIN0hybE52TWdNRjdmOUF5eEl3MFAyclZ0MFU0bU9JLXJaTGxRblhwM3dSMjF5T0tGTnpBckQ1ZDBmSXVXWjZzT0gyaUlEU29SZDRfLWVEc3dTaTB6bFZZOUF2cXdDUGxHb21ud1ItWTJlbTRKdjZOVNIBqgFBVV95cUxQSjAybF9ONk5DbjJrLW55UGRMRUpPSVdiUFdyRnVJYlNZejUyX0JocnRqMkEzdHZpdUdIZHBDbmhTalJQbmtBcnNmZTRZWnhkWUdUZk1FUEwxaE9lLWp4aFVjOUVFVEItcTluc0FUTlI2MXhpdWRKWU1JeVZOSkZmclI5a1JnQjVWaVhZWUZ4MEQ1RkwtRG0zWmJ6TUswSTBEZVRiSGZJSHZNUQ?oc=5",
-          "source": "ABC News - Breaking News, Latest News and Videos",
-          "source_url": "https://abcnews.com",
-          "pub_kst": "2026-10-27T16:42+09:00",
-          "_source_blocked": true,
-          "_source_failure": {
-            "stage": "translation_google",
-            "reason": "http_rate_limit",
-            "blocked_before_request": false,
-            "provider": "www.google.com",
-            "request_url_sha256": "3c2adddfdbc0474f60203fdd527448c9d8ce6c5b7615e0ae90f87f1b0cb168ee",
-            "http_status": 429
-          }
-        }
-      ],
-      "queued_at": "2026-10-28T07:39:33+09:00",
-      "attempts": 1,
-      "invalid_items": [],
-      "held_items": []
-    },
-    "spr:news:spr_article_6f8cf83dc6ae7bd303e17a1e": {
-      "topic": "spr",
-      "kind": "news",
-      "event_key": "spr_article_6f8cf83dc6ae7bd303e17a1e",
-      "status": "source_blocked",
-      "items": [
-        {
-          "id": "6f8cf83dc6ae7bd303e17a1e",
-          "title": "Trump to Showcase Venezuelan Oil Shipment in Texas Alongside Rubio During Midterm Campaign Trip - Latin Times",
-          "link": "https://news.google.com/rss/articles/CBMihgFBVV95cUxPOXdCd2dlMkJHaER6ZmI5bVlLbTNaZ2JlZnl2cll5SnNZQ1NGRGVOUHFMSVVpLUVERFZaNHhFNVo2U0N5bnNCOXVaRmdVYWN6RVUtODBHcDFmMHJoQW5CamFNRXhlNk14RklCX3oxMHFBVm5uM0Y4OW9tU1FJNHJWNTdqTVE1UQ?oc=5",
-          "source": "Latin Times",
-          "source_url": "https://www.latintimes.com",
-          "pub_kst": "2026-10-28T03:58+09:00",
-          "_source_blocked": true,
-          "_source_failure": {
-            "stage": "translation_google",
-            "reason": "http_rate_limit",
-            "blocked_before_request": false,
-            "provider": "www.google.com",
-            "request_url_sha256": "1656087cd7e0e607436b99d34c32778f38d28462362a2437395c64a77b2c367c",
-            "http_status": 429
-          }
-        }
-      ],
-      "queued_at": "2026-10-28T10:40:31+09:00",
-      "attempts": 1,
-      "invalid_items": [],
-      "held_items": []
-    },
-    "spr:news:spr_article_53ff0259020e106d3aeab20d": {
-      "topic": "spr",
-      "kind": "news",
-      "event_key": "spr_article_53ff0259020e106d3aeab20d",
-      "status": "source_blocked",
-      "items": [
-        {
-          "id": "53ff0259020e106d3aeab20d",
-          "title": "Trump Puts Spotlight on Venezuelan Oil With Stop in Corpus Christi - The Maritime Executive",
-          "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPTnhCN0N2VzN4Wk1sRDljM0JUWDVXVlNMQ1hvSDFNbUE5MmpDMi1KVjBEdjJiamV0ZHh3NGxqd2VadHZEc0xJVURnTGFiSWR2QTdHbjBkN3h2eTJtX2pyV2hEeDNyRHN1N19BWWhIZU82bnVQTHF0UF9uWHVoMGhkaV9pb0xKWXFQbmI3UWdvd1N5QnNtTm42Z2FweXQ1UGU2WkZ5VUE3SC0?oc=5",
-          "source": "The Maritime Executive",
-          "source_url": "https://maritime-executive.com",
-          "pub_kst": "2026-10-28T11:02+09:00",
-          "_source_blocked": true,
-          "_source_failure": {
-            "stage": "translation_google",
-            "reason": "http_rate_limit",
-            "blocked_before_request": false,
-            "provider": "www.google.com",
-            "request_url_sha256": "78df9b0813bf1522f860b5bc6506ccd1ef4565199474a19778e3a67bca5d4bfc",
-            "http_status": 429
-          }
-        }
-      ],
-      "queued_at": "2026-10-28T16:22:33+09:00",
-      "attempts": 1,
-      "invalid_items": [],
-      "held_items": []
-    },
-    "spr:news:spr_article_158f1222a4711b2f22e15919": {
-      "topic": "spr",
-      "kind": "news",
-      "event_key": "spr_article_158f1222a4711b2f22e15919",
-      "status": "source_blocked",
-      "items": [
-        {
-          "id": "158f1222a4711b2f22e15919",
-          "title": "Trump touts Venezuelan oil at Texas rally ahead of US midterms - Al Jazeera",
-          "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxQaF9uZTZjMHNYV1N2VGc3RUJMbVZvWkNQbXJPdWRtN3ZHbUdDVTFXdVFlaU5fNE1wczUzak9sOEVUQm45UGNqdGpiRXU5Zzlaa3NSTmR2QWI1NVdpNUt5TmYxX0NfcXN3dTZ2ZGdkVlF1emltTXU3ZHBBcnk1ZUQ3Z0NkVnNyb3JhcmVHZGxNR1Rqdkxsemlkd0d6OVFmQ2t5RmlZWXFjWWVudThWaVHSAbMBQVVfeXFMTmZLQl9ubVFSOVZxclNaMW0wQmZwZTVDTEtzUGZvbGx2cWNYWjlVd2kxbDB0d2hHS2JtTnFuQU43eXdtd0h3UW5ZS1h4Y2FubW9HekF2djF1NEZCRk15RHphcXFNdXg2dmRscDBNYjlja1dja1h6TTNmT1RMZGVzNXYySGJCUG1NTW13ekdUQ2dmYVlMZDBnanNzT0NFNGpFZzBXYW9jOVpXWFBrS19HRGRxQVU?oc=5",
-          "source": "Al Jazeera",
-          "source_url": "https://www.aljazeera.com",
-          "pub_kst": "2026-10-28T06:31+09:00",
-          "_source_blocked": true,
-          "_source_failure": {
-            "stage": "translation_google",
-            "reason": "http_rate_limit",
-            "blocked_before_request": false,
-            "provider": "www.google.com",
-            "request_url_sha256": "587af77dcb8a561f14974e5e93f37e4adc5a114372526cade547bc7a9292cf97",
-            "http_status": 429
-          }
-        }
-      ],
-      "queued_at": "2026-10-28T16:22:33+09:00",
-      "attempts": 1,
-      "invalid_items": [],
-      "held_items": []
-    },
-    "spr:news:spr_article_321d692d8628dff2082f7aef": {
-      "topic": "spr",
-      "kind": "news",
-      "event_key": "spr_article_321d692d8628dff2082f7aef",
-      "status": "source_blocked",
-      "items": [
-        {
-          "id": "321d692d8628dff2082f7aef",
-          "title": "Trump, Rubio Plan to Visit Tanker With Venezuelan Crude in Texas - Bloomberg",
-          "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPRWZlREJ5cUZLaEF0eXQ0SnlESjNBVWhtcDJ4UHJvdFZLUmtwVzE5Y2VkdlRTaUd2a2gxOFFSWkc1VVZBdk9RM0RYRWQzSmtWQ1dhbzNGVjVVNWFObXF5TDRqRlcxZzE0ZmpFLXYwWlp0YXBpdUpmR2dfRXZ3XzFrNTRJcHNFSjE4QkdMUUw4OENsY2ZJTkNkOWhUaC1wZGZDV2NEWk9OeFhkblFWVTBIa2pjemY?oc=5",
-          "source": "Bloomberg",
-          "source_url": "https://www.bloomberg.com",
-          "pub_kst": "2026-10-28T01:24+09:00",
-          "_source_blocked": true,
-          "_source_failure": {
-            "stage": "article_fetch",
-            "reason": "http_denial",
-            "blocked_before_request": false,
-            "provider": "www.bloomberg.com",
-            "request_url_sha256": "f1a2d2a74cbedc13546daafb22be8b4d28025a67b3536d38b61b218776141f65",
-            "http_status": 403
-          }
-        }
-      ],
-      "queued_at": "2026-10-28T16:22:33+09:00",
-      "attempts": 1,
-      "invalid_items": []
-    },
-    "spr:news:spr_article_e91075b7d29b855af54ad88c": {
-      "topic": "spr",
-      "kind": "news",
-      "event_key": "spr_article_e91075b7d29b855af54ad88c",
-      "status": "source_blocked",
-      "items": [
-        {
-          "id": "e91075b7d29b855af54ad88c",
-          "title": "Trump and Rubio plan to visit oil tanker carrying Venezuelan crude in Texas - AP News",
-          "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxPY1lQMDdtdmVjVTlZS1lRUTY4OEJGamlOTUV1TWVHelZ6VHFUYWhjZE1qYVZhSk5oamx5UkhzLXRTZks0dHZFX1A4X3BFMWpQWGhpa3ZENkhYWmFKNUxFbnJoX2E0anFtZWdIVzVCYzNjc1NIWmE3QXFNa2NyMlVxdlZMVUE4SDNBdVBjZzdtUTFlVF9uY0pzVl9ZSkM5T2V4eVE?oc=5",
-          "source": "AP News",
-          "source_url": "https://apnews.com",
-          "pub_kst": "2026-10-27T12:24+09:00",
-          "_source_blocked": true,
-          "_source_failure": {
-            "stage": "article_fetch",
-            "reason": "http_denial",
-            "blocked_before_request": false,
-            "provider": "apnews.com",
-            "request_url_sha256": "bc4421dfbaa57e67ee44cea36eb61a7a5fdb94a76f796d3f866d8c9f4c4729d5",
-            "http_status": 403
-          }
-        }
-      ],
-      "queued_at": "2026-10-28T23:07:34+09:00",
-      "attempts": 1,
-      "invalid_items": []
-    },
-    "spr:news:spr_article_dc1267d68bac564ebfa25f56": {
-      "topic": "spr",
-      "kind": "news",
-      "event_key": "spr_article_dc1267d68bac564ebfa25f56",
-      "status": "source_blocked",
-      "items": [
-        {
-          "id": "dc1267d68bac564ebfa25f56",
-          "title": "Trump promises ‘billions’ of Venezuelan barrels as he visits Trafigura tanker - TradeWinds News",
-          "link": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxQdGdXN3NZVndTU04wMW5MZ0s1U3otQ1BsMnZ2R1FaeVNaZWdTUjZiQUt5WXJoczZmNFllbDUybVlHeVpfSEYtWlF5dUV5WUJnY1BJc0o0QUQtRFZfQkxTV2I0U0pIMTdTSmloRGRBSkFfMDJEWFFjWjZWOHVoVTdMak5sTjE1RG05VUt2SjNzdWpoYWhnUWI5ZHAyeGhoTDNoVGZ4dFRNbXhKTTJUZmM3aEQwUHAyQ01hVEFjbkh3STFNWjJqMkNzUw?oc=5",
-          "source": "TradeWinds News",
-          "source_url": "https://www.tradewindsnews.com",
-          "pub_kst": "2026-10-29T01:33+09:00",
-          "_source_blocked": true,
-          "_source_failure": {
-            "stage": "translation_google",
-            "reason": "http_rate_limit",
-            "blocked_before_request": false,
-            "provider": "www.google.com",
-            "request_url_sha256": "60b03803341f9fe7675925b0bcafc1222f913ee1fe4835ead6d8a95355636e2e",
-            "http_status": 429
-          }
-        }
-      ],
-      "queued_at": "2026-10-29T04:29:44+09:00",
-      "attempts": 1,
-      "invalid_items": [],
-      "held_items": []
-    },
-    "spr:news:spr_article_d5dd23dc3a2f76281065ae8f": {
-      "topic": "spr",
-      "kind": "news",
-      "event_key": "spr_article_d5dd23dc3a2f76281065ae8f",
-      "status": "source_blocked",
-      "items": [
-        {
-          "id": "d5dd23dc3a2f76281065ae8f",
-          "title": "Trump’s Claims About Drilling, Venezuelan Oil Imports Contradict Data - Eurasia Review",
-          "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxOV3pYdi1yRmpxbHhOci01N0NkSjY4T0huY3NEM21EbEs0RFhuTGxRVENSM1ZCSmVJeFNVZnJ3Y3E3bmQ5X3h6alowaVZSZEptTDNIN2JFVGNkTXc2cERVM1RHNHZaSmxhR05CclkwQ1paOGt3NlQxM3RHRXQySkRIVUI3SDluOXU3WlhzVWV2T0xsYmhFcGNVTEF2UjMxbUJ3a1NmREpRWjFPc1U?oc=5",
-          "source": "Eurasia Review",
-          "source_url": "https://www.eurasiareview.com",
-          "pub_kst": "2026-10-29T12:06+09:00",
-          "_source_blocked": true,
-          "_source_failure": {
-            "stage": "article_fetch",
-            "reason": "http_denial",
-            "blocked_before_request": false,
-            "provider": "www.eurasiareview.com",
-            "request_url_sha256": "f06e746cda191c4024390538aab266d4a20e851be7b7a1e9556d2ff50dbf2b34",
-            "http_status": 403
-          }
-        }
-      ],
-      "queued_at": "2026-10-29T17:48:35+09:00",
-      "attempts": 1,
-      "invalid_items": [],
-      "held_items": []
-    },
-    "spr:news:spr_article_ceb88c7145399665661d4995": {
-      "topic": "spr",
-      "kind": "news",
-      "event_key": "spr_article_ceb88c7145399665661d4995",
-      "status": "source_blocked",
-      "items": [
-        {
-          "id": "ceb88c7145399665661d4995",
-          "title": "Trump’s claims about drilling, Venezuelan oil imports contradict data - OCNJ Daily",
-          "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNODhHUG02YTlpOE9ZVF9nUDQ3SU5Ud2N3dGtydFFJODNVeGhSZ21vcTZVa3pzUjljcURSVnpaRndNWGxsOVpBYXZHNWVjeDQwdVNoc0h4N0t1UUNzSjF2T0pXbEthNktZZW03TFktdTcyYXZQcFFSUnpLNnZyVVFGUDZwdk13U2hvbTF6WjJtQzBEUE1RT29RSjIweFV6VnVvMkJTSGJiMA?oc=5",
-          "source": "OCNJ Daily",
-          "source_url": "https://ocnjdaily.com",
-          "pub_kst": "2026-10-29T07:00+09:00",
-          "_source_blocked": true,
-          "_source_failure": {
-            "stage": "translation_google",
-            "reason": "http_rate_limit",
-            "blocked_before_request": false,
-            "provider": "www.google.com",
-            "request_url_sha256": "57bb2c03f4df7cd758f5f6fc3e2b7bd1c847ca8bff105957efe07a28d82899b4",
-            "http_status": 429
-          }
-        }
-      ],
-      "queued_at": "2026-10-29T17:48:35+09:00",
-      "attempts": 1,
-      "invalid_items": []
-    },
-    "spr:news:spr_article_1516fb34eb8404294d8b5b05": {
-      "topic": "spr",
-      "kind": "news",
-      "event_key": "spr_article_1516fb34eb8404294d8b5b05",
-      "status": "source_blocked",
-      "items": [
-        {
-          "id": "1516fb34eb8404294d8b5b05",
-          "title": "Trump’s claims about drilling, Venezuelan oil imports contradict data - North Penn Now",
-          "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxNcUFiTl95d3JXaERjejJQZ2lxcURrdmF1WDd3Tks1Mmo1RFBZckVZX3hWVkxvZTUwdmx0aFBxbDRWcUpjaWZuZVZPOHJDMHFzcEdtSjg1a0NTdFFzUXl4TndGam1nUmd1NHRtdWRnTHJSTnROX3BvNS1RNm1HbEJLcGhKdlFaYjFkRjIyMHBiQ3VUOTg4blFWZXgwZWcwOTBEd1VSd2FKTkxMS0k?oc=5",
-          "source": "North Penn Now",
-          "source_url": "https://northpennnow.com",
-          "pub_kst": "2026-10-29T07:00+09:00",
-          "_source_blocked": true,
-          "_source_failure": {
-            "stage": "translation_google",
-            "reason": "http_rate_limit",
-            "blocked_before_request": false,
-            "provider": "www.google.com",
-            "request_url_sha256": "a0c13869eb82e3592515680598929043abb7f49ca6bb3ea558e765d293f858ac",
-            "http_status": 429
-          }
-        }
-      ],
-      "queued_at": "2026-10-30T14:37:41+09:00",
-      "attempts": 1,
-      "invalid_items": [],
-      "held_items": []
-    },
     "spr:news:spr_article_3947e1a54202b912263a0482": {
       "topic": "spr",
       "kind": "news",
@@ -3102,6 +2442,236 @@
       ],
       "delivered": false,
       "archived": true
+    },
+    {
+      "key": "spr:news:spr_article_9f58a057e3c97b602ebcc8ea",
+      "reason": "expired_unverified_no_telegram_delivery",
+      "at": "2026-11-02T03:41:35+09:00",
+      "ids": [
+        "9f58a057e3c97b602ebcc8ea"
+      ],
+      "delivered": false,
+      "archived": true
+    },
+    {
+      "key": "spr:news:spr_article_13ee2880c785543bf421d89f",
+      "reason": "expired_unverified_no_telegram_delivery",
+      "at": "2026-11-02T03:41:35+09:00",
+      "ids": [
+        "13ee2880c785543bf421d89f"
+      ],
+      "delivered": false,
+      "archived": true
+    },
+    {
+      "key": "spr:news:spr_article_f256747acf78978beebe2551",
+      "reason": "expired_unverified_no_telegram_delivery",
+      "at": "2026-11-02T03:41:35+09:00",
+      "ids": [
+        "f256747acf78978beebe2551"
+      ],
+      "delivered": false,
+      "archived": true
+    },
+    {
+      "key": "spr:news:spr_article_af90073003753247b90e0876",
+      "reason": "expired_unverified_no_telegram_delivery",
+      "at": "2026-11-02T03:41:35+09:00",
+      "ids": [
+        "af90073003753247b90e0876"
+      ],
+      "delivered": false,
+      "archived": true
+    },
+    {
+      "key": "spr:news:spr_article_3988b6da2a9b97e76b90c7cb",
+      "reason": "expired_unverified_no_telegram_delivery",
+      "at": "2026-11-02T03:41:35+09:00",
+      "ids": [
+        "3988b6da2a9b97e76b90c7cb"
+      ],
+      "delivered": false,
+      "archived": true
+    },
+    {
+      "key": "spr:news:spr_article_fdf5f03c30a9ef6318006563",
+      "reason": "expired_unverified_no_telegram_delivery",
+      "at": "2026-11-02T03:41:35+09:00",
+      "ids": [
+        "fdf5f03c30a9ef6318006563"
+      ],
+      "delivered": false,
+      "archived": true
+    },
+    {
+      "key": "spr:news:spr_article_c3ac4c053b38e49e1ccec446",
+      "reason": "expired_unverified_no_telegram_delivery",
+      "at": "2026-11-02T03:41:35+09:00",
+      "ids": [
+        "c3ac4c053b38e49e1ccec446"
+      ],
+      "delivered": false,
+      "archived": true
+    },
+    {
+      "key": "spr:news:spr_article_fde60d88d30f35e5cd9eda3b",
+      "reason": "expired_unverified_no_telegram_delivery",
+      "at": "2026-11-02T03:41:35+09:00",
+      "ids": [
+        "fde60d88d30f35e5cd9eda3b"
+      ],
+      "delivered": false,
+      "archived": true
+    },
+    {
+      "key": "spr:news:spr_article_293507419f7fd4fcc3586481",
+      "reason": "expired_unverified_no_telegram_delivery",
+      "at": "2026-11-02T03:41:35+09:00",
+      "ids": [
+        "293507419f7fd4fcc3586481"
+      ],
+      "delivered": false,
+      "archived": true
+    },
+    {
+      "key": "spr:news:spr_article_a555960915d1b8a81c7ca8be",
+      "reason": "expired_unverified_no_telegram_delivery",
+      "at": "2026-11-02T03:41:35+09:00",
+      "ids": [
+        "a555960915d1b8a81c7ca8be"
+      ],
+      "delivered": false,
+      "archived": true
+    },
+    {
+      "key": "spr:news:spr_article_8a52db56f8ecdc6e3791edf2",
+      "reason": "expired_unverified_no_telegram_delivery",
+      "at": "2026-11-02T03:41:35+09:00",
+      "ids": [
+        "8a52db56f8ecdc6e3791edf2"
+      ],
+      "delivered": false,
+      "archived": true
+    },
+    {
+      "key": "spr:news:spr_article_b1ad54e8d441435d86e5b552",
+      "reason": "expired_unverified_no_telegram_delivery",
+      "at": "2026-11-02T03:41:35+09:00",
+      "ids": [
+        "b1ad54e8d441435d86e5b552"
+      ],
+      "delivered": false,
+      "archived": true
+    },
+    {
+      "key": "spr:news:spr_article_4680ac86ae095bce05fa9c51",
+      "reason": "expired_unverified_no_telegram_delivery",
+      "at": "2026-11-02T03:41:35+09:00",
+      "ids": [
+        "4680ac86ae095bce05fa9c51"
+      ],
+      "delivered": false,
+      "archived": true
+    },
+    {
+      "key": "spr:news:spr_article_4a6f1793bcb6d05e384c1d75",
+      "reason": "expired_unverified_no_telegram_delivery",
+      "at": "2026-11-02T03:41:35+09:00",
+      "ids": [
+        "4a6f1793bcb6d05e384c1d75"
+      ],
+      "delivered": false,
+      "archived": true
+    },
+    {
+      "key": "spr:news:spr_article_6f8cf83dc6ae7bd303e17a1e",
+      "reason": "expired_unverified_no_telegram_delivery",
+      "at": "2026-11-02T03:41:35+09:00",
+      "ids": [
+        "6f8cf83dc6ae7bd303e17a1e"
+      ],
+      "delivered": false,
+      "archived": true
+    },
+    {
+      "key": "spr:news:spr_article_53ff0259020e106d3aeab20d",
+      "reason": "expired_unverified_no_telegram_delivery",
+      "at": "2026-11-02T03:41:35+09:00",
+      "ids": [
+        "53ff0259020e106d3aeab20d"
+      ],
+      "delivered": false,
+      "archived": true
+    },
+    {
+      "key": "spr:news:spr_article_158f1222a4711b2f22e15919",
+      "reason": "expired_unverified_no_telegram_delivery",
+      "at": "2026-11-02T03:41:35+09:00",
+      "ids": [
+        "158f1222a4711b2f22e15919"
+      ],
+      "delivered": false,
+      "archived": true
+    },
+    {
+      "key": "spr:news:spr_article_321d692d8628dff2082f7aef",
+      "reason": "expired_unverified_no_telegram_delivery",
+      "at": "2026-11-02T03:41:35+09:00",
+      "ids": [
+        "321d692d8628dff2082f7aef"
+      ],
+      "delivered": false,
+      "archived": true
+    },
+    {
+      "key": "spr:news:spr_article_e91075b7d29b855af54ad88c",
+      "reason": "expired_unverified_no_telegram_delivery",
+      "at": "2026-11-02T03:41:35+09:00",
+      "ids": [
+        "e91075b7d29b855af54ad88c"
+      ],
+      "delivered": false,
+      "archived": true
+    },
+    {
+      "key": "spr:news:spr_article_dc1267d68bac564ebfa25f56",
+      "reason": "expired_unverified_no_telegram_delivery",
+      "at": "2026-11-02T03:41:35+09:00",
+      "ids": [
+        "dc1267d68bac564ebfa25f56"
+      ],
+      "delivered": false,
+      "archived": true
+    },
+    {
+      "key": "spr:news:spr_article_d5dd23dc3a2f76281065ae8f",
+      "reason": "expired_unverified_no_telegram_delivery",
+      "at": "2026-11-02T03:41:35+09:00",
+      "ids": [
+        "d5dd23dc3a2f76281065ae8f"
+      ],
+      "delivered": false,
+      "archived": true
+    },
+    {
+      "key": "spr:news:spr_article_ceb88c7145399665661d4995",
+      "reason": "expired_unverified_no_telegram_delivery",
+      "at": "2026-11-02T03:41:35+09:00",
+      "ids": [
+        "ceb88c7145399665661d4995"
+      ],
+      "delivered": false,
+      "archived": true
+    },
+    {
+      "key": "spr:news:spr_article_1516fb34eb8404294d8b5b05",
+      "reason": "expired_unverified_no_telegram_delivery",
+      "at": "2026-11-02T03:41:35+09:00",
+      "ids": [
+        "1516fb34eb8404294d8b5b05"
+      ],
+      "delivered": false,
+      "archived": true
     }
   ],
   "observed_data": {
@@ -3762,6 +3332,758 @@
           }
         ],
         "queued_at": "2026-10-27T04:22:05+09:00",
+        "attempts": 1,
+        "invalid_items": [],
+        "held_items": []
+      }
+    },
+    "spr:news:spr_article_9f58a057e3c97b602ebcc8ea": {
+      "archived_at": "2026-11-02T03:41:35+09:00",
+      "reason": "expired_unverified_no_telegram_delivery",
+      "entry": {
+        "topic": "spr",
+        "kind": "news",
+        "event_key": "spr_article_9f58a057e3c97b602ebcc8ea",
+        "status": "source_blocked",
+        "items": [
+          {
+            "id": "9f58a057e3c97b602ebcc8ea",
+            "title": "Trump Announces Sweeping US Grab for Control of Venezuela’s Vast Oil Reserves - What This Could Mean For Canadian Crude - EnergyNow",
+            "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxOYzkzVjNXTFNkVG1scG15eWtRWVlSMkgtdjZ1TGZQSm1tRkdUZ28zcDJyek5NVjJQU3FGT1QyWjl2WnJWanBQT1FHMmhicGRvejNBcWlkb3MtSllGSkNseFhzWGIxQWRhUEdWZlZsay1WRzBqcmZCWjNtRHktaFhwMEFfeWFZQTZ1M3hzSE55TGVramZOMm9jNUprdm9IRGxubnY3S3dib1JCUE5XZnFWTzJIdjJBX0l3cWlyYQ?oc=5",
+            "source": "EnergyNow",
+            "source_url": "https://energynow.ca",
+            "pub_kst": "2026-10-13T04:48+09:00",
+            "_source_blocked": true,
+            "_source_failure": {
+              "stage": "article_fetch",
+              "reason": "http_denial",
+              "blocked_before_request": false,
+              "provider": "energynow.ca",
+              "request_url_sha256": "b652285e87601308353d0a029319ac55133cf225694b801ef38142dde2d82517",
+              "http_status": 403
+            }
+          }
+        ],
+        "queued_at": "2026-10-13T18:21:04+09:00",
+        "attempts": 1,
+        "invalid_items": [],
+        "held_items": []
+      }
+    },
+    "spr:news:spr_article_13ee2880c785543bf421d89f": {
+      "archived_at": "2026-11-02T03:41:35+09:00",
+      "reason": "expired_unverified_no_telegram_delivery",
+      "entry": {
+        "topic": "spr",
+        "kind": "news",
+        "event_key": "spr_article_13ee2880c785543bf421d89f",
+        "status": "source_blocked",
+        "items": [
+          {
+            "id": "13ee2880c785543bf421d89f",
+            "title": "TRUMP’S VENEZUELA OIL DEAL: A Strategic Win for America, but is it a Good Deal for Venezuelans? - EnergyNow",
+            "link": "https://news.google.com/rss/articles/CBMivgFBVV95cUxONlEzeVVJclF5cHdXcF9yY01KMVdpNnlINGRua2NvQ21yZmozVU9pTG5RQTczMHQybDZnVGYyNXNNcHc0ZjBkZEYxMWZMWnZxbzRXQzBJbXJvc2tIeEZwV1Eyd2l4TjBMYXZPU2lSLUF3bDhlY3NyczNxbFVxOGxVVnlXSUpDbkRuTXNMSTlSb0NLUmR2NVlkVE5mZzNQTXZLcFlRdFJQUDc4WEdRUFFXbGJUMWNlVFdXMUF2dndR?oc=5",
+            "source": "EnergyNow",
+            "source_url": "https://energynow.ca",
+            "pub_kst": "2026-10-22T00:39+09:00",
+            "_source_blocked": true,
+            "_source_failure": {
+              "stage": "article_fetch",
+              "reason": "http_denial",
+              "blocked_before_request": false,
+              "provider": "energynow.ca",
+              "request_url_sha256": "4be4313f0133c30a1376bed4e81bdd755013b78efe912ffa79b109e853bbb57c",
+              "http_status": 403
+            }
+          }
+        ],
+        "queued_at": "2026-10-22T05:34:58+09:00",
+        "attempts": 1,
+        "invalid_items": [],
+        "held_items": []
+      }
+    },
+    "spr:news:spr_article_f256747acf78978beebe2551": {
+      "archived_at": "2026-11-02T03:41:35+09:00",
+      "reason": "expired_unverified_no_telegram_delivery",
+      "entry": {
+        "topic": "spr",
+        "kind": "news",
+        "event_key": "spr_article_f256747acf78978beebe2551",
+        "status": "source_blocked",
+        "items": [
+          {
+            "id": "f256747acf78978beebe2551",
+            "title": "The Secret Terms of Trump’s Venezuelan Oil Deal - ProPublica",
+            "link": "https://news.google.com/rss/articles/CBMiekFVX3lxTFA4REI5YllScE1WWl9mN0JhLURTd3p5NDdCU2xyaVA5ZkRlVWhXMVl2eENRYk4xa3hRcXkzTmV2bFJuS2wxUENZdTNZNlhBczdmZjBxRE5udXNON3otaE9NRU5vX1V4Y0Zwb251SE9hcmpFSWt2NXJzNzl3?oc=5",
+            "source": "ProPublica",
+            "source_url": "https://www.propublica.org",
+            "pub_kst": "2026-10-21T10:53+09:00",
+            "_source_blocked": true,
+            "_source_failure": {
+              "stage": "translation_google",
+              "reason": "http_rate_limit",
+              "blocked_before_request": false,
+              "provider": "www.google.com",
+              "request_url_sha256": "bc77c51ad9b14b9b4285f433ffda16c6ffbea9c3d3c18081484100e38aac8472",
+              "http_status": 429
+            }
+          }
+        ],
+        "queued_at": "2026-10-22T05:34:58+09:00",
+        "attempts": 1,
+        "invalid_items": [],
+        "held_items": []
+      }
+    },
+    "spr:news:spr_article_af90073003753247b90e0876": {
+      "archived_at": "2026-11-02T03:41:35+09:00",
+      "reason": "expired_unverified_no_telegram_delivery",
+      "entry": {
+        "topic": "spr",
+        "kind": "news",
+        "event_key": "spr_article_af90073003753247b90e0876",
+        "status": "source_blocked",
+        "items": [
+          {
+            "id": "af90073003753247b90e0876",
+            "title": "Experts cast doubt on Venezuela’s longtime claim of 300 billion barrels of reserve oil - AP News",
+            "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxNYW93dzdYRlFUeEhOUHBwWlhObXNER0RNN2NBckh0ZHBTY2VnRTk4XzRPZE4wRG0tOUExY0hHcFpyWkduWWUyR0ZRdjRJaFhWUlFjWGgtZW5UdEhtUTM4M2IweTlna0duR1BlVXcxRDkzNUczUk9kQVNBa0xwM21GNXE5Uzc0NS03QzliN1JJbXdzTk9oUDVvWjZ2RnpnaWU1NWV3?oc=5",
+            "source": "AP News",
+            "source_url": "https://apnews.com",
+            "pub_kst": "2026-10-22T23:26+09:00",
+            "_source_blocked": true,
+            "_source_failure": {
+              "stage": "article_fetch",
+              "reason": "http_denial",
+              "blocked_before_request": false,
+              "provider": "apnews.com",
+              "request_url_sha256": "5dce7afda7654ba6ffd302b29b51d1683845d6b75c8bc2c524743828b4536787",
+              "http_status": 403
+            }
+          }
+        ],
+        "queued_at": "2026-10-23T02:19:15+09:00",
+        "attempts": 1,
+        "invalid_items": []
+      }
+    },
+    "spr:news:spr_article_3988b6da2a9b97e76b90c7cb": {
+      "archived_at": "2026-11-02T03:41:35+09:00",
+      "reason": "expired_unverified_no_telegram_delivery",
+      "entry": {
+        "topic": "spr",
+        "kind": "news",
+        "event_key": "spr_article_3988b6da2a9b97e76b90c7cb",
+        "status": "source_blocked",
+        "items": [
+          {
+            "id": "3988b6da2a9b97e76b90c7cb",
+            "title": "The secret terms of Trump’s Venezuelan oil deal - Raw Story",
+            "link": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE1BUEVZemVxcTBXWVU4N1l1SFE4QWRENFJvNVYza2pfNlFMWHM5RUlXbnBNdFJwa3BqQXBwdGJhLUtFbUk3blV2VTZfRmZXcVpsc0FyRGlmNnV4X2c3T1Y5S2Jn0gF0QVVfeXFMUFI0ZzdBVFVyTjJRMm1IUkozejRPUDQ1WldyUGJRNE92OE1ETEZYT19vVW5iVEczdHJ4Wi1jT1NKTmJkQ29GcGc1c3g5WmIzNm5tNkY5LVRWMFJxbElLUnJPQkxwem5zU1ktMzZGZmdNM24zQTQ?oc=5",
+            "source": "Raw Story",
+            "source_url": "https://www.rawstory.com",
+            "pub_kst": "2026-10-21T23:20+09:00",
+            "_source_blocked": true,
+            "_source_failure": {
+              "stage": "translation_google",
+              "reason": "http_rate_limit",
+              "blocked_before_request": false,
+              "provider": "www.google.com",
+              "request_url_sha256": "1423f5563e1855524246ec1c4dc1915ac9aa2f4256332a46bdf9f031842f7f3e",
+              "http_status": 429
+            }
+          }
+        ],
+        "queued_at": "2026-10-23T02:19:15+09:00",
+        "attempts": 1,
+        "invalid_items": []
+      }
+    },
+    "spr:news:spr_article_fdf5f03c30a9ef6318006563": {
+      "archived_at": "2026-11-02T03:41:35+09:00",
+      "reason": "expired_unverified_no_telegram_delivery",
+      "entry": {
+        "topic": "spr",
+        "kind": "news",
+        "event_key": "spr_article_fdf5f03c30a9ef6318006563",
+        "status": "source_blocked",
+        "items": [
+          {
+            "id": "fdf5f03c30a9ef6318006563",
+            "title": "Trump’s math on US deal for Venezuelan oil doesn't add up, experts say. The bad data began years ago - AP News",
+            "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxNYW93dzdYRlFUeEhOUHBwWlhObXNER0RNN2NBckh0ZHBTY2VnRTk4XzRPZE4wRG0tOUExY0hHcFpyWkduWWUyR0ZRdjRJaFhWUlFjWGgtZW5UdEhtUTM4M2IweTlna0duR1BlVXcxRDkzNUczUk9kQVNBa0xwM21GNXE5Uzc0NS03QzliN1JJbXdzTk9oUDVvWjZ2RnpnaWU1NWV3?oc=5",
+            "source": "AP News",
+            "source_url": "https://apnews.com",
+            "pub_kst": "2026-10-23T02:13+09:00",
+            "_source_blocked": true,
+            "_source_failure": {
+              "stage": "article_fetch",
+              "reason": "http_denial",
+              "blocked_before_request": false,
+              "provider": "apnews.com",
+              "request_url_sha256": "5dce7afda7654ba6ffd302b29b51d1683845d6b75c8bc2c524743828b4536787",
+              "http_status": 403
+            }
+          }
+        ],
+        "queued_at": "2026-10-23T05:35:29+09:00",
+        "attempts": 1,
+        "invalid_items": [],
+        "held_items": []
+      }
+    },
+    "spr:news:spr_article_c3ac4c053b38e49e1ccec446": {
+      "archived_at": "2026-11-02T03:41:35+09:00",
+      "reason": "expired_unverified_no_telegram_delivery",
+      "entry": {
+        "topic": "spr",
+        "kind": "news",
+        "event_key": "spr_article_c3ac4c053b38e49e1ccec446",
+        "status": "source_blocked",
+        "items": [
+          {
+            "id": "c3ac4c053b38e49e1ccec446",
+            "title": "The secret terms of Trump’s Venezuelan oil deal - Salon.com",
+            "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxObFNoZG1RcGdLV21ZeGxES3ZpRUx6S0ZkU3ZIXzkxdGpyYUM5dWJCV1FuSXRyd3NiZS1WM1prN0VIVHZka0FaTWlHSFRoY05uN0ZDSWlzTlBBRXFvRFM2NXc1LWFfQzJrVGlWZnRUdHM5WGlvUEdvWlRabHNSTDFwQWFzSzh3akdORlp4Q2VhbkhtQQ?oc=5",
+            "source": "Salon.com",
+            "source_url": "https://www.salon.com",
+            "pub_kst": "2026-10-23T19:00+09:00",
+            "_source_blocked": true,
+            "_source_failure": {
+              "stage": "translation_google",
+              "reason": "http_rate_limit",
+              "blocked_before_request": false,
+              "provider": "www.google.com",
+              "request_url_sha256": "4991d622d2ae16efb93438ec2f1a06d86ca6abf2e411d66d617e4d8cecfbf86b",
+              "http_status": 429
+            }
+          }
+        ],
+        "queued_at": "2026-10-23T21:02:15+09:00",
+        "attempts": 1,
+        "invalid_items": [],
+        "held_items": []
+      }
+    },
+    "spr:news:spr_article_fde60d88d30f35e5cd9eda3b": {
+      "archived_at": "2026-11-02T03:41:35+09:00",
+      "reason": "expired_unverified_no_telegram_delivery",
+      "entry": {
+        "topic": "spr",
+        "kind": "news",
+        "event_key": "spr_article_fde60d88d30f35e5cd9eda3b",
+        "status": "source_blocked",
+        "items": [
+          {
+            "id": "fde60d88d30f35e5cd9eda3b",
+            "title": "Western Media Accept Trump’s Plundering of Venezuelan Oil as Business as Usual - Venezuelanalysis",
+            "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPQTZCUTNSZ1NObmtfZTVyekQ1UVNDLXdselpfZGQ0Qnd1UTdEYjd2SDdzdktNTW5hRHo4QzRxbFd2Q3VZYk1kZXRxZGFxN2RYdXk5WERybkE3Q2VYTEJSVlE1U3VNWU5Xb2UyNDZOckRmSXlvaGtUWHh4TEthZng4WVJUdmRtWlctSTV2QllsWGNoQklpVzdadzk1WUZaLTAyVmljSm9Xalc3Q0xiQVVRRXlvU0FDUQ?oc=5",
+            "source": "Venezuelanalysis",
+            "source_url": "https://venezuelanalysis.com",
+            "pub_kst": "2026-10-25T05:50+09:00",
+            "_source_blocked": true,
+            "_source_failure": {
+              "stage": "translation_google",
+              "reason": "http_rate_limit",
+              "blocked_before_request": false,
+              "provider": "www.google.com",
+              "request_url_sha256": "e51f9f68d3388f3cb370cf6ed816379f708b111ea2b6bda1c044b10b8bf45f7b",
+              "http_status": 429
+            }
+          }
+        ],
+        "queued_at": "2026-10-26T06:21:13+09:00",
+        "attempts": 2,
+        "invalid_items": []
+      }
+    },
+    "spr:news:spr_article_293507419f7fd4fcc3586481": {
+      "archived_at": "2026-11-02T03:41:35+09:00",
+      "reason": "expired_unverified_no_telegram_delivery",
+      "entry": {
+        "topic": "spr",
+        "kind": "news",
+        "event_key": "spr_article_293507419f7fd4fcc3586481",
+        "status": "source_blocked",
+        "items": [
+          {
+            "id": "293507419f7fd4fcc3586481",
+            "title": "Trump showcases Venezuelan oil as he seeks to rally voters in Texas - Al Jazeera",
+            "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxQaF9uZTZjMHNYV1N2VGc3RUJMbVZvWkNQbXJPdWRtN3ZHbUdDVTFXdVFlaU5fNE1wczUzak9sOEVUQm45UGNqdGpiRXU5Zzlaa3NSTmR2QWI1NVdpNUt5TmYxX0NfcXN3dTZ2ZGdkVlF1emltTXU3ZHBBcnk1ZUQ3Z0NkVnNyb3JhcmVHZGxNR1Rqdkxsemlkd0d6OVFmQ2t5RmlZWXFjWWVudThWaVHSAbMBQVVfeXFMTmZLQl9ubVFSOVZxclNaMW0wQmZwZTVDTEtzUGZvbGx2cWNYWjlVd2kxbDB0d2hHS2JtTnFuQU43eXdtd0h3UW5ZS1h4Y2FubW9HekF2djF1NEZCRk15RHphcXFNdXg2dmRscDBNYjlja1dja1h6TTNmT1RMZGVzNXYySGJCUG1NTW13ekdUQ2dmYVlMZDBnanNzT0NFNGpFZzBXYW9jOVpXWFBrS19HRGRxQVU?oc=5",
+            "source": "Al Jazeera",
+            "source_url": "https://www.aljazeera.com",
+            "pub_kst": "2026-10-28T06:31+09:00",
+            "_source_blocked": true,
+            "_source_failure": {
+              "stage": "translation_google",
+              "reason": "http_rate_limit",
+              "blocked_before_request": false,
+              "provider": "www.google.com",
+              "request_url_sha256": "471794dadabcbf5c58022ae70e2981190e24099a8ca116fccc2ec3d1d1443c75",
+              "http_status": 429
+            }
+          }
+        ],
+        "queued_at": "2026-10-28T07:39:33+09:00",
+        "attempts": 1,
+        "invalid_items": [],
+        "held_items": []
+      }
+    },
+    "spr:news:spr_article_a555960915d1b8a81c7ca8be": {
+      "archived_at": "2026-11-02T03:41:35+09:00",
+      "reason": "expired_unverified_no_telegram_delivery",
+      "entry": {
+        "topic": "spr",
+        "kind": "news",
+        "event_key": "spr_article_a555960915d1b8a81c7ca8be",
+        "status": "source_blocked",
+        "items": [
+          {
+            "id": "a555960915d1b8a81c7ca8be",
+            "title": "Trump says 'billions' of barrels of Venezuelan oil will 'soon' lower gas prices - Yahoo",
+            "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxQRWFzNGE4bkhjSGVnSE9XaHh2REM1R01YaVp3cUpudHE1VzB4SjlUbGlZMkFaSVVWR0lKdWtfNkw0eTNwUDVmSHFjbm8xNzEtY25kYi1KeG1GVEpXa2xldDJQOXBwRnJNQlhPX3FraTl4NFczeUFINFlfWHBqMDhXcjZKbGp1ck45NXFwbFFtTnBzLWtxYUtPM1BJWWZuaXM?oc=5",
+            "source": "Yahoo",
+            "source_url": "https://www.yahoo.com",
+            "pub_kst": "2026-10-28T06:21+09:00",
+            "_source_blocked": true,
+            "_source_failure": {
+              "stage": "translation_google",
+              "reason": "http_rate_limit",
+              "blocked_before_request": false,
+              "provider": "www.google.com",
+              "request_url_sha256": "dc89e544dfc36e3cdf527171ac46d1ac43e300fd06d831b3031b7779193fc3cb",
+              "http_status": 429
+            }
+          }
+        ],
+        "queued_at": "2026-10-28T07:39:33+09:00",
+        "attempts": 1,
+        "invalid_items": [],
+        "held_items": []
+      }
+    },
+    "spr:news:spr_article_8a52db56f8ecdc6e3791edf2": {
+      "archived_at": "2026-11-02T03:41:35+09:00",
+      "reason": "expired_unverified_no_telegram_delivery",
+      "entry": {
+        "topic": "spr",
+        "kind": "news",
+        "event_key": "spr_article_8a52db56f8ecdc6e3791edf2",
+        "status": "source_blocked",
+        "items": [
+          {
+            "id": "8a52db56f8ecdc6e3791edf2",
+            "title": "Trump says he will visit tanker in Texas with first oil from Venezuela deal - Reuters",
+            "link": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxQS2xReG5IbDd2VEVRZXJ1VUtaNGtlSFhpa3paSkFQVWhLWVk3NzNkendFMXNTZ3p5b3R6aTJTUzluYk1PUGlySXNEaDZPdXN2ZEx2WTF0SlRZZ1lmRmtRZnpFSVU4WGp0ZkdfY18tQlYwck9GbVBRUXR0Q2x2bVlkWDdMbVNFSVVZNnh2bXpjMm9hRjd3eThsYXRqQ0JhT05hc2hIWG93U005R2pFOXlORmZmNV9uYW02cGM4?oc=5",
+            "source": "Reuters",
+            "source_url": "https://www.reuters.com",
+            "pub_kst": "2026-10-28T05:16+09:00",
+            "_source_blocked": true,
+            "_source_failure": {
+              "stage": "article_fetch",
+              "reason": "http_denial",
+              "blocked_before_request": false,
+              "provider": "www.reuters.com",
+              "request_url_sha256": "7bdad2b89b7b34742b27a8c773edb4da9f1d3e998be51aefa166afaab17fb205",
+              "http_status": 401
+            }
+          }
+        ],
+        "queued_at": "2026-10-28T07:39:33+09:00",
+        "attempts": 1,
+        "invalid_items": [],
+        "held_items": []
+      }
+    },
+    "spr:news:spr_article_b1ad54e8d441435d86e5b552": {
+      "archived_at": "2026-11-02T03:41:35+09:00",
+      "reason": "expired_unverified_no_telegram_delivery",
+      "entry": {
+        "topic": "spr",
+        "kind": "news",
+        "event_key": "spr_article_b1ad54e8d441435d86e5b552",
+        "status": "source_blocked",
+        "items": [
+          {
+            "id": "b1ad54e8d441435d86e5b552",
+            "title": "Trump, Rubio to oversee shipment of 1 million barrels of Venezuelan oil after deal with US - New York Post",
+            "link": "https://news.google.com/rss/articles/CBMi7wFBVV95cUxOeGlQRjZrc1RUczZsUExlS2RCeTJDT1U0UnpMM3BJeWxkMUpSVHpWb09KRXRaZlRkY1JTWUQ1QkcxaEZJSDZaNXhGc3dRLWNGVEJ6VUVxM0lEZ3RaaXJ4dHNPSTkzNk5VVUMzZWU4aUl4ZHdXNnN4ZG4zLTVhUlZraHZ4UVl0S3VoRHYwQ0RlMDBGSjA4dF9iVHd4aGVVOGJGZ1FBTnlPRXp5OFk1QzdHTGN1STVaZ0JPUkdTTWVTRzhuS2ZMMW13d0N5OGlrVkVNamdydm55bHY4YzFwX0stVnlWTmV0NmJVNlluYjJCUQ?oc=5",
+            "source": "New York Post",
+            "source_url": "https://nypost.com",
+            "pub_kst": "2026-10-28T02:49+09:00",
+            "_source_blocked": true,
+            "_source_failure": {
+              "stage": "translation_google",
+              "reason": "http_rate_limit",
+              "blocked_before_request": false,
+              "provider": "www.google.com",
+              "request_url_sha256": "f440f5957db5a6ade71bed81ae93036485a24ce27e0bece04e29040800508cfb",
+              "http_status": 429
+            }
+          }
+        ],
+        "queued_at": "2026-10-28T07:39:33+09:00",
+        "attempts": 1,
+        "invalid_items": []
+      }
+    },
+    "spr:news:spr_article_4680ac86ae095bce05fa9c51": {
+      "archived_at": "2026-11-02T03:41:35+09:00",
+      "reason": "expired_unverified_no_telegram_delivery",
+      "entry": {
+        "topic": "spr",
+        "kind": "news",
+        "event_key": "spr_article_4680ac86ae095bce05fa9c51",
+        "status": "source_blocked",
+        "items": [
+          {
+            "id": "4680ac86ae095bce05fa9c51",
+            "title": "Trump, Rubio Plan to Visit Tanker With Venezuelan Crude in Texas - Bloomberg.com",
+            "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPRWZlREJ5cUZLaEF0eXQ0SnlESjNBVWhtcDJ4UHJvdFZLUmtwVzE5Y2VkdlRTaUd2a2gxOFFSWkc1VVZBdk9RM0RYRWQzSmtWQ1dhbzNGVjVVNWFObXF5TDRqRlcxZzE0ZmpFLXYwWlp0YXBpdUpmR2dfRXZ3XzFrNTRJcHNFSjE4QkdMUUw4OENsY2ZJTkNkOWhUaC1wZGZDV2NEWk9OeFhkblFWVTBIa2pjemY?oc=5",
+            "source": "Bloomberg.com",
+            "source_url": "https://www.bloomberg.com",
+            "pub_kst": "2026-10-28T01:24+09:00",
+            "_source_blocked": true,
+            "_source_failure": {
+              "stage": "article_fetch",
+              "reason": "http_denial",
+              "blocked_before_request": false,
+              "provider": "www.bloomberg.com",
+              "request_url_sha256": "f1a2d2a74cbedc13546daafb22be8b4d28025a67b3536d38b61b218776141f65",
+              "http_status": 403
+            }
+          }
+        ],
+        "queued_at": "2026-10-28T07:39:33+09:00",
+        "attempts": 1,
+        "invalid_items": [],
+        "held_items": []
+      }
+    },
+    "spr:news:spr_article_4a6f1793bcb6d05e384c1d75": {
+      "archived_at": "2026-11-02T03:41:35+09:00",
+      "reason": "expired_unverified_no_telegram_delivery",
+      "entry": {
+        "topic": "spr",
+        "kind": "news",
+        "event_key": "spr_article_4a6f1793bcb6d05e384c1d75",
+        "status": "source_blocked",
+        "items": [
+          {
+            "id": "4a6f1793bcb6d05e384c1d75",
+            "title": "Trump and Rubio plan to visit oil tanker carrying Venezuelan crude in Texas - ABC News - Breaking News, Latest News and Videos",
+            "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxPeWs1VmpWZGFULWxiNWJQb0JHWFhMeTRXNFdwUjlNbU5kY0pZU25feGh4Y0lIN0hybE52TWdNRjdmOUF5eEl3MFAyclZ0MFU0bU9JLXJaTGxRblhwM3dSMjF5T0tGTnpBckQ1ZDBmSXVXWjZzT0gyaUlEU29SZDRfLWVEc3dTaTB6bFZZOUF2cXdDUGxHb21ud1ItWTJlbTRKdjZOVNIBqgFBVV95cUxQSjAybF9ONk5DbjJrLW55UGRMRUpPSVdiUFdyRnVJYlNZejUyX0JocnRqMkEzdHZpdUdIZHBDbmhTalJQbmtBcnNmZTRZWnhkWUdUZk1FUEwxaE9lLWp4aFVjOUVFVEItcTluc0FUTlI2MXhpdWRKWU1JeVZOSkZmclI5a1JnQjVWaVhZWUZ4MEQ1RkwtRG0zWmJ6TUswSTBEZVRiSGZJSHZNUQ?oc=5",
+            "source": "ABC News - Breaking News, Latest News and Videos",
+            "source_url": "https://abcnews.com",
+            "pub_kst": "2026-10-27T16:42+09:00",
+            "_source_blocked": true,
+            "_source_failure": {
+              "stage": "translation_google",
+              "reason": "http_rate_limit",
+              "blocked_before_request": false,
+              "provider": "www.google.com",
+              "request_url_sha256": "3c2adddfdbc0474f60203fdd527448c9d8ce6c5b7615e0ae90f87f1b0cb168ee",
+              "http_status": 429
+            }
+          }
+        ],
+        "queued_at": "2026-10-28T07:39:33+09:00",
+        "attempts": 1,
+        "invalid_items": [],
+        "held_items": []
+      }
+    },
+    "spr:news:spr_article_6f8cf83dc6ae7bd303e17a1e": {
+      "archived_at": "2026-11-02T03:41:35+09:00",
+      "reason": "expired_unverified_no_telegram_delivery",
+      "entry": {
+        "topic": "spr",
+        "kind": "news",
+        "event_key": "spr_article_6f8cf83dc6ae7bd303e17a1e",
+        "status": "source_blocked",
+        "items": [
+          {
+            "id": "6f8cf83dc6ae7bd303e17a1e",
+            "title": "Trump to Showcase Venezuelan Oil Shipment in Texas Alongside Rubio During Midterm Campaign Trip - Latin Times",
+            "link": "https://news.google.com/rss/articles/CBMihgFBVV95cUxPOXdCd2dlMkJHaER6ZmI5bVlLbTNaZ2JlZnl2cll5SnNZQ1NGRGVOUHFMSVVpLUVERFZaNHhFNVo2U0N5bnNCOXVaRmdVYWN6RVUtODBHcDFmMHJoQW5CamFNRXhlNk14RklCX3oxMHFBVm5uM0Y4OW9tU1FJNHJWNTdqTVE1UQ?oc=5",
+            "source": "Latin Times",
+            "source_url": "https://www.latintimes.com",
+            "pub_kst": "2026-10-28T03:58+09:00",
+            "_source_blocked": true,
+            "_source_failure": {
+              "stage": "translation_google",
+              "reason": "http_rate_limit",
+              "blocked_before_request": false,
+              "provider": "www.google.com",
+              "request_url_sha256": "1656087cd7e0e607436b99d34c32778f38d28462362a2437395c64a77b2c367c",
+              "http_status": 429
+            }
+          }
+        ],
+        "queued_at": "2026-10-28T10:40:31+09:00",
+        "attempts": 1,
+        "invalid_items": [],
+        "held_items": []
+      }
+    },
+    "spr:news:spr_article_53ff0259020e106d3aeab20d": {
+      "archived_at": "2026-11-02T03:41:35+09:00",
+      "reason": "expired_unverified_no_telegram_delivery",
+      "entry": {
+        "topic": "spr",
+        "kind": "news",
+        "event_key": "spr_article_53ff0259020e106d3aeab20d",
+        "status": "source_blocked",
+        "items": [
+          {
+            "id": "53ff0259020e106d3aeab20d",
+            "title": "Trump Puts Spotlight on Venezuelan Oil With Stop in Corpus Christi - The Maritime Executive",
+            "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPTnhCN0N2VzN4Wk1sRDljM0JUWDVXVlNMQ1hvSDFNbUE5MmpDMi1KVjBEdjJiamV0ZHh3NGxqd2VadHZEc0xJVURnTGFiSWR2QTdHbjBkN3h2eTJtX2pyV2hEeDNyRHN1N19BWWhIZU82bnVQTHF0UF9uWHVoMGhkaV9pb0xKWXFQbmI3UWdvd1N5QnNtTm42Z2FweXQ1UGU2WkZ5VUE3SC0?oc=5",
+            "source": "The Maritime Executive",
+            "source_url": "https://maritime-executive.com",
+            "pub_kst": "2026-10-28T11:02+09:00",
+            "_source_blocked": true,
+            "_source_failure": {
+              "stage": "translation_google",
+              "reason": "http_rate_limit",
+              "blocked_before_request": false,
+              "provider": "www.google.com",
+              "request_url_sha256": "78df9b0813bf1522f860b5bc6506ccd1ef4565199474a19778e3a67bca5d4bfc",
+              "http_status": 429
+            }
+          }
+        ],
+        "queued_at": "2026-10-28T16:22:33+09:00",
+        "attempts": 1,
+        "invalid_items": [],
+        "held_items": []
+      }
+    },
+    "spr:news:spr_article_158f1222a4711b2f22e15919": {
+      "archived_at": "2026-11-02T03:41:35+09:00",
+      "reason": "expired_unverified_no_telegram_delivery",
+      "entry": {
+        "topic": "spr",
+        "kind": "news",
+        "event_key": "spr_article_158f1222a4711b2f22e15919",
+        "status": "source_blocked",
+        "items": [
+          {
+            "id": "158f1222a4711b2f22e15919",
+            "title": "Trump touts Venezuelan oil at Texas rally ahead of US midterms - Al Jazeera",
+            "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxQaF9uZTZjMHNYV1N2VGc3RUJMbVZvWkNQbXJPdWRtN3ZHbUdDVTFXdVFlaU5fNE1wczUzak9sOEVUQm45UGNqdGpiRXU5Zzlaa3NSTmR2QWI1NVdpNUt5TmYxX0NfcXN3dTZ2ZGdkVlF1emltTXU3ZHBBcnk1ZUQ3Z0NkVnNyb3JhcmVHZGxNR1Rqdkxsemlkd0d6OVFmQ2t5RmlZWXFjWWVudThWaVHSAbMBQVVfeXFMTmZLQl9ubVFSOVZxclNaMW0wQmZwZTVDTEtzUGZvbGx2cWNYWjlVd2kxbDB0d2hHS2JtTnFuQU43eXdtd0h3UW5ZS1h4Y2FubW9HekF2djF1NEZCRk15RHphcXFNdXg2dmRscDBNYjlja1dja1h6TTNmT1RMZGVzNXYySGJCUG1NTW13ekdUQ2dmYVlMZDBnanNzT0NFNGpFZzBXYW9jOVpXWFBrS19HRGRxQVU?oc=5",
+            "source": "Al Jazeera",
+            "source_url": "https://www.aljazeera.com",
+            "pub_kst": "2026-10-28T06:31+09:00",
+            "_source_blocked": true,
+            "_source_failure": {
+              "stage": "translation_google",
+              "reason": "http_rate_limit",
+              "blocked_before_request": false,
+              "provider": "www.google.com",
+              "request_url_sha256": "587af77dcb8a561f14974e5e93f37e4adc5a114372526cade547bc7a9292cf97",
+              "http_status": 429
+            }
+          }
+        ],
+        "queued_at": "2026-10-28T16:22:33+09:00",
+        "attempts": 1,
+        "invalid_items": [],
+        "held_items": []
+      }
+    },
+    "spr:news:spr_article_321d692d8628dff2082f7aef": {
+      "archived_at": "2026-11-02T03:41:35+09:00",
+      "reason": "expired_unverified_no_telegram_delivery",
+      "entry": {
+        "topic": "spr",
+        "kind": "news",
+        "event_key": "spr_article_321d692d8628dff2082f7aef",
+        "status": "source_blocked",
+        "items": [
+          {
+            "id": "321d692d8628dff2082f7aef",
+            "title": "Trump, Rubio Plan to Visit Tanker With Venezuelan Crude in Texas - Bloomberg",
+            "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPRWZlREJ5cUZLaEF0eXQ0SnlESjNBVWhtcDJ4UHJvdFZLUmtwVzE5Y2VkdlRTaUd2a2gxOFFSWkc1VVZBdk9RM0RYRWQzSmtWQ1dhbzNGVjVVNWFObXF5TDRqRlcxZzE0ZmpFLXYwWlp0YXBpdUpmR2dfRXZ3XzFrNTRJcHNFSjE4QkdMUUw4OENsY2ZJTkNkOWhUaC1wZGZDV2NEWk9OeFhkblFWVTBIa2pjemY?oc=5",
+            "source": "Bloomberg",
+            "source_url": "https://www.bloomberg.com",
+            "pub_kst": "2026-10-28T01:24+09:00",
+            "_source_blocked": true,
+            "_source_failure": {
+              "stage": "article_fetch",
+              "reason": "http_denial",
+              "blocked_before_request": false,
+              "provider": "www.bloomberg.com",
+              "request_url_sha256": "f1a2d2a74cbedc13546daafb22be8b4d28025a67b3536d38b61b218776141f65",
+              "http_status": 403
+            }
+          }
+        ],
+        "queued_at": "2026-10-28T16:22:33+09:00",
+        "attempts": 1,
+        "invalid_items": []
+      }
+    },
+    "spr:news:spr_article_e91075b7d29b855af54ad88c": {
+      "archived_at": "2026-11-02T03:41:35+09:00",
+      "reason": "expired_unverified_no_telegram_delivery",
+      "entry": {
+        "topic": "spr",
+        "kind": "news",
+        "event_key": "spr_article_e91075b7d29b855af54ad88c",
+        "status": "source_blocked",
+        "items": [
+          {
+            "id": "e91075b7d29b855af54ad88c",
+            "title": "Trump and Rubio plan to visit oil tanker carrying Venezuelan crude in Texas - AP News",
+            "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxPY1lQMDdtdmVjVTlZS1lRUTY4OEJGamlOTUV1TWVHelZ6VHFUYWhjZE1qYVZhSk5oamx5UkhzLXRTZks0dHZFX1A4X3BFMWpQWGhpa3ZENkhYWmFKNUxFbnJoX2E0anFtZWdIVzVCYzNjc1NIWmE3QXFNa2NyMlVxdlZMVUE4SDNBdVBjZzdtUTFlVF9uY0pzVl9ZSkM5T2V4eVE?oc=5",
+            "source": "AP News",
+            "source_url": "https://apnews.com",
+            "pub_kst": "2026-10-27T12:24+09:00",
+            "_source_blocked": true,
+            "_source_failure": {
+              "stage": "article_fetch",
+              "reason": "http_denial",
+              "blocked_before_request": false,
+              "provider": "apnews.com",
+              "request_url_sha256": "bc4421dfbaa57e67ee44cea36eb61a7a5fdb94a76f796d3f866d8c9f4c4729d5",
+              "http_status": 403
+            }
+          }
+        ],
+        "queued_at": "2026-10-28T23:07:34+09:00",
+        "attempts": 1,
+        "invalid_items": []
+      }
+    },
+    "spr:news:spr_article_dc1267d68bac564ebfa25f56": {
+      "archived_at": "2026-11-02T03:41:35+09:00",
+      "reason": "expired_unverified_no_telegram_delivery",
+      "entry": {
+        "topic": "spr",
+        "kind": "news",
+        "event_key": "spr_article_dc1267d68bac564ebfa25f56",
+        "status": "source_blocked",
+        "items": [
+          {
+            "id": "dc1267d68bac564ebfa25f56",
+            "title": "Trump promises ‘billions’ of Venezuelan barrels as he visits Trafigura tanker - TradeWinds News",
+            "link": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxQdGdXN3NZVndTU04wMW5MZ0s1U3otQ1BsMnZ2R1FaeVNaZWdTUjZiQUt5WXJoczZmNFllbDUybVlHeVpfSEYtWlF5dUV5WUJnY1BJc0o0QUQtRFZfQkxTV2I0U0pIMTdTSmloRGRBSkFfMDJEWFFjWjZWOHVoVTdMak5sTjE1RG05VUt2SjNzdWpoYWhnUWI5ZHAyeGhoTDNoVGZ4dFRNbXhKTTJUZmM3aEQwUHAyQ01hVEFjbkh3STFNWjJqMkNzUw?oc=5",
+            "source": "TradeWinds News",
+            "source_url": "https://www.tradewindsnews.com",
+            "pub_kst": "2026-10-29T01:33+09:00",
+            "_source_blocked": true,
+            "_source_failure": {
+              "stage": "translation_google",
+              "reason": "http_rate_limit",
+              "blocked_before_request": false,
+              "provider": "www.google.com",
+              "request_url_sha256": "60b03803341f9fe7675925b0bcafc1222f913ee1fe4835ead6d8a95355636e2e",
+              "http_status": 429
+            }
+          }
+        ],
+        "queued_at": "2026-10-29T04:29:44+09:00",
+        "attempts": 1,
+        "invalid_items": [],
+        "held_items": []
+      }
+    },
+    "spr:news:spr_article_d5dd23dc3a2f76281065ae8f": {
+      "archived_at": "2026-11-02T03:41:35+09:00",
+      "reason": "expired_unverified_no_telegram_delivery",
+      "entry": {
+        "topic": "spr",
+        "kind": "news",
+        "event_key": "spr_article_d5dd23dc3a2f76281065ae8f",
+        "status": "source_blocked",
+        "items": [
+          {
+            "id": "d5dd23dc3a2f76281065ae8f",
+            "title": "Trump’s Claims About Drilling, Venezuelan Oil Imports Contradict Data - Eurasia Review",
+            "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxOV3pYdi1yRmpxbHhOci01N0NkSjY4T0huY3NEM21EbEs0RFhuTGxRVENSM1ZCSmVJeFNVZnJ3Y3E3bmQ5X3h6alowaVZSZEptTDNIN2JFVGNkTXc2cERVM1RHNHZaSmxhR05CclkwQ1paOGt3NlQxM3RHRXQySkRIVUI3SDluOXU3WlhzVWV2T0xsYmhFcGNVTEF2UjMxbUJ3a1NmREpRWjFPc1U?oc=5",
+            "source": "Eurasia Review",
+            "source_url": "https://www.eurasiareview.com",
+            "pub_kst": "2026-10-29T12:06+09:00",
+            "_source_blocked": true,
+            "_source_failure": {
+              "stage": "article_fetch",
+              "reason": "http_denial",
+              "blocked_before_request": false,
+              "provider": "www.eurasiareview.com",
+              "request_url_sha256": "f06e746cda191c4024390538aab266d4a20e851be7b7a1e9556d2ff50dbf2b34",
+              "http_status": 403
+            }
+          }
+        ],
+        "queued_at": "2026-10-29T17:48:35+09:00",
+        "attempts": 1,
+        "invalid_items": [],
+        "held_items": []
+      }
+    },
+    "spr:news:spr_article_ceb88c7145399665661d4995": {
+      "archived_at": "2026-11-02T03:41:35+09:00",
+      "reason": "expired_unverified_no_telegram_delivery",
+      "entry": {
+        "topic": "spr",
+        "kind": "news",
+        "event_key": "spr_article_ceb88c7145399665661d4995",
+        "status": "source_blocked",
+        "items": [
+          {
+            "id": "ceb88c7145399665661d4995",
+            "title": "Trump’s claims about drilling, Venezuelan oil imports contradict data - OCNJ Daily",
+            "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNODhHUG02YTlpOE9ZVF9nUDQ3SU5Ud2N3dGtydFFJODNVeGhSZ21vcTZVa3pzUjljcURSVnpaRndNWGxsOVpBYXZHNWVjeDQwdVNoc0h4N0t1UUNzSjF2T0pXbEthNktZZW03TFktdTcyYXZQcFFSUnpLNnZyVVFGUDZwdk13U2hvbTF6WjJtQzBEUE1RT29RSjIweFV6VnVvMkJTSGJiMA?oc=5",
+            "source": "OCNJ Daily",
+            "source_url": "https://ocnjdaily.com",
+            "pub_kst": "2026-10-29T07:00+09:00",
+            "_source_blocked": true,
+            "_source_failure": {
+              "stage": "translation_google",
+              "reason": "http_rate_limit",
+              "blocked_before_request": false,
+              "provider": "www.google.com",
+              "request_url_sha256": "57bb2c03f4df7cd758f5f6fc3e2b7bd1c847ca8bff105957efe07a28d82899b4",
+              "http_status": 429
+            }
+          }
+        ],
+        "queued_at": "2026-10-29T17:48:35+09:00",
+        "attempts": 1,
+        "invalid_items": []
+      }
+    },
+    "spr:news:spr_article_1516fb34eb8404294d8b5b05": {
+      "archived_at": "2026-11-02T03:41:35+09:00",
+      "reason": "expired_unverified_no_telegram_delivery",
+      "entry": {
+        "topic": "spr",
+        "kind": "news",
+        "event_key": "spr_article_1516fb34eb8404294d8b5b05",
+        "status": "source_blocked",
+        "items": [
+          {
+            "id": "1516fb34eb8404294d8b5b05",
+            "title": "Trump’s claims about drilling, Venezuelan oil imports contradict data - North Penn Now",
+            "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxNcUFiTl95d3JXaERjejJQZ2lxcURrdmF1WDd3Tks1Mmo1RFBZckVZX3hWVkxvZTUwdmx0aFBxbDRWcUpjaWZuZVZPOHJDMHFzcEdtSjg1a0NTdFFzUXl4TndGam1nUmd1NHRtdWRnTHJSTnROX3BvNS1RNm1HbEJLcGhKdlFaYjFkRjIyMHBiQ3VUOTg4blFWZXgwZWcwOTBEd1VSd2FKTkxMS0k?oc=5",
+            "source": "North Penn Now",
+            "source_url": "https://northpennnow.com",
+            "pub_kst": "2026-10-29T07:00+09:00",
+            "_source_blocked": true,
+            "_source_failure": {
+              "stage": "translation_google",
+              "reason": "http_rate_limit",
+              "blocked_before_request": false,
+              "provider": "www.google.com",
+              "request_url_sha256": "a0c13869eb82e3592515680598929043abb7f49ca6bb3ea558e765d293f858ac",
+              "http_status": 429
+            }
+          }
+        ],
+        "queued_at": "2026-10-30T14:37:41+09:00",
         "attempts": 1,
         "invalid_items": [],
         "held_items": []
