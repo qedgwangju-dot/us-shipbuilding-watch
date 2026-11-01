@@ -1,3 +1,0 @@
-# Independent Silver Bulletin health-check dispatch trigger
-# Modified only when the primary GitHub schedule is stale or failing.
-initialized_at_utc=2026-11-01T18:45:00Z
