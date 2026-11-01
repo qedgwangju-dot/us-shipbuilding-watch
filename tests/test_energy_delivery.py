@@ -170,7 +170,11 @@ class DeliveryTests(unittest.TestCase):
         self.enrich.side_effect = ValueError(); self.refinery([self.item()])
         self.now += dt.timedelta(days=4); self.restart(); self.enrich.side_effect = self.enriched
         self.refinery([]); self.post.assert_not_called()
-        self.assertEqual(self.engine.state['dispositions'][-1]['reason'], 'news_outside_three_day_window')
+        self.assertEqual(self.engine.state['dispositions'][-1]['reason'],
+                         'expired_unverified_no_telegram_delivery')
+        self.assertFalse(self.engine.state['dispositions'][-1]['delivered'])
+        self.assertEqual(len(self.engine.state['archived_unverified']), 1)
+        self.assertFalse(self.engine.state['receipts'])
 
     def test_access_block_not_refetched(self):
         self.enrich.side_effect = RuntimeError('원문 접속 실패 HTTP 403')
