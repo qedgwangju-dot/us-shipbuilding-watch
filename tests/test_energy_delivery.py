@@ -357,6 +357,64 @@ class BoundaryTests(unittest.TestCase):
         self.assertEqual(len(self.engine.state['receipts'][0]['chunks']), 2)
 
 
+    def test_expired_unverified_blocked_news_is_archived_without_false_receipt(self):
+        old = self.item('stale-denied')
+        old['pub_kst'] = (self.now - dt.timedelta(days=5)).isoformat()
+        old['_source_blocked'] = True
+        old['_source_failure'] = {'provider': 'original_publish', 'http_status': 403}
+        key = 'refinery:news:stale-denied'
+        original = {'topic': 'refinery', 'kind': 'news', 'event_key': 'stale-denied',
+                    'status': 'source_blocked', 'items': [old],
+                    'queued_at': self.now.isoformat(), 'attempts': 1}
+        self.engine.state['outbox'][key] = copy.deepcopy(original)
+        runner._archive_expired_unverified_news(self.engine, 'refinery')
+        self.assertNotIn(key, self.engine.state['outbox'])
+        archived = self.engine.state['archived_unverified'][key]
+        self.assertEqual(archived['entry'], original)
+        self.assertEqual(archived['reason'], 'expired_unverified_no_telegram_delivery')
+        self.assertIn(old['id'], self.engine.refinery['seen'])
+        self.assertFalse(self.engine.state['receipts'])
+        disposition = self.engine.state['dispositions'][-1]
+        self.assertFalse(disposition['delivered'])
+        self.assertTrue(disposition['archived'])
+
+    def test_expiration_preserves_recent_unknown_and_partial_delivery(self):
+        stale = self.item('expired')
+        stale['pub_kst'] = (self.now - dt.timedelta(days=4)).isoformat()
+        fresh = self.item('fresh')
+        fresh['pub_kst'] = (self.now - dt.timedelta(days=1)).isoformat()
+        fixture = {
+            'fresh': {'status': 'source_blocked', 'items': [fresh]},
+            'undated': {'status': 'source_blocked', 'items': [dict(stale, id='undated', pub_kst='')]},
+            'partial': {'status': 'delivery_unknown', 'items': [stale], 'chunks': [{'status':'delivery_unknown'}]},
+            'mixed': {'status': 'source_blocked', 'items': [stale], 'held_items': [fresh]},
+        }
+        for name, value in fixture.items():
+            self.engine.state['outbox']['refinery:news:' + name] = {
+                'topic': 'refinery', 'kind': 'news', 'event_key': name, **value
+            }
+        runner._archive_expired_unverified_news(self.engine, 'refinery')
+        self.assertEqual(len(self.engine.state['outbox']), len(fixture))
+        self.assertFalse(self.engine.state.get('archived_unverified'))
+
+    def test_expired_unverified_archive_is_idempotent_and_topic_scoped(self):
+        item = self.item('old-spr')
+        item['pub_kst'] = (self.now - dt.timedelta(days=6)).isoformat()
+        key = 'spr:news:old-spr'
+        self.engine.state['outbox'][key] = {
+            'topic': 'spr', 'kind': 'news', 'event_key': 'old-spr',
+            'status': 'enrichment_pending', 'items': [item], 'attempts': 0,
+        }
+        runner._archive_expired_unverified_news(self.engine, 'refinery')
+        self.assertIn(key, self.engine.state['outbox'])
+        runner._archive_expired_unverified_news(self.engine, 'spr')
+        runner._archive_expired_unverified_news(self.engine, 'spr')
+        self.assertEqual(len(self.engine.state['archived_unverified']), 1)
+        self.assertEqual(len(self.engine.state['dispositions']), 1)
+        self.assertIn(item['id'], self.engine.spr['seen_news'])
+        self.assertFalse(self.engine.state['receipts'])
+
+
 class SourceBoundaryTests(unittest.TestCase):
     def setUp(self):
         runner.rw.reset_source_circuits()
