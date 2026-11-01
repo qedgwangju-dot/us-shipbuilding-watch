@@ -151,6 +151,46 @@ class SilverBulletinTests(unittest.TestCase):
         self.assertFalse(sw.ALERT.exists())
         self.assertFalse(sw.PENDING.exists())
 
+    def test_missing_embed_recovers_with_validated_saved_chart(self):
+        self.seed()
+        old = json.loads(sw.STATE.read_text(encoding="utf-8"))
+        old["source"] = sw.PAGE_URL
+        old["issue_chart"] = "https://datawrapper.dwcdn.net/RFXsV/7800/"
+        old["last_alert_values"] = self.values()
+        old["last_alert_data_date"] = self.old_date
+        sw.STATE.write_text(json.dumps(old), encoding="utf-8")
+        self.assertEqual(self.run_watch(official_chart=False, economy=-31.0), 0)
+        pending = json.loads(sw.PENDING.read_text(encoding="utf-8"))
+        debug = json.loads(sw.DEBUG.read_text(encoding="utf-8"))
+        self.assertEqual(pending["values"]["economy"]["value"], -31.0)
+        self.assertIn("trusted_previously_verified_RFXsV", debug["source_recovery"])
+        self.assertIn(self.old_date, sw.ALERT.read_text(encoding="utf-8"))
+
+    def test_fallback_rejects_unknown_publisher_or_chart(self):
+        self.seed()
+        original = json.loads(sw.STATE.read_text(encoding="utf-8"))
+        original["source"] = "https://unknown.example/poll"
+        original["issue_chart"] = "https://datawrapper.dwcdn.net/RFXsV/7800/"
+        sw.STATE.write_text(json.dumps(original), encoding="utf-8")
+        self.assertEqual(self.run_watch(official_chart=False), 2)
+        original["source"] = sw.PAGE_URL
+        original["issue_chart"] = "https://datawrapper.dwcdn.net/WRONG/7800/"
+        sw.STATE.write_text(json.dumps(original), encoding="utf-8")
+        self.assertEqual(self.run_watch(official_chart=False), 2)
+        self.assertFalse(sw.PENDING.exists())
+
+    def test_fallback_does_not_override_http_error_or_stale_data(self):
+        self.seed()
+        state = json.loads(sw.STATE.read_text(encoding="utf-8"))
+        state.update({"source": sw.PAGE_URL,
+                      "issue_chart": "https://datawrapper.dwcdn.net/RFXsV/7800/"})
+        sw.STATE.write_text(json.dumps(state), encoding="utf-8")
+        with mock.patch.object(sw.SESSION, "get", return_value=FakeResponse("", 503)):
+            self.assertEqual(sw.main(), 2)
+        self.assertEqual(self.run_watch(official_chart=False,
+                                     data_date=(self.today - dt.timedelta(days=10)).isoformat()), 2)
+        self.assertFalse(sw.ALERT.exists())
+
     def test_exactly_same_values_new_date_updates_state_not_telegram(self):
         self.seed()
         self.assertEqual(self.run_watch(), 0)

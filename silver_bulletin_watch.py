@@ -24,10 +24,10 @@ MAX_DATA_AGE_DAYS = 7
 SINGLE_CHECK_THRESHOLD_PP = 2.0
 CUMULATIVE_THRESHOLD_PP = 3.0
 
-# Silver Bulletin has historically used this Datawrapper chart id for the
-# four-topic net issue average. The numeric Datawrapper revision changes when
-# a new chart is published, so every run resolves the latest public revision.
-FALLBACK_CHARTS = ["https://datawrapper.dwcdn.net/RFXsV/73/"]
+# The RFXsV publisher-hosted Datawrapper dataset is the established four-issue
+# average. Never recover from a missing embed without a previously validated
+# chart identity and source kept in the committed state.
+ISSUE_CHART_ID = "RFXsV"
 
 ISSUES = {
     "cost_of_living": (
@@ -258,6 +258,38 @@ def load_state() -> dict:
         return {}
 
 
+def trusted_previous_chart() -> Optional[str]:
+    """A known publisher dataset may survive temporary missing HTML iframe tags.
+
+    Fail closed when no source-provenance-bearing state exists, rather than
+    trusting an arbitrary fallback URL or an unverified chart identity.
+    """
+    state = load_state()
+    if state.get("source") != PAGE_URL or not parse_date(state.get("data_date")):
+        return None
+    try:
+        revision = int(state.get("datawrapper_revision") or 0)
+    except (ValueError, TypeError):
+        return None
+    if revision <= 0:
+        return None
+    canonical = f"https://datawrapper.dwcdn.net/{ISSUE_CHART_ID}/{revision}/"
+    if state.get("issue_chart") != canonical:
+        return None
+    values = state.get("values")
+    if not isinstance(values, dict) or set(values) & REQUIRED_ISSUES != REQUIRED_ISSUES:
+        return None
+    try:
+        for key in REQUIRED_ISSUES:
+            raw = values[key]
+            value = raw["value"] if isinstance(raw, dict) else raw
+            if num(value) is None:
+                return None
+    except (TypeError, KeyError, ValueError):
+        return None
+    return canonical
+
+
 def fmt(x: float) -> str:
     return f"{x:+.1f}%p"
 
@@ -304,11 +336,18 @@ def main() -> int:
         DEBUG.write_text(json.dumps(debug, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
         STATUS.write_text("Silver Bulletin 공식 페이지 확인 실패. 과거 값을 재사용하거나 Telegram으로 보내지 않습니다.\n", encoding="utf-8")
         return 2
-    if not any("RFXsV/" in chart for chart in charts):
-        debug["errors"].append("공식 페이지에서 이슈별 차트 RFXsV 링크가 확인되지 않음")
-        DEBUG.write_text(json.dumps(debug, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-        STATUS.write_text("Silver Bulletin 공식 이슈 차트 식별 실패. 알림 중단 및 재검증 필요.\n", encoding="utf-8")
-        return 2
+    if not any((parsed := parse_chart_url(chart)) and parsed[0] == ISSUE_CHART_ID
+               for chart in charts):
+        saved_chart = trusted_previous_chart()
+        if saved_chart:
+            charts.append(saved_chart)
+            debug["source_recovery"] = "trusted_previously_verified_RFXsV"
+            debug["source_recovery_reason"] = "live publisher HTML omits verified issue iframe"
+        else:
+            debug["errors"].append("공식 페이지에서 이슈별 차트 RFXsV 링크가 확인되지 않고 검증된 저장 차트 없음")
+            DEBUG.write_text(json.dumps(debug, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+            STATUS.write_text("Silver Bulletin 공식 이슈 차트 식별 실패. 알림 중단 및 재검증 필요.\n", encoding="utf-8")
+            return 2
 
     datasets = []
     seen_ids = set()
@@ -317,6 +356,9 @@ def main() -> int:
         if not parsed:
             continue
         chart_id, embedded_revision = parsed
+        # Do not accidentally substitute a different chart with similar columns.
+        if chart_id != ISSUE_CHART_ID:
+            continue
         if chart_id in seen_ids:
             continue
         seen_ids.add(chart_id)
@@ -483,6 +525,9 @@ def main() -> int:
 
     if notify:
         lines = ["[Silver Bulletin 트럼프 이슈 지지율 감시] 변화 감지", ""]
+        comparison_date = str(previous.get("last_alert_data_date") or prior_date or "")
+        if comparison_date:
+            lines.extend([f"- 비교 기간: {comparison_date} → {data_date} (마지막 성공 알림 대비)", ""])
         deltas = []
         for key in ("cost_of_living", "economy", "immigration", "trade"):
             now_value = float(compact[key]["value"])
