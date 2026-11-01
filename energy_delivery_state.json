@@ -3480,10 +3480,10 @@
   },
   "last_result": {
     "ok": false,
-    "errors": 4,
+    "errors": 1,
     "pending": 49,
     "refinery_sent": 0,
     "spr_sent": 0,
-    "at": "2026-11-01T11:33:14+09:00"
+    "at": "2026-11-01T18:36:40+09:00"
   }
 }
