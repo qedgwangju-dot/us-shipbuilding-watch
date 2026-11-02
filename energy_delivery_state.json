@@ -30,35 +30,6 @@
       "invalid_items": [],
       "held_items": []
     },
-    "spr:news:spr_article_83aa4d78fd74f136b22b78c5": {
-      "topic": "spr",
-      "kind": "news",
-      "event_key": "spr_article_83aa4d78fd74f136b22b78c5",
-      "status": "source_blocked",
-      "items": [
-        {
-          "id": "83aa4d78fd74f136b22b78c5",
-          "title": "Trump’s Venezuela Strategy Needs More Than Oil Deals - Bloomberg.com",
-          "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNdDh3aVV6bkVnUFpWN3dvclA1emIxOTZlbU9OcFJSVnJQWXRkSUFsVjRucXRKWDFSTzhGbWR0aFlRMmtPYXFJYVdrNENTdDE3TDJuZm85ckJzOTI2WFdkZnJjS3FvSi1OWGk0bkJYVnp4cmtkaXYzN1A5S1hUNGROX1B3RGg4OGx5M0JMaFNJXzhFQmJzM2g2TEZIUzNGZE5iZTZ4WFlUbHRlZw?oc=5",
-          "source": "Bloomberg.com",
-          "source_url": "https://www.bloomberg.com",
-          "pub_kst": "2026-10-30T18:30+09:00",
-          "_source_blocked": true,
-          "_source_failure": {
-            "stage": "article_fetch",
-            "reason": "http_denial",
-            "blocked_before_request": false,
-            "provider": "www.bloomberg.com",
-            "request_url_sha256": "7d6e32cba10d449cb0f2b6ff32f107941206451a7052c097efbed54c8c91173b",
-            "http_status": 403
-          }
-        }
-      ],
-      "queued_at": "2026-10-30T20:35:36+09:00",
-      "attempts": 1,
-      "invalid_items": [],
-      "held_items": []
-    },
     "refinery:news:refinery_article_1842b4c95cc4f890419d9ca4": {
       "topic": "refinery",
       "kind": "news",
@@ -2739,6 +2710,16 @@
       "ids": [
         "23d8140ef4e2499f32b5d1d3"
       ]
+    },
+    {
+      "key": "spr:news:spr_article_83aa4d78fd74f136b22b78c5",
+      "reason": "expired_unverified_no_telegram_delivery",
+      "at": "2026-11-02T19:01:44+09:00",
+      "ids": [
+        "83aa4d78fd74f136b22b78c5"
+      ],
+      "delivered": false,
+      "archived": true
     }
   ],
   "observed_data": {
@@ -4152,6 +4133,39 @@
           }
         ],
         "queued_at": "2026-10-30T14:37:41+09:00",
+        "attempts": 1,
+        "invalid_items": [],
+        "held_items": []
+      }
+    },
+    "spr:news:spr_article_83aa4d78fd74f136b22b78c5": {
+      "archived_at": "2026-11-02T19:01:44+09:00",
+      "reason": "expired_unverified_no_telegram_delivery",
+      "entry": {
+        "topic": "spr",
+        "kind": "news",
+        "event_key": "spr_article_83aa4d78fd74f136b22b78c5",
+        "status": "source_blocked",
+        "items": [
+          {
+            "id": "83aa4d78fd74f136b22b78c5",
+            "title": "Trump’s Venezuela Strategy Needs More Than Oil Deals - Bloomberg.com",
+            "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNdDh3aVV6bkVnUFpWN3dvclA1emIxOTZlbU9OcFJSVnJQWXRkSUFsVjRucXRKWDFSTzhGbWR0aFlRMmtPYXFJYVdrNENTdDE3TDJuZm85ckJzOTI2WFdkZnJjS3FvSi1OWGk0bkJYVnp4cmtkaXYzN1A5S1hUNGROX1B3RGg4OGx5M0JMaFNJXzhFQmJzM2g2TEZIUzNGZE5iZTZ4WFlUbHRlZw?oc=5",
+            "source": "Bloomberg.com",
+            "source_url": "https://www.bloomberg.com",
+            "pub_kst": "2026-10-30T18:30+09:00",
+            "_source_blocked": true,
+            "_source_failure": {
+              "stage": "article_fetch",
+              "reason": "http_denial",
+              "blocked_before_request": false,
+              "provider": "www.bloomberg.com",
+              "request_url_sha256": "7d6e32cba10d449cb0f2b6ff32f107941206451a7052c097efbed54c8c91173b",
+              "http_status": 403
+            }
+          }
+        ],
+        "queued_at": "2026-10-30T20:35:36+09:00",
         "attempts": 1,
         "invalid_items": [],
         "held_items": []
