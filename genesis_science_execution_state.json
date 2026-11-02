@@ -1,5 +1,5 @@
 {
-  "last_checked_kst": "2026-11-02T18:48:26+09:00",
+  "last_checked_kst": "2026-11-03T04:50:58+09:00",
   "schema": 1,
   "seen": {
     "doe-genesis-phase2-awards:2026-10-08": {
@@ -20,10 +20,10 @@
   },
   "source_health": {
     "baseline_verified": 3,
-    "decoded_official": 0,
+    "decoded_official": 1,
     "doe_listing_count": 5,
     "doe_verified": 1,
-    "feed_items": 0,
+    "feed_items": 1,
     "new_candidates": 0,
     "nvidia_rss_article_fallbacks": 1,
     "nvidia_rss_count": 20,
@@ -31,13 +31,8 @@
     "nvidia_verified": 1,
     "official_new_docs_verified": 5,
     "official_urls_considered": 9,
-    "search_coverage_gap": true,
-    "source_errors": [
-      "공식 뉴스 검색 실패 site:nvidianews.nvidia.com/news \"Genesis Mission\" (awar: HTTPError",
-      "공식 뉴스 검색 실패 site:investor.nvidia.com/news \"Genesis Mission\" (agreem: HTTPError",
-      "공식 뉴스 검색 실패 site:energy.gov/articles \"Genesis Mission\" (award OR se: HTTPError",
-      "공식 뉴스 검색 실패 site:whitehouse.gov/fact-sheets \"Genesis Mission\" (awar: HTTPError"
-    ],
+    "search_coverage_gap": false,
+    "source_errors": [],
     "whitehouse_verified": 1
   },
   "uncertain": {}
