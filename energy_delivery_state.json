@@ -2739,11 +2739,11 @@
   "last_result": {
     "ok": false,
     "errors": 1,
-    "pending": 8,
+    "pending": 7,
     "refinery_sent": 0,
     "spr_sent": 0,
-    "unverified_archived": 43,
-    "at": "2026-11-02T11:47:52+09:00"
+    "unverified_archived": 44,
+    "at": "2026-11-02T19:01:53+09:00"
   },
   "archived_unverified": {
     "refinery:news:refinery_article_3732d92a79dc14aedccf4fe8": {
