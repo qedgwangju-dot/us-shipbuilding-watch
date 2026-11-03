@@ -17,7 +17,8 @@
         }
       ],
       "queued_at": "2026-11-01T11:32:56+09:00",
-      "attempts": 9
+      "attempts": 10,
+      "invalid_items": []
     }
   },
   "receipts": [
