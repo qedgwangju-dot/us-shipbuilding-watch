@@ -1,8 +1,19 @@
 {
-  "version": 1,
   "baseline": "2026-10-08-no-strikes-before-Nov-3",
   "baseline_source": "https://truthsocial.com/@realDonaldTrump/117406186276133332",
-  "baseline_status": "2026-10-08 confirmed presidential post; do not treat as ceasefire or lifted blockade",
-  "events": {},
-  "updated_at_utc": "2026-10-09T00:00:00+00:00"
+  "events": {
+    "us_strike": {
+      "evidence_urls": [
+        "https://news.google.com/rss/articles/CBMijgFBVV95cUxOTmFFOGhpWHVzSEdLTVJ0Nnl6Z1JWS2ZnejFCcTJrck4zSXIzV2xPdy1PZ1h0ZkNCbWhTUFlIdzFwRHladmduOG5FWkZuSzhiOFhOUXNmR0dfY0UtdHNlQjBEenQ5RDBqLVFKeWVMNTBQdUgyeW5aRkVKekRoWVlnaU82Znh5TmNqdDh5N2ZR?oc=5",
+        "https://news.google.com/rss/articles/CBMiqwFBVV95cUxNbmVhWVpoUFY5Q2J4OGY3SlRPdnpxbFhHaWlOT2V6NUdXaXl0SjVQWnNMVXdIQV9KaFdfY3dOMFpqRFF5VzF6WWh4dnNERlJidUVhbEliWmt6ZVhuUThYN1pac2NHWTR4MnE2Q2JPLWVJVkFzckZucFNMRWFHQ3RkU1JwdTBGM1B0X0dEckpoRHFzSG5Mb0V1MkF1M2hHSW1obXZuSGhGQ0dodEk?oc=5"
+      ],
+      "first_observed": "2026-11-03T06:58:13.967092+00:00",
+      "sources": [
+        "The New York Times",
+        "The Wall Street Journal"
+      ]
+    }
+  },
+  "updated_at_utc": "2026-11-03T06:58:13.967092+00:00",
+  "version": 1
 }
