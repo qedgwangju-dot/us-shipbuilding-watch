@@ -10,7 +10,7 @@
     "IonQ|정부 기술검증·계약|darpa|qbi-stage-c-2026-10-07"
   ],
   "initialized": true,
-  "last_checked_kst": "2026-11-03T04:50:55+09:00",
+  "last_checked_kst": "2026-11-03T18:26:05+09:00",
   "retry_candidates": [],
   "sources": {
     "D-Wave 공식 뉴스": [
@@ -38,8 +38,13 @@
     ],
     "NVIDIA 공식 뉴스": [],
     "PsiQuantum 공식 뉴스": [],
-    "Quantinuum 공식 IR": [],
-    "Rigetti 공식 IR": [],
+    "Quantinuum 공식 IR": [
+      "https://ir.quantinuum.com/news-releases/news-release-details/quantinuum-breaks-error-correction-world-record-10x-validating"
+    ],
+    "Rigetti 공식 IR": [
+      "https://investors.rigetti.com/news-releases/news-release-details/rigetti-computing-establishes-dedicated-systems-delivery",
+      "https://investors.rigetti.com/news-releases/news-release-details/rigetti-expands-collaboration-hpe-and-pittsburgh-supercomputing"
+    ],
     "양자 상용화·기술검증 보도 감시::8627878f": []
   }
 }
