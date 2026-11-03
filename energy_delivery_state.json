@@ -2623,13 +2623,13 @@
     }
   },
   "last_result": {
-    "ok": false,
-    "errors": 1,
-    "pending": 1,
+    "ok": true,
+    "errors": 0,
+    "pending": 0,
     "refinery_sent": 0,
     "spr_sent": 0,
-    "unverified_archived": 50,
-    "at": "2026-11-03T18:27:30+09:00"
+    "unverified_archived": 51,
+    "at": "2026-11-04T02:13:16+09:00"
   },
   "archived_unverified": {
     "refinery:news:refinery_article_3732d92a79dc14aedccf4fe8": {
