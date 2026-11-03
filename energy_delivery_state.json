@@ -1,25 +1,6 @@
 {
   "schema_version": 1,
-  "outbox": {
-    "spr:news:spr_article_cdfb1fffffefa1a75e7776c0": {
-      "topic": "spr",
-      "kind": "news",
-      "event_key": "spr_article_cdfb1fffffefa1a75e7776c0",
-      "status": "enrichment_pending",
-      "items": [
-        {
-          "id": "cdfb1fffffefa1a75e7776c0",
-          "title": "U.S. Considers Sanctions Relief to Revive Venezuela's Oil Output - Crude Oil Prices Today | OilPrice.com",
-          "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxPbEludEstNGdYQXN0c1Zod3VSS3RtS1F0bjQ3MVh2c3g1NDZYYWRvNkdqMWVxeEFBaHBCX3pDQUVManJmbmtCeWtmN1JYSWpSbGhqamNTMTdTaWduZW5nYmZmTV96ak04R3dfQ2FUNThvNmhtRWVMU0N2TVptZXVNVE1MYVVaQ2NBVXRkZ2Y2emd5MU40YnV4bGh4ekxjT0FNV0JKRzVsQWRjUmxVMzFDUThRTDNWV1Iy0gG-AUFVX3lxTE5MaTlOTTROTkNhY0c0Z1d2T0hOVGhiRmdUNmpzVWcyQnFzVXhLQTFyU1JnUFdrODI4UU1RbS1MNkJYTlMyZUNtT0EtQlU3SDhvV3pXNEFNRHRLUWphb0xuLWJmN2RWa05EQmQtQmtBLXhPUG4wUVBvV3FKWWNLekRtUDlOYjFtTWswanpGSjVJa1NLNmhacENYY1JfbGhha2g2MlFmYmxQQzMtZWVkQmlXS3pjejBwc085ZV9zTGc?oc=5",
-          "source": "Crude Oil Prices Today | OilPrice.com",
-          "source_url": "https://oilprice.com",
-          "pub_kst": "2026-01-28T17:00+09:00"
-        }
-      ],
-      "queued_at": "2026-11-04T07:17:12+09:00",
-      "attempts": 0
-    }
-  },
+  "outbox": {},
   "receipts": [
     {
       "key": "spr:data:spr:2026-10-09",
@@ -2624,6 +2605,14 @@
       "at": "2026-11-04T02:13:00+09:00",
       "ids": [
         "89b2d985baf13788d39c4713"
+      ]
+    },
+    {
+      "key": "spr:news:spr_article_cdfb1fffffefa1a75e7776c0",
+      "reason": "news_outside_three_day_window",
+      "at": "2026-11-04T07:17:14+09:00",
+      "ids": [
+        "cdfb1fffffefa1a75e7776c0"
       ]
     }
   ],
