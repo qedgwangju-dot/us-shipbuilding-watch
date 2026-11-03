@@ -1,24 +1,23 @@
 {
   "schema_version": 1,
   "outbox": {
-    "refinery:news:refinery_article_1842b4c95cc4f890419d9ca4": {
+    "refinery:news:refinery_article_89b2d985baf13788d39c4713": {
       "topic": "refinery",
       "kind": "news",
-      "event_key": "refinery_article_1842b4c95cc4f890419d9ca4",
+      "event_key": "refinery_article_89b2d985baf13788d39c4713",
       "status": "enrichment_pending",
       "items": [
         {
-          "id": "1842b4c95cc4f890419d9ca4",
-          "title": "US oil giants double profits as fuel supply crunch drives refinery expansion - Türkiye Today",
-          "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxQdHJnYXVuN2V0emhLdWhQa29CRkNSOHM3b1lwT2NJbkNUejcxSEF0c3Y3cWUwS1BTcDFiVzNLcTFOSkRxWmNObzlHZFJmUlJoZkp5NDFyY3RNbXFtZVpzYkdrdmlVLWdNSEg1NHY5SFgzNm9sTEJWRDNjU1FoZXozZjFCSnJfTmJJNElhQlFGdHVCYThpSDZ4MHBvd0RCbEZMUTZMY3RVa0p3VVNwSnFXc21ETFRwVWM0Q1ZQb1FZdw?oc=5",
-          "source": "Türkiye Today",
-          "source_url": "https://www.turkiyetoday.com",
-          "pub_kst": "2026-10-31T19:14+09:00"
+          "id": "89b2d985baf13788d39c4713",
+          "title": "Trump’s Diesel Pressure on Kyiv Exposes a Wider Problem in the Ukraine Peace Push - EU Today",
+          "link": "https://news.google.com/rss/articles/CBMidEFVX3lxTE0wZi0zVExjakFiUW0yZlZpRDNhWEZSc1ZfTEhWeF9BZmlUZk1RTFBPSTBGM3p6MkNwWGZpTVRsRGRIZkNrU3o5TkF6YU9IdDV0Qm0wMTRXdWFGc2U1c2JRNk9PZUZJTHE4WjA4aTM4OXgzbU9L?oc=5",
+          "source": "EU Today",
+          "source_url": "https://eutoday.net",
+          "pub_kst": "2026-09-23T16:00+09:00"
         }
       ],
-      "queued_at": "2026-11-01T11:32:56+09:00",
-      "attempts": 10,
-      "invalid_items": []
+      "queued_at": "2026-11-04T02:12:56+09:00",
+      "attempts": 0
     }
   },
   "receipts": [
@@ -2608,6 +2607,16 @@
       ],
       "delivered": false,
       "archived": true
+    },
+    {
+      "key": "refinery:news:refinery_article_1842b4c95cc4f890419d9ca4",
+      "reason": "expired_unverified_no_telegram_delivery",
+      "at": "2026-11-04T02:12:53+09:00",
+      "ids": [
+        "1842b4c95cc4f890419d9ca4"
+      ],
+      "delivered": false,
+      "archived": true
     }
   ],
   "observed_data": {
@@ -4253,6 +4262,29 @@
         "attempts": 1,
         "invalid_items": [],
         "held_items": []
+      }
+    },
+    "refinery:news:refinery_article_1842b4c95cc4f890419d9ca4": {
+      "archived_at": "2026-11-04T02:12:53+09:00",
+      "reason": "expired_unverified_no_telegram_delivery",
+      "entry": {
+        "topic": "refinery",
+        "kind": "news",
+        "event_key": "refinery_article_1842b4c95cc4f890419d9ca4",
+        "status": "enrichment_pending",
+        "items": [
+          {
+            "id": "1842b4c95cc4f890419d9ca4",
+            "title": "US oil giants double profits as fuel supply crunch drives refinery expansion - Türkiye Today",
+            "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxQdHJnYXVuN2V0emhLdWhQa29CRkNSOHM3b1lwT2NJbkNUejcxSEF0c3Y3cWUwS1BTcDFiVzNLcTFOSkRxWmNObzlHZFJmUlJoZkp5NDFyY3RNbXFtZVpzYkdrdmlVLWdNSEg1NHY5SFgzNm9sTEJWRDNjU1FoZXozZjFCSnJfTmJJNElhQlFGdHVCYThpSDZ4MHBvd0RCbEZMUTZMY3RVa0p3VVNwSnFXc21ETFRwVWM0Q1ZQb1FZdw?oc=5",
+            "source": "Türkiye Today",
+            "source_url": "https://www.turkiyetoday.com",
+            "pub_kst": "2026-10-31T19:14+09:00"
+          }
+        ],
+        "queued_at": "2026-11-01T11:32:56+09:00",
+        "attempts": 10,
+        "invalid_items": []
       }
     }
   }
