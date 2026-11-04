@@ -1,43 +1,6 @@
 {
   "schema_version": 1,
-  "outbox": {
-    "refinery:news:refinery_article_59ca10103894a5e304b8e9a4": {
-      "topic": "refinery",
-      "kind": "news",
-      "event_key": "refinery_article_59ca10103894a5e304b8e9a4",
-      "status": "enrichment_pending",
-      "items": [
-        {
-          "id": "59ca10103894a5e304b8e9a4",
-          "title": "There's one massive problem with Trump's Ukraine diesel price theory - The Kyiv Independent",
-          "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxPaGVaM0Q3TW16XzliajZGNTZwMTd4UDlDUThBdzhpQkFrVFJWcDluVTVGVHpYSVZVOExubzNqRzVoWEtNVlVrU2JIVTZ2Z3BRaEoxZXA1Q01yTl9aM2kwS3dwRDRmUy1mdk43SUNuMkxOSnI1aGFkS3Y5WnlOb3NOZHZ6SldWTlVweEVuSWpYbnpBVWlaQzdjWU9sWQ?oc=5",
-          "source": "The Kyiv Independent",
-          "source_url": "https://kyivindependent.com",
-          "pub_kst": "2026-09-15T16:00+09:00"
-        }
-      ],
-      "queued_at": "2026-11-04T11:23:11+09:00",
-      "attempts": 0
-    },
-    "refinery:news:refinery_article_9d089a932175fd6da20263eb": {
-      "topic": "refinery",
-      "kind": "news",
-      "event_key": "refinery_article_9d089a932175fd6da20263eb",
-      "status": "enrichment_pending",
-      "items": [
-        {
-          "id": "9d089a932175fd6da20263eb",
-          "title": "EPA delivers final rule to extend RFS compliance deadline to White House OMB - Ethanol Producer Magazine",
-          "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxQZEcxdFMxZkY4N3h1dHJQTHFSMlZwVXg2OFhfZWhDbDBjUWNoek9wcjZpQWh2Q3pYZDJKbi1yZVFIYXFKU0xpZ1AxamQtX3pOYUY4V2puSEFMTWpLc3ZYTGpMV2F3c1g1WUs0Z1MtUnZhMUZEZ200NmkxZHZ2MXZ1a1NNOENGeG1KOXJ6SzJNcjA5UF9HZUZWNmp1dHVIemdoWDMwMjlIbmdkRGFja2R0dEpfdw?oc=5",
-          "source": "Ethanol Producer Magazine",
-          "source_url": "https://ethanolproducer.com",
-          "pub_kst": "2026-08-27T16:00+09:00"
-        }
-      ],
-      "queued_at": "2026-11-04T11:23:11+09:00",
-      "attempts": 0
-    }
-  },
+  "outbox": {},
   "receipts": [
     {
       "key": "spr:data:spr:2026-10-09",
@@ -2650,6 +2613,22 @@
       "at": "2026-11-04T07:17:14+09:00",
       "ids": [
         "cdfb1fffffefa1a75e7776c0"
+      ]
+    },
+    {
+      "key": "refinery:news:refinery_article_59ca10103894a5e304b8e9a4",
+      "reason": "news_outside_three_day_window",
+      "at": "2026-11-04T11:23:13+09:00",
+      "ids": [
+        "59ca10103894a5e304b8e9a4"
+      ]
+    },
+    {
+      "key": "refinery:news:refinery_article_9d089a932175fd6da20263eb",
+      "reason": "news_outside_three_day_window",
+      "at": "2026-11-04T11:23:13+09:00",
+      "ids": [
+        "9d089a932175fd6da20263eb"
       ]
     }
   ],
