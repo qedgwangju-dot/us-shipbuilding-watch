@@ -1,25 +1,6 @@
 {
   "schema_version": 1,
-  "outbox": {
-    "refinery:news:refinery_article_24a6d21df72bc5594e83409c": {
-      "topic": "refinery",
-      "kind": "news",
-      "event_key": "refinery_article_24a6d21df72bc5594e83409c",
-      "status": "enrichment_pending",
-      "items": [
-        {
-          "id": "24a6d21df72bc5594e83409c",
-          "title": "Trump Targets Refinery Bottleneck As National Gas Average Tops $4 - Dallas Express",
-          "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNRFduRHRYNXVmUldMYVJpZXF6d3NmS0RPWWV5ZEM0a2p5T3lfMDR5ZFkwMXBXTmR5a09xNlA2QkFsSUQzR19vR3lIa0lMQS1TY2xqY3k4eFlaVmRqb05ZWm5XVmNXQUFOMk5fbTNXblFWUzBFczVqN3hidVNHOWVfa3BuVXQwUzMtTElqTlhrOEFXSm5BX0FXOA?oc=5",
-          "source": "Dallas Express",
-          "source_url": "https://dallasexpress.com",
-          "pub_kst": "2026-09-01T16:00+09:00"
-        }
-      ],
-      "queued_at": "2026-11-05T07:44:45+09:00",
-      "attempts": 0
-    }
-  },
+  "outbox": {},
   "receipts": [
     {
       "key": "spr:data:spr:2026-10-09",
@@ -2672,6 +2653,14 @@
       "at": "2026-11-04T18:29:50+09:00",
       "ids": [
         "4cee79f7378af15dee78ad81"
+      ]
+    },
+    {
+      "key": "refinery:news:refinery_article_24a6d21df72bc5594e83409c",
+      "reason": "news_outside_three_day_window",
+      "at": "2026-11-05T07:44:47+09:00",
+      "ids": [
+        "24a6d21df72bc5594e83409c"
       ]
     }
   ],
