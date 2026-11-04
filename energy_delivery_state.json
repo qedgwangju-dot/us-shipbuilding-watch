@@ -1,6 +1,43 @@
 {
   "schema_version": 1,
-  "outbox": {},
+  "outbox": {
+    "spr:news:spr_article_e39740275c724571cfa7ef9f": {
+      "topic": "spr",
+      "kind": "news",
+      "event_key": "spr_article_e39740275c724571cfa7ef9f",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "e39740275c724571cfa7ef9f",
+          "title": "What we know about Trump's deal giving US access to vast oil reserves in Venezuela - ABC7 New York - ABC7 New York",
+          "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxPNVk0eXZJQ3I1UXNtN0RpekUzTG9ZQnA4alJ4YjJGRmFBWE56Y1Fhc2ZYR0tKeDdBVzB6Nm1FTXA4X1N1a01YVldGaDdvenJzdGNSMnlpVE1nUUtCTFpfQ2FoU1pxa1VrbTluTjF0N2tmdjhPZGszMUFYQXFPaktjWlQxMG55SmZOdTRzMy1wUTBLRGdMRmhaQUpxT2lqLUxwVXJn?oc=5",
+          "source": "ABC7 New York",
+          "source_url": "https://abc7ny.com",
+          "pub_kst": "2026-08-31T16:00+09:00"
+        }
+      ],
+      "queued_at": "2026-11-04T18:29:49+09:00",
+      "attempts": 0
+    },
+    "spr:news:spr_article_4cee79f7378af15dee78ad81": {
+      "topic": "spr",
+      "kind": "news",
+      "event_key": "spr_article_4cee79f7378af15dee78ad81",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "4cee79f7378af15dee78ad81",
+          "title": "Trump moves to lock long-term access to 17 Venezuelan oilfields - Chosunbiz",
+          "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNYkt5VGRuWFB5Zm5CTVJVSlhNNjZGVFVNYnMwdUNvdExwcXRpMGxfZ3hKV28yMS1MTnVreGxjOXN5RGxzTWd3UkFUSlpJX0txaEFIaW9ra0lESE5IRVBxNEt6aF92YlNhZGlxTk9wMWdISGFvOWdsaEJQT1BfSGQtLWdlMU1yWXJQ0gGcAUFVX3lxTE9kTHI3d085SV9Da2xkeHl1RXptVFdkcWNMMlh5RTQ4WGJiNHpOMTVlNzBYVlhkOHJxdkFsaDNfS0d1OGRpQy1SY18yVDRYWldURTdUQmpuVE1QcmdwZDFHOG9SM0VqaXN5MFlnaC0tQUFQWGI2Um9VWG5DTWZwbVJOeE5jT211S21OSUhBS1N2ZjRTVU8wRThvd2hkYg?oc=5",
+          "source": "Chosunbiz",
+          "source_url": "https://biz.chosun.com",
+          "pub_kst": "2026-08-28T16:00+09:00"
+        }
+      ],
+      "queued_at": "2026-11-04T18:29:49+09:00",
+      "attempts": 0
+    }
+  },
   "receipts": [
     {
       "key": "spr:data:spr:2026-10-09",
