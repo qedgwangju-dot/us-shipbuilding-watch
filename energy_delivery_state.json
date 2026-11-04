@@ -1,6 +1,25 @@
 {
   "schema_version": 1,
-  "outbox": {},
+  "outbox": {
+    "refinery:news:refinery_article_bec63f898fe70b35bff551b9": {
+      "topic": "refinery",
+      "kind": "news",
+      "event_key": "refinery_article_bec63f898fe70b35bff551b9",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "bec63f898fe70b35bff551b9",
+          "title": "Trump blames ‘Blue States’ for soaring gas prices as he declares Hormuz is no longer the culprit - MEAWW News",
+          "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxQWlRtT0NHYk5ZTnl3MTRsSHJ5REJOZXFjTFN1THd3NEhQY1BzR2I4YUJVbV8xSnJYQ0lqc3p1aXVpQ1IydUVWSzJlZEZrcVJLNzZ4MzFLQ3VmWmVUbXl2aE1xSFlwOUpuQm1UY3RiX1hDb1FQUkVaZ2QyV3luYzVZNXBRMzJwcHJEU1drbHh4SlRKNDhUNG9GZ2haV1lKdXlkZ09tZHE0NUthQm5nN1BabUt3Y2Fvamxj?oc=5",
+          "source": "MEAWW News",
+          "source_url": "https://news.meaww.com",
+          "pub_kst": "2026-10-05T16:00+09:00"
+        }
+      ],
+      "queued_at": "2026-11-04T18:29:40+09:00",
+      "attempts": 0
+    }
+  },
   "receipts": [
     {
       "key": "spr:data:spr:2026-10-09",
