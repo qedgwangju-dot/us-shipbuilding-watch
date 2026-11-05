@@ -1,43 +1,6 @@
 {
   "schema_version": 1,
-  "outbox": {
-    "refinery:news:refinery_article_3a6445640a937eab3ad53aa5": {
-      "topic": "refinery",
-      "kind": "news",
-      "event_key": "refinery_article_3a6445640a937eab3ad53aa5",
-      "status": "enrichment_pending",
-      "items": [
-        {
-          "id": "3a6445640a937eab3ad53aa5",
-          "title": "What the Defense Production Act Push at Delek’s Tyler Refinery Means for Your Fuel Bill - Energy News Beat",
-          "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxPd2FTR0dOcnFjZjktczgzVWFOMDBSOGd4UlFSTUQ3MEc5OVJHYVdFZDRSdnRRNkdMSnBCTm1qRGJ4dThsRmRsQXZ0Wkhaay1UZGVDMThqNHB1NE83TFllNWJ5UTFJajloT1NST3VsOXhzX3hfRUtOZy1Dal9FeHNjYVNlUjNBY29KNUJIVGxIX2lGVEVmVjRzUVhCR0hPRlNMcmV6OW1Rck5mVmpqSVBOS0E5elhOUFRTc291cw?oc=5",
-          "source": "Energy News Beat",
-          "source_url": "https://energynewsbeat.co",
-          "pub_kst": "2026-10-15T22:23+09:00"
-        }
-      ],
-      "queued_at": "2026-11-05T11:51:14+09:00",
-      "attempts": 0
-    },
-    "refinery:news:refinery_article_d3972921f896e9a455831f03": {
-      "topic": "refinery",
-      "kind": "news",
-      "event_key": "refinery_article_d3972921f896e9a455831f03",
-      "status": "enrichment_pending",
-      "items": [
-        {
-          "id": "d3972921f896e9a455831f03",
-          "title": "President Trump Unveils First Major American Refinery To Be Built In Over Fifty Years - American Energy Alliance",
-          "link": "https://news.google.com/rss/articles/CBMizgFBVV95cUxPeG1Lc1ZMcHpuSGh5emcyVklONU5pWUg2SVgwc0ljY1BQejF5RmpWTXd0WWt3SkIzWEpjRHo3ajlXVUpjQk50bnduS1B5bERNcnBqNEozMldOUkM3RWhsY1RtNXQ3aEVrdENiQ2t6VXlnbVZnQ1l4OHVOYzBqMXN0R0Z3VnVTRlhZb0NYVWNPR0drcnRlc1J2RHdnd1M0ZUZIZGhpN0Qtb2IxbVZVRFdDY2FyNF9KZzRGZlRHVkE1d3Y4Ti1yNERqYzhKVy1nQQ?oc=5",
-          "source": "American Energy Alliance",
-          "source_url": "https://www.americanenergyalliance.org",
-          "pub_kst": "2026-04-09T16:00+09:00"
-        }
-      ],
-      "queued_at": "2026-11-05T11:51:14+09:00",
-      "attempts": 0
-    }
-  },
+  "outbox": {},
   "receipts": [
     {
       "key": "spr:data:spr:2026-10-09",
@@ -2720,6 +2683,22 @@
       "at": "2026-11-05T07:44:47+09:00",
       "ids": [
         "24a6d21df72bc5594e83409c"
+      ]
+    },
+    {
+      "key": "refinery:news:refinery_article_3a6445640a937eab3ad53aa5",
+      "reason": "news_outside_three_day_window",
+      "at": "2026-11-05T11:51:17+09:00",
+      "ids": [
+        "3a6445640a937eab3ad53aa5"
+      ]
+    },
+    {
+      "key": "refinery:news:refinery_article_d3972921f896e9a455831f03",
+      "reason": "news_outside_three_day_window",
+      "at": "2026-11-05T11:51:17+09:00",
+      "ids": [
+        "d3972921f896e9a455831f03"
       ]
     }
   ],
