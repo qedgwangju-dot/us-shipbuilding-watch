@@ -5,7 +5,7 @@
       "topic": "refinery",
       "kind": "news",
       "event_key": "refinery_article_652785178da548c813916d1b",
-      "status": "enrichment_pending",
+      "status": "source_blocked",
       "items": [
         {
           "id": "652785178da548c813916d1b",
@@ -13,11 +13,21 @@
           "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxPRHktTkRmYW9YT3pCbEVaTFBSaVFsSzlBOHVBNERjR1Q3ajFWZnY5Q2dkTG55UjBXOWpiVkp2Ukk1dVJrUjcwdGtXS0dBTm8yMjhuNzh6UGNUcHR0VUI1RlVjRHh5TllhTk92OUtVTGVDZ1VGVFA3dXZKcmpVSmFmM0p2a1Q4eWdWTVcxeVFveHFHNWIwaERCbzQ5eEgwd2t5RmZuMWwyMkhWWmRsVmxhckN0NTB0VXc?oc=5",
           "source": "The Straits Times",
           "source_url": "https://www.straitstimes.com",
-          "pub_kst": "2026-11-06T00:47+09:00"
+          "pub_kst": "2026-11-06T00:47+09:00",
+          "_source_blocked": true,
+          "_source_failure": {
+            "stage": "translation_google",
+            "reason": "http_rate_limit",
+            "blocked_before_request": false,
+            "provider": "www.google.com",
+            "request_url_sha256": "a13d17f4fc6c11305166a0ef5955d478b9ffe39d8fda4d5c1af348b993003ee2",
+            "http_status": 429
+          }
         }
       ],
       "queued_at": "2026-11-06T07:54:27+09:00",
-      "attempts": 0
+      "attempts": 1,
+      "invalid_items": []
     }
   },
   "receipts": [
