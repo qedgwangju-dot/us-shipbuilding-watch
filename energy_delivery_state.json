@@ -1,6 +1,25 @@
 {
   "schema_version": 1,
-  "outbox": {},
+  "outbox": {
+    "refinery:news:refinery_article_652785178da548c813916d1b": {
+      "topic": "refinery",
+      "kind": "news",
+      "event_key": "refinery_article_652785178da548c813916d1b",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "652785178da548c813916d1b",
+          "title": "Renewed Ukraine refinery attacks deplete Russian diesel supply as US deal in focus - The Straits Times",
+          "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxPRHktTkRmYW9YT3pCbEVaTFBSaVFsSzlBOHVBNERjR1Q3ajFWZnY5Q2dkTG55UjBXOWpiVkp2Ukk1dVJrUjcwdGtXS0dBTm8yMjhuNzh6UGNUcHR0VUI1RlVjRHh5TllhTk92OUtVTGVDZ1VGVFA3dXZKcmpVSmFmM0p2a1Q4eWdWTVcxeVFveHFHNWIwaERCbzQ5eEgwd2t5RmZuMWwyMkhWWmRsVmxhckN0NTB0VXc?oc=5",
+          "source": "The Straits Times",
+          "source_url": "https://www.straitstimes.com",
+          "pub_kst": "2026-11-06T00:47+09:00"
+        }
+      ],
+      "queued_at": "2026-11-06T07:54:27+09:00",
+      "attempts": 0
+    }
+  },
   "receipts": [
     {
       "key": "spr:data:spr:2026-10-09",
