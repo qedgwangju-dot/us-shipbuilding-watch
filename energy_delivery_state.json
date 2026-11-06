@@ -113,6 +113,24 @@
       "queued_at": "2026-11-07T02:40:33+09:00",
       "attempts": 1,
       "invalid_items": []
+    },
+    "spr:news:spr_refill_statement_20260830": {
+      "topic": "spr",
+      "kind": "news",
+      "event_key": "spr_refill_statement_20260830",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "93404f09cfce6e52bccde806",
+          "title": "Trump Says Venezuelan Oil Will Refill U.S. Strategic Petroleum Reserve - Crude Oil Prices Today | OilPrice.com",
+          "link": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxONzVjNDZGV1YydVJQVmxCSi0wempyWXNWLXdwRjA4SUlwSVhBSFhfMnFhQVROT3NlUC02Ml9MRXVWMk1kRGxSUGI2RW1qODZfYmF1bjRMbGVBcVFSSjBRd2J1YlRqTWFqNTdkMG1Pd0Q0T3ZhZlhIcUJFbHpQdU9GMzI5TW5kRkZvU3ZWUFUtdXBLdF9qckRvNEZ3LXJOaFp3TDNVRzVFYXg3OUJoeEc2RDBvYXBMUlBRRmhBQ0o2TGlEQQ?oc=5",
+          "source": "Crude Oil Prices Today | OilPrice.com",
+          "source_url": "https://oilprice.com",
+          "pub_kst": "2026-08-31T16:00+09:00"
+        }
+      ],
+      "queued_at": "2026-11-07T02:40:45+09:00",
+      "attempts": 0
     }
   },
   "receipts": [
