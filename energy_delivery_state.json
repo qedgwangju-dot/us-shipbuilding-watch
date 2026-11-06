@@ -29,6 +29,78 @@
       "attempts": 1,
       "invalid_items": [],
       "held_items": []
+    },
+    "refinery:news:refinery_article_875772093cfb4154fe6f89f9": {
+      "topic": "refinery",
+      "kind": "news",
+      "event_key": "refinery_article_875772093cfb4154fe6f89f9",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "875772093cfb4154fe6f89f9",
+          "title": "Trump Calls 2022 Law Blocking Russian Diesel Imports 'Pretty Bad Law' as Ukraine Strikes Refineries, Tank - Benzinga",
+          "link": "https://news.google.com/rss/articles/CBMigwJBVV95cUxPd3ZBZXBSU19PQl9tOTBNa1k0c2NhakZNVmtkQkRMaUdVLTJRQjBNNnZuTVN0NG95c1JYeElxWU5iYzBKOE9wV2RHaC1Zc2JsbGN0Vk5uNGtaYTAzMDY3SHdyMXhPck9sOG8xRldFSkJZdzcycURQVVBya2xsTFp4Znlvc3lTbFhXaXFCbnZsczV0RDdGclQ5Z1VGdFVzb2l2RFJxZzBOQkZRd2g2bmU1NUxlSHBXeWlUQTdLcFhreHppdnJaaEp0YmlzaDBTQ0J5SUxHRWF4RTRxUTFRYmEyWmJxV1pMRkExWjQ0SVFySk9aanpWQVdKaDFJRF95X3Q5c1dZ?oc=5",
+          "source": "Benzinga",
+          "source_url": "https://www.benzinga.com",
+          "pub_kst": "2026-11-06T16:57+09:00"
+        }
+      ],
+      "queued_at": "2026-11-07T02:40:33+09:00",
+      "attempts": 0
+    },
+    "refinery:news:refinery_article_86d6c4bd218ba123ebd74f81": {
+      "topic": "refinery",
+      "kind": "news",
+      "event_key": "refinery_article_86d6c4bd218ba123ebd74f81",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "86d6c4bd218ba123ebd74f81",
+          "title": "Strikes on Russian refineries deepen diesel shortage ᐉ News from Fakti.bg - World - Fakti.bg",
+          "link": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPa3N3RnlJbzBDQkFqYW5kYnVBejNVZUJ4Vm9QbWM0VTgzM0lDMHB5c2l3VVlteTRYWXdLZDJTejBzV0NsS2F3WHV3Uk1sbkVLdEY4VGxZdF9oMVdUX283dWhjT3BwR3owTl84T3duZFZMNXdXYWFrMmFFVk9KNmp6aUVKZzBpYUltZFdTd2Q5WQ?oc=5",
+          "source": "Fakti.bg",
+          "source_url": "https://fakti.bg",
+          "pub_kst": "2026-11-06T13:29+09:00"
+        }
+      ],
+      "queued_at": "2026-11-07T02:40:33+09:00",
+      "attempts": 0
+    },
+    "refinery:news:refinery_article_0e2af9085bd127755d1c49f2": {
+      "topic": "refinery",
+      "kind": "news",
+      "event_key": "refinery_article_0e2af9085bd127755d1c49f2",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "0e2af9085bd127755d1c49f2",
+          "title": "Ukraine Renews Attacks On Russian Oil Refineries - MarineLink",
+          "link": "https://news.google.com/rss/articles/CBMifkFVX3lxTE4yU1NFTUE0M1NtTkprZGlUZk1OOEdqMlF1a2syUndaclBsM2JxdExPYzRMZGZmX1haMFZ2MTc5VXh5NzllRlQ2VG9reWdvdl8xQ0NTdVgzczkxdGxnSEZzWnJKRm52dG5WRWN3eDRyVy1Ub1ZYLWJuN0FJX0dfZw?oc=5",
+          "source": "MarineLink",
+          "source_url": "https://www.marinelink.com",
+          "pub_kst": "2026-11-06T04:20+09:00"
+        }
+      ],
+      "queued_at": "2026-11-07T02:40:33+09:00",
+      "attempts": 0
+    },
+    "refinery:news:refinery_article_3aeef26da08822b71da4c179": {
+      "topic": "refinery",
+      "kind": "news",
+      "event_key": "refinery_article_3aeef26da08822b71da4c179",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "3aeef26da08822b71da4c179",
+          "title": "New Ukrainian strikes on refineries threaten to revive Russian fuel crunch — Bloomberg - The New Voice of Ukraine",
+          "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxQVXN6TzVUb01PeXJNclo3OHVEZTh1R3ltc2F0c2ZPaXc4T2JDSDU2Yl9va1I3bFA5ak90NFJNelFGM0J3ZUNVS2czdm1UOFRrVWdIcG9nM1FPcTdjaHA0U2tmVTMtU1dBWFlMWFgwcTh5cm15QWhzaW1iVmtYODJMaXllRFNjZkVncGRaa0JDVXpSa0R2MWowY1MzMkZUYTh50gGcAUFVX3lxTE03eDRQUWJpeTJnV1ZqS2xOS3lJbGJoNzVhZDhPYjlXckdKOHc0bXg3U1h0OEFXazRGdWtETlk3dWtlSEs4S1liMWRMMVNLUVIxMlBxTmplOFcwTnl4TUJMMTBUSTBLQzJNUEV3VEZZeDRTUnpzMzhKanFYd0oycnZHcldVbDFpYlNJR001RklONlBNYUJpM0dfdjhtLQ?oc=5",
+          "source": "The New Voice of Ukraine",
+          "source_url": "https://english.nv.ua",
+          "pub_kst": "2026-11-03T15:45+09:00"
+        }
+      ],
+      "queued_at": "2026-11-07T02:40:33+09:00",
+      "attempts": 0
     }
   },
   "receipts": [
