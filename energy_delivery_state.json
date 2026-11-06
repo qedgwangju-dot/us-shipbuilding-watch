@@ -56,7 +56,8 @@
       ],
       "queued_at": "2026-11-07T02:40:33+09:00",
       "attempts": 1,
-      "invalid_items": []
+      "invalid_items": [],
+      "held_items": []
     },
     "refinery:news:refinery_article_86d6c4bd218ba123ebd74f81": {
       "topic": "refinery",
@@ -84,7 +85,8 @@
       ],
       "queued_at": "2026-11-07T02:40:33+09:00",
       "attempts": 1,
-      "invalid_items": []
+      "invalid_items": [],
+      "held_items": []
     },
     "refinery:news:refinery_article_0e2af9085bd127755d1c49f2": {
       "topic": "refinery",
@@ -112,7 +114,26 @@
       ],
       "queued_at": "2026-11-07T02:40:33+09:00",
       "attempts": 1,
-      "invalid_items": []
+      "invalid_items": [],
+      "held_items": []
+    },
+    "refinery:news:refinery_article_d801bdedb4c8da6b952a1e71": {
+      "topic": "refinery",
+      "kind": "news",
+      "event_key": "refinery_article_d801bdedb4c8da6b952a1e71",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "d801bdedb4c8da6b952a1e71",
+          "title": "ExxonMobil and Chevron report blowout profits as Trump touts benefits of high oil prices - NBC News",
+          "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNMjhodndJTm9MRlp4bnZKWjNpSmlKa1I1VUJON1d4NnFHcVdGeVpmb0JHalhYdGFma3NjOUdJN05wWnk1U3RfenFvUi1nVENLcG91VGZFTlF4WjJpZ1RyS1I2RjEwdGJINUYtSUZmQ2NEQXpPTnE3MDJ3OXB6M3FLSWhwYnU0UVpsWHdGa1prN29ZRDBRUEtTQW03WGNZZmtV?oc=5",
+          "source": "NBC News",
+          "source_url": "https://www.nbcnews.com",
+          "pub_kst": "2026-10-31T04:06+09:00"
+        }
+      ],
+      "queued_at": "2026-11-07T07:22:25+09:00",
+      "attempts": 0
     }
   },
   "receipts": [
