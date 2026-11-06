@@ -2859,12 +2859,12 @@
   },
   "last_result": {
     "ok": false,
-    "errors": 3,
+    "errors": 0,
     "pending": 4,
     "refinery_sent": 0,
     "spr_sent": 0,
     "unverified_archived": 51,
-    "at": "2026-11-07T02:40:49+09:00"
+    "at": "2026-11-07T07:22:34+09:00"
   },
   "archived_unverified": {
     "refinery:news:refinery_article_3732d92a79dc14aedccf4fe8": {
