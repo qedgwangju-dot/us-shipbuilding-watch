@@ -1,5 +1,5 @@
 {
-  "last_checked_kst": "2026-11-09T03:00:07+09:00",
+  "last_checked_kst": "2026-11-09T06:57:26+09:00",
   "schema": 1,
   "seen": {
     "doe-genesis-phase2-awards:2026-10-08": {
@@ -19,7 +19,7 @@
     }
   },
   "source_health": {
-    "baseline_verified": 3,
+    "baseline_verified": 2,
     "decoded_official": 0,
     "doe_listing_count": 5,
     "doe_verified": 1,
