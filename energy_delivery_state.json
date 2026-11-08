@@ -2822,11 +2822,11 @@
   "last_result": {
     "ok": false,
     "errors": 0,
-    "pending": 4,
+    "pending": 2,
     "refinery_sent": 0,
     "spr_sent": 0,
-    "unverified_archived": 51,
-    "at": "2026-11-09T00:04:09+09:00"
+    "unverified_archived": 53,
+    "at": "2026-11-09T04:36:20+09:00"
   },
   "archived_unverified": {
     "refinery:news:refinery_article_3732d92a79dc14aedccf4fe8": {
