@@ -1,65 +1,6 @@
 {
   "schema_version": 1,
-  "outbox": {
-    "refinery:news:refinery_article_875772093cfb4154fe6f89f9": {
-      "topic": "refinery",
-      "kind": "news",
-      "event_key": "refinery_article_875772093cfb4154fe6f89f9",
-      "status": "source_blocked",
-      "items": [
-        {
-          "id": "875772093cfb4154fe6f89f9",
-          "title": "Trump Calls 2022 Law Blocking Russian Diesel Imports 'Pretty Bad Law' as Ukraine Strikes Refineries, Tank - Benzinga",
-          "link": "https://news.google.com/rss/articles/CBMigwJBVV95cUxPd3ZBZXBSU19PQl9tOTBNa1k0c2NhakZNVmtkQkRMaUdVLTJRQjBNNnZuTVN0NG95c1JYeElxWU5iYzBKOE9wV2RHaC1Zc2JsbGN0Vk5uNGtaYTAzMDY3SHdyMXhPck9sOG8xRldFSkJZdzcycURQVVBya2xsTFp4Znlvc3lTbFhXaXFCbnZsczV0RDdGclQ5Z1VGdFVzb2l2RFJxZzBOQkZRd2g2bmU1NUxlSHBXeWlUQTdLcFhreHppdnJaaEp0YmlzaDBTQ0J5SUxHRWF4RTRxUTFRYmEyWmJxV1pMRkExWjQ0SVFySk9aanpWQVdKaDFJRF95X3Q5c1dZ?oc=5",
-          "source": "Benzinga",
-          "source_url": "https://www.benzinga.com",
-          "pub_kst": "2026-11-06T16:57+09:00",
-          "_source_blocked": true,
-          "_source_failure": {
-            "stage": "article_fetch",
-            "reason": "http_denial",
-            "blocked_before_request": false,
-            "provider": "www.benzinga.com",
-            "request_url_sha256": "5630cbe6a76cdb47969808a75210dd203f826b223feefdb387fb070e5de42dda",
-            "http_status": 403
-          }
-        }
-      ],
-      "queued_at": "2026-11-07T02:40:33+09:00",
-      "attempts": 1,
-      "invalid_items": [],
-      "held_items": []
-    },
-    "refinery:news:refinery_article_86d6c4bd218ba123ebd74f81": {
-      "topic": "refinery",
-      "kind": "news",
-      "event_key": "refinery_article_86d6c4bd218ba123ebd74f81",
-      "status": "source_blocked",
-      "items": [
-        {
-          "id": "86d6c4bd218ba123ebd74f81",
-          "title": "Strikes on Russian refineries deepen diesel shortage ᐉ News from Fakti.bg - World - Fakti.bg",
-          "link": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPa3N3RnlJbzBDQkFqYW5kYnVBejNVZUJ4Vm9QbWM0VTgzM0lDMHB5c2l3VVlteTRYWXdLZDJTejBzV0NsS2F3WHV3Uk1sbkVLdEY4VGxZdF9oMVdUX283dWhjT3BwR3owTl84T3duZFZMNXdXYWFrMmFFVk9KNmp6aUVKZzBpYUltZFdTd2Q5WQ?oc=5",
-          "source": "Fakti.bg",
-          "source_url": "https://fakti.bg",
-          "pub_kst": "2026-11-06T13:29+09:00",
-          "_source_blocked": true,
-          "_source_failure": {
-            "stage": "translation_google",
-            "reason": "http_rate_limit",
-            "blocked_before_request": false,
-            "provider": "www.google.com",
-            "request_url_sha256": "e11bb8ff8d8291871f76a0fa5aaf6d6be18fd989740c95b58549bbd0c2f1b242",
-            "http_status": 429
-          }
-        }
-      ],
-      "queued_at": "2026-11-07T02:40:33+09:00",
-      "attempts": 1,
-      "invalid_items": [],
-      "held_items": []
-    }
-  },
+  "outbox": {},
   "receipts": [
     {
       "key": "spr:data:spr:2026-10-09",
@@ -2803,6 +2744,26 @@
       ],
       "delivered": false,
       "archived": true
+    },
+    {
+      "key": "refinery:news:refinery_article_875772093cfb4154fe6f89f9",
+      "reason": "expired_unverified_no_telegram_delivery",
+      "at": "2026-11-09T19:16:08+09:00",
+      "ids": [
+        "875772093cfb4154fe6f89f9"
+      ],
+      "delivered": false,
+      "archived": true
+    },
+    {
+      "key": "refinery:news:refinery_article_86d6c4bd218ba123ebd74f81",
+      "reason": "expired_unverified_no_telegram_delivery",
+      "at": "2026-11-09T19:16:08+09:00",
+      "ids": [
+        "86d6c4bd218ba123ebd74f81"
+      ],
+      "delivered": false,
+      "archived": true
     }
   ],
   "observed_data": {
@@ -4529,6 +4490,72 @@
               "blocked_before_request": false,
               "provider": "www.google.com",
               "request_url_sha256": "43a2b741697803ef80e38d2008eccdaaf4df5d9bcff320c88ef66a901bb6d13f",
+              "http_status": 429
+            }
+          }
+        ],
+        "queued_at": "2026-11-07T02:40:33+09:00",
+        "attempts": 1,
+        "invalid_items": [],
+        "held_items": []
+      }
+    },
+    "refinery:news:refinery_article_875772093cfb4154fe6f89f9": {
+      "archived_at": "2026-11-09T19:16:08+09:00",
+      "reason": "expired_unverified_no_telegram_delivery",
+      "entry": {
+        "topic": "refinery",
+        "kind": "news",
+        "event_key": "refinery_article_875772093cfb4154fe6f89f9",
+        "status": "source_blocked",
+        "items": [
+          {
+            "id": "875772093cfb4154fe6f89f9",
+            "title": "Trump Calls 2022 Law Blocking Russian Diesel Imports 'Pretty Bad Law' as Ukraine Strikes Refineries, Tank - Benzinga",
+            "link": "https://news.google.com/rss/articles/CBMigwJBVV95cUxPd3ZBZXBSU19PQl9tOTBNa1k0c2NhakZNVmtkQkRMaUdVLTJRQjBNNnZuTVN0NG95c1JYeElxWU5iYzBKOE9wV2RHaC1Zc2JsbGN0Vk5uNGtaYTAzMDY3SHdyMXhPck9sOG8xRldFSkJZdzcycURQVVBya2xsTFp4Znlvc3lTbFhXaXFCbnZsczV0RDdGclQ5Z1VGdFVzb2l2RFJxZzBOQkZRd2g2bmU1NUxlSHBXeWlUQTdLcFhreHppdnJaaEp0YmlzaDBTQ0J5SUxHRWF4RTRxUTFRYmEyWmJxV1pMRkExWjQ0SVFySk9aanpWQVdKaDFJRF95X3Q5c1dZ?oc=5",
+            "source": "Benzinga",
+            "source_url": "https://www.benzinga.com",
+            "pub_kst": "2026-11-06T16:57+09:00",
+            "_source_blocked": true,
+            "_source_failure": {
+              "stage": "article_fetch",
+              "reason": "http_denial",
+              "blocked_before_request": false,
+              "provider": "www.benzinga.com",
+              "request_url_sha256": "5630cbe6a76cdb47969808a75210dd203f826b223feefdb387fb070e5de42dda",
+              "http_status": 403
+            }
+          }
+        ],
+        "queued_at": "2026-11-07T02:40:33+09:00",
+        "attempts": 1,
+        "invalid_items": [],
+        "held_items": []
+      }
+    },
+    "refinery:news:refinery_article_86d6c4bd218ba123ebd74f81": {
+      "archived_at": "2026-11-09T19:16:08+09:00",
+      "reason": "expired_unverified_no_telegram_delivery",
+      "entry": {
+        "topic": "refinery",
+        "kind": "news",
+        "event_key": "refinery_article_86d6c4bd218ba123ebd74f81",
+        "status": "source_blocked",
+        "items": [
+          {
+            "id": "86d6c4bd218ba123ebd74f81",
+            "title": "Strikes on Russian refineries deepen diesel shortage ᐉ News from Fakti.bg - World - Fakti.bg",
+            "link": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPa3N3RnlJbzBDQkFqYW5kYnVBejNVZUJ4Vm9QbWM0VTgzM0lDMHB5c2l3VVlteTRYWXdLZDJTejBzV0NsS2F3WHV3Uk1sbkVLdEY4VGxZdF9oMVdUX283dWhjT3BwR3owTl84T3duZFZMNXdXYWFrMmFFVk9KNmp6aUVKZzBpYUltZFdTd2Q5WQ?oc=5",
+            "source": "Fakti.bg",
+            "source_url": "https://fakti.bg",
+            "pub_kst": "2026-11-06T13:29+09:00",
+            "_source_blocked": true,
+            "_source_failure": {
+              "stage": "translation_google",
+              "reason": "http_rate_limit",
+              "blocked_before_request": false,
+              "provider": "www.google.com",
+              "request_url_sha256": "e11bb8ff8d8291871f76a0fa5aaf6d6be18fd989740c95b58549bbd0c2f1b242",
               "http_status": 429
             }
           }
