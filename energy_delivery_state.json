@@ -33,7 +33,7 @@
       "topic": "spr",
       "kind": "news",
       "event_key": "spr_article_8c66fa2dfeae95b51e778fa8",
-      "status": "enrichment_pending",
+      "status": "source_blocked",
       "items": [
         {
           "id": "8c66fa2dfeae95b51e778fa8",
@@ -41,11 +41,21 @@
           "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxQVVBxNnRQNzFQWDFsaFJIMTAxV184OV9FdFY0TmlETVFoT3FHZ3oxcmtVNXl5Zm92ZDVROFNzN09kME5nRGlXSzFJQzVQaTFBWXd1RFB1NDlubGM0alNnQklRdFdBXzhGLUkxOUJQcmhWTjRSOFFnNHRUTHRLWTd3eUpmVGpESERWZFlVWklVZXlzbmgwdlRuYmJCVWswZ21tZUstQV9qNmEzWFk5RlE?oc=5",
           "source": "Bloomberg.com",
           "source_url": "https://www.bloomberg.com",
-          "pub_kst": "2026-11-11T01:20+09:00"
+          "pub_kst": "2026-11-11T01:20+09:00",
+          "_source_blocked": true,
+          "_source_failure": {
+            "stage": "article_fetch",
+            "reason": "http_denial",
+            "blocked_before_request": false,
+            "provider": "www.bloomberg.com",
+            "request_url_sha256": "104632eb7912756d3b57b53a9775f880a67dedc129975e84c3505437dc3688de",
+            "http_status": 403
+          }
         }
       ],
       "queued_at": "2026-11-11T03:14:56+09:00",
-      "attempts": 0
+      "attempts": 1,
+      "invalid_items": []
     }
   },
   "receipts": [
