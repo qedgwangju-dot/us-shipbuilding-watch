@@ -19,6 +19,24 @@
       "queued_at": "2026-11-10T19:41:45+09:00",
       "attempts": 1,
       "invalid_items": []
+    },
+    "refinery:news:refinery_article_175c522b5ea1ada68369f345": {
+      "topic": "refinery",
+      "kind": "news",
+      "event_key": "refinery_article_175c522b5ea1ada68369f345",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "175c522b5ea1ada68369f345",
+          "title": "Oil industry warns a diesel export ban will raise fuel prices as Trump weighs restrictions - CNBC",
+          "link": "https://news.google.com/rss/articles/CBMie0FVX3lxTFB2NjFmd2U2TjBiUk90ZEhjN21WVGxUSWJNaUlNcExrZVNsN1FHRGlWRXZSMnVLb2NpcDdiUEFzMVVMa3dWMkpIME5SZDM2TmY3UkEzajFqSUI0QWZwZGR3V211X05VNFZZSkxsYVlUckZtc3N3aEY1dzFsOA?oc=5",
+          "source": "CNBC",
+          "source_url": "https://www.cnbc.com",
+          "pub_kst": "2026-09-23T16:00+09:00"
+        }
+      ],
+      "queued_at": "2026-11-11T03:14:47+09:00",
+      "attempts": 0
     }
   },
   "receipts": [
