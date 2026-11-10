@@ -1,25 +1,6 @@
 {
   "schema_version": 1,
-  "outbox": {
-    "refinery:news:refinery_article_5386dfa4f40af137efff401f": {
-      "topic": "refinery",
-      "kind": "news",
-      "event_key": "refinery_article_5386dfa4f40af137efff401f",
-      "status": "enrichment_pending",
-      "items": [
-        {
-          "id": "5386dfa4f40af137efff401f",
-          "title": "Trump urges Ukraine to stop ‘knocking out’ Russian oil refineries as U.S. diesel hits record - CNBC",
-          "link": "https://news.google.com/rss/articles/CBMigAFBVV95cUxQbUhvd29aMnJJSHRZcTRCY2tFbUFKUUJYenJNc1NPQkJiRElaYTdSVUNJZ0Y1bXo1Nnl2QWpRZER4Wk5UWHdfcllCOWJ1UjFXeVQ4WFAwNTcwVkFSSm5pTm1tc201dGpRYlhSTTlDV192ODhiTUEwQXZzS2MtUHVURQ?oc=5",
-          "source": "CNBC",
-          "source_url": "https://www.cnbc.com",
-          "pub_kst": "2026-09-14T16:00+09:00"
-        }
-      ],
-      "queued_at": "2026-11-10T11:57:36+09:00",
-      "attempts": 0
-    }
-  },
+  "outbox": {},
   "receipts": [
     {
       "key": "spr:data:spr:2026-10-09",
@@ -2783,6 +2764,14 @@
       ],
       "delivered": false,
       "archived": true
+    },
+    {
+      "key": "refinery:news:refinery_article_5386dfa4f40af137efff401f",
+      "reason": "news_outside_three_day_window",
+      "at": "2026-11-10T11:57:37+09:00",
+      "ids": [
+        "5386dfa4f40af137efff401f"
+      ]
     }
   ],
   "observed_data": {
