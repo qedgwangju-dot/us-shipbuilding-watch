@@ -56,6 +56,24 @@
       "queued_at": "2026-11-11T03:14:56+09:00",
       "attempts": 1,
       "invalid_items": []
+    },
+    "refinery:news:refinery_article_5c024189a74dbeb3483d27d6": {
+      "topic": "refinery",
+      "kind": "news",
+      "event_key": "refinery_article_5c024189a74dbeb3483d27d6",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "5c024189a74dbeb3483d27d6",
+          "title": "Reuters: Ukrainian drone strikes disrupt 30% of Russia's oil refining capacity, deepening fuel crisis as Moscow keeps exporting diesel - Euromaidan Press",
+          "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNREdvRFlJQXFMOEpTenZzWnkxYldPV2lyaVExY1JpQThPNENqcnJpTUFTVHE1d253MThZTUlPbmJ6S2NFXzJBa1ZjeGVMTTdLLWstWmtzVUI4ZzF2RGk1MTgyLVlBUjUtQzRMMGZIeGh2aWFsR3FsSGtvdE8tTVMxT3ptclJuNW8zRmNQRTFRd0hHNU5GQjFJY1JtSUlMRXZHNkhmWF80OVhJRVBsNmNFNkUxOS0xUQ?oc=5",
+          "source": "Euromaidan Press",
+          "source_url": "https://euromaidanpress.com",
+          "pub_kst": "2026-11-11T05:02+09:00"
+        }
+      ],
+      "queued_at": "2026-11-11T08:27:15+09:00",
+      "attempts": 0
     }
   },
   "receipts": [
