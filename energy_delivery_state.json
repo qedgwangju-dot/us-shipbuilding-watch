@@ -5,7 +5,7 @@
       "topic": "refinery",
       "kind": "news",
       "event_key": "refinery_article_4d6df479dda327f5667a4dbe",
-      "status": "enrichment_pending",
+      "status": "source_blocked",
       "items": [
         {
           "id": "4d6df479dda327f5667a4dbe",
@@ -13,30 +13,21 @@
           "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxPWWtZT193eDlnanMxSDhzN0V1VVZHbHpCQzdMRHJXeGtIVXA1R0hXVHItLXpkZ1pueDN1WnVTWnhiczRyT0JvckpUTGFoWm5KdEthbHJ3Q19uVlNMNnZZUnhOMTdvU0JmTHFpdzZtakVITXFBYjAza1Yyd1R4eDVmTXA0Uk5FWUJMVXFEcUZvekpWS3NpblZiUlFwRGVZWENzMWxWY01WRk9SQQ?oc=5",
           "source": "Euronews.com",
           "source_url": "https://www.euronews.com",
-          "pub_kst": "2026-11-10T00:30+09:00"
+          "pub_kst": "2026-11-10T00:30+09:00",
+          "_source_blocked": true,
+          "_source_failure": {
+            "stage": "translation_google",
+            "reason": "http_rate_limit",
+            "blocked_before_request": false,
+            "provider": "www.google.com",
+            "request_url_sha256": "83699ca2d78b1519edcb1b750201b2e40c3ef5b10cafb9097bff6753a8d0d8a1",
+            "http_status": 429
+          }
         }
       ],
       "queued_at": "2026-11-10T19:41:45+09:00",
-      "attempts": 1,
+      "attempts": 2,
       "invalid_items": []
-    },
-    "refinery:news:refinery_article_175c522b5ea1ada68369f345": {
-      "topic": "refinery",
-      "kind": "news",
-      "event_key": "refinery_article_175c522b5ea1ada68369f345",
-      "status": "enrichment_pending",
-      "items": [
-        {
-          "id": "175c522b5ea1ada68369f345",
-          "title": "Oil industry warns a diesel export ban will raise fuel prices as Trump weighs restrictions - CNBC",
-          "link": "https://news.google.com/rss/articles/CBMie0FVX3lxTFB2NjFmd2U2TjBiUk90ZEhjN21WVGxUSWJNaUlNcExrZVNsN1FHRGlWRXZSMnVLb2NpcDdiUEFzMVVMa3dWMkpIME5SZDM2TmY3UkEzajFqSUI0QWZwZGR3V211X05VNFZZSkxsYVlUckZtc3N3aEY1dzFsOA?oc=5",
-          "source": "CNBC",
-          "source_url": "https://www.cnbc.com",
-          "pub_kst": "2026-09-23T16:00+09:00"
-        }
-      ],
-      "queued_at": "2026-11-11T03:14:47+09:00",
-      "attempts": 0
     }
   },
   "receipts": [
@@ -2809,6 +2800,14 @@
       "at": "2026-11-10T11:57:37+09:00",
       "ids": [
         "5386dfa4f40af137efff401f"
+      ]
+    },
+    {
+      "key": "refinery:news:refinery_article_175c522b5ea1ada68369f345",
+      "reason": "news_outside_three_day_window",
+      "at": "2026-11-11T03:14:50+09:00",
+      "ids": [
+        "175c522b5ea1ada68369f345"
       ]
     }
   ],
