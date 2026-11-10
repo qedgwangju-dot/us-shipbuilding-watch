@@ -28,6 +28,24 @@
       "queued_at": "2026-11-10T19:41:45+09:00",
       "attempts": 2,
       "invalid_items": []
+    },
+    "spr:news:spr_article_8c66fa2dfeae95b51e778fa8": {
+      "topic": "spr",
+      "kind": "news",
+      "event_key": "spr_article_8c66fa2dfeae95b51e778fa8",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "8c66fa2dfeae95b51e778fa8",
+          "title": "ExxonMobil Signs Deal in Step Toward Re-Entering Venezuela - Bloomberg.com",
+          "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxQVVBxNnRQNzFQWDFsaFJIMTAxV184OV9FdFY0TmlETVFoT3FHZ3oxcmtVNXl5Zm92ZDVROFNzN09kME5nRGlXSzFJQzVQaTFBWXd1RFB1NDlubGM0alNnQklRdFdBXzhGLUkxOUJQcmhWTjRSOFFnNHRUTHRLWTd3eUpmVGpESERWZFlVWklVZXlzbmgwdlRuYmJCVWswZ21tZUstQV9qNmEzWFk5RlE?oc=5",
+          "source": "Bloomberg.com",
+          "source_url": "https://www.bloomberg.com",
+          "pub_kst": "2026-11-11T01:20+09:00"
+        }
+      ],
+      "queued_at": "2026-11-11T03:14:56+09:00",
+      "attempts": 0
     }
   },
   "receipts": [
