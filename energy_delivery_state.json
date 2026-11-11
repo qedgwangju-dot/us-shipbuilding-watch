@@ -144,24 +144,6 @@
       "queued_at": "2026-11-12T08:43:52+09:00",
       "attempts": 1,
       "invalid_items": []
-    },
-    "spr:news:spr_venezuela_quality_bottleneck": {
-      "topic": "spr",
-      "kind": "news",
-      "event_key": "spr_venezuela_quality_bottleneck",
-      "status": "enrichment_pending",
-      "items": [
-        {
-          "id": "6a0d279cd1bb1982093ff0ad",
-          "title": "[UPDATED] Venezuela: BP, Eni Strike Natural Gas, Heavy Crude Deals Under Reformed Hydrocarbon Law - Venezuelanalysis",
-          "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxOdjVBTWctYWxpdFNiVmhTRU5fQjhPVlJRWU5pbE8yUDE3QXEzRkZIbDYxZnktanlPRUhtZGJYT2hDbXlLZklSdExpMFFGejd2RURTemplbEdybzZHVFdKLW1zamhBR3lMMlZrUjIxRWktVFppU2pnY0Ffd1M5M0VkV1FDcjE1QW94cXAwRExQencyQQ?oc=5",
-          "source": "Venezuelanalysis",
-          "source_url": "https://venezuelanalysis.com",
-          "pub_kst": "2026-04-29T16:00+09:00"
-        }
-      ],
-      "queued_at": "2026-11-12T08:44:02+09:00",
-      "attempts": 0
     }
   },
   "receipts": [
@@ -2958,6 +2940,14 @@
       "at": "2026-11-11T19:12:14+09:00",
       "ids": [
         "08c3e20d97dc7adcf80a1419"
+      ]
+    },
+    {
+      "key": "spr:news:spr_venezuela_quality_bottleneck",
+      "reason": "news_outside_three_day_window",
+      "at": "2026-11-12T08:44:04+09:00",
+      "ids": [
+        "6a0d279cd1bb1982093ff0ad"
       ]
     }
   ],
