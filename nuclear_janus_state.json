@@ -2,7 +2,7 @@
   "version": 1,
   "initialized": true,
   "initialized_at": "2026-08-28T03:59:39+00:00",
-  "last_checked_at": "2026-11-11T02:56:08+00:00",
+  "last_checked_at": "2026-11-11T10:27:46+00:00",
   "seen": [
     "0249bb5d136ff8b38e08f030d8c54a879ebef62948e8a7446153e8f0a241b247",
     "0cbdeb97e5f6a0643f5061d952ef45c7ab4c8d5a6e008885db6ef9ecf3b75413",
@@ -357,7 +357,8 @@
   "facts": {
     "미 육군 Janus 계약 발표": {
       "금액": [
-        "$2.2 billion"
+        "$2.2 billion",
+        "$3.5 million"
       ],
       "물량": [
         "more than 20 total nuclear microreactors"
