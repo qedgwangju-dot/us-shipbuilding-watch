@@ -92,7 +92,7 @@
       "topic": "spr",
       "kind": "news",
       "event_key": "spr_article_feb8a8300e16dee302755791",
-      "status": "enrichment_pending",
+      "status": "source_blocked",
       "items": [
         {
           "id": "feb8a8300e16dee302755791",
@@ -100,11 +100,21 @@
           "link": "https://news.google.com/rss/articles/CBMi1AJBVV95cUxQekV0dC1PLW1HV3lMQk04c0tSaHRJU0s4VXFfVXB1a2VPMkE5MVdzMklEeldQa1hvV2ppdmZtR29DbEZBWVc0QWFGbVItRmo4QW9WWkprbE9PY3dtb2JyQWoyWWJjSU85M1h3UmpsTms4VDVmTmFyWnNnZWlkMjVTMUF2YlVRODNJRlZTLVpfVHlzVHlJVzY3blA5aXdKQU5nRWkxTVI0TUVCYU9qWmZzTS1nV3ZEQjZHY2NfYXp6ME5YTV8xT1R3bVRuMkl0elFwSEk0eWh2YjR4RkFpT0hEd0lqOHIxMjBOblUxdGROZVJyb2tRRDdfTG5LTFAwRmlNYVAzaHZMYWJEYUpFNEVmWXBwdzBWOWpobjU1bDlVZ3IzcXdZWTdKMXo4dEJJajZEVjNFTVp0ZEFGS2xvbEdIRExYcGwzdkJ1SVc1NTN2MWxfZEZu?oc=5",
           "source": "24/7 Wall St.",
           "source_url": "https://247wallst.com",
-          "pub_kst": "2026-11-11T11:43+09:00"
+          "pub_kst": "2026-11-11T11:43+09:00",
+          "_source_blocked": true,
+          "_source_failure": {
+            "stage": "translation_google",
+            "reason": "http_rate_limit",
+            "blocked_before_request": false,
+            "provider": "www.google.com",
+            "request_url_sha256": "993d800f07dd93dc24edebca6280e63b92baae898db69034109ba060a4f3f510",
+            "http_status": 429
+          }
         }
       ],
       "queued_at": "2026-11-11T19:12:19+09:00",
-      "attempts": 0
+      "attempts": 1,
+      "invalid_items": []
     }
   },
   "receipts": [
