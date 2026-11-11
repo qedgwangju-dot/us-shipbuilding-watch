@@ -27,7 +27,8 @@
       ],
       "queued_at": "2026-11-10T19:41:45+09:00",
       "attempts": 2,
-      "invalid_items": []
+      "invalid_items": [],
+      "held_items": []
     },
     "spr:news:spr_article_8c66fa2dfeae95b51e778fa8": {
       "topic": "spr",
@@ -86,6 +87,24 @@
       "attempts": 1,
       "invalid_items": [],
       "held_items": []
+    },
+    "refinery:news:refinery_article_08c3e20d97dc7adcf80a1419": {
+      "topic": "refinery",
+      "kind": "news",
+      "event_key": "refinery_article_08c3e20d97dc7adcf80a1419",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "08c3e20d97dc7adcf80a1419",
+          "title": "Trump to meet with U.S. oil refiners as White House pushes to lower gas prices - CNBC",
+          "link": "https://news.google.com/rss/articles/CBMihwFBVV95cUxOeHRwcGdyYjRNU01DbTk1c1hZSEl2M21iUVRVRFVpaWFpRGxZNEhvU0JVQXQ4TXB0WDlDOS12emlKZHA4WXZHWjNRYnpPZ1VfSGJ6dHFMc1FWN1lnWXVuT0dNOWg1LW13X3ZMV0k2WmRNT3l6NnEyY3c5WkFnLVFCY0x0eUJNd3M?oc=5",
+          "source": "CNBC",
+          "source_url": "https://www.cnbc.com",
+          "pub_kst": "2026-08-31T16:00+09:00"
+        }
+      ],
+      "queued_at": "2026-11-11T19:12:12+09:00",
+      "attempts": 0
     }
   },
   "receipts": [
