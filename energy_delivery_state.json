@@ -85,24 +85,6 @@
       "attempts": 1,
       "invalid_items": [],
       "held_items": []
-    },
-    "refinery:news:refinery_article_0372adf6c7b9358fc58af34c": {
-      "topic": "refinery",
-      "kind": "news",
-      "event_key": "refinery_article_0372adf6c7b9358fc58af34c",
-      "status": "enrichment_pending",
-      "items": [
-        {
-          "id": "0372adf6c7b9358fc58af34c",
-          "title": "Trump administration is examining whether a diesel export ban is feasible, Treasury secretary says - CNBC",
-          "link": "https://news.google.com/rss/articles/CBMihwFBVV95cUxOc3Q3YUNiYWE4bnFXWC05cTh2ZWlyWlJsb1g2b3h5SXhEUEkxZXkxQXVWdUMxSENEQ1NESjFqeDJEa1prX2ZydEhQVHNrZG40WDhZcnVOYkJwMmVxZ0FUU1F3YUdJUVRGQ05yenpVSWRaLTRBbkx0TzdTb1RPdGJtOXRGMjZqZEk?oc=5",
-          "source": "CNBC",
-          "source_url": "https://www.cnbc.com",
-          "pub_kst": "2026-09-22T16:00+09:00"
-        }
-      ],
-      "queued_at": "2026-11-11T11:53:54+09:00",
-      "attempts": 0
     }
   },
   "receipts": [
@@ -2883,6 +2865,14 @@
       "at": "2026-11-11T03:14:50+09:00",
       "ids": [
         "175c522b5ea1ada68369f345"
+      ]
+    },
+    {
+      "key": "refinery:news:refinery_article_0372adf6c7b9358fc58af34c",
+      "reason": "news_outside_three_day_window",
+      "at": "2026-11-11T11:53:56+09:00",
+      "ids": [
+        "0372adf6c7b9358fc58af34c"
       ]
     }
   ],
