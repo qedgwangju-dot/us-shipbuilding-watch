@@ -143,7 +143,26 @@
       ],
       "queued_at": "2026-11-12T08:43:52+09:00",
       "attempts": 1,
-      "invalid_items": []
+      "invalid_items": [],
+      "held_items": []
+    },
+    "refinery:news:refinery_article_561793b9816251872b40babd": {
+      "topic": "refinery",
+      "kind": "news",
+      "event_key": "refinery_article_561793b9816251872b40babd",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "561793b9816251872b40babd",
+          "title": "Randall Bloomquist: Pain at the pump, profits at the refinery - Waco Tribune-Herald",
+          "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxQNnJlSm9ZMW0wcEhuTkNfNTJOMTZDTENPLU1ZbmhlMnMyRzkxaUZQYmlONFRQaGV1RjJpTnBCQjdtbFBsb3dQbkZtZzBEWUJ2OG5QNzB0OGtjUzR4bWhpU0dXRUx3Y01MT2I5ZHJxTC04UjQ2dXNTYWNiTUtYVHVkRUZ0emxBQ1Myc1QzaGhn?oc=5",
+          "source": "Waco Tribune-Herald",
+          "source_url": "https://wacotrib.com",
+          "pub_kst": "2026-11-12T13:30+09:00"
+        }
+      ],
+      "queued_at": "2026-11-12T21:55:42+09:00",
+      "attempts": 0
     }
   },
   "receipts": [
