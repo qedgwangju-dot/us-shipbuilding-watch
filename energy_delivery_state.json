@@ -1,35 +1,6 @@
 {
   "schema_version": 1,
   "outbox": {
-    "refinery:news:refinery_article_4d6df479dda327f5667a4dbe": {
-      "topic": "refinery",
-      "kind": "news",
-      "event_key": "refinery_article_4d6df479dda327f5667a4dbe",
-      "status": "source_blocked",
-      "items": [
-        {
-          "id": "4d6df479dda327f5667a4dbe",
-          "title": "Ukraine hits Russia’s second-largest refinery, Rosneft caps sales - Euronews.com",
-          "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxPWWtZT193eDlnanMxSDhzN0V1VVZHbHpCQzdMRHJXeGtIVXA1R0hXVHItLXpkZ1pueDN1WnVTWnhiczRyT0JvckpUTGFoWm5KdEthbHJ3Q19uVlNMNnZZUnhOMTdvU0JmTHFpdzZtakVITXFBYjAza1Yyd1R4eDVmTXA0Uk5FWUJMVXFEcUZvekpWS3NpblZiUlFwRGVZWENzMWxWY01WRk9SQQ?oc=5",
-          "source": "Euronews.com",
-          "source_url": "https://www.euronews.com",
-          "pub_kst": "2026-11-10T00:30+09:00",
-          "_source_blocked": true,
-          "_source_failure": {
-            "stage": "translation_google",
-            "reason": "http_rate_limit",
-            "blocked_before_request": false,
-            "provider": "www.google.com",
-            "request_url_sha256": "83699ca2d78b1519edcb1b750201b2e40c3ef5b10cafb9097bff6753a8d0d8a1",
-            "http_status": 429
-          }
-        }
-      ],
-      "queued_at": "2026-11-10T19:41:45+09:00",
-      "attempts": 2,
-      "invalid_items": [],
-      "held_items": []
-    },
     "spr:news:spr_article_8c66fa2dfeae95b51e778fa8": {
       "topic": "spr",
       "kind": "news",
@@ -2994,6 +2965,16 @@
       "ids": [
         "535f98ab6e837502c7f1a987"
       ]
+    },
+    {
+      "key": "refinery:news:refinery_article_4d6df479dda327f5667a4dbe",
+      "reason": "expired_unverified_no_telegram_delivery",
+      "at": "2026-11-13T05:37:21+09:00",
+      "ids": [
+        "4d6df479dda327f5667a4dbe"
+      ],
+      "delivered": false,
+      "archived": true
     }
   ],
   "observed_data": {
@@ -4792,6 +4773,39 @@
         ],
         "queued_at": "2026-11-07T02:40:33+09:00",
         "attempts": 1,
+        "invalid_items": [],
+        "held_items": []
+      }
+    },
+    "refinery:news:refinery_article_4d6df479dda327f5667a4dbe": {
+      "archived_at": "2026-11-13T05:37:21+09:00",
+      "reason": "expired_unverified_no_telegram_delivery",
+      "entry": {
+        "topic": "refinery",
+        "kind": "news",
+        "event_key": "refinery_article_4d6df479dda327f5667a4dbe",
+        "status": "source_blocked",
+        "items": [
+          {
+            "id": "4d6df479dda327f5667a4dbe",
+            "title": "Ukraine hits Russia’s second-largest refinery, Rosneft caps sales - Euronews.com",
+            "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxPWWtZT193eDlnanMxSDhzN0V1VVZHbHpCQzdMRHJXeGtIVXA1R0hXVHItLXpkZ1pueDN1WnVTWnhiczRyT0JvckpUTGFoWm5KdEthbHJ3Q19uVlNMNnZZUnhOMTdvU0JmTHFpdzZtakVITXFBYjAza1Yyd1R4eDVmTXA0Uk5FWUJMVXFEcUZvekpWS3NpblZiUlFwRGVZWENzMWxWY01WRk9SQQ?oc=5",
+            "source": "Euronews.com",
+            "source_url": "https://www.euronews.com",
+            "pub_kst": "2026-11-10T00:30+09:00",
+            "_source_blocked": true,
+            "_source_failure": {
+              "stage": "translation_google",
+              "reason": "http_rate_limit",
+              "blocked_before_request": false,
+              "provider": "www.google.com",
+              "request_url_sha256": "83699ca2d78b1519edcb1b750201b2e40c3ef5b10cafb9097bff6753a8d0d8a1",
+              "http_status": 429
+            }
+          }
+        ],
+        "queued_at": "2026-11-10T19:41:45+09:00",
+        "attempts": 2,
         "invalid_items": [],
         "held_items": []
       }
