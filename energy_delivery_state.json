@@ -144,6 +144,72 @@
       "queued_at": "2026-11-12T21:55:42+09:00",
       "attempts": 1,
       "invalid_items": []
+    },
+    "spr:data:spr:2026-11-06": {
+      "topic": "spr",
+      "kind": "data",
+      "field": "spr",
+      "current": {
+        "date": "2026-11-06",
+        "value_kbbl": 279535,
+        "prev_kbbl": 282184,
+        "source": "https://www.eia.gov/dnav/pet/PET_STOC_WSTK_A_EPC0_SAS_MBBL_W.htm"
+      },
+      "status": "ready",
+      "message": "<b>[SPR 공식 수치]</b>\n<b>2026-11-06 | 279.535백만 배럴</b>\n\n<b>한눈에 보기</b>\n• 전주 변화: <b>-2.649백만 배럴</b>\n• 저장능력 7억1,400만 배럴 대비: <b>39.2%</b>\n• 완전 충전까지: <b>434.465백만 배럴</b> 부족\n\n<b>판정</b>\n• 아직 보충 효과 미확인\n• 증가분이 나와도 베네수엘라 신규 반입과 기존 교환계약 반환물량을 DOE 자료로 분리 확인\n\n<a href=\"https://www.eia.gov/dnav/pet/PET_STOC_WSTK_A_EPC0_SAS_MBBL_W.htm\">EIA 원문</a>",
+      "queued_at": "2026-11-13T05:37:27+09:00",
+      "attempts": 0
+    },
+    "spr:data:venezuela_imports:2026-11-06": {
+      "topic": "spr",
+      "kind": "data",
+      "field": "venezuela_imports",
+      "current": {
+        "date": "2026-11-06",
+        "value_kbd": 603,
+        "prev_kbd": 555,
+        "source": "https://www.eia.gov/dnav/pet/hist/LeafHandler.ashx?f=W&n=PET&s=W_EPC0_IM0_NUS-NVE_MBBLD"
+      },
+      "status": "ready",
+      "message": "<b>[베네수엘라산 원유 미국 유입]</b>\n<b>2026-11-06 | 603천 배럴/일</b>\n\n<b>한눈에 보기</b>\n• 전주 변화: <b>+48천 배럴/일</b>\n• 7일 단순 환산: <b>4.221백만 배럴</b>\n\n<b>판정</b>\n• 미국 전체 수입량이지 SPR 직접 입고량은 아님\n• 정유사 투입분과 SPR 저장분을 DOE 조달·반입 자료로 분리 확인\n\n<a href=\"https://www.eia.gov/dnav/pet/hist/LeafHandler.ashx?f=W&amp;n=PET&amp;s=W_EPC0_IM0_NUS-NVE_MBBLD\">EIA 원문</a>",
+      "queued_at": "2026-11-13T05:37:28+09:00",
+      "attempts": 0
+    },
+    "spr:news:spr_article_1ff87199065447d520b28ad4": {
+      "topic": "spr",
+      "kind": "news",
+      "event_key": "spr_article_1ff87199065447d520b28ad4",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "1ff87199065447d520b28ad4",
+          "title": "Trump Administration Details $12 Billion Return Of Venezuelan Oil Proceeds - Times Now",
+          "link": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxPZ0dyVDUtN0lzQjJUZXFYRl9MaXhxRGxXYlp6andya09BT25NM3R3dHZYdmw0ZV9wSm0wVHBhWTZidTNiWlVfUXJuLVk2TlZzZ1Z0d01KUk5JZ3I5UVNSM01ORDNWRzJxcGNWV0ZlU29PZTJJY19pSmNLM1dkdzFtZS1BYmZ5R1BUZ0YxdGk1OFdpSHIzeU1xNlZtUFN0WVdjVHd5UDVqLWtsT0ZWZDhFY0oxaHBCOEhSLUpvZGM3c01pMy1VbzJqZ1dleE1Wemt1Njd30gHYAUFVX3lxTE9IVkpBMFVSeFo1TkFDaGFIODdVRG9ycmtaVGFMUUpSdTVLa3pST0J5WnNiUnNnTnY2Q3hVTnNaRHpMdnY4eUJaNWc4OE52ckNWQkUwWlFUYWJlRi1fZVgzcWxRM0RYVGhnaVJ0Tk9yVHh4NEtRd2tRRHU1T1psekI2QzB3a1E4OEd1eC1TQnZaaFJBT0NTc3g0QVRfT3BpZjFwTG1aZVR6N0FuYkw3bDJOYjVZU2o5UmgxNWQxMFBfeENrSmhrajcxZC1QNy0xTUVVOExxNHc0MA?oc=5",
+          "source": "Times Now",
+          "source_url": "https://www.timesnownews.com",
+          "pub_kst": "2026-11-13T05:01+09:00"
+        }
+      ],
+      "queued_at": "2026-11-13T05:37:31+09:00",
+      "attempts": 0
+    },
+    "spr:news:spr_refill_statement_20260830": {
+      "topic": "spr",
+      "kind": "news",
+      "event_key": "spr_refill_statement_20260830",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "3db1b964606fd56f79d40166",
+          "title": "Trump says Venezuelan oil will be used to refill U.S. Strategic Petroleum Reserve - World Oil",
+          "link": "https://news.google.com/rss/articles/CBMivgFBVV95cUxQbHJnQlhqOXljVHljbnhGdHJBaUhNeVR4YkF5NVFOMk4ySE9YbmVhYjZURzhoSFZfU2RsMU1lNjRZMWhQTi1RQnYzR3J1dFVFTmZiNnNqY0VvdVRHa2EtX2Vad3l4YWVLX1JQR1hRcEJsNmgzWFJEQ1otUzVhMlY0ZlZVVDg2X3lPYXpWQnVqMGRDbDZsYUhNcFpXRGlfYVIxczZIeUlsc3Q3d3IwUXg4eFFQdi1JUHhUR0RLc3p3?oc=5",
+          "source": "World Oil",
+          "source_url": "https://www.worldoil.com",
+          "pub_kst": "2026-08-30T16:00+09:00"
+        }
+      ],
+      "queued_at": "2026-11-13T05:37:31+09:00",
+      "attempts": 0
     }
   },
   "receipts": [
@@ -2979,15 +3045,15 @@
   ],
   "observed_data": {
     "spr": {
-      "date": "2026-10-30",
-      "value_kbbl": 282184,
-      "prev_kbbl": 282583,
+      "date": "2026-11-06",
+      "value_kbbl": 279535,
+      "prev_kbbl": 282184,
       "source": "https://www.eia.gov/dnav/pet/PET_STOC_WSTK_A_EPC0_SAS_MBBL_W.htm"
     },
     "venezuela_imports": {
-      "date": "2026-10-30",
-      "value_kbd": 555,
-      "prev_kbd": 618,
+      "date": "2026-11-06",
+      "value_kbd": 603,
+      "prev_kbd": 555,
       "source": "https://www.eia.gov/dnav/pet/hist/LeafHandler.ashx?f=W&n=PET&s=W_EPC0_IM0_NUS-NVE_MBBLD"
     }
   },
