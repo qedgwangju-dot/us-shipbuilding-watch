@@ -149,7 +149,7 @@
       "topic": "spr",
       "kind": "news",
       "event_key": "spr_article_1ff87199065447d520b28ad4",
-      "status": "enrichment_pending",
+      "status": "source_blocked",
       "items": [
         {
           "id": "1ff87199065447d520b28ad4",
@@ -157,29 +157,21 @@
           "link": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxPZ0dyVDUtN0lzQjJUZXFYRl9MaXhxRGxXYlp6andya09BT25NM3R3dHZYdmw0ZV9wSm0wVHBhWTZidTNiWlVfUXJuLVk2TlZzZ1Z0d01KUk5JZ3I5UVNSM01ORDNWRzJxcGNWV0ZlU29PZTJJY19pSmNLM1dkdzFtZS1BYmZ5R1BUZ0YxdGk1OFdpSHIzeU1xNlZtUFN0WVdjVHd5UDVqLWtsT0ZWZDhFY0oxaHBCOEhSLUpvZGM3c01pMy1VbzJqZ1dleE1Wemt1Njd30gHYAUFVX3lxTE9IVkpBMFVSeFo1TkFDaGFIODdVRG9ycmtaVGFMUUpSdTVLa3pST0J5WnNiUnNnTnY2Q3hVTnNaRHpMdnY4eUJaNWc4OE52ckNWQkUwWlFUYWJlRi1fZVgzcWxRM0RYVGhnaVJ0Tk9yVHh4NEtRd2tRRHU1T1psekI2QzB3a1E4OEd1eC1TQnZaaFJBT0NTc3g0QVRfT3BpZjFwTG1aZVR6N0FuYkw3bDJOYjVZU2o5UmgxNWQxMFBfeENrSmhrajcxZC1QNy0xTUVVOExxNHc0MA?oc=5",
           "source": "Times Now",
           "source_url": "https://www.timesnownews.com",
-          "pub_kst": "2026-11-13T05:01+09:00"
+          "pub_kst": "2026-11-13T05:01+09:00",
+          "_source_blocked": true,
+          "_source_failure": {
+            "stage": "translation_google",
+            "reason": "http_rate_limit",
+            "blocked_before_request": false,
+            "provider": "www.google.com",
+            "request_url_sha256": "4f2a0dac901cb85f87730e848558b5820800350a6551c12e1f5c8c6f8327d2a2",
+            "http_status": 429
+          }
         }
       ],
       "queued_at": "2026-11-13T05:37:31+09:00",
-      "attempts": 0
-    },
-    "spr:news:spr_refill_statement_20260830": {
-      "topic": "spr",
-      "kind": "news",
-      "event_key": "spr_refill_statement_20260830",
-      "status": "enrichment_pending",
-      "items": [
-        {
-          "id": "3db1b964606fd56f79d40166",
-          "title": "Trump says Venezuelan oil will be used to refill U.S. Strategic Petroleum Reserve - World Oil",
-          "link": "https://news.google.com/rss/articles/CBMivgFBVV95cUxQbHJnQlhqOXljVHljbnhGdHJBaUhNeVR4YkF5NVFOMk4ySE9YbmVhYjZURzhoSFZfU2RsMU1lNjRZMWhQTi1RQnYzR3J1dFVFTmZiNnNqY0VvdVRHa2EtX2Vad3l4YWVLX1JQR1hRcEJsNmgzWFJEQ1otUzVhMlY0ZlZVVDg2X3lPYXpWQnVqMGRDbDZsYUhNcFpXRGlfYVIxczZIeUlsc3Q3d3IwUXg4eFFQdi1JUHhUR0RLc3p3?oc=5",
-          "source": "World Oil",
-          "source_url": "https://www.worldoil.com",
-          "pub_kst": "2026-08-30T16:00+09:00"
-        }
-      ],
-      "queued_at": "2026-11-13T05:37:31+09:00",
-      "attempts": 0
+      "attempts": 1,
+      "invalid_items": []
     }
   },
   "receipts": [
@@ -3033,6 +3025,14 @@
       ],
       "delivered": false,
       "archived": true
+    },
+    {
+      "key": "spr:news:spr_refill_statement_20260830",
+      "reason": "news_outside_three_day_window",
+      "at": "2026-11-13T05:37:45+09:00",
+      "ids": [
+        "3db1b964606fd56f79d40166"
+      ]
     }
   ],
   "observed_data": {
