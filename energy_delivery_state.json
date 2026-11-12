@@ -144,24 +144,6 @@
       "queued_at": "2026-11-12T08:43:52+09:00",
       "attempts": 1,
       "invalid_items": []
-    },
-    "spr:news:spr_article_f6242ea251a5667314ea2c6b": {
-      "topic": "spr",
-      "kind": "news",
-      "event_key": "spr_article_f6242ea251a5667314ea2c6b",
-      "status": "enrichment_pending",
-      "items": [
-        {
-          "id": "f6242ea251a5667314ea2c6b",
-          "title": "Venezuela: Chevron and Shell to Strike Oil Deals Under Reformed Hydrocarbon Law - Venezuelanalysis",
-          "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxOa2JJUkxqYllub3BoSTZfR2tfOV9pOXVtdWtVR1pIYzc2VlhmMlNMbVhYNHhPS29HN3pmWnhiZWtoTnNSZzk2RWdZNVJlVGdFOHIwSWc4VzB5MXd4YmVPcjZxTW5aVjdmWTJMMTdJZVNvYW5jdGFvMUtQSVgwOEgyc1RrRDJCRTBmdFRfSVlkMlc2LW82YWhfUkFGajMzLTBTWmtSaXVR?oc=5",
-          "source": "Venezuelanalysis",
-          "source_url": "https://venezuelanalysis.com",
-          "pub_kst": "2026-03-11T16:00+09:00"
-        }
-      ],
-      "queued_at": "2026-11-12T13:21:52+09:00",
-      "attempts": 0
     }
   },
   "receipts": [
@@ -2966,6 +2948,14 @@
       "at": "2026-11-12T08:44:04+09:00",
       "ids": [
         "6a0d279cd1bb1982093ff0ad"
+      ]
+    },
+    {
+      "key": "spr:news:spr_article_f6242ea251a5667314ea2c6b",
+      "reason": "news_outside_three_day_window",
+      "at": "2026-11-12T13:21:54+09:00",
+      "ids": [
+        "f6242ea251a5667314ea2c6b"
       ]
     }
   ],
