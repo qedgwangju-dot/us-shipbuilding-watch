@@ -484,9 +484,9 @@
     "f78011ea0a21211711db4d68"
   ],
   "spr": {
-    "date": "2026-10-30",
-    "value_kbbl": 282184,
-    "prev_kbbl": 282583,
+    "date": "2026-11-06",
+    "value_kbbl": 279535,
+    "prev_kbbl": 282184,
     "source": "https://www.eia.gov/dnav/pet/PET_STOC_WSTK_A_EPC0_SAS_MBBL_W.htm"
   },
   "venezuela_imports": {
