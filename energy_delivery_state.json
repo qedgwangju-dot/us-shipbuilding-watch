@@ -173,6 +173,24 @@
       "queued_at": "2026-11-12T21:55:42+09:00",
       "attempts": 1,
       "invalid_items": []
+    },
+    "spr:news:spr_article_535f98ab6e837502c7f1a987": {
+      "topic": "spr",
+      "kind": "news",
+      "event_key": "spr_article_535f98ab6e837502c7f1a987",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "535f98ab6e837502c7f1a987",
+          "title": "EXCLUSIVE: Venezuela to export $2 billion worth of oil to US in deal with Washington - Reuters",
+          "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxPRHBYYWc5Vk5TTVYtRWcxTjliNXNQU0ItMXJWcWRCRklaMnNLSkg0S05kaGpjcTN1dnJKRzBsVkRxeC1zQXRYVlUyX29zLWhiNzNwWWNXaFhCQ3hXcE1RTXl4SmRId3FuQ19TeW01dm93TWtVYVEzbmVKa2tBSTZ4T09rM3RCanBqQmpCdGxZUlQ4Ulk2MXR4alFULVQ0aTVVZlM4NWRZR3owMlE?oc=5",
+          "source": "Reuters",
+          "source_url": "https://www.reuters.com",
+          "pub_kst": "2026-01-06T17:00+09:00"
+        }
+      ],
+      "queued_at": "2026-11-12T21:55:50+09:00",
+      "attempts": 0
     }
   },
   "receipts": [
