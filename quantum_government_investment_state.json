@@ -1,6 +1,7 @@
 {
   "bootstrap_sent": true,
   "event_keys": [
+    "atom|chips|final_award|2026-11|100m",
     "d-wave|chips|award|2026-09|na",
     "d-wave|chips|policy|2026-09|na",
     "d-wave|quantum|award|2026-10|na",
@@ -89,6 +90,7 @@
       "https://www.nist.gov/news-events/news/2026/09/department-commerce-announces-finalization-chips-rd-award-anderon",
       "https://www.nist.gov/news-events/news/2026/09/nist-developed-quantum-sensors-improve-nuclear-monitoring",
       "https://www.nist.gov/news-events/news/2026/10/department-commerce-announces-agreement-globalfoundries-amend-its-existing",
+      "https://www.nist.gov/news-events/news/2026/11/department-commerce-announces-finalization-chips-rd-award-atom-computing",
       "https://www.nist.gov/quantum-information-science"
     ],
     "Quantinuum 공식 IR": [
