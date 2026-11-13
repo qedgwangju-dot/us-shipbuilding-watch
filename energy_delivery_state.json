@@ -1,35 +1,6 @@
 {
   "schema_version": 1,
   "outbox": {
-    "spr:news:spr_article_8c66fa2dfeae95b51e778fa8": {
-      "topic": "spr",
-      "kind": "news",
-      "event_key": "spr_article_8c66fa2dfeae95b51e778fa8",
-      "status": "source_blocked",
-      "items": [
-        {
-          "id": "8c66fa2dfeae95b51e778fa8",
-          "title": "ExxonMobil Signs Deal in Step Toward Re-Entering Venezuela - Bloomberg.com",
-          "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxQVVBxNnRQNzFQWDFsaFJIMTAxV184OV9FdFY0TmlETVFoT3FHZ3oxcmtVNXl5Zm92ZDVROFNzN09kME5nRGlXSzFJQzVQaTFBWXd1RFB1NDlubGM0alNnQklRdFdBXzhGLUkxOUJQcmhWTjRSOFFnNHRUTHRLWTd3eUpmVGpESERWZFlVWklVZXlzbmgwdlRuYmJCVWswZ21tZUstQV9qNmEzWFk5RlE?oc=5",
-          "source": "Bloomberg.com",
-          "source_url": "https://www.bloomberg.com",
-          "pub_kst": "2026-11-11T01:20+09:00",
-          "_source_blocked": true,
-          "_source_failure": {
-            "stage": "article_fetch",
-            "reason": "http_denial",
-            "blocked_before_request": false,
-            "provider": "www.bloomberg.com",
-            "request_url_sha256": "104632eb7912756d3b57b53a9775f880a67dedc129975e84c3505437dc3688de",
-            "http_status": 403
-          }
-        }
-      ],
-      "queued_at": "2026-11-11T03:14:56+09:00",
-      "attempts": 1,
-      "invalid_items": [],
-      "held_items": []
-    },
     "refinery:news:refinery_article_5c024189a74dbeb3483d27d6": {
       "topic": "refinery",
       "kind": "news",
@@ -186,12 +157,11 @@
           "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQajMtNVBjU2NoMXZaS1V5bHdvX2pXTTdGZVdiWHZuSnEtWU9KUGhtYU9XbkN1NkhyYnRVYUpyeHlvZlYxQ29wNjNYd3RncDZWM3F0UGxoMGlSNmM1cXZOSFZxWVZ2QlZFelhfdUVFTlNiT3loOXpXX2lXbTRXc09GY1NXMG10OGpQSVZkOFhFbmdOQ3F6LVdxZVhJQVJOaHdWOElNRlVXVmhQSTZlazFhczRnT2c?oc=5",
           "source": "The Washington Post",
           "source_url": "https://www.washingtonpost.com",
-          "pub_kst": "2026-11-13T07:42+09:00"
+          "pub_kst": "2026-11-13T07:41+09:00"
         }
       ],
       "queued_at": "2026-11-13T10:27:22+09:00",
-      "attempts": 2,
-      "invalid_items": []
+      "attempts": 2
     },
     "spr:news:spr_article_8f1a8139c8b304c29c153c71": {
       "topic": "spr",
@@ -305,34 +275,6 @@
         }
       ],
       "queued_at": "2026-11-13T10:27:22+09:00",
-      "attempts": 1,
-      "invalid_items": []
-    },
-    "spr:news:spr_article_5d3ac917036b67f6d30bd534": {
-      "topic": "spr",
-      "kind": "news",
-      "event_key": "spr_article_5d3ac917036b67f6d30bd534",
-      "status": "source_blocked",
-      "items": [
-        {
-          "id": "5d3ac917036b67f6d30bd534",
-          "title": "U.S. Handled $12 Billion in Venezuelan Oil Revenues, Secret Report Shows - The New York Times",
-          "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxNYUE1XzN4ejQyYXhrcndDaGxxM290WVBFdDFGaTg1YVU3VTJrZDFxUkJ2OHVLcFpYSGJzbjNVQ3VIQlFYX3hkTWtLb29DSFJ3RjY1VmdDODhiZWx4ZGMyRFlaZG93U1VCOHJsd0FnUGZUQkdGQWRDSDNoemF4SkJ6MDR5SQ?oc=5",
-          "source": "The New York Times",
-          "source_url": "https://www.nytimes.com",
-          "pub_kst": "2026-11-10T22:43+09:00",
-          "_source_blocked": true,
-          "_source_failure": {
-            "stage": "article_fetch",
-            "reason": "http_denial",
-            "blocked_before_request": false,
-            "provider": "www.nytimes.com",
-            "request_url_sha256": "96828057e761f3c237404299859894f856abf13071a2cd170e85bf8d7e9cd6d0",
-            "http_status": 403
-          }
-        }
-      ],
-      "queued_at": "2026-11-13T17:24:42+09:00",
       "attempts": 1,
       "invalid_items": []
     }
@@ -3204,6 +3146,26 @@
       "ids": [
         "ad9aec57395b5916765aa778"
       ]
+    },
+    {
+      "key": "spr:news:spr_article_8c66fa2dfeae95b51e778fa8",
+      "reason": "expired_unverified_no_telegram_delivery",
+      "at": "2026-11-14T01:39:12+09:00",
+      "ids": [
+        "8c66fa2dfeae95b51e778fa8"
+      ],
+      "delivered": false,
+      "archived": true
+    },
+    {
+      "key": "spr:news:spr_article_5d3ac917036b67f6d30bd534",
+      "reason": "expired_unverified_no_telegram_delivery",
+      "at": "2026-11-14T01:39:12+09:00",
+      "ids": [
+        "5d3ac917036b67f6d30bd534"
+      ],
+      "delivered": false,
+      "archived": true
     }
   ],
   "observed_data": {
@@ -5037,6 +4999,71 @@
         "attempts": 2,
         "invalid_items": [],
         "held_items": []
+      }
+    },
+    "spr:news:spr_article_8c66fa2dfeae95b51e778fa8": {
+      "archived_at": "2026-11-14T01:39:12+09:00",
+      "reason": "expired_unverified_no_telegram_delivery",
+      "entry": {
+        "topic": "spr",
+        "kind": "news",
+        "event_key": "spr_article_8c66fa2dfeae95b51e778fa8",
+        "status": "source_blocked",
+        "items": [
+          {
+            "id": "8c66fa2dfeae95b51e778fa8",
+            "title": "ExxonMobil Signs Deal in Step Toward Re-Entering Venezuela - Bloomberg.com",
+            "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxQVVBxNnRQNzFQWDFsaFJIMTAxV184OV9FdFY0TmlETVFoT3FHZ3oxcmtVNXl5Zm92ZDVROFNzN09kME5nRGlXSzFJQzVQaTFBWXd1RFB1NDlubGM0alNnQklRdFdBXzhGLUkxOUJQcmhWTjRSOFFnNHRUTHRLWTd3eUpmVGpESERWZFlVWklVZXlzbmgwdlRuYmJCVWswZ21tZUstQV9qNmEzWFk5RlE?oc=5",
+            "source": "Bloomberg.com",
+            "source_url": "https://www.bloomberg.com",
+            "pub_kst": "2026-11-11T01:20+09:00",
+            "_source_blocked": true,
+            "_source_failure": {
+              "stage": "article_fetch",
+              "reason": "http_denial",
+              "blocked_before_request": false,
+              "provider": "www.bloomberg.com",
+              "request_url_sha256": "104632eb7912756d3b57b53a9775f880a67dedc129975e84c3505437dc3688de",
+              "http_status": 403
+            }
+          }
+        ],
+        "queued_at": "2026-11-11T03:14:56+09:00",
+        "attempts": 1,
+        "invalid_items": [],
+        "held_items": []
+      }
+    },
+    "spr:news:spr_article_5d3ac917036b67f6d30bd534": {
+      "archived_at": "2026-11-14T01:39:12+09:00",
+      "reason": "expired_unverified_no_telegram_delivery",
+      "entry": {
+        "topic": "spr",
+        "kind": "news",
+        "event_key": "spr_article_5d3ac917036b67f6d30bd534",
+        "status": "source_blocked",
+        "items": [
+          {
+            "id": "5d3ac917036b67f6d30bd534",
+            "title": "U.S. Handled $12 Billion in Venezuelan Oil Revenues, Secret Report Shows - The New York Times",
+            "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxNYUE1XzN4ejQyYXhrcndDaGxxM290WVBFdDFGaTg1YVU3VTJrZDFxUkJ2OHVLcFpYSGJzbjNVQ3VIQlFYX3hkTWtLb29DSFJ3RjY1VmdDODhiZWx4ZGMyRFlaZG93U1VCOHJsd0FnUGZUQkdGQWRDSDNoemF4SkJ6MDR5SQ?oc=5",
+            "source": "The New York Times",
+            "source_url": "https://www.nytimes.com",
+            "pub_kst": "2026-11-10T22:43+09:00",
+            "_source_blocked": true,
+            "_source_failure": {
+              "stage": "article_fetch",
+              "reason": "http_denial",
+              "blocked_before_request": false,
+              "provider": "www.nytimes.com",
+              "request_url_sha256": "96828057e761f3c237404299859894f856abf13071a2cd170e85bf8d7e9cd6d0",
+              "http_status": 403
+            }
+          }
+        ],
+        "queued_at": "2026-11-13T17:24:42+09:00",
+        "attempts": 1,
+        "invalid_items": []
       }
     }
   }
