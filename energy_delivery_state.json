@@ -219,7 +219,8 @@
       ],
       "queued_at": "2026-11-13T10:27:22+09:00",
       "attempts": 1,
-      "invalid_items": []
+      "invalid_items": [],
+      "held_items": []
     },
     "spr:news:spr_article_91d8fff895de08764f01c708": {
       "topic": "spr",
@@ -247,7 +248,8 @@
       ],
       "queued_at": "2026-11-13T10:27:22+09:00",
       "attempts": 1,
-      "invalid_items": []
+      "invalid_items": [],
+      "held_items": []
     },
     "spr:news:spr_article_a39b145acd7a5e4ccc331457": {
       "topic": "spr",
@@ -275,7 +277,8 @@
       ],
       "queued_at": "2026-11-13T10:27:22+09:00",
       "attempts": 1,
-      "invalid_items": []
+      "invalid_items": [],
+      "held_items": []
     },
     "spr:news:spr_article_84b09e7ef1ec87e12a30f482": {
       "topic": "spr",
@@ -304,6 +307,42 @@
       "queued_at": "2026-11-13T10:27:22+09:00",
       "attempts": 1,
       "invalid_items": []
+    },
+    "spr:news:spr_article_5d3ac917036b67f6d30bd534": {
+      "topic": "spr",
+      "kind": "news",
+      "event_key": "spr_article_5d3ac917036b67f6d30bd534",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "5d3ac917036b67f6d30bd534",
+          "title": "U.S. Handled $12 Billion in Venezuelan Oil Revenues, Secret Report Shows - The New York Times",
+          "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxNYUE1XzN4ejQyYXhrcndDaGxxM290WVBFdDFGaTg1YVU3VTJrZDFxUkJ2OHVLcFpYSGJzbjNVQ3VIQlFYX3hkTWtLb29DSFJ3RjY1VmdDODhiZWx4ZGMyRFlaZG93U1VCOHJsd0FnUGZUQkdGQWRDSDNoemF4SkJ6MDR5SQ?oc=5",
+          "source": "The New York Times",
+          "source_url": "https://www.nytimes.com",
+          "pub_kst": "2026-11-10T22:43+09:00"
+        }
+      ],
+      "queued_at": "2026-11-13T17:24:42+09:00",
+      "attempts": 0
+    },
+    "spr:news:spr_article_ad9aec57395b5916765aa778": {
+      "topic": "spr",
+      "kind": "news",
+      "event_key": "spr_article_ad9aec57395b5916765aa778",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "ad9aec57395b5916765aa778",
+          "title": "The American Nationalization of Venezuelan Oil - National Review",
+          "link": "https://news.google.com/rss/articles/CBMijwFBVV95cUxQRk1mTUFhcTRGR2lGT05YV0MzTDV4U0ZXankySDFSZ2FDQ005Q3c4TS1DS3R0YnNQWWVBWUdaTWRWTGxxN3pmcjBIMkg0bExKMmxvd3drczdDMzZja0MxSVFpdUJtQXpmQk5jUHpHYkpXN2o4Z1p6R0dkNXJ1cjNCVmJKU243aWV4VUxaOHMwMA?oc=5",
+          "source": "National Review",
+          "source_url": "https://www.nationalreview.com",
+          "pub_kst": "2026-09-02T16:00+09:00"
+        }
+      ],
+      "queued_at": "2026-11-13T17:24:42+09:00",
+      "attempts": 0
     }
   },
   "receipts": [
