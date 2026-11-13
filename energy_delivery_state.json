@@ -3222,12 +3222,12 @@
   },
   "last_result": {
     "ok": false,
-    "errors": 5,
-    "pending": 11,
+    "errors": 2,
+    "pending": 12,
     "refinery_sent": 0,
     "spr_sent": 0,
     "unverified_archived": 56,
-    "at": "2026-11-13T10:28:00+09:00"
+    "at": "2026-11-13T17:25:18+09:00"
   },
   "archived_unverified": {
     "refinery:news:refinery_article_3732d92a79dc14aedccf4fe8": {
