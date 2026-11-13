@@ -171,7 +171,98 @@
       ],
       "queued_at": "2026-11-13T05:37:31+09:00",
       "attempts": 1,
-      "invalid_items": []
+      "invalid_items": [],
+      "held_items": []
+    },
+    "spr:news:spr_article_a557731ddb16a82594d6395b": {
+      "topic": "spr",
+      "kind": "news",
+      "event_key": "spr_article_a557731ddb16a82594d6395b",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "a557731ddb16a82594d6395b",
+          "title": "U.S. managed $12 billion in Venezuelan oil revenue, State Department says - The Washington Post",
+          "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQajMtNVBjU2NoMXZaS1V5bHdvX2pXTTdGZVdiWHZuSnEtWU9KUGhtYU9XbkN1NkhyYnRVYUpyeHlvZlYxQ29wNjNYd3RncDZWM3F0UGxoMGlSNmM1cXZOSFZxWVZ2QlZFelhfdUVFTlNiT3loOXpXX2lXbTRXc09GY1NXMG10OGpQSVZkOFhFbmdOQ3F6LVdxZVhJQVJOaHdWOElNRlVXVmhQSTZlazFhczRnT2c?oc=5",
+          "source": "The Washington Post",
+          "source_url": "https://www.washingtonpost.com",
+          "pub_kst": "2026-11-13T07:42+09:00"
+        }
+      ],
+      "queued_at": "2026-11-13T10:27:22+09:00",
+      "attempts": 0
+    },
+    "spr:news:spr_article_8f1a8139c8b304c29c153c71": {
+      "topic": "spr",
+      "kind": "news",
+      "event_key": "spr_article_8f1a8139c8b304c29c153c71",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "8f1a8139c8b304c29c153c71",
+          "title": "US releases report on $12bn from Venezuelan oil, mineral resources - Al Jazeera",
+          "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQVFkxdHZYMmRmcnd6MXcwc3I0cDRfYkFNTC1ocXZLSGV6WmdXUl9PRGJJcUtKNnF2aXBBNlVZMnR6dlEwXzhRUjZDanlqSlZQZm9ydExxRml4T1hBdklObTBva1MzWFdLUnlPQzNFVnZUZ1pSRWFPdmZPeFpsMVoya1JSeWtpZ2JYemlQM1JqeE53anJwYjFobmZIUkpHbU0tUzlMeWdOOUEwQdIBrwFBVV95cUxPNzdIZlJhd0swZEttQmw4aUZoRE9XWkRQelVBYWJYWUNBNFpSYnZ3SGt0cUxJeWE2VklsTm5sRWl4a01sUGxPVFhuQ1BNdlo3NFUxbzFkVFZ0RldHNzFSdFUzWE5zelVNYUUzU09XdzJYYUVBTmtSdE1ucXlfVjY3dWNiYnlqam1na0J3X3NHYURocmpmQlpZUmVxNHNQREpBSnF0VG52LUJmWDZNeHBV?oc=5",
+          "source": "Al Jazeera",
+          "source_url": "https://www.aljazeera.com",
+          "pub_kst": "2026-11-13T05:52+09:00"
+        }
+      ],
+      "queued_at": "2026-11-13T10:27:22+09:00",
+      "attempts": 0
+    },
+    "spr:news:spr_article_91d8fff895de08764f01c708": {
+      "topic": "spr",
+      "kind": "news",
+      "event_key": "spr_article_91d8fff895de08764f01c708",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "91d8fff895de08764f01c708",
+          "title": "US handled $12 billion of Venezuela's oil revenues, report says - Reuters",
+          "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxPaWNPalZ0d2psbWdsSDFzcVh6NXEyeTFJNDZCajFGZ3FqSWZwWi13eE1oWHEtdmF3RF9iTTZ5QjR5ZDZBdnBsVjAtektZTHd4LXA4cGlwdEdVMXd4UXNOSGlPcG9HUTBYUGZtRU5POWlBbjVaZVJJTVctX1RHXzFHbHdyZmYzSE1kb2NmX2t2QTlzXzFZMDlhajhNbmFTWUxMa2JtOWpyYmR5Y3o5bkE?oc=5",
+          "source": "Reuters",
+          "source_url": "https://www.reuters.com",
+          "pub_kst": "2026-11-13T05:48+09:00"
+        }
+      ],
+      "queued_at": "2026-11-13T10:27:22+09:00",
+      "attempts": 0
+    },
+    "spr:news:spr_article_a39b145acd7a5e4ccc331457": {
+      "topic": "spr",
+      "kind": "news",
+      "event_key": "spr_article_a39b145acd7a5e4ccc331457",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "a39b145acd7a5e4ccc331457",
+          "title": "U.S. Collected $12 Billion in Venezuelan Oil Sales, Returning Nearly All of It - WSJ",
+          "link": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNcnRXcDRLdlpIckhwemFOZkxtUzRrcTVnNUVZQ1A1MjJWdk92emIzY1hBUG5KRXFDV1RzU3UxTEZfZ1pMeEY0SUZvZTdLajlOMURrWjAza0tBR1BXT1pEc0g4N2tRUzBDekRkSXNqOWNLUnVOZXBJeWY5V29ZTG02QllkbFp6VGNMWjBvUHVGa1hXSWNuQnRLT0dGLTlqamlhM2ZJTWxNRHdFQ3lNVkNacjI2YmV6RDIxbkpB?oc=5",
+          "source": "WSJ",
+          "source_url": "https://www.wsj.com",
+          "pub_kst": "2026-11-13T05:14+09:00"
+        }
+      ],
+      "queued_at": "2026-11-13T10:27:22+09:00",
+      "attempts": 0
+    },
+    "spr:news:spr_article_84b09e7ef1ec87e12a30f482": {
+      "topic": "spr",
+      "kind": "news",
+      "event_key": "spr_article_84b09e7ef1ec87e12a30f482",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "84b09e7ef1ec87e12a30f482",
+          "title": "Oil Exec Who Got Nice Contract on Venezuelan Oil was Top Vance Donor - Yahoo",
+          "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOTEVkYW5lNXlKZFc4MmhiZ3ByUl9ENDB4MHVjVlpJaW4zeGlWMldocC1HSGV5RzhhX2xyOUhIQmZRTDZ3ZkhERGpCbEJmVXpzN0FEYUtsWGdGSkw0UDU3TzA3aDU4LXpXckhsMHktOVF6S3J5TzJWaHdRMEljeVJOZnJmQkpZcnZl?oc=5",
+          "source": "Yahoo",
+          "source_url": "https://www.yahoo.com",
+          "pub_kst": "2026-11-13T01:44+09:00"
+        }
+      ],
+      "queued_at": "2026-11-13T10:27:22+09:00",
+      "attempts": 0
     }
   },
   "receipts": [
