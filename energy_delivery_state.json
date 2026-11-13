@@ -190,13 +190,14 @@
         }
       ],
       "queued_at": "2026-11-13T10:27:22+09:00",
-      "attempts": 0
+      "attempts": 1,
+      "invalid_items": []
     },
     "spr:news:spr_article_8f1a8139c8b304c29c153c71": {
       "topic": "spr",
       "kind": "news",
       "event_key": "spr_article_8f1a8139c8b304c29c153c71",
-      "status": "enrichment_pending",
+      "status": "source_blocked",
       "items": [
         {
           "id": "8f1a8139c8b304c29c153c71",
@@ -204,17 +205,27 @@
           "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQVFkxdHZYMmRmcnd6MXcwc3I0cDRfYkFNTC1ocXZLSGV6WmdXUl9PRGJJcUtKNnF2aXBBNlVZMnR6dlEwXzhRUjZDanlqSlZQZm9ydExxRml4T1hBdklObTBva1MzWFdLUnlPQzNFVnZUZ1pSRWFPdmZPeFpsMVoya1JSeWtpZ2JYemlQM1JqeE53anJwYjFobmZIUkpHbU0tUzlMeWdOOUEwQdIBrwFBVV95cUxPNzdIZlJhd0swZEttQmw4aUZoRE9XWkRQelVBYWJYWUNBNFpSYnZ3SGt0cUxJeWE2VklsTm5sRWl4a01sUGxPVFhuQ1BNdlo3NFUxbzFkVFZ0RldHNzFSdFUzWE5zelVNYUUzU09XdzJYYUVBTmtSdE1ucXlfVjY3dWNiYnlqam1na0J3X3NHYURocmpmQlpZUmVxNHNQREpBSnF0VG52LUJmWDZNeHBV?oc=5",
           "source": "Al Jazeera",
           "source_url": "https://www.aljazeera.com",
-          "pub_kst": "2026-11-13T05:52+09:00"
+          "pub_kst": "2026-11-13T05:52+09:00",
+          "_source_blocked": true,
+          "_source_failure": {
+            "stage": "translation_google",
+            "reason": "http_rate_limit",
+            "blocked_before_request": false,
+            "provider": "www.google.com",
+            "request_url_sha256": "4798847d55fdd547cf3844060a1d40ce9bceaff25d397515b8af8cdb03159bf1",
+            "http_status": 429
+          }
         }
       ],
       "queued_at": "2026-11-13T10:27:22+09:00",
-      "attempts": 0
+      "attempts": 1,
+      "invalid_items": []
     },
     "spr:news:spr_article_91d8fff895de08764f01c708": {
       "topic": "spr",
       "kind": "news",
       "event_key": "spr_article_91d8fff895de08764f01c708",
-      "status": "enrichment_pending",
+      "status": "source_blocked",
       "items": [
         {
           "id": "91d8fff895de08764f01c708",
@@ -222,17 +233,27 @@
           "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxPaWNPalZ0d2psbWdsSDFzcVh6NXEyeTFJNDZCajFGZ3FqSWZwWi13eE1oWHEtdmF3RF9iTTZ5QjR5ZDZBdnBsVjAtektZTHd4LXA4cGlwdEdVMXd4UXNOSGlPcG9HUTBYUGZtRU5POWlBbjVaZVJJTVctX1RHXzFHbHdyZmYzSE1kb2NmX2t2QTlzXzFZMDlhajhNbmFTWUxMa2JtOWpyYmR5Y3o5bkE?oc=5",
           "source": "Reuters",
           "source_url": "https://www.reuters.com",
-          "pub_kst": "2026-11-13T05:48+09:00"
+          "pub_kst": "2026-11-13T05:48+09:00",
+          "_source_blocked": true,
+          "_source_failure": {
+            "stage": "article_fetch",
+            "reason": "http_denial",
+            "blocked_before_request": false,
+            "provider": "www.reuters.com",
+            "request_url_sha256": "fe07d122db40a903354f7636f8653af71c4466bebadf5f28fd1b1ecb6bec1fb8",
+            "http_status": 401
+          }
         }
       ],
       "queued_at": "2026-11-13T10:27:22+09:00",
-      "attempts": 0
+      "attempts": 1,
+      "invalid_items": []
     },
     "spr:news:spr_article_a39b145acd7a5e4ccc331457": {
       "topic": "spr",
       "kind": "news",
       "event_key": "spr_article_a39b145acd7a5e4ccc331457",
-      "status": "enrichment_pending",
+      "status": "source_blocked",
       "items": [
         {
           "id": "a39b145acd7a5e4ccc331457",
@@ -240,17 +261,27 @@
           "link": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNcnRXcDRLdlpIckhwemFOZkxtUzRrcTVnNUVZQ1A1MjJWdk92emIzY1hBUG5KRXFDV1RzU3UxTEZfZ1pMeEY0SUZvZTdLajlOMURrWjAza0tBR1BXT1pEc0g4N2tRUzBDekRkSXNqOWNLUnVOZXBJeWY5V29ZTG02QllkbFp6VGNMWjBvUHVGa1hXSWNuQnRLT0dGLTlqamlhM2ZJTWxNRHdFQ3lNVkNacjI2YmV6RDIxbkpB?oc=5",
           "source": "WSJ",
           "source_url": "https://www.wsj.com",
-          "pub_kst": "2026-11-13T05:14+09:00"
+          "pub_kst": "2026-11-13T05:14+09:00",
+          "_source_blocked": true,
+          "_source_failure": {
+            "stage": "article_fetch",
+            "reason": "http_denial",
+            "blocked_before_request": false,
+            "provider": "www.wsj.com",
+            "request_url_sha256": "1b52bdf6a4799d131c5ed897d24a7d8eb2dcb1d2b8c5ba5c1e08973a606f934b",
+            "http_status": 401
+          }
         }
       ],
       "queued_at": "2026-11-13T10:27:22+09:00",
-      "attempts": 0
+      "attempts": 1,
+      "invalid_items": []
     },
     "spr:news:spr_article_84b09e7ef1ec87e12a30f482": {
       "topic": "spr",
       "kind": "news",
       "event_key": "spr_article_84b09e7ef1ec87e12a30f482",
-      "status": "enrichment_pending",
+      "status": "source_blocked",
       "items": [
         {
           "id": "84b09e7ef1ec87e12a30f482",
@@ -258,11 +289,21 @@
           "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOTEVkYW5lNXlKZFc4MmhiZ3ByUl9ENDB4MHVjVlpJaW4zeGlWMldocC1HSGV5RzhhX2xyOUhIQmZRTDZ3ZkhERGpCbEJmVXpzN0FEYUtsWGdGSkw0UDU3TzA3aDU4LXpXckhsMHktOVF6S3J5TzJWaHdRMEljeVJOZnJmQkpZcnZl?oc=5",
           "source": "Yahoo",
           "source_url": "https://www.yahoo.com",
-          "pub_kst": "2026-11-13T01:44+09:00"
+          "pub_kst": "2026-11-13T01:44+09:00",
+          "_source_blocked": true,
+          "_source_failure": {
+            "stage": "translation_google",
+            "reason": "http_rate_limit",
+            "blocked_before_request": false,
+            "provider": "www.google.com",
+            "request_url_sha256": "bc7aa19d8039fec6fe518f8ed92a7cff5f5982e16c16868232140604ed3827bf",
+            "http_status": 429
+          }
         }
       ],
       "queued_at": "2026-11-13T10:27:22+09:00",
-      "attempts": 0
+      "attempts": 1,
+      "invalid_items": []
     }
   },
   "receipts": [
