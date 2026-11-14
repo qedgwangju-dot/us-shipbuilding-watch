@@ -103,7 +103,7 @@
         }
       ],
       "queued_at": "2026-11-13T10:27:22+09:00",
-      "attempts": 5,
+      "attempts": 6,
       "invalid_items": []
     },
     "spr:news:spr_article_8f1a8139c8b304c29c153c71": {
