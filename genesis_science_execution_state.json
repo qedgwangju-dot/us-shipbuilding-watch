@@ -1,5 +1,5 @@
 {
-  "last_checked_kst": "2026-11-14T18:21:53+09:00",
+  "last_checked_kst": "2026-11-15T00:55:23+09:00",
   "schema": 1,
   "seen": {
     "doe-genesis-phase2-awards:2026-10-08": {
@@ -20,10 +20,10 @@
   },
   "source_health": {
     "baseline_verified": 2,
-    "decoded_official": 1,
+    "decoded_official": 0,
     "doe_listing_count": 4,
     "doe_verified": 1,
-    "feed_items": 1,
+    "feed_items": 0,
     "new_candidates": 0,
     "nvidia_rss_article_fallbacks": 1,
     "nvidia_rss_count": 20,
@@ -31,7 +31,7 @@
     "nvidia_verified": 1,
     "official_new_docs_verified": 4,
     "official_urls_considered": 8,
-    "search_coverage_gap": false,
+    "search_coverage_gap": true,
     "source_errors": [],
     "whitehouse_verified": 1
   },
