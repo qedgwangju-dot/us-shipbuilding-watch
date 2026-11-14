@@ -249,6 +249,24 @@
       "queued_at": "2026-11-13T10:27:22+09:00",
       "attempts": 1,
       "invalid_items": []
+    },
+    "spr:news:spr_article_7e6bf8b82b08c46ae5303df7": {
+      "topic": "spr",
+      "kind": "news",
+      "event_key": "spr_article_7e6bf8b82b08c46ae5303df7",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "7e6bf8b82b08c46ae5303df7",
+          "title": "US-backed oil company flaunts Venezuelan facilities - Yahoo",
+          "link": "https://news.google.com/rss/articles/CBMikwFBVV95cUxPWThNdGZoejNPMDAzdDFTTm1OejNQZUNXcHpqWFFXQnFyYmlUdlZtZWNlTjkwbE11M2R2UFAzWHgzSTdDZVAtdFE1eVlkZWFlalpoSmtiZnNFdnpGenRBSzFOYTVXUXNTTzdkeHdES09CMTV0V2pNWU5XM2VrVkwyRFhoSlpjTE9fYVk2dzk0cGVfUUk?oc=5",
+          "source": "Yahoo",
+          "source_url": "https://www.yahoo.com",
+          "pub_kst": "2026-11-14T10:21+09:00"
+        }
+      ],
+      "queued_at": "2026-11-14T11:18:33+09:00",
+      "attempts": 0
     }
   },
   "receipts": [
