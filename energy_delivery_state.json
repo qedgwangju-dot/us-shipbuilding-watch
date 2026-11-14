@@ -1,35 +1,6 @@
 {
   "schema_version": 1,
   "outbox": {
-    "refinery:news:refinery_article_624bc49e0c9f20d6d06f8598": {
-      "topic": "refinery",
-      "kind": "news",
-      "event_key": "refinery_article_624bc49e0c9f20d6d06f8598",
-      "status": "source_blocked",
-      "items": [
-        {
-          "id": "624bc49e0c9f20d6d06f8598",
-          "title": "US refineries run at 94.5% capacity, yet diesel and heating oil stocks fall as winter arrives - Yahoo Finance UK",
-          "link": "https://news.google.com/rss/articles/CBMie0FVX3lxTE5qUEdCaVFUbTJsZ1FONWNpb2ZDUU1sSjZNQ1BpM1YwOGF3eE9vdGZkX2Q3TF9DZkExdHhTU05vdURYbjBxNUpNeWdzdXRmcElUVVB6Q3NFRzdvT2lNNjBTT2hCRTB6c01GSmRxeXZyVWMwUDBrbjZRZUoxaw?oc=5",
-          "source": "Yahoo Finance UK",
-          "source_url": "https://uk.finance.yahoo.com",
-          "pub_kst": "2026-11-12T02:31+09:00",
-          "_source_blocked": true,
-          "_source_failure": {
-            "stage": "translation_google",
-            "reason": "http_rate_limit",
-            "blocked_before_request": false,
-            "provider": "www.google.com",
-            "request_url_sha256": "329e235c4c4f43157441145b3df571a3bd8d5d8f91e0d58f81158d6e31f93e45",
-            "http_status": 429
-          }
-        }
-      ],
-      "queued_at": "2026-11-12T08:43:52+09:00",
-      "attempts": 1,
-      "invalid_items": [],
-      "held_items": []
-    },
     "refinery:news:refinery_article_561793b9816251872b40babd": {
       "topic": "refinery",
       "kind": "news",
@@ -3166,6 +3137,16 @@
       "ids": [
         "ad1f0b690c6e2efa7b0c0711"
       ]
+    },
+    {
+      "key": "refinery:news:refinery_article_624bc49e0c9f20d6d06f8598",
+      "reason": "expired_unverified_no_telegram_delivery",
+      "at": "2026-11-15T05:03:47+09:00",
+      "ids": [
+        "624bc49e0c9f20d6d06f8598"
+      ],
+      "delivered": false,
+      "archived": true
     }
   ],
   "observed_data": {
@@ -5127,6 +5108,39 @@
           }
         ],
         "queued_at": "2026-11-11T19:12:19+09:00",
+        "attempts": 1,
+        "invalid_items": [],
+        "held_items": []
+      }
+    },
+    "refinery:news:refinery_article_624bc49e0c9f20d6d06f8598": {
+      "archived_at": "2026-11-15T05:03:47+09:00",
+      "reason": "expired_unverified_no_telegram_delivery",
+      "entry": {
+        "topic": "refinery",
+        "kind": "news",
+        "event_key": "refinery_article_624bc49e0c9f20d6d06f8598",
+        "status": "source_blocked",
+        "items": [
+          {
+            "id": "624bc49e0c9f20d6d06f8598",
+            "title": "US refineries run at 94.5% capacity, yet diesel and heating oil stocks fall as winter arrives - Yahoo Finance UK",
+            "link": "https://news.google.com/rss/articles/CBMie0FVX3lxTE5qUEdCaVFUbTJsZ1FONWNpb2ZDUU1sSjZNQ1BpM1YwOGF3eE9vdGZkX2Q3TF9DZkExdHhTU05vdURYbjBxNUpNeWdzdXRmcElUVVB6Q3NFRzdvT2lNNjBTT2hCRTB6c01GSmRxeXZyVWMwUDBrbjZRZUoxaw?oc=5",
+            "source": "Yahoo Finance UK",
+            "source_url": "https://uk.finance.yahoo.com",
+            "pub_kst": "2026-11-12T02:31+09:00",
+            "_source_blocked": true,
+            "_source_failure": {
+              "stage": "translation_google",
+              "reason": "http_rate_limit",
+              "blocked_before_request": false,
+              "provider": "www.google.com",
+              "request_url_sha256": "329e235c4c4f43157441145b3df571a3bd8d5d8f91e0d58f81158d6e31f93e45",
+              "http_status": 429
+            }
+          }
+        ],
+        "queued_at": "2026-11-12T08:43:52+09:00",
         "attempts": 1,
         "invalid_items": [],
         "held_items": []
