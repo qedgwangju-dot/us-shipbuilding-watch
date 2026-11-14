@@ -249,6 +249,24 @@
       "attempts": 1,
       "invalid_items": [],
       "held_items": []
+    },
+    "spr:news:spr_refill_statement_20260830": {
+      "topic": "spr",
+      "kind": "news",
+      "event_key": "spr_refill_statement_20260830",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "ad1f0b690c6e2efa7b0c0711",
+          "title": "Venezuelan Oil Won’t Refill the Strategic Petroleum Reserve Soon - National Review",
+          "link": "https://news.google.com/rss/articles/CBMiugFBVV95cUxQNTdsNnI2bVBJUmJIM1dpemdoQmswNzZCd0xRX2hGeHprcHd6TUxkdThmMDB6anBUMnRfalBXdEYyc2VfOVBrZFltVTVJcFZDT1ZoZ0RDWThqeW9DUy00X2k2bHJtb3hGeFlaeVN6NU1sUGs3MU8xb3VZa2k2M1FidTkxUnN4dmFRdXRwSDJBc1F6VFRNMkxxS1NkV0JGbzZyaEl2TkZiRnNCNi13MW1XdG9NNFd5Vzdodnc?oc=5",
+          "source": "National Review",
+          "source_url": "https://www.nationalreview.com",
+          "pub_kst": "2026-08-31T16:00+09:00"
+        }
+      ],
+      "queued_at": "2026-11-15T00:39:26+09:00",
+      "attempts": 0
     }
   },
   "receipts": [
