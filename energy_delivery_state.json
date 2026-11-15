@@ -192,6 +192,24 @@
       "attempts": 1,
       "invalid_items": [],
       "held_items": []
+    },
+    "spr:news:spr_article_ce1fbbd2c350c3e7ca54171b": {
+      "topic": "spr",
+      "kind": "news",
+      "event_key": "spr_article_ce1fbbd2c350c3e7ca54171b",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "ce1fbbd2c350c3e7ca54171b",
+          "title": "US’s Chevron, Italy’s Eni to expand oil projects in Venezuela - Al Jazeera",
+          "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxORGJEdkdqZVVnakJLRmN2OGdRLU84SDVIRHQ2QldjWEVLZG9aR1FTNWVHRUdZeUhSYjBSZWx6V2xuUWVIYWx0NlcwLTM2ZzdZN2hMd2lzUnJtRWs5ZTk4VXRGaElvNnBlS0hucDN5ZVN1a1dQYnNnQjNuZy00ajBJZlBJNE9Vcl9WT2hac3JzVExOQ1I2dmpXVS0zbVY0UmM?oc=5",
+          "source": "Al Jazeera",
+          "source_url": "https://www.aljazeera.com",
+          "pub_kst": "2026-09-03T16:00+09:00"
+        }
+      ],
+      "queued_at": "2026-11-15T19:44:21+09:00",
+      "attempts": 0
     }
   },
   "receipts": [
