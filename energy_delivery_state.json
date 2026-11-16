@@ -1,25 +1,6 @@
 {
   "schema_version": 1,
   "outbox": {
-    "spr:news:spr_article_a557731ddb16a82594d6395b": {
-      "topic": "spr",
-      "kind": "news",
-      "event_key": "spr_article_a557731ddb16a82594d6395b",
-      "status": "enrichment_pending",
-      "items": [
-        {
-          "id": "a557731ddb16a82594d6395b",
-          "title": "U.S. managed $12 billion in Venezuelan oil revenue, State Department says - The Washington Post",
-          "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQajMtNVBjU2NoMXZaS1V5bHdvX2pXTTdGZVdiWHZuSnEtWU9KUGhtYU9XbkN1NkhyYnRVYUpyeHlvZlYxQ29wNjNYd3RncDZWM3F0UGxoMGlSNmM1cXZOSFZxWVZ2QlZFelhfdUVFTlNiT3loOXpXX2lXbTRXc09GY1NXMG10OGpQSVZkOFhFbmdOQ3F6LVdxZVhJQVJOaHdWOElNRlVXVmhQSTZlazFhczRnT2c?oc=5",
-          "source": "The Washington Post",
-          "source_url": "https://www.washingtonpost.com",
-          "pub_kst": "2026-11-13T07:41+09:00"
-        }
-      ],
-      "queued_at": "2026-11-13T10:27:22+09:00",
-      "attempts": 13,
-      "invalid_items": []
-    },
     "spr:news:spr_article_7e6bf8b82b08c46ae5303df7": {
       "topic": "spr",
       "kind": "news",
@@ -3051,6 +3032,16 @@
       "ids": [
         "83fc2f016131a2e4d4a0fac4"
       ]
+    },
+    {
+      "key": "spr:news:spr_article_a557731ddb16a82594d6395b",
+      "reason": "expired_unverified_no_telegram_delivery",
+      "at": "2026-11-16T10:31:51+09:00",
+      "ids": [
+        "a557731ddb16a82594d6395b"
+      ],
+      "delivered": false,
+      "archived": true
     }
   ],
   "observed_data": {
@@ -5244,6 +5235,29 @@
         "attempts": 1,
         "invalid_items": [],
         "held_items": []
+      }
+    },
+    "spr:news:spr_article_a557731ddb16a82594d6395b": {
+      "archived_at": "2026-11-16T10:31:51+09:00",
+      "reason": "expired_unverified_no_telegram_delivery",
+      "entry": {
+        "topic": "spr",
+        "kind": "news",
+        "event_key": "spr_article_a557731ddb16a82594d6395b",
+        "status": "enrichment_pending",
+        "items": [
+          {
+            "id": "a557731ddb16a82594d6395b",
+            "title": "U.S. managed $12 billion in Venezuelan oil revenue, State Department says - The Washington Post",
+            "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQajMtNVBjU2NoMXZaS1V5bHdvX2pXTTdGZVdiWHZuSnEtWU9KUGhtYU9XbkN1NkhyYnRVYUpyeHlvZlYxQ29wNjNYd3RncDZWM3F0UGxoMGlSNmM1cXZOSFZxWVZ2QlZFelhfdUVFTlNiT3loOXpXX2lXbTRXc09GY1NXMG10OGpQSVZkOFhFbmdOQ3F6LVdxZVhJQVJOaHdWOElNRlVXVmhQSTZlazFhczRnT2c?oc=5",
+            "source": "The Washington Post",
+            "source_url": "https://www.washingtonpost.com",
+            "pub_kst": "2026-11-13T07:41+09:00"
+          }
+        ],
+        "queued_at": "2026-11-13T10:27:22+09:00",
+        "attempts": 13,
+        "invalid_items": []
       }
     }
   }
