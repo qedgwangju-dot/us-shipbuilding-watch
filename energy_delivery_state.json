@@ -1,25 +1,6 @@
 {
   "schema_version": 1,
-  "outbox": {
-    "refinery:news:refinery_article_955cd035808dbadd71b70b05": {
-      "topic": "refinery",
-      "kind": "news",
-      "event_key": "refinery_article_955cd035808dbadd71b70b05",
-      "status": "enrichment_pending",
-      "items": [
-        {
-          "id": "955cd035808dbadd71b70b05",
-          "title": "Renewable Fuel Standard Exemptions for Small Refineries - U.S. Environmental Protection Agency (.gov)",
-          "link": "https://news.google.com/rss/articles/CBMixgFBVV95cUxObXRKRnpDOHhZNS1Jc0xnZTJqLWR2Y1AwUGZrbVMxdlptbUNOUFJZMm91SjgzOUozX0Z6d003UnFPOHZEWjRDek5CY2NpUWpVc1ZYa0hOYmxEZjk0LTVLY29aSVFUaXVsX0p5WkNIRmZBV21rdjNaNnhsdG9BZm10aHVOTGpEYkNEdm5SbDZCdGpxbUpZREdXZXphbW9Qa0R0ZlluaGx2aVpJcHdzT3czNVJxTnpvUk92TUtEWjh3ejhZQmp1QVE?oc=5",
-          "source": "U.S. Environmental Protection Agency (.gov)",
-          "source_url": "https://19january2017snapshot.epa.gov",
-          "pub_kst": "2016-12-08T17:00+09:00"
-        }
-      ],
-      "queued_at": "2026-11-18T04:20:58+09:00",
-      "attempts": 0
-    }
-  },
+  "outbox": {},
   "receipts": [
     {
       "key": "spr:data:spr:2026-10-09",
@@ -3041,6 +3022,14 @@
       ],
       "delivered": false,
       "archived": true
+    },
+    {
+      "key": "refinery:news:refinery_article_955cd035808dbadd71b70b05",
+      "reason": "news_outside_three_day_window",
+      "at": "2026-11-18T04:21:00+09:00",
+      "ids": [
+        "955cd035808dbadd71b70b05"
+      ]
     }
   ],
   "observed_data": {

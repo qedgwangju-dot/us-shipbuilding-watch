@@ -1,6 +1,7 @@
 {
   "initialized": true,
   "seen": [
+    "955cd035808dbadd71b70b05",
     "83fc2f016131a2e4d4a0fac4",
     "561793b9816251872b40babd",
     "624bc49e0c9f20d6d06f8598",
@@ -439,8 +440,8 @@
     "c99a2657478daa3c4a8a896e",
     "a8e7de25f5234e183c67fd9e"
   ],
-  "last_run_kst": "2026-11-17T19:36:59+09:00",
-  "last_source_error_count": 1,
+  "last_run_kst": "2026-11-18T04:21:00+09:00",
+  "last_source_error_count": 0,
   "last_translation_error_count": 0,
   "events": {
     "rfs_sre_2025_decision": {
