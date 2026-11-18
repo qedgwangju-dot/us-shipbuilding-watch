@@ -144,7 +144,7 @@
         "prev_kbbl": 279535,
         "source": "https://www.eia.gov/dnav/pet/PET_STOC_WSTK_A_EPC0_SAS_MBBL_W.htm"
       },
-      "status": "delivery_unknown",
+      "status": "ready",
       "message": "<b>[SPR 공식 수치]</b>\n<b>2026-11-13 | 276.361백만 배럴</b>\n\n<b>한눈에 보기</b>\n• 전주 변화: <b>-3.174백만 배럴</b>\n• 저장능력 7억1,400만 배럴 대비: <b>38.7%</b>\n• 완전 충전까지: <b>437.639백만 배럴</b> 부족\n\n<b>판정</b>\n• 아직 보충 효과 미확인\n• 증가분이 나와도 베네수엘라 신규 반입과 기존 교환계약 반환물량을 DOE 자료로 분리 확인\n\n<a href=\"https://www.eia.gov/dnav/pet/PET_STOC_WSTK_A_EPC0_SAS_MBBL_W.htm\">EIA 원문</a>",
       "queued_at": "2026-11-19T08:49:06+09:00",
       "attempts": 1,
@@ -153,8 +153,10 @@
         {
           "text": "<b>[SPR 공식 수치]</b>\n<b>2026-11-13 | 276.361백만 배럴</b>\n\n<b>한눈에 보기</b>\n• 전주 변화: <b>-3.174백만 배럴</b>\n• 저장능력 7억1,400만 배럴 대비: <b>38.7%</b>\n• 완전 충전까지: <b>437.639백만 배럴</b> 부족\n\n<b>판정</b>\n• 아직 보충 효과 미확인\n• 증가분이 나와도 베네수엘라 신규 반입과 기존 교환계약 반환물량을 DOE 자료로 분리 확인\n\n<a href=\"https://www.eia.gov/dnav/pet/PET_STOC_WSTK_A_EPC0_SAS_MBBL_W.htm\">EIA 원문</a>",
           "message_sha256": "c3a9ff10d113fbaad231ae30263aabe8eadb0467c5bed6cbb9f88db6e244813d",
-          "status": "delivery_unknown",
-          "prepared_at": "2026-11-19T08:49:13+09:00"
+          "status": "confirmed",
+          "prepared_at": "2026-11-19T08:49:13+09:00",
+          "message_id": 588,
+          "confirmed_at": "2026-11-19T08:49:15+09:00"
         }
       ]
     },
