@@ -74,13 +74,14 @@
         }
       ],
       "queued_at": "2026-11-19T02:58:23+09:00",
-      "attempts": 0
+      "attempts": 1,
+      "invalid_items": []
     },
     "spr:news:spr_article_a69afd3dff9a995833b24521": {
       "topic": "spr",
       "kind": "news",
       "event_key": "spr_article_a69afd3dff9a995833b24521",
-      "status": "enrichment_pending",
+      "status": "source_blocked",
       "items": [
         {
           "id": "a69afd3dff9a995833b24521",
@@ -88,17 +89,27 @@
           "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxPVmlsZHRvT2Z6WnlMbUJMNExnSFQ4NHpYbEhyUVNPS1hwM3lrT3ZCSlNNMkpFbTNsdk5LTGpsNHlmZEtjcklZNmo3TGd5NDEyNHMtUXpnTzItSTl3UHNzZHZFX0VlWXlLdXhSRTRuQ09JeUY2TngwY3hwempTRm9tWjhyb3kta0JDaHBHMG42V3lKOGlmYnI3aTJ3dw?oc=5",
           "source": "Bloomberg.com",
           "source_url": "https://www.bloomberg.com",
-          "pub_kst": "2026-11-18T19:00+09:00"
+          "pub_kst": "2026-11-18T19:00+09:00",
+          "_source_blocked": true,
+          "_source_failure": {
+            "stage": "article_fetch",
+            "reason": "http_denial",
+            "blocked_before_request": false,
+            "provider": "www.bloomberg.com",
+            "request_url_sha256": "b7de12bf2a05d1e674a4963eb84f2e8b926aa26136952e36d860681eeecde363",
+            "http_status": 403
+          }
         }
       ],
       "queued_at": "2026-11-19T02:58:23+09:00",
-      "attempts": 0
+      "attempts": 1,
+      "invalid_items": []
     },
     "spr:news:spr_article_150aa153d60bb3f34a040105": {
       "topic": "spr",
       "kind": "news",
       "event_key": "spr_article_150aa153d60bb3f34a040105",
-      "status": "enrichment_pending",
+      "status": "source_blocked",
       "items": [
         {
           "id": "150aa153d60bb3f34a040105",
@@ -106,11 +117,21 @@
           "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxNb2JoazhlTEdxOWlWdnhMWm05eG1kd2xwVnB3dUREM1lRY3R2M3hBTGJLdlJiM3hvQ0s3cHRJcnhjR1p6YU9XN0x4S1BDRHdGRk14QmRmRE9fU0xhcVJYRUZ4Qi1NUkl4enAybFYxTW1rSXRiZkdCU19jcmNhaUgyaHFsTjJ5SC1tR3hIRGpxMFNtZmxkajRia2VZWnVsT3ItTWtLeVBwb1dKM2V0QUdr?oc=5",
           "source": "Bloomberg.com",
           "source_url": "https://www.bloomberg.com",
-          "pub_kst": "2026-11-18T13:12+09:00"
+          "pub_kst": "2026-11-18T13:12+09:00",
+          "_source_blocked": true,
+          "_source_failure": {
+            "stage": "article_fetch",
+            "reason": "http_denial",
+            "blocked_before_request": false,
+            "provider": "www.bloomberg.com",
+            "request_url_sha256": "2ac5d7fcf22416da0574fe9ff184b0ac0529e775eb8e78c99b43b467f946ac96",
+            "http_status": 403
+          }
         }
       ],
       "queued_at": "2026-11-19T02:58:23+09:00",
-      "attempts": 0
+      "attempts": 1,
+      "invalid_items": []
     }
   },
   "receipts": [
