@@ -3106,12 +3106,12 @@
   },
   "last_result": {
     "ok": false,
-    "errors": 0,
-    "pending": 1,
+    "errors": 1,
+    "pending": 2,
     "refinery_sent": 0,
     "spr_sent": 0,
     "unverified_archived": 69,
-    "at": "2026-11-18T10:40:47+09:00"
+    "at": "2026-11-18T18:05:31+09:00"
   },
   "archived_unverified": {
     "refinery:news:refinery_article_3732d92a79dc14aedccf4fe8": {
