@@ -131,7 +131,110 @@
       ],
       "queued_at": "2026-11-19T02:58:23+09:00",
       "attempts": 1,
-      "invalid_items": []
+      "invalid_items": [],
+      "held_items": []
+    },
+    "spr:data:spr:2026-11-13": {
+      "topic": "spr",
+      "kind": "data",
+      "field": "spr",
+      "current": {
+        "date": "2026-11-13",
+        "value_kbbl": 276361,
+        "prev_kbbl": 279535,
+        "source": "https://www.eia.gov/dnav/pet/PET_STOC_WSTK_A_EPC0_SAS_MBBL_W.htm"
+      },
+      "status": "ready",
+      "message": "<b>[SPR 공식 수치]</b>\n<b>2026-11-13 | 276.361백만 배럴</b>\n\n<b>한눈에 보기</b>\n• 전주 변화: <b>-3.174백만 배럴</b>\n• 저장능력 7억1,400만 배럴 대비: <b>38.7%</b>\n• 완전 충전까지: <b>437.639백만 배럴</b> 부족\n\n<b>판정</b>\n• 아직 보충 효과 미확인\n• 증가분이 나와도 베네수엘라 신규 반입과 기존 교환계약 반환물량을 DOE 자료로 분리 확인\n\n<a href=\"https://www.eia.gov/dnav/pet/PET_STOC_WSTK_A_EPC0_SAS_MBBL_W.htm\">EIA 원문</a>",
+      "queued_at": "2026-11-19T08:49:06+09:00",
+      "attempts": 0
+    },
+    "spr:data:venezuela_imports:2026-11-13": {
+      "topic": "spr",
+      "kind": "data",
+      "field": "venezuela_imports",
+      "current": {
+        "date": "2026-11-13",
+        "value_kbd": 260,
+        "prev_kbd": 603,
+        "source": "https://www.eia.gov/dnav/pet/hist/LeafHandler.ashx?f=W&n=PET&s=W_EPC0_IM0_NUS-NVE_MBBLD"
+      },
+      "status": "ready",
+      "message": "<b>[베네수엘라산 원유 미국 유입]</b>\n<b>2026-11-13 | 260천 배럴/일</b>\n\n<b>한눈에 보기</b>\n• 전주 변화: <b>-343천 배럴/일</b>\n• 7일 단순 환산: <b>1.820백만 배럴</b>\n\n<b>판정</b>\n• 미국 전체 수입량이지 SPR 직접 입고량은 아님\n• 정유사 투입분과 SPR 저장분을 DOE 조달·반입 자료로 분리 확인\n\n<a href=\"https://www.eia.gov/dnav/pet/hist/LeafHandler.ashx?f=W&amp;n=PET&amp;s=W_EPC0_IM0_NUS-NVE_MBBLD\">EIA 원문</a>",
+      "queued_at": "2026-11-19T08:49:07+09:00",
+      "attempts": 0
+    },
+    "spr:news:spr_article_0dfe29c8c8d44e996f0a13fd": {
+      "topic": "spr",
+      "kind": "news",
+      "event_key": "spr_article_0dfe29c8c8d44e996f0a13fd",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "0dfe29c8c8d44e996f0a13fd",
+          "title": "Hegseth Tells Venezuelan President He Wants to Unlock Its Resources - Newsweek",
+          "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxNNHZLcW9oVTNmaGZaMFB0bWpWNW15MWNqRE5iTzE4ZnRUUUxSaXFpQ2NKejNTRVN3RzktajhPdGVpWHRBV29STEJDc21UekliV2ZjYWZnVDQ3bWQ1bkJsRTRIeGlNSzNEWW5Oel93QjlpOU9CRi1VcmJkRF9jSHJOdEhBM0NkVmNncC14dkV2Zk1XZw?oc=5",
+          "source": "Newsweek",
+          "source_url": "https://www.newsweek.com",
+          "pub_kst": "2026-11-19T04:02+09:00"
+        }
+      ],
+      "queued_at": "2026-11-19T08:49:10+09:00",
+      "attempts": 0
+    },
+    "spr:news:spr_article_144767f114d32f809c71b486": {
+      "topic": "spr",
+      "kind": "news",
+      "event_key": "spr_article_144767f114d32f809c71b486",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "144767f114d32f809c71b486",
+          "title": "Thiel Doubles Down on Vaca Muerta as Trump Calls Venezuela an \"Acquisition\" - Crude Oil Prices Today | OilPrice.com",
+          "link": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxQWGJCaVVNR3RXUWVWaUw1NmplYWR2ZmwzRlg3a1VZNFpONnFTRzc4aHJtdjZTZEdJU2xBam5aVDFHQUVQWk1PY2Q4SUVXY1JMS1BKczhtelg5cW5nVXdWMXhYSjZnb1QyM05ybFpOZkxEdTFESzlTN0V4YjhyM0syZlpjbFZJaUd3VVJ2LWEzN2tNWjBEVFpKdUZRNURqLVBVM0lyc3E5MDR0TWpuUWZzc0VMS3piRXRzTjZtZW16WXYxaDRQdXVsd9IBzgFBVV95cUxOdi1KLUg0YTdVUEhKM2VyazhRU2dJd0VqY2FfNTJzbS1aVzJjbksySHJTVzR4Z2Y0eElFWl9taUNITHdHN2UzNEJUZXdwZVpmeDNvTmxjNVYzVTdwbllVUlNoNF9kc1BHZ0twY1hCcFM1YnVNUHdUUHV6a0FzSWJ3S3VFMFpfd29HUHRnLUpjRHpURjloTVpMR2NrNFpPdlNyTkxueUtGaFZyY0xGRFVxLVdiZGpCQnpzN3RyM1ZHZ1N6OVZoTmtWQ1NucXd0Zw?oc=5",
+          "source": "Crude Oil Prices Today | OilPrice.com",
+          "source_url": "https://oilprice.com",
+          "pub_kst": "2026-11-19T02:30+09:00"
+        }
+      ],
+      "queued_at": "2026-11-19T08:49:10+09:00",
+      "attempts": 0
+    },
+    "spr:news:spr_article_e428ca907d910b8fdc834cf3": {
+      "topic": "spr",
+      "kind": "news",
+      "event_key": "spr_article_e428ca907d910b8fdc834cf3",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "e428ca907d910b8fdc834cf3",
+          "title": "Venezuelan Oil Deal Is High Risk and Low Return for US - Bloomberg.com",
+          "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxPSUtNRzlxUG4yZmtvVEpBdTFudVJWUlBIME5OVEhxWWtaa1Q1bUN4N3g4aURGTlU0RFJPZWFiQmdWLUpOYlMxeThNRm5ZMnlwRUFkQXpfM2Z0cEJtby1pMHFHSlV5dkxoZl9MZDlDVDNjUDBmdFNpWUxtMHlHNWxDa0RYZlRGM0FyajJaWUpjR2luMHozdVpZdElQX0JLWXhFajZVVWlGVnZUel9L?oc=5",
+          "source": "Bloomberg.com",
+          "source_url": "https://www.bloomberg.com",
+          "pub_kst": "2026-09-10T16:00+09:00"
+        }
+      ],
+      "queued_at": "2026-11-19T08:49:10+09:00",
+      "attempts": 0
+    },
+    "spr:news:spr_article_31a6d523105af622fefe80ae": {
+      "topic": "spr",
+      "kind": "news",
+      "event_key": "spr_article_31a6d523105af622fefe80ae",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "31a6d523105af622fefe80ae",
+          "title": "US-led oil sales from Venezuela to bring in $5 billion in months, energy chief Wright tells NBC News - Reuters",
+          "link": "https://news.google.com/rss/articles/CBMiywFBVV95cUxPdW9ZVHA0YjFmR2taUlBfWW5xY2p4c1k4aVlBc0N1ODQybHgyazN3UUlIN3dVZXpMamVURG5tOHQxSG1qTkZaRVYwYW9qNWlGRXFpSXl3WE12LVR5aER5Ni1fbS01NUVFa0xJa2tTdTgwbjkzREZCbUtkZHhWbTl5Rm5hdFlfX3V5WHlGV2VwMUlUWGpxcVlVeDg2WWlVU3d6ZUxpQ3VvdzFYNXA2NHhfVHJRbUozNENuSHF5VndRSGkzYzdLZUxLUDJqVQ?oc=5",
+          "source": "Reuters",
+          "source_url": "https://www.reuters.com",
+          "pub_kst": "2026-02-12T17:00+09:00"
+        }
+      ],
+      "queued_at": "2026-11-19T08:49:10+09:00",
+      "attempts": 0
     }
   },
   "receipts": [
@@ -3175,15 +3278,15 @@
   ],
   "observed_data": {
     "spr": {
-      "date": "2026-11-06",
-      "value_kbbl": 279535,
-      "prev_kbbl": 282184,
+      "date": "2026-11-13",
+      "value_kbbl": 276361,
+      "prev_kbbl": 279535,
       "source": "https://www.eia.gov/dnav/pet/PET_STOC_WSTK_A_EPC0_SAS_MBBL_W.htm"
     },
     "venezuela_imports": {
-      "date": "2026-11-06",
-      "value_kbd": 603,
-      "prev_kbd": 555,
+      "date": "2026-11-13",
+      "value_kbd": 260,
+      "prev_kbd": 603,
       "source": "https://www.eia.gov/dnav/pet/hist/LeafHandler.ashx?f=W&n=PET&s=W_EPC0_IM0_NUS-NVE_MBBLD"
     }
   },
