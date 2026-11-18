@@ -29,6 +29,24 @@
       "attempts": 1,
       "invalid_items": [],
       "held_items": []
+    },
+    "spr:news:spr_article_e31414a937bc37a8e10c0cd7": {
+      "topic": "spr",
+      "kind": "news",
+      "event_key": "spr_article_e31414a937bc37a8e10c0cd7",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "e31414a937bc37a8e10c0cd7",
+          "title": "Democrats Plan Probes of Trump’s $100 Billion Venezuela Oil Deal - Bloomberg",
+          "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxNaE52VU1MRE1Ld0R2VHlDWWN1aWR0SXNDU2lyUlJuNklueGNRNjNrLVRjQkJlYThTRnlacTRzeDNIWUt4Y2ROcTc0cmI5NUp0Vk94bzNuTkdKRGwtME5GU25wX19CODFXUkxmNF9GazJOVm5WZFNTMWZCQVBZLV9PQU1WSDRHLVpmb2NyTk4wNXlFRHpGc2JYMlMybUt0NmJ3UFdObE9EZzVVakNOamtnR1BQVFQ?oc=5",
+          "source": "Bloomberg",
+          "source_url": "https://www.bloomberg.com",
+          "pub_kst": "2026-11-17T21:57+09:00"
+        }
+      ],
+      "queued_at": "2026-11-18T18:05:25+09:00",
+      "attempts": 0
     }
   },
   "receipts": [
