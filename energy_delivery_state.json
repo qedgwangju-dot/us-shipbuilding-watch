@@ -75,7 +75,7 @@
         }
       ],
       "queued_at": "2026-11-19T02:58:23+09:00",
-      "attempts": 4,
+      "attempts": 5,
       "invalid_items": []
     },
     "spr:news:spr_article_a69afd3dff9a995833b24521": {
@@ -180,7 +180,8 @@
         }
       ],
       "queued_at": "2026-11-19T08:49:10+09:00",
-      "attempts": 3
+      "attempts": 4,
+      "invalid_items": []
     },
     "spr:news:spr_article_29c150848a41891addd7b710": {
       "topic": "spr",
@@ -314,24 +315,6 @@
       "queued_at": "2026-11-20T06:51:48+09:00",
       "attempts": 1,
       "invalid_items": []
-    },
-    "spr:news:spr_article_99b92fa2dcdec211a2e46291": {
-      "topic": "spr",
-      "kind": "news",
-      "event_key": "spr_article_99b92fa2dcdec211a2e46291",
-      "status": "enrichment_pending",
-      "items": [
-        {
-          "id": "99b92fa2dcdec211a2e46291",
-          "title": "How the US Is Taking Direct Control of Venezuelan Oil - Bloomberg",
-          "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxOaDZENFQ1aEVpUllRNDZEUi16elppdXlkSEtVOUNEV1h6ZXozQXNCZ1VDN0hmV2E4ODJuN3U4WHFLaDZIUHg0aEx2bmNqYV9ieDN5WlFZX2pJS2l1Vk8xT2pESFVwSU9KV29yS1VZOWdpS3otVlk0cmxxRjd1RlAwVjUyMm5PeWF4cnhUSk5td3NjZTFpVjVSX2MxSmhUdFVFaDkzcElFcDNkdEdPYUE?oc=5",
-          "source": "Bloomberg",
-          "source_url": "https://www.bloomberg.com",
-          "pub_kst": "2026-09-02T16:00+09:00"
-        }
-      ],
-      "queued_at": "2026-11-20T06:52:27+09:00",
-      "attempts": 0
     }
   },
   "receipts": [
@@ -3416,6 +3399,14 @@
       "at": "2026-11-19T22:50:51+09:00",
       "ids": [
         "4460950fdaefbd62353cf42d"
+      ]
+    },
+    {
+      "key": "spr:news:spr_article_99b92fa2dcdec211a2e46291",
+      "reason": "news_outside_three_day_window",
+      "at": "2026-11-20T06:52:30+09:00",
+      "ids": [
+        "99b92fa2dcdec211a2e46291"
       ]
     }
   ],
