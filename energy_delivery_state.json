@@ -267,6 +267,42 @@
       "queued_at": "2026-11-19T22:50:46+09:00",
       "attempts": 1,
       "invalid_items": []
+    },
+    "refinery:news:refinery_article_346f04efd68a7b74ce0648d0": {
+      "topic": "refinery",
+      "kind": "news",
+      "event_key": "refinery_article_346f04efd68a7b74ce0648d0",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "346f04efd68a7b74ce0648d0",
+          "title": "Houston refinery restart tests Trump's push to boost US fuel output - Sacramento Bee",
+          "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTE1Hczd6N3RJSlh2Z2tvYndXbERKcUlhMUdOY3VURzQxMEhwRmN0aUZWREVjUjRkVl9wUTZPNnZKV0lBbjZWelkzY2dsTFotdlB1elNGTXlxYkFpUHNxUktXMVhSVzVrM1hWbkE?oc=5",
+          "source": "Sacramento Bee",
+          "source_url": "https://www.sacbee.com",
+          "pub_kst": "2026-11-20T02:45+09:00"
+        }
+      ],
+      "queued_at": "2026-11-20T06:51:48+09:00",
+      "attempts": 0
+    },
+    "refinery:news:refinery_article_ddaa349f0885ebe81e2e127c": {
+      "topic": "refinery",
+      "kind": "news",
+      "event_key": "refinery_article_ddaa349f0885ebe81e2e127c",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "ddaa349f0885ebe81e2e127c",
+          "title": "Hitting diesel: Ukraine’s refinery strikes could leave Russia short of fuel this winter - https://theins.press/en",
+          "link": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE15VjdidUtuVmNYdl9aazV3dG5xenRBeFRFLXhBVUQ5Slg4Q21NdktNbTVuWV9aX0RjLW84ODRYWjhOc2VNeW9yWlJhM2JEbEpxVmc?oc=5",
+          "source": "https://theins.press/en",
+          "source_url": "https://theins.press",
+          "pub_kst": "2026-11-18T04:04+09:00"
+        }
+      ],
+      "queued_at": "2026-11-20T06:51:48+09:00",
+      "attempts": 0
     }
   },
   "receipts": [
