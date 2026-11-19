@@ -180,8 +180,7 @@
         }
       ],
       "queued_at": "2026-11-19T08:49:10+09:00",
-      "attempts": 2,
-      "invalid_items": []
+      "attempts": 2
     },
     "spr:news:spr_article_29c150848a41891addd7b710": {
       "topic": "spr",
@@ -237,7 +236,44 @@
       ],
       "queued_at": "2026-11-19T13:34:42+09:00",
       "attempts": 1,
-      "invalid_items": []
+      "invalid_items": [],
+      "held_items": []
+    },
+    "spr:news:spr_article_a8492396a187f3bf266fb697": {
+      "topic": "spr",
+      "kind": "news",
+      "event_key": "spr_article_a8492396a187f3bf266fb697",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "a8492396a187f3bf266fb697",
+          "title": "Venezuela's Machado questions Trump's $100B oil deal while committing to U.S. ties, Bloomberg reports - Seeking Alpha",
+          "link": "https://news.google.com/rss/articles/CBMizgFBVV95cUxNd2sxU3AxcTMwcDljakt4bjNkN2x4MWhOeVAydXZxQlpMUmVuN0tqMndfQS1FcWpZNlNFRUc5VmpEcmVTSGxfSE9xN3JTRFZ2T0ptLTd6cU03ekxFNTlNVVZ6bDZkTHdhYktDZmxOT1BCSk54c1ZEYW1Gc0tmRDhaUFpjTEVVcnBCRHZvWjhQaUh3N1NZeFpWYU9qYnhXSkFOSUJ4bG1xSE9Kc3NEVzVkckctVzlOX1YzWkZGZndjWkVMcThremp2WmNTN01vZw?oc=5",
+          "source": "Seeking Alpha",
+          "source_url": "https://seekingalpha.com",
+          "pub_kst": "2026-11-19T15:28+09:00"
+        }
+      ],
+      "queued_at": "2026-11-19T22:50:46+09:00",
+      "attempts": 0
+    },
+    "spr:news:spr_article_4460950fdaefbd62353cf42d": {
+      "topic": "spr",
+      "kind": "news",
+      "event_key": "spr_article_4460950fdaefbd62353cf42d",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "4460950fdaefbd62353cf42d",
+          "title": "Venezuelan Oil Deal Is High Risk and Low Return for US - Bloomberg",
+          "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxPSUtNRzlxUG4yZmtvVEpBdTFudVJWUlBIME5OVEhxWWtaa1Q1bUN4N3g4aURGTlU0RFJPZWFiQmdWLUpOYlMxeThNRm5ZMnlwRUFkQXpfM2Z0cEJtby1pMHFHSlV5dkxoZl9MZDlDVDNjUDBmdFNpWUxtMHlHNWxDa0RYZlRGM0FyajJaWUpjR2luMHozdVpZdElQX0JLWXhFajZVVWlGVnZUel9L?oc=5",
+          "source": "Bloomberg",
+          "source_url": "https://www.bloomberg.com",
+          "pub_kst": "2026-09-10T16:00+09:00"
+        }
+      ],
+      "queued_at": "2026-11-19T22:50:46+09:00",
+      "attempts": 0
     }
   },
   "receipts": [
