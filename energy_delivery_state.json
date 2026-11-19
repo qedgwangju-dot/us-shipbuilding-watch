@@ -56,7 +56,8 @@
       ],
       "queued_at": "2026-11-18T18:05:25+09:00",
       "attempts": 1,
-      "invalid_items": []
+      "invalid_items": [],
+      "held_items": []
     },
     "spr:news:spr_article_91ff3afb9af1df9aec57948d": {
       "topic": "spr",
@@ -160,7 +161,8 @@
       ],
       "queued_at": "2026-11-19T08:49:10+09:00",
       "attempts": 1,
-      "invalid_items": []
+      "invalid_items": [],
+      "held_items": []
     },
     "spr:news:spr_article_144767f114d32f809c71b486": {
       "topic": "spr",
@@ -178,8 +180,43 @@
         }
       ],
       "queued_at": "2026-11-19T08:49:10+09:00",
-      "attempts": 1,
-      "invalid_items": []
+      "attempts": 1
+    },
+    "spr:news:spr_article_29c150848a41891addd7b710": {
+      "topic": "spr",
+      "kind": "news",
+      "event_key": "spr_article_29c150848a41891addd7b710",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "29c150848a41891addd7b710",
+          "title": "How Venezuela Has Changed With US Pulling the Strings - Bloomberg",
+          "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxPVmlsZHRvT2Z6WnlMbUJMNExnSFQ4NHpYbEhyUVNPS1hwM3lrT3ZCSlNNMkpFbTNsdk5LTGpsNHlmZEtjcklZNmo3TGd5NDEyNHMtUXpnTzItSTl3UHNzZHZFX0VlWXlLdXhSRTRuQ09JeUY2TngwY3hwempTRm9tWjhyb3kta0JDaHBHMG42V3lKOGlmYnI3aTJ3dw?oc=5",
+          "source": "Bloomberg",
+          "source_url": "https://www.bloomberg.com",
+          "pub_kst": "2026-11-18T19:00+09:00"
+        }
+      ],
+      "queued_at": "2026-11-19T13:34:42+09:00",
+      "attempts": 0
+    },
+    "spr:news:spr_article_7acceb6e503a6f825bc0d45a": {
+      "topic": "spr",
+      "kind": "news",
+      "event_key": "spr_article_7acceb6e503a6f825bc0d45a",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "7acceb6e503a6f825bc0d45a",
+          "title": "Trump Calls Venezuela an ‘Acquisition,’ Hails US Energy Supply - Bloomberg",
+          "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxNb2JoazhlTEdxOWlWdnhMWm05eG1kd2xwVnB3dUREM1lRY3R2M3hBTGJLdlJiM3hvQ0s3cHRJcnhjR1p6YU9XN0x4S1BDRHdGRk14QmRmRE9fU0xhcVJYRUZ4Qi1NUkl4enAybFYxTW1rSXRiZkdCU19jcmNhaUgyaHFsTjJ5SC1tR3hIRGpxMFNtZmxkajRia2VZWnVsT3ItTWtLeVBwb1dKM2V0QUdr?oc=5",
+          "source": "Bloomberg",
+          "source_url": "https://www.bloomberg.com",
+          "pub_kst": "2026-11-18T13:12+09:00"
+        }
+      ],
+      "queued_at": "2026-11-19T13:34:42+09:00",
+      "attempts": 0
     }
   },
   "receipts": [
