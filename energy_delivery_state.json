@@ -344,6 +344,42 @@
       "queued_at": "2026-11-20T11:40:36+09:00",
       "attempts": 1,
       "invalid_items": []
+    },
+    "refinery:news:refinery_article_31d414c923d69bd646adafea": {
+      "topic": "refinery",
+      "kind": "news",
+      "event_key": "refinery_article_31d414c923d69bd646adafea",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "31d414c923d69bd646adafea",
+          "title": "Refinery Limits Cloud Trump, Putin and Xi Fuel Pledge - Oz Arab Media",
+          "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTE1YMFpKUGVMRGNGZlVlR19sV05FY3p0Y21KVU5RMzJDMXQ3UjNIR0xtb3IteGZyRUZucmZQNzdxRTBKdmVLbGJLS1BSQkxFalRWQW1jN2tjZExURU50NzlqcGNnbjBtcjBab1pOaGpGdXZCU2RxZ3NDYXMzSzg3Tms?oc=5",
+          "source": "Oz Arab Media",
+          "source_url": "https://ozarab.media",
+          "pub_kst": "2026-11-20T23:00+09:00"
+        }
+      ],
+      "queued_at": "2026-11-21T03:41:57+09:00",
+      "attempts": 0
+    },
+    "refinery:news:refinery_article_7668d97172f6486d898e6107": {
+      "topic": "refinery",
+      "kind": "news",
+      "event_key": "refinery_article_7668d97172f6486d898e6107",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "7668d97172f6486d898e6107",
+          "title": "Houston refinery restart tests Trump’s push to boost US fuel output - KELO-AM",
+          "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxPaWR2bG5tdkxXSWhXUUllQmU2bUFFMjJYUk42T20xdzdPSGNVWmJ5eFRIdnllMTUwc213enZfdGNUY3FoWlhOY0VoeGozSXJOM1kxSzNjdHZpRlZRN0Q0ZXZUNjlwTERYWDBOdkJJLWlJT1BnUVdseGd6eFFNM0REVlhMaG9FVG1ndk9iTkJLUEFWUVI2OEtMNW14NA?oc=5",
+          "source": "KELO-AM",
+          "source_url": "https://kelo.com",
+          "pub_kst": "2026-11-20T03:13+09:00"
+        }
+      ],
+      "queued_at": "2026-11-21T03:41:57+09:00",
+      "attempts": 0
     }
   },
   "receipts": [
