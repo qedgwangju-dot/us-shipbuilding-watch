@@ -1,4 +1,14 @@
 {
+  "_ai_remote_pending": {
+    "created_at_utc": "2026-11-20T22:37:49.725917+00:00",
+    "key": "bis-remote-access:2026-23529:effective:2026-11-19",
+    "message": "미국 AI 칩·원격접근 규제 중요 변화\n\n<b>미 BIS, GPU 원격접근 수출통제 잠정 최종규칙 발효 확인</b>\n• 단계: BIS 공식 규칙 문서 2026-23529 (RIN 0694-AK50)\n• 관보 게재일: 2026-11-19 (미국 현지 기준)\n• 발효일: 2026-11-19 (미국 현지 기준)\n• 대상: D:5 국가·마카오 관련 기업의 원격 연산 및 제3국 첨단 AI 칩 수출 허가\n• 추가 허가 대상: 인도네시아·말레이시아·싱가포르·태국·브라질\n• 의미: 법률 시행·허가 조건과 과거 언론의 검토 보도를 구분\n• 한국 영향: 실제 GPU 주문·HBM 출하·고객 이전 여부를 별도 확인\n• <a href=\"https://www.federalregister.gov/documents/2026/11/19/2026-23529/addressing-remote-access-to-advanced-semiconductors\">BIS 연방관보 공식 원문</a>",
+    "run_id": "44830501152",
+    "source_url": "https://www.federalregister.gov/documents/2026/11/19/2026-23529/addressing-remote-access-to-advanced-semiconductors",
+    "stage": "발효",
+    "status": "prepared_before_send",
+    "type": "official-rule"
+  },
   "listings": {
     "BIS 공식 뉴스": [
       "https://www.bis.gov/press-release/bis-issues-rule-addressing-remote-access-american-super-intelligence-technology",
