@@ -285,7 +285,7 @@
         }
       ],
       "queued_at": "2026-11-20T06:51:48+09:00",
-      "attempts": 2,
+      "attempts": 3,
       "invalid_items": []
     },
     "refinery:news:refinery_article_ddaa349f0885ebe81e2e127c": {
@@ -344,78 +344,6 @@
       "queued_at": "2026-11-20T11:40:36+09:00",
       "attempts": 1,
       "invalid_items": []
-    },
-    "refinery:news:refinery_article_222709cdbd7755b06cef21d7": {
-      "topic": "refinery",
-      "kind": "news",
-      "event_key": "refinery_article_222709cdbd7755b06cef21d7",
-      "status": "enrichment_pending",
-      "items": [
-        {
-          "id": "222709cdbd7755b06cef21d7",
-          "title": "Valero expects fuel margins to rise again despite Trump's effort to tamp down prices - TradingView",
-          "link": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxPOTRDdGxLcWZrRjNOamVIQXRyOXc0VzdmcG9feVZuaU1mM2Z0UTZtRXJ0RUxlay1kanp5WlFaM3VKSWpQRm1iclVkZU1SNlZrRjVwVWlUdmxkZFhtWkFEenRfLXZPTUt6c0NMY0xxc2RrQkZrQ1M3cFY5cG5QUHZ1MTlFVEVQMng5UTl0RkR2RDBlWFpvcU9oakZMT2cxS0xMX2dDclJ4WVExb3VEcWFHMmJ5QlhqcndDcnRrV04zM2p1OXc1WjVERFFrYkJ2Qmk0WlVQZDdrai05THBQTDdZYw?oc=5",
-          "source": "TradingView",
-          "source_url": "https://www.tradingview.com",
-          "pub_kst": "2026-10-22T16:00+09:00"
-        }
-      ],
-      "queued_at": "2026-11-20T19:27:20+09:00",
-      "attempts": 0
-    },
-    "refinery:news:refinery_article_1408555c10ba85b188919da4": {
-      "topic": "refinery",
-      "kind": "news",
-      "event_key": "refinery_article_1408555c10ba85b188919da4",
-      "status": "enrichment_pending",
-      "items": [
-        {
-          "id": "1408555c10ba85b188919da4",
-          "title": "Russia ‘Unfortunately Lost Control’ of Its Diesel Refineries, Trump Says - Kyiv Post",
-          "link": "https://news.google.com/rss/articles/CBMiS0FVX3lxTFBraUpZNEZiWjBNb0NRYVhhNUdGREM2RjI0Ul82RzRnMTc1N0V2UGtoX3hHQjZfVzNQNFlmRUFxOGlkZElTcVpaYXJYaw?oc=5",
-          "source": "Kyiv Post",
-          "source_url": "https://www.kyivpost.com",
-          "pub_kst": "2026-09-21T16:00+09:00"
-        }
-      ],
-      "queued_at": "2026-11-20T19:27:20+09:00",
-      "attempts": 0
-    },
-    "refinery:news:refinery_article_abed6f8b9a346123ca746c4a": {
-      "topic": "refinery",
-      "kind": "news",
-      "event_key": "refinery_article_abed6f8b9a346123ca746c4a",
-      "status": "enrichment_pending",
-      "items": [
-        {
-          "id": "abed6f8b9a346123ca746c4a",
-          "title": "The New York Times. . The Russian and Ukrainian governments targeted oil refineries and gas stations, making clear on Tuesday that neither had agreed to an energy cease-fire that President Trump presented as a done deal a day before. https://nyti.ms/3Tc3 - Facebook",
-          "link": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxNVHZlUU1KNTRDMVE5NFNuamp1RXVaU1UxdVpGQWdaUUpCZW5HbGhLVHRQSWFrTWY5czZaVGt3QU83RE12SXpwNnk3cW5UemVRRXFualZfZlF2THd4a01nVGw3Q2pWaHNMZ2gtbGpZM055dXR6Ym9EdkZpczdFaHRNNW9SczZydzNNckpvMFM3ZTBkeFpVdVg2bmgyNlRBNFFHQUpMTElISlRDWFBhQ1phc3JZSm1ydVBnNUxXQTdKRk9reDl4bUpXR2NlZHJ0Y3d4eW0taQ?oc=5",
-          "source": "Facebook",
-          "source_url": "https://www.facebook.com",
-          "pub_kst": "2026-09-15T16:00+09:00"
-        }
-      ],
-      "queued_at": "2026-11-20T19:27:20+09:00",
-      "attempts": 0
-    },
-    "refinery:news:refinery_article_8cc3f82e5628290941839091": {
-      "topic": "refinery",
-      "kind": "news",
-      "event_key": "refinery_article_8cc3f82e5628290941839091",
-      "status": "enrichment_pending",
-      "items": [
-        {
-          "id": "8cc3f82e5628290941839091",
-          "title": "Trump Wants More Refineries Amid Iran War Oil Shocks, $4 Gas—It May Not Be As Simple - Chevron (NYSE:CVX) - Benzinga",
-          "link": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxPSklmVm5SYUtKYmFrWGhvUFphbFF6VWRkVHJfWmFPRmhod0luYXNWUmhFWFZnYzBobEVlY25PTDM5VGE5M05HcERKUzVsNWZkblV4NkhORnM1SGpVZkp1dXhPaHNhT3RhS0p0eHFCOVUzSlp6R053QmFNaHhaWklZUmRRS3FFMkhMQkhIc1FyR3hhRTBCTGRWT3YxTGpHSndjV0MtTFRDMlFoRzFDdDA3V1FRSVd1LWlFLWVMY3gxcVl6ZUtFbU10QjFMcXdTYXVBa0xYSlBkZ2UwUQ?oc=5",
-          "source": "Benzinga",
-          "source_url": "https://www.benzinga.com",
-          "pub_kst": "2026-09-03T16:00+09:00"
-        }
-      ],
-      "queued_at": "2026-11-20T19:27:20+09:00",
-      "attempts": 0
     }
   },
   "receipts": [
@@ -3508,6 +3436,38 @@
       "at": "2026-11-20T06:52:30+09:00",
       "ids": [
         "99b92fa2dcdec211a2e46291"
+      ]
+    },
+    {
+      "key": "refinery:news:refinery_article_222709cdbd7755b06cef21d7",
+      "reason": "news_outside_three_day_window",
+      "at": "2026-11-20T19:27:53+09:00",
+      "ids": [
+        "222709cdbd7755b06cef21d7"
+      ]
+    },
+    {
+      "key": "refinery:news:refinery_article_1408555c10ba85b188919da4",
+      "reason": "news_outside_three_day_window",
+      "at": "2026-11-20T19:27:53+09:00",
+      "ids": [
+        "1408555c10ba85b188919da4"
+      ]
+    },
+    {
+      "key": "refinery:news:refinery_article_abed6f8b9a346123ca746c4a",
+      "reason": "news_outside_three_day_window",
+      "at": "2026-11-20T19:27:53+09:00",
+      "ids": [
+        "abed6f8b9a346123ca746c4a"
+      ]
+    },
+    {
+      "key": "refinery:news:refinery_article_8cc3f82e5628290941839091",
+      "reason": "news_outside_three_day_window",
+      "at": "2026-11-20T19:27:53+09:00",
+      "ids": [
+        "8cc3f82e5628290941839091"
       ]
     }
   ],
