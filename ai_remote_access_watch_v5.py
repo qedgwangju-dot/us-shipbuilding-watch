@@ -203,6 +203,66 @@ def bill_milestone(state, tracked, now):
     return None
 
 
+
+def other_official_event(state, listings, now):
+    """Keep monitoring new BIS official notices without replaying historic URLs."""
+    names = ("BIS 공식 뉴스", "BIS 집행·가이던스", "미 연방관보 BIS")
+    for name in names:
+        entries = listings.get(name) or {}
+        old_urls = set((state.get("listings") or {}).get(name) or [])
+        for url, item in entries.items():
+            if url in old_urls or str(url).find(RULE_NO) >= 0:
+                continue
+            parsed = urlsplit(url)
+            if parsed.scheme != "https" or not (parsed.hostname or "").endswith(
+                (".bis.gov", ".federalregister.gov")
+            ):
+                continue
+            title = str(item.get("title") or "").strip()
+            low = title.lower()
+            if not any(term in low for term in ("remote access", "ai chip", "advanced computing",
+                                               "cloud", "advanced semiconductor")):
+                continue
+            try:
+                response = requests.get(url, timeout=12, headers={"User-Agent":"AI-Remote-Access-Watch/2.0"})
+                response.raise_for_status()
+                html_text = response.text
+                plain = base.clean(html_text).lower()
+                if not any(t in plain for t in ("remote access", "advanced computing", "ai chip")):
+                    continue
+                date_hit = re.search(
+                    r'(?:datePublished|article:published_time|pubdate|datetime)[^\n<>]{0,140}?'
+                    r'(20\d{2}-\d{2}-\d{2})',
+                    html_text, re.I
+                )
+                if not date_hit:
+                    continue
+                published = dt.date.fromisoformat(date_hit.group(1))
+                if not 0 <= (now.date() - published).days <= 3:
+                    continue
+                identity = hashlib.sha256(url.encode()).hexdigest()[:20]
+                key = "ai-remote-other-official:" + identity
+                if key in (state.get("events") or {}):
+                    continue
+                safe = html.escape(url, quote=True)
+                text = (
+                    "미국 AI 칩·원격접근 규제 중요 변화\n\n"
+                    "<b>미국 BIS, 원격접근·첨단칩 관련 공식 후속자료 공개</b>\n"
+                    "• 문서: " + html.escape(title) + "\n"
+                    "• 단계: 정부 공식 발표 확인. 구체적 시행·계약 내용은 원문 기준\n"
+                    "• 공개일: " + published.isoformat() + "\n"
+                    "• 다음 확인: 변경된 허가 조건·유효일·실제 GPU 주문·HBM 출하\n"
+                    f'• <a href="{safe}">공식 원문</a>'
+                )
+                if len(text) > 4096:
+                    continue
+                return {"key": key, "type": "official-followup", "stage":"공식 후속 발표",
+                        "date":published.isoformat(), "url":url, "message":text}
+            except (requests.RequestException, ValueError):
+                print("ai_remote_official_followup_unverified=true")
+                continue
+    return None
+
 def emit_status(**values):
     REPORT.write_text(json.dumps(values, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print("ai_remote_status=" + json.dumps(values, ensure_ascii=False, separators=(",", ":")))
@@ -227,7 +287,7 @@ def prepare():
     if rule["key"] not in state.get("events", {}):
         event = {**rule, "message": headline_for(rule)}
     else:
-        event = bill_milestone(state, tracked, now)
+        event = other_official_event(state, listings, now) or bill_milestone(state, tracked, now)
         if event and event["key"] in state.get("events", {}):
             event = None
     # Historical press reprints and opinion columns are NOT separate rule stages.

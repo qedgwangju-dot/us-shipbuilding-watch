@@ -33,6 +33,9 @@ jobs:
     steps:
       - name: 저장소 불러오기
         uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
 
       - name: Python 설정
         uses: actions/setup-python@v5
