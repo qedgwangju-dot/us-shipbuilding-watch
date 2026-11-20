@@ -285,7 +285,7 @@
         }
       ],
       "queued_at": "2026-11-20T06:51:48+09:00",
-      "attempts": 1,
+      "attempts": 2,
       "invalid_items": []
     },
     "refinery:news:refinery_article_ddaa349f0885ebe81e2e127c": {
@@ -321,7 +321,7 @@
       "topic": "refinery",
       "kind": "news",
       "event_key": "refinery_article_f1f5dcafafd3c888f136c305",
-      "status": "enrichment_pending",
+      "status": "source_blocked",
       "items": [
         {
           "id": "f1f5dcafafd3c888f136c305",
@@ -329,11 +329,21 @@
           "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxPTk84bENsRDZJQUJJQzczZkRVX0RkRFBrdFZ5eWtheEdYVDBYaWNWQVFXcnU2TUpGLXpQTUdfVUk4N2JMM01icmVCTEZMb1FzcU51eWlBU2ZtTUJGWXl2ZDBhOVItdjAtUUdUOXJMeGF6WllyRTdINW4tN0Q0WEJucFFRcUJJNWw4alRvX2c0cWwxSDdSSFpXbFE4VQ?oc=5",
           "source": "WHBL News",
           "source_url": "https://whbl.com",
-          "pub_kst": "2026-11-20T03:13+09:00"
+          "pub_kst": "2026-11-20T03:13+09:00",
+          "_source_blocked": true,
+          "_source_failure": {
+            "stage": "translation_google",
+            "reason": "http_rate_limit",
+            "blocked_before_request": false,
+            "provider": "www.google.com",
+            "request_url_sha256": "001a5b68641cdc17aad94feea114b99e94d44e2486d894ff5f8e7b59659a9bc0",
+            "http_status": 429
+          }
         }
       ],
       "queued_at": "2026-11-20T11:40:36+09:00",
-      "attempts": 0
+      "attempts": 1,
+      "invalid_items": []
     }
   },
   "receipts": [
