@@ -3456,11 +3456,11 @@
   "last_result": {
     "ok": false,
     "errors": 4,
-    "pending": 12,
+    "pending": 13,
     "refinery_sent": 0,
     "spr_sent": 0,
     "unverified_archived": 69,
-    "at": "2026-11-20T06:52:32+09:00"
+    "at": "2026-11-20T11:41:24+09:00"
   },
   "archived_unverified": {
     "refinery:news:refinery_article_3732d92a79dc14aedccf4fe8": {
