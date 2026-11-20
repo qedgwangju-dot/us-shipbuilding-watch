@@ -23,7 +23,8 @@ permissions:
 
 concurrency:
   group: us-ai-remote-access-watch
-  cancel-in-progress: true
+  # Preserve an in-flight delivery checkpoint instead of cancelling it.
+  cancel-in-progress: false
 
 jobs:
   monitor:
@@ -41,26 +42,67 @@ jobs:
       - name: 필요한 패키지 설치
         run: pip install -r requirements.txt
 
-      - name: AI 칩·원격접근 규제 변화 확인
-        env:
-          AI_REMOTE_TELEGRAM_BOT_TOKEN: ${{ secrets.AI_REMOTE_TELEGRAM_BOT_TOKEN }}
-          AI_REMOTE_TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-        run: python ai_remote_access_watch_v5.py
-
-      - name: 감시 상태 저장
+      - name: 이 감시 작업 단독 회귀검사
         run: |
-          if [ -z "$(git status --porcelain -- ai_remote_state.json)" ]; then
-            echo "상태 변화 없음"
+          python -m py_compile ai_remote_access_watch_v5.py
+          python ai_remote_access_watch_v5.py selftest
+
+      - name: 공식 규칙·입법 상태 조회 및 발송 준비
+        if: github.event_name != 'push'
+        run: python ai_remote_access_watch_v5.py prepare
+
+      - name: 텔레그램 발송 의도 먼저 영속 저장
+        if: github.event_name != 'push'
+        run: |
+          if git diff --quiet -- ai_remote_state.json; then
+            echo "발송 대상 없음 또는 이전 불명확 전송 보류"
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add ai_remote_state.json
-          git commit -m "Update AI remote-access monitor state"
+          git commit -m "Checkpoint AI remote-access outbound intent [skip ci]"
           for attempt in 1 2 3; do
-            git pull --rebase origin main && git push && exit 0
-            echo "상태 저장 충돌 재시도 ${attempt}/3"
+            if git pull --rebase origin main && git push origin HEAD:main; then
+              echo "ai_remote_intent_committed=true"
+              exit 0
+            fi
+            git rebase --abort 2>/dev/null || true
             sleep $((attempt * 2))
           done
-          echo "상태 파일 저장 실패"
+          echo "발송 전 상태 저장 실패: 전송 차단"
           exit 1
+
+      - name: 검증된 실제 신규 사건만 텔레그램 전송
+        if: github.event_name != 'push' && hashFiles('out/ai_remote_send_ready.flag') != ''
+        env:
+          AI_REMOTE_TELEGRAM_BOT_TOKEN: ${{ secrets.AI_REMOTE_TELEGRAM_BOT_TOKEN }}
+          AI_REMOTE_TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python ai_remote_access_watch_v5.py send
+
+      - name: Telegram 수신 확인 상태 영속 저장
+        if: github.event_name != 'push' && hashFiles('out/ai_remote_send_ready.flag') != ''
+        run: |
+          if git diff --quiet -- ai_remote_state.json; then
+            echo "응답 확인된 신규 송출 없음"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add ai_remote_state.json
+          git commit -m "Confirm AI remote-access Telegram receipt [skip ci]"
+          for attempt in 1 2 3; do
+            if git pull --rebase origin main && git push origin HEAD:main; then
+              echo "ai_remote_receipt_committed=true"
+              exit 0
+            fi
+            git rebase --abort 2>/dev/null || true
+            sleep $((attempt * 2))
+          done
+          echo "전송 후 상태 저장 실패: 수신은 불명확 상태로 보존"
+          exit 1
+
+      - name: 감시 소스·중복·발송 판정 기록
+        if: always()
+        run: |
+          if [ -f out/ai_remote_status.json ]; then cat out/ai_remote_status.json >> "$GITHUB_STEP_SUMMARY"; fi
