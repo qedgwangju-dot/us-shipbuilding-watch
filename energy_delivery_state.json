@@ -1,64 +1,6 @@
 {
   "schema_version": 1,
   "outbox": {
-    "spr:news:spr_article_61e6579cd0141d357c7a7b4a": {
-      "topic": "spr",
-      "kind": "news",
-      "event_key": "spr_article_61e6579cd0141d357c7a7b4a",
-      "status": "source_blocked",
-      "items": [
-        {
-          "id": "61e6579cd0141d357c7a7b4a",
-          "title": "Democrats Plan Probes of Trump’s $100 Billion Venezuela Oil Deal - Bloomberg.com",
-          "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxNaE52VU1MRE1Ld0R2VHlDWWN1aWR0SXNDU2lyUlJuNklueGNRNjNrLVRjQkJlYThTRnlacTRzeDNIWUt4Y2ROcTc0cmI5NUp0Vk94bzNuTkdKRGwtME5GU25wX19CODFXUkxmNF9GazJOVm5WZFNTMWZCQVBZLV9PQU1WSDRHLVpmb2NyTk4wNXlFRHpGc2JYMlMybUt0NmJ3UFdObE9EZzVVakNOamtnR1BQVFQ?oc=5",
-          "source": "Bloomberg.com",
-          "source_url": "https://www.bloomberg.com",
-          "pub_kst": "2026-11-17T21:57+09:00",
-          "_source_blocked": true,
-          "_source_failure": {
-            "stage": "article_fetch",
-            "reason": "http_denial",
-            "blocked_before_request": false,
-            "provider": "www.bloomberg.com",
-            "request_url_sha256": "10f3664be2212786f675614207aac8c523aec5f778b469df694ad0e2e66e9401",
-            "http_status": 403
-          }
-        }
-      ],
-      "queued_at": "2026-11-18T04:21:06+09:00",
-      "attempts": 1,
-      "invalid_items": [],
-      "held_items": []
-    },
-    "spr:news:spr_article_e31414a937bc37a8e10c0cd7": {
-      "topic": "spr",
-      "kind": "news",
-      "event_key": "spr_article_e31414a937bc37a8e10c0cd7",
-      "status": "source_blocked",
-      "items": [
-        {
-          "id": "e31414a937bc37a8e10c0cd7",
-          "title": "Democrats Plan Probes of Trump’s $100 Billion Venezuela Oil Deal - Bloomberg",
-          "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxNaE52VU1MRE1Ld0R2VHlDWWN1aWR0SXNDU2lyUlJuNklueGNRNjNrLVRjQkJlYThTRnlacTRzeDNIWUt4Y2ROcTc0cmI5NUp0Vk94bzNuTkdKRGwtME5GU25wX19CODFXUkxmNF9GazJOVm5WZFNTMWZCQVBZLV9PQU1WSDRHLVpmb2NyTk4wNXlFRHpGc2JYMlMybUt0NmJ3UFdObE9EZzVVakNOamtnR1BQVFQ?oc=5",
-          "source": "Bloomberg",
-          "source_url": "https://www.bloomberg.com",
-          "pub_kst": "2026-11-17T21:57+09:00",
-          "_source_blocked": true,
-          "_source_failure": {
-            "stage": "article_fetch",
-            "reason": "http_denial",
-            "blocked_before_request": false,
-            "provider": "www.bloomberg.com",
-            "request_url_sha256": "10f3664be2212786f675614207aac8c523aec5f778b469df694ad0e2e66e9401",
-            "http_status": 403
-          }
-        }
-      ],
-      "queued_at": "2026-11-18T18:05:25+09:00",
-      "attempts": 1,
-      "invalid_items": [],
-      "held_items": []
-    },
     "spr:news:spr_article_91ff3afb9af1df9aec57948d": {
       "topic": "spr",
       "kind": "news",
@@ -180,8 +122,7 @@
         }
       ],
       "queued_at": "2026-11-19T08:49:10+09:00",
-      "attempts": 6,
-      "invalid_items": []
+      "attempts": 6
     },
     "spr:news:spr_article_29c150848a41891addd7b710": {
       "topic": "spr",
@@ -3516,6 +3457,26 @@
       "ids": [
         "8cc3f82e5628290941839091"
       ]
+    },
+    {
+      "key": "spr:news:spr_article_61e6579cd0141d357c7a7b4a",
+      "reason": "expired_unverified_no_telegram_delivery",
+      "at": "2026-11-21T03:42:33+09:00",
+      "ids": [
+        "61e6579cd0141d357c7a7b4a"
+      ],
+      "delivered": false,
+      "archived": true
+    },
+    {
+      "key": "spr:news:spr_article_e31414a937bc37a8e10c0cd7",
+      "reason": "expired_unverified_no_telegram_delivery",
+      "at": "2026-11-21T03:42:33+09:00",
+      "ids": [
+        "e31414a937bc37a8e10c0cd7"
+      ],
+      "delivered": false,
+      "archived": true
     }
   ],
   "observed_data": {
@@ -5762,6 +5723,72 @@
           }
         ],
         "queued_at": "2026-11-14T11:18:33+09:00",
+        "attempts": 1,
+        "invalid_items": [],
+        "held_items": []
+      }
+    },
+    "spr:news:spr_article_61e6579cd0141d357c7a7b4a": {
+      "archived_at": "2026-11-21T03:42:33+09:00",
+      "reason": "expired_unverified_no_telegram_delivery",
+      "entry": {
+        "topic": "spr",
+        "kind": "news",
+        "event_key": "spr_article_61e6579cd0141d357c7a7b4a",
+        "status": "source_blocked",
+        "items": [
+          {
+            "id": "61e6579cd0141d357c7a7b4a",
+            "title": "Democrats Plan Probes of Trump’s $100 Billion Venezuela Oil Deal - Bloomberg.com",
+            "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxNaE52VU1MRE1Ld0R2VHlDWWN1aWR0SXNDU2lyUlJuNklueGNRNjNrLVRjQkJlYThTRnlacTRzeDNIWUt4Y2ROcTc0cmI5NUp0Vk94bzNuTkdKRGwtME5GU25wX19CODFXUkxmNF9GazJOVm5WZFNTMWZCQVBZLV9PQU1WSDRHLVpmb2NyTk4wNXlFRHpGc2JYMlMybUt0NmJ3UFdObE9EZzVVakNOamtnR1BQVFQ?oc=5",
+            "source": "Bloomberg.com",
+            "source_url": "https://www.bloomberg.com",
+            "pub_kst": "2026-11-17T21:57+09:00",
+            "_source_blocked": true,
+            "_source_failure": {
+              "stage": "article_fetch",
+              "reason": "http_denial",
+              "blocked_before_request": false,
+              "provider": "www.bloomberg.com",
+              "request_url_sha256": "10f3664be2212786f675614207aac8c523aec5f778b469df694ad0e2e66e9401",
+              "http_status": 403
+            }
+          }
+        ],
+        "queued_at": "2026-11-18T04:21:06+09:00",
+        "attempts": 1,
+        "invalid_items": [],
+        "held_items": []
+      }
+    },
+    "spr:news:spr_article_e31414a937bc37a8e10c0cd7": {
+      "archived_at": "2026-11-21T03:42:33+09:00",
+      "reason": "expired_unverified_no_telegram_delivery",
+      "entry": {
+        "topic": "spr",
+        "kind": "news",
+        "event_key": "spr_article_e31414a937bc37a8e10c0cd7",
+        "status": "source_blocked",
+        "items": [
+          {
+            "id": "e31414a937bc37a8e10c0cd7",
+            "title": "Democrats Plan Probes of Trump’s $100 Billion Venezuela Oil Deal - Bloomberg",
+            "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxNaE52VU1MRE1Ld0R2VHlDWWN1aWR0SXNDU2lyUlJuNklueGNRNjNrLVRjQkJlYThTRnlacTRzeDNIWUt4Y2ROcTc0cmI5NUp0Vk94bzNuTkdKRGwtME5GU25wX19CODFXUkxmNF9GazJOVm5WZFNTMWZCQVBZLV9PQU1WSDRHLVpmb2NyTk4wNXlFRHpGc2JYMlMybUt0NmJ3UFdObE9EZzVVakNOamtnR1BQVFQ?oc=5",
+            "source": "Bloomberg",
+            "source_url": "https://www.bloomberg.com",
+            "pub_kst": "2026-11-17T21:57+09:00",
+            "_source_blocked": true,
+            "_source_failure": {
+              "stage": "article_fetch",
+              "reason": "http_denial",
+              "blocked_before_request": false,
+              "provider": "www.bloomberg.com",
+              "request_url_sha256": "10f3664be2212786f675614207aac8c523aec5f778b469df694ad0e2e66e9401",
+              "http_status": 403
+            }
+          }
+        ],
+        "queued_at": "2026-11-18T18:05:25+09:00",
         "attempts": 1,
         "invalid_items": [],
         "held_items": []
