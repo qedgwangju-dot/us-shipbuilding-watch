@@ -75,7 +75,7 @@
         }
       ],
       "queued_at": "2026-11-19T02:58:23+09:00",
-      "attempts": 5,
+      "attempts": 6,
       "invalid_items": []
     },
     "spr:news:spr_article_a69afd3dff9a995833b24521": {
@@ -180,7 +180,8 @@
         }
       ],
       "queued_at": "2026-11-19T08:49:10+09:00",
-      "attempts": 4
+      "attempts": 5,
+      "invalid_items": []
     },
     "spr:news:spr_article_29c150848a41891addd7b710": {
       "topic": "spr",
