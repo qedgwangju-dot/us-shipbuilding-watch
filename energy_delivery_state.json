@@ -314,7 +314,26 @@
       ],
       "queued_at": "2026-11-20T06:51:48+09:00",
       "attempts": 1,
-      "invalid_items": []
+      "invalid_items": [],
+      "held_items": []
+    },
+    "refinery:news:refinery_article_f1f5dcafafd3c888f136c305": {
+      "topic": "refinery",
+      "kind": "news",
+      "event_key": "refinery_article_f1f5dcafafd3c888f136c305",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "f1f5dcafafd3c888f136c305",
+          "title": "Houston refinery restart tests Trump’s push to boost US fuel output - WHBL News",
+          "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxPTk84bENsRDZJQUJJQzczZkRVX0RkRFBrdFZ5eWtheEdYVDBYaWNWQVFXcnU2TUpGLXpQTUdfVUk4N2JMM01icmVCTEZMb1FzcU51eWlBU2ZtTUJGWXl2ZDBhOVItdjAtUUdUOXJMeGF6WllyRTdINW4tN0Q0WEJucFFRcUJJNWw4alRvX2c0cWwxSDdSSFpXbFE4VQ?oc=5",
+          "source": "WHBL News",
+          "source_url": "https://whbl.com",
+          "pub_kst": "2026-11-20T03:13+09:00"
+        }
+      ],
+      "queued_at": "2026-11-20T11:40:36+09:00",
+      "attempts": 0
     }
   },
   "receipts": [
