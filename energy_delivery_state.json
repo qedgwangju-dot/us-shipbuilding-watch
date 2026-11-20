@@ -285,7 +285,7 @@
         }
       ],
       "queued_at": "2026-11-20T06:51:48+09:00",
-      "attempts": 3,
+      "attempts": 4,
       "invalid_items": []
     },
     "refinery:news:refinery_article_ddaa349f0885ebe81e2e127c": {
@@ -361,13 +361,14 @@
         }
       ],
       "queued_at": "2026-11-21T03:41:57+09:00",
-      "attempts": 0
+      "attempts": 1,
+      "invalid_items": []
     },
     "refinery:news:refinery_article_7668d97172f6486d898e6107": {
       "topic": "refinery",
       "kind": "news",
       "event_key": "refinery_article_7668d97172f6486d898e6107",
-      "status": "enrichment_pending",
+      "status": "source_blocked",
       "items": [
         {
           "id": "7668d97172f6486d898e6107",
@@ -375,11 +376,21 @@
           "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxPaWR2bG5tdkxXSWhXUUllQmU2bUFFMjJYUk42T20xdzdPSGNVWmJ5eFRIdnllMTUwc213enZfdGNUY3FoWlhOY0VoeGozSXJOM1kxSzNjdHZpRlZRN0Q0ZXZUNjlwTERYWDBOdkJJLWlJT1BnUVdseGd6eFFNM0REVlhMaG9FVG1ndk9iTkJLUEFWUVI2OEtMNW14NA?oc=5",
           "source": "KELO-AM",
           "source_url": "https://kelo.com",
-          "pub_kst": "2026-11-20T03:13+09:00"
+          "pub_kst": "2026-11-20T03:13+09:00",
+          "_source_blocked": true,
+          "_source_failure": {
+            "stage": "translation_google",
+            "reason": "http_rate_limit",
+            "blocked_before_request": false,
+            "provider": "www.google.com",
+            "request_url_sha256": "7d381af6482907ee4da1df6f8577603a9bdf7acdf871ba3c9e42604f537efd34",
+            "http_status": 429
+          }
         }
       ],
       "queued_at": "2026-11-21T03:41:57+09:00",
-      "attempts": 0
+      "attempts": 1,
+      "invalid_items": []
     }
   },
   "receipts": [
