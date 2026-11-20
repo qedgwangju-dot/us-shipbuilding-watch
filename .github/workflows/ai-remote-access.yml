@@ -50,6 +50,10 @@ jobs:
           python -m py_compile ai_remote_access_watch_v5.py
           python ai_remote_access_watch_v5.py selftest
 
+      - name: BIS 연방관보 공식 원문 실조회 검증 무전송
+        if: github.event_name == 'push'
+        run: python ai_remote_access_watch_v5.py probe
+
       - name: 공식 규칙·입법 상태 조회 및 발송 준비
         if: github.event_name != 'push'
         run: python ai_remote_access_watch_v5.py prepare

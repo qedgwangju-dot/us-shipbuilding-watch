@@ -444,6 +444,13 @@ def selftest():
     print("ai_remote_scoped_regressions=passed no_telegram=true")
 
 
+def source_probe():
+    """Live read-only official verification in GitHub's runner; no state or Telegram side effect."""
+    result = official_rule()
+    print("ai_remote_bis_official_probe=verified document=" + result["document_no"] +
+          " stage=" + result["stage"] + " source=FederalRegister no_telegram=true")
+
+
 if __name__ == "__main__":
     import sys
     cmd = sys.argv[1] if len(sys.argv)>1 else "prepare"
@@ -453,5 +460,7 @@ if __name__ == "__main__":
         send()
     elif cmd == "selftest":
         selftest()
+    elif cmd == "probe":
+        source_probe()
     else:
         raise SystemExit("Unknown AI remote watch action")
