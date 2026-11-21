@@ -17,7 +17,7 @@
         }
       ],
       "queued_at": "2026-11-19T02:58:23+09:00",
-      "attempts": 10,
+      "attempts": 11,
       "invalid_items": []
     },
     "spr:news:spr_article_0dfe29c8c8d44e996f0a13fd": {
@@ -65,7 +65,7 @@
         }
       ],
       "queued_at": "2026-11-19T08:49:10+09:00",
-      "attempts": 9,
+      "attempts": 10,
       "invalid_items": []
     },
     "spr:news:spr_article_a8492396a187f3bf266fb697": {
