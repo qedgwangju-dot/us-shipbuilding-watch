@@ -230,35 +230,6 @@
       "attempts": 4,
       "invalid_items": []
     },
-    "refinery:news:refinery_article_ddaa349f0885ebe81e2e127c": {
-      "topic": "refinery",
-      "kind": "news",
-      "event_key": "refinery_article_ddaa349f0885ebe81e2e127c",
-      "status": "source_blocked",
-      "items": [
-        {
-          "id": "ddaa349f0885ebe81e2e127c",
-          "title": "Hitting diesel: Ukraine’s refinery strikes could leave Russia short of fuel this winter - https://theins.press/en",
-          "link": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE15VjdidUtuVmNYdl9aazV3dG5xenRBeFRFLXhBVUQ5Slg4Q21NdktNbTVuWV9aX0RjLW84ODRYWjhOc2VNeW9yWlJhM2JEbEpxVmc?oc=5",
-          "source": "https://theins.press/en",
-          "source_url": "https://theins.press",
-          "pub_kst": "2026-11-18T04:04+09:00",
-          "_source_blocked": true,
-          "_source_failure": {
-            "stage": "translation_google",
-            "reason": "http_rate_limit",
-            "blocked_before_request": false,
-            "provider": "www.google.com",
-            "request_url_sha256": "9e5f43d8577fd29443e61131fbc8cc78ca89ef458948e54d4ec6120dfe77ed5b",
-            "http_status": 429
-          }
-        }
-      ],
-      "queued_at": "2026-11-20T06:51:48+09:00",
-      "attempts": 1,
-      "invalid_items": [],
-      "held_items": []
-    },
     "refinery:news:refinery_article_f1f5dcafafd3c888f136c305": {
       "topic": "refinery",
       "kind": "news",
@@ -333,6 +304,60 @@
       "queued_at": "2026-11-21T03:41:57+09:00",
       "attempts": 1,
       "invalid_items": []
+    },
+    "refinery:news:refinery_article_bef3c614c4e4344856691f30": {
+      "topic": "refinery",
+      "kind": "news",
+      "event_key": "refinery_article_bef3c614c4e4344856691f30",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "bef3c614c4e4344856691f30",
+          "title": "Biofuel Groups Push EPA to Protect Farm Demand as Refiners Report Strong Profits - Successful Farming",
+          "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNRmFtMjhOeXhoNk1RdHE0SkVMLTZpb0JxV2Z2eTFtQnY4RnRvZVRnMjRYSGZxTEJvZmliUUc4bGpQLXBycXZaN0x3LUJoN1hXZHd1aHhXRUlEbDk1YkV0SG9pOGVUMmlxaFh6LXdMd2RKdkJqaEw2bEFUSzVuNExVTXE2Q0Y1aHVDbFVmYTlUQUozTTFRbl96WEVITmpmMTRLemJVT21CTzhRVGp4aVZqVnA5UGxuRTRD?oc=5",
+          "source": "Successful Farming",
+          "source_url": "https://www.agriculture.com",
+          "pub_kst": "2026-11-05T17:00+09:00"
+        }
+      ],
+      "queued_at": "2026-11-21T09:13:29+09:00",
+      "attempts": 0
+    },
+    "refinery:news:refinery_article_846e6ee80970b758379cd810": {
+      "topic": "refinery",
+      "kind": "news",
+      "event_key": "refinery_article_846e6ee80970b758379cd810",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "846e6ee80970b758379cd810",
+          "title": "Rewriting the RFS Playbook: Revised RVOs Backload Projected Biomass-Based Diesel Production and Feedstock Use into 2027 - Successful Farming",
+          "link": "https://news.google.com/rss/articles/CBMi9wFBVV95cUxNY0ZJSXU2Z2VObkJiNURsaUdfSW9kRnRiMFVUbXFpNlEtYUtCRWJWMDBEUlFneW5OaTVld2lObG5ySE1Jd0wtNTRaRWxqUV9HZFBFcTEtOGd5RmpEckhHNXpYUFdZeHR0dmNLakhodE5pTGZCSjhNTGs5ajlleDNaVF9DbmlaV3FPZU9fdzk1LWtrQ2FSXzFtNThSdE9IQ21fS2RWMGFqSjBUSGVsWGVId3FFOVU0Z2hRZWxoZElGcld2R2xLaVBZWnAtcDhnWGJVbEhmTDlhZlk2ZG54akJNSWt1aVFnVGh4NllHejJSZ3dENGlQcmhZ?oc=5",
+          "source": "Successful Farming",
+          "source_url": "https://www.agriculture.com",
+          "pub_kst": "2025-11-24T17:00+09:00"
+        }
+      ],
+      "queued_at": "2026-11-21T09:13:29+09:00",
+      "attempts": 0
+    },
+    "refinery:news:rfs_sre_2025_package_20260831": {
+      "topic": "refinery",
+      "kind": "news",
+      "event_key": "rfs_sre_2025_package_20260831",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "b59a0f2aca58ab1cd188f304",
+          "title": "The Renewable Fuel Standard (RFS): Frequently Asked Questions About Small Refinery Exemptions (SREs) - Every CRS Report",
+          "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5NS1R4SkgxNjZ5UElJTmtsV2JiQ25WanByUXFfX0JOT0VGNFMxa0p5VkFGeU4xQkg0YnJpbklqMnpQY2Q0bVFibXd5V1pGY3ZfMHR3TlZzSDczeEZkRV8w?oc=5",
+          "source": "Every CRS Report",
+          "source_url": "https://www.everycrsreport.com",
+          "pub_kst": "2020-03-02T17:00+09:00"
+        }
+      ],
+      "queued_at": "2026-11-21T09:13:29+09:00",
+      "attempts": 0
     }
   },
   "receipts": [
@@ -3478,6 +3503,16 @@
       ],
       "delivered": false,
       "archived": true
+    },
+    {
+      "key": "refinery:news:refinery_article_ddaa349f0885ebe81e2e127c",
+      "reason": "expired_unverified_no_telegram_delivery",
+      "at": "2026-11-21T09:13:26+09:00",
+      "ids": [
+        "ddaa349f0885ebe81e2e127c"
+      ],
+      "delivered": false,
+      "archived": true
     }
   ],
   "observed_data": {
@@ -5790,6 +5825,39 @@
           }
         ],
         "queued_at": "2026-11-18T18:05:25+09:00",
+        "attempts": 1,
+        "invalid_items": [],
+        "held_items": []
+      }
+    },
+    "refinery:news:refinery_article_ddaa349f0885ebe81e2e127c": {
+      "archived_at": "2026-11-21T09:13:26+09:00",
+      "reason": "expired_unverified_no_telegram_delivery",
+      "entry": {
+        "topic": "refinery",
+        "kind": "news",
+        "event_key": "refinery_article_ddaa349f0885ebe81e2e127c",
+        "status": "source_blocked",
+        "items": [
+          {
+            "id": "ddaa349f0885ebe81e2e127c",
+            "title": "Hitting diesel: Ukraine’s refinery strikes could leave Russia short of fuel this winter - https://theins.press/en",
+            "link": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE15VjdidUtuVmNYdl9aazV3dG5xenRBeFRFLXhBVUQ5Slg4Q21NdktNbTVuWV9aX0RjLW84ODRYWjhOc2VNeW9yWlJhM2JEbEpxVmc?oc=5",
+            "source": "https://theins.press/en",
+            "source_url": "https://theins.press",
+            "pub_kst": "2026-11-18T04:04+09:00",
+            "_source_blocked": true,
+            "_source_failure": {
+              "stage": "translation_google",
+              "reason": "http_rate_limit",
+              "blocked_before_request": false,
+              "provider": "www.google.com",
+              "request_url_sha256": "9e5f43d8577fd29443e61131fbc8cc78ca89ef458948e54d4ec6120dfe77ed5b",
+              "http_status": 429
+            }
+          }
+        ],
+        "queued_at": "2026-11-20T06:51:48+09:00",
         "attempts": 1,
         "invalid_items": [],
         "held_items": []
