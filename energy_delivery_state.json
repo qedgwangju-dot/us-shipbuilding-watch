@@ -113,7 +113,7 @@
         }
       ],
       "queued_at": "2026-11-20T06:51:48+09:00",
-      "attempts": 7,
+      "attempts": 8,
       "invalid_items": []
     },
     "refinery:news:refinery_article_f1f5dcafafd3c888f136c305": {
@@ -160,7 +160,8 @@
         }
       ],
       "queued_at": "2026-11-21T03:41:57+09:00",
-      "attempts": 4
+      "attempts": 5,
+      "invalid_items": []
     },
     "refinery:news:refinery_article_7668d97172f6486d898e6107": {
       "topic": "refinery",
