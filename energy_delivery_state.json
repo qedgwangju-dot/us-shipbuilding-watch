@@ -227,7 +227,7 @@
         }
       ],
       "queued_at": "2026-11-20T06:51:48+09:00",
-      "attempts": 4,
+      "attempts": 5,
       "invalid_items": []
     },
     "refinery:news:refinery_article_f1f5dcafafd3c888f136c305": {
@@ -274,7 +274,7 @@
         }
       ],
       "queued_at": "2026-11-21T03:41:57+09:00",
-      "attempts": 1,
+      "attempts": 2,
       "invalid_items": []
     },
     "refinery:news:refinery_article_7668d97172f6486d898e6107": {
@@ -304,60 +304,6 @@
       "queued_at": "2026-11-21T03:41:57+09:00",
       "attempts": 1,
       "invalid_items": []
-    },
-    "refinery:news:refinery_article_bef3c614c4e4344856691f30": {
-      "topic": "refinery",
-      "kind": "news",
-      "event_key": "refinery_article_bef3c614c4e4344856691f30",
-      "status": "enrichment_pending",
-      "items": [
-        {
-          "id": "bef3c614c4e4344856691f30",
-          "title": "Biofuel Groups Push EPA to Protect Farm Demand as Refiners Report Strong Profits - Successful Farming",
-          "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNRmFtMjhOeXhoNk1RdHE0SkVMLTZpb0JxV2Z2eTFtQnY4RnRvZVRnMjRYSGZxTEJvZmliUUc4bGpQLXBycXZaN0x3LUJoN1hXZHd1aHhXRUlEbDk1YkV0SG9pOGVUMmlxaFh6LXdMd2RKdkJqaEw2bEFUSzVuNExVTXE2Q0Y1aHVDbFVmYTlUQUozTTFRbl96WEVITmpmMTRLemJVT21CTzhRVGp4aVZqVnA5UGxuRTRD?oc=5",
-          "source": "Successful Farming",
-          "source_url": "https://www.agriculture.com",
-          "pub_kst": "2026-11-05T17:00+09:00"
-        }
-      ],
-      "queued_at": "2026-11-21T09:13:29+09:00",
-      "attempts": 0
-    },
-    "refinery:news:refinery_article_846e6ee80970b758379cd810": {
-      "topic": "refinery",
-      "kind": "news",
-      "event_key": "refinery_article_846e6ee80970b758379cd810",
-      "status": "enrichment_pending",
-      "items": [
-        {
-          "id": "846e6ee80970b758379cd810",
-          "title": "Rewriting the RFS Playbook: Revised RVOs Backload Projected Biomass-Based Diesel Production and Feedstock Use into 2027 - Successful Farming",
-          "link": "https://news.google.com/rss/articles/CBMi9wFBVV95cUxNY0ZJSXU2Z2VObkJiNURsaUdfSW9kRnRiMFVUbXFpNlEtYUtCRWJWMDBEUlFneW5OaTVld2lObG5ySE1Jd0wtNTRaRWxqUV9HZFBFcTEtOGd5RmpEckhHNXpYUFdZeHR0dmNLakhodE5pTGZCSjhNTGs5ajlleDNaVF9DbmlaV3FPZU9fdzk1LWtrQ2FSXzFtNThSdE9IQ21fS2RWMGFqSjBUSGVsWGVId3FFOVU0Z2hRZWxoZElGcld2R2xLaVBZWnAtcDhnWGJVbEhmTDlhZlk2ZG54akJNSWt1aVFnVGh4NllHejJSZ3dENGlQcmhZ?oc=5",
-          "source": "Successful Farming",
-          "source_url": "https://www.agriculture.com",
-          "pub_kst": "2025-11-24T17:00+09:00"
-        }
-      ],
-      "queued_at": "2026-11-21T09:13:29+09:00",
-      "attempts": 0
-    },
-    "refinery:news:rfs_sre_2025_package_20260831": {
-      "topic": "refinery",
-      "kind": "news",
-      "event_key": "rfs_sre_2025_package_20260831",
-      "status": "enrichment_pending",
-      "items": [
-        {
-          "id": "b59a0f2aca58ab1cd188f304",
-          "title": "The Renewable Fuel Standard (RFS): Frequently Asked Questions About Small Refinery Exemptions (SREs) - Every CRS Report",
-          "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5NS1R4SkgxNjZ5UElJTmtsV2JiQ25WanByUXFfX0JOT0VGNFMxa0p5VkFGeU4xQkg0YnJpbklqMnpQY2Q0bVFibXd5V1pGY3ZfMHR3TlZzSDczeEZkRV8w?oc=5",
-          "source": "Every CRS Report",
-          "source_url": "https://www.everycrsreport.com",
-          "pub_kst": "2020-03-02T17:00+09:00"
-        }
-      ],
-      "queued_at": "2026-11-21T09:13:29+09:00",
-      "attempts": 0
     }
   },
   "receipts": [
@@ -3513,6 +3459,30 @@
       ],
       "delivered": false,
       "archived": true
+    },
+    {
+      "key": "refinery:news:refinery_article_bef3c614c4e4344856691f30",
+      "reason": "news_outside_three_day_window",
+      "at": "2026-11-21T09:14:03+09:00",
+      "ids": [
+        "bef3c614c4e4344856691f30"
+      ]
+    },
+    {
+      "key": "refinery:news:refinery_article_846e6ee80970b758379cd810",
+      "reason": "news_outside_three_day_window",
+      "at": "2026-11-21T09:14:03+09:00",
+      "ids": [
+        "846e6ee80970b758379cd810"
+      ]
+    },
+    {
+      "key": "refinery:news:rfs_sre_2025_package_20260831",
+      "reason": "news_outside_three_day_window",
+      "at": "2026-11-21T09:14:03+09:00",
+      "ids": [
+        "b59a0f2aca58ab1cd188f304"
+      ]
     }
   ],
   "observed_data": {
