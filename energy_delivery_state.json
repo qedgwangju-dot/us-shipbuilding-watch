@@ -48,35 +48,6 @@
       "attempts": 1,
       "invalid_items": []
     },
-    "spr:news:spr_article_150aa153d60bb3f34a040105": {
-      "topic": "spr",
-      "kind": "news",
-      "event_key": "spr_article_150aa153d60bb3f34a040105",
-      "status": "source_blocked",
-      "items": [
-        {
-          "id": "150aa153d60bb3f34a040105",
-          "title": "Trump Calls Venezuela an ‘Acquisition,’ Hails US Energy Supply - Bloomberg.com",
-          "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxNb2JoazhlTEdxOWlWdnhMWm05eG1kd2xwVnB3dUREM1lRY3R2M3hBTGJLdlJiM3hvQ0s3cHRJcnhjR1p6YU9XN0x4S1BDRHdGRk14QmRmRE9fU0xhcVJYRUZ4Qi1NUkl4enAybFYxTW1rSXRiZkdCU19jcmNhaUgyaHFsTjJ5SC1tR3hIRGpxMFNtZmxkajRia2VZWnVsT3ItTWtLeVBwb1dKM2V0QUdr?oc=5",
-          "source": "Bloomberg.com",
-          "source_url": "https://www.bloomberg.com",
-          "pub_kst": "2026-11-18T13:12+09:00",
-          "_source_blocked": true,
-          "_source_failure": {
-            "stage": "article_fetch",
-            "reason": "http_denial",
-            "blocked_before_request": false,
-            "provider": "www.bloomberg.com",
-            "request_url_sha256": "2ac5d7fcf22416da0574fe9ff184b0ac0529e775eb8e78c99b43b467f946ac96",
-            "http_status": 403
-          }
-        }
-      ],
-      "queued_at": "2026-11-19T02:58:23+09:00",
-      "attempts": 1,
-      "invalid_items": [],
-      "held_items": []
-    },
     "spr:news:spr_article_0dfe29c8c8d44e996f0a13fd": {
       "topic": "spr",
       "kind": "news",
@@ -122,8 +93,7 @@
         }
       ],
       "queued_at": "2026-11-19T08:49:10+09:00",
-      "attempts": 8,
-      "invalid_items": []
+      "attempts": 8
     },
     "spr:news:spr_article_29c150848a41891addd7b710": {
       "topic": "spr",
@@ -152,35 +122,6 @@
       "queued_at": "2026-11-19T13:34:42+09:00",
       "attempts": 1,
       "invalid_items": []
-    },
-    "spr:news:spr_article_7acceb6e503a6f825bc0d45a": {
-      "topic": "spr",
-      "kind": "news",
-      "event_key": "spr_article_7acceb6e503a6f825bc0d45a",
-      "status": "source_blocked",
-      "items": [
-        {
-          "id": "7acceb6e503a6f825bc0d45a",
-          "title": "Trump Calls Venezuela an ‘Acquisition,’ Hails US Energy Supply - Bloomberg",
-          "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxNb2JoazhlTEdxOWlWdnhMWm05eG1kd2xwVnB3dUREM1lRY3R2M3hBTGJLdlJiM3hvQ0s3cHRJcnhjR1p6YU9XN0x4S1BDRHdGRk14QmRmRE9fU0xhcVJYRUZ4Qi1NUkl4enAybFYxTW1rSXRiZkdCU19jcmNhaUgyaHFsTjJ5SC1tR3hIRGpxMFNtZmxkajRia2VZWnVsT3ItTWtLeVBwb1dKM2V0QUdr?oc=5",
-          "source": "Bloomberg",
-          "source_url": "https://www.bloomberg.com",
-          "pub_kst": "2026-11-18T13:12+09:00",
-          "_source_blocked": true,
-          "_source_failure": {
-            "stage": "article_fetch",
-            "reason": "http_denial",
-            "blocked_before_request": false,
-            "provider": "www.bloomberg.com",
-            "request_url_sha256": "2ac5d7fcf22416da0574fe9ff184b0ac0529e775eb8e78c99b43b467f946ac96",
-            "http_status": 403
-          }
-        }
-      ],
-      "queued_at": "2026-11-19T13:34:42+09:00",
-      "attempts": 1,
-      "invalid_items": [],
-      "held_items": []
     },
     "spr:news:spr_article_a8492396a187f3bf266fb697": {
       "topic": "spr",
@@ -332,6 +273,24 @@
       "queued_at": "2026-11-21T16:00:26+09:00",
       "attempts": 1,
       "invalid_items": []
+    },
+    "spr:news:spr_article_df8ea703c7529606593b6c17": {
+      "topic": "spr",
+      "kind": "news",
+      "event_key": "spr_article_df8ea703c7529606593b6c17",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "df8ea703c7529606593b6c17",
+          "title": "Venezuela oil production could reach 2 MMbpd as investment accelerates - World Oil",
+          "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxNZ196TFR1S3R2TnpHaEVLT2NtaDRaeEN6YjM1QS1qdlV1cGtnQ2pkM0xKenN3M3pDRThtMXFUVVNXeGxJY2dVWFFKTV92ajBWZHJ6eFloMnBRcUdBQnJaN3NCS2FSc29lS0cxdTMycXFkX1g5UFpDc2hqWi1KdERESllTMHQyRUdZNWdZY3Jaa1lDVlNMS041Y0xxRi1RWjVaQ3hRVW42eHVjNWl2R2hj?oc=5",
+          "source": "World Oil",
+          "source_url": "https://www.worldoil.com",
+          "pub_kst": "2026-09-03T16:00+09:00"
+        }
+      ],
+      "queued_at": "2026-11-21T16:01:12+09:00",
+      "attempts": 0
     }
   },
   "receipts": [
@@ -3511,6 +3470,26 @@
       "ids": [
         "b59a0f2aca58ab1cd188f304"
       ]
+    },
+    {
+      "key": "spr:news:spr_article_150aa153d60bb3f34a040105",
+      "reason": "expired_unverified_no_telegram_delivery",
+      "at": "2026-11-21T16:01:08+09:00",
+      "ids": [
+        "150aa153d60bb3f34a040105"
+      ],
+      "delivered": false,
+      "archived": true
+    },
+    {
+      "key": "spr:news:spr_article_7acceb6e503a6f825bc0d45a",
+      "reason": "expired_unverified_no_telegram_delivery",
+      "at": "2026-11-21T16:01:08+09:00",
+      "ids": [
+        "7acceb6e503a6f825bc0d45a"
+      ],
+      "delivered": false,
+      "archived": true
     }
   ],
   "observed_data": {
@@ -5856,6 +5835,72 @@
           }
         ],
         "queued_at": "2026-11-20T06:51:48+09:00",
+        "attempts": 1,
+        "invalid_items": [],
+        "held_items": []
+      }
+    },
+    "spr:news:spr_article_150aa153d60bb3f34a040105": {
+      "archived_at": "2026-11-21T16:01:08+09:00",
+      "reason": "expired_unverified_no_telegram_delivery",
+      "entry": {
+        "topic": "spr",
+        "kind": "news",
+        "event_key": "spr_article_150aa153d60bb3f34a040105",
+        "status": "source_blocked",
+        "items": [
+          {
+            "id": "150aa153d60bb3f34a040105",
+            "title": "Trump Calls Venezuela an ‘Acquisition,’ Hails US Energy Supply - Bloomberg.com",
+            "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxNb2JoazhlTEdxOWlWdnhMWm05eG1kd2xwVnB3dUREM1lRY3R2M3hBTGJLdlJiM3hvQ0s3cHRJcnhjR1p6YU9XN0x4S1BDRHdGRk14QmRmRE9fU0xhcVJYRUZ4Qi1NUkl4enAybFYxTW1rSXRiZkdCU19jcmNhaUgyaHFsTjJ5SC1tR3hIRGpxMFNtZmxkajRia2VZWnVsT3ItTWtLeVBwb1dKM2V0QUdr?oc=5",
+            "source": "Bloomberg.com",
+            "source_url": "https://www.bloomberg.com",
+            "pub_kst": "2026-11-18T13:12+09:00",
+            "_source_blocked": true,
+            "_source_failure": {
+              "stage": "article_fetch",
+              "reason": "http_denial",
+              "blocked_before_request": false,
+              "provider": "www.bloomberg.com",
+              "request_url_sha256": "2ac5d7fcf22416da0574fe9ff184b0ac0529e775eb8e78c99b43b467f946ac96",
+              "http_status": 403
+            }
+          }
+        ],
+        "queued_at": "2026-11-19T02:58:23+09:00",
+        "attempts": 1,
+        "invalid_items": [],
+        "held_items": []
+      }
+    },
+    "spr:news:spr_article_7acceb6e503a6f825bc0d45a": {
+      "archived_at": "2026-11-21T16:01:08+09:00",
+      "reason": "expired_unverified_no_telegram_delivery",
+      "entry": {
+        "topic": "spr",
+        "kind": "news",
+        "event_key": "spr_article_7acceb6e503a6f825bc0d45a",
+        "status": "source_blocked",
+        "items": [
+          {
+            "id": "7acceb6e503a6f825bc0d45a",
+            "title": "Trump Calls Venezuela an ‘Acquisition,’ Hails US Energy Supply - Bloomberg",
+            "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxNb2JoazhlTEdxOWlWdnhMWm05eG1kd2xwVnB3dUREM1lRY3R2M3hBTGJLdlJiM3hvQ0s3cHRJcnhjR1p6YU9XN0x4S1BDRHdGRk14QmRmRE9fU0xhcVJYRUZ4Qi1NUkl4enAybFYxTW1rSXRiZkdCU19jcmNhaUgyaHFsTjJ5SC1tR3hIRGpxMFNtZmxkajRia2VZWnVsT3ItTWtLeVBwb1dKM2V0QUdr?oc=5",
+            "source": "Bloomberg",
+            "source_url": "https://www.bloomberg.com",
+            "pub_kst": "2026-11-18T13:12+09:00",
+            "_source_blocked": true,
+            "_source_failure": {
+              "stage": "article_fetch",
+              "reason": "http_denial",
+              "blocked_before_request": false,
+              "provider": "www.bloomberg.com",
+              "request_url_sha256": "2ac5d7fcf22416da0574fe9ff184b0ac0529e775eb8e78c99b43b467f946ac96",
+              "http_status": 403
+            }
+          }
+        ],
+        "queued_at": "2026-11-19T13:34:42+09:00",
         "attempts": 1,
         "invalid_items": [],
         "held_items": []
