@@ -274,8 +274,7 @@
         }
       ],
       "queued_at": "2026-11-21T03:41:57+09:00",
-      "attempts": 2,
-      "invalid_items": []
+      "attempts": 2
     },
     "refinery:news:refinery_article_7668d97172f6486d898e6107": {
       "topic": "refinery",
@@ -304,6 +303,24 @@
       "queued_at": "2026-11-21T03:41:57+09:00",
       "attempts": 1,
       "invalid_items": []
+    },
+    "refinery:news:refinery_article_29280baec02e7db1dbd309a2": {
+      "topic": "refinery",
+      "kind": "news",
+      "event_key": "refinery_article_29280baec02e7db1dbd309a2",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "29280baec02e7db1dbd309a2",
+          "title": "Houston refinery restart tests Trump’s push to boost US fuel output - WKZO",
+          "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxPQ1BmYkpyUllyME1NeVlKZzZsZnF2T01XOWNfTk0xamRmNkJLNGtoVkRta1J3TUlCQ09zM2p2VkpWWjkxYjBLbFpRRHVmVEtYVFFFdXRsOXN2SlEza3hDQU1veVhSQUZXZGdxMi1ycDZ5VlNWTmhpc3daV2x5TXhsZ3ZrOWFRV0QzN3RMel9rMnJsZE91SW9QVzdJNA?oc=5",
+          "source": "WKZO",
+          "source_url": "https://wkzo.com",
+          "pub_kst": "2026-11-20T03:18+09:00"
+        }
+      ],
+      "queued_at": "2026-11-21T16:00:26+09:00",
+      "attempts": 0
     }
   },
   "receipts": [
