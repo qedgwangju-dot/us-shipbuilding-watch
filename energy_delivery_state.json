@@ -1,73 +1,6 @@
 {
   "schema_version": 1,
   "outbox": {
-    "spr:news:spr_article_91ff3afb9af1df9aec57948d": {
-      "topic": "spr",
-      "kind": "news",
-      "event_key": "spr_article_91ff3afb9af1df9aec57948d",
-      "status": "enrichment_pending",
-      "items": [
-        {
-          "id": "91ff3afb9af1df9aec57948d",
-          "title": "Thiel Doubles Down on Vaca Muerta as Trump Calls Venezuela an “Acquisition” - Crude Oil Prices Today | OilPrice.com",
-          "link": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxQWGJCaVVNR3RXUWVWaUw1NmplYWR2ZmwzRlg3a1VZNFpONnFTRzc4aHJtdjZTZEdJU2xBam5aVDFHQUVQWk1PY2Q4SUVXY1JMS1BKczhtelg5cW5nVXdWMXhYSjZnb1QyM05ybFpOZkxEdTFESzlTN0V4YjhyM0syZlpjbFZJaUd3VVJ2LWEzN2tNWjBEVFpKdUZRNURqLVBVM0lyc3E5MDR0TWpuUWZzc0VMS3piRXRzTjZtZW16WXYxaDRQdXVsdw?oc=5",
-          "source": "Crude Oil Prices Today | OilPrice.com",
-          "source_url": "https://oilprice.com",
-          "pub_kst": "2026-11-19T02:30+09:00"
-        }
-      ],
-      "queued_at": "2026-11-19T02:58:23+09:00",
-      "attempts": 11,
-      "invalid_items": []
-    },
-    "spr:news:spr_article_0dfe29c8c8d44e996f0a13fd": {
-      "topic": "spr",
-      "kind": "news",
-      "event_key": "spr_article_0dfe29c8c8d44e996f0a13fd",
-      "status": "source_blocked",
-      "items": [
-        {
-          "id": "0dfe29c8c8d44e996f0a13fd",
-          "title": "Hegseth Tells Venezuelan President He Wants to Unlock Its Resources - Newsweek",
-          "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxNNHZLcW9oVTNmaGZaMFB0bWpWNW15MWNqRE5iTzE4ZnRUUUxSaXFpQ2NKejNTRVN3RzktajhPdGVpWHRBV29STEJDc21UekliV2ZjYWZnVDQ3bWQ1bkJsRTRIeGlNSzNEWW5Oel93QjlpOU9CRi1VcmJkRF9jSHJOdEhBM0NkVmNncC14dkV2Zk1XZw?oc=5",
-          "source": "Newsweek",
-          "source_url": "https://www.newsweek.com",
-          "pub_kst": "2026-11-19T04:02+09:00",
-          "_source_blocked": true,
-          "_source_failure": {
-            "stage": "translation_google",
-            "reason": "http_rate_limit",
-            "blocked_before_request": false,
-            "provider": "www.google.com",
-            "request_url_sha256": "ff640ca7907764c7193e7149b6638091163555bd15eb79230c9f1fbf3e7a9022",
-            "http_status": 429
-          }
-        }
-      ],
-      "queued_at": "2026-11-19T08:49:10+09:00",
-      "attempts": 1,
-      "invalid_items": [],
-      "held_items": []
-    },
-    "spr:news:spr_article_144767f114d32f809c71b486": {
-      "topic": "spr",
-      "kind": "news",
-      "event_key": "spr_article_144767f114d32f809c71b486",
-      "status": "enrichment_pending",
-      "items": [
-        {
-          "id": "144767f114d32f809c71b486",
-          "title": "Thiel Doubles Down on Vaca Muerta as Trump Calls Venezuela an \"Acquisition\" - Crude Oil Prices Today | OilPrice.com",
-          "link": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxQWGJCaVVNR3RXUWVWaUw1NmplYWR2ZmwzRlg3a1VZNFpONnFTRzc4aHJtdjZTZEdJU2xBam5aVDFHQUVQWk1PY2Q4SUVXY1JMS1BKczhtelg5cW5nVXdWMXhYSjZnb1QyM05ybFpOZkxEdTFESzlTN0V4YjhyM0syZlpjbFZJaUd3VVJ2LWEzN2tNWjBEVFpKdUZRNURqLVBVM0lyc3E5MDR0TWpuUWZzc0VMS3piRXRzTjZtZW16WXYxaDRQdXVsd9IBzgFBVV95cUxOdi1KLUg0YTdVUEhKM2VyazhRU2dJd0VqY2FfNTJzbS1aVzJjbksySHJTVzR4Z2Y0eElFWl9taUNITHdHN2UzNEJUZXdwZVpmeDNvTmxjNVYzVTdwbllVUlNoNF9kc1BHZ0twY1hCcFM1YnVNUHdUUHV6a0FzSWJ3S3VFMFpfd29HUHRnLUpjRHpURjloTVpMR2NrNFpPdlNyTkxueUtGaFZyY0xGRFVxLVdiZGpCQnpzN3RyM1ZHZ1N6OVZoTmtWQ1NucXd0Zw?oc=5",
-          "source": "Crude Oil Prices Today | OilPrice.com",
-          "source_url": "https://oilprice.com",
-          "pub_kst": "2026-11-19T02:30+09:00"
-        }
-      ],
-      "queued_at": "2026-11-19T08:49:10+09:00",
-      "attempts": 10,
-      "invalid_items": []
-    },
     "spr:news:spr_article_a8492396a187f3bf266fb697": {
       "topic": "spr",
       "kind": "news",
@@ -3445,6 +3378,36 @@
       ],
       "delivered": false,
       "archived": true
+    },
+    {
+      "key": "spr:news:spr_article_91ff3afb9af1df9aec57948d",
+      "reason": "expired_unverified_no_telegram_delivery",
+      "at": "2026-11-22T05:53:22+09:00",
+      "ids": [
+        "91ff3afb9af1df9aec57948d"
+      ],
+      "delivered": false,
+      "archived": true
+    },
+    {
+      "key": "spr:news:spr_article_0dfe29c8c8d44e996f0a13fd",
+      "reason": "expired_unverified_no_telegram_delivery",
+      "at": "2026-11-22T05:53:22+09:00",
+      "ids": [
+        "0dfe29c8c8d44e996f0a13fd"
+      ],
+      "delivered": false,
+      "archived": true
+    },
+    {
+      "key": "spr:news:spr_article_144767f114d32f809c71b486",
+      "reason": "expired_unverified_no_telegram_delivery",
+      "at": "2026-11-22T05:53:22+09:00",
+      "ids": [
+        "144767f114d32f809c71b486"
+      ],
+      "delivered": false,
+      "archived": true
     }
   ],
   "observed_data": {
@@ -5922,6 +5885,85 @@
         ],
         "queued_at": "2026-11-19T13:34:42+09:00",
         "attempts": 1,
+        "invalid_items": []
+      }
+    },
+    "spr:news:spr_article_91ff3afb9af1df9aec57948d": {
+      "archived_at": "2026-11-22T05:53:22+09:00",
+      "reason": "expired_unverified_no_telegram_delivery",
+      "entry": {
+        "topic": "spr",
+        "kind": "news",
+        "event_key": "spr_article_91ff3afb9af1df9aec57948d",
+        "status": "enrichment_pending",
+        "items": [
+          {
+            "id": "91ff3afb9af1df9aec57948d",
+            "title": "Thiel Doubles Down on Vaca Muerta as Trump Calls Venezuela an “Acquisition” - Crude Oil Prices Today | OilPrice.com",
+            "link": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxQWGJCaVVNR3RXUWVWaUw1NmplYWR2ZmwzRlg3a1VZNFpONnFTRzc4aHJtdjZTZEdJU2xBam5aVDFHQUVQWk1PY2Q4SUVXY1JMS1BKczhtelg5cW5nVXdWMXhYSjZnb1QyM05ybFpOZkxEdTFESzlTN0V4YjhyM0syZlpjbFZJaUd3VVJ2LWEzN2tNWjBEVFpKdUZRNURqLVBVM0lyc3E5MDR0TWpuUWZzc0VMS3piRXRzTjZtZW16WXYxaDRQdXVsdw?oc=5",
+            "source": "Crude Oil Prices Today | OilPrice.com",
+            "source_url": "https://oilprice.com",
+            "pub_kst": "2026-11-19T02:30+09:00"
+          }
+        ],
+        "queued_at": "2026-11-19T02:58:23+09:00",
+        "attempts": 11,
+        "invalid_items": []
+      }
+    },
+    "spr:news:spr_article_0dfe29c8c8d44e996f0a13fd": {
+      "archived_at": "2026-11-22T05:53:22+09:00",
+      "reason": "expired_unverified_no_telegram_delivery",
+      "entry": {
+        "topic": "spr",
+        "kind": "news",
+        "event_key": "spr_article_0dfe29c8c8d44e996f0a13fd",
+        "status": "source_blocked",
+        "items": [
+          {
+            "id": "0dfe29c8c8d44e996f0a13fd",
+            "title": "Hegseth Tells Venezuelan President He Wants to Unlock Its Resources - Newsweek",
+            "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxNNHZLcW9oVTNmaGZaMFB0bWpWNW15MWNqRE5iTzE4ZnRUUUxSaXFpQ2NKejNTRVN3RzktajhPdGVpWHRBV29STEJDc21UekliV2ZjYWZnVDQ3bWQ1bkJsRTRIeGlNSzNEWW5Oel93QjlpOU9CRi1VcmJkRF9jSHJOdEhBM0NkVmNncC14dkV2Zk1XZw?oc=5",
+            "source": "Newsweek",
+            "source_url": "https://www.newsweek.com",
+            "pub_kst": "2026-11-19T04:02+09:00",
+            "_source_blocked": true,
+            "_source_failure": {
+              "stage": "translation_google",
+              "reason": "http_rate_limit",
+              "blocked_before_request": false,
+              "provider": "www.google.com",
+              "request_url_sha256": "ff640ca7907764c7193e7149b6638091163555bd15eb79230c9f1fbf3e7a9022",
+              "http_status": 429
+            }
+          }
+        ],
+        "queued_at": "2026-11-19T08:49:10+09:00",
+        "attempts": 1,
+        "invalid_items": [],
+        "held_items": []
+      }
+    },
+    "spr:news:spr_article_144767f114d32f809c71b486": {
+      "archived_at": "2026-11-22T05:53:22+09:00",
+      "reason": "expired_unverified_no_telegram_delivery",
+      "entry": {
+        "topic": "spr",
+        "kind": "news",
+        "event_key": "spr_article_144767f114d32f809c71b486",
+        "status": "enrichment_pending",
+        "items": [
+          {
+            "id": "144767f114d32f809c71b486",
+            "title": "Thiel Doubles Down on Vaca Muerta as Trump Calls Venezuela an \"Acquisition\" - Crude Oil Prices Today | OilPrice.com",
+            "link": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxQWGJCaVVNR3RXUWVWaUw1NmplYWR2ZmwzRlg3a1VZNFpONnFTRzc4aHJtdjZTZEdJU2xBam5aVDFHQUVQWk1PY2Q4SUVXY1JMS1BKczhtelg5cW5nVXdWMXhYSjZnb1QyM05ybFpOZkxEdTFESzlTN0V4YjhyM0syZlpjbFZJaUd3VVJ2LWEzN2tNWjBEVFpKdUZRNURqLVBVM0lyc3E5MDR0TWpuUWZzc0VMS3piRXRzTjZtZW16WXYxaDRQdXVsd9IBzgFBVV95cUxOdi1KLUg0YTdVUEhKM2VyazhRU2dJd0VqY2FfNTJzbS1aVzJjbksySHJTVzR4Z2Y0eElFWl9taUNITHdHN2UzNEJUZXdwZVpmeDNvTmxjNVYzVTdwbllVUlNoNF9kc1BHZ0twY1hCcFM1YnVNUHdUUHV6a0FzSWJ3S3VFMFpfd29HUHRnLUpjRHpURjloTVpMR2NrNFpPdlNyTkxueUtGaFZyY0xGRFVxLVdiZGpCQnpzN3RyM1ZHZ1N6OVZoTmtWQ1NucXd0Zw?oc=5",
+            "source": "Crude Oil Prices Today | OilPrice.com",
+            "source_url": "https://oilprice.com",
+            "pub_kst": "2026-11-19T02:30+09:00"
+          }
+        ],
+        "queued_at": "2026-11-19T08:49:10+09:00",
+        "attempts": 10,
         "invalid_items": []
       }
     }
