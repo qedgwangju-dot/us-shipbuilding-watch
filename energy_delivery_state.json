@@ -1,35 +1,6 @@
 {
   "schema_version": 1,
   "outbox": {
-    "spr:news:spr_article_a8492396a187f3bf266fb697": {
-      "topic": "spr",
-      "kind": "news",
-      "event_key": "spr_article_a8492396a187f3bf266fb697",
-      "status": "source_blocked",
-      "items": [
-        {
-          "id": "a8492396a187f3bf266fb697",
-          "title": "Venezuela's Machado questions Trump's $100B oil deal while committing to U.S. ties, Bloomberg reports - Seeking Alpha",
-          "link": "https://news.google.com/rss/articles/CBMizgFBVV95cUxNd2sxU3AxcTMwcDljakt4bjNkN2x4MWhOeVAydXZxQlpMUmVuN0tqMndfQS1FcWpZNlNFRUc5VmpEcmVTSGxfSE9xN3JTRFZ2T0ptLTd6cU03ekxFNTlNVVZ6bDZkTHdhYktDZmxOT1BCSk54c1ZEYW1Gc0tmRDhaUFpjTEVVcnBCRHZvWjhQaUh3N1NZeFpWYU9qYnhXSkFOSUJ4bG1xSE9Kc3NEVzVkckctVzlOX1YzWkZGZndjWkVMcThremp2WmNTN01vZw?oc=5",
-          "source": "Seeking Alpha",
-          "source_url": "https://seekingalpha.com",
-          "pub_kst": "2026-11-19T15:28+09:00",
-          "_source_blocked": true,
-          "_source_failure": {
-            "stage": "translation_google",
-            "reason": "http_rate_limit",
-            "blocked_before_request": false,
-            "provider": "www.google.com",
-            "request_url_sha256": "9c0f8970d88a0d603d36b4aeec51f88dd80eaace8e09076f952189b20d32355f",
-            "http_status": 429
-          }
-        }
-      ],
-      "queued_at": "2026-11-19T22:50:46+09:00",
-      "attempts": 1,
-      "invalid_items": [],
-      "held_items": []
-    },
     "refinery:news:refinery_article_346f04efd68a7b74ce0648d0": {
       "topic": "refinery",
       "kind": "news",
@@ -3408,6 +3379,16 @@
       ],
       "delivered": false,
       "archived": true
+    },
+    {
+      "key": "spr:news:spr_article_a8492396a187f3bf266fb697",
+      "reason": "expired_unverified_no_telegram_delivery",
+      "at": "2026-11-22T16:27:47+09:00",
+      "ids": [
+        "a8492396a187f3bf266fb697"
+      ],
+      "delivered": false,
+      "archived": true
     }
   ],
   "observed_data": {
@@ -5965,6 +5946,39 @@
         "queued_at": "2026-11-19T08:49:10+09:00",
         "attempts": 10,
         "invalid_items": []
+      }
+    },
+    "spr:news:spr_article_a8492396a187f3bf266fb697": {
+      "archived_at": "2026-11-22T16:27:47+09:00",
+      "reason": "expired_unverified_no_telegram_delivery",
+      "entry": {
+        "topic": "spr",
+        "kind": "news",
+        "event_key": "spr_article_a8492396a187f3bf266fb697",
+        "status": "source_blocked",
+        "items": [
+          {
+            "id": "a8492396a187f3bf266fb697",
+            "title": "Venezuela's Machado questions Trump's $100B oil deal while committing to U.S. ties, Bloomberg reports - Seeking Alpha",
+            "link": "https://news.google.com/rss/articles/CBMizgFBVV95cUxNd2sxU3AxcTMwcDljakt4bjNkN2x4MWhOeVAydXZxQlpMUmVuN0tqMndfQS1FcWpZNlNFRUc5VmpEcmVTSGxfSE9xN3JTRFZ2T0ptLTd6cU03ekxFNTlNVVZ6bDZkTHdhYktDZmxOT1BCSk54c1ZEYW1Gc0tmRDhaUFpjTEVVcnBCRHZvWjhQaUh3N1NZeFpWYU9qYnhXSkFOSUJ4bG1xSE9Kc3NEVzVkckctVzlOX1YzWkZGZndjWkVMcThremp2WmNTN01vZw?oc=5",
+            "source": "Seeking Alpha",
+            "source_url": "https://seekingalpha.com",
+            "pub_kst": "2026-11-19T15:28+09:00",
+            "_source_blocked": true,
+            "_source_failure": {
+              "stage": "translation_google",
+              "reason": "http_rate_limit",
+              "blocked_before_request": false,
+              "provider": "www.google.com",
+              "request_url_sha256": "9c0f8970d88a0d603d36b4aeec51f88dd80eaace8e09076f952189b20d32355f",
+              "http_status": 429
+            }
+          }
+        ],
+        "queued_at": "2026-11-19T22:50:46+09:00",
+        "attempts": 1,
+        "invalid_items": [],
+        "held_items": []
       }
     }
   }
