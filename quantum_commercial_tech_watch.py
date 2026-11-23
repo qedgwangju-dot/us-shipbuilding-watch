@@ -768,7 +768,7 @@ def energy_collect(now=None, indexer=energy_cards, getter=get):
             except Exception as exc:
                 health[company]["unverified_articles"]+=1
                 print("[QTECH ENERGY ARTICLE DEFERRED] "+company+" "+type(exc).__name__+
-                      " headline="+candidate["title"][:90])
+                      " reason="+str(exc)[:100]+" headline="+candidate["title"][:90])
     return list(found.values()),health
 
 
