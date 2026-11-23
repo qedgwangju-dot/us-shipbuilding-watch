@@ -604,6 +604,271 @@ def bootstrap_message():
         f"<a href=\"{nv}\"><b>원문</b></a>"
     )
 
+
+# Energy-application extensions use the existing quantum bot, schedule and state.
+# The 2026-11-22 CNBC recap is an initial reference, not a new paid deployment.
+ENERGY_START = datetime(2026,11,23).date()
+ENERGY_INDEXES = (
+    ("Phasecraft","https://www.phasecraft.io/journal/journal","phasecraft.io"),
+    ("ORCA Computing","https://orcacomputing.com/news/","orcacomputing.com"),
+    ("Jij","https://www.j-ij.com/en/news","j-ij.com"),
+    ("QuEra","https://www.quera.com/press-releases","quera.com"),
+    ("Quantinuum","https://ir.quantinuum.com/news-events/press-releases","quantinuum.com"),
+)
+ENERGY_TERMS = {
+    "전력망": ("power grid","energy grid","electric grid","electricity network","grid optimization",
+             "grid optimisation","unit commitment","generator schedul","energy network","neso",
+             "national energy system operator","power system","grid operator"),
+    "태양전지": ("solar cell","photovoltaic","perovskite","oxford pv"),
+    "수소촉매": ("hydrogen","electrolysis","iridium","catalyst discovery","electrocatalyst"),
+    "바이오연료": ("biofuel","hydrocarbon fuel","combustion efficiency"),
+    "탄소포집": ("carbon capture","carbon dioxide capture","co2 capture"),
+}
+ENERGY_ACTION = ("signs","signed","contract","agreement","licence","license","awarded",
+                 "customer","deploy","operational","launched","launches","validated",
+                 "benchmark","demonstrat","achieves","pilot","trial","collaboration",
+                 "commercial","partnership")
+ENERGY_PARTNERS = ("neso","oxford pv","johnson matthey","harvard","quera","arpa-e","bp",
+                   "jij","nqcc","digital realty","grid operator","utility","energy company",
+                   "customer","national energy system operator")
+ENERGY_RECAP = ("first real-world payoff may","what to know","wall street","shares rise",
+                "price target","analyst rating","could be","might be","weekly roundup")
+
+
+def energy_official_url(value,domain):
+    u=urlparse(value or "")
+    host=(u.hostname or "").lower()
+    if u.scheme!="https" or not (host==domain or host.endswith("."+domain)):
+        return ""
+    if u.username or u.password or not u.path or u.path=="/":
+        return ""
+    if "/redirect" in u.path or "/login" in u.path:
+        return ""
+    return normalize_url(value)
+
+
+def energy_date(raw,text):
+    """Require the article's original publication date, not RSS/collection time."""
+    patterns=(
+        r'(?:datePublished|article:published_time|pubdate)[^<>\n]{0,170}?(20\d{2}-\d{2}-\d{2})',
+        r'<time\b[^>]*datetime=["\x27](20\d{2}-\d{2}-\d{2})',
+        r'\b(20\d{2}-\d{2}-\d{2})\b',
+        r'\b(\d{1,2}/\d{1,2}/\d{2,4})\b',
+        r'\b(\d{1,2}\s+[A-Za-z]{3,9}\s+20\d{2})\b',
+        r'\b([A-Za-z]{3,9}\s+\d{1,2},?\s+20\d{2})\b',
+    )
+    for sample in (str(raw or "")[:10000],str(text or "")[:2000]):
+        for expression in patterns:
+            match=re.search(expression,sample,re.I|re.S)
+            if not match: continue
+            value=match.group(1)
+            for fmt in ("%Y-%m-%d","%m/%d/%y","%m/%d/%Y","%d %B %Y","%d %b %Y",
+                        "%B %d, %Y","%B %d %Y","%b %d, %Y","%b %d %Y"):
+                try: return datetime.strptime(value,fmt).date()
+                except ValueError: pass
+    return None
+
+
+def energy_profile(company,title,content):
+    headline=clean(title).lower()
+    text=clean(content).lower()[:10000]
+    if not headline or any(word in headline for word in ENERGY_RECAP):
+        return None
+    if not any(action in headline for action in ENERGY_ACTION):
+        return None
+    joined=headline+" "+text
+    if not any(word in joined for word in ("quantum","photonic","jijzept","quantinuum")):
+        return None
+    subject=next((name for name,words in ENERGY_TERMS.items()
+                  if any(word in joined for word in words)),None)
+    if not subject or not any(p in joined[:5000] for p in ENERGY_PARTNERS):
+        return None
+    if company.lower() not in joined and not (company=="Jij" and "jijzept" in joined):
+        return None
+    if any(x in headline for x in ("signs","signed","contract","agreement","licence","license","awarded")):
+        phase="계약·사용권/연구과제"
+    elif any(x in headline for x in ("operational","deployed","deploys","customer")):
+        phase="고객 현장 배치·실제 가동 확인 필요"
+    elif any(x in headline for x in ("validated","demonstrat","benchmark","achieves")):
+        if not re.search(r"\b\d[\d,.]*\s*(?:%|times|x\b|variables?|qubits?)",joined):
+            return None
+        phase="성능 시험·기술검증"
+    elif any(x in headline for x in ("pilot","trial","collaboration","partnership","commercial")):
+        phase="공동개발·실증"
+    else:
+        return None
+    partner=next((p for p in ENERGY_PARTNERS if p in joined[:5000]),"미공개")
+    return {"application":subject,"stage":phase,"partner":partner}
+
+
+def energy_cards(company,index,domain):
+    raw=get(index)
+    if re.fullmatch(r"https?://\S+",raw.strip()) or len(raw)<150:
+        raise RuntimeError("Official energy index invalid")
+    soup=BeautifulSoup(raw,"html.parser")
+    cards={}
+    for a in soup.find_all("a",href=True):
+        link=energy_official_url(urljoin(index,a["href"]),domain)
+        if not link or link==normalize_url(index): continue
+        label=clean(a.get_text(" ",strip=True))
+        if label.lower() in ("read more","read article","read full story","learn more","view story"):
+            parent=a.find_parent(["article","li","div"])
+            h=parent.find(["h2","h3","h4"]) if parent else None
+            if h: label=clean(h.get_text(" ",strip=True))
+        context=label.lower()
+        if not (14<=len(label)<=220) or not any(x in context for x in ENERGY_ACTION):
+            continue
+        if not any(x in context for group in ENERGY_TERMS.values() for x in group) and not any(
+              x in context for x in ("bp","jij","nqcc","neso","hydrogen","arpa-e")):
+            continue
+        cards[link]={"company":company,"url":link,"title":label}
+    return list(cards.values())[:12]
+
+
+def energy_collect(now=None, indexer=energy_cards, getter=get):
+    now=now or datetime.now(KST)
+    found={};health={}
+    for company,index,domain in ENERGY_INDEXES:
+        try:
+            candidates=indexer(company,index,domain)
+            health[company]={"index":"ok","links":len(candidates),"unverified_articles":0}
+        except Exception as exc:
+            health[company]={"index":"failed","error":type(exc).__name__}
+            continue
+        for candidate in candidates:
+            try:
+                raw=getter(candidate["url"])
+                if re.fullmatch(r"https?://\S+",raw.strip()) or len(raw)<180:
+                    raise ValueError("Empty official article")
+                soup=BeautifulSoup(raw,"html.parser")
+                for tag in soup.find_all(["script","style","nav","aside","footer","header"]):
+                    tag.decompose()
+                node=soup.find("article") or soup.find("main")
+                detail=clean(str(node)) if node else clean(raw)
+                date=energy_date(raw,detail)
+                if date is None:
+                    raise ValueError("Official publication date missing")
+                age=(now.date()-date).days
+                if date<ENERGY_START or not (0<=age<=14):
+                    continue
+                profile=energy_profile(company,candidate["title"],detail)
+                if not profile:
+                    continue
+                identity="|".join((company.lower(),profile["application"],profile["partner"],
+                                   profile["stage"],date.isoformat()))
+                key="qenergy:"+hashlib.sha256(identity.encode()).hexdigest()[:24]
+                found[key]={**candidate,**profile,"date":date.isoformat(),"key":key}
+            except Exception:
+                health[company]["unverified_articles"]+=1
+    return list(found.values()),health
+
+
+def energy_message(item):
+    url=html.escape(item["url"],quote=True)
+    rows=(
+        "양자컴퓨팅 상용화·에너지 적용 중요 변화",
+        "<b>"+html.escape(item["company"]+" · "+item["application"])+"</b>",
+        "• 현재 단계: "+html.escape(item["stage"]),
+        "• 회사 발표일: "+html.escape(item["date"]),
+        "• 공식 제목: "+html.escape(item["title"]),
+        "• 협력·고객 단서: "+html.escape(item["partner"]),
+        "• 수익 단계: 연구·유료 사용권·실제 고객 배치·매출 인식을 분리",
+        "• 성능 검증: 기존 컴퓨터 대비 동일 조건·문제 크기·정확도·전체 실행시간 확인",
+        "• 위험: 고객 채택 지연·상업 규모에서의 속도·원가 효과 미확인·반복매출 불확실",
+        "• 다음 확인: 고객·계약금액·도입일·독립 검증·운영비 절감·반복매출",
+        '• <a href="'+url+'">공식 원문</a>'
+    )
+    result="\n".join(rows)
+    if len(result.encode("utf-16-le"))//2>4096:
+        raise ValueError("Quantum energy alert too long")
+    return result
+
+
+def energy_chat_matches(obj,target):
+    if not isinstance(obj,dict):
+        return False
+    key=str(target or "").strip()
+    if key.lstrip("-").isdigit():
+        return str(obj.get("id"))==key
+    if key.startswith("@"):
+        return str(obj.get("username") or "").lower()==key[1:].lower()
+    return False
+
+
+def energy_send(text):
+    token=(os.getenv("TELEGRAM_BOT_TOKEN") or "").strip()
+    chat=(os.getenv("TELEGRAM_CHAT_ID") or "").strip()
+    if not token or not chat:
+        raise RuntimeError("Quantum Telegram route unavailable")
+    api="https://api.telegram.org/bot"+token+"/"
+    me=requests.get(api+"getMe",timeout=TIMEOUT)
+    me.raise_for_status()
+    if (me.json().get("ok") is not True or
+        str((me.json().get("result") or {}).get("username") or "").lower()!="khs88798879_bot"):
+        raise RuntimeError("Quantum Telegram bot identity mismatch")
+    dst=requests.post(api+"getChat",json={"chat_id":chat},timeout=TIMEOUT)
+    dst.raise_for_status()
+    if dst.json().get("ok") is not True or not energy_chat_matches(dst.json().get("result") or {},chat):
+        raise RuntimeError("Quantum Telegram destination mismatch")
+    ack=requests.post(api+"sendMessage",json={"chat_id":chat,"text":text,"parse_mode":"HTML",
+                                            "disable_web_page_preview":True},timeout=TIMEOUT)
+    ack.raise_for_status()
+    payload=ack.json()
+    result=payload.get("result") or {}
+    mid=result.get("message_id")
+    if payload.get("ok") is not True or type(mid) is not int or mid<=0 or not energy_chat_matches(result.get("chat") or {},chat):
+        raise RuntimeError("Quantum Telegram acknowledgment missing or mismatched")
+    return mid
+
+
+def energy_monitor():
+    # Existing push actions remain regression-only for this new extension.
+    if os.getenv("GITHUB_EVENT_NAME")=="push" or os.getenv("QTECH_TEST_MODE")=="1":
+        print("[QTECH ENERGY] test/push => no send")
+        return
+    state=load_state()
+    if not state.get("initialized"):
+        raise RuntimeError("Quantum commercial state unavailable")
+    if state.get("energy_pending"):
+        print("[QTECH ENERGY HELD] Uncertain earlier Telegram send; no replay")
+        return
+    items,health=energy_collect()
+    verified=sum(v.get("index")=="ok" for v in health.values())
+    if not verified:
+        print("[QTECH ENERGY ERROR] All official indexes unavailable; not zero news")
+        raise RuntimeError("Quantum energy official sources unavailable")
+    seen=dict(state.get("energy_seen") or {})
+    sent=0
+    for item in items:
+        if item["key"] in seen:
+            continue
+        # Fail-closed journal before send. The existing workflow's always() state
+        # commit persists uncertain outcomes; a crash between send and commit
+        # remains a known, explicitly unresolved two-system atomicity limit.
+        state["energy_pending"]={"key":item["key"],"url":item["url"],
+                                  "status":"delivery_outcome_unconfirmed"}
+        save_state(state)
+        try:
+            mid=energy_send(energy_message(item))
+        except Exception:
+            save_state(state)
+            raise RuntimeError("Quantum energy Telegram outcome unconfirmed; manual reconciliation required") from None
+        seen[item["key"]]={"message_id":mid,"stage":item["stage"],
+                           "date":item["date"],"url":item["url"],
+                           "delivered_at_kst":datetime.now(KST).isoformat(timespec="seconds")}
+        state["energy_seen"]=dict(list(seen.items())[-600:])
+        state.pop("energy_pending",None)
+        save_state(state)
+        print("[QTECH ENERGY SENT] message_id="+str(mid)+" "+item["company"])
+        sent+=1
+        if sent>=2: break
+    state["energy_source_health"]=health
+    state["energy_checked_kst"]=datetime.now(KST).isoformat(timespec="seconds")
+    save_state(state)
+    print("[QTECH ENERGY DONE] sent="+str(sent)+" source_ok="+str(verified)+
+          " source_failed="+str(len(health)-verified))
+
+
 def main():
     old = load_state()
     sources_state = dict(old.get("sources") or {})
@@ -798,6 +1063,7 @@ def main():
     new["last_checked_kst"] = datetime.now(KST).isoformat(timespec="seconds")
     save_state(new)
     print(f"[QTECH DONE] 신규 알림 {sent}건, 재시도 대기 {len(new['retry_candidates'])}건")
+    energy_monitor()
 
 if __name__ == "__main__":
     main()

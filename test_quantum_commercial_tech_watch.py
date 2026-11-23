@@ -206,6 +206,31 @@ def main():
         for key,value in saved.items():
             setattr(q,key,value)
 
+    # Independent first-party energy extension: no CNBC recap or simulated contract.
+    from datetime import date
+    assert q.ENERGY_START==date(2026,11,23)
+    assert q.energy_official_url("https://news.google.com/rss/articles/any","phasecraft.io")==""
+    assert q.energy_official_url("https://fakephasecraft.io/article","phasecraft.io")==""
+    assert q.energy_official_url("https://www.phasecraft.io/journal/journal/example","phasecraft.io")
+    assert q.energy_profile("Phasecraft",
+        "Quantum computing's first real-world payoff may come in energy",
+        "Phasecraft and NESO tested quantum grid optimisation.") is None
+    signed=q.energy_profile("Phasecraft",
+        "Phasecraft signs enterprise license with NESO energy grid",
+        "Phasecraft quantum software partnership with the national energy system operator NESO.")
+    assert signed and signed["application"]=="전력망"
+    assert signed["stage"]=="계약·사용권/연구과제"
+    assert q.energy_profile("ORCA Computing","ORCA launches PT-3 quantum computer",
+        "ORCA Computing photonic quantum computer announced with no energy customer.") is None
+    assert q.energy_date('<time datetime="2026-11-24T08:00:00Z">',"release")==date(2026,11,24)
+    assert q.energy_chat_matches({"id":-100111},"-100111")
+    assert not q.energy_chat_matches({"id":-100222},"-100111")
+    event={"company":"Phasecraft","application":"전력망","stage":"성능 시험·기술검증",
+           "date":"2026-11-24","title":"Phasecraft demonstrates power grid benchmark with NESO",
+           "partner":"neso","url":"https://www.phasecraft.io/journal/journal/test"}
+    rendered=q.energy_message(event)
+    assert '<a href="https://www.phasecraft.io/journal/journal/test">공식 원문</a>' in rendered
+    assert "news.google.com" not in rendered
     print("quantum_commercial_tech_tests=passed")
 
 if __name__=="__main__":
