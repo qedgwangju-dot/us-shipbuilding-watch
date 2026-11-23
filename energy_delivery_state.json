@@ -1,26 +1,6 @@
 {
   "schema_version": 1,
-  "outbox": {
-    "refinery:news:refinery_article_31d414c923d69bd646adafea": {
-      "topic": "refinery",
-      "kind": "news",
-      "event_key": "refinery_article_31d414c923d69bd646adafea",
-      "status": "enrichment_pending",
-      "items": [
-        {
-          "id": "31d414c923d69bd646adafea",
-          "title": "Refinery Limits Cloud Trump, Putin and Xi Fuel Pledge - Oz Arab Media",
-          "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTE1YMFpKUGVMRGNGZlVlR19sV05FY3p0Y21KVU5RMzJDMXQ3UjNIR0xtb3IteGZyRUZucmZQNzdxRTBKdmVLbGJLS1BSQkxFalRWQW1jN2tjZExURU50NzlqcGNnbjBtcjBab1pOaGpGdXZCU2RxZ3NDYXMzSzg3Tms?oc=5",
-          "source": "Oz Arab Media",
-          "source_url": "https://ozarab.media",
-          "pub_kst": "2026-11-20T23:00+09:00"
-        }
-      ],
-      "queued_at": "2026-11-21T03:41:57+09:00",
-      "attempts": 11,
-      "invalid_items": []
-    }
-  },
+  "outbox": {},
   "receipts": [
     {
       "key": "spr:data:spr:2026-10-09",
@@ -3334,6 +3314,16 @@
       "ids": [
         "8acb5ec1038216f48d0b4247"
       ]
+    },
+    {
+      "key": "refinery:news:refinery_article_31d414c923d69bd646adafea",
+      "reason": "expired_unverified_no_telegram_delivery",
+      "at": "2026-11-24T06:40:04+09:00",
+      "ids": [
+        "31d414c923d69bd646adafea"
+      ],
+      "delivered": false,
+      "archived": true
     }
   ],
   "observed_data": {
@@ -6042,6 +6032,29 @@
         ],
         "queued_at": "2026-11-21T16:00:26+09:00",
         "attempts": 1,
+        "invalid_items": []
+      }
+    },
+    "refinery:news:refinery_article_31d414c923d69bd646adafea": {
+      "archived_at": "2026-11-24T06:40:04+09:00",
+      "reason": "expired_unverified_no_telegram_delivery",
+      "entry": {
+        "topic": "refinery",
+        "kind": "news",
+        "event_key": "refinery_article_31d414c923d69bd646adafea",
+        "status": "enrichment_pending",
+        "items": [
+          {
+            "id": "31d414c923d69bd646adafea",
+            "title": "Refinery Limits Cloud Trump, Putin and Xi Fuel Pledge - Oz Arab Media",
+            "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTE1YMFpKUGVMRGNGZlVlR19sV05FY3p0Y21KVU5RMzJDMXQ3UjNIR0xtb3IteGZyRUZucmZQNzdxRTBKdmVLbGJLS1BSQkxFalRWQW1jN2tjZExURU50NzlqcGNnbjBtcjBab1pOaGpGdXZCU2RxZ3NDYXMzSzg3Tms?oc=5",
+            "source": "Oz Arab Media",
+            "source_url": "https://ozarab.media",
+            "pub_kst": "2026-11-20T23:00+09:00"
+          }
+        ],
+        "queued_at": "2026-11-21T03:41:57+09:00",
+        "attempts": 11,
         "invalid_items": []
       }
     }
