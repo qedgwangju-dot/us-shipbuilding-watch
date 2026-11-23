@@ -53,6 +53,10 @@ jobs:
           PYTHONPATH=. python test_quantum_commercial_tech_watch.py
           PYTHONPATH=. python test_genesis_science_execution_watch.py
 
+      - name: 에너지 분야 공식 원천 실조회 무전송 진단
+        if: github.event_name == 'push'
+        run: python quantum_commercial_tech_watch.py --energy-probe
+
       - name: Telegram 경로 확인
         id: quantum_bot_check
         env:

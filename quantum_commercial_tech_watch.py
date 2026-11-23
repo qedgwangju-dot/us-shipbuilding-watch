@@ -1065,5 +1065,21 @@ def main():
     print(f"[QTECH DONE] 신규 알림 {sent}건, 재시도 대기 {len(new['retry_candidates'])}건")
     energy_monitor()
 
+def energy_source_probe():
+    # External primary-source visibility check only: do not send or save state.
+    events,health=energy_collect()
+    good=sum(v.get("index")=="ok" for v in health.values())
+    print("[QTECH ENERGY PROBE] official_index_ok="+str(good)+
+          " official_index_failed="+str(len(health)-good)+
+          " qualified_new_events="+str(len(events))+" no_send=true")
+    for company,result in health.items():
+        print("[QTECH ENERGY PROBE SOURCE] "+company+" "+str(result))
+    if not good:
+        raise RuntimeError("Energy primary-source coverage unavailable; not a no-news result")
+
+
 if __name__ == "__main__":
-    main()
+    if len(__import__("sys").argv)>1 and __import__("sys").argv[1]=="--energy-probe":
+        energy_source_probe()
+    else:
+        main()
