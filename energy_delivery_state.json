@@ -19,6 +19,24 @@
       "queued_at": "2026-11-21T03:41:57+09:00",
       "attempts": 11,
       "invalid_items": []
+    },
+    "spr:news:spr_article_8acb5ec1038216f48d0b4247": {
+      "topic": "spr",
+      "kind": "news",
+      "event_key": "spr_article_8acb5ec1038216f48d0b4247",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "8acb5ec1038216f48d0b4247",
+          "title": "Oil giant Chevron strikes agreement to expand Venezuela operations - Fox Business",
+          "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPVy1meGNPeF9OazdqWDRvazRVQm5leUtEUm9aUEdLTEZzMnB3OUlsQXlnMTVCS21ZUDhxNzZGaXlPb29kbHdnZ25oOG1HUjllSVZUM0k1cWJpTXROdXE5ZTM2SFRlcWJxbGE5eC1odG9mSDZFS3dYYlEtOFB0ZVBId0JoRWVCRG1zcGg2cTlrOWNQWUhKTzVxYktETDNOTTA?oc=5",
+          "source": "Fox Business",
+          "source_url": "https://www.foxbusiness.com",
+          "pub_kst": "2026-09-02T16:00+09:00"
+        }
+      ],
+      "queued_at": "2026-11-23T18:43:45+09:00",
+      "attempts": 0
     }
   },
   "receipts": [
