@@ -1,5 +1,38 @@
 {
   "bootstrap_sent": true,
+  "energy_checked_kst": "2026-11-24T06:38:32+09:00",
+  "energy_source_health": {
+    "Jij": {
+      "coverage": "candidates_found",
+      "index": "ok",
+      "links": 3,
+      "unverified_articles": 0
+    },
+    "ORCA Computing": {
+      "coverage": "zero_candidate_coverage_unverified",
+      "index": "ok",
+      "links": 0,
+      "unverified_articles": 0
+    },
+    "Phasecraft": {
+      "coverage": "candidates_found",
+      "index": "ok",
+      "links": 1,
+      "unverified_articles": 1
+    },
+    "QuEra": {
+      "coverage": "zero_candidate_coverage_unverified",
+      "index": "ok",
+      "links": 0,
+      "unverified_articles": 0
+    },
+    "Quantinuum": {
+      "coverage": "zero_candidate_coverage_unverified",
+      "index": "ok",
+      "links": 0,
+      "unverified_articles": 0
+    }
+  },
   "events": [
     "IonQ|상용화·고객배치|fiu|superion256",
     "IonQ|상용화·고객배치|nvidia|generic",
@@ -10,7 +43,7 @@
     "IonQ|정부 기술검증·계약|darpa|qbi-stage-c-2026-10-07"
   ],
   "initialized": true,
-  "last_checked_kst": "2026-11-24T00:56:26+09:00",
+  "last_checked_kst": "2026-11-24T06:38:23+09:00",
   "retry_candidates": [],
   "sources": {
     "D-Wave 공식 뉴스": [
