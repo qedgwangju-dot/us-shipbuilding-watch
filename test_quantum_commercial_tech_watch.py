@@ -223,6 +223,8 @@ def main():
     assert q.energy_profile("ORCA Computing","ORCA launches PT-3 quantum computer",
         "ORCA Computing photonic quantum computer announced with no energy customer.") is None
     assert q.energy_date('<time datetime="2026-11-24T08:00:00Z">',"release")==date(2026,11,24)
+    assert "selected" in q.ENERGY_ACTION
+    assert "fuel cell" in q.ENERGY_TERMS["수소촉매"]
     assert q.energy_chat_matches({"id":-100111},"-100111")
     assert not q.energy_chat_matches({"id":-100222},"-100111")
     event={"company":"Phasecraft","application":"전력망","stage":"성능 시험·기술검증",

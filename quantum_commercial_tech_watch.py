@@ -620,11 +620,12 @@ ENERGY_TERMS = {
              "grid optimisation","unit commitment","generator schedul","energy network","neso",
              "national energy system operator","power system","grid operator"),
     "태양전지": ("solar cell","photovoltaic","perovskite","oxford pv"),
-    "수소촉매": ("hydrogen","electrolysis","iridium","catalyst discovery","electrocatalyst"),
+    "수소촉매": ("hydrogen","hydrogen fuel","fuel cell","electrolysis","iridium","catalyst discovery","electrocatalyst"),
     "바이오연료": ("biofuel","hydrocarbon fuel","combustion efficiency"),
     "탄소포집": ("carbon capture","carbon dioxide capture","co2 capture"),
 }
 ENERGY_ACTION = ("signs","signed","contract","agreement","licence","license","awarded",
+                 "named","selected","grant","joins","announces","announce","project",
                  "customer","deploy","operational","launched","launches","validated",
                  "benchmark","demonstrat","achieves","pilot","trial","collaboration",
                  "commercial","partnership")
@@ -716,10 +717,14 @@ def energy_cards(company,index,domain):
             h=parent.find(["h2","h3","h4"]) if parent else None
             if h: label=clean(h.get_text(" ",strip=True))
         context=label.lower()
+        parent=a.find_parent(["article","li","div"])
+        excerpt=clean(parent.get_text(" ",strip=True))[:650].lower() if parent else ""
+        preview=context+" "+excerpt
         if not (14<=len(label)<=220) or not any(x in context for x in ENERGY_ACTION):
             continue
-        if not any(x in context for group in ENERGY_TERMS.values() for x in group) and not any(
-              x in context for x in ("bp","jij","nqcc","neso","hydrogen","arpa-e")):
+        if not any(x in preview for group in ENERGY_TERMS.values() for x in group) and not any(
+              x in preview for x in ("bp","jij","nqcc","neso","hydrogen","arpa-e",
+                                    "industrial optimisation","industrial optimization","energy")):
             continue
         cards[link]={"company":company,"url":link,"title":label}
     return list(cards.values())[:12]
@@ -731,7 +736,9 @@ def energy_collect(now=None, indexer=energy_cards, getter=get):
     for company,index,domain in ENERGY_INDEXES:
         try:
             candidates=indexer(company,index,domain)
-            health[company]={"index":"ok","links":len(candidates),"unverified_articles":0}
+            health[company]={"index":"ok","links":len(candidates),
+                             "coverage":"candidates_found" if candidates else "zero_candidate_coverage_unverified",
+                             "unverified_articles":0}
         except Exception as exc:
             health[company]={"index":"failed","error":type(exc).__name__}
             continue
@@ -758,8 +765,10 @@ def energy_collect(now=None, indexer=energy_cards, getter=get):
                                    profile["stage"],date.isoformat()))
                 key="qenergy:"+hashlib.sha256(identity.encode()).hexdigest()[:24]
                 found[key]={**candidate,**profile,"date":date.isoformat(),"key":key}
-            except Exception:
+            except Exception as exc:
                 health[company]["unverified_articles"]+=1
+                print("[QTECH ENERGY ARTICLE DEFERRED] "+company+" "+type(exc).__name__+
+                      " headline="+candidate["title"][:90])
     return list(found.values()),health
 
 
