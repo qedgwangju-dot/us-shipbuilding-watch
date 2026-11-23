@@ -667,6 +667,18 @@ def energy_date(raw,text):
                         "%B %d, %Y","%B %d %Y","%b %d, %Y","%b %d %Y"):
                 try: return datetime.strptime(value,fmt).date()
                 except ValueError: pass
+    # First-party article datelines may occur after long page scripts.
+    # Only a clearly marked publisher-city dateline is eligible.
+    complete=clean(str(raw or ""))[:120000]
+    dateline=re.search(
+        r"\b(?:London|Bristol|Washington|Boston|Broomfield)\s*,?\s*"
+        r"((?:January|February|March|April|May|June|July|August|September|October|November|December|"
+        r"Jan|Feb|Mar|Apr|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\s+\d{1,2},?\s+20\d{2})",
+        complete,re.I)
+    if dateline:
+        for fmt in ("%B %d, %Y","%B %d %Y","%b %d, %Y","%b %d %Y"):
+            try: return datetime.strptime(dateline.group(1),fmt).date()
+            except ValueError: pass
     return None
 
 

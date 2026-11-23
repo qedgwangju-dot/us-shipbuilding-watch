@@ -223,6 +223,9 @@ def main():
     assert q.energy_profile("ORCA Computing","ORCA launches PT-3 quantum computer",
         "ORCA Computing photonic quantum computer announced with no energy customer.") is None
     assert q.energy_date('<time datetime="2026-11-24T08:00:00Z">',"release")==date(2026,11,24)
+    # Site navigation can exceed the date parser window; official city dateline still applies.
+    long_page="<html><script>"+("var irrelevant='x';"*800)+"</script>"+        "<main>NQCC signs agreement with Phasecraft. London, Nov 6, 2026. Signed enterprise licence.</main></html>"
+    assert q.energy_date(long_page,"NQCC signed software agreement")==date(2026,11,6)
     assert "selected" in q.ENERGY_ACTION
     assert "fuel cell" in q.ENERGY_TERMS["수소촉매"]
     assert q.energy_chat_matches({"id":-100111},"-100111")
