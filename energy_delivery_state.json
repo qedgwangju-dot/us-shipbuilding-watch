@@ -1,6 +1,61 @@
 {
   "schema_version": 1,
-  "outbox": {},
+  "outbox": {
+    "refinery:news:refinery_article_9462c7bd6fa1ac7f65ba8e3e": {
+      "topic": "refinery",
+      "kind": "news",
+      "event_key": "refinery_article_9462c7bd6fa1ac7f65ba8e3e",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "9462c7bd6fa1ac7f65ba8e3e",
+          "title": "Putin threat puts Trump’s refinery truce on thin ice - Rolling Out",
+          "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTE9hOFU1eTJLVzREUUJiZjZGT2JsZEc5TzIybUdzVGZmeGhQajd5aTFzRW5mX2duS3Z5QmRYRUxMWTNYUlQzZ2FKYjhBc0llWDMzNUxUMktOTWdUS0hia3VqZXhYc3F2cVB6dERFUUhLNUZSdlNNQUhNSGFlWkFJN0k?oc=5",
+          "source": "Rolling Out",
+          "source_url": "https://rollingout.com",
+          "pub_kst": "2026-11-26T02:29+09:00"
+        }
+      ],
+      "queued_at": "2026-11-26T04:09:46+09:00",
+      "attempts": 0
+    },
+    "refinery:news:refinery_article_7acaa0de9d3a78a22f6883b1": {
+      "topic": "refinery",
+      "kind": "news",
+      "event_key": "refinery_article_7acaa0de9d3a78a22f6883b1",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "7acaa0de9d3a78a22f6883b1",
+          "title": "Ukraine tells Putin to ‘stop complaining’ over oil refinery attacks as Russia promises retaliation - CNBC",
+          "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxQNjNtYzVldk8zT3hELUlveWMwWXB2clBrQXpUY25iczhXaktvQVVXNjRvazhyNElMUmJrU3hqUUZkcGpVVkV4d0FoZ0dIV0t1RUU0TE1PRHRBYWhkWmNiUG9NTjd5YU1pMUFhM3pFdFhwbTc5LV9VZnpoT1ZBQWhGY0pCTmLSAYoBQVVfeXFMTUpFNkV4bVB1WE1qelJJUnNJXzdmUlg3VXdtamdvY1RjMzdrWE8wZnZ5TG8xLWV3eXdBWnF5Z3Q1S0l3TW9jYWVFakx4ekZDNHd1TDRaOXdNRURxWWVBMU1QT2s5Rk9XY1k4TmtMTnc4ZnNncUZ6alR6RF9oNnk5LTV5dWpORjd1Ql9B?oc=5",
+          "source": "CNBC",
+          "source_url": "https://www.cnbc.com",
+          "pub_kst": "2026-11-25T18:18+09:00"
+        }
+      ],
+      "queued_at": "2026-11-26T04:09:46+09:00",
+      "attempts": 0
+    },
+    "refinery:news:refinery_article_d28968af5448fcb952cbaea0": {
+      "topic": "refinery",
+      "kind": "news",
+      "event_key": "refinery_article_d28968af5448fcb952cbaea0",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "d28968af5448fcb952cbaea0",
+          "title": "Trump to Discuss High Fuel Prices With Oil Refiners Next Week - Bloomberg",
+          "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxNQ0k1Y3IzZlNTVkx3RmlQbWItZGFhaW9xSWJWN052Qkp2bFQ4ck96MFNFenBmX1pMTC1pZDhIOFFEcDA5RTVxOEhpMExfdmhyX0tTalJFLURHSzZHS2tOaGpqeVJqTlJMZkw1MjlFM0hkZER3d2xyQXk4QzR2RlBZRHZQSFNkcFhaSlBGOVA5a1BhVTRFWUZWSEplWFlNZXZNX1Q3aUJYanB4WG9DSlRfOTlR?oc=5",
+          "source": "Bloomberg",
+          "source_url": "https://www.bloomberg.com",
+          "pub_kst": "2026-08-28T16:00+09:00"
+        }
+      ],
+      "queued_at": "2026-11-26T04:09:46+09:00",
+      "attempts": 0
+    }
+  },
   "receipts": [
     {
       "key": "spr:data:spr:2026-10-09",
