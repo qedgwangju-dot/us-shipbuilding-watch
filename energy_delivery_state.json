@@ -47,6 +47,54 @@
       "queued_at": "2026-11-26T04:09:46+09:00",
       "attempts": 1,
       "invalid_items": []
+    },
+    "spr:data:spr:2026-11-20": {
+      "topic": "spr",
+      "kind": "data",
+      "field": "spr",
+      "current": {
+        "date": "2026-11-20",
+        "value_kbbl": 273465,
+        "prev_kbbl": 276361,
+        "source": "https://www.eia.gov/dnav/pet/PET_STOC_WSTK_A_EPC0_SAS_MBBL_W.htm"
+      },
+      "status": "ready",
+      "message": "<b>[SPR 공식 수치]</b>\n<b>2026-11-20 | 273.465백만 배럴</b>\n\n<b>한눈에 보기</b>\n• 전주 변화: <b>-2.896백만 배럴</b>\n• 저장능력 7억1,400만 배럴 대비: <b>38.3%</b>\n• 완전 충전까지: <b>440.535백만 배럴</b> 부족\n\n<b>판정</b>\n• 아직 보충 효과 미확인\n• 증가분이 나와도 베네수엘라 신규 반입과 기존 교환계약 반환물량을 DOE 자료로 분리 확인\n\n<a href=\"https://www.eia.gov/dnav/pet/PET_STOC_WSTK_A_EPC0_SAS_MBBL_W.htm\">EIA 원문</a>",
+      "queued_at": "2026-11-26T04:09:54+09:00",
+      "attempts": 0
+    },
+    "spr:data:venezuela_imports:2026-11-20": {
+      "topic": "spr",
+      "kind": "data",
+      "field": "venezuela_imports",
+      "current": {
+        "date": "2026-11-20",
+        "value_kbd": 734,
+        "prev_kbd": 260,
+        "source": "https://www.eia.gov/dnav/pet/hist/LeafHandler.ashx?f=W&n=PET&s=W_EPC0_IM0_NUS-NVE_MBBLD"
+      },
+      "status": "ready",
+      "message": "<b>[베네수엘라산 원유 미국 유입]</b>\n<b>2026-11-20 | 734천 배럴/일</b>\n\n<b>한눈에 보기</b>\n• 전주 변화: <b>+474천 배럴/일</b>\n• 7일 단순 환산: <b>5.138백만 배럴</b>\n\n<b>판정</b>\n• 미국 전체 수입량이지 SPR 직접 입고량은 아님\n• 정유사 투입분과 SPR 저장분을 DOE 조달·반입 자료로 분리 확인\n\n<a href=\"https://www.eia.gov/dnav/pet/hist/LeafHandler.ashx?f=W&amp;n=PET&amp;s=W_EPC0_IM0_NUS-NVE_MBBLD\">EIA 원문</a>",
+      "queued_at": "2026-11-26T04:09:55+09:00",
+      "attempts": 0
+    },
+    "spr:news:spr_article_3d0b1143d72f1ada67b62476": {
+      "topic": "spr",
+      "kind": "news",
+      "event_key": "spr_article_3d0b1143d72f1ada67b62476",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "3d0b1143d72f1ada67b62476",
+          "title": "Investment banks cool Trump’s optimism: Venezuelan oil will not lower prices - EL PAÍS English",
+          "link": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxPX2owa3hWNkVSZEFlZ2hrZDZLaGJDUUZWNzdaQ0pnRVotb2w2TEo1S05jSzEtMXhDcmdfR3FmQjV3eDRwU3Q2dDBDbnFNczN5WFVhOEJ5bDB3b3dRcjNqT1hfV2IzVzZobmI0Q1dOYlZDUVBycjI1OFZfM3BHU0lMT2VWdU1WUlBqSTlfWEpHQl96bzBFR1dnMUFqcFh5NHpMcnJXMGcxZGNHMXdSZWtXX0F6YzV4UjcwdzJvdGk5WnVwYkhWZ0lYRFFZZ3gtS1JpRjlUWQ?oc=5",
+          "source": "EL PAÍS English",
+          "source_url": "https://english.elpais.com",
+          "pub_kst": "2026-09-03T16:00+09:00"
+        }
+      ],
+      "queued_at": "2026-11-26T04:09:58+09:00",
+      "attempts": 0
     }
   },
   "receipts": [
@@ -3392,15 +3440,15 @@
   ],
   "observed_data": {
     "spr": {
-      "date": "2026-11-13",
-      "value_kbbl": 276361,
-      "prev_kbbl": 279535,
+      "date": "2026-11-20",
+      "value_kbbl": 273465,
+      "prev_kbbl": 276361,
       "source": "https://www.eia.gov/dnav/pet/PET_STOC_WSTK_A_EPC0_SAS_MBBL_W.htm"
     },
     "venezuela_imports": {
-      "date": "2026-11-13",
-      "value_kbd": 260,
-      "prev_kbd": 603,
+      "date": "2026-11-20",
+      "value_kbd": 734,
+      "prev_kbd": 260,
       "source": "https://www.eia.gov/dnav/pet/hist/LeafHandler.ashx?f=W&n=PET&s=W_EPC0_IM0_NUS-NVE_MBBLD"
     }
   },
