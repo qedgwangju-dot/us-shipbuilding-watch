@@ -1,6 +1,6 @@
 {
   "bootstrap_sent": true,
-  "energy_checked_kst": "2026-11-25T01:20:36+09:00",
+  "energy_checked_kst": "2026-11-25T09:56:41+09:00",
   "energy_source_health": {
     "Jij": {
       "coverage": "candidates_found",
@@ -21,10 +21,8 @@
       "unverified_articles": 1
     },
     "QuEra": {
-      "coverage": "zero_candidate_coverage_unverified",
-      "index": "ok",
-      "links": 0,
-      "unverified_articles": 0
+      "error": "HTTPError",
+      "index": "failed"
     },
     "Quantinuum": {
       "coverage": "zero_candidate_coverage_unverified",
@@ -43,7 +41,7 @@
     "IonQ|정부 기술검증·계약|darpa|qbi-stage-c-2026-10-07"
   ],
   "initialized": true,
-  "last_checked_kst": "2026-11-25T01:20:27+09:00",
+  "last_checked_kst": "2026-11-25T09:56:37+09:00",
   "retry_candidates": [],
   "sources": {
     "D-Wave 공식 뉴스": [
