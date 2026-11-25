@@ -1,25 +1,6 @@
 {
   "schema_version": 1,
-  "outbox": {
-    "refinery:news:refinery_article_12795fbab4caad88f5be3b0c": {
-      "topic": "refinery",
-      "kind": "news",
-      "event_key": "refinery_article_12795fbab4caad88f5be3b0c",
-      "status": "enrichment_pending",
-      "items": [
-        {
-          "id": "12795fbab4caad88f5be3b0c",
-          "title": "Questions and Answers Regarding EPA's Tier 3 Gasoline Sulfur Regulations: 40 CFR Part 80 Subparts D, E, H, and O (EPA-420-F- - U.S. Environmental Protection Agency (.gov)",
-          "link": "https://news.google.com/rss/articles/CBMikwFBVV95cUxQM0t2S0NEQmZnZEVBRW9yc2xMaFlpVnYyeUR1S1o5dWdLZ0Fwa1AzU0FoVklibkVVRmJpNEtEQW5Tai1wWXhtY21WQUE4SE5IdGpOT3VsUi04ZG1tYXR6UmNXSDhBeWlYUlU2ajcycUN3NEtocUhLbmtfSTFLSDdFTnhfbWlZZ191ZUdvU3RQNDVXTDA?oc=5",
-          "source": "U.S. Environmental Protection Agency (.gov)",
-          "source_url": "https://19january2025snapshot.epa.gov",
-          "pub_kst": "2016-11-01T16:00+09:00"
-        }
-      ],
-      "queued_at": "2026-11-25T18:04:16+09:00",
-      "attempts": 0
-    }
-  },
+  "outbox": {},
   "receipts": [
     {
       "key": "spr:data:spr:2026-10-09",
@@ -3343,6 +3324,14 @@
       ],
       "delivered": false,
       "archived": true
+    },
+    {
+      "key": "refinery:news:refinery_article_12795fbab4caad88f5be3b0c",
+      "reason": "news_outside_three_day_window",
+      "at": "2026-11-25T18:04:23+09:00",
+      "ids": [
+        "12795fbab4caad88f5be3b0c"
+      ]
     }
   ],
   "observed_data": {

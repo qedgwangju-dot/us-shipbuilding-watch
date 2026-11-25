@@ -1,6 +1,7 @@
 {
   "initialized": true,
   "seen": [
+    "12795fbab4caad88f5be3b0c",
     "31d414c923d69bd646adafea",
     "29280baec02e7db1dbd309a2",
     "7668d97172f6486d898e6107",
@@ -454,7 +455,7 @@
     "c99a2657478daa3c4a8a896e",
     "a8e7de25f5234e183c67fd9e"
   ],
-  "last_run_kst": "2026-11-25T09:35:34+09:00",
+  "last_run_kst": "2026-11-25T18:04:23+09:00",
   "last_source_error_count": 0,
   "last_translation_error_count": 0,
   "events": {
