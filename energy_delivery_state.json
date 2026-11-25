@@ -5,7 +5,7 @@
       "topic": "refinery",
       "kind": "news",
       "event_key": "refinery_article_9462c7bd6fa1ac7f65ba8e3e",
-      "status": "enrichment_pending",
+      "status": "source_blocked",
       "items": [
         {
           "id": "9462c7bd6fa1ac7f65ba8e3e",
@@ -13,11 +13,21 @@
           "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTE9hOFU1eTJLVzREUUJiZjZGT2JsZEc5TzIybUdzVGZmeGhQajd5aTFzRW5mX2duS3Z5QmRYRUxMWTNYUlQzZ2FKYjhBc0llWDMzNUxUMktOTWdUS0hia3VqZXhYc3F2cVB6dERFUUhLNUZSdlNNQUhNSGFlWkFJN0k?oc=5",
           "source": "Rolling Out",
           "source_url": "https://rollingout.com",
-          "pub_kst": "2026-11-26T02:29+09:00"
+          "pub_kst": "2026-11-26T02:29+09:00",
+          "_source_blocked": true,
+          "_source_failure": {
+            "stage": "translation_google",
+            "reason": "http_rate_limit",
+            "blocked_before_request": false,
+            "provider": "www.google.com",
+            "request_url_sha256": "c6759ebbb72702e148f8f81679bd142b30c3d6964238e5069baa652073a8b2bd",
+            "http_status": 429
+          }
         }
       ],
       "queued_at": "2026-11-26T04:09:46+09:00",
-      "attempts": 0
+      "attempts": 1,
+      "invalid_items": []
     },
     "refinery:news:refinery_article_7acaa0de9d3a78a22f6883b1": {
       "topic": "refinery",
@@ -35,25 +45,8 @@
         }
       ],
       "queued_at": "2026-11-26T04:09:46+09:00",
-      "attempts": 0
-    },
-    "refinery:news:refinery_article_d28968af5448fcb952cbaea0": {
-      "topic": "refinery",
-      "kind": "news",
-      "event_key": "refinery_article_d28968af5448fcb952cbaea0",
-      "status": "enrichment_pending",
-      "items": [
-        {
-          "id": "d28968af5448fcb952cbaea0",
-          "title": "Trump to Discuss High Fuel Prices With Oil Refiners Next Week - Bloomberg",
-          "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxNQ0k1Y3IzZlNTVkx3RmlQbWItZGFhaW9xSWJWN052Qkp2bFQ4ck96MFNFenBmX1pMTC1pZDhIOFFEcDA5RTVxOEhpMExfdmhyX0tTalJFLURHSzZHS2tOaGpqeVJqTlJMZkw1MjlFM0hkZER3d2xyQXk4QzR2RlBZRHZQSFNkcFhaSlBGOVA5a1BhVTRFWUZWSEplWFlNZXZNX1Q3aUJYanB4WG9DSlRfOTlR?oc=5",
-          "source": "Bloomberg",
-          "source_url": "https://www.bloomberg.com",
-          "pub_kst": "2026-08-28T16:00+09:00"
-        }
-      ],
-      "queued_at": "2026-11-26T04:09:46+09:00",
-      "attempts": 0
+      "attempts": 1,
+      "invalid_items": []
     }
   },
   "receipts": [
@@ -3386,6 +3379,14 @@
       "at": "2026-11-25T18:04:23+09:00",
       "ids": [
         "12795fbab4caad88f5be3b0c"
+      ]
+    },
+    {
+      "key": "refinery:news:refinery_article_d28968af5448fcb952cbaea0",
+      "reason": "news_outside_three_day_window",
+      "at": "2026-11-26T04:09:51+09:00",
+      "ids": [
+        "d28968af5448fcb952cbaea0"
       ]
     }
   ],
