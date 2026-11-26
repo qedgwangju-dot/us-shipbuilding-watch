@@ -47,6 +47,42 @@
       "queued_at": "2026-11-26T04:09:46+09:00",
       "attempts": 2,
       "invalid_items": []
+    },
+    "spr:news:spr_article_9aece6b3579374f28e4a8941": {
+      "topic": "spr",
+      "kind": "news",
+      "event_key": "spr_article_9aece6b3579374f28e4a8941",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "9aece6b3579374f28e4a8941",
+          "title": "Chevron Expansion in Venezuela Extends U.S. Influence Over Oil Riches - The New York Times",
+          "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxPSGgyQ01xZVpsdjk2V21iTUFLeFRqeDNVeGd0N0JHYjRsVk5mczBwN21vVU0yQTN2QXAtR0trTVRzMWNja0JldVBoSnlEQXViUDRJSzVGSnFzaWN1Y20xYjFPQU82dEk2RU9MS1lMOVRWU2xZajBxQ0ZuR1U0eTVDMmN4U2x1NGNMYkVRTTJxTTdMR0lVdnI2NllPTQ?oc=5",
+          "source": "The New York Times",
+          "source_url": "https://www.nytimes.com",
+          "pub_kst": "2026-09-02T16:00+09:00"
+        }
+      ],
+      "queued_at": "2026-11-26T11:09:14+09:00",
+      "attempts": 0
+    },
+    "spr:news:spr_article_f7d096bfee46d6654ae118bc": {
+      "topic": "spr",
+      "kind": "news",
+      "event_key": "spr_article_f7d096bfee46d6654ae118bc",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "f7d096bfee46d6654ae118bc",
+          "title": "China Won’t Have Claims to Venezuelan Oil Revenue, Wright Says - Bloomberg.com",
+          "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxQU0diOWp4b3JtUzJiU2lVVFI0MkJzNE9MN3Y2cGE0cTZ1NmlFQmVMOEVqZWNwblpWS1ZDMENOT1dCQU8xc3l0aEFjLXRwNkwxc3ZjRmdzcnNGdV9nWVZpd3ZMTXRIMVdtZm9zTVJWSVliMjFIbU1wcXVra0o1RUxSWWZYMlpBdHllV3AxWk5kX0o0eE13RzBiWXJGRS1wTThKMk9LX21keGpUMDBTZ2FlTU1n?oc=5",
+          "source": "Bloomberg.com",
+          "source_url": "https://www.bloomberg.com",
+          "pub_kst": "2026-09-02T16:00+09:00"
+        }
+      ],
+      "queued_at": "2026-11-26T11:09:14+09:00",
+      "attempts": 0
     }
   },
   "receipts": [
