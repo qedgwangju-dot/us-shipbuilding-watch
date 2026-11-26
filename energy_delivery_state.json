@@ -47,6 +47,24 @@
       "queued_at": "2026-11-26T04:09:46+09:00",
       "attempts": 1,
       "invalid_items": []
+    },
+    "refinery:news:refinery_article_99013c7266bbdcc9c4fe9345": {
+      "topic": "refinery",
+      "kind": "news",
+      "event_key": "refinery_article_99013c7266bbdcc9c4fe9345",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "99013c7266bbdcc9c4fe9345",
+          "title": "Trump: Russia, Calif. Refinery Disruptions, Not Iran War, Pushing Gas Price - Yahoo",
+          "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxPSzktTi1BQVFSRG1HNU5WNWRNc0NQMGhjbHRKR0htZW92OGQ2NHhLTUxWNENJSXJZdDU1UHVaa3NnRFlWX1Fka1BtZ2ZNbVlTdlljSHhQQ1FQUDFJb1NzMk1qbW5YZi1DdjNDVEx3Y1hNZk9yUlcycUNWWDBjcnZJQ3hWYUpjUmd0cGozTzFXWTBXOGFtcmJkWlBQcVItWm5k?oc=5",
+          "source": "Yahoo",
+          "source_url": "https://www.yahoo.com",
+          "pub_kst": "2026-10-05T16:00+09:00"
+        }
+      ],
+      "queued_at": "2026-11-26T11:09:06+09:00",
+      "attempts": 0
     }
   },
   "receipts": [
