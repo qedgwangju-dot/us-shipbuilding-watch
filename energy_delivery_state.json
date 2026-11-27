@@ -27,7 +27,8 @@
       ],
       "queued_at": "2026-11-26T04:09:46+09:00",
       "attempts": 1,
-      "invalid_items": []
+      "invalid_items": [],
+      "held_items": []
     },
     "refinery:news:refinery_article_7acaa0de9d3a78a22f6883b1": {
       "topic": "refinery",
@@ -59,7 +60,26 @@
       ],
       "queued_at": "2026-11-26T04:09:46+09:00",
       "attempts": 4,
-      "invalid_items": []
+      "invalid_items": [],
+      "held_items": []
+    },
+    "refinery:news:refinery_article_f24f285a638edebb724c8d09": {
+      "topic": "refinery",
+      "kind": "news",
+      "event_key": "refinery_article_f24f285a638edebb724c8d09",
+      "status": "enrichment_pending",
+      "items": [
+        {
+          "id": "f24f285a638edebb724c8d09",
+          "title": "Putin Warns ‘Retaliatory Measures on Our Part Are Inevitable’ as Ukraine Keeps Hitting the Refineries Trump Asked It to Spare - National Security Journal",
+          "link": "https://news.google.com/rss/articles/CBMi8gFBVV95cUxQX0pUSlRyUU5UWnlEMC1jVTM3VmVjN0dGZlVOLXFRbkR5ZmFqN2psQU1FS3NjZGswNW8wSzlnVzl2YzFBOU1IWTRiQjNFcV9aN2pEbGdObFNjYXhoRGtXVzBsSV9GMVRTdDhFQXlPOUF5b01sYzAzR2lDNi11WFBPcDc3MVo5d0c2QldXbVN2THk4RnVCX2FIRUQxV2VYSGRZcHkwNE9neThnTUE5NlYwMVdzZmFkTGVrUUp2NmIwVlViOTMxRXJMVVpLNlNYc1ptM2QxTVNXVmMyQkJYMUt3SjNBMjVyU0lTYXhyVUpPOThUUQ?oc=5",
+          "source": "National Security Journal",
+          "source_url": "https://nationalsecurityjournal.org",
+          "pub_kst": "2026-11-26T08:56+09:00"
+        }
+      ],
+      "queued_at": "2026-11-27T20:08:22+09:00",
+      "attempts": 0
     }
   },
   "receipts": [
