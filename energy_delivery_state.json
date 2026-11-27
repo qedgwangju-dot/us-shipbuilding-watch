@@ -60,24 +60,6 @@
       "queued_at": "2026-11-26T04:09:46+09:00",
       "attempts": 4,
       "invalid_items": []
-    },
-    "spr:news:spr_refill_statement_20260830": {
-      "topic": "spr",
-      "kind": "news",
-      "event_key": "spr_refill_statement_20260830",
-      "status": "enrichment_pending",
-      "items": [
-        {
-          "id": "32cf828a64160a8c90d0ad10",
-          "title": "President Trump on Sunday posted that he would use the oil from his deal in Venezuela to refill the U.S.’s stockpile, which is known as the Strategic Petroleum Reserve. But new oil projects can take years to get off the ground, especially in Venezuela, and any decision to buy oil for the reserve would require Congressional approval. Follow live Trump Administration updates. - Facebook",
-          "link": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxPNVZ3THBjc2k5UlM4a2FRRjhwSjNCU2pTZkV0OTlQeUhTd2tFLWdXdzhDWkxxVVZSd2JubWdfV0NXTFMyOWpSaGdyb1pvSDFJaFJ4QXQ1RGhWQ3hJOFhGUTRjMG5YLXp2Y05yc19vZmMyTUo0TzliU2JxcW8xNXZ2cDAyTzBuSFpia2IxOS1ybndTWVBnaEc3ZmRYZVhveE9hakVDTklCUnBkVXdUNXpLajlBWjMzMzZSRnVMMTJJODB1ZGd0bUk0ZEZ4YWo5OWhjbHhr?oc=5",
-          "source": "Facebook",
-          "source_url": "https://www.facebook.com",
-          "pub_kst": "2026-08-30T16:00+09:00"
-        }
-      ],
-      "queued_at": "2026-11-27T11:25:51+09:00",
-      "attempts": 0
     }
   },
   "receipts": [
@@ -3472,6 +3454,14 @@
       "at": "2026-11-26T11:09:16+09:00",
       "ids": [
         "f7d096bfee46d6654ae118bc"
+      ]
+    },
+    {
+      "key": "spr:news:spr_refill_statement_20260830",
+      "reason": "news_outside_three_day_window",
+      "at": "2026-11-27T11:25:54+09:00",
+      "ids": [
+        "32cf828a64160a8c90d0ad10"
       ]
     }
   ],
