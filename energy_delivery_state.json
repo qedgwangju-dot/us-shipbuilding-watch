@@ -67,7 +67,7 @@
       "topic": "refinery",
       "kind": "news",
       "event_key": "refinery_article_f24f285a638edebb724c8d09",
-      "status": "enrichment_pending",
+      "status": "source_blocked",
       "items": [
         {
           "id": "f24f285a638edebb724c8d09",
@@ -75,11 +75,21 @@
           "link": "https://news.google.com/rss/articles/CBMi8gFBVV95cUxQX0pUSlRyUU5UWnlEMC1jVTM3VmVjN0dGZlVOLXFRbkR5ZmFqN2psQU1FS3NjZGswNW8wSzlnVzl2YzFBOU1IWTRiQjNFcV9aN2pEbGdObFNjYXhoRGtXVzBsSV9GMVRTdDhFQXlPOUF5b01sYzAzR2lDNi11WFBPcDc3MVo5d0c2QldXbVN2THk4RnVCX2FIRUQxV2VYSGRZcHkwNE9neThnTUE5NlYwMVdzZmFkTGVrUUp2NmIwVlViOTMxRXJMVVpLNlNYc1ptM2QxTVNXVmMyQkJYMUt3SjNBMjVyU0lTYXhyVUpPOThUUQ?oc=5",
           "source": "National Security Journal",
           "source_url": "https://nationalsecurityjournal.org",
-          "pub_kst": "2026-11-26T08:56+09:00"
+          "pub_kst": "2026-11-26T08:56+09:00",
+          "_source_blocked": true,
+          "_source_failure": {
+            "stage": "translation_google",
+            "reason": "http_rate_limit",
+            "blocked_before_request": false,
+            "provider": "www.google.com",
+            "request_url_sha256": "ff6352774867ee93959e4684d16a9dd5dfddd43e57809b6b5a53c950db5f9134",
+            "http_status": 429
+          }
         }
       ],
       "queued_at": "2026-11-27T20:08:22+09:00",
-      "attempts": 0
+      "attempts": 1,
+      "invalid_items": []
     }
   },
   "receipts": [
