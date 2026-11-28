@@ -1,5 +1,5 @@
 {
-  "last_checked_kst": "2026-11-28T12:32:18+09:00",
+  "last_checked_kst": "2026-11-28T21:16:09+09:00",
   "schema": 1,
   "seen": {
     "doe-genesis-phase2-awards:2026-10-08": {
@@ -32,7 +32,9 @@
     "official_new_docs_verified": 4,
     "official_urls_considered": 8,
     "search_coverage_gap": true,
-    "source_errors": [],
+    "source_errors": [
+      "공식 뉴스 검색 실패 site:whitehouse.gov/fact-sheets \"Genesis Mission\" (awar: HTTPError"
+    ],
     "whitehouse_verified": 1
   },
   "uncertain": {}
